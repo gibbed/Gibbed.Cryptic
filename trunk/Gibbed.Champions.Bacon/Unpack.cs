@@ -1,0 +1,111 @@
+﻿using System;
+using System.IO;
+using Gibbed.Champions.FileFormats;
+using Gibbed.Helpers;
+using Ionic.Zlib;
+using NConsoler;
+
+namespace Gibbed.Champions.Bacon
+{
+    internal partial class Program
+    {
+        [Action(Description = "Unpack a cement (*.rcf) file")]
+        public static void Unpack(
+            [Required(Description = "input cement file")]
+            string inputPath,
+            [Required(Description = "output directory")]
+            string outputPath,
+            [Optional(false, "o", Description = "overwrite existing files")]
+            bool overwrite)
+        {
+            Stream input = File.OpenRead(inputPath);
+            Directory.CreateDirectory(outputPath);
+
+            HoggFile pig = new HoggFile();
+            pig.Deserialize(input);
+
+            Console.WriteLine("{0} files in hogg file.", pig.Entries.Count);
+
+            long counter = 0;
+            long skipped = 0;
+            long totalCount = pig.Entries.Count;
+            foreach (HoggEntry entry in pig.Entries.Values)
+            {
+                counter++;
+
+                string partPath = entry.Name;
+
+                // fix name
+                if (Path.DirectorySeparatorChar != '/')
+                {
+                    partPath = partPath.Replace('/', Path.DirectorySeparatorChar);
+                }
+
+                Directory.CreateDirectory(Path.Combine(outputPath, Path.GetDirectoryName(partPath)));
+                string entryPath = Path.Combine(outputPath, partPath);
+
+                if (overwrite == false && File.Exists(entryPath) == true)
+                {
+                    Console.WriteLine("{1:D4}/{2:D4} !! {0}", partPath, counter, totalCount);
+                    skipped++;
+                    continue;
+                }
+                else
+                {
+                    Console.WriteLine("{1:D4}/{2:D4} => {0}", partPath, counter, totalCount);
+                }
+
+                input.Seek(entry.Offset, SeekOrigin.Begin);
+
+                Stream output = File.Open(entryPath, FileMode.Create, FileAccess.Write, FileShare.Read);
+
+                if (entry.UncompressedSize != 0)
+                {
+                    MemoryStream test = input.ReadToMemoryStream(entry.CompressedSize);
+
+                    ZlibStream zlib = new ZlibStream(test, CompressionMode.Decompress, true);
+                    int left = entry.UncompressedSize;
+                    byte[] block = new byte[4096];
+                    while (left > 0)
+                    {
+                        int read = zlib.Read(block, 0, Math.Min(block.Length, left));
+                        if (read == 0)
+                        {
+                            break;
+                        }
+                        else if (read < 0)
+                        {
+                            throw new Exception("zlib error");
+                        }
+
+                        output.Write(block, 0, read);
+                        left -= read;
+                    }
+                    
+                    zlib.Close();
+                }
+                else
+                {
+                    long left = entry.CompressedSize;
+                    byte[] data = new byte[4096];
+                    while (left > 0)
+                    {
+                        int block = (int)(Math.Min(left, 4096));
+                        input.Read(data, 0, block);
+                        output.Write(data, 0, block);
+                        left -= block;
+                    }
+                }
+
+                output.Close();
+            }
+
+            input.Close();
+
+            if (skipped > 0)
+            {
+                Console.WriteLine("{0} files not overwritten.", skipped);
+            }
+        }
+    }
+}
