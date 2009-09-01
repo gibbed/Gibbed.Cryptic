@@ -61,9 +61,11 @@ namespace Gibbed.Champions.Bacon
 
                 if (entry.UncompressedSize != 0)
                 {
-                    MemoryStream test = input.ReadToMemoryStream(entry.CompressedSize);
+                    // ZlibStream likes to choke if there's more data after the entire zlib block for some reason
+                    // tempfix
+                    MemoryStream temporary = input.ReadToMemoryStream(entry.CompressedSize);
 
-                    ZlibStream zlib = new ZlibStream(test, CompressionMode.Decompress, true);
+                    ZlibStream zlib = new ZlibStream(temporary, CompressionMode.Decompress, true);
                     int left = entry.UncompressedSize;
                     byte[] block = new byte[4096];
                     while (left > 0)
