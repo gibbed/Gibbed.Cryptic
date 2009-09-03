@@ -31,6 +31,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zlib, Version=1.7.2.18, Culture=neutral, PublicKeyToken=c551e179877da246, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\other\Ionic.Zlib.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
@@ -45,11 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HoggEntry.cs" />
-    <Compile Include="HoggMetadata.cs" />
-    <Compile Include="HoggBlock.cs" />
+    <Compile Include="Hogg\DataDelta.cs" />
+    <Compile Include="Hogg\Metadata.cs" />
+    <Compile Include="Hogg\Block.cs" />
     <Compile Include="HoggFile.cs" />
-    <Compile Include="HoggHeader..cs" />
+    <Compile Include="Hogg\Header..cs" />
+    <Compile Include="PiggFile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

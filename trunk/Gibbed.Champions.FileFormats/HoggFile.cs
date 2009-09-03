@@ -2,16 +2,96 @@
 using System.Collections.Generic;
 using System.IO;
 using Gibbed.Helpers;
+using Ionic.Zlib;
 
 namespace Gibbed.Champions.FileFormats
 {
-    public class HoggFile
+    internal class HoggFile
     {
-        public Dictionary<string, HoggEntry> Entries = new Dictionary<string, HoggEntry>();
+        public List<Hogg.DataDelta> DataDeltas = new List<Hogg.DataDelta>();
+        public List<Hogg.Block> Blocks = new List<Hogg.Block>();
+        public List<Hogg.Metadata> Metadatas = new List<Hogg.Metadata>();
+
+        public MemoryStream ReadBlockToMemoryStream(Hogg.Block block, Stream input)
+        {
+            MemoryStream output = new MemoryStream();
+            this.ReadBlockToStream(block, input, output);
+            output.Seek(0, SeekOrigin.Begin);
+            return output;
+        }
+
+        public void ReadBlockToStream(Hogg.Block block, Stream input, Stream output)
+        {
+            if (this.Blocks.Contains(block) == false)
+            {
+                throw new ArgumentException("block is not from this hogg", "block");
+            }
+
+            if (block.Size == -1)
+            {
+                throw new Exception("bad block");
+            }
+            else if (block.Unknown4 != -2 || block.MetadataId == -1)
+            {
+                throw new Exception("strange block");
+            }
+            else if (block.MetadataId < 0 || block.MetadataId >= this.Metadatas.Count)
+            {
+                throw new FormatException("block pointing to invalid metadata");
+            }
+            else if ((this.Metadatas[block.MetadataId].Flags & 1) == 1) // entry is unused
+            {
+                throw new FormatException("block referencing unused metadata");
+            }
+
+            Hogg.Metadata metadata = this.Metadatas[block.MetadataId];
+
+            MemoryStream rez = new MemoryStream();
+            input.Seek(block.Offset, SeekOrigin.Begin);
+
+            if (metadata.UncompressedSize != 0)
+            {
+                // ZlibStream likes to choke if there's more data after the entire zlib block for some reason
+                // tempfix
+                MemoryStream temporary = input.ReadToMemoryStream(block.Size);
+
+                ZlibStream zlib = new ZlibStream(temporary, CompressionMode.Decompress, true);
+                int left = metadata.UncompressedSize;
+                byte[] data = new byte[4096];
+                while (left > 0)
+                {
+                    int read = zlib.Read(data, 0, Math.Min(data.Length, left));
+                    if (read == 0)
+                    {
+                        break;
+                    }
+                    else if (read < 0)
+                    {
+                        throw new Exception("zlib error");
+                    }
+
+                    output.Write(data, 0, read);
+                    left -= read;
+                }
+
+                zlib.Close();
+            }
+            else
+            {
+                int left = block.Size;
+                byte[] data = new byte[4096];
+                while (left > 0)
+                {
+                    int read = input.Read(data, 0, Math.Min(left, 4096));
+                    output.Write(data, 0, read);
+                    left -= read;
+                }
+            }
+        }
 
         public void Deserialize(Stream input)
         {
-            HoggHeader header = input.ReadStructure<HoggHeader>();
+            Hogg.Header header = input.ReadStructure<Hogg.Header>();
             
             if (header.Magic != 0xDEADF00D)
             {
@@ -25,77 +105,27 @@ namespace Gibbed.Champions.FileFormats
 
             input.Seek(header.Unknown2, SeekOrigin.Current);
 
-            Dictionary<int, string> strings = this.DeserializeStringTable(input.ReadToMemoryStream(header.StringTableSize));
+            this.DataDeltas.Clear();
+            this.DeserializeDataDeltaTable(input.ReadToMemoryStream(header.DataDeltaTableSize));
             
             Stream blockTable = input.ReadToMemoryStream(header.BlockTableSize);
             Stream metadataTable = input.ReadToMemoryStream(header.MetadataTableSize);
 
-            List<HoggBlock> blocks = new List<HoggBlock>();
+            this.Blocks.Clear();
             while (blockTable.Position < blockTable.Length)
             {
-                blocks.Add(blockTable.ReadStructure<HoggBlock>());
+                this.Blocks.Add(blockTable.ReadStructure<Hogg.Block>());
             }
 
-            List<HoggMetadata> metadatas = new List<HoggMetadata>();
+            this.Metadatas.Clear();
             while (metadataTable.Position < metadataTable.Length)
             {
-                metadatas.Add(metadataTable.ReadStructure<HoggMetadata>());
-            }
-
-            this.Entries.Clear();
-
-            List<int> usedMetadatas = new List<int>();
-            foreach (HoggBlock block in blocks)
-            {
-                if (block.Size == -1)
-                {
-                    continue;
-                }
-                else if (block.Unknown4 != -2 || block.EntryId == -1)
-                {
-                    throw new Exception("strange block");
-                }
-
-                if (block.EntryId < 0 || block.EntryId >= metadatas.Count)
-                {
-                    throw new FormatException("hogg block pointing to invalid entry");
-                }
-                else if ((metadatas[block.EntryId].Flags & 1) == 1) // entry is unused
-                {
-                    throw new FormatException("hogg block referencing unused entry");
-                }
-                else if (usedMetadatas.Contains(block.EntryId) == true)
-                {
-                    throw new FormatException("hogg block referencing entry already consumed");
-                }
-
-                usedMetadatas.Add(block.EntryId);
-
-                HoggMetadata metadata = metadatas[block.EntryId];
-
-                if (metadata.Unknown04 != -1)
-                {
-                    throw new Exception("unknown04 is not -1");
-                }
-
-                if (strings.ContainsKey(metadata.NameIndex) == false)
-                {
-                    continue;
-                }
-
-                HoggEntry entry = new HoggEntry();
-                entry.Name = strings[metadata.NameIndex];
-                entry.Offset = block.Offset;
-                entry.CompressedSize = block.Size;
-                entry.UncompressedSize = metadata.UncompressedSize;
-                this.Entries.Add(entry.Name, entry);
+                this.Metadatas.Add(metadataTable.ReadStructure<Hogg.Metadata>());
             }
         }
 
-        private Dictionary<int, string> DeserializeStringTable(Stream input)
+        private void DeserializeDataDeltaTable(Stream input)
         {
-            Dictionary<int, string> rez = new Dictionary<int, string>();
-
             int unk1 = input.ReadValueS32();
             int size1 = input.ReadValueS32();
             int size2 = input.ReadValueS32();
@@ -107,26 +137,27 @@ namespace Gibbed.Champions.FileFormats
 
             while (input.Position < 12 + size1)
             {
-                byte type = input.ReadValueU8();
-                if (type == 1)
+                Hogg.DataDelta delta = new Hogg.DataDelta();
+                delta.Action = input.ReadValueU8();
+                
+                if (delta.Action == 1) // add
                 {
-                    int id = input.ReadValueS32();
-                    string text = input.ReadStringASCII(input.ReadValueU32(), true);
-
-                    rez.Add(id, text);
+                    delta.Id = input.ReadValueS32();
+                    int length = input.ReadValueS32();
+                    delta.Data = new byte[length];
+                    input.Read(delta.Data, 0, delta.Data.Length);
                 }
-                else if (type == 2)
+                else if (delta.Action == 2)
                 {
-                    int id = input.ReadValueS32();
-                    rez.Remove(id);
+                    delta.Id = input.ReadValueS32();
                 }
                 else
                 {
-                    throw new Exception();
+                    throw new FormatException("invalid action");
                 }
-            }
 
-            return rez;
+                this.DataDeltas.Add(delta);
+            }
         }
     }
 }

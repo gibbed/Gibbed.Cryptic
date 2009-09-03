@@ -1,9 +1,9 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Gibbed.Champions.FileFormats
+namespace Gibbed.Champions.FileFormats.Hogg
 {
     [StructLayout(LayoutKind.Sequential)]
-    internal class HoggBlock
+    internal class Block
     {
         public long Offset;
         public int Size;
@@ -11,7 +11,7 @@ namespace Gibbed.Champions.FileFormats
         public long Unknown3;
         public short Unknown4;
         public short Unknown5;
-        public int EntryId;
+        public int MetadataId;
 
         public override string ToString()
         {
@@ -20,7 +20,7 @@ namespace Gibbed.Champions.FileFormats
                 return "*unused*";
             }
 
-            return this.EntryId.ToString() + ", @" + this.Offset.ToString("X16") + " " + this.Size.ToString();
+            return this.MetadataId.ToString() + ", @" + this.Offset.ToString("X16") + " " + this.Size.ToString();
         }
     }
 }

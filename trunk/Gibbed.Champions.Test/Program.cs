@@ -16,11 +16,12 @@ namespace Gibbed.Champions.Test
         {
             string root = GetChampionsPath();
 
-            //Stream input = File.Open(Path.Combine(root, "Live\\cache\\rdrShaderCache.hogg"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            //Stream input = File.Open(Path.Combine(root, "Live\\piggs\\exes.hogg"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            Stream input = File.Open(Path.Combine(root, "Live\\piggs\\character.hogg"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
-            HoggFile hogg = new HoggFile();
-            hogg.Deserialize(input);
+            //Stream input = File.Open(Path.Combine(root, "Champions Online\\Live\\cache\\rdrShaderCache.hogg"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            //Stream input = File.Open(Path.Combine(root, "Champions Online\\Live\\piggs\\exes.hogg"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            //Stream input = File.Open(Path.Combine(root, "Champions Online\\Live\\piggs\\character.hogg"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            Stream input = File.Open(Path.Combine(root, "Champions Online\\Live\\piggs\\texture.hogg"), FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
+            PiggFile pigg = new PiggFile();
+            pigg.Deserialize(input);
             input.Close();
         }
     }

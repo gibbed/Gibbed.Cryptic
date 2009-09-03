@@ -1,12 +1,12 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Gibbed.Champions.FileFormats
+namespace Gibbed.Champions.FileFormats.Hogg
 {
     [StructLayout(LayoutKind.Sequential)]
-    internal struct HoggMetadata
+    internal struct Metadata
     {
         public int NameIndex;
-        public int Unknown04;
+        public int HeaderIndex; // appears to contain the header of the texture file
         public int UncompressedSize;
         public uint Flags;
 

@@ -18,18 +18,18 @@ namespace Gibbed.Champions.Bacon
             [Optional(false, "o", Description = "overwrite existing files")]
             bool overwrite)
         {
-            Stream input = File.OpenRead(inputPath);
+            Stream input = File.Open(inputPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite);
             Directory.CreateDirectory(outputPath);
 
-            HoggFile pig = new HoggFile();
-            pig.Deserialize(input);
+            PiggFile pigg = new PiggFile();
+            pigg.Deserialize(input);
 
-            Console.WriteLine("{0} files in hogg file.", pig.Entries.Count);
+            Console.WriteLine("{0} files in hogg file.", pigg.Entries.Count);
 
             long counter = 0;
             long skipped = 0;
-            long totalCount = pig.Entries.Count;
-            foreach (HoggEntry entry in pig.Entries.Values)
+            long totalCount = pigg.Entries.Count;
+            foreach (PiggFile.Entry entry in pigg.Entries.Values)
             {
                 counter++;
 
@@ -46,13 +46,13 @@ namespace Gibbed.Champions.Bacon
 
                 if (overwrite == false && File.Exists(entryPath) == true)
                 {
-                    Console.WriteLine("{1:D4}/{2:D4} !! {0}", partPath, counter, totalCount);
+                    Console.WriteLine("{1:D5}/{2:D5} !! {0}", partPath, counter, totalCount);
                     skipped++;
                     continue;
                 }
                 else
                 {
-                    Console.WriteLine("{1:D4}/{2:D4} => {0}", partPath, counter, totalCount);
+                    Console.WriteLine("{1:D5}/{2:D5} => {0}", partPath, counter, totalCount);
                 }
 
                 input.Seek(entry.Offset, SeekOrigin.Begin);

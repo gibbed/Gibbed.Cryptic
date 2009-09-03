@@ -1,9 +1,9 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Gibbed.Champions.FileFormats
+namespace Gibbed.Champions.FileFormats.Hogg
 {
     [StructLayout(LayoutKind.Sequential)]
-    internal struct HoggHeader
+    internal struct Header
     {
         public uint Magic;
         public short Version;
@@ -11,6 +11,6 @@ namespace Gibbed.Champions.FileFormats
         public int BlockTableSize;
         public int MetadataTableSize;
         public int Unknown5;
-        public int StringTableSize;
+        public int DataDeltaTableSize;
     }
 }
