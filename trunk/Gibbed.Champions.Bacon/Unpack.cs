@@ -9,9 +9,9 @@ namespace Gibbed.Champions.Bacon
 {
     internal partial class Program
     {
-        [Action(Description = "Unpack a cement (*.rcf) file")]
+        [Action(Description = "Unpack a hogg file")]
         public static void Unpack(
-            [Required(Description = "input cement file")]
+            [Required(Description = "input hogg file")]
             string inputPath,
             [Required(Description = "output directory")]
             string outputPath,
