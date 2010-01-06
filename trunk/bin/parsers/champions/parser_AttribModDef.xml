@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<structure name="AttribModDef" mode="Block">
+  <member name="Attrib" index="2" type="S32" mode="Value" names="Attribute" />
+  <member name="Aspect" index="3" type="S32" mode="Value" names="01614740" />
+  <member name="Params" index="4" type="Polymorph" mode="Value" names="Params" />
+  <member name="Tags" index="5" type="Structure" mode="Value" reference="PowerTagsStruct" />
+  <member name="Target" index="6" type="S32" mode="Value" names="0162B3BC" />
+  <member name="" index="7" type="S32" mode="Value" />
+  <member name="ApplyPriority" index="8" type="F32" mode="Value" />
+  <member name="Key" index="9" type="S32" mode="Value" />
+  <member name="Type" index="10" type="S32" mode="Value" names="0162B3E4" />
+  <member name="ExprBlockDuration" index="11" type="Structure" mode="Value" reference="Expression" />
+  <member name="ExprBlockMagnitude" index="14" type="Structure" mode="Value" reference="Expression" />
+  <member name="TableDefault" index="17" type="String" mode="Value" />
+  <member name="Variance" index="18" type="F32" mode="Value" />
+  <member name="Fragility" index="19" type="Structure" mode="Value" reference="ModDefFragility" />
+  <member name="Sensitivity" index="20" type="Structure" mode="Dynamic" reference="SensitivityStruct" />
+  <member name="Delay" index="21" type="F32" mode="Value" />
+  <member name="Period" index="22" type="F32" mode="Value" />
+  <member name="ExprBlockRequires" index="23" type="Structure" mode="Value" reference="Expression" />
+  <member name="ExprBlockAffects" index="26" type="Structure" mode="Value" reference="Expression" />
+  <member name="ArcAffects" index="29" type="F32" mode="Value" />
+  <member name="Yaw" index="30" type="F32" mode="Value" />
+  <member name="Chance" index="31" type="F32" mode="Value" />
+  <member name="CombatEventResponse" index="32" type="S32" mode="Value" names="0162B444" />
+  <member name="CombatEvents" index="33" type="S32" mode="Dynamic" names="01666810" />
+  <member name="CombatEventTime" index="34" type="F32" mode="Value" />
+  <member name="Expiration" index="35" type="Structure" mode="Value" reference="ModExpiration" />
+  <member name="Stack" index="36" type="S32" mode="Value" names="0162B414" />
+  <member name="StackLimit" index="37" type="S32" mode="Value" />
+  <member name="ContinuingBits" index="38" type="String" mode="Dynamic" />
+  <member name="ContinuingFX" index="39" type="String" mode="Dynamic" />
+  <member name="ContinuingFXParamBlock" index="40" type="Structure" mode="Dynamic" reference="PowerFXParam" />
+  <member name="ConditionalBits" index="42" type="String" mode="Dynamic" />
+  <member name="ConditionalFX" index="43" type="String" mode="Dynamic" />
+  <member name="ConditionalFXParamBlock" index="44" type="Structure" mode="Dynamic" reference="PowerFXParam" />
+  <member name="Flags" index="46" type="Flags" mode="Value" names="01623F00" />
+  <member name="Error" index="47" type="S32" mode="Value" names="01621A48" />
+  <member name="Personal" index="48" type="Bit" mode="Value" />
+  <member name="EnhancementExtension" index="49" type="Bit" mode="Value" />
+  <member name="ChanceNormalized" index="51" type="Bit" mode="Value" />
+  <member name="CancelOnChance" index="52" type="Bit" mode="Value" />
+  <member name="SurviveTargetDeath" index="53" type="Bit" mode="Value" />
+  <member name="KeepWhenImmune" index="54" type="Bit" mode="Value" />
+  <member name="DerivedInternally" index="55" type="Bit" mode="Value" />
+  <member name="HasAnimFX" index="56" type="Bit" mode="Value" />
+  <member name="SaveApplyStrengths" index="57" type="Bit" mode="Value" />
+  <member name="SaveSourceDetails" index="58" type="Bit" mode="Value" />
+  <member name="SaveHue" index="59" type="Bit" mode="Value" />
+</structure>
