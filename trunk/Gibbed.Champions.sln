@@ -3,11 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 10.00
 # Visual Studio 2008
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Helpers", "Gibbed.Helpers\Gibbed.Helpers.csproj", "{5162A9FB-4DE1-4BBF-B7A2-5E8116AB0D26}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Champions.Test", "Gibbed.Champions.Test\Gibbed.Champions.Test.csproj", "{A167AF50-6D32-46D7-9DAD-68EDB6BF843C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Cryptic.Test", "Gibbed.Cryptic.Test\Gibbed.Cryptic.Test.csproj", "{A167AF50-6D32-46D7-9DAD-68EDB6BF843C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Champions.FileFormats", "Gibbed.Champions.FileFormats\Gibbed.Champions.FileFormats.csproj", "{F9513B66-6272-4D20-BD05-A59938232394}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Cryptic.FileFormats", "Gibbed.Cryptic.FileFormats\Gibbed.Cryptic.FileFormats.csproj", "{F9513B66-6272-4D20-BD05-A59938232394}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Champions.Bacon", "Gibbed.Champions.Bacon\Gibbed.Champions.Bacon.csproj", "{3F8FC5A5-2128-4AE6-8BDC-EB2D9C8C724D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Cryptic.Bacon", "Gibbed.Cryptic.Bacon\Gibbed.Cryptic.Bacon.csproj", "{3F8FC5A5-2128-4AE6-8BDC-EB2D9C8C724D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Cryptic.Champions.Deparse", "Gibbed.Cryptic.Champions.Deparse\Gibbed.Cryptic.Champions.Deparse.csproj", "{78B8CB41-795B-4CC5-AAEB-DDD1E8AC2926}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Cryptic.Champions.ExtractParser", "Gibbed.Cryptic.Champions.ExtractParser\Gibbed.Cryptic.Champions.ExtractParser.csproj", "{DE0F9EEB-3369-439F-8498-C3A9A2CF7060}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.PortableExecutable", "Gibbed.PortableExecutable\Gibbed.PortableExecutable.csproj", "{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Cryptic.Champions.MakeCostume", "Gibbed.Cryptic.Champions.MakeCostume\Gibbed.Cryptic.Champions.MakeCostume.csproj", "{6DC26EAD-320C-4976-A97F-E2C35A6553F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Champions", "Champions", "{741E3FD3-03D9-4DF3-A818-CBACEE27F045}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cryptic", "Cryptic", "{0D92F9D3-8C0E-4AC5-90D9-E159F0C25CBC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{D6230A5C-9FBF-4EDE-9C5B-A330FD148FF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,8 +45,34 @@ Global
 		{3F8FC5A5-2128-4AE6-8BDC-EB2D9C8C724D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F8FC5A5-2128-4AE6-8BDC-EB2D9C8C724D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F8FC5A5-2128-4AE6-8BDC-EB2D9C8C724D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78B8CB41-795B-4CC5-AAEB-DDD1E8AC2926}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78B8CB41-795B-4CC5-AAEB-DDD1E8AC2926}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78B8CB41-795B-4CC5-AAEB-DDD1E8AC2926}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78B8CB41-795B-4CC5-AAEB-DDD1E8AC2926}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE0F9EEB-3369-439F-8498-C3A9A2CF7060}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE0F9EEB-3369-439F-8498-C3A9A2CF7060}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE0F9EEB-3369-439F-8498-C3A9A2CF7060}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE0F9EEB-3369-439F-8498-C3A9A2CF7060}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC26EAD-320C-4976-A97F-E2C35A6553F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC26EAD-320C-4976-A97F-E2C35A6553F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC26EAD-320C-4976-A97F-E2C35A6553F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC26EAD-320C-4976-A97F-E2C35A6553F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6DC26EAD-320C-4976-A97F-E2C35A6553F8} = {741E3FD3-03D9-4DF3-A818-CBACEE27F045}
+		{78B8CB41-795B-4CC5-AAEB-DDD1E8AC2926} = {741E3FD3-03D9-4DF3-A818-CBACEE27F045}
+		{DE0F9EEB-3369-439F-8498-C3A9A2CF7060} = {741E3FD3-03D9-4DF3-A818-CBACEE27F045}
+		{3F8FC5A5-2128-4AE6-8BDC-EB2D9C8C724D} = {0D92F9D3-8C0E-4AC5-90D9-E159F0C25CBC}
+		{A167AF50-6D32-46D7-9DAD-68EDB6BF843C} = {0D92F9D3-8C0E-4AC5-90D9-E159F0C25CBC}
+		{F9513B66-6272-4D20-BD05-A59938232394} = {0D92F9D3-8C0E-4AC5-90D9-E159F0C25CBC}
+		{5162A9FB-4DE1-4BBF-B7A2-5E8116AB0D26} = {D6230A5C-9FBF-4EDE-9C5B-A330FD148FF8}
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA} = {D6230A5C-9FBF-4EDE-9C5B-A330FD148FF8}
 	EndGlobalSection
 EndGlobal
