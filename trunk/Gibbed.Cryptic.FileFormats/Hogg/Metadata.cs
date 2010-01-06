@@ -1,6 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 
-namespace Gibbed.Champions.FileFormats.Hogg
+namespace Gibbed.Cryptic.FileFormats.Hogg
 {
     [StructLayout(LayoutKind.Sequential)]
     internal struct Metadata

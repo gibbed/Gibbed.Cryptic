@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using Gibbed.Helpers;
 
-namespace Gibbed.Champions.FileFormats
+namespace Gibbed.Cryptic.FileFormats
 {
     public class PiggFile
     {

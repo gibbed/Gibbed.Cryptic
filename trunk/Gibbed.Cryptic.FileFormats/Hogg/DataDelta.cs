@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Gibbed.Champions.FileFormats.Hogg
+namespace Gibbed.Cryptic.FileFormats.Hogg
 {
     internal class DataDelta
     {

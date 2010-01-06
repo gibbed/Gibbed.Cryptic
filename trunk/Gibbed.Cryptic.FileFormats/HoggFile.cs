@@ -4,7 +4,7 @@ using System.IO;
 using Gibbed.Helpers;
 using Ionic.Zlib;
 
-namespace Gibbed.Champions.FileFormats
+namespace Gibbed.Cryptic.FileFormats
 {
     internal class HoggFile
     {
