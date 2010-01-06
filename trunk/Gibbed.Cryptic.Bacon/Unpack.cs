@@ -1,11 +1,11 @@
 ﻿using System;
 using System.IO;
-using Gibbed.Champions.FileFormats;
+using Gibbed.Cryptic.FileFormats;
 using Gibbed.Helpers;
 using Ionic.Zlib;
 using NConsoler;
 
-namespace Gibbed.Champions.Bacon
+namespace Gibbed.Cryptic.Bacon
 {
     internal partial class Program
     {

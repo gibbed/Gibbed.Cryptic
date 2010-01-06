@@ -1,6 +1,6 @@
 ﻿using NConsoler;
 
-namespace Gibbed.Champions.Bacon
+namespace Gibbed.Cryptic.Bacon
 {
     internal partial class Program
     {
