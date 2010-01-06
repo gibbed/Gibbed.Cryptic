@@ -1,10 +1,10 @@
 ﻿using System;
 using System.IO;
 using Gibbed.Helpers;
-using Gibbed.Champions.FileFormats;
+using Gibbed.Cryptic.FileFormats;
 using Microsoft.Win32;
 
-namespace Gibbed.Champions.Test
+namespace Gibbed.Cryptic.Test
 {
     internal class Program
     {
