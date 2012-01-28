@@ -20,12 +20,24 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
-    public class Entry
+    internal class MultiValue : BasicValueToken
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public override StorageCompatability Storage
+        {
+            get
+            {
+                return
+                    StorageCompatability.DirectValue |
+                    StorageCompatability.DirectFixedArray |
+                    StorageCompatability.DirectArray |
+                    StorageCompatability.IndirectArray;
+            }
+        }
+
+        public override string NameDirectValue { get { return "MULTIVAL"; } }
+        public override string NameDirectFixedArray { get { return "MULTIARRAY"; } }
+        public override string NameIndirectArray { get { return "MULTIEARRAY"; } }
     }
 }

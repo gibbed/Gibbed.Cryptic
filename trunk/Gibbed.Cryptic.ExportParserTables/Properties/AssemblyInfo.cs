@@ -26,11 +26,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Gibbed.Cryptic.FileFormats")]
+[assembly: AssemblyTitle("Gibbed.Cryptic.ExportParserTables")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Gibbed.Cryptic.FileFormats")]
+[assembly: AssemblyProduct("Gibbed.Cryptic.ExportParserTables")]
 [assembly: AssemblyCopyright("Copyright © Gibbed 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -41,7 +41,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("c3463dea-d9d2-4b62-a9c2-bd62f7be666b")]
+[assembly: Guid("88aedc26-13f4-46c8-ad96-e0d2f28e7f9f")]
 
 // Version information for an assembly consists of the following four values:
 //

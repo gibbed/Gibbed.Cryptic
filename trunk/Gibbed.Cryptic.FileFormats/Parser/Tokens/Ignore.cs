@@ -20,12 +20,15 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
-    public class Entry
+    internal class Ignore : Token
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public override string NameDirectValue { get { return "IGNORE"; } }
+
+        public override ColumnParameter GetParameter(ColumnFlags flags, int index)
+        {
+            return ColumnParameter.None;
+        }
     }
 }

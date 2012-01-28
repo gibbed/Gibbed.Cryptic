@@ -20,12 +20,11 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
-    public class Entry
+    internal class BooleanFlag : BasicValueToken
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public override StorageCompatability Storage { get { return StorageCompatability.DirectValue; } }
+        public override string NameDirectValue { get { return "BOOLFLAG"; } }
     }
 }

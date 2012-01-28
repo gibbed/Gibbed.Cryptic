@@ -40,6 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Parser\BasicStringToken.cs" />
+    <Compile Include="Parser\BasicValueToken.cs" />
+    <Compile Include="Parser\ColumnParameter.cs" />
+    <Compile Include="Parser\ColumnFlags.cs" />
+    <Compile Include="Parser\GlobalTokens.cs" />
+    <Compile Include="Parser\StorageCompatability.cs" />
+    <Compile Include="Parser\Token.cs" />
     <Compile Include="JournalFile.cs" />
     <Compile Include="HogFile.cs" />
     <Compile Include="Hog\AttributeEntry.cs" />
@@ -47,6 +54,31 @@
     <Compile Include="Journal\Action.cs" />
     <Compile Include="Journal\Entry.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Parser\Tokens\Bit.cs" />
+    <Compile Include="Parser\Tokens\Boolean.cs" />
+    <Compile Include="Parser\Tokens\BooleanFlag.cs" />
+    <Compile Include="Parser\Tokens\Command.cs" />
+    <Compile Include="Parser\Tokens\CurrentFile.cs" />
+    <Compile Include="Parser\Tokens\End.cs" />
+    <Compile Include="Parser\Tokens\Float.cs" />
+    <Compile Include="Parser\Tokens\Filename.cs" />
+    <Compile Include="Parser\Tokens\FunctionCall.cs" />
+    <Compile Include="Parser\Tokens\Ignore.cs" />
+    <Compile Include="Parser\Tokens\Int32.cs" />
+    <Compile Include="Parser\Tokens\Int16.cs" />
+    <Compile Include="Parser\Tokens\Int64.cs" />
+    <Compile Include="Parser\Tokens\LineNumber.cs" />
+    <Compile Include="Parser\Tokens\MATPYR.cs" />
+    <Compile Include="Parser\Tokens\MultiValue.cs" />
+    <Compile Include="Parser\Tokens\Polymorph.cs" />
+    <Compile Include="Parser\Tokens\QUATPYR.cs" />
+    <Compile Include="Parser\Tokens\Reference.cs" />
+    <Compile Include="Parser\Tokens\Start.cs" />
+    <Compile Include="Parser\Tokens\StashTable.cs" />
+    <Compile Include="Parser\Tokens\String.cs" />
+    <Compile Include="Parser\Tokens\Structure.cs" />
+    <Compile Include="Parser\Tokens\Timestamp.cs" />
+    <Compile Include="Parser\Tokens\Byte.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gibbed.IO\Gibbed.IO.csproj">
@@ -54,6 +86,7 @@
       <Name>Gibbed.IO</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

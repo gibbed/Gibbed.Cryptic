@@ -20,12 +20,15 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
-    public class Entry
+    internal class Start : Token
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public override string NameDirectValue { get { return "START"; } }
+
+        public override ColumnParameter GetParameter(ColumnFlags flags, int index)
+        {
+            return ColumnParameter.None;
+        }
     }
 }

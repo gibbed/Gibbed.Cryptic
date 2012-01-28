@@ -20,12 +20,22 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser
 {
-    public class Entry
+    public enum ColumnParameter
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        None = 0,
+        Unknown1 = 1,
+        NumberOfElements = 2,
+        Default = 3,
+        StringLength = 4,
+        DefaultString = 5,
+        Unknown6 = 6,
+        Size = 7,
+        BitOffset = 8,
+        CommandString = 9,
+        StaticDefineList = 10,
+        Subtable = 11,
+        DictionaryName = 12,
     }
 }

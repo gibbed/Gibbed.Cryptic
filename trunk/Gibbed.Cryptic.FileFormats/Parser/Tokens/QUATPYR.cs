@@ -20,12 +20,15 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
-    public class Entry
+    internal class QUATPYR : BasicValueToken
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public override string NameDirectValue { get { return "QUATPYR_X"; } }
+        public override string NameDirectFixedArray { get { return "QUATPYR"; } }
+        public override StorageCompatability Storage
+        {
+            get { return StorageCompatability.DirectFixedArray; }
+        }
     }
 }
