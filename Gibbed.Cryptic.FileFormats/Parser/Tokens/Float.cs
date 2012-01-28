@@ -20,12 +20,23 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
-    public class Entry
+    internal class Float : BasicValueToken
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public override StorageCompatability Storage
+        {
+            get
+            {
+                return
+                    StorageCompatability.DirectValue |
+                    StorageCompatability.DirectFixedArray |
+                    StorageCompatability.DirectArray;
+            }
+        }
+
+        public override string NameDirectValue { get { return "F32"; } }
+        public override string NameDirectFixedArray { get { return "F32FIXEDARRAY"; } }
+        public override string NameDirectArray { get { return "F32ARRAY"; } }
     }
 }

@@ -20,12 +20,25 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+using System;
+
+namespace Gibbed.Cryptic.ExportParserTables
 {
-    public class Entry
+    public class NativeException : InvalidOperationException
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public NativeException() :
+            base()
+        {
+        }
+
+        public NativeException(string message)
+            : base(message)
+        {
+        }
+
+        public NativeException(string message, Exception innerException)
+            : base(message, innerException)
+        {
+        }
     }
 }

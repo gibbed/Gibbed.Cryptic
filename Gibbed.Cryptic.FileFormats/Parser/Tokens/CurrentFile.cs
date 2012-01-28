@@ -20,12 +20,12 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
-    public class Entry
+    internal class CurrentFile : BasicStringToken
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public override StorageCompatability Storage { get { return StorageCompatability.IndirectValue; } }
+        public override string NameDirectValue { get { return "CURRENTFILE_X"; } }
+        public override string NameIndirectValue { get { return "CURRENTFILE"; } }
     }
 }

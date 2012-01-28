@@ -20,12 +20,17 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
-    public class Entry
+    internal class StashTable : Token
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public override StorageCompatability Storage { get { return StorageCompatability.IndirectValue; } }
+        public override string NameDirectValue { get { return "STASHTABLE_X"; } }
+        public override string NameIndirectValue { get { return "STASHTABLE"; } }
+
+        public override ColumnParameter GetParameter(ColumnFlags flags, int index)
+        {
+            return ColumnParameter.None;
+        }
     }
 }

@@ -20,12 +20,19 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+using System;
+
+namespace Gibbed.Cryptic.FileFormats.Parser
 {
-    public class Entry
+    [Flags]
+    public enum StorageCompatability
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        None = 0,
+        DirectValue = 1 << 0,
+        DirectFixedArray = 1 << 1,
+        DirectArray = 1 << 2,
+        IndirectValue = 1 << 3,
+        IndirectFixedArray = 1 << 4,
+        IndirectArray = 1 << 5,
     }
 }

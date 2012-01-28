@@ -20,12 +20,19 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser
 {
-    public class Entry
+    public abstract class Token
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public virtual StorageCompatability Storage { get { return StorageCompatability.None; } }
+
+        public virtual string NameDirectValue        { get { return null; } }
+        public virtual string NameDirectFixedArray   { get { return null; } }
+        public virtual string NameDirectArray        { get { return null; } }
+        public virtual string NameIndirectValue      { get { return null; } }
+        public virtual string NameIndirectFixedArray { get { return null; } }
+        public virtual string NameIndirectArray      { get { return null; } }
+
+        public abstract ColumnParameter GetParameter(ColumnFlags flags, int index);
     }
 }

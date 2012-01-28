@@ -20,12 +20,36 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser
 {
-    public class Entry
+    public abstract class BasicValueToken : Token
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public override ColumnParameter GetParameter(ColumnFlags flags, int index)
+        {
+            switch (index)
+            {
+                case 0:
+                {
+                    if ((flags & ColumnFlags.FIXED_ARRAY) != 0)
+                    {
+                        return ColumnParameter.NumberOfElements;
+                    }
+
+                    if ((flags & ColumnFlags.EARRAY) != 0)
+                    {
+                        return ColumnParameter.None;
+                    }
+
+                    return ColumnParameter.Default;
+                }
+
+                case 1:
+                {
+                    return ColumnParameter.StaticDefineList;
+                }
+
+                default: return ColumnParameter.None;
+            }
+        }
     }
 }

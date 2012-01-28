@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Champions", "Champions", "{741E3FD3-03D9-4DF3-A818-CBACEE27F045}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Champions Online", "Champions Online", "{741E3FD3-03D9-4DF3-A818-CBACEE27F045}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Generic", "Generic", "{0D92F9D3-8C0E-4AC5-90D9-E159F0C25CBC}"
 EndProject
@@ -18,6 +18,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Cryptic.Unpack", "Gibbed.Cryptic.Unpack\Gibbed.Cryptic.Unpack.csproj", "{3C5CFD33-B30D-4BD9-9BF2-438E6DDC675A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NDesk.Options", "NDesk.Options\NDesk.Options.csproj", "{C98A6CD6-9422-4B35-8B7A-F520D75534D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.PortableExecutable", "Gibbed.PortableExecutable\Gibbed.PortableExecutable.csproj", "{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gibbed.Cryptic.ExportParserTables", "Gibbed.Cryptic.ExportParserTables\Gibbed.Cryptic.ExportParserTables.csproj", "{2E258CB7-D13C-478D-AB69-79529D6F9E4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +73,26 @@ Global
 		{C98A6CD6-9422-4B35-8B7A-F520D75534D1}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{C98A6CD6-9422-4B35-8B7A-F520D75534D1}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{C98A6CD6-9422-4B35-8B7A-F520D75534D1}.Release|x86.ActiveCfg = Release|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}.Release|x86.ActiveCfg = Release|Any CPU
+		{2E258CB7-D13C-478D-AB69-79529D6F9E4E}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{2E258CB7-D13C-478D-AB69-79529D6F9E4E}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{2E258CB7-D13C-478D-AB69-79529D6F9E4E}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{2E258CB7-D13C-478D-AB69-79529D6F9E4E}.Debug|x86.ActiveCfg = Debug|x86
+		{2E258CB7-D13C-478D-AB69-79529D6F9E4E}.Debug|x86.Build.0 = Debug|x86
+		{2E258CB7-D13C-478D-AB69-79529D6F9E4E}.Release|Any CPU.ActiveCfg = Release|x86
+		{2E258CB7-D13C-478D-AB69-79529D6F9E4E}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{2E258CB7-D13C-478D-AB69-79529D6F9E4E}.Release|Mixed Platforms.Build.0 = Release|x86
+		{2E258CB7-D13C-478D-AB69-79529D6F9E4E}.Release|x86.ActiveCfg = Release|x86
+		{2E258CB7-D13C-478D-AB69-79529D6F9E4E}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,8 +100,10 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{78B8A118-B473-4B77-9658-02B07EDA14C4} = {0D92F9D3-8C0E-4AC5-90D9-E159F0C25CBC}
 		{3C5CFD33-B30D-4BD9-9BF2-438E6DDC675A} = {0D92F9D3-8C0E-4AC5-90D9-E159F0C25CBC}
+		{2E258CB7-D13C-478D-AB69-79529D6F9E4E} = {0D92F9D3-8C0E-4AC5-90D9-E159F0C25CBC}
 		{047857BA-DAA3-4CA7-AFB8-A1B082B28C6A} = {D6230A5C-9FBF-4EDE-9C5B-A330FD148FF8}
 		{C98A6CD6-9422-4B35-8B7A-F520D75534D1} = {D6230A5C-9FBF-4EDE-9C5B-A330FD148FF8}
+		{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA} = {D6230A5C-9FBF-4EDE-9C5B-A330FD148FF8}
 		{741E3FD3-03D9-4DF3-A818-CBACEE27F045} = {99AD6D07-19FC-400B-BC01-E109AE285AB3}
 		{C792DEEF-FABF-47FC-A1C7-693C0F2CFEC0} = {99AD6D07-19FC-400B-BC01-E109AE285AB3}
 	EndGlobalSection

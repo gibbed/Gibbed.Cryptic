@@ -20,12 +20,21 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
-    public class Entry
+    internal class Bit : Token
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public override StorageCompatability Storage { get { return StorageCompatability.DirectValue; } }
+        public override string NameDirectValue { get { return "BIT"; } }
+
+        public override ColumnParameter GetParameter(ColumnFlags flags, int index)
+        {
+            switch (index)
+            {
+                case 0: return ColumnParameter.BitOffset;
+                case 1: return ColumnParameter.StaticDefineList;
+                default: return ColumnParameter.None;
+            }
+        }
     }
 }

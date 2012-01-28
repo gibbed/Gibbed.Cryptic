@@ -20,12 +20,10 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.Journal
+namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
-    public class Entry
+    internal class LineNumber : BasicValueToken
     {
-        public Action Action;
-        public int TargetId;
-        public byte[] Data = null;
+        public override string NameDirectValue { get { return "LINENUM"; } }
     }
 }
