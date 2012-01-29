@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StructDiffOp">
+  <table>
+    <!-- 01FBE590 -->
+    <column name="StructDiffOp" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Field" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="ObjectPath" />
+    </column>
+    <column name="op" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 02F8E4A8 -->
+      </static_define_list>
+    </column>
+    <column name="Operand" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

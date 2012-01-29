@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MapSummaryList">
+  <table>
+    <!-- 01F59C38 -->
+    <column name="MapSummaryList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="List" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="MapSummary" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

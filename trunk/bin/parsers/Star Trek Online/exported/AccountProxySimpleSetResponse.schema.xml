@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxySimpleSetResponse">
+  <table>
+    <!-- 02000EF0 -->
+    <column name="AccountProxySimpleSetResponse" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RequestID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Result" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 02FCF788 -->
+      </static_define_list>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

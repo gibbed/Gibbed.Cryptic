@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueMatch">
+  <table>
+    <!-- 01EFD3E0 -->
+    <column name="QueueMatch" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Groups" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="QueueGroup" />
+    </column>
+    <column name="MatchSize" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="AllGroupsValid" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="FillingNewMap" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Fitness" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

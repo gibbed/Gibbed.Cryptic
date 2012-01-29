@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ActivityDefs">
+  <table>
+    <!-- 01F4BAA8 -->
+    <column name="ActivityDefs" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Activity" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ActivityDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

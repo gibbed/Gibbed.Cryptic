@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerApplication">
+  <table>
+    <!-- 01EDE800 -->
+    <column name="PowerApplication" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PowerDef" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="PowerDef" />
+    </column>
+    <column name="Level" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="IdxMulti" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="TableScale" type="F32">
+      <offset>88</offset>
+    </column>
+    <column name="Subtarget" type="OPTIONALSTRUCT">
+      <offset>136</offset>
+      <subtable external="PowerSubtargetChoice" />
+    </column>
+    <column name="NumTargets" type="INT">
+      <offset>156</offset>
+    </column>
+    <column name="Activation" type="OPTIONALSTRUCT">
+      <offset>168</offset>
+      <subtable external="PowerActivation" />
+    </column>
+    <column name="Critical" type="EMBEDDEDSTRUCT">
+      <offset>172</offset>
+      <subtable external="PACritical" />
+    </column>
+    <column name="Avoidance" type="EMBEDDEDSTRUCT">
+      <offset>188</offset>
+      <subtable external="PAAvoidance" />
+    </column>
+    <column name="DamageTrigger" type="EMBEDDEDSTRUCT">
+      <offset>204</offset>
+      <subtable external="PATrigger" />
+    </column>
+    <column name="Random" type="F32">
+      <offset>220</offset>
+    </column>
+    <column name="Period" type="INT">
+      <offset>248</offset>
+    </column>
+    <column name="AngleToTarget" type="F32">
+      <offset>264</offset>
+    </column>
+    <column name="AngleToSource" type="F32">
+      <offset>268</offset>
+    </column>
+    <column name="AngleToTargetVertical" type="F32">
+      <offset>272</offset>
+    </column>
+    <column name="AngleToSourceVertical" type="F32">
+      <offset>276</offset>
+    </column>
+    <column name="PrimaryTarget" type="BIT">
+      <offset>280</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Glancing" type="BIT">
+      <offset>280</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="MissMods" type="BIT">
+      <offset>280</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

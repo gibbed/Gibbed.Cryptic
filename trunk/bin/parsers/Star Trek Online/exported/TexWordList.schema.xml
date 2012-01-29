@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TexWordList">
+  <table>
+    <!-- 01FA8F50 -->
+    <column name="TexWordList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="TexWord" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="TexWord" />
+    </column>
+  </table>
+</parser>

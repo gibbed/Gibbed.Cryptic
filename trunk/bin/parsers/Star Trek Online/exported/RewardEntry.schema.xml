@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RewardEntry">
+  <table>
+    <!-- 01EE99A8 -->
+    <column name="RewardEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ChoiceType" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 02EB93A0 -->
+      </static_define_list>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 02EB9418 -->
+      </static_define_list>
+    </column>
+    <column name="numeric_op" type="INT">
+      <offset>8</offset>
+      <static_define_list>
+        <!-- 02BB27A8 -->
+      </static_define_list>
+    </column>
+    <column name="Weight" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="CountExpression" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ItemDef" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="RewardTable" type="REFERENCE">
+      <offset>36</offset>
+      <flags>
+        <flag>STRUCT_NORECURSE</flag>
+      </flags>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="RewardValTableOverride" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>RewardValTable</dictionary_name>
+    </column>
+    <column name="Value" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="PointBuyValueExpression" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="BaseItemsOnly" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="ScaleNumeric" type="U8">
+      <offset>53</offset>
+    </column>
+    <column name="ItemPowerDef" type="REFERENCE">
+      <offset>56</offset>
+      <dictionary_name>ItemPowerDef</dictionary_name>
+    </column>
+    <column name="CostumeDef" type="REFERENCE">
+      <offset>60</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="RequiresExpression" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="RequiredGamePermissionToken" type="STRINGARRAY">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Quality" type="INT">
+      <offset>72</offset>
+      <static_define_list>
+        <!-- 02BB1818 -->
+      </static_define_list>
+    </column>
+    <column name="BroadcastChatMessage" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RewardDiffPowerScaleMult" type="F32">
+      <offset>92</offset>
+      <default>1</default>
+    </column>
+    <column name="DisableCostume" type="IGNORE" />
+    <column name="DisplayNameMsg" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerQueueInfo">
+  <table>
+    <!-- 01BD2C90 -->
+    <column name="PlayerQueueInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Queues" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PlayerQueue" />
+    </column>
+    <column name="PlayerRematch" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="PlayerRematchInfo" />
+    </column>
+    <column name="FailsAllReqs" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="QueueFailRequirementsData" />
+    </column>
+    <column name="PenaltyData" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="PlayerQueuePenaltyData" />
+    </column>
+    <column name="uLeaverPenaltyDuration" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="MapReturn" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="QueueMapTransferData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

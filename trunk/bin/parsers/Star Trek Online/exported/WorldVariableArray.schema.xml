@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldVariableArray">
+  <table>
+    <!-- 02004950 -->
+    <column name="WorldVariableArray" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Variable" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="WorldVariable" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

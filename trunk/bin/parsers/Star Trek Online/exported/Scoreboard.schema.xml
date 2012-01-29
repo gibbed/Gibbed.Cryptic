@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Scoreboard">
+  <table>
+    <!-- 01F08B48 -->
+    <column name="Scoreboard" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ScoreboardName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="State" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 02ED8AD8 -->
+      </static_define_list>
+    </column>
+    <column name="uCounterTime" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Countdown" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="Overtime" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="uTotalMatchTime" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="GroupGameParams" type="POLYMORPH">
+      <offset>20</offset>
+      <subtable>
+        <table>
+          <!-- 01F27278 -->
+          <column name="CTFGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="CTFGroupParams" />
+          </column>
+          <column name="CUSGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="CUSGroupParams" />
+          </column>
+          <column name="DMAGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="DMAGroupParams" />
+          </column>
+          <column name="DOMGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="DOMGroupParams" />
+          </column>
+          <column name="TDEGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="TDEGroupParams" />
+          </column>
+        </table>
+      </subtable>
+    </column>
+    <column name="GameSpecific" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="DOMControlPoint" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

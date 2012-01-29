@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameSessionGroupInfo">
+  <table>
+    <!-- 01F1B088 -->
+    <column name="GameSessionGroupInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="nodeRef" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="GameProgressionNodeUGCRef" />
+    </column>
+    <column name="Sessions" type="INTARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="SessionCount" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Version" type="INT">
+      <offset>20</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

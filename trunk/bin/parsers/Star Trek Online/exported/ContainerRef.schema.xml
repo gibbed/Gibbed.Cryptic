@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContainerRef">
+  <table>
+    <!-- 01FB7570 -->
+    <column name="ContainerRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="ContainerType" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list>
+        <!-- 02F87048 -->
+      </static_define_list>
+    </column>
+    <column name="ContainerID" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameSession">
+  <table>
+    <!-- 01F1AE30 -->
+    <column name="GameSession" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TeamID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="TeamMode" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 02EC61E8 -->
+      </static_define_list>
+    </column>
+    <column name="LootMode" type="INT">
+      <offset>8</offset>
+      <static_define_list>
+        <!-- 02ED6B78 -->
+      </static_define_list>
+    </column>
+    <column name="LootModeItemQuality" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Participants" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="GameSessionParticipant" />
+    </column>
+    <column name="Requests" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="GameSessionJoinRequest" />
+    </column>
+    <column name="destination" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="GameProgressionNodeUGCRef" />
+    </column>
+    <column name="uiDeletionTimestamp" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="InLobby" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="AllGameProgressionNodesUnlocked" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Version" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

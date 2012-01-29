@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UICategorizedInventorySlot">
+  <table>
+    <!-- 01E8CA98 -->
+    <column name="UICategorizedInventorySlot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UICategory" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="CategoryName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="CategoryNameWithoutPrefix" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="CategoryNamePrefix" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Category" type="INT">
+      <offset>16</offset>
+      <static_define_list>
+        <!-- 02BB0188 -->
+      </static_define_list>
+    </column>
+    <column name="CategoryData" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="ItemCategoryInfo" />
+    </column>
+    <column name="SlotKey" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Slot" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="InventorySlot" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

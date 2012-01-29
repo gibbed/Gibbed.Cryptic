@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InventoryBagData">
+  <table>
+    <!-- 01F1B6A8 -->
+    <column name="InventoryBagData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Slots" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="InventorySlot" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

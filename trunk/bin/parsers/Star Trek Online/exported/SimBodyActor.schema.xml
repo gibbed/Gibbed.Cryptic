@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SimBodyActor">
+  <table>
+    <!-- 01ED8D70 -->
+    <column name="SimBodyActor" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="simBodyHandle" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

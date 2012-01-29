@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldAmbientJobInteractionProperties">
+  <table>
+    <!-- 020C7498 -->
+    <column name="WorldAmbientJobInteractionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Priority" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="isForCritters" type="BIT">
+      <offset>4</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="isForCivilians" type="BIT">
+      <offset>4</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

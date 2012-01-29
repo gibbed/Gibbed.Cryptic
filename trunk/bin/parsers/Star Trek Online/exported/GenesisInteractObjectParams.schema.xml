@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisInteractObjectParams">
+  <table>
+    <!-- 020D2220 -->
+    <column name="GenesisInteractObjectParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisallowVolume" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="ClickieVisibleWhenPerEnt" type="U8">
+      <offset>1</offset>
+    </column>
+    <column name="ClickieVisibleWhen" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="SucceedWhen" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="InteractWhen" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="InteractionEntry" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="WorldInteractionPropertyEntry" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

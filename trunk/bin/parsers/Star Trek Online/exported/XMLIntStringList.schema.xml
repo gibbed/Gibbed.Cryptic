@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="XMLIntStringList">
+  <table>
+    <!-- 01FACA18 -->
+    <column name="XMLIntStringList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="List" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="IntStringPair" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

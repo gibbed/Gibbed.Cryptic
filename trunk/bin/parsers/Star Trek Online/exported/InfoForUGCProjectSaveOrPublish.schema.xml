@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InfoForUGCProjectSaveOrPublish">
+  <table>
+    <!-- 01E92908 -->
+    <column name="InfoForUGCProjectSaveOrPublish" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Maps" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="UGCProjectVersionMapInfo" />
+    </column>
+    <column name="OldNameSpace" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="NewUUID" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="NewNameSpace" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="PublishJobName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="Notes" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Language" type="INT">
+      <offset>28</offset>
+      <static_define_list>
+        <!-- 02F8F250 -->
+      </static_define_list>
+    </column>
+    <column name="CostumeOverride" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="PetOverride" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="BodyText" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="strInitialMapName" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="strInitialSpawnPoint" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="Permissions" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="UGCProjectInfoPermission" />
+    </column>
+    <column name="NewProjectName" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="RestrictionProperties" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="WorldUGCRestrictionProperties" />
+    </column>
+    <column name="ProjectHeaderCopy" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="UGCProject" />
+    </column>
+    <column name="EntityRef" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MessageHttpWrapper">
+  <table>
+    <!-- 01FBA478 -->
+    <column name="MessageHttpWrapper" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MessageKey" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Language" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 02F8F250 -->
+      </static_define_list>
+    </column>
+    <column name="Translated" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

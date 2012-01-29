@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CritterCostume">
+  <table>
+    <!-- 01EE2898 -->
+    <column name="CritterCostume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Costume" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="Name" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <redundant />
+      <redundant_name>Costume</redundant_name>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="Weight" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Key" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Order" type="F32">
+      <offset>12</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default>-1</default>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>20</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default>-1</default>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="displaySubNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="voiceSet" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CreateIgnoresDisplayName" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

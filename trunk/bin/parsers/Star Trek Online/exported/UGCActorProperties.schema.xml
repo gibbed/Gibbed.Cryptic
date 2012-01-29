@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCActorProperties">
+  <table>
+    <!-- 01F553F8 -->
+    <column name="UGCActorProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Costume" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="FSMName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

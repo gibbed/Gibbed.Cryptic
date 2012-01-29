@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisNodeConstraint">
+  <table>
+    <!-- 020F17C8 -->
+    <column name="GenesisNodeConstraint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 030C1518 -->
+      </static_define_list>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

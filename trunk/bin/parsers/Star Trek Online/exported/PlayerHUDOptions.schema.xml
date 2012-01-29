@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerHUDOptions">
+  <table>
+    <!-- 01BD4520 -->
+    <column name="PlayerHUDOptions" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Region" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 02E674A8 -->
+      </static_define_list>
+    </column>
+    <column name="NotifyAudioMode" type="INT">
+      <offset>4</offset>
+      <default>1</default>
+      <static_define_list>
+        <!-- 02BA3F58 -->
+      </static_define_list>
+    </column>
+    <column name="ShowOverhead" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="PlayerShowOverhead" />
+    </column>
+    <column name="TrayMode" type="U8">
+      <offset>56</offset>
+    </column>
+    <column name="PowerLevelsMode" type="U8">
+      <offset>57</offset>
+    </column>
+    <column name="HideTrayTooltips" type="U8">
+      <offset>58</offset>
+    </column>
+    <column name="MapIconFlags" type="INT">
+      <offset>60</offset>
+      <default>-1</default>
+      <static_define_list>
+        <!-- 02BA43F0 -->
+      </static_define_list>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

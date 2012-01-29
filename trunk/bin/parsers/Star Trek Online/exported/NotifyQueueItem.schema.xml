@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NotifyQueueItem">
+  <table>
+    <!-- 01F1CDC0 -->
+    <column name="NotifyQueueItem" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list>
+        <!-- 02EBCF18 -->
+      </static_define_list>
+    </column>
+    <column name="DisplayString" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="LogicalString" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Sound" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Texture" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Tag" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="HeadshotData" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="ContactHeadshotData" />
+    </column>
+    <column name="Font" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="Color" type="INT">
+      <offset>32</offset>
+      <static_define_list>
+        <!-- 02FDEA88 -->
+      </static_define_list>
+    </column>
+    <column name="ColorString" type="FIXEDSTRING">
+      <offset>36</offset>
+      <string_length>10</string_length>
+    </column>
+    <column name="Lifetime" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="LifetimeMax" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="Delay" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="ItemID" type="INT64">
+      <offset>64</offset>
+    </column>
+    <column name="Value" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="Origin" type="F32FIXEDARRAY">
+      <offset>76</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Infinite" type="U8">
+      <offset>88</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

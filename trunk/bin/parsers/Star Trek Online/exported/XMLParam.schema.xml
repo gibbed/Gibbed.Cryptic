@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="XMLParam">
+  <table>
+    <!-- 01FABE88 -->
+    <column name="XMLParam" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Value" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="XMLValue" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

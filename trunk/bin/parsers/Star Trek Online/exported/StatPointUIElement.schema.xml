@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StatPointUIElement">
+  <table>
+    <!-- 01F33488 -->
+    <column name="StatPointUIElement" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AttribType" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 02E91BA8 -->
+      </static_define_list>
+    </column>
+    <column name="AttribName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="CurrentValue" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

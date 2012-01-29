@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FileEntry">
+  <table>
+    <!-- 02009D10 -->
+    <column name="FileEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Path" type="FILENAME">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Date" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

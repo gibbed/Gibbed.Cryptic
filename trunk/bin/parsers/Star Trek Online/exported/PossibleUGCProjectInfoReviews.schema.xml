@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PossibleUGCProjectInfoReviews">
+  <table>
+    <!-- 01E91BC0 -->
+    <column name="PossibleUGCProjectInfoReviews" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Reviews" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="UGCSingleReview" />
+    </column>
+    <column name="AverageRating" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="RatingSum" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="NumRatings" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="NumPages" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="PageNumber" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="NumRatingsArray" type="INTARRAY">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

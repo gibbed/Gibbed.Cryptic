@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCMissionObjective">
+  <table>
+    <!-- 01F54020 -->
+    <column name="UGCMissionObjective" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="ParentID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>8</offset>
+      <static_define_list>
+        <!-- 02F23160 -->
+      </static_define_list>
+    </column>
+    <column name="UIString" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="WaypointMode" type="INT">
+      <offset>16</offset>
+      <static_define_list>
+        <!-- 02F23188 -->
+      </static_define_list>
+    </column>
+    <column name="ComponentID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="ExtraComponentID" type="INTARRAY">
+      <offset>24</offset>
+    </column>
+    <column name="Children" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="UGCMissionObjective" />
+    </column>
+    <column name="SuccessFloaterText" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="sInteractProps" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="InteractText" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="InteractAnim" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>AIAnimList</dictionary_name>
+    </column>
+    <column name="InteractDuration" type="INT">
+      <offset>44</offset>
+      <default>1</default>
+      <static_define_list>
+        <!-- 02F231A8 -->
+      </static_define_list>
+    </column>
+    <column name="SucceedCheckedAttrib" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="GenesisCheckedAttrib" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

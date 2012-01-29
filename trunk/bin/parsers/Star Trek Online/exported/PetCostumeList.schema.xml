@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PetCostumeList">
+  <table>
+    <!-- 01F33700 -->
+    <column name="PetCostumeList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PetCostumes" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

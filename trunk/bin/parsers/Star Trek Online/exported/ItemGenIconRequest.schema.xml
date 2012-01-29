@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemGenIconRequest">
+  <table>
+    <!-- 01F0CC88 -->
+    <column name="ItemGenIconRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="data" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ItemGenIconData" />
+    </column>
+    <column name="SaveItems" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="SavedItemPowers" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="SaveRewards" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

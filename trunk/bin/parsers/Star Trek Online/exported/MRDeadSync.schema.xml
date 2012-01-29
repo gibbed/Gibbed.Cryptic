@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRDeadSync">
+  <table>
+    <!-- 01ED7D00 -->
+    <column name="MRDeadSync" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="stanceBits" type="INTARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="MRDeadSyncFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

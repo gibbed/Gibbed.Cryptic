@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TexUnloadConfig">
+  <table>
+    <!-- 01FA9A18 -->
+    <column name="TexUnloadConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Count" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="dist" type="F32ARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="dist_shrink" type="F32ARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="Size" type="INTARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

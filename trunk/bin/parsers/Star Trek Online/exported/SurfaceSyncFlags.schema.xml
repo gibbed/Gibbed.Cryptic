@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SurfaceSyncFlags">
+  <table>
+    <!-- 01EDD2B8 -->
+    <column name="SurfaceSyncFlags" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="IsStrafing" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="canStick" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="orientToSurface" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="softGroundSnap" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="isDisabled" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

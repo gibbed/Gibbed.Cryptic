@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenScrollbar">
+  <table>
+    <!-- 02075CA8 -->
+    <column name="UIGenScrollbar" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ScrollbarDef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>UIGenScrollbarDef</dictionary_name>
+    </column>
+    <column name="ScrollbarTopMargin" type="INT16">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 03017B00 -->
+      </static_define_list>
+    </column>
+    <column name="ScrollbarBottomMargin" type="INT16">
+      <offset>6</offset>
+      <static_define_list>
+        <!-- 03017B00 -->
+      </static_define_list>
+    </column>
+    <column name="ScrollbarLeftMargin" type="INT16">
+      <offset>8</offset>
+      <static_define_list>
+        <!-- 03017B00 -->
+      </static_define_list>
+    </column>
+    <column name="ScrollbarRightMargin" type="INT16">
+      <offset>10</offset>
+      <static_define_list>
+        <!-- 03017B00 -->
+      </static_define_list>
+    </column>
+    <column name="ScrollbarOnlyShowWhenNeeded" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ScrollbarCaptureMouse" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="ScrollbarUseWheel" type="BIT">
+      <offset>12</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="ScrollbarUseStick" type="BIT">
+      <offset>12</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

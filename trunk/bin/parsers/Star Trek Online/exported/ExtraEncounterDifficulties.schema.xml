@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExtraEncounterDifficulties">
+  <table>
+    <!-- 01EBBA00 -->
+    <column name="ExtraEncounterDifficulties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Difficulty" type="STRINGARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

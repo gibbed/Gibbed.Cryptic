@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WaveformDef">
+  <table>
+    <!-- 01BB58D0 -->
+    <column name="WaveformDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SuccessTime" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="TimeoutTime" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="MinNumberOfMoves" type="INT">
+      <offset>8</offset>
+      <default>3</default>
+    </column>
+    <column name="MaxNumberOfMoves" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="ModRanges" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="MaxAmplitude" type="INT">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="MaxPeriod" type="INT">
+      <offset>20</offset>
+      <default>1</default>
+    </column>
+    <column name="MaxPhaseShift" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="MaxVerticalShift" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="AmplitudeMultiplier" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="PeriodMultiplier" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="PhaseShiftMultiplier" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="VerticalShiftMultiplier" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

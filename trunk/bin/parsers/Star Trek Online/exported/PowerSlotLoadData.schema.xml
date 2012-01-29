@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerSlotLoadData">
+  <table>
+    <!-- 01F43918 -->
+    <column name="PowerSlotLoadData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PowerSlot" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PowerSlot" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

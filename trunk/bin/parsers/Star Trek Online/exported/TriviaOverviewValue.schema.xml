@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TriviaOverviewValue">
+  <table>
+    <!-- 0200BB48 -->
+    <column name="TriviaOverviewValue" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="pVal" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uCount" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

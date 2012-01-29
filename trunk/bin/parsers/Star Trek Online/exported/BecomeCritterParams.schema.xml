@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BecomeCritterParams">
+  <table>
+    <!-- 01EC2BF0 -->
+    <column name="BecomeCritterParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1156</default>
+      <static_define_list>
+        <!-- 02E91BA8 -->
+      </static_define_list>
+    </column>
+    <column name="Critter" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>CritterDef</dictionary_name>
+    </column>
+    <column name="Class" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

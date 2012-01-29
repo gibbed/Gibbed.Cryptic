@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionAction">
+  <table>
+    <!-- 020DCD70 -->
+    <column name="GenesisMissionAction" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PromptName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

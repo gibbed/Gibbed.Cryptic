@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LabGameString">
+  <table>
+    <!-- 01BB53C0 -->
+    <column name="LabGameString" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Level" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="LabGameUnits" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="LabGameUnit" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

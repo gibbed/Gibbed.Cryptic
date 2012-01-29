@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PaperdollHeadshotData">
+  <table>
+    <!-- 01F1F5A0 -->
+    <column name="PaperdollHeadshotData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="HeadshotStyle" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="WLCostume" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="WLCostume" />
+    </column>
+    <column name="PlayerCostume" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="Entity" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Entity" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

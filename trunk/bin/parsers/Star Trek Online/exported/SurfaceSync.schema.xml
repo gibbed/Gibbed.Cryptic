@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SurfaceSync">
+  <table>
+    <!-- 01EDD538 -->
+    <column name="SurfaceSync" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Traction" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="backScale" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="pitchDiffMult" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="jump" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="SurfaceSyncJump" />
+    </column>
+    <column name="test" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="SurfaceSyncTest" />
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>96</offset>
+      <subtable external="SurfaceSyncFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

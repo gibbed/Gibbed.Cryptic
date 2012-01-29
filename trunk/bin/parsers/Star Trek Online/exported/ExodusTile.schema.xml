@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExodusTile">
+  <table>
+    <!-- 020FB338 -->
+    <column name="ExodusTile" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="North" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 030CAFC8 -->
+      </static_define_list>
+    </column>
+    <column name="South" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 030CAFC8 -->
+      </static_define_list>
+    </column>
+    <column name="East" type="INT">
+      <offset>8</offset>
+      <static_define_list>
+        <!-- 030CAFC8 -->
+      </static_define_list>
+    </column>
+    <column name="West" type="INT">
+      <offset>12</offset>
+      <static_define_list>
+        <!-- 030CAFC8 -->
+      </static_define_list>
+    </column>
+    <column name="NorthEast" type="INT">
+      <offset>16</offset>
+      <static_define_list>
+        <!-- 030CAFC8 -->
+      </static_define_list>
+    </column>
+    <column name="SouthEast" type="INT">
+      <offset>20</offset>
+      <static_define_list>
+        <!-- 030CAFC8 -->
+      </static_define_list>
+    </column>
+    <column name="NorthWest" type="INT">
+      <offset>24</offset>
+      <static_define_list>
+        <!-- 030CAFC8 -->
+      </static_define_list>
+    </column>
+    <column name="SouthWest" type="INT">
+      <offset>28</offset>
+      <static_define_list>
+        <!-- 030CAFC8 -->
+      </static_define_list>
+    </column>
+    <column name="Floor" type="INT">
+      <offset>32</offset>
+      <static_define_list>
+        <!-- 030CAFC8 -->
+      </static_define_list>
+    </column>
+    <column name="Ceiling" type="INT">
+      <offset>36</offset>
+      <static_define_list>
+        <!-- 030CAFC8 -->
+      </static_define_list>
+    </column>
+    <column name="FloorSlope" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="ExodusTileSlope" />
+    </column>
+    <column name="CeilingSlope" type="EMBEDDEDSTRUCT">
+      <offset>60</offset>
+      <subtable external="ExodusTileSlope" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

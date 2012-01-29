@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCPanePref">
+  <table>
+    <!-- 01F56758 -->
+    <column name="UGCPanePref" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PC" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="PLa" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="PCh" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UGCPanePref" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NewGuildEvent">
+  <table>
+    <!-- 01F163B0 -->
+    <column name="NewGuildEvent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Title" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="StartTimeTime" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="EndTimeTime" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="DaysRecurring" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="MinGuildRank" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="MinAccepts" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="MaxAccepts" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DaboPayoutUI">
+  <table>
+    <!-- 01BC3820 -->
+    <column name="DaboPayoutUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hNumericItemDef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="Payout" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="WheelIndex" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="HistoryIndex" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="playerName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="IsHeader" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="uTimestamp" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="NumberOfPayouts" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

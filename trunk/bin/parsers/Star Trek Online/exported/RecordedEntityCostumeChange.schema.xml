@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RecordedEntityCostumeChange">
+  <table>
+    <!-- 01F465C0 -->
+    <column name="RecordedEntityCostumeChange" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EntityRef" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Costume" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="CostumeRefV0" />
+    </column>
+    <column name="CostumeV5" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="CostumeRef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

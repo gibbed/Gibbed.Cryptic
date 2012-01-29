@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GuildEventData">
+  <table>
+    <!-- 01F12710 -->
+    <column name="GuildEventData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="StartTime" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Title" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="OwnerName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="EventOwnerID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="EventOwnerRank" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="EndTime" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="sStructStartTime" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="GuildEventTime" />
+    </column>
+    <column name="sStructEndTime" type="EMBEDDEDSTRUCT">
+      <offset>52</offset>
+      <subtable external="GuildEventTime" />
+    </column>
+    <column name="DaysRecurring" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="Canceled" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="MinGuildRank" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="MinAccepts" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="MaxAccepts" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="AcceptCount" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="MaybeCount" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="RefuseCount" type="INT">
+      <offset>112</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

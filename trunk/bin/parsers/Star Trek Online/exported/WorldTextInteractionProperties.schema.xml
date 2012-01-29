@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldTextInteractionProperties">
+  <table>
+    <!-- 020C6A20 -->
+    <column name="WorldTextInteractionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="InteractText" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="InteractDetailText" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="InteractDetailTexture" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SuccessConsoleText" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="FailureConsoleText" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

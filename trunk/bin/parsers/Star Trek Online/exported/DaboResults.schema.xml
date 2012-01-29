@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DaboResults">
+  <table>
+    <!-- 01BB4408 -->
+    <column name="DaboResults" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ResultIndex" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="DaboResultIndex" />
+    </column>
+    <column name="RingIndices" type="INTFIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="HasResults" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="HasPayouts" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CurrencyExchangePriceQuantity">
+  <table>
+    <!-- 01F406A8 -->
+    <column name="CurrencyExchangePriceQuantity" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Price" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="quantity" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

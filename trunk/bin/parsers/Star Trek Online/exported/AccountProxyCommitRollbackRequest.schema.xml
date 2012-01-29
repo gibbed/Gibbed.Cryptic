@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxyCommitRollbackRequest">
+  <table>
+    <!-- 020011E8 -->
+    <column name="AccountProxyCommitRollbackRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uAccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Key" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Lock" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="uProductID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="ActivityType" type="INT">
+      <offset>16</offset>
+      <static_define_list>
+        <!-- 02FCF758 -->
+      </static_define_list>
+    </column>
+    <column name="Activation" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="AccountProxyProductActivationContainer" />
+    </column>
+    <column name="ContainerID" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

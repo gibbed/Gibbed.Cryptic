@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FSMTransition">
+  <table>
+    <!-- 0200A308 -->
+    <column name="FSMTransition" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Target" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Target:" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <redundant />
+      <redundant_name>Target</redundant_name>
+    </column>
+    <column name="Expr" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Expr:" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <redundant />
+      <redundant_name>Expr</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Action" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Action:" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <redundant />
+      <redundant_name>Action</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Layout" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="FSMTransitionLayout" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldOptionalActionVolumeProperties">
+  <table>
+    <!-- 020C82F8 -->
+    <column name="WorldOptionalActionVolumeProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Entry" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="WorldOptionalActionVolumeEntry" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

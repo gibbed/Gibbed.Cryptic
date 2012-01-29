@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DaboResultsUI">
+  <table>
+    <!-- 01BC3C30 -->
+    <column name="DaboResultsUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="data" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="DaboResultIndex" />
+    </column>
+    <column name="RingIndex1" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="RingIndex2" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="RingIndex3" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="HasResults" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="HasPayouts" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

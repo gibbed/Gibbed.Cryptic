@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RewardTags">
+  <table>
+    <!-- 01EE9598 -->
+    <column name="RewardTags" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Tag" type="STRINGARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

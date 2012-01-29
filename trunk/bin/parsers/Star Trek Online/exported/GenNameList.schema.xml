@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenNameList">
+  <table>
+    <!-- 01F147C0 -->
+    <column name="GenNameList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Names" type="STRINGARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="FirstNames" type="STRINGARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="MiddleNames" type="STRINGARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="LastNames" type="STRINGARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="hCurSpecies" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>SpeciesDef</dictionary_name>
+    </column>
+    <column name="Index" type="INT">
+      <offset>20</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Updated" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ListNames" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="NameGroupIndex" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

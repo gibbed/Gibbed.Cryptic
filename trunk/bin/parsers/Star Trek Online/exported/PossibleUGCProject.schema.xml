@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PossibleUGCProject">
+  <table>
+    <!-- 01E920E8 -->
+    <column name="PossibleUGCProject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="CopyID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="seriesID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="PublicName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="PatchInfo" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="DynamicPatchInfo" />
+    </column>
+    <column name="PossibleUGCProjectFlags" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="VirtualShardID" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Info" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="PossibleUGCProjectInfo" />
+    </column>
+    <column name="EditQueueCookie" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

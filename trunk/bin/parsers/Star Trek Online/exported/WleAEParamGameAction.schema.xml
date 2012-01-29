@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WleAEParamGameAction">
+  <table>
+    <!-- 01F52A78 -->
+    <column name="WleAEParamGameAction" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="is_specified" type="BOOLFLAG">
+      <offset>0</offset>
+    </column>
+    <column name="action_block" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="WorldGameActionBlock" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

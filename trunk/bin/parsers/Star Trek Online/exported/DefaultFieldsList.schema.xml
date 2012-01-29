@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DefaultFieldsList">
+  <table>
+    <!-- 02018030 -->
+    <column name="DefaultFieldsList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DefaultFields" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="DefaultFieldsForTable" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

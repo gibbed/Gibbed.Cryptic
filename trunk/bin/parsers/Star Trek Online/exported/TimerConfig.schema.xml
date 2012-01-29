@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TimerConfig">
+  <table>
+    <!-- 01EA17C0 -->
+    <column name="TimerConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TimerUse" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="TimerAttack" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="TimerAttacked" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="TimerAssist" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="TimerAggro" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

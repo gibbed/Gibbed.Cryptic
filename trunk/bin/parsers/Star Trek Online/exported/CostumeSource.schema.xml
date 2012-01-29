@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeSource">
+  <table>
+    <!-- 01F34CE0 -->
+    <column name="CostumeSource" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Tag" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Costume" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="PlayerCostume" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="WLCostume" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>Costume</dictionary_name>
+    </column>
+    <column name="Complete" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="Headshot" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InputJoystickMapping">
+  <table>
+    <!-- 0202CD68 -->
+    <column name="InputJoystickMapping" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="LogicalOutput" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <static_define_list>
+        <!-- 02FFCCB8 -->
+      </static_define_list>
+    </column>
+    <column name="PhysicalInput" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <static_define_list>
+        <!-- 02FFCB18 -->
+      </static_define_list>
+    </column>
+    <column name="GuidDevice" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

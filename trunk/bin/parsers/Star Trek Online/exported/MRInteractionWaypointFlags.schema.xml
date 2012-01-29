@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRInteractionWaypointFlags">
+  <table>
+    <!-- 01F5B4E0 -->
+    <column name="MRInteractionWaypointFlags" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="snapToWaypoint" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="releaseOnInput" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="moveToOnRail" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="playBitsDuringMove" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="jumpHereOnRailFail" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="notifyWhenReached" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="waitHereUntilTriggered" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

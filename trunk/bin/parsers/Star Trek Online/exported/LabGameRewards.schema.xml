@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LabGameRewards">
+  <table>
+    <!-- 01BB4CE0 -->
+    <column name="LabGameRewards" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Level" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="RewardOnPoints" type="INT">
+      <offset>4</offset>
+      <default>1</default>
+    </column>
+    <column name="RewardOutOfUnits" type="INT">
+      <offset>8</offset>
+      <default>1</default>
+    </column>
+    <column name="RewardTable" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

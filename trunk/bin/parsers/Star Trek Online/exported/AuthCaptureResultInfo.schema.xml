@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AuthCaptureResultInfo">
+  <table>
+    <!-- 02003EE8 -->
+    <column name="AuthCaptureResultInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Result" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 02FCF8A0 -->
+      </static_define_list>
+    </column>
+    <column name="uLockContainerID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

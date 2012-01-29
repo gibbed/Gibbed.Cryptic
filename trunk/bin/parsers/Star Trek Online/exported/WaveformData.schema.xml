@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WaveformData">
+  <table>
+    <!-- 01BB55D8 -->
+    <column name="WaveformData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uEntID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="uStartTime" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Current" type="INTFIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Target" type="INTFIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="hRewardTable" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="uRewardLevel" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="Success" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

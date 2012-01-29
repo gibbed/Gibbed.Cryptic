@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DaboPayoutData">
+  <table>
+    <!-- 01BB4638 -->
+    <column name="DaboPayoutData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Match" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="DaboMatch" />
+    </column>
+    <column name="PayoutPercent" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="IsDabo" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

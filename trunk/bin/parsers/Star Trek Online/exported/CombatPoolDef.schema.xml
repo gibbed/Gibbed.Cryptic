@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatPoolDef">
+  <table>
+    <!-- 01F61330 -->
+    <column name="CombatPoolDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Init" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 02F31100 -->
+      </static_define_list>
+    </column>
+    <column name="Bound" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 02F31130 -->
+      </static_define_list>
+    </column>
+    <column name="Target" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="CombatPoolTarget" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

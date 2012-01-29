@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EncounterActorProperties">
+  <table>
+    <!-- 01EBAEC0 -->
+    <column name="EncounterActorProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OverrideDisplayName" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="DisplayNameType" type="INT">
+      <offset>8</offset>
+      <static_define_list>
+        <!-- 02E8A090 -->
+      </static_define_list>
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="OverrideSpawnConditions" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="SpawnAtTeamSize" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="EncounterActorSpawnProperties" />
+    </column>
+    <column name="BossAtTeamSize" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="EncounterActorSpawnProperties" />
+    </column>
+    <column name="OverrideCritterType" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="CritterType" type="INT">
+      <offset>40</offset>
+      <static_define_list>
+        <!-- 02E8A178 -->
+      </static_define_list>
+    </column>
+    <column name="CritterDef" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>CritterDef</dictionary_name>
+    </column>
+    <column name="CritterGroup" type="REFERENCE">
+      <offset>48</offset>
+      <dictionary_name>CritterGroup</dictionary_name>
+    </column>
+    <column name="CritterRank" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CritterSubRank" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LevelOffset" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="OverrideFaction" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="CritterFactionType" type="INT">
+      <offset>68</offset>
+      <static_define_list>
+        <!-- 02E8A0D8 -->
+      </static_define_list>
+    </column>
+    <column name="CritterFaction" type="REFERENCE">
+      <offset>72</offset>
+      <dictionary_name>CritterFaction</dictionary_name>
+    </column>
+    <column name="CritterGang" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="OverrideCritterSpawnInfo" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="SpawnAnimType" type="INT">
+      <offset>84</offset>
+      <static_define_list>
+        <!-- 02E8A0D8 -->
+      </static_define_list>
+    </column>
+    <column name="SpawnAnim" type="STRING">
+      <offset>88</offset>
+    </column>
+    <column name="SpawnLockdownTime" type="F32">
+      <offset>92</offset>
+    </column>
+    <column name="OverrideMisc" type="U8">
+      <offset>96</offset>
+    </column>
+    <column name="IsNonCombatant" type="U8">
+      <offset>97</offset>
+    </column>
+    <column name="CritterMapVariable" type="STRING">
+      <offset>100</offset>
+    </column>
+    <column name="PetContactList" type="REFERENCE">
+      <offset>104</offset>
+      <dictionary_name>PetContactList</dictionary_name>
+    </column>
+    <column name="CombatRole" type="STRING">
+      <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OverrideFSMInfo" type="U8">
+      <offset>112</offset>
+    </column>
+    <column name="FSMType" type="INT">
+      <offset>116</offset>
+      <static_define_list>
+        <!-- 02E8A0D8 -->
+      </static_define_list>
+    </column>
+    <column name="FSM" type="REFERENCE">
+      <offset>120</offset>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="VariableDef" type="STRUCT">
+      <offset>124</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="OverrideInteractionInfo" type="U8">
+      <offset>128</offset>
+    </column>
+    <column name="InteractionType" type="INT">
+      <offset>132</offset>
+      <static_define_list>
+        <!-- 02E8A090 -->
+      </static_define_list>
+    </column>
+    <column name="InteractionProperties" type="OPTIONALSTRUCT">
+      <offset>136</offset>
+      <subtable external="WorldInteractionProperties" />
+    </column>
+    <column name="Comments" type="STRING">
+      <offset>140</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Comments:" type="STRING">
+      <offset>140</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <redundant />
+      <redundant_name>Comments</redundant_name>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameSessionQueryResult">
+  <table>
+    <!-- 01F1B448 -->
+    <column name="GameSessionQueryResult" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="nodeRef" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="GameProgressionNodeUGCRef" />
+    </column>
+    <column name="Version" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="GameSessions" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="GameSession" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

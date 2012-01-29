@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ActivityDef">
+  <table>
+    <!-- 01F4B9B8 -->
+    <column name="ActivityDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ActivityName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="ppchDependentMissionDefs" type="STRINGARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

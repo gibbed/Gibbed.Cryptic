@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GuildRankList">
+  <table>
+    <!-- 01EE6008 -->
+    <column name="GuildRankList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="GuildRank" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="GuildRank" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

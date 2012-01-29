@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="HttpLinkStatsTracker">
+  <table>
+    <!-- 01FAF0D0 -->
+    <column name="HttpLinkStatsTracker" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SentBytesLastTime" type="INT64">
+      <offset>0</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

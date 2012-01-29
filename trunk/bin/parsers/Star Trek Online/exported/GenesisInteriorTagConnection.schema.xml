@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisInteriorTagConnection">
+  <table>
+    <!-- 020F2D38 -->
+    <column name="GenesisInteriorTagConnection" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="sides" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list>
+        <!-- 030C26C0 -->
+      </static_define_list>
+    </column>
+    <column name="AllowTag" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="GenesisInteriorTagRelation" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

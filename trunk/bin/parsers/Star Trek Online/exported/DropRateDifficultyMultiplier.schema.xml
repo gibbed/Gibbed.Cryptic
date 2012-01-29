@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DropRateDifficultyMultiplier">
+  <table>
+    <!-- 01F13838 -->
+    <column name="DropRateDifficultyMultiplier" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Quality" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list>
+        <!-- 02EDAD98 -->
+      </static_define_list>
+    </column>
+    <column name="Multiplier" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExodusLayoutPen">
+  <table>
+    <!-- 02100630 -->
+    <column name="ExodusLayoutPen" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Point" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ExodusLayoutPenStop" />
+    </column>
+    <column name="Open" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerRematchInfo">
+  <table>
+    <!-- 01BD2BA0 -->
+    <column name="PlayerRematchInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="QueueName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="uiInstanceID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

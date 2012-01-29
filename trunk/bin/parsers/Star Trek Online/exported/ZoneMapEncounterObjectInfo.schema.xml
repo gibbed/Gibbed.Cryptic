@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ZoneMapEncounterObjectInfo">
+  <table>
+    <!-- 020BA7E0 -->
+    <column name="ZoneMapEncounterObjectInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LogicalName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="restrictions" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Faction" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="WorldUGCFactionRestrictionProperties" />
+    </column>
+    <column name="RestrictAllegiance" type="STRUCT">
+      <offset>12</offset>
+      <redundant />
+      <redundant_name>Faction</redundant_name>
+      <subtable external="WorldUGCFactionRestrictionProperties" />
+    </column>
+    <column name="DisplayName" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="DisplayDetails" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="UGCDisplayName" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="UGCDisplayDetails" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="UGCContactName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="UGCContactCostume" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="RegionName" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Type" type="INT">
+      <offset>56</offset>
+      <static_define_list>
+        <!-- 030917B8 -->
+      </static_define_list>
+    </column>
+    <column name="InteractType" type="INT">
+      <offset>60</offset>
+      <static_define_list>
+        <!-- 03089668 -->
+      </static_define_list>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

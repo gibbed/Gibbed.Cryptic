@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalLocalBG">
+  <table>
+    <!-- 01EDF7D0 -->
+    <column name="TacticalLocalBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="movhMaxSpeed" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="surfaceNormal" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="dirRelativeForDoubleTap" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="overridesQueued" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="TacticalOverrides" />
+    </column>
+    <column name="overridesActive" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="TacticalOverrides" />
+    </column>
+    <column name="stanceAiming" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="TacticalLocalBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCResourceInfoOverride">
+  <table>
+    <!-- 01F3E5B0 -->
+    <column name="UGCResourceInfoOverride" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LogicalName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Dictionary" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Tags" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ImageOverride" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="VisibleName" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Description" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

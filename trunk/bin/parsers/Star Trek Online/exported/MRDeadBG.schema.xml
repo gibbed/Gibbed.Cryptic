@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRDeadBG">
+  <table>
+    <!-- 01ED7990 -->
+    <column name="MRDeadBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="spcStartCollapsing" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="spcStartStandingUp" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="MRDeadBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

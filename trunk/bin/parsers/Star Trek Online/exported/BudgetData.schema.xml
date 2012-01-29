@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BudgetData">
+  <table>
+    <!-- 01F46E48 -->
+    <column name="BudgetData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Opacity" type="F32">
+      <offset>4264</offset>
+    </column>
+    <column name="Scale" type="F32">
+      <offset>4268</offset>
+    </column>
+    <column name="AlertOn" type="INT">
+      <offset>4272</offset>
+      <static_define_list>
+        <!-- 02F16E08 -->
+      </static_define_list>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

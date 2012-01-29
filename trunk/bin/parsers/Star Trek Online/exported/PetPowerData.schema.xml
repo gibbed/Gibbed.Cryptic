@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PetPowerData">
+  <table>
+    <!-- 01F31778 -->
+    <column name="PetPowerData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="OwnerType" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 02F87048 -->
+      </static_define_list>
+    </column>
+    <column name="OwnerID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Ent" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Entity" />
+    </column>
+    <column name="hDef" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="OwnerName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

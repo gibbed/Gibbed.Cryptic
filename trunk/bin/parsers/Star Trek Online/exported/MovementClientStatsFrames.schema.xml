@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MovementClientStatsFrames">
+  <table>
+    <!-- 01EDA9D8 -->
+    <column name="MovementClientStatsFrames" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="frames" type="">
+      <offset>0</offset>
+      <subtable external="MovementClientStatsFrame" />
+    </column>
+    <column name="Count" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MissionEditCond">
+  <table>
+    <!-- 01EBC5C8 -->
+    <column name="MissionEditCond" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list>
+        <!-- 02B96770 -->
+      </static_define_list>
+    </column>
+    <column name="valStr" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="When" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="MissionEditCond" />
+    </column>
+    <column name="ShowCount" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

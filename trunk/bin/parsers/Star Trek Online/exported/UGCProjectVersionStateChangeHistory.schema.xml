@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectVersionStateChangeHistory">
+  <table>
+    <!-- 01E90108 -->
+    <column name="UGCProjectVersionStateChangeHistory" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="eNewState" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list>
+        <!-- 02FD56F8 -->
+      </static_define_list>
+    </column>
+    <column name="iTime" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pComment" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

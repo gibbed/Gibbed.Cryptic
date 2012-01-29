@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GlobalUIDs">
+  <table>
+    <!-- 020E2948 -->
+    <column name="GlobalUIDs" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="GUID" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="GUIDEntry" />
+    </column>
+  </table>
+</parser>

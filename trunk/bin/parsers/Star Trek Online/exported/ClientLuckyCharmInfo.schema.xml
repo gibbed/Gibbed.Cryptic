@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClientLuckyCharmInfo">
+  <table>
+    <!-- 01EA3C78 -->
+    <column name="ClientLuckyCharmInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Ent" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Entity" />
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

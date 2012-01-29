@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalSync">
+  <table>
+    <!-- 01EE0A90 -->
+    <column name="TacticalSync" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="globalCooldownSeconds" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="aim" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="TacticalSyncAim" />
+    </column>
+    <column name="crouch" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="TacticalSyncCrouch" />
+    </column>
+    <column name="run" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="TacticalSyncRun" />
+    </column>
+    <column name="Roll" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="TacticalSyncRoll" />
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="TacticalSyncFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

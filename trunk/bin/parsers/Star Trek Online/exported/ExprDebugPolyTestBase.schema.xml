@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExprDebugPolyTestBase">
+  <table>
+    <!-- 0201ACB0 -->
+    <column name="ExprDebugPolyTestBase" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <static_define_list>
+        <!-- 02FEAC90 -->
+      </static_define_list>
+    </column>
+    <column name="Key" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

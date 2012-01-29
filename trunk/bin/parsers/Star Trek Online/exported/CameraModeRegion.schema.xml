@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CameraModeRegion">
+  <table>
+    <!-- 01E989E8 -->
+    <column name="CameraModeRegion" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Mode" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list>
+        <!-- 02E643C0 -->
+      </static_define_list>
+    </column>
+    <column name="Regions" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 02E674A8 -->
+      </static_define_list>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

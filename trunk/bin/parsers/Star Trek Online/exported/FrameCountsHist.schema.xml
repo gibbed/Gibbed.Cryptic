@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FrameCountsHist">
+  <table>
+    <!-- 01F9CAB0 -->
+    <column name="FrameCountsHist" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="minvalues" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="FrameCounts" />
+    </column>
+    <column name="maxvalues" type="EMBEDDEDSTRUCT">
+      <offset>976</offset>
+      <subtable external="FrameCounts" />
+    </column>
+    <column name="sum" type="EMBEDDEDSTRUCT">
+      <offset>1952</offset>
+      <subtable external="FrameCounts" />
+    </column>
+    <column name="avg" type="EMBEDDEDSTRUCT">
+      <offset>2928</offset>
+      <subtable external="FrameCounts" />
+    </column>
+    <column name="Count" type="INT">
+      <offset>3904</offset>
+    </column>
+    <column name="invalid" type="INT">
+      <offset>3908</offset>
+    </column>
+    <column name="ping" type="INT">
+      <offset>3912</offset>
+    </column>
+    <column name="ip" type="INT">
+      <offset>3916</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

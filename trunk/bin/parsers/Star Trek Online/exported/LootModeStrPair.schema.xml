@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LootModeStrPair">
+  <table>
+    <!-- 01F13598 -->
+    <column name="LootModeStrPair" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Mode" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 02ED6B78 -->
+      </static_define_list>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Str" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Desc" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

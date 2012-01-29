@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExperimentSlot">
+  <table>
+    <!-- 01F32140 -->
+    <column name="ExperimentSlot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Item" />
+    </column>
+    <column name="EPVal" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="RewardIndex" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Components" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="ComponentSlot" />
+    </column>
+    <column name="Count" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="SrcBagId" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="SrcBagSlot" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

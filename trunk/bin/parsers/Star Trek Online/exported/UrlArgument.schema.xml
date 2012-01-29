@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UrlArgument">
+  <table>
+    <!-- 02008490 -->
+    <column name="UrlArgument" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="arg" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Value" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="value_ext" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="FileName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="content_type" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Length" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="method" type="INT">
+      <offset>24</offset>
+      <static_define_list>
+        <!-- 02FD8450 -->
+      </static_define_list>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

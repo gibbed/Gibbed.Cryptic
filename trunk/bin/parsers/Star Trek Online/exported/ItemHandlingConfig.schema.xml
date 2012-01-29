@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemHandlingConfig">
+  <table>
+    <!-- 01BE3E08 -->
+    <column name="ItemHandlingConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AcquireOverride" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ItemAcquireOverride" />
+    </column>
+    <column name="TradeableBag" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 02BB0048 -->
+      </static_define_list>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

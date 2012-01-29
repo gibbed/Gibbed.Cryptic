@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DaboResultIndex">
+  <table>
+    <!-- 01BB41B0 -->
+    <column name="DaboResultIndex" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="WheelIndex" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="PayoutPercent" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="MatchedColor" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="MatchedShape" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="MatchedCount" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Quarks" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="DS9s" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Wilds" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="Dabo" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="HasResults" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="BetInfo" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="DaboSpectatorBetInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

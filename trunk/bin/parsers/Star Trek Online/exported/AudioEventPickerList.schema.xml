@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AudioEventPickerList">
+  <table>
+    <!-- 01F5FEF0 -->
+    <column name="AudioEventPickerList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="root_folders" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="DirectoryFolder" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

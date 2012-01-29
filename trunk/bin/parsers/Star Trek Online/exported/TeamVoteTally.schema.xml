@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TeamVoteTally">
+  <table>
+    <!-- 01ED1CA0 -->
+    <column name="TeamVoteTally" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="VoteCount" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Priority" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

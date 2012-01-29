@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EventDefs">
+  <table>
+    <!-- 01F4C2C8 -->
+    <column name="EventDefs" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Event" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="EventDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldUGCProperties">
+  <table>
+    <!-- 020CC010 -->
+    <column name="WorldUGCProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="VisibleName" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Description" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="ImageOverride" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="NoDescription" type="BOOLFLAG">
+      <offset>28</offset>
+    </column>
+    <column name="restrictionProps" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="Faction" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="WorldUGCFactionRestrictionProperties" />
+    </column>
+    <column name="RestrictAllegiance" type="STRUCT">
+      <offset>40</offset>
+      <redundant />
+      <redundant_name>Faction</redundant_name>
+      <subtable external="WorldUGCFactionRestrictionProperties" />
+    </column>
+    <column name="ActorProperties" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="WorldUGCActorProperties" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

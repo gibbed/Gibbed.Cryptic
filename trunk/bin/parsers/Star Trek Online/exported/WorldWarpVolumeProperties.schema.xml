@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldWarpVolumeProperties">
+  <table>
+    <!-- 020C4380 -->
+    <column name="WorldWarpVolumeProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="WarpDest" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="WarpCondition" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="UseChoiceTable" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="SpawnTargetName" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="ChoiceTable" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>ChoiceTable</dictionary_name>
+    </column>
+    <column name="ChoiceName" type="STRING">
+      <offset>68</offset>
+    </column>
+    <column name="TransitionOverride" type="REFERENCE">
+      <offset>72</offset>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="Variable" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="WorldVariable" />
+    </column>
+    <column name="VariableDef" type="STRUCT">
+      <offset>80</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

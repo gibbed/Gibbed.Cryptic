@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AICommandParams">
+  <table>
+    <!-- 01EC20D8 -->
+    <column name="AICommandParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1142</default>
+      <static_define_list>
+        <!-- 02E91BA8 -->
+      </static_define_list>
+    </column>
+    <column name="Expression" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <redundant />
+      <redundant_name>Expression</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

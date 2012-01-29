@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MemLeakCategory">
+  <table>
+    <!-- 0201D1A0 -->
+    <column name="MemLeakCategory" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CategoryName__" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="MemberNames__" type="STRINGARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>DEFAULT_FIELD</flag>
+      </flags>
+    </column>
+    <column name="ReportString__" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

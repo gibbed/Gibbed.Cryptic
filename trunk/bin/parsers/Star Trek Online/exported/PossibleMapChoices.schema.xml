@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PossibleMapChoices">
+  <table>
+    <!-- 01E8EA10 -->
+    <column name="PossibleMapChoices" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Flags" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 02E5CF30 -->
+      </static_define_list>
+    </column>
+    <column name="Choices" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PossibleMapChoice" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

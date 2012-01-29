@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ControlSchemeRegionData">
+  <table>
+    <!-- 01E988F8 -->
+    <column name="ControlSchemeRegionData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="SchemeRegion" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 02E674A8 -->
+      </static_define_list>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

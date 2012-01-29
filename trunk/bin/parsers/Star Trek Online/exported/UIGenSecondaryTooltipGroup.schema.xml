@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenSecondaryTooltipGroup">
+  <table>
+    <!-- 0204C530 -->
+    <column name="UIGenSecondaryTooltipGroup" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SecondaryToolTip" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="UIGenSecondaryTooltip" />
+    </column>
+    <column name="Orientation" type="INT">
+      <offset>4</offset>
+      <default>6</default>
+      <static_define_list>
+        <!-- 03043FE8 -->
+      </static_define_list>
+    </column>
+    <column name="StackDirection" type="INT">
+      <offset>8</offset>
+      <default>9</default>
+      <static_define_list>
+        <!-- 03043FE8 -->
+      </static_define_list>
+    </column>
+    <column name="Alignment" type="INT">
+      <offset>12</offset>
+      <static_define_list>
+        <!-- 03043FE8 -->
+      </static_define_list>
+    </column>
+    <column name="StackAlignment" type="INT">
+      <offset>16</offset>
+      <static_define_list>
+        <!-- 03043FE8 -->
+      </static_define_list>
+    </column>
+    <column name="PrimarySpacing" type="INT16">
+      <offset>20</offset>
+      <default>4</default>
+      <static_define_list>
+        <!-- 03017B00 -->
+      </static_define_list>
+    </column>
+    <column name="SecondarySpacing" type="INT16">
+      <offset>22</offset>
+      <default>4</default>
+      <static_define_list>
+        <!-- 03017B00 -->
+      </static_define_list>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

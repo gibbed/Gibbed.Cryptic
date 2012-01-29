@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MovementClientStatsPacketArray">
+  <table>
+    <!-- 01EDACF8 -->
+    <column name="MovementClientStatsPacketArray" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="packets" type="">
+      <offset>0</offset>
+      <subtable external="MovementClientStatsPacket" />
+    </column>
+    <column name="Count" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

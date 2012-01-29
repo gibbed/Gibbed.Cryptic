@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CookieList">
+  <table>
+    <!-- 02010820 -->
+    <column name="CookieList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Cookies" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="Cookie" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

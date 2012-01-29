@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemEquipLimitCategories">
+  <table>
+    <!-- 01BDF5F8 -->
+    <column name="ItemEquipLimitCategories" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Category" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ItemEquipLimitCategoryData" />
+    </column>
+    <column name="CategoryName" type="STRUCT">
+      <offset>0</offset>
+      <redundant />
+      <redundant_name>Category</redundant_name>
+      <subtable external="ItemEquipLimitCategoryData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

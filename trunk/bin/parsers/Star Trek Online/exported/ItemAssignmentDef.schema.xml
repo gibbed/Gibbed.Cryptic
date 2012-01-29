@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentDef">
+  <table>
+    <!-- 01E8A7D0 -->
+    <column name="ItemAssignmentDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Image" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Description" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Category" type="INT">
+      <offset>44</offset>
+      <static_define_list>
+        <!-- 02E59408 -->
+      </static_define_list>
+    </column>
+    <column name="Duration" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="MinimumSlottedItems" type="INT">
+      <offset>52</offset>
+      <default>1</default>
+    </column>
+    <column name="AssignmentPointCost" type="INT">
+      <offset>56</offset>
+      <default>1</default>
+    </column>
+    <column name="CooldownAfterCompletion" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="Weight" type="INT">
+      <offset>64</offset>
+      <static_define_list>
+        <!-- 02E593E8 -->
+      </static_define_list>
+    </column>
+    <column name="Requirements" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <subtable external="ItemAssignmentRequirements" />
+    </column>
+    <column name="Outcome" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="ItemAssignmentOutcome" />
+    </column>
+    <column name="Slot" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="ItemAssignmentSlot" />
+    </column>
+    <column name="OutcomeModifier" type="STRUCT">
+      <offset>80</offset>
+      <subtable external="ItemAssignmentOutcomeModifier" />
+    </column>
+    <column name="NumericDurationScaleCategory" type="INT">
+      <offset>84</offset>
+      <static_define_list>
+        <!-- 02E593C8 -->
+      </static_define_list>
+    </column>
+    <column name="IsAbortable" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Disabled" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="AllowItemUnslotting" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="Repeatable" type="BIT">
+      <offset>88</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="CanStartRemotely" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="HasDependencies" type="BIT">
+      <offset>88</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CharacterSelectionSlot">
+  <table>
+    <!-- 01F26328 -->
+    <column name="CharacterSelectionSlot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Choice" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="PossibleCharacterChoice" />
+    </column>
+    <column name="CharacterSlot" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="UnusedSlot" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="PurchaseSlot" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

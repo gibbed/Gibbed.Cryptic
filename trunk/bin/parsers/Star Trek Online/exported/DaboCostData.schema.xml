@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DaboCostData">
+  <table>
+    <!-- 01BB4868 -->
+    <column name="DaboCostData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MinBet" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="MaxBet" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Numeric" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PayoutNumeric" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PayoutConversion" type="F32">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

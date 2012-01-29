@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatLogFormatSpan">
+  <table>
+    <!-- 01F382B8 -->
+    <column name="ChatLogFormatSpan" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Link" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="ChatLink" />
+    </column>
+    <column name="Start" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Length" type="INT16">
+      <offset>8</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>12</offset>
+      <static_define_list>
+        <!-- 02F08158 -->
+      </static_define_list>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CTFGroupParams">
+  <table>
+    <!-- 01F27548 -->
+    <column name="CTFGroupParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>3</default>
+      <static_define_list>
+        <!-- 02EF70F8 -->
+      </static_define_list>
+    </column>
+    <column name="CTFScore" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="FlagStatus" type="INT">
+      <offset>8</offset>
+      <static_define_list>
+        <!-- 02EF7138 -->
+      </static_define_list>
+    </column>
+    <column name="TimeDropped" type="F32">
+      <offset>12</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="vecFlagLocation" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="FlagHolder" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

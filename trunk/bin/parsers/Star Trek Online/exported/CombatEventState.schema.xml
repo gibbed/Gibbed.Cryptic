@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatEventState">
+  <table>
+    <!-- 01F61760 -->
+    <column name="CombatEventState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Events" type="STRUCT">
+      <offset>344</offset>
+      <subtable external="CombatEventTracker" />
+    </column>
+    <column name="puiCombatTrackerFlagCriticalIDs" type="INTARRAY">
+      <offset>348</offset>
+    </column>
+    <column name="puiCombatTrackerFlagDodgeIDs" type="INTARRAY">
+      <offset>352</offset>
+    </column>
+    <column name="puiCombatTrackerFlagBlockIDs" type="INTARRAY">
+      <offset>356</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

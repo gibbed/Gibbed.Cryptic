@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalBG">
+  <table>
+    <!-- 01EDF3E8 -->
+    <column name="TacticalBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dirRoll" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="spcAimingStart" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="spcRollingStart" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="spcRunningStart" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="runFuel" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="spcCooldownStart" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="yawFaceTarget" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="yawRollToBGOverride" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="distRolledSQR" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="spcDisableRollEnd" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="spcDisableAimEnd" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="spcDisableCrouchEnd" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="spcDisableSprintEnd" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="spcRollWaitingEnd" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>64</offset>
+      <subtable external="TacticalBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

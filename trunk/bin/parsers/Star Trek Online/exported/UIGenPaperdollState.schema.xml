@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenPaperdollState">
+  <table>
+    <!-- 01F1F0F0 -->
+    <column name="UIGenPaperdollState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>25</default>
+      <static_define_list>
+        <!-- 030177C0 -->
+      </static_define_list>
+    </column>
+    <column name="Texture" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="HeadshotTexture" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <redundant />
+      <redundant_name>Texture</redundant_name>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="Background" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="BackgroundTexture" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <redundant />
+      <redundant_name>Background</redundant_name>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="hCostume" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>WLCostume</dictionary_name>
+    </column>
+    <column name="hHeadshotStyle" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>HeadshotStyleDef</dictionary_name>
+    </column>
+    <column name="hEntity" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>Entity</dictionary_name>
+    </column>
+    <column name="AnimKeyword" type="STRING">
+      <offset>180</offset>
+    </column>
+    <column name="LastBits" type="STRING">
+      <offset>184</offset>
+    </column>
+    <column name="LastBackground" type="STRING">
+      <offset>188</offset>
+    </column>
+    <column name="uWLCostumeId" type="INT">
+      <offset>192</offset>
+    </column>
+    <column name="WLCostumeName" type="STRING">
+      <offset>196</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uLastUpdateTime" type="INT">
+      <offset>200</offset>
+    </column>
+    <column name="uAnimationOrder" type="INT">
+      <offset>204</offset>
+    </column>
+    <column name="Redraw" type="BIT">
+      <offset>208</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="UseSkeletonRadius" type="BIT">
+      <offset>208</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Animating" type="BIT">
+      <offset>208</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="WasAnimating" type="BIT">
+      <offset>208</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Created" type="BIT">
+      <offset>208</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="CachedEntityHeight" type="F32">
+      <offset>212</offset>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>216</offset>
+    </column>
+    <column name="Zoom" type="F32">
+      <offset>220</offset>
+    </column>
+    <column name="ZoomHeight" type="F32">
+      <offset>224</offset>
+    </column>
+    <column name="Pitch" type="F32">
+      <offset>228</offset>
+    </column>
+    <column name="Yaw" type="F32">
+      <offset>232</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

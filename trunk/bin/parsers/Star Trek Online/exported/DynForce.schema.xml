@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynForce">
+  <table>
+    <!-- 020E9B20 -->
+    <column name="DynForce" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 030B9818 -->
+      </static_define_list>
+    </column>
+    <column name="FallOff" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 030B9858 -->
+      </static_define_list>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Power" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Impulse" type="BOOLFLAG">
+      <offset>16</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AIPowerConfigDef">
+  <table>
+    <!-- 01F40BC0 -->
+    <column name="AIPowerConfigDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="inheritData" type="STRINGARRAY">
+      <offset>0</offset>
+      <flags>
+        <flag>INHERITANCE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="InheritData:" type="STRINGARRAY">
+      <offset>0</offset>
+      <flags>
+        <flag>INHERITANCE_STRUCT</flag>
+      </flags>
+      <redundant />
+      <redundant_name>inheritData</redundant_name>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="absWeight" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Weight:" type="F32">
+      <offset>8</offset>
+      <redundant />
+      <redundant_name>absWeight</redundant_name>
+    </column>
+    <column name="WeightModifier" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="WeightModifier:" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <redundant />
+      <redundant_name>WeightModifier</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="MinDist" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MinDist:" type="F32">
+      <offset>16</offset>
+      <redundant />
+      <redundant_name>MinDist</redundant_name>
+    </column>
+    <column name="MaxDist" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="MaxDist:" type="F32">
+      <offset>20</offset>
+      <redundant />
+      <redundant_name>MaxDist</redundant_name>
+    </column>
+    <column name="chainTarget" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ChainTarget:" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <redundant />
+      <redundant_name>chainTarget</redundant_name>
+    </column>
+    <column name="chainTime" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="ChainTime:" type="F32">
+      <offset>28</offset>
+      <redundant />
+      <redundant_name>chainTime</redundant_name>
+    </column>
+    <column name="AIRequires" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="AIRequires:" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <redundant />
+      <redundant_name>AIRequires</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="AIEndCondition" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="AIEndCondition:" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <redundant />
+      <redundant_name>AIEndCondition</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ChainRequires" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ChainRequires:" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <redundant />
+      <redundant_name>ChainRequires</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="TargetOverride" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="TargetOverride:" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <redundant />
+      <redundant_name>TargetOverride</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="CureRequires" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="CureRequires:" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <redundant />
+      <redundant_name>CureRequires</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="curePowerTags" type="INTARRAY">
+      <offset>52</offset>
+      <static_define_list>
+        <!-- 02E74150 -->
+      </static_define_list>
+    </column>
+    <column name="CureTags" type="INTARRAY">
+      <offset>52</offset>
+      <redundant />
+      <redundant_name>curePowerTags</redundant_name>
+      <static_define_list>
+        <!-- 02E74150 -->
+      </static_define_list>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="usedFields" type="INTFIXEDARRAY">
+      <offset>60</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

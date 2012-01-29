@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Filter">
+  <table>
+    <!-- 01FA88D0 -->
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 02F78580 -->
+      </static_define_list>
+    </column>
+    <column name="Magnitude" type="INT">
+      <offset>4</offset>
+      <default>1</default>
+    </column>
+    <column name="Percent" type="F32">
+      <offset>8</offset>
+      <default>1</default>
+    </column>
+    <column name="Spread" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="Color" type="INTARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="Offset" type="INTFIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="OffsetX" type="INT">
+      <offset>16</offset>
+      <redundant />
+      <redundant_name>Offset</redundant_name>
+    </column>
+    <column name="OffsetY" type="INT">
+      <offset>20</offset>
+      <redundant />
+    </column>
+    <column name="Blend" type="INT">
+      <offset>28</offset>
+      <static_define_list>
+        <!-- 02F78548 -->
+      </static_define_list>
+    </column>
+    <column name="EndFilter" type="END" />
+  </table>
+</parser>

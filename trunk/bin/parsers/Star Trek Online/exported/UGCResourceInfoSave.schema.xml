@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCResourceInfoSave">
+  <table>
+    <!-- 01F3E808 -->
+    <column name="UGCResourceInfoSave" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UGC_DICTIONARY_RESOURCE_INFO" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="UGCResourceInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

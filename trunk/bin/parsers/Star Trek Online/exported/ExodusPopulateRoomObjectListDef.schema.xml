@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExodusPopulateRoomObjectListDef">
+  <table>
+    <!-- 020FF4C8 -->
+    <column name="ExodusPopulateRoomObjectListDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ObjectDef" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ExodusPopulateObjectDefRef" />
+    </column>
+    <column name="Tags" type="STRINGARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Weight" type="INT">
+      <offset>8</offset>
+      <default>1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerMapMoveClient">
+  <table>
+    <!-- 01BDB4C8 -->
+    <column name="PlayerMapMoveClient" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- 02BA6A28 -->
+      </static_define_list>
+    </column>
+    <column name="MTRefs" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="MicroTransactionRef" />
+    </column>
+    <column name="hDisplayName" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="RequestingEnt" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="uiTimeStart" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="uiTimeToConfirm" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

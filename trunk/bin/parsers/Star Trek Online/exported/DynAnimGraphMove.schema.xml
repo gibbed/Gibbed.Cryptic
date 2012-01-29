@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynAnimGraphMove">
+  <table>
+    <!-- 020ECD88 -->
+    <column name="DynAnimGraphMove" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Move" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>DynMove</dictionary_name>
+    </column>
+    <column name="Chance" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

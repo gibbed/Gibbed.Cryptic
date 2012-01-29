@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ProjectileToBG">
+  <table>
+    <!-- 01ED8208 -->
+    <column name="ProjectileToBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="minHold" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="vel" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Target" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="spcStart" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="useTarget" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="lowAngle" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="isInFlight" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="proneAtEnd" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

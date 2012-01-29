@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RewardPackDisplayData">
+  <table>
+    <!-- 01F1B860 -->
+    <column name="RewardPackDisplayData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ItemDisplayName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Slot" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="InventorySlot" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

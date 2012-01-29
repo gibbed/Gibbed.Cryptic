@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PetTargetingInfo">
+  <table>
+    <!-- 01F08F30 -->
+    <column name="PetTargetingInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="erPet" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- 02ED8B00 -->
+      </static_define_list>
+    </column>
+    <column name="erTarget" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Index" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

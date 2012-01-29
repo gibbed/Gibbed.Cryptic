@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PossibleCharacterNumerics">
+  <table>
+    <!-- 01F38DC0 -->
+    <column name="PossibleCharacterNumerics" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Numerics" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PossibleCharacterNumeric" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

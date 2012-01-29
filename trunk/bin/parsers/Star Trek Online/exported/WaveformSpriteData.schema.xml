@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WaveformSpriteData">
+  <table>
+    <!-- 01BC4A28 -->
+    <column name="WaveformSpriteData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TotalWidth" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="TotalHeight" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Width" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Height" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="X" type="INT16">
+      <offset>16</offset>
+    </column>
+    <column name="Y" type="INT16">
+      <offset>18</offset>
+    </column>
+    <column name="ScrollPhaseSpeed" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="InterpSpeed" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="OffsetU" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="ScrollOffsetU" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="ScaleU" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="Init" type="U8">
+      <offset>40</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

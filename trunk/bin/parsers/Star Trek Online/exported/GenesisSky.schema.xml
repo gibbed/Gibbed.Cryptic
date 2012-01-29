@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisSky">
+  <table>
+    <!-- 020D0BA0 -->
+    <column name="GenesisSky" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list>
+        <!-- 030A0430 -->
+      </static_define_list>
+    </column>
+    <column name="Str" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

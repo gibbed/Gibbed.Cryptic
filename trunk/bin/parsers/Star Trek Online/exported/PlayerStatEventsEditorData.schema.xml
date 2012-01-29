@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerStatEventsEditorData">
+  <table>
+    <!-- 01F04F68 -->
+    <column name="PlayerStatEventsEditorData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Event" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="GameEvent" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

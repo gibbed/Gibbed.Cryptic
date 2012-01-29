@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalSyncRoll">
+  <table>
+    <!-- 01EE0928 -->
+    <column name="TacticalSyncRoll" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Speed" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Distance" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="postHoldSeconds" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="cooldownSeconds" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="fuelCost" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

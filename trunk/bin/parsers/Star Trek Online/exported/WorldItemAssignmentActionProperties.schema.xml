@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldItemAssignmentActionProperties">
+  <table>
+    <!-- 020C6020 -->
+    <column name="WorldItemAssignmentActionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="AssignmentName" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>ItemAssignmentDef</dictionary_name>
+    </column>
+    <column name="Operation" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

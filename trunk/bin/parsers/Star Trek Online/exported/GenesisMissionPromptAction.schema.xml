@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionPromptAction">
+  <table>
+    <!-- 020D9870 -->
+    <column name="GenesisMissionPromptAction" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Text" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="NextPromptName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="GrantMission" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="DismissAction" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="Actions" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="WorldGameActionBlock" />
+    </column>
+    <column name="NextBlockName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="When" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="GenesisWhen" />
+    </column>
+    <column name="EnabledCheckedAttrib" type="OPTIONALSTRUCT">
+      <offset>100</offset>
+      <subtable external="GenesisCheckedAttrib" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

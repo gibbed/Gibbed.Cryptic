@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExodusPopulateRoomDef">
+  <table>
+    <!-- 020FF5E0 -->
+    <column name="ExodusPopulateRoomDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FixedObject" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ExodusPopulateObject" />
+    </column>
+    <column name="RequiredObject" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="ExodusPopulateObjectDefRef" />
+    </column>
+    <column name="ObjectList" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="ExodusPopulateRoomObjectListDef" />
+    </column>
+    <column name="Density" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Deviation" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="TotalWeight" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TooltipNode">
+  <table>
+    <!-- 01EFF570 -->
+    <column name="TooltipNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hNode" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>WorldInteractionNode</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

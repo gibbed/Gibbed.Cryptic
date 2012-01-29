@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeConfig">
+  <table>
+    <!-- 01EB5CF0 -->
+    <column name="CostumeConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ChangeCooldown" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Prices" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CostumePrices" />
+    </column>
+    <column name="DisablePlayerActiveChange" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="InvalidCostumesAreFreeToChange" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

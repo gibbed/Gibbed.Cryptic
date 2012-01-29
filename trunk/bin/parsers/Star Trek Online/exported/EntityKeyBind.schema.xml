@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EntityKeyBind">
+  <table>
+    <!-- 01BD3AF8 -->
+    <column name="EntityKeyBind" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchKey" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant />
+      <redundant_name>Key</redundant_name>
+    </column>
+    <column name="Command" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchCommand" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant />
+      <redundant_name>Command</redundant_name>
+    </column>
+    <column name="SchemeRegions" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <static_define_list>
+        <!-- 02E674A8 -->
+      </static_define_list>
+    </column>
+    <column name="eSchemeRegions" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant />
+      <redundant_name>SchemeRegions</redundant_name>
+      <static_define_list>
+        <!-- 02E674A8 -->
+      </static_define_list>
+    </column>
+    <column name="Secondary" type="BIT">
+      <offset>12</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="bSecondary" type="BIT">
+      <offset>12</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant />
+      <redundant_name>Secondary</redundant_name>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Regions" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

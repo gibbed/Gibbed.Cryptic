@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIAngle">
+  <table>
+    <!-- 02074150 -->
+    <column name="UIAngle" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Angle" type="F32">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="Unit" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list>
+        <!-- 030440E8 -->
+      </static_define_list>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

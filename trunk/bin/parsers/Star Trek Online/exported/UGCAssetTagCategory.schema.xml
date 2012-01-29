@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCAssetTagCategory">
+  <table>
+    <!-- 020D4BD8 -->
+    <column name="UGCAssetTagCategory" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Label" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Tag" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UGCAssetTag" />
+    </column>
+    <column name="IsHidden" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="CanSort" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

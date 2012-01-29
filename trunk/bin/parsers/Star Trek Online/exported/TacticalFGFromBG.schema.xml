@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalFGFromBG">
+  <table>
+    <!-- 01EE0310 -->
+    <column name="TacticalFGFromBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="TacticalFGFromBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>
