@@ -10,9 +10,15 @@
     <column name="{" type="START" />
     <column name="Name" type="STRING">
       <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="Allegiance" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="hClass" type="REFERENCE">
       <offset>8</offset>

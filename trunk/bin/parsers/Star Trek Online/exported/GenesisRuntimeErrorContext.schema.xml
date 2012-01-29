@@ -25,12 +25,16 @@
     </column>
     <column name="RoomName" type="STRING">
       <offset>12</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>LocationName</redundant_name>
     </column>
     <column name="PathName" type="STRING">
       <offset>12</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>LocationName</redundant_name>
     </column>
     <column name="ChallengeName" type="STRING">
@@ -66,7 +70,9 @@
     </column>
     <column name="EpisodePartName" type="STRING">
       <offset>52</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>EpPartName</redundant_name>
     </column>
     <column name="DictionaryName" type="STRING">

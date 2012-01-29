@@ -63,7 +63,9 @@
     </column>
     <column name="Root" type="OPTIONALSTRUCT">
       <offset>60</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>SunInfo</redundant_name>
       <subtable external="SolarSystemSunsInfo" />
     </column>

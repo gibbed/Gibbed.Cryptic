@@ -104,7 +104,9 @@
     </column>
     <column name="AmbientJob" type="OPTIONALSTRUCT">
       <offset>80</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>InteractLocation</redundant_name>
       <subtable external="WorldInteractLocationProperties" />
     </column>

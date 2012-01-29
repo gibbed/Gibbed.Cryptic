@@ -43,7 +43,9 @@
     </column>
     <column name="UsePlayerLevel" type="INT">
       <offset>16</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>LevelType</redundant_name>
       <static_define_list>
         <!-- 030ABA10 -->
@@ -55,7 +57,9 @@
     </column>
     <column name="Level:" type="INT">
       <offset>20</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Level</redundant_name>
       <default>1</default>
     </column>

@@ -54,13 +54,17 @@
     </column>
     <column name="ExprCostBlock" type="OPTIONALSTRUCT">
       <offset>28</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockCost</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="ExprCost" type="OPTIONALSTRUCT">
       <offset>28</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockCost</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -70,7 +74,9 @@
     </column>
     <column name="ExprCostPeriodic" type="OPTIONALSTRUCT">
       <offset>32</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockCostPeriodic</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -112,13 +118,17 @@
     </column>
     <column name="ExprRadiusBlock" type="OPTIONALSTRUCT">
       <offset>68</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockRadius</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="ExprRadius" type="OPTIONALSTRUCT">
       <offset>68</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockRadius</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -128,25 +138,33 @@
     </column>
     <column name="ArcBlock" type="OPTIONALSTRUCT">
       <offset>72</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockArc</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="ExprArcBlock" type="OPTIONALSTRUCT">
       <offset>72</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockArc</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="ExprArc" type="OPTIONALSTRUCT">
       <offset>72</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockArc</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
     <column name="Arc" type="OPTIONALSTRUCT">
       <offset>72</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockArc</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -197,13 +215,17 @@
     </column>
     <column name="ExprRequiresChargeBlock" type="OPTIONALSTRUCT">
       <offset>124</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockRequiresCharge</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="ExprRequiresCharge" type="OPTIONALSTRUCT">
       <offset>124</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockRequiresCharge</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -307,13 +329,17 @@
     </column>
     <column name="ExprEnhanceBlock" type="OPTIONALSTRUCT">
       <offset>200</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockEnhanceAttach</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="ExprEnhance" type="OPTIONALSTRUCT">
       <offset>200</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockEnhanceAttach</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -323,7 +349,9 @@
     </column>
     <column name="ExprEnhanceApplyBlock" type="OPTIONALSTRUCT">
       <offset>204</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockEnhanceApply</redundant_name>
       <subtable external="Expression" />
     </column>
@@ -438,9 +466,9 @@
     <column name="ExprAICommand" type="OPTIONALSTRUCT">
       <offset>332</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>ExprBlockAICommand</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -482,10 +510,10 @@
     <column name="ForceBinningAgain" type="INT">
       <offset>352</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>uiVersion</redundant_name>
     </column>
     <column name="Interrupts" type="BIT">
@@ -569,7 +597,9 @@
     </column>
     <column name="SetsCombat" type="BIT">
       <offset>368</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>SourceEnterCombat</redundant_name>
       <bit_offset>196621</bit_offset>
       <static_define_list>
@@ -585,7 +615,9 @@
     </column>
     <column name="UnrestrictedTargeting" type="BIT">
       <offset>368</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>RequireValidTarget</redundant_name>
       <bit_offset>196624</bit_offset>
       <static_define_list>
@@ -605,9 +637,9 @@
     <column name="ActivateWhileDead" type="BIT">
       <offset>368</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <redundant />
       <redundant_name>ActivateRules</redundant_name>
       <bit_offset>196627</bit_offset>
       <static_define_list>
@@ -693,7 +725,9 @@
     </column>
     <column name="IgnoreAccuracy" type="BIT">
       <offset>372</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>HitChanceIgnore</redundant_name>
       <bit_offset>65542</bit_offset>
     </column>
@@ -715,7 +749,9 @@
     </column>
     <column name="AlwaysHitGround" type="BIT">
       <offset>372</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>SimpleProjectileMotion</redundant_name>
       <bit_offset>65546</bit_offset>
     </column>
@@ -817,9 +853,9 @@
     <column name="EnhanceExtend" type="BIT">
       <offset>372</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
-      <redundant />
       <redundant_name>EnhancementExtension</redundant_name>
       <bit_offset>65560</bit_offset>
     </column>

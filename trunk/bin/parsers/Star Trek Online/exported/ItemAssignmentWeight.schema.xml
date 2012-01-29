@@ -20,7 +20,9 @@
     </column>
     <column name="Weight" type="F32">
       <offset>4</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Value</redundant_name>
     </column>
     <column name="}" type="END" />

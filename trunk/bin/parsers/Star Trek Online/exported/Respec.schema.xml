@@ -13,7 +13,9 @@
     </column>
     <column name="Date" type="STRING">
       <offset>0</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>RespecTimeString</redundant_name>
     </column>
     <column name="uiDerivedRespecTime" type="INT">

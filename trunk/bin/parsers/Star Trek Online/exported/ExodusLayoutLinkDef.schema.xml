@@ -26,10 +26,16 @@
     </column>
     <column name="FromRoom" type="OPTIONALSTRUCT">
       <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="ExodusLayoutRoomDef" />
     </column>
     <column name="ToRoom" type="OPTIONALSTRUCT">
       <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="ExodusLayoutRoomDef" />
     </column>
     <column name="}" type="END" />

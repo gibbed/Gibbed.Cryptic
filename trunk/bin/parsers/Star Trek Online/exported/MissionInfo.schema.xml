@@ -36,10 +36,10 @@
     <column name="eaRecentSecondaryMissions" type="STRUCT">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>RecentSecondaryMissions</redundant_name>
       <subtable external="CompletedMission" />
     </column>
@@ -54,10 +54,10 @@
     <column name="eaMissionRequests" type="STRUCT">
       <offset>12</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>MissionRequests</redundant_name>
       <subtable external="MissionRequest" />
     </column>
@@ -89,11 +89,11 @@
       <offset>24</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>pchPrimarySoloMission</redundant_name>
     </column>
     <column name="eaNonPersistedMissions" type="STRUCT">

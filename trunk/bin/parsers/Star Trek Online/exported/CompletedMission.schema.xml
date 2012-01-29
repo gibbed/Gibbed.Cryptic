@@ -51,9 +51,9 @@
     <column name="eaStats" type="STRUCT">
       <offset>20</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Stats</redundant_name>
       <subtable external="CompletedMissionStats" />
     </column>

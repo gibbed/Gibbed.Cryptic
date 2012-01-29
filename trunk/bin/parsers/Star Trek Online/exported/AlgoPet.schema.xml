@@ -35,10 +35,10 @@
     <column name="iCostume" type="INT">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Costume</redundant_name>
       <default>-1</default>
     </column>
@@ -53,10 +53,10 @@
     <column name="pCostume" type="OPTIONALSTRUCT">
       <offset>12</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>RandomCostume</redundant_name>
       <subtable external="PlayerCostume" />
     </column>
@@ -78,10 +78,10 @@
     <column name="pchPetName" type="STRING">
       <offset>20</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>PetName</redundant_name>
     </column>
     <column name="PetSubName" type="STRING">
@@ -94,10 +94,10 @@
     <column name="pchPetSubName" type="STRING">
       <offset>24</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>PetSubName</redundant_name>
     </column>
     <column name="hAllegiance" type="IGNORE" />

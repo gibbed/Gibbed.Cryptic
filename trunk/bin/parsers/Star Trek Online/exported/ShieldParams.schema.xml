@@ -34,7 +34,9 @@
     </column>
     <column name="PercentDamageIgnored" type="F32">
       <offset>12</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>PercentIgnored</redundant_name>
     </column>
     <column name="Charges" type="INT">

@@ -19,10 +19,10 @@
     <column name="eaExtraColors" type="STRUCT">
       <offset>0</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ExtraColor</redundant_name>
       <subtable external="PCMaterialColor" />
     </column>
@@ -37,10 +37,10 @@
     <column name="eaExtraConstants" type="STRUCT">
       <offset>4</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ExtraValue</redundant_name>
       <subtable external="PCMaterialConstant" />
     </column>
@@ -55,10 +55,10 @@
     <column name="eaExtraTextures" type="STRUCT">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ExtraTexture</redundant_name>
       <subtable external="PCTextureRef" />
     </column>
@@ -72,10 +72,10 @@
     <column name="bNoShadow" type="U8">
       <offset>12</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>NoShadow</redundant_name>
     </column>
     <column name="}" type="END" />

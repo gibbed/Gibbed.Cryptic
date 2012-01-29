@@ -21,11 +21,11 @@
       <offset>0</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>STRUCTPARAM</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>EventName</redundant_name>
     </column>
     <column name="EventCount" type="INT">
@@ -39,11 +39,11 @@
     <column name="iEventCount" type="INT">
       <offset>4</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>STRUCTPARAM</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>EventCount</redundant_name>
     </column>
     <column name="&#xA;" type="END" />

@@ -11,20 +11,33 @@
     <column name="Key" type="STRING">
       <offset>0</offset>
       <flags>
+        <flag>UNKNOWN_32</flag>
         <flag>KEY</flag>
       </flags>
     </column>
     <column name="Name" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="Desc" type="STRING">
       <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="DescLong" type="STRING">
       <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="DescFlavor" type="STRING">
       <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="Custom" type="STRING">
       <offset>20</offset>
@@ -262,6 +275,9 @@
     </column>
     <column name="ps" type="STRUCT">
       <offset>200</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="AutoDescPower" />
     </column>
     <column name="AttribMods" type="STRUCT">
@@ -280,6 +296,9 @@
     </column>
     <column name="m" type="STRUCT">
       <offset>212</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="AutoDescAttribMod" />
     </column>
     <column name="PowerTags" type="INTARRAY">

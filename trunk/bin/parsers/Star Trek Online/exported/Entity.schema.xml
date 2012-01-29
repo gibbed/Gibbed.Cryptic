@@ -106,11 +106,11 @@
     <column name="isInvisiblePersistent" type="BIT">
       <offset>108</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>invisible</redundant_name>
       <bit_offset>65542</bit_offset>
     </column>
@@ -259,11 +259,11 @@
     <column name="eGender" type="INT">
       <offset>340</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>LOGIN_SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Gender</redundant_name>
       <static_define_list>
         <!-- 02F89C18 -->
@@ -309,9 +309,9 @@
     <column name="currentNeighborhood" type="OPTIONALSTRUCT">
       <offset>556</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SELF_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>Neighborhood</redundant_name>
       <subtable external="CurrentHood" />
     </column>
@@ -325,6 +325,7 @@
     <column name="aibase" type="OPTIONALSTRUCT">
       <offset>564</offset>
       <flags>
+        <flag>UNKNOWN_32</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable>
@@ -338,9 +339,10 @@
     <column name="AI" type="OPTIONALSTRUCT">
       <offset>564</offset>
       <flags>
+        <flag>ALIAS</flag>
+        <flag>UNKNOWN_32</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>aibase</redundant_name>
       <subtable>
         <table>

@@ -19,10 +19,10 @@
     <column name="uMacroID" type="INT">
       <offset>0</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>MacroID</redundant_name>
     </column>
     <column name="Macro" type="STRING">
@@ -35,10 +35,10 @@
     <column name="pchMacro" type="STRING">
       <offset>4</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>Macro</redundant_name>
     </column>
     <column name="Desc" type="STRING">
@@ -51,10 +51,10 @@
     <column name="pchDescription" type="STRING">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>Desc</redundant_name>
     </column>
     <column name="Icon" type="STRING">
@@ -69,10 +69,10 @@
       <offset>12</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>Icon</redundant_name>
     </column>
     <column name="}" type="END" />

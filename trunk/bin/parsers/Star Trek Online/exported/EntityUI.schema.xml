@@ -30,10 +30,16 @@
     </column>
     <column name="EncounterData" type="OPTIONALSTRUCT">
       <offset>20</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="EncounterUIData" />
     </column>
     <column name="OffscreenData" type="OPTIONALSTRUCT">
       <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="OffscreenUIData" />
     </column>
     <column name="LastOffscreenLoS" type="U8">

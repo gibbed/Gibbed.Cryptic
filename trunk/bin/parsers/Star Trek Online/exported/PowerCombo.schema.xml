@@ -30,13 +30,17 @@
     </column>
     <column name="RequiresBlock" type="OPTIONALSTRUCT">
       <offset>12</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockRequires</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="Requires" type="OPTIONALSTRUCT">
       <offset>12</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockRequires</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -57,7 +61,9 @@
     </column>
     <column name="TimeChargeRequired" type="F32">
       <offset>24</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>PercentChargeRequired</redundant_name>
     </column>
     <column name="ExprBlockTargetClient" type="OPTIONALSTRUCT">
@@ -66,7 +72,9 @@
     </column>
     <column name="TargetClient" type="OPTIONALSTRUCT">
       <offset>28</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockTargetClient</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>

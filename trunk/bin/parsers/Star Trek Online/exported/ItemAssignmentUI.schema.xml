@@ -14,16 +14,28 @@
     </column>
     <column name="DisplayName" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="Description" type="STRING">
       <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="MapDisplayName" type="STRING">
       <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="MapName" type="STRING">
       <offset>12</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <redundant_name>MapDisplayName</redundant_name>
     </column>
     <column name="OutcomeName" type="STRING">
@@ -34,21 +46,33 @@
     </column>
     <column name="OutcomeDisplayName" type="STRING">
       <offset>20</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="OutcomeDescription" type="STRING">
       <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="uOutcomeDestroyed" type="INT">
       <offset>28</offset>
     </column>
     <column name="OutcomeDestroyedDescription" type="STRING">
       <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="uOutcomeNewAssignment" type="INT">
       <offset>36</offset>
     </column>
     <column name="OutcomeNewAssignmentDescription" type="STRING">
       <offset>40</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="OutcomeNewAssignmentDef" type="REFERENCE">
       <offset>44</offset>

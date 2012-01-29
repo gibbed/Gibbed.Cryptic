@@ -40,7 +40,9 @@
     </column>
     <column name="AcceptDialog" type="STRUCT">
       <offset>20</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>OfferDialog</redundant_name>
       <subtable external="DialogBlock" />
     </column>

@@ -48,7 +48,9 @@
     </column>
     <column name="QualityScale" type="STRUCT">
       <offset>32</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>NumericQualityScale</redundant_name>
       <subtable external="ItemAssignmentQualityNumericScale" />
     </column>

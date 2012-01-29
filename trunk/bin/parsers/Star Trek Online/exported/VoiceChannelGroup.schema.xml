@@ -19,6 +19,9 @@
     </column>
     <column name="Channels" type="STRUCT">
       <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="VoiceChannel" />
     </column>
     <column name="ID" type="INT">

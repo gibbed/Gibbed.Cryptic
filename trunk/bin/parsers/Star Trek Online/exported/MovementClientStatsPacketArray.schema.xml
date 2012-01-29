@@ -10,6 +10,9 @@
     <column name="{" type="START" />
     <column name="packets" type="EMBEDDEDSTRUCT">
       <offset>0</offset>
+      <flags>
+        <flag>EARRAY</flag>
+      </flags>
       <subtable external="MovementClientStatsPacket" />
     </column>
     <column name="Count" type="INT">

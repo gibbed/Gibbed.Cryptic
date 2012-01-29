@@ -89,7 +89,9 @@
     </column>
     <column name="FaceAbsolute" type="INT">
       <offset>56</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>FaceType</redundant_name>
       <static_define_list>
         <!-- 02E93200 -->
@@ -109,7 +111,9 @@
     </column>
     <column name="UseCreatorPitch" type="BIT">
       <offset>60</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>UseFacingPitch</redundant_name>
       <bit_offset>65538</bit_offset>
     </column>

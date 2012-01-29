@@ -14,7 +14,9 @@
     </column>
     <column name="FarSystemRep" type="OPTIONALSTRUCT">
       <offset>0</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>SunList</redundant_name>
       <subtable external="SolarSystemSuns" />
     </column>

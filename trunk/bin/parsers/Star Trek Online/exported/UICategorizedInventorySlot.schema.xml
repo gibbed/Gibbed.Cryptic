@@ -15,15 +15,27 @@
     </column>
     <column name="CategoryName" type="STRING">
       <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="CategoryNameWithoutPrefix" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="CategoryNamePrefix" type="STRING">
       <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="DisplayName" type="STRING">
       <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="Category" type="INT">
       <offset>16</offset>
@@ -33,6 +45,9 @@
     </column>
     <column name="CategoryData" type="OPTIONALSTRUCT">
       <offset>20</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="ItemCategoryInfo" />
     </column>
     <column name="SlotKey" type="STRING">
@@ -40,6 +55,9 @@
     </column>
     <column name="Slot" type="OPTIONALSTRUCT">
       <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="InventorySlot" />
     </column>
     <column name="}" type="END" />

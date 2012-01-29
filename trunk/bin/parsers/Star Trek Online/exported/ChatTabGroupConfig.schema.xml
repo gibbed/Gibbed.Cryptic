@@ -21,10 +21,10 @@
       <offset>0</offset>
       <flags>
         <flag>ESTRING</flag>
+        <flag>ALIAS</flag>
         <flag>POOL_STRING_DB</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Name</redundant_name>
     </column>
     <column name="eaChatTabConfigs" type="STRUCT">
@@ -44,10 +44,10 @@
     <column name="iCurrentTab" type="INT">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>CurrentTab</redundant_name>
     </column>
     <column name="Time" type="INT">
@@ -59,9 +59,9 @@
     <column name="uiTime" type="INT">
       <offset>12</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Time</redundant_name>
     </column>
     <column name="}" type="END" />

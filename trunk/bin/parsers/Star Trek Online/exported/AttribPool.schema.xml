@@ -61,7 +61,9 @@
     </column>
     <column name="AttribRegen" type="INT">
       <offset>28</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>AttribRegenRate</redundant_name>
       <static_define_list>
         <!-- 02E91BA8 -->
@@ -81,7 +83,9 @@
     </column>
     <column name="AttribDecay" type="INT">
       <offset>36</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>AttribDecayRate</redundant_name>
       <static_define_list>
         <!-- 02E91BA8 -->

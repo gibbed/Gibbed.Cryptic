@@ -754,17 +754,23 @@
     </column>
     <column name="MicrotransactionCurrency" type="STRING">
       <offset>204</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>MicrotransactionDefaultCurrency</redundant_name>
     </column>
     <column name="MTCurrency" type="STRING">
       <offset>204</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>MicrotransactionDefaultCurrency</redundant_name>
     </column>
     <column name="DefaultCurrency" type="STRING">
       <offset>204</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>MicrotransactionDefaultCurrency</redundant_name>
     </column>
     <column name="UGCProjectNoPlayDaysBeforeNoRepublish" type="INT">

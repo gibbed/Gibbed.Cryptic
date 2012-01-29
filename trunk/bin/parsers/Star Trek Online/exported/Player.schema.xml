@@ -162,13 +162,13 @@
     <column name="pProgressionInfo" type="OPTIONALSTRUCT">
       <offset>320</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>ALWAYS_ALLOC</flag>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_AND_TEAM_ONLY</flag>
         <flag>LOGIN_SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ProgressionInfo</redundant_name>
       <subtable external="ProgressionInfo" />
     </column>
@@ -203,10 +203,10 @@
     <column name="eaPersistActivatedSpawns" type="STRUCT">
       <offset>332</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ActivatedSpawns</redundant_name>
       <subtable external="ActivatedPlayerSpawn" />
     </column>
@@ -801,22 +801,22 @@
     <column name="pRecruitWarp" type="OPTIONALSTRUCT">
       <offset>920</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>pWarp</redundant_name>
       <subtable external="PlayerWarpToData" />
     </column>
     <column name="RecruitWarp" type="OPTIONALSTRUCT">
       <offset>920</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>pWarp</redundant_name>
       <subtable external="PlayerWarpToData" />
     </column>

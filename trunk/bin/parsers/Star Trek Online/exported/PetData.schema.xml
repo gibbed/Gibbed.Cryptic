@@ -10,6 +10,9 @@
     <column name="{" type="START" />
     <column name="Entity" type="OPTIONALSTRUCT">
       <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="Entity" />
     </column>
     <column name="AiState" type="STRING">
@@ -26,6 +29,9 @@
     </column>
     <column name="Name" type="STRING">
       <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="Level" type="INT">
       <offset>16</offset>

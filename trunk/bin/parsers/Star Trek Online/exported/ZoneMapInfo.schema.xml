@@ -139,7 +139,9 @@
     </column>
     <column name="ProceduralData" type="OPTIONALSTRUCT">
       <offset>140</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>GenesisData</redundant_name>
       <subtable external="GenesisZoneMapData" />
     </column>
@@ -149,7 +151,9 @@
     </column>
     <column name="BackupProceduralData" type="OPTIONALSTRUCT">
       <offset>144</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>BackupGenesisData</redundant_name>
       <subtable external="GenesisZoneMapData" />
     </column>
@@ -159,7 +163,9 @@
     </column>
     <column name="GenesisMapData" type="OPTIONALSTRUCT">
       <offset>148</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>GenesisInfo</redundant_name>
       <subtable external="GenesisZoneMapInfo" />
     </column>

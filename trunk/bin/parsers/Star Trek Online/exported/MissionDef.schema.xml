@@ -82,9 +82,9 @@
     <column name="Comments:" type="STRING">
       <offset>52</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>Comments</redundant_name>
     </column>
     <column name="SoundOnContactOffer" type="STRING">
@@ -152,7 +152,9 @@
     </column>
     <column name="UsePlayerLevel" type="INT">
       <offset>168</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>LevelType</redundant_name>
       <static_define_list>
         <!-- 030ABA10 -->
@@ -164,7 +166,9 @@
     </column>
     <column name="Level:" type="INT">
       <offset>172</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Level</redundant_name>
       <default>1</default>
     </column>
@@ -186,7 +190,9 @@
     </column>
     <column name="TimeToComplete:" type="INT">
       <offset>192</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>TimeToComplete</redundant_name>
     </column>
     <column name="GrantOnMap" type="STRING">
@@ -200,9 +206,9 @@
       <offset>196</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>GrantOnMap</redundant_name>
     </column>
     <column name="RequiresBlock" type="OPTIONALSTRUCT">
@@ -215,9 +221,9 @@
     <column name="Requires:" type="OPTIONALSTRUCT">
       <offset>200</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>RequiresBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -238,7 +244,9 @@
     </column>
     <column name="CanRepeat:" type="U8">
       <offset>212</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>CanRepeat</redundant_name>
     </column>
     <column name="RepeatCooldownHours" type="F32">
@@ -262,7 +270,9 @@
     </column>
     <column name="NeedsReturn:" type="U8">
       <offset>230</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>NeedsReturn</redundant_name>
       <default>1</default>
     </column>
@@ -285,9 +295,9 @@
     <column name="Parameters:" type="OPTIONALSTRUCT">
       <offset>236</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>Parameters</redundant_name>
       <subtable external="MissionDefParams" />
     </column>
@@ -371,9 +381,9 @@
     <column name="SubMission:" type="STRUCT">
       <offset>280</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>NO_INDEX</flag>
       </flags>
-      <redundant />
       <redundant_name>SubMission</redundant_name>
       <subtable external="MissionDef" />
     </column>
@@ -441,9 +451,9 @@
       <offset>328</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>GLOBAL_NAME</flag>
       </flags>
-      <redundant />
       <redundant_name>RelatedMission</redundant_name>
       <dictionary_name>Misison</dictionary_name>
     </column>

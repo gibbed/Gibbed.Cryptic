@@ -64,9 +64,9 @@
     <column name="EventData" type="STRUCT">
       <offset>40</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>Event</redundant_name>
       <subtable external="GameEvent" />
     </column>

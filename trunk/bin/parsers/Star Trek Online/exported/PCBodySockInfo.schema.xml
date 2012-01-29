@@ -20,10 +20,10 @@
       <offset>0</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>BodySockGeo</redundant_name>
     </column>
     <column name="BodySockPose" type="STRING">
@@ -38,10 +38,10 @@
       <offset>4</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>BodySockPose</redundant_name>
     </column>
     <column name="BodySockMin" type="F32FIXEDARRAY">
@@ -55,10 +55,10 @@
     <column name="vBodySockMin" type="F32FIXEDARRAY">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>BodySockMin</redundant_name>
       <num_elements>3</num_elements>
     </column>
@@ -73,10 +73,10 @@
     <column name="vBodySockMax" type="F32FIXEDARRAY">
       <offset>20</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>BodySockMax</redundant_name>
       <num_elements>3</num_elements>
     </column>

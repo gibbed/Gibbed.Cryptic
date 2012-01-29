@@ -87,7 +87,9 @@
     </column>
     <column name="RestrictBag2ID" type="INTARRAY">
       <offset>96</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>RestrictBagID</redundant_name>
       <static_define_list>
         <!-- 02BB0048 -->
@@ -211,9 +213,9 @@
     <column name="RewardTable" type="OPTIONALSTRUCT">
       <offset>204</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>RewardPackInfo</redundant_name>
       <subtable external="RewardPackInfo" />
     </column>
@@ -258,7 +260,9 @@
     </column>
     <column name="Recipe" type="REFERENCE">
       <offset>240</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>CraftRecipe</redundant_name>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
@@ -336,9 +340,9 @@
     <column name="UniqueItemSet" type="BIT">
       <offset>296</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <redundant />
       <redundant_name>ItemSetMembersUnique</redundant_name>
       <bit_offset>65540</bit_offset>
     </column>

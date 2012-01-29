@@ -69,7 +69,9 @@
     </column>
     <column name="PowerSlot" type="REFERENCE">
       <offset>68</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>PowerReplace</redundant_name>
       <dictionary_name>PowerReplaceDef</dictionary_name>
     </column>

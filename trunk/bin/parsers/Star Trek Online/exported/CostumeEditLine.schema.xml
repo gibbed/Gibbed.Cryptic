@@ -61,38 +61,65 @@
     </column>
     <column name="CurrentTex" type="OPTIONALSTRUCT">
       <offset>64</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCTextureDef" />
     </column>
     <column name="CurrentMat" type="OPTIONALSTRUCT">
       <offset>68</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCMaterialDef" />
     </column>
     <column name="CurrentGeo" type="OPTIONALSTRUCT">
       <offset>72</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCGeometryDef" />
     </column>
     <column name="CurrentBone" type="OPTIONALSTRUCT">
       <offset>76</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCBoneDef" />
     </column>
     <column name="CurrentCat" type="OPTIONALSTRUCT">
       <offset>80</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCCategory" />
     </column>
     <column name="CurrentRegion" type="OPTIONALSTRUCT">
       <offset>84</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCRegion" />
     </column>
     <column name="CurrentValue" type="OPTIONALSTRUCT">
       <offset>88</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCBodyScaleValue" />
     </column>
     <column name="CurrentOverlay" type="OPTIONALSTRUCT">
       <offset>92</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="CostumeRefForSet" />
     </column>
     <column name="CurrentGuildOverlay" type="OPTIONALSTRUCT">
       <offset>96</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PlayerCostumeHolder" />
     </column>
     <column name="hOwnerMat" type="REFERENCE">
@@ -117,38 +144,65 @@
     </column>
     <column name="Tex" type="STRUCT">
       <offset>120</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCTextureDef" />
     </column>
     <column name="Mat" type="STRUCT">
       <offset>124</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCMaterialDef" />
     </column>
     <column name="Geo" type="STRUCT">
       <offset>128</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCGeometryDef" />
     </column>
     <column name="Bone" type="STRUCT">
       <offset>132</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCBoneDef" />
     </column>
     <column name="Cat" type="STRUCT">
       <offset>136</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCCategory" />
     </column>
     <column name="Region" type="STRUCT">
       <offset>140</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCRegion" />
     </column>
     <column name="Values" type="STRUCT">
       <offset>144</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCBodyScaleValue" />
     </column>
     <column name="Overlays" type="STRUCT">
       <offset>148</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="CostumeRefForSet" />
     </column>
     <column name="GuildOverlays" type="STRUCT">
       <offset>152</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PlayerCostumeHolder" />
     </column>
     <column name="Color0Allowed" type="BIT">
@@ -185,6 +239,9 @@
     </column>
     <column name="UnlockInfo" type="OPTIONALSTRUCT">
       <offset>172</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="UnlockMetaData" />
     </column>
     <column name="}" type="END" />

@@ -34,10 +34,10 @@
     <column name="eaSchemeRegions" type="STRUCT">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>SchemeRegion</redundant_name>
       <subtable external="ControlSchemeRegion" />
     </column>
@@ -52,10 +52,10 @@
     <column name="eaSchemes" type="STRUCT">
       <offset>12</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>Scheme</redundant_name>
       <subtable external="ControlScheme" />
     </column>

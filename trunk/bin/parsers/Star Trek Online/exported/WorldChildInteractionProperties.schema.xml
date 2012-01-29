@@ -16,7 +16,9 @@
     </column>
     <column name="ChildSelectExpression" type="OPTIONALSTRUCT">
       <offset>4</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ChildSelectExpressionBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>

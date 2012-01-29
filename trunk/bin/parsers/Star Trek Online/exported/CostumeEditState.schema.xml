@@ -17,18 +17,30 @@
     </column>
     <column name="Stance" type="OPTIONALSTRUCT">
       <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCStanceInfo" />
     </column>
     <column name="Stances" type="STRUCT">
       <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCStanceInfo" />
     </column>
     <column name="Voice" type="OPTIONALSTRUCT">
       <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCVoice" />
     </column>
     <column name="Voices" type="STRUCT">
       <offset>36</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCVoice" />
     </column>
     <column name="Mood" type="REFERENCE">
@@ -37,22 +49,37 @@
     </column>
     <column name="Moods" type="STRUCT">
       <offset>44</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCMood" />
     </column>
     <column name="BodyScales" type="STRUCT">
       <offset>48</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCBodyScaleInfo" />
     </column>
     <column name="BodyScalesInclude" type="STRUCT">
       <offset>52</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCBodyScaleInfo" />
     </column>
     <column name="BodyScalesExclude" type="STRUCT">
       <offset>56</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCBodyScaleInfo" />
     </column>
     <column name="BoneScales" type="STRUCT">
       <offset>64</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCScaleInfo" />
     </column>
     <column name="currentCost" type="INT">
@@ -119,6 +146,9 @@
     </column>
     <column name="Skeletons" type="STRUCT">
       <offset>124</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCSkeletonDef" />
     </column>
     <column name="Species" type="REFERENCE">
@@ -127,6 +157,9 @@
     </column>
     <column name="SlotSet" type="STRING">
       <offset>132</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="SlotID" type="INT">
       <offset>136</offset>
@@ -136,18 +169,30 @@
     </column>
     <column name="SlotDef" type="OPTIONALSTRUCT">
       <offset>144</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCSlotDef" />
     </column>
     <column name="SlotTypes" type="STRUCT">
       <offset>148</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCSlotType" />
     </column>
     <column name="SlotType" type="OPTIONALSTRUCT">
       <offset>152</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCSlotType" />
     </column>
     <column name="Presets" type="STRUCT">
       <offset>156</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="CostumePreset" />
     </column>
     <column name="Region" type="REFERENCE">
@@ -156,6 +201,9 @@
     </column>
     <column name="Regions" type="STRUCT">
       <offset>164</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCRegion" />
     </column>
     <column name="Category" type="REFERENCE">
@@ -164,6 +212,9 @@
     </column>
     <column name="Categories" type="STRUCT">
       <offset>172</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCCategory" />
     </column>
     <column name="Bone" type="REFERENCE">
@@ -172,32 +223,56 @@
     </column>
     <column name="Bones" type="STRUCT">
       <offset>180</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCBoneDef" />
     </column>
     <column name="AllBones" type="STRUCT">
       <offset>184</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCBoneDef" />
     </column>
     <column name="ExcludeBones" type="STRINGARRAY">
       <offset>188</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="IncludeBones" type="STRINGARRAY">
       <offset>192</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="Part" type="OPTIONALSTRUCT">
       <offset>312</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCPart" />
     </column>
     <column name="CurrentLayer" type="OPTIONALSTRUCT">
       <offset>316</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCLayer" />
     </column>
     <column name="ClothLayer" type="OPTIONALSTRUCT">
       <offset>320</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCLayer" />
     </column>
     <column name="Layers" type="STRUCT">
       <offset>324</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCLayer" />
     </column>
     <column name="Geo" type="REFERENCE">
@@ -206,6 +281,9 @@
     </column>
     <column name="Geos" type="STRUCT">
       <offset>332</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCGeometryDef" />
     </column>
     <column name="Material" type="REFERENCE">
@@ -214,6 +292,9 @@
     </column>
     <column name="Mats" type="STRUCT">
       <offset>340</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCMaterialDef" />
     </column>
     <column name="Detail" type="REFERENCE">
@@ -222,6 +303,9 @@
     </column>
     <column name="DetailTex" type="STRUCT">
       <offset>348</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCTextureDef" />
     </column>
     <column name="Pattern" type="REFERENCE">
@@ -230,6 +314,9 @@
     </column>
     <column name="PatternTex" type="STRUCT">
       <offset>356</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCTextureDef" />
     </column>
     <column name="Specular" type="REFERENCE">
@@ -238,6 +325,9 @@
     </column>
     <column name="SpecularTex" type="STRUCT">
       <offset>364</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCTextureDef" />
     </column>
     <column name="Diffuse" type="REFERENCE">
@@ -246,6 +336,9 @@
     </column>
     <column name="DiffuseTex" type="STRUCT">
       <offset>372</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCTextureDef" />
     </column>
     <column name="Movable" type="REFERENCE">
@@ -254,14 +347,23 @@
     </column>
     <column name="MovableTex" type="STRUCT">
       <offset>380</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCTextureDef" />
     </column>
     <column name="Styles" type="STRUCT">
       <offset>384</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCStyle" />
     </column>
     <column name="RandomStyles" type="STRINGARRAY">
       <offset>388</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="FindTypes" type="INT">
       <offset>392</offset>
@@ -296,6 +398,9 @@
     </column>
     <column name="Costumes" type="STRUCT">
       <offset>424</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PlayerCostume" />
     </column>
     <column name="PetCostumeList" type="STRUCT">
@@ -304,14 +409,23 @@
     </column>
     <column name="Slots" type="STRUCT">
       <offset>432</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="UICostumeSlot" />
     </column>
     <column name="PetSlots" type="STRUCT">
       <offset>436</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PetCostumeSlotList" />
     </column>
     <column name="UnlockedCostumes" type="STRUCT">
       <offset>440</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PlayerCostume" />
     </column>
     <column name="UnlockedCostumeRefs" type="STRUCT">
@@ -320,6 +434,9 @@
     </column>
     <column name="OwnedUnlockedCostumes" type="STRUCT">
       <offset>448</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PlayerCostume" />
     </column>
     <column name="OwnedUnlockedCostumeRefs" type="STRUCT">
@@ -336,6 +453,9 @@
     </column>
     <column name="FlatList" type="STRUCT">
       <offset>624</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PlayerCostume" />
     </column>
     <column name="UnlockedCostumeParts" type="STRUCT">
@@ -344,6 +464,9 @@
     </column>
     <column name="FilteredUnlockedCostumeParts" type="STRUCT">
       <offset>632</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="UnlockedCostumePart" />
     </column>
     <column name="UnlockedCostumeFilter" type="STRING">
@@ -357,9 +480,15 @@
     </column>
     <column name="PowerFXBones" type="STRINGARRAY">
       <offset>660</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="MinionCostumes" type="STRUCT">
       <offset>664</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="CostumeCreatorCostumeRef" />
     </column>
     <column name="MinionCostume" type="REFERENCE">
@@ -368,10 +497,16 @@
     </column>
     <column name="DefaultCostumes" type="STRUCT">
       <offset>672</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="CostumeCreatorCostumeRef" />
     </column>
     <column name="LockedRegions" type="STRUCT">
       <offset>680</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCRegion" />
     </column>
     <column name="SharedColorLocks" type="INT">
@@ -382,6 +517,9 @@
     </column>
     <column name="SelectedBone" type="OPTIONALSTRUCT">
       <offset>688</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCBoneDef" />
     </column>
     <column name="ValidSelectedBone" type="U8">
@@ -393,6 +531,9 @@
     </column>
     <column name="ShowItems" type="STRUCT">
       <offset>700</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="ItemDefRef" />
     </column>
     <column name="EditType" type="INT">

@@ -161,7 +161,9 @@
     </column>
     <column name="Children" type="STRUCT">
       <offset>116</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Child</redundant_name>
       <subtable external="UIGenChild" />
     </column>
@@ -343,13 +345,17 @@
     </column>
     <column name="Columns" type="OPTIONALSTRUCT">
       <offset>240</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ColumnsBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
     <column name="MaxColumns" type="OPTIONALSTRUCT">
       <offset>240</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ColumnsBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -358,7 +364,9 @@
     </column>
     <column name="MaxRows" type="U8">
       <offset>244</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Rows</redundant_name>
     </column>
     <column name="LayoutDirection" type="U8">
@@ -395,7 +403,9 @@
     </column>
     <column name="CalculateX" type="OPTIONALSTRUCT">
       <offset>252</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>CalculateXBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -405,7 +415,9 @@
     </column>
     <column name="CalculateY" type="OPTIONALSTRUCT">
       <offset>256</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>CalculateYBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -415,7 +427,9 @@
     </column>
     <column name="Model" type="OPTIONALSTRUCT">
       <offset>260</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ModelBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>

@@ -65,7 +65,9 @@
     </column>
     <column name="Color" type="INT">
       <offset>112</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>TopLeftColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->
@@ -73,7 +75,9 @@
     </column>
     <column name="TopColor" type="INT">
       <offset>112</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>TopLeftColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->
@@ -81,7 +85,9 @@
     </column>
     <column name="LeftColor" type="INT">
       <offset>112</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>TopLeftColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->
@@ -95,7 +101,9 @@
     </column>
     <column name="RightColor" type="INT">
       <offset>116</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>TopRightColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->
@@ -109,7 +117,9 @@
     </column>
     <column name="BottomColor" type="INT">
       <offset>120</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>BottomLeftColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->
@@ -127,7 +137,9 @@
     </column>
     <column name="HorizontalScale" type="F32">
       <offset>128</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ScaleHorizontal</redundant_name>
       <default>1</default>
     </column>
@@ -137,7 +149,9 @@
     </column>
     <column name="VerticalScale" type="F32">
       <offset>132</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ScaleVertical</redundant_name>
       <default>1</default>
     </column>
@@ -161,9 +175,9 @@
     <column name="ModeVertical" type="BIT">
       <offset>148</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <redundant />
       <redundant_name>VerticalMode</redundant_name>
       <bit_offset>262144</bit_offset>
       <static_define_list>
@@ -183,9 +197,9 @@
     <column name="ModeHorizontal" type="BIT">
       <offset>148</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <redundant />
       <redundant_name>HorizontalMode</redundant_name>
       <bit_offset>262148</bit_offset>
       <static_define_list>
@@ -208,7 +222,9 @@
     </column>
     <column name="ResetScale" type="BIT">
       <offset>152</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ScaleReset</redundant_name>
       <bit_offset>65544</bit_offset>
     </column>
@@ -218,7 +234,9 @@
     </column>
     <column name="ResetColor" type="BIT">
       <offset>152</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ColorReset</redundant_name>
       <bit_offset>65545</bit_offset>
     </column>

@@ -20,9 +20,9 @@
       <offset>0</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>STRUCTPARAM</flag>
       </flags>
-      <redundant />
       <redundant_name>Name</redundant_name>
     </column>
     <column name="FileName" type="CURRENTFILE">
@@ -63,8 +63,8 @@
       <offset>28</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
       </flags>
-      <redundant />
       <redundant_name>OnLoadStartState</redundant_name>
     </column>
     <column type="STRING">
@@ -79,7 +79,9 @@
     </column>
     <column name="State:" type="STRUCT">
       <offset>36</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>State</redundant_name>
       <subtable external="FSMState" />
     </column>
@@ -89,7 +91,9 @@
     </column>
     <column name="Override:" type="STRUCT">
       <offset>40</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Override</redundant_name>
       <subtable external="FSMOverrideMapping" />
     </column>

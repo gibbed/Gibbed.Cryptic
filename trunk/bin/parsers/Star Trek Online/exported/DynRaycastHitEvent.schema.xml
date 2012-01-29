@@ -25,7 +25,9 @@
     </column>
     <column name="Call" type="STRUCT">
       <offset>4</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>CallParam</redundant_name>
       <subtable external="Call" />
     </column>
@@ -39,13 +41,17 @@
     </column>
     <column name="SelfMessage" type="STRUCT">
       <offset>12</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>SendMessage</redundant_name>
       <subtable external="SelfMessage" />
     </column>
     <column name="Message" type="STRUCT">
       <offset>12</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>SendMessage</redundant_name>
       <subtable external="SelfMessage" />
     </column>

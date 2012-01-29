@@ -102,7 +102,9 @@
     </column>
     <column name="QueueKickLogoutTime" type="INT">
       <offset>84</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>KickLogoutTime</redundant_name>
     </column>
     <column name="MaxLocalTeamsPerGroup" type="INT">
@@ -128,7 +130,9 @@
     </column>
     <column name="pchMapName" type="STRINGARRAY">
       <offset>112</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>MapName</redundant_name>
     </column>
     <column name="QueueCustomMapType" type="STRUCT">
@@ -137,7 +141,9 @@
     </column>
     <column name="QueueMapType" type="STRUCT">
       <offset>116</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>QueueCustomMapType</redundant_name>
       <subtable external="QueueCustomMapType" />
     </column>
@@ -182,7 +188,9 @@
     </column>
     <column name="pRequires" type="OPTIONALSTRUCT">
       <offset>128</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Requires</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -245,7 +253,9 @@
     </column>
     <column name="PrivateMatch" type="BIT">
       <offset>144</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ChallengeMatch</redundant_name>
       <bit_offset>65545</bit_offset>
     </column>

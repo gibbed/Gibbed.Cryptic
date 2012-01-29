@@ -20,7 +20,9 @@
     </column>
     <column name="hDisplayName" type="REFERENCE">
       <offset>4</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>DisplayName</redundant_name>
       <dictionary_name>Message</dictionary_name>
     </column>
@@ -30,7 +32,9 @@
     </column>
     <column name="hDescriptionRef" type="REFERENCE">
       <offset>8</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Description</redundant_name>
       <dictionary_name>Message</dictionary_name>
     </column>

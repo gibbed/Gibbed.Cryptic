@@ -18,10 +18,10 @@
     <column name="uItemID" type="INT64">
       <offset>0</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ItemID</redundant_name>
     </column>
     <column name="Slot" type="INT">
@@ -34,10 +34,10 @@
     <column name="iAssignmentSlot" type="INT">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Slot</redundant_name>
     </column>
     <column name="}" type="END" />

@@ -132,6 +132,9 @@
     </column>
     <column name="Sources" type="STRUCT">
       <offset>92</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="GameEventParticipant" />
     </column>
     <column name="TargetActorName" type="STRING">
@@ -239,6 +242,9 @@
     </column>
     <column name="Targets" type="STRUCT">
       <offset>168</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="GameEventParticipant" />
     </column>
     <column name="ClickableName" type="STRING">
@@ -459,6 +465,9 @@
     </column>
     <column name="ChainEvent" type="OPTIONALSTRUCT">
       <offset>372</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="GameEvent" />
     </column>
     <column name="chainTime" type="F32">

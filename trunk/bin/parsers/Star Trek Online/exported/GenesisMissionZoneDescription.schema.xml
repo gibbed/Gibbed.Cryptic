@@ -19,7 +19,9 @@
     </column>
     <column name="ShortText" type="STRING">
       <offset>8</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>UIString</redundant_name>
     </column>
     <column name="DescriptionText" type="STRING">
@@ -60,7 +62,9 @@
     </column>
     <column name="UsePlayerLevel" type="INT">
       <offset>36</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>LevelType</redundant_name>
       <static_define_list>
         <!-- 030ABA10 -->
@@ -72,7 +76,9 @@
     </column>
     <column name="Level:" type="INT">
       <offset>40</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Level</redundant_name>
       <default>1</default>
     </column>
@@ -108,7 +114,9 @@
     </column>
     <column name="IsOpenMission" type="INT">
       <offset>112</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>GenerationType</redundant_name>
       <static_define_list>
         <!-- 030A6578 -->

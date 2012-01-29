@@ -161,7 +161,9 @@
     </column>
     <column name="Children" type="STRUCT">
       <offset>116</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Child</redundant_name>
       <subtable external="UIGenChild" />
     </column>
@@ -336,7 +338,9 @@
     </column>
     <column name="Value" type="OPTIONALSTRUCT">
       <offset>232</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ValueBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -346,7 +350,9 @@
     </column>
     <column name="Notch" type="OPTIONALSTRUCT">
       <offset>236</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>NotchBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -364,7 +370,9 @@
     </column>
     <column name="Max" type="OPTIONALSTRUCT">
       <offset>248</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>MaxBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>

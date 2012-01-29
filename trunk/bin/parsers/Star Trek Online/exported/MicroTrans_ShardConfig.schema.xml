@@ -39,7 +39,9 @@
     </column>
     <column name="CategoryPrefix" type="STRING">
       <offset>16</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Prefix</redundant_name>
     </column>
     <column name="MOTD" type="OPTIONALSTRUCT">

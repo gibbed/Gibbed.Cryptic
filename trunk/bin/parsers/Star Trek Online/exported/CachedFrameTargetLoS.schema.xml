@@ -10,10 +10,16 @@
     <column name="{" type="START" />
     <column name="Entity" type="OPTIONALSTRUCT">
       <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="Entity" />
     </column>
     <column name="Node" type="OPTIONALSTRUCT">
       <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="WorldInteractionNode" />
     </column>
     <column name="Camera" type="U8">

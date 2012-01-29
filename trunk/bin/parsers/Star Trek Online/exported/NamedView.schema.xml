@@ -22,7 +22,9 @@
     </column>
     <column name="Time" type="INT">
       <offset>8</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Revision</redundant_name>
     </column>
     <column name="Comment" type="STRING">

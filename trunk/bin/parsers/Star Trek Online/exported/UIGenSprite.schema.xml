@@ -161,7 +161,9 @@
     </column>
     <column name="Children" type="STRUCT">
       <offset>116</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Child</redundant_name>
       <subtable external="UIGenChild" />
     </column>
@@ -359,7 +361,9 @@
     </column>
     <column name="Color" type="INT">
       <offset>240</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>TopLeftColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->

@@ -46,7 +46,9 @@
     </column>
     <column name="LeaverPenaltyTime" type="INT">
       <offset>32</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>LeaverPenaltyDuration</redundant_name>
       <default>900</default>
     </column>

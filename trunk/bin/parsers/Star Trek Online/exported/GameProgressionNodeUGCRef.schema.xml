@@ -14,7 +14,9 @@
     </column>
     <column name="DestinationNode" type="REFERENCE">
       <offset>0</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Node</redundant_name>
       <dictionary_name>GameProgressionNodeDef</dictionary_name>
     </column>

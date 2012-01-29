@@ -41,11 +41,11 @@
     <column name="n_additional_slots" type="INT">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>LOGIN_SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>MaxSlots</redundant_name>
     </column>
     <column name="ppIndexedInventorySlots" type="STRUCT">
@@ -81,12 +81,12 @@
     <column name="eaiActiveSlots" type="INTARRAY">
       <offset>24</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>LOGIN_SUBSCRIBE</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>iActiveSlot</redundant_name>
     </column>
     <column name="eaiPredictedActiveSlots" type="INTARRAY">

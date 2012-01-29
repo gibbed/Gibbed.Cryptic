@@ -217,10 +217,10 @@
     <column name="BodyColorSet" type="REFERENCE">
       <offset>136</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>BodyColorSet0</redundant_name>
       <dictionary_name>CostumeColors</dictionary_name>
     </column>
@@ -306,30 +306,30 @@
     <column name="FirstNameRule" type="STRUCT">
       <offset>176</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>RandomNameRule</redundant_name>
       <subtable external="NameTemplateListRef" />
     </column>
     <column name="NickNameRule" type="STRUCT">
       <offset>176</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>RandomNameRule</redundant_name>
       <subtable external="NameTemplateListRef" />
     </column>
     <column name="LastNameRule" type="STRUCT">
       <offset>176</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>RandomNameRule</redundant_name>
       <subtable external="NameTemplateListRef" />
     </column>
@@ -351,7 +351,9 @@
     </column>
     <column name="PowerSuggestion" type="STRUCT">
       <offset>192</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>PowerSuggestions</redundant_name>
       <subtable external="SpeciesPowerSuggestion" />
     </column>

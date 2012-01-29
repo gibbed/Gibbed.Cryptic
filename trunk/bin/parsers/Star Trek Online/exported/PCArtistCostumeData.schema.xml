@@ -20,10 +20,10 @@
       <offset>0</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>CollisionGeo</redundant_name>
     </column>
     <column name="Capsule" type="STRUCT">
@@ -37,10 +37,10 @@
     <column name="ppCollCapsules" type="STRUCT">
       <offset>4</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Capsule</redundant_name>
       <subtable external="SavedCapsule" />
     </column>
@@ -54,10 +54,10 @@
     <column name="fCollRadius" type="F32">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>CollRadius</redundant_name>
     </column>
     <column name="FX" type="STRUCT">
@@ -71,10 +71,10 @@
     <column name="eaFX" type="STRUCT">
       <offset>12</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>FX</redundant_name>
       <subtable external="PCFX" />
     </column>
@@ -89,10 +89,10 @@
     <column name="eaFXSwap" type="STRUCT">
       <offset>16</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>FXSwap</redundant_name>
       <subtable external="PCFXSwap" />
     </column>
@@ -107,10 +107,10 @@
     <column name="eaConstantBits" type="STRUCT">
       <offset>20</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ConstantBits</redundant_name>
       <subtable external="PCBitName" />
     </column>
@@ -124,10 +124,10 @@
     <column name="fTransparency" type="F32">
       <offset>24</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Transparency</redundant_name>
     </column>
     <column name="NoCollision" type="U8">
@@ -140,10 +140,10 @@
     <column name="bNoCollision" type="U8">
       <offset>28</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>NoCollision</redundant_name>
     </column>
     <column name="NoBodySock" type="U8">
@@ -156,10 +156,10 @@
     <column name="bNoBodySock" type="U8">
       <offset>29</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>NoBodySock</redundant_name>
     </column>
     <column name="NoRagdoll" type="U8">
@@ -172,10 +172,10 @@
     <column name="bNoRagdoll" type="U8">
       <offset>30</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>NoRagdoll</redundant_name>
     </column>
     <column name="ShellColl" type="U8">
@@ -188,10 +188,10 @@
     <column name="bShellColl" type="U8">
       <offset>31</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ShellColl</redundant_name>
     </column>
     <column name="}" type="END" />

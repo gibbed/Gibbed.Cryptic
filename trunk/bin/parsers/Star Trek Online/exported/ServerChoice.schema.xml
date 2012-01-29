@@ -44,17 +44,29 @@
     </column>
     <column name="FolderName" type="STRING">
       <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="DisplayName" type="STRING">
       <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="MapDescription" type="STRING">
       <offset>28</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <redundant_name>DisplayName</redundant_name>
     </column>
     <column name="PossibleMapChoice" type="OPTIONALSTRUCT">
       <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PossibleMapChoice" />
     </column>
     <column name="}" type="END" />

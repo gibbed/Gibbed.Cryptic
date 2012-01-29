@@ -25,7 +25,9 @@
     </column>
     <column name="UnlockExpression" type="OPTIONALSTRUCT">
       <offset>28</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>UnlockExpressionBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -35,7 +37,9 @@
     </column>
     <column name="UnhideExpression" type="OPTIONALSTRUCT">
       <offset>32</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>UnhideExpressionBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>

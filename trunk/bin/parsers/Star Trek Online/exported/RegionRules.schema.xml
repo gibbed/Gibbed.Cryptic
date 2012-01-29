@@ -130,7 +130,9 @@
     </column>
     <column name="ScanForClickiesAllowed" type="BIT">
       <offset>72</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>AllowScanForInteractables</redundant_name>
       <bit_offset>65537</bit_offset>
     </column>
@@ -140,7 +142,9 @@
     </column>
     <column name="ScanForClickiesCooldownSecs" type="INT">
       <offset>76</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ScanForInteractablesCooldown</redundant_name>
       <default>5</default>
     </column>
@@ -157,9 +161,9 @@
     <column name="ScanForClickiesAllegianceFX" type="STRUCT">
       <offset>84</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>ScanForInteractablesAllegianceFX</redundant_name>
       <subtable external="RegionAllegianceFXData" />
     </column>

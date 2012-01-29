@@ -22,11 +22,11 @@
       <offset>0</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>STRUCTPARAM</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Name</redundant_name>
     </column>
     <column name="Type" type="INT">
@@ -42,10 +42,10 @@
     <column name="eType" type="INT">
       <offset>4</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Type</redundant_name>
       <static_define_list>
         <!-- 02FD42D0 -->
@@ -61,10 +61,10 @@
     <column name="pcZoneMap" type="STRING">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ZoneMap</redundant_name>
     </column>
     <column name="IntVal" type="INT">
@@ -77,10 +77,10 @@
     <column name="iIntVal" type="INT">
       <offset>12</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>IntVal</redundant_name>
     </column>
     <column name="FloatVal" type="F32">
@@ -93,10 +93,10 @@
     <column name="fFloatVal" type="F32">
       <offset>16</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>FloatVal</redundant_name>
     </column>
     <column name="StringVal" type="STRING">
@@ -109,10 +109,10 @@
     <column name="pcStringVal" type="STRING">
       <offset>20</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>StringVal</redundant_name>
     </column>
     <column name="MessageVal" type="REFERENCE">
@@ -126,10 +126,10 @@
     <column name="hMessage" type="REFERENCE">
       <offset>24</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>MessageVal</redundant_name>
       <dictionary_name>Message</dictionary_name>
     </column>
@@ -144,10 +144,10 @@
     <column name="hCritterDef" type="REFERENCE">
       <offset>28</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>CritterDef</redundant_name>
       <dictionary_name>CritterDef</dictionary_name>
     </column>
@@ -162,10 +162,10 @@
     <column name="hCritterGroup" type="REFERENCE">
       <offset>32</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>CritterGroup</redundant_name>
       <dictionary_name>CritterGroup</dictionary_name>
     </column>
@@ -179,10 +179,10 @@
     <column name="uContainerID" type="INT">
       <offset>36</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ContainerID</redundant_name>
     </column>
     <column name="}" type="END" />

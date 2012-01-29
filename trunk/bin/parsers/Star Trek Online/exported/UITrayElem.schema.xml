@@ -10,6 +10,9 @@
     <column name="{" type="START" />
     <column name="TrayElem" type="OPTIONALSTRUCT">
       <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="TrayElem" />
     </column>
     <column name="PetData" type="OPTIONALSTRUCT">
@@ -18,12 +21,17 @@
     </column>
     <column name="PetTrayElem" type="OPTIONALSTRUCT">
       <offset>4</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>PetData</redundant_name>
       <subtable external="PetTrayElemData" />
     </column>
     <column name="SourceItem" type="OPTIONALSTRUCT">
       <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="Item" />
     </column>
     <column name="Icon" type="STRING">
@@ -46,6 +54,9 @@
     </column>
     <column name="DragType" type="STRING">
       <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="Key" type="INT">
       <offset>32</offset>
@@ -129,7 +140,9 @@
     </column>
     <column name="AutoActivate" type="BIT">
       <offset>48</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>AutoActivating</redundant_name>
       <bit_offset>65552</bit_offset>
     </column>

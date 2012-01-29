@@ -74,11 +74,11 @@
     <column name="eaMapRevealInfos" type="STRUCT">
       <offset>24</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>USEROPTIONBIT_2</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>MapRevealInfo</redundant_name>
       <subtable external="MapRevealInfo" />
     </column>
@@ -139,10 +139,10 @@
     <column name="eaBindProfiles" type="STRUCT">
       <offset>64</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>Binds</redundant_name>
       <subtable external="EntityKeyBinds" />
     </column>

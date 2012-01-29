@@ -20,9 +20,9 @@
     <column name="Color" type="INT">
       <offset>0</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>STRUCTPARAM</flag>
       </flags>
-      <redundant />
       <redundant_name>TopLeftColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->
@@ -31,9 +31,9 @@
     <column name="TopColor" type="INT">
       <offset>0</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>STRUCTPARAM</flag>
       </flags>
-      <redundant />
       <redundant_name>TopLeftColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->
@@ -42,9 +42,9 @@
     <column name="LeftColor" type="INT">
       <offset>0</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>STRUCTPARAM</flag>
       </flags>
-      <redundant />
       <redundant_name>TopLeftColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->
@@ -58,7 +58,9 @@
     </column>
     <column name="RightColor" type="INT">
       <offset>4</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>TopRightColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->
@@ -78,7 +80,9 @@
     </column>
     <column name="BottomColor" type="INT">
       <offset>12</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>BottomLeftColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->

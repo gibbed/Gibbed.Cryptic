@@ -21,7 +21,9 @@
     </column>
     <column name="NumericValue" type="STRUCT">
       <offset>4</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Value</redundant_name>
       <subtable external="InvBagSlotTableEntry" />
     </column>

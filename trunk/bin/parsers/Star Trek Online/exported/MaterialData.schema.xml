@@ -84,7 +84,9 @@
     </column>
     <column name="SoundProfile" type="REFERENCE">
       <offset>60</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>PhysicalProperties</redundant_name>
       <dictionary_name>PhysicalProperties</dictionary_name>
     </column>

@@ -10,7 +10,9 @@
     <column name="{" type="START" />
     <column name="AccountName" type="STRING">
       <offset>0</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>DisplayName</redundant_name>
     </column>
     <column name="DisplayName" type="STRING">

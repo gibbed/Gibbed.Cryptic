@@ -13,7 +13,9 @@
     </column>
     <column name="Call" type="STRUCT">
       <offset>0</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>CallParam</redundant_name>
       <subtable external="Call" />
     </column>

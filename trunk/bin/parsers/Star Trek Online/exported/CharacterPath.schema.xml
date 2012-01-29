@@ -43,7 +43,9 @@
     </column>
     <column name="Description1" type="EMBEDDEDSTRUCT">
       <offset>56</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Description</redundant_name>
       <subtable external="DisplayMessage" />
     </column>
@@ -77,7 +79,9 @@
     </column>
     <column name="ExprRequires" type="OPTIONALSTRUCT">
       <offset>112</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprRequiresBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -91,7 +95,9 @@
     </column>
     <column name="Purchase" type="STRUCT">
       <offset>120</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>SuggestedPurchase</redundant_name>
       <subtable external="CharacterPathSuggestedPurchase" />
     </column>

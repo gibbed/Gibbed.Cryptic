@@ -69,7 +69,9 @@
     </column>
     <column name="SpawnCondition" type="OPTIONALSTRUCT">
       <offset>36</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>SpawnConditionBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>

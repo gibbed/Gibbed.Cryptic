@@ -167,7 +167,9 @@
     </column>
     <column name="uPartitionID" type="INT">
       <offset>96</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>PartitionID</redundant_name>
     </column>
     <column name="newMapReason" type="FIXEDSTRING">

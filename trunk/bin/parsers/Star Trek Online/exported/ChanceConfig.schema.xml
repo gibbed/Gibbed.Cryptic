@@ -16,7 +16,9 @@
     </column>
     <column name="AttribHit" type="INT">
       <offset>0</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>AttribChancePos</redundant_name>
       <static_define_list>
         <!-- 02E91BA8 -->
@@ -30,7 +32,9 @@
     </column>
     <column name="AttribMiss" type="INT">
       <offset>4</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>AttribChanceNeg</redundant_name>
       <static_define_list>
         <!-- 02E91BA8 -->

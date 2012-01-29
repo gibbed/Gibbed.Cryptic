@@ -43,7 +43,9 @@
     </column>
     <column name="ApplyToMapType" type="STRINGARRAY">
       <offset>24</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ApplyToCustomMapType</redundant_name>
     </column>
     <column name="SettingData" type="OPTIONALSTRUCT">
@@ -52,7 +54,9 @@
     </column>
     <column name="ChallengeData" type="OPTIONALSTRUCT">
       <offset>28</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>SettingData</redundant_name>
       <subtable external="QueueSettingVarData" />
     </column>

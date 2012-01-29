@@ -76,7 +76,9 @@
     </column>
     <column name="RandomRotation" type="F32">
       <offset>64</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>RotationIncrement</redundant_name>
     </column>
     <column name="WallObject" type="BIT">

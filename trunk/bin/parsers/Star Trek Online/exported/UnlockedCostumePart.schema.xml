@@ -95,10 +95,16 @@
     </column>
     <column name="UnlockData" type="OPTIONALSTRUCT">
       <offset>52</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="UnlockMetaData" />
     </column>
     <column name="UnlockOrder" type="STRING">
       <offset>56</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="CostumeUnlock" type="REFERENCE">
       <offset>60</offset>

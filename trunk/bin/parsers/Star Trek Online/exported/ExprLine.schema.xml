@@ -13,12 +13,16 @@
     </column>
     <column name="DescStr:" type="STRING">
       <offset>0</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>DescStr</redundant_name>
     </column>
     <column name="Description:" type="STRING">
       <offset>0</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>DescStr</redundant_name>
     </column>
     <column name="OrigStr" type="STRING">
@@ -30,9 +34,9 @@
     <column name="OrigStr:" type="STRING">
       <offset>4</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>STRUCTPARAM</flag>
       </flags>
-      <redundant />
       <redundant_name>OrigStr</redundant_name>
     </column>
     <column name="}" type="END" />

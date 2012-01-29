@@ -22,7 +22,9 @@
     </column>
     <column name="TooltipExpr" type="OPTIONALSTRUCT">
       <offset>4</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>TooltipBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -48,9 +50,9 @@
     <column name="MaximumWidth" type="INT16">
       <offset>12</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>STRUCTPARAM</flag>
       </flags>
-      <redundant />
       <redundant_name>MaxWidth</redundant_name>
       <default>350</default>
       <static_define_list>

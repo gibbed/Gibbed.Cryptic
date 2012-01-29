@@ -73,7 +73,9 @@
     </column>
     <column name="AnimBitRange" type="STRUCT">
       <offset>60</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>HeightAnimBitRange</redundant_name>
       <subtable external="PCAnimBitRange" />
     </column>
@@ -134,7 +136,9 @@
     </column>
     <column name="Preset" type="STRUCT">
       <offset>124</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ScalePreset</redundant_name>
       <subtable external="PCPresetScaleValueGroup" />
     </column>
@@ -152,7 +156,9 @@
     </column>
     <column name="BodyColorSet" type="REFERENCE">
       <offset>148</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>BodyColorSet0</redundant_name>
       <dictionary_name>CostumeColors</dictionary_name>
     </column>

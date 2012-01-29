@@ -16,14 +16,23 @@
     </column>
     <column name="Costume" type="OPTIONALSTRUCT">
       <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PlayerCostume" />
     </column>
     <column name="SlotDef" type="OPTIONALSTRUCT">
       <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCSlotDef" />
     </column>
     <column name="SlotType" type="OPTIONALSTRUCT">
       <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="PCSlotType" />
     </column>
     <column name="IsUnlocked" type="U8">

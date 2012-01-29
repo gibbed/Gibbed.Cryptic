@@ -22,7 +22,9 @@
     </column>
     <column name="CostumePart" type="STRUCT">
       <offset>4</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>CostumePart</redundant_name>
       <subtable external="WLCostumePart" />
     </column>

@@ -151,7 +151,9 @@
     </column>
     <column name="bag2" type="INTARRAY">
       <offset>116</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>bag</redundant_name>
       <static_define_list>
         <!-- 02BB0048 -->
@@ -174,7 +176,9 @@
     </column>
     <column name="IconName" type="STRING">
       <offset>132</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Icon</redundant_name>
     </column>
     <column name="CostumeMode" type="INT">

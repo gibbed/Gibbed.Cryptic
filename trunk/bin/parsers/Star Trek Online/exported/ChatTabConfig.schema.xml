@@ -19,9 +19,9 @@
       <offset>0</offset>
       <flags>
         <flag>ESTRING</flag>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Title</redundant_name>
     </column>
     <column name="DefaultChannel" type="STRING">
@@ -36,10 +36,10 @@
       <offset>4</offset>
       <flags>
         <flag>ESTRING</flag>
+        <flag>ALIAS</flag>
         <flag>POOL_STRING_DB</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>DefaultChannel</redundant_name>
     </column>
     <column name="ChannelFilterMode" type="INT">
@@ -54,9 +54,9 @@
     <column name="eChannelFilterMode" type="INT">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ChannelFilterMode</redundant_name>
       <static_define_list>
         <!-- 02EC6318 -->
@@ -74,9 +74,9 @@
     <column name="eMessageTypeFilterMode" type="INT">
       <offset>12</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>MessageTypeFilterMode</redundant_name>
       <static_define_list>
         <!-- 02EC6318 -->
@@ -92,10 +92,10 @@
     <column name="eaChannels" type="STRINGARRAY">
       <offset>16</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>POOL_STRING_DB</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Channel</redundant_name>
     </column>
     <column name="MessageType" type="STRINGARRAY">
@@ -108,10 +108,10 @@
     <column name="eaMessageTypes" type="STRINGARRAY">
       <offset>20</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>POOL_STRING_DB</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>MessageType</redundant_name>
     </column>
     <column name="}" type="END" />

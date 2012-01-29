@@ -10,9 +10,15 @@
     <column name="{" type="START" />
     <column name="Name" type="STRING">
       <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="DisplayName" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="Item" type="OPTIONALSTRUCT">
       <offset>8</offset>

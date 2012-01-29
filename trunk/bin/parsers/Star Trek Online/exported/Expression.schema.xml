@@ -10,6 +10,9 @@
     <column name="{" type="START" />
     <column type="MULTIVAL">
       <offset>0</offset>
+      <flags>
+        <flag>EARRAY</flag>
+      </flags>
     </column>
     <column name="Statement" type="STRUCT">
       <offset>4</offset>
@@ -21,9 +24,9 @@
     <column name="Lines" type="STRUCT">
       <offset>4</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>EDIT_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>Statement</redundant_name>
       <subtable external="ExprLine" />
     </column>

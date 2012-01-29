@@ -21,7 +21,9 @@
     </column>
     <column name="Duration" type="F32">
       <offset>4</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>FreezeDuration</redundant_name>
       <default>-1</default>
     </column>

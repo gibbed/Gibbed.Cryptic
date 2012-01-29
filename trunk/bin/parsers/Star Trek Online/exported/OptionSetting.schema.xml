@@ -38,14 +38,18 @@
     </column>
     <column name="FloatValue" type="F32">
       <offset>20</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
     </column>
     <column name="OrigIntValue" type="INT">
       <offset>24</offset>
     </column>
     <column name="OrigFloatValue" type="F32">
       <offset>24</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
     </column>
     <column name="StringValue" type="STRING">
       <offset>28</offset>
@@ -71,6 +75,9 @@
     </column>
     <column name="ComboChoice" type="OPTIONALSTRUCT">
       <offset>48</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="OptionSettingComboChoice" />
     </column>
     <column name="ComboDefault" type="STRING">

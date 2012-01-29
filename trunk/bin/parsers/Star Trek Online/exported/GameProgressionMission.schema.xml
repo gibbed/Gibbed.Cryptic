@@ -31,13 +31,17 @@
     </column>
     <column name="ExprVisibleBlock" type="OPTIONALSTRUCT">
       <offset>20</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockVisible</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="ExprVisible" type="OPTIONALSTRUCT">
       <offset>20</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockVisible</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>

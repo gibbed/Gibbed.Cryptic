@@ -161,7 +161,9 @@
     </column>
     <column name="Children" type="STRUCT">
       <offset>116</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Child</redundant_name>
       <subtable external="UIGenChild" />
     </column>
@@ -336,7 +338,9 @@
     </column>
     <column name="HeadshotExpr" type="OPTIONALSTRUCT">
       <offset>232</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Headshot</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -396,7 +400,9 @@
     </column>
     <column name="FOV" type="F32">
       <offset>272</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>FieldOfView</redundant_name>
       <default>-1</default>
     </column>

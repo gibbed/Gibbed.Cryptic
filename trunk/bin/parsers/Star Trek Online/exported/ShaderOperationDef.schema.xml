@@ -44,7 +44,9 @@
     </column>
     <column name="Input:" type="STRUCT">
       <offset>28</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Input</redundant_name>
       <subtable external="ShaderInputOneLine" />
     </column>
@@ -54,7 +56,9 @@
     </column>
     <column name="Output:" type="STRUCT">
       <offset>32</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Output</redundant_name>
       <subtable external="ShaderOutputOneLine" />
     </column>

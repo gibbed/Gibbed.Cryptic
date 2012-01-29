@@ -112,6 +112,9 @@
     </column>
     <column name="Target" type="STRING">
       <offset>72</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="StackLimit" type="STRING">
       <offset>76</offset>
@@ -121,9 +124,15 @@
     </column>
     <column name="Requires" type="STRING">
       <offset>80</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="Affects" type="STRING">
       <offset>84</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="PowersInline" type="STRUCT">
       <offset>88</offset>
@@ -148,10 +157,16 @@
     </column>
     <column name="p" type="OPTIONALSTRUCT">
       <offset>100</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="AutoDescPower" />
     </column>
     <column name="ps" type="STRUCT">
       <offset>104</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="AutoDescPower" />
     </column>
     <column name="c" type="STRUCT">

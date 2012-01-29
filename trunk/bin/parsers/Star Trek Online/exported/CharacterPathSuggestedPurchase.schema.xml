@@ -20,7 +20,9 @@
     </column>
     <column name="Choice" type="STRUCT">
       <offset>4</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>SuggestedNode</redundant_name>
       <subtable external="CharacterPathChoice" />
     </column>

@@ -11,6 +11,7 @@
     <column name="Item" type="OPTIONALSTRUCT">
       <offset>0</offset>
       <flags>
+        <flag>UNKNOWN_32</flag>
         <flag>CLIENT_ONLY</flag>
       </flags>
       <subtable external="Item" />
@@ -30,7 +31,9 @@
     </column>
     <column name="FailsRequirements" type="INT">
       <offset>12</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>CanBuyError</redundant_name>
       <static_define_list>
         <!-- 02EF2DC8 -->
@@ -115,7 +118,9 @@
     </column>
     <column name="PurchaseTime" type="INT">
       <offset>84</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ResearchTime</redundant_name>
     </column>
     <column name="uExpireTime" type="INT">

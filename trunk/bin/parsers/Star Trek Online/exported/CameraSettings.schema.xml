@@ -354,7 +354,9 @@
     </column>
     <column name="CrouchHeightInterp" type="F32">
       <offset>484</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>HeightMultiplier</redundant_name>
     </column>
     <column name="HeightAdjustRate" type="F32">
@@ -362,7 +364,9 @@
     </column>
     <column name="CrouchHeightInterpRate" type="F32">
       <offset>488</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>HeightAdjustRate</redundant_name>
     </column>
     <column name="GiganticPlayerHeight" type="F32">

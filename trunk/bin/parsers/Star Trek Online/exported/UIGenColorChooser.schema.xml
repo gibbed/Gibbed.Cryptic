@@ -161,7 +161,9 @@
     </column>
     <column name="Children" type="STRUCT">
       <offset>116</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Child</redundant_name>
       <subtable external="UIGenChild" />
     </column>
@@ -359,7 +361,9 @@
     </column>
     <column name="TileColor" type="INT">
       <offset>240</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>TileTopLeftColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->
@@ -476,7 +480,9 @@
     </column>
     <column name="HoveredOverlayColor" type="INT">
       <offset>308</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>HoveredOverlayTopLeftColor</redundant_name>
       <static_define_list>
         <!-- 02FDEA88 -->
@@ -647,7 +653,9 @@
     </column>
     <column name="ColorModel" type="OPTIONALSTRUCT">
       <offset>400</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ColorModelBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>

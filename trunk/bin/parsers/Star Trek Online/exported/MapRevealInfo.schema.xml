@@ -22,11 +22,11 @@
       <offset>0</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>STRUCTPARAM</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>Name</redundant_name>
     </column>
     <column name="Type" type="INT">
@@ -42,10 +42,10 @@
     <column name="eType" type="INT">
       <offset>4</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>Type</redundant_name>
       <static_define_list>
         <!-- 02ECC9A0 -->
@@ -61,10 +61,10 @@
     <column name="uiRoomCount" type="INT">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>RoomCount</redundant_name>
     </column>
     <column name="RegionBoundsMin" type="F32FIXEDARRAY">
@@ -78,10 +78,10 @@
     <column name="v3RegionMin" type="F32FIXEDARRAY">
       <offset>12</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>RegionBoundsMin</redundant_name>
       <num_elements>3</num_elements>
     </column>
@@ -96,10 +96,10 @@
     <column name="v3RegionMax" type="F32FIXEDARRAY">
       <offset>24</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>RegionBoundsMax</redundant_name>
       <num_elements>3</num_elements>
     </column>
@@ -119,11 +119,11 @@
       <offset>40</offset>
       <flags>
         <flag>ESTRING</flag>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>RevealedString</redundant_name>
     </column>
     <column name="}" type="END" />

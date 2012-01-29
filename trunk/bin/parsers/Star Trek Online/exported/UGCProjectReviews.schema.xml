@@ -39,10 +39,10 @@
     <column name="iNumRatings" type="INTARRAY">
       <offset>12</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>piNumRatings</redundant_name>
     </column>
     <column name="iTimeBecameReviewed" type="INT">
@@ -57,7 +57,9 @@
     </column>
     <column name="iNumPages" type="INT">
       <offset>20</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>iNumPagesCached</redundant_name>
     </column>
     <column name="iNumRatingsCached" type="INT">

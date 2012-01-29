@@ -32,13 +32,17 @@
     </column>
     <column name="MissionRequired" type="STRUCT">
       <offset>16</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Mission</redundant_name>
       <subtable external="GameProgressionMission" />
     </column>
     <column name="RequiredMission" type="STRUCT">
       <offset>16</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Mission</redundant_name>
       <subtable external="GameProgressionMission" />
     </column>

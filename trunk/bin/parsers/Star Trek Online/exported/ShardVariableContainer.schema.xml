@@ -26,10 +26,10 @@
     <column name="uClock" type="INT">
       <offset>4</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Clock</redundant_name>
     </column>
     <column name="ShardVariable" type="STRUCT">
@@ -43,10 +43,10 @@
     <column name="eaWorldVars" type="STRUCT">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ShardVariable</redundant_name>
       <subtable external="WorldVariableContainer" />
     </column>

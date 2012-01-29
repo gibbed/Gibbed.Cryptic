@@ -201,20 +201,20 @@
       <offset>116</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>pchAttribStatsPreset</redundant_name>
     </column>
     <column name="pchCurrentAttribStatsPreset" type="STRING">
       <offset>116</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>pchAttribStatsPreset</redundant_name>
     </column>
     <column name="ppSavedAttributes" type="STRUCT">
@@ -594,21 +594,21 @@
     <column name="eaSavedPowersIDs" type="INTARRAY">
       <offset>516</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>puiPowerIDsSaved_Obsolete</redundant_name>
     </column>
     <column name="puiPowerIDsSaved" type="INTARRAY">
       <offset>516</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>puiPowerIDsSaved_Obsolete</redundant_name>
     </column>
     <column name="dirtyBit" type="U8">

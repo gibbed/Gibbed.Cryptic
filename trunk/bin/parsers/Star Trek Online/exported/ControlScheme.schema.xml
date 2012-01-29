@@ -373,21 +373,21 @@
     <column name="CamDistance" type="F32">
       <offset>76</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>USEROPTIONBIT_1</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>iCamDistance</redundant_name>
     </column>
     <column name="fCamDistance" type="F32">
       <offset>76</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>USEROPTIONBIT_1</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>iCamDistance</redundant_name>
     </column>
     <column name="fCamMaxDistance" type="F32">
@@ -562,7 +562,9 @@
     </column>
     <column name="ppchAllowedKeyProfiles" type="STRINGARRAY">
       <offset>148</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>AllowKeyProfile</redundant_name>
     </column>
     <column name="AllowAutoAttackType" type="INTARRAY">
@@ -573,7 +575,9 @@
     </column>
     <column name="peAllowedAutoAttackTypes" type="INTARRAY">
       <offset>152</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>AllowAutoAttackType</redundant_name>
       <static_define_list>
         <!-- 02E67558 -->

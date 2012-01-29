@@ -43,7 +43,9 @@
     </column>
     <column name="DisplayName" type="REFERENCE">
       <offset>28</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>hNameMsg</redundant_name>
       <dictionary_name>Message</dictionary_name>
     </column>

@@ -23,7 +23,9 @@
     </column>
     <column name="PromptButton" type="STRUCT">
       <offset>8</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Action</redundant_name>
       <subtable external="UGCDialogTreePromptAction" />
     </column>

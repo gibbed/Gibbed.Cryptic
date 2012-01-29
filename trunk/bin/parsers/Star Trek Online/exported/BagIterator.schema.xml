@@ -10,6 +10,9 @@
     <column name="{" type="START" />
     <column name="bag" type="OPTIONALSTRUCT">
       <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="InventoryBag" />
     </column>
     <column name="_cur" type="INT">

@@ -14,13 +14,17 @@
     </column>
     <column name="OverlayDef" type="STRUCT">
       <offset>0</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Overlay</redundant_name>
       <subtable external="ResourceOverlayDef" />
     </column>
     <column name="ResourceOverlayDef" type="STRUCT">
       <offset>0</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Overlay</redundant_name>
       <subtable external="ResourceOverlayDef" />
     </column>

@@ -19,7 +19,9 @@
     </column>
     <column name="Excl" type="STRUCT">
       <offset>8</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Incl</redundant_name>
       <subtable external="parse_filespec_exclude" />
     </column>

@@ -161,7 +161,9 @@
     </column>
     <column name="Children" type="STRUCT">
       <offset>116</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Child</redundant_name>
       <subtable external="UIGenChild" />
     </column>
@@ -398,7 +400,9 @@
     </column>
     <column name="TextExpr" type="OPTIONALSTRUCT">
       <offset>252</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>TextBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>

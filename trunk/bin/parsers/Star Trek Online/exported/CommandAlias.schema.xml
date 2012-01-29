@@ -27,7 +27,9 @@
     </column>
     <column name="Comment" type="STRING">
       <offset>8</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>Help</redundant_name>
     </column>
     <column name="AccessLevel" type="U8">

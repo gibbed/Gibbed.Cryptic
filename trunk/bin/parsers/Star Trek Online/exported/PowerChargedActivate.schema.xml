@@ -44,7 +44,9 @@
     </column>
     <column name="ActivateFXParam" type="STRUCT">
       <offset>20</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ActivateFXParamBlock</redundant_name>
       <subtable external="PowerFXParam_StructParam" />
     </column>

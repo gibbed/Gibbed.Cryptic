@@ -63,6 +63,9 @@
     </column>
     <column name="Params" type="OPTIONALSTRUCT">
       <offset>76</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="QueueInstanceParams" />
     </column>
     <column name="CannotUseReason" type="INT">
@@ -94,7 +97,9 @@
     </column>
     <column name="uiMapID" type="INT64">
       <offset>104</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>MapKey</redundant_name>
     </column>
     <column name="uiOwnerID" type="INT">

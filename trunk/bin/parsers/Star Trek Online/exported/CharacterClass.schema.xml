@@ -115,9 +115,9 @@
     <column name="Adjustment" type="STRUCT">
       <offset>64</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>AdjustAttrib</redundant_name>
       <subtable external="CharacterClassAdjustAttrib" />
     </column>
@@ -164,7 +164,9 @@
     </column>
     <column name="ExprRequires" type="OPTIONALSTRUCT">
       <offset>124</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprRequiresBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>

@@ -29,13 +29,13 @@
     <column name="uFixupVersion" type="INT">
       <offset>4</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>DEMO_IGNORE</flag>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>FixupVersion</redundant_name>
     </column>
     <column name="GameSpecificFixupVersion" type="INT">
@@ -50,12 +50,12 @@
     <column name="uGameSpecificFixupVersion" type="INT">
       <offset>8</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>DEMO_IGNORE</flag>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>GameSpecificFixupVersion</redundant_name>
     </column>
     <column name="savedName" type="FIXEDSTRING">
@@ -290,24 +290,24 @@
     <column name="pSavedTray" type="OPTIONALSTRUCT">
       <offset>232</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>DEMO_IGNORE</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>Tray</redundant_name>
       <subtable external="SavedTray" />
     </column>
     <column name="pTray" type="OPTIONALSTRUCT">
       <offset>232</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>DEMO_IGNORE</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>Tray</redundant_name>
       <subtable external="SavedTray" />
     </column>
@@ -324,12 +324,12 @@
     <column name="CostumeData" type="EMBEDDEDSTRUCT">
       <offset>244</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>DEMO_IGNORE</flag>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_AND_TEAM_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>CostumeData</redundant_name>
       <subtable external="PlayerCostumeData" />
     </column>
@@ -345,11 +345,11 @@
     <column name="obsolete_costumeData" type="OPTIONALSTRUCT">
       <offset>264</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>DEMO_IGNORE</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Costumes</redundant_name>
       <subtable external="PlayerCostumeListsV0" />
     </column>
@@ -441,12 +441,12 @@
     <column name="obsolete_mapHistory" type="STRUCT">
       <offset>312</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>DEMO_IGNORE</flag>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>Maphistory</redundant_name>
       <subtable external="obsolete_SavedMapDescription" />
     </column>
@@ -536,12 +536,12 @@
     <column name="piUITrayIndex_Obsolete" type="INTARRAY">
       <offset>344</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>DEMO_IGNORE</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>piUITrayIndex</redundant_name>
     </column>
     <column name="ppTrayElems" type="STRUCT">
@@ -557,12 +557,12 @@
     <column name="ppTrayElems_Obsolete" type="STRUCT">
       <offset>348</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>DEMO_IGNORE</flag>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ppTrayElems</redundant_name>
       <subtable external="TrayElemOld" />
     </column>
@@ -579,12 +579,12 @@
     <column name="ppAutoAttackElems_Obsolete" type="STRUCT">
       <offset>352</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>DEMO_IGNORE</flag>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <redundant />
       <redundant_name>ppAutoAttackElems</redundant_name>
       <subtable external="TrayElemOld" />
     </column>
@@ -601,12 +601,12 @@
     <column name="ppLeaderboardStats" type="STRUCT">
       <offset>356</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>DEMO_IGNORE</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <redundant />
       <redundant_name>LeaderboardStats</redundant_name>
       <subtable external="LeaderboardStats" />
     </column>

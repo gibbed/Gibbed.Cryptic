@@ -68,13 +68,17 @@
     </column>
     <column name="RequiresBlock" type="OPTIONALSTRUCT">
       <offset>48</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockRequires</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="ExprRequires" type="OPTIONALSTRUCT">
       <offset>48</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockRequires</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>

@@ -59,7 +59,9 @@
     </column>
     <column name="StanceStickyFXParam" type="STRUCT">
       <offset>80</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>StanceStickyFXParamBlock</redundant_name>
       <subtable external="PowerFXParam_StructParam" />
     </column>

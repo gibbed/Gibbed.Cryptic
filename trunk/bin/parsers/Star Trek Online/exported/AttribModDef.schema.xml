@@ -233,13 +233,17 @@
     </column>
     <column name="ExprDurationBlock" type="OPTIONALSTRUCT">
       <offset>32</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockDuration</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="ExprDuration" type="OPTIONALSTRUCT">
       <offset>32</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockDuration</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -249,13 +253,17 @@
     </column>
     <column name="ExprMagnitudeBlock" type="OPTIONALSTRUCT">
       <offset>36</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockMagnitude</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="ExprMagnitude" type="OPTIONALSTRUCT">
       <offset>36</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockMagnitude</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -310,13 +318,17 @@
     </column>
     <column name="ExprRequiresBlock" type="OPTIONALSTRUCT">
       <offset>72</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockRequires</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="ExprRequires" type="OPTIONALSTRUCT">
       <offset>72</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockRequires</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -326,13 +338,17 @@
     </column>
     <column name="ExprAffectsBlock" type="OPTIONALSTRUCT">
       <offset>76</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockAffects</redundant_name>
       <subtable external="Expression" />
     </column>
     <column name="ExprAffects" type="OPTIONALSTRUCT">
       <offset>76</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>ExprBlockAffects</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
@@ -407,9 +423,9 @@
     <column name="ContinuingFxParam" type="STRUCT">
       <offset>128</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>ContinuingFXParamBlock</redundant_name>
       <subtable external="PowerFXParam_StructParam" />
     </column>
@@ -437,9 +453,9 @@
     <column name="ConditionalFxParam" type="STRUCT">
       <offset>140</offset>
       <flags>
+        <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <redundant />
       <redundant_name>ConditionalFXParamBlock</redundant_name>
       <subtable external="PowerFXParam_StructParam" />
     </column>
@@ -537,7 +553,9 @@
     </column>
     <column name="EnhancementExtendDef" type="BIT">
       <offset>168</offset>
-      <redundant />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
       <redundant_name>EnhancementExtension</redundant_name>
       <bit_offset>65545</bit_offset>
     </column>
