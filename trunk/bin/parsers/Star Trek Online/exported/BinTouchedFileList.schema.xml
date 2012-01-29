@@ -11,9 +11,10 @@
     <column name="TimeStamp" type="INT">
       <offset>0</offset>
     </column>
-    <column name="FileNames" type="">
+    <column name="FileNames" type="FIXEDFILENAME">
       <offset>4</offset>
       <flags>
+        <flag>INDIRECT</flag>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
