@@ -32,9 +32,7 @@
     </column>
     <column name="Categories" type="INTARRAY">
       <offset>12</offset>
-      <static_define_list>
-        <!-- 02E74138 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="PowerProp" type="EMBEDDEDSTRUCT">
       <offset>16</offset>
@@ -43,9 +41,7 @@
     <column name="AttribCost" type="INT">
       <offset>24</offset>
       <default>-1</default>
-      <static_define_list>
-        <!-- 02E91BA8 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="ExprBlockCost" type="OPTIONALSTRUCT">
       <offset>28</offset>
@@ -89,9 +85,7 @@
     </column>
     <column name="CostPowerMode" type="INT">
       <offset>44</offset>
-      <static_define_list>
-        <!-- 02E73F18 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="CostRecipe" type="REFERENCE">
       <offset>48</offset>
@@ -233,21 +227,15 @@
     </column>
     <column name="PowerModesRequired" type="INTARRAY">
       <offset>132</offset>
-      <static_define_list>
-        <!-- 02E73F18 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="PowerModesDisallowed" type="INTARRAY">
       <offset>136</offset>
-      <static_define_list>
-        <!-- 02E73F18 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="CombatEvents" type="INTARRAY">
       <offset>140</offset>
-      <static_define_list>
-        <!-- 02F31488 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="CombatEventTime" type="F32">
       <offset>144</offset>
@@ -311,9 +299,7 @@
     </column>
     <column name="AttribIgnore" type="INTARRAY">
       <offset>192</offset>
-      <static_define_list>
-        <!-- 02E91BA8 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="AttribDepend" type="INTARRAY">
       <offset>196</offset>
@@ -357,16 +343,12 @@
     <column name="AttribHit" type="INT">
       <offset>208</offset>
       <default>-1</default>
-      <static_define_list>
-        <!-- 02E91BA8 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="AttribMiss" type="INT">
       <offset>212</offset>
       <default>-1</default>
-      <static_define_list>
-        <!-- 02E91BA8 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="AnimFX" type="REFERENCE">
       <offset>216</offset>
@@ -387,9 +369,7 @@
     </column>
     <column name="Purpose" type="INT">
       <offset>232</offset>
-      <static_define_list>
-        <!-- 02E74A78 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="CursorLocationTargetRadius" type="F32">
       <offset>236</offset>
@@ -423,9 +403,7 @@
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <static_define_list>
-        <!-- 02E74650 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="AIMinRange" type="INT">
       <offset>316</offset>
@@ -521,9 +499,7 @@
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>1048576</bit_offset>
-      <static_define_list>
-        <!-- 02E74AA0 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="Error" type="BIT">
       <offset>356</offset>
@@ -531,9 +507,7 @@
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>1048592</bit_offset>
-      <static_define_list>
-        <!-- 02E74AE0 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="AffectedRequiresPerceivance" type="U8">
       <offset>360</offset>
@@ -548,51 +522,37 @@
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>524288</bit_offset>
-      <static_define_list>
-        <!-- 02E74440 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="TargetVisibilityMain" type="BIT">
       <offset>364</offset>
       <bit_offset>524296</bit_offset>
-      <static_define_list>
-        <!-- 02E74568 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="TargetVisibilityAffected" type="BIT">
       <offset>364</offset>
       <bit_offset>524304</bit_offset>
-      <static_define_list>
-        <!-- 02E74568 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="Tracking" type="BIT">
       <offset>364</offset>
       <bit_offset>524312</bit_offset>
-      <static_define_list>
-        <!-- 02E74588 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="EffectArea" type="BIT">
       <offset>368</offset>
       <bit_offset>524288</bit_offset>
-      <static_define_list>
-        <!-- 02E74488 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="EffectAreaSort" type="BIT">
       <offset>368</offset>
       <bit_offset>327688</bit_offset>
-      <static_define_list>
-        <!-- 02E744D8 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="SourceEnterCombat" type="BIT">
       <offset>368</offset>
       <bit_offset>196621</bit_offset>
-      <static_define_list>
-        <!-- 02E74518 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="SetsCombat" type="BIT">
       <offset>368</offset>
@@ -601,16 +561,12 @@
       </flags>
       <redundant_name>SourceEnterCombat</redundant_name>
       <bit_offset>196621</bit_offset>
-      <static_define_list>
-        <!-- 02E74518 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="RequireValidTarget" type="BIT">
       <offset>368</offset>
       <bit_offset>196624</bit_offset>
-      <static_define_list>
-        <!-- 02E74540 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="UnrestrictedTargeting" type="BIT">
       <offset>368</offset>
@@ -619,9 +575,7 @@
       </flags>
       <redundant_name>RequireValidTarget</redundant_name>
       <bit_offset>196624</bit_offset>
-      <static_define_list>
-        <!-- 02E74540 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="ActivateRules" type="BIT">
       <offset>368</offset>
@@ -629,9 +583,7 @@
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>196627</bit_offset>
-      <static_define_list>
-        <!-- 02E746E0 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="ActivateWhileDead" type="BIT">
       <offset>368</offset>
@@ -641,9 +593,7 @@
       </flags>
       <redundant_name>ActivateRules</redundant_name>
       <bit_offset>196627</bit_offset>
-      <static_define_list>
-        <!-- 02E746E0 -->
-      </static_define_list>
+      <static_define_list />
     </column>
     <column name="Unpredicted" type="BIT">
       <offset>368</offset>
