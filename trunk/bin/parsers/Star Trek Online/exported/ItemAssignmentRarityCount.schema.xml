@@ -7,12 +7,18 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Weight" type="INTARRAY">
+    <column name="Name" type="STRING">
       <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Weight" type="INTARRAY">
+      <offset>4</offset>
       <static_define_list />
     </column>
     <column name="AssignmentCount" type="INT">
-      <offset>4</offset>
+      <offset>8</offset>
     </column>
     <column name="}" type="END" />
   </table>

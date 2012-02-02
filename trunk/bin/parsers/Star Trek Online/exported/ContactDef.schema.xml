@@ -268,21 +268,29 @@
       <offset>268</offset>
       <static_define_list />
     </column>
-    <column name="IsResearchStoreCollection" type="BIT">
+    <column name="ItemAssignmentData" type="OPTIONALSTRUCT">
       <offset>272</offset>
+      <subtable external="ContactItemAssignmentData" />
+    </column>
+    <column name="IsResearchStoreCollection" type="BIT">
+      <offset>276</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="IsCraftingStoreCollection" type="BIT">
-      <offset>272</offset>
+      <offset>276</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>IsResearchStoreCollection</redundant_name>
       <bit_offset>65536</bit_offset>
     </column>
-    <column name="AllowSwitchToLastActivePuppet" type="BIT">
-      <offset>272</offset>
+    <column name="HideFromRemoteContactList" type="BIT">
+      <offset>276</offset>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="AllowSwitchToLastActivePuppet" type="BIT">
+      <offset>276</offset>
+      <bit_offset>65538</bit_offset>
     </column>
     <column name="EndDialogAudioName" type="IGNORE" />
     <column name="DialogNodeWindowPositions" type="IGNORE">

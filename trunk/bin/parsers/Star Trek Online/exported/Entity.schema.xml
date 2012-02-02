@@ -518,6 +518,10 @@
       <offset>0</offset>
       <command_string>DebugCheckContainerLoc $FIELD(myEntityType) $FIELD(myContainerID)</command_string>
     </column>
+    <column name="Get RAM Usage" type="COMMAND">
+      <offset>0</offset>
+      <command_string>ServerMonGetEntityRAMUsage $FIELD(myEntityType) $FIELD(myContainerID) $INT(Should allocate a bunch of extra copies then free them to test RAM reporting)</command_string>
+    </column>
     <column name="hAlignment" type="IGNORE" />
     <column name="}" type="END" />
   </table>

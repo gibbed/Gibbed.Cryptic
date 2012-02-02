@@ -80,8 +80,12 @@
       <offset>84</offset>
       <subtable external="EventWarpDef" />
     </column>
-    <column name="uHideEventFromClient" type="BIT">
+    <column name="Contact" type="STRUCT">
       <offset>88</offset>
+      <subtable external="EventContactDef" />
+    </column>
+    <column name="uHideEventFromClient" type="BIT">
+      <offset>92</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />

@@ -35,6 +35,19 @@
       <offset>12</offset>
       <subtable external="KeyboardLayoutKey" />
     </column>
+    <column name="Layout" type="STRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="KeyboardLayoutSublayout" />
+    </column>
+    <column name="Width" type="INT16">
+      <offset>20</offset>
+    </column>
+    <column name="Height" type="INT16">
+      <offset>22</offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

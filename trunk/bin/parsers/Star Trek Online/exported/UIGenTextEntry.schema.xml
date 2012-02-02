@@ -517,11 +517,20 @@
       <offset>344</offset>
       <default>-1</default>
     </column>
-    <column name="ShowCursorWhenUnfocused" type="U8">
+    <column name="ShowCursorWhenUnfocused" type="BIT">
       <offset>348</offset>
+      <bit_offset>65536</bit_offset>
     </column>
-    <column name="TintCursorFromFont" type="U8">
-      <offset>349</offset>
+    <column name="TintCursorFromFont" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Editable" type="BIT">
+      <offset>348</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

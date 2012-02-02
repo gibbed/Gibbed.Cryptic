@@ -340,6 +340,13 @@
       <offset>304</offset>
       <subtable external="ItemWeaponDef" />
     </column>
+    <column name="BonusNumerics" type="STRUCT">
+      <offset>308</offset>
+      <subtable external="ItemDefBonus" />
+    </column>
+    <column name="BonusPercent" type="INT">
+      <offset>312</offset>
+    </column>
     <column name="Slot" type="IGNORE" />
     <column name="SubType" type="IGNORE" />
     <column name="kSlot" type="IGNORE" />
