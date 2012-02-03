@@ -20,6 +20,11 @@
  *    distribution.
  */
 
+using System;
+using System.IO;
+using System.Xml;
+using Gibbed.IO;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class StashTable : Token
@@ -31,6 +36,10 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
         public override ColumnParameter GetParameter(ColumnFlags flags, int index)
         {
             return ColumnParameter.None;
+        }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
         }
     }
 }

@@ -27,6 +27,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Gibbed.IO;
 using Parser = Gibbed.Cryptic.FileFormats.Parser;
 
 namespace Gibbed.Cryptic.ExportParserTables
@@ -70,35 +71,112 @@ namespace Gibbed.Cryptic.ExportParserTables
             return memory.ReadU32(pointer);
         }
 
-        private static string GetTokenName(NativeColumn column)
+        private static string GetTokenName(NativeColumn column, out Parser.ColumnFlags flags)
         {
-            var flags = Parser.ColumnFlags.None;
-            flags |= column.Flags & Parser.ColumnFlags.FIXED_ARRAY; // 0x80000
-            flags |= column.Flags & Parser.ColumnFlags.EARRAY; // 0x40000
-            flags |= column.Flags & Parser.ColumnFlags.INDIRECT; // 0x100000
+            var check = Parser.ColumnFlags.None;
+            check |= column.Flags & Parser.ColumnFlags.FIXED_ARRAY; // 0x80000
+            check |= column.Flags & Parser.ColumnFlags.EARRAY; // 0x40000
+            check |= column.Flags & Parser.ColumnFlags.INDIRECT; // 0x100000
 
             var token = Parser.GlobalTokens.GetToken(column.Token);
 
-            if ((flags & Parser.ColumnFlags.INDIRECT) == 0)
+            string name = null;
+
+            if ((check & Parser.ColumnFlags.INDIRECT) == 0)
             {
-                switch (flags)
+                switch (check)
                 {
-                    case Parser.ColumnFlags.FIXED_ARRAY: return token.NameDirectFixedArray;
-                    case Parser.ColumnFlags.EARRAY: return token.NameDirectArray;
-                    default: return token.NameDirectValue;
+                    case Parser.ColumnFlags.FIXED_ARRAY: name = token.NameDirectFixedArray; break;
+                    case Parser.ColumnFlags.EARRAY: name = token.NameDirectArray; break;
+                    //default: name = token.NameDirectValue; break;
                 }
             }
             else
             {
-                switch (flags & ~Parser.ColumnFlags.INDIRECT)
+                switch (check & ~Parser.ColumnFlags.INDIRECT)
                 {
-                    case Parser.ColumnFlags.FIXED_ARRAY: return token.NameIndirectFixedArray;
-                    case Parser.ColumnFlags.EARRAY: return token.NameIndirectArray;
-                    default: return token.NameIndirectValue;
+                    case Parser.ColumnFlags.FIXED_ARRAY: name = token.NameIndirectFixedArray; break;
+                    case Parser.ColumnFlags.EARRAY: name = token.NameIndirectArray; break;
+                    default: name = token.NameIndirectValue; break;
                 }
             }
+
+            if (name != null)
+            {
+                flags = column.Flags;
+                flags &= ~Parser.ColumnFlags.FIXED_ARRAY;
+                flags &= ~Parser.ColumnFlags.EARRAY;
+                flags &= ~Parser.ColumnFlags.INDIRECT;
+                return name;
+            }
+
+            flags = column.Flags;
+            return token.NameDirectValue;
         }
 
+        private static uint Adler32(byte[] buffer, int offset, int count, uint hash)
+        {
+            uint upper = (ushort)((hash & 0xFFFF0000) >> 16);
+            uint lower = (ushort)((hash & 0x0000FFFF) >> 0);
+
+            do
+            {
+                int run = Math.Min(5552, count);
+                int end = offset + run;
+
+                for (; offset < end; offset++)
+                {
+                    lower += buffer[offset];
+                    upper += lower;
+                }
+
+                lower %= 0xFFF1;
+                upper %= 0xFFF1;
+
+                count -= run;
+            }
+            while (count > 0);
+
+            return ((upper << 16) & 0xFFFF0000) | ((lower & 0x0000FFFF) << 0);
+        }
+
+        private static uint Adler32(string value, uint hash)
+        {
+            var bytes = Encoding.ASCII.GetBytes(value.ToUpperInvariant());
+            return Adler32(bytes, 0, bytes.Length, hash);
+        }
+
+        private static uint Adler32(int value, uint hash)
+        {
+            var bytes = BitConverter.GetBytes(value);
+            return Adler32(bytes, 0, bytes.Length, hash);
+        }
+
+        private static uint Adler32(uint value, uint hash)
+        {
+            var bytes = BitConverter.GetBytes(value);
+            return Adler32(bytes, 0, bytes.Length, hash);
+        }
+
+        private static uint Adler32(ulong value, uint hash)
+        {
+            var bytes = BitConverter.GetBytes(value);
+            return Adler32(bytes, 0, bytes.Length, hash);
+        }
+
+        private static Dictionary<Parser.ColumnFlags, string> GenerateColumnFlagNames()
+        {
+            var names = new Dictionary<Parser.ColumnFlags, string>();
+            foreach (var name in Enum.GetNames(typeof(Parser.ColumnFlags)))
+            {
+                names.Add((Parser.ColumnFlags)Enum.Parse(typeof(Parser.ColumnFlags), name), name);
+            }
+            return names;
+        }
+
+        private static Dictionary<Parser.ColumnFlags, string> ColumnFlagNames = GenerateColumnFlagNames();
+
+        /*
         private static Dictionary<Parser.ColumnFlags, string> BasicFlags = new Dictionary<Parser.ColumnFlags,string>()
         {
             {Parser.ColumnFlags.FIXED_ARRAY, "FIXED_ARRAY"},
@@ -147,6 +225,7 @@ namespace Gibbed.Cryptic.ExportParserTables
             {Parser.ColumnFlags.NO_INDEX, "NO_INDEX"},
             {Parser.ColumnFlags.NO_LOG, "NO_LOG"},
         };
+        */
 
         private static string[] FloatRounding =
         {
@@ -158,10 +237,235 @@ namespace Gibbed.Cryptic.ExportParserTables
             "TENS",
         };
 
-        public static Parser.ColumnFlags BasicFlagsMask = BasicFlags
+        public static Parser.ColumnFlags ColumnFlagsMask = ColumnFlagNames
             .Aggregate<KeyValuePair<Parser.ColumnFlags, string>, Parser.ColumnFlags>(
                 Parser.ColumnFlags.None,
                 (a, b) => a | b.Key);
+
+        private static uint HashKeyValueList(
+            ProcessMemory memory,
+            uint baseAddress,
+            uint hash)
+        {
+            var entries = new List<KeyValuePair<string, string>>();
+            var listAddress = memory.ReadU32(baseAddress);
+
+            var count = memory.ReadS32(listAddress + 8);
+            if (count > 0)
+            {
+                var entriesAddress = memory.ReadU32(listAddress + 4);
+                var data = memory.ReadBytes(entriesAddress, count * 8);
+
+                for (int i = 0; i < count; i++)
+                {
+                    var name = memory.ReadStringZ(BitConverter.ToUInt32(data, (i * 8) + 0));
+                    var value = memory.ReadStringZ(BitConverter.ToUInt32(data, (i * 8) + 4));
+                    entries.Add(new KeyValuePair<string, string>(name, value));
+                }
+            }
+
+            var sb = new StringBuilder();
+            foreach (var entry in entries.OrderBy(e => e.Key.ToLowerInvariant()))
+            {
+                sb.Append(entry.Key);
+                sb.Append(entry.Value);
+            }
+
+            return Adler32(sb.ToString(), hash);
+        }
+
+        private static uint HashStaticDefineList(
+            ProcessMemory memory,
+            uint baseAddress,
+            uint hash)
+        {
+            var valueType = 4;
+
+            while (true)
+            {
+                var type = memory.ReadU32(baseAddress);
+                if (type == 0)
+                {
+                    break;
+                }
+
+                switch (type)
+                {
+                    case 1:
+                    {
+                        valueType = 1;
+                        baseAddress += 8;
+                        break;
+                    }
+
+                    case 2:
+                    {
+                        valueType = 2;
+                        baseAddress += 8;
+                        break;
+                    }
+
+                    case 3:
+                    {
+                        var listAddress = memory.ReadU32(baseAddress + 4);
+                        baseAddress += 8;
+
+                        if (listAddress != 0)
+                        {
+                            hash = HashKeyValueList(memory, listAddress, hash);
+                        }
+
+                        break;
+                    }
+
+                    case 5:
+                    {
+                        var parent = memory.ReadU32(baseAddress + 4);
+                        return HashStaticDefineList(memory, parent, hash);
+                    }
+
+                    default:
+                    {
+                        var name = memory.ReadStringZ(type);
+                        hash = Adler32(name, hash);
+
+                        switch (valueType)
+                        {
+                            case 1:
+                            {
+                                var value = memory.ReadU32(baseAddress + 4);
+                                hash = Adler32(value, hash);
+                                baseAddress += 8;
+                                break;
+                            }
+
+                            case 2:
+                            {
+                                var value = memory.ReadStringZ(baseAddress + 4);
+                                hash = Adler32(value, hash);
+                                baseAddress += 8;
+                                break;
+                            }
+
+                            default:
+                            {
+                                throw new NotImplementedException();
+                            }
+                        }
+
+                        break;
+                    }
+                }
+            }
+
+            return hash;
+        }
+
+        private static uint HashTable(
+            ProcessMemory memory,
+            uint address,
+            uint hash)
+        {
+            var columns = new List<KeyValuePair<NativeColumn, string>>();
+            var currentAddress = address;
+            while (true)
+            {
+                var column = memory.ReadStructure<NativeColumn>(currentAddress);
+                currentAddress += 40;
+                
+                var name = memory.ReadStringZ(column.NamePointer);
+                
+                if (column.Type == 0)
+                {
+                    if (string.IsNullOrEmpty(name) == true)
+                    {
+                        break;
+                    }
+                }
+
+                columns.Add(new KeyValuePair<NativeColumn, string>(column, name));
+            }
+
+            foreach (var columnKV in columns)
+            {
+                var column = columnKV.Key;
+
+                if ((column.Flags & Parser.ColumnFlags.ALIAS) != 0)
+                {
+                    continue;
+                }
+                else if ((column.Flags & Parser.ColumnFlags.UNKNOWN_32) != 0)
+                {
+                    continue;
+                }
+
+                var name = columnKV.Value;
+
+                if (string.IsNullOrEmpty(name) == false)
+                {
+                    hash = Adler32(name, hash);
+                }
+
+                hash = Adler32(column.Type, hash);
+
+                var token = Parser.GlobalTokens.GetToken(column.Token);
+
+                switch (token.GetParameter(column.Flags, 0))
+                {
+                    case Parser.ColumnParameter.NumberOfElements:
+                    case Parser.ColumnParameter.Default:
+                    case Parser.ColumnParameter.StringLength:
+                    case Parser.ColumnParameter.Size:
+                    {
+                        hash = Adler32(column.Parameter0, hash);
+                        break;
+                    }
+
+                    case Parser.ColumnParameter.BitOffset:
+                    {
+                        hash = Adler32(column.Parameter0 >> 16, hash);
+                        break;
+                    }
+
+                    case Parser.ColumnParameter.DefaultString:
+                    case Parser.ColumnParameter.CommandString:
+                    {
+                        if (column.Parameter0 != 0)
+                        {
+                            hash = Adler32(memory.ReadStringZ(column.Parameter0), hash);
+                        }
+                        break;
+                    }
+                }
+
+                var param1 = token.GetParameter(column.Flags, 1);
+
+                if (column.Parameter1 != 0 &&
+                    (column.Token == 20 || column.Token == 21) &&
+                    address != column.Parameter1 &&
+                    (column.Flags & Parser.ColumnFlags.STRUCT_NORECURSE) == 0)
+                {
+                    hash = HashTable(memory, column.Parameter1, hash);
+                }
+
+                if (column.Parameter1 != 0 &&
+                    param1 == Parser.ColumnParameter.StaticDefineList)
+                {
+                    hash = HashStaticDefineList(memory, column.Parameter1, hash);
+                }
+
+                if (column.Token == 23)
+                {
+                    var unknown20 = memory.ReadStringZ(column.Unknown20);
+                    if (string.IsNullOrEmpty(unknown20) == false)
+                    {
+                        hash = Adler32(unknown20, hash);
+                    }
+                }
+            }
+
+            return hash;
+        }
 
         private static void ExportTable(
             ProcessMemory memory,
@@ -169,16 +473,10 @@ namespace Gibbed.Cryptic.ExportParserTables
             XmlWriter xml,
             List<KeyValuePair<string, uint>> parsers)
         {
-            xml.WriteComment(string.Format(" {0:X8} ",
-                0x00400000u + (address - (uint)memory.MainModuleAddress.ToInt32())));
+            /*xml.WriteComment(string.Format(" {0:X8} ",
+                0x00400000u + (address - (uint)memory.MainModuleAddress.ToInt32())));*/
 
             var currentAddress = address;
-
-            var flags = new Dictionary<Parser.ColumnFlags, string>();
-            foreach (Parser.ColumnFlags value in Enum.GetValues(typeof(Parser.ColumnFlags)))
-            {
-                flags.Add(value, Enum.GetName(typeof(Parser.ColumnFlags), value));
-            }
 
             var columns = new List<KeyValuePair<NativeColumn, string>>();
             while (true)
@@ -213,7 +511,10 @@ namespace Gibbed.Cryptic.ExportParserTables
 
                 var token = Parser.GlobalTokens.GetToken(column.Token);
 
-                xml.WriteAttributeString("type", GetTokenName(column));
+                Parser.ColumnFlags flags;
+                var tokenName = GetTokenName(column, out flags);
+
+                xml.WriteAttributeString("type", tokenName);
 
                 if (column.Token != 0 &&
                     column.Token != 1 &&
@@ -238,18 +539,13 @@ namespace Gibbed.Cryptic.ExportParserTables
                 }
                 else
                 {
-                    var basicFlags = column.Flags;
-                    basicFlags &= ~Parser.ColumnFlags.FIXED_ARRAY;
-                    basicFlags &= ~Parser.ColumnFlags.EARRAY;
-                    basicFlags &= ~Parser.ColumnFlags.INDIRECT;
-
-                    if ((basicFlags & BasicFlagsMask) != 0)
+                    if ((flags & ColumnFlagsMask) != 0)
                     {
                         xml.WriteStartElement("flags");
 
-                        foreach (var kv in BasicFlags)
+                        foreach (var kv in ColumnFlagNames)
                         {
-                            if ((basicFlags & kv.Key) != 0)
+                            if ((flags & kv.Key) != 0)
                             {
                                 xml.WriteElementString("flag", kv.Value);
                             }
@@ -260,9 +556,6 @@ namespace Gibbed.Cryptic.ExportParserTables
 
                     if ((column.Flags & Parser.ColumnFlags.ALIAS) != 0)
                     {
-                        xml.WriteStartElement("redundant");
-                        xml.WriteEndElement();
-
                         var aliased = columns
                             .Where(c => c.Key != column)
                             .Where(c => (c.Key.Flags & Parser.ColumnFlags.ALIAS) == 0)
@@ -351,7 +644,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                                 if (column.Parameter1 != 0)
                                 {
                                     xml.WriteStartElement("static_define_list");
-                                    xml.WriteComment(string.Format(" {0:X8} ", column.Parameter1));
+                                    //xml.WriteComment(string.Format(" {0:X8} ", column.Parameter1));
                                     xml.WriteEndElement();
                                 }
                                 break;
@@ -417,6 +710,31 @@ namespace Gibbed.Cryptic.ExportParserTables
             var outputPath = Path.Combine("parsers", process.MainWindowTitle);
             Directory.CreateDirectory(outputPath);
 
+            string[] dontHash =
+            {
+                /* these are badly defined recursive structures that
+                 * make hashing blow up (even the game would too!) */
+                "WrlDef",
+                "WrlScene",
+                "WrlChildren",
+                
+                // now ignoring XML* wholesale in the check code
+                /*"XMLArray",
+                "XMLValue",
+                "XMLParseState",
+                "XMLMember",*/
+
+                "MemoryBudget",
+                "ModuleMemOperationStats",
+
+                "TestServerGlobal",
+                "TestServerGlobalReference",
+                "TestServerGlobalValue",
+
+                /* this one just takes forever :P */
+                //"Entity",
+            };
+
             using (var memory = new ProcessMemory())
             {
                 if (memory.Open(process) == false)
@@ -447,7 +765,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                     parsers.Add(new KeyValuePair<string,uint>(name, dataPointer));
                 }
 
-                foreach (var kv in parsers)
+                foreach (var kv in parsers.OrderBy(kv => kv.Key))
                 {
                     var name = kv.Key;
                     var pointer = kv.Value;
@@ -459,11 +777,27 @@ namespace Gibbed.Cryptic.ExportParserTables
                         Indent = true,
                     };
 
-                    using (var xml = XmlWriter.Create(Path.Combine(outputPath, name + ".schema.xml"), settings))
+                    uint? hash = null;
+
+                    /*
+                    // disable for now
+                    if (dontHash.Contains(name) == false &&
+                        name.StartsWith("XML") == false)
+                    {
+                        hash = HashTable(memory, pointer, 1);
+                    }
+                    */
+
+                    using (var xml = XmlWriter.Create(Path.Combine(outputPath, "exported", name + ".schema.xml"), settings))
                     {
                         xml.WriteStartDocument();
                         xml.WriteStartElement("parser");
                         xml.WriteAttributeString("name", name);
+
+                        if (hash != null)
+                        {
+                            xml.WriteAttributeString("hash", "0x" + hash.Value.Swap().ToString("X8"));
+                        }
 
                         xml.WriteStartElement("table");
                         ExportTable(memory, pointer, xml, parsers);

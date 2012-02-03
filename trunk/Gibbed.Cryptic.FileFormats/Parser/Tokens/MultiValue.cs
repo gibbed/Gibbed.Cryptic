@@ -20,6 +20,13 @@
  *    distribution.
  */
 
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
+using System.Xml;
+using Gibbed.IO;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class MultiValue : BasicValueToken
@@ -39,5 +46,100 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
         public override string NameDirectValue { get { return "MULTIVAL"; } }
         public override string NameDirectFixedArray { get { return "MULTIARRAY"; } }
         public override string NameIndirectArray { get { return "MULTIEARRAY"; } }
+
+        private static Dictionary<string, Opcode> NamesToOpcodes;
+        static MultiValue()
+        {
+            NamesToOpcodes = new Dictionary<string, Opcode>();
+            foreach (var name in Enum.GetNames(typeof(Opcode)))
+            {
+                NamesToOpcodes.Add(name, (Opcode)Enum.Parse(typeof(Opcode), name));
+            }
+        }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
+            var name = input.ReadString(4, true, Encoding.ASCII);
+            if (NamesToOpcodes.ContainsKey(name) == false)
+            {
+                throw new FormatException("invalid opcode in multival");
+            }
+            var op = NamesToOpcodes[name];
+
+            output.WriteStartElement("opcode");
+            output.WriteAttributeString("type", name);
+
+            object arg;
+            
+            switch (op)
+            {
+                case Opcode.NON:
+                case Opcode.O_P:
+                case Opcode.C_P:
+                case Opcode.STM:
+                case Opcode.LES:
+                case Opcode.ADD:
+                case Opcode.SUB:
+                case Opcode.MUL:
+                case Opcode.EQU:
+                case Opcode.NOT:
+                case Opcode.RET:
+                case Opcode.AND:
+                case Opcode.NEG:
+                case Opcode.ORR:
+                case Opcode.BAN:
+                case Opcode.RZ_:
+                case Opcode.NLE:
+                case Opcode.GRE:
+                case Opcode.DIV:
+                case Opcode.BOR:
+                case Opcode.NGR:
+                case Opcode.BNT:
+                {
+                    arg = null;
+                    break;
+                }
+
+                case Opcode.S_V:
+                {
+                    arg = input.ReadValueU32();
+                    break;
+                }
+
+                case Opcode.INT:
+                case Opcode.JZ_:
+                case Opcode.J__:
+                {
+                    arg = input.ReadValueS64();
+                    break;
+                }
+
+                case Opcode.FLT:
+                {
+                    arg = input.ReadValueF64();
+                    break;
+                }
+
+                case Opcode.STR:
+                case Opcode.FUN:
+                case Opcode.OBJ:
+                case Opcode.IDS:
+                case Opcode.RP_:
+                {
+                    arg = input.ReadStringPascalUncapped();
+                    break;
+                }
+
+                default: throw new NotSupportedException("unhandled opcode in multival");
+            }
+
+            if (arg != null)
+            {
+                output.WriteValue(arg.ToString());
+            }
+
+            output.WriteEndElement();
+            //output.Flush();
+        }
     }
 }

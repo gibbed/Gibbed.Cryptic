@@ -20,6 +20,10 @@
  *    distribution.
  */
 
+using System.IO;
+using System.Xml;
+using Gibbed.IO;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class Bit : Token
@@ -35,6 +39,11 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
                 case 1: return ColumnParameter.StaticDefineList;
                 default: return ColumnParameter.None;
             }
+        }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
+            output.WriteValue(input.ReadValueS32());
         }
     }
 }

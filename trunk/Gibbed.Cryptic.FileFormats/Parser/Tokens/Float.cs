@@ -20,6 +20,10 @@
  *    distribution.
  */
 
+using System.IO;
+using System.Xml;
+using Gibbed.IO;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class Float : BasicValueToken
@@ -38,5 +42,10 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
         public override string NameDirectValue { get { return "F32"; } }
         public override string NameDirectFixedArray { get { return "F32FIXEDARRAY"; } }
         public override string NameDirectArray { get { return "F32ARRAY"; } }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
+            output.WriteValue(input.ReadValueF32());
+        }
     }
 }

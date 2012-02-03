@@ -20,6 +20,9 @@
  *    distribution.
  */
 
+using System.IO;
+using System.Xml;
+
 namespace Gibbed.Cryptic.FileFormats.Parser
 {
     public abstract class Token
@@ -34,5 +37,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
         public virtual string NameIndirectArray      { get { return null; } }
 
         public abstract ColumnParameter GetParameter(ColumnFlags flags, int index);
+
+        public abstract void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output);
     }
 }

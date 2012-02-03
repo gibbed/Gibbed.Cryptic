@@ -20,6 +20,10 @@
  *    distribution.
  */
 
+using System.IO;
+using System.Xml;
+using Gibbed.IO;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class String : BasicStringToken
@@ -38,5 +42,11 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
         public override string NameDirectValue { get { return "FIXEDSTRING"; } }
         public override string NameIndirectValue { get { return "STRING"; } }
         public override string NameIndirectArray { get { return "STRINGARRAY"; } }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
+            var value = input.ReadStringPascalUncapped();
+            output.WriteValue(value);
+        }
     }
 }
