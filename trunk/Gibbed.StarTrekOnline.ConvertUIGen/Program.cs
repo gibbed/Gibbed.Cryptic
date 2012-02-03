@@ -98,7 +98,7 @@ namespace Gibbed.StarTrekOnline.ConvertUIGen
                 var inputPath = extras[0];
                 var outputPath = extras.Count > 1 ? extras[1] : Path.ChangeExtension(inputPath, null);
 
-                using (var input = File.OpenRead(@"T:\Games\MMO\Cryptic Studios\Star Trek Online\Live\piggs\bins_unpack\bin\UIGen.bin"))
+                using (var input = File.OpenRead(inputPath))
                 {
                     Console.WriteLine("Loading bin...");
                     var blob = new BlobFile();
@@ -163,24 +163,51 @@ namespace Gibbed.StarTrekOnline.ConvertUIGen
                             {
                                 string entryName;
 
+                                if (entry.Name == null)
+                                {
+                                    throw new InvalidOperationException();
+                                }
+
+                                /*
                                 if (fileNameCounters.ContainsKey(entry.FileName) == false)
                                 {
                                     entryName = entry.FileName;
                                     entryName = entryName.Replace('/', '\\');
+
+                                    if (entry.Name != null)
+                                    {
+                                        var baseName = Path.GetFileNameWithoutExtension(entryName);
+                                        baseName = string.Format("{0}__{1}", baseName, entry.Name);
+                                        baseName = Path.ChangeExtension(baseName, Path.GetExtension(entryName));
+                                        entryName = Path.Combine(Path.GetDirectoryName(entryName), baseName);
+                                    }
                                 }
                                 else
                                 {
                                     entryName = entry.FileName;
                                     entryName = entryName.Replace('/', '\\');
 
-                                    var baseName = Path.GetFileNameWithoutExtension(entryName);
-                                    baseName = string.Format("{0}__{1}", baseName, fileNameCounters[entry.FileName]);
-                                    baseName = Path.ChangeExtension(baseName, Path.GetExtension(entryName));
+                                    {
+                                        var baseName = Path.GetFileNameWithoutExtension(entryName);
+                                        baseName = string.Format("{0}__{1}", baseName, entry.Name);
+                                        baseName = Path.ChangeExtension(baseName, Path.GetExtension(entryName));
+                                        entryName = Path.Combine(Path.GetDirectoryName(entryName), baseName);
+                                    }
 
-                                    entryName = Path.Combine(Path.GetDirectoryName(entryName), baseName);
+                                    {
+                                        var baseName = Path.GetFileNameWithoutExtension(entryName);
+                                        baseName = string.Format("{0}__{1}", baseName, fileNameCounters[entry.FileName]);
+                                        baseName = Path.ChangeExtension(baseName, Path.GetExtension(entryName));
+                                        entryName = Path.Combine(Path.GetDirectoryName(entryName), baseName);
+                                    }
 
                                     fileNameCounters[entry.FileName]++;
                                 }
+                                */
+
+                                entryName = entry.FileName;
+                                entryName = entryName.Replace('/', '\\');
+                                entryName = Path.ChangeExtension(Path.Combine(entryName, entry.Name), ".xml");
 
                                 var entryPath = Path.Combine(outputPath, entryName);
 
