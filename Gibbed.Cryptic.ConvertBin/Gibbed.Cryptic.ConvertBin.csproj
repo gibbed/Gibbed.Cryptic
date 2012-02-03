@@ -2,30 +2,27 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{6ED99E4D-0AC4-44B8-92B2-D91D3A8A6AD9}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{87F12BDC-8668-49DE-AF16-303A7A18A6CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gibbed.StarTrekOnline.ConvertUIGen</RootNamespace>
-    <AssemblyName>Gibbed.StarTrekOnline.ConvertUIGen</AssemblyName>
+    <RootNamespace>Gibbed.Cryptic.ConvertBin</RootNamespace>
+    <AssemblyName>Gibbed.Cryptic.ConvertBin</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -34,9 +31,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gibbed.StarTrekOnline.Serialization.UIGen">
-      <HintPath>..\bin\Gibbed.StarTrekOnline.Serialization.UIGen.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -47,14 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Converter.cs" />
+    <Compile Include="Mode.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Gibbed.Cryptic.ConvertBin\Gibbed.Cryptic.ConvertBin.csproj">
-      <Project>{87F12BDC-8668-49DE-AF16-303A7A18A6CC}</Project>
-      <Name>Gibbed.Cryptic.ConvertBin</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Gibbed.Cryptic.FileFormats\Gibbed.Cryptic.FileFormats.csproj">
       <Project>{78B8A118-B473-4B77-9658-02B07EDA14C4}</Project>
       <Name>Gibbed.Cryptic.FileFormats</Name>

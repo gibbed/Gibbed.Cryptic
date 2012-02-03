@@ -109,10 +109,12 @@ namespace Gibbed.Cryptic.ExportParserTables
         /// <returns>True if it matches the pattern</returns>
         public UInt32 Match(byte[] data, int size)
         {
-            for (int i = 0; i < (size - (size % this.Size)); i++)
+            var remaining = size - (size % this.Size);
+
+            for (int i = 0; i + this.Size <= remaining; i++)
             {
                 bool matched = true;
-                for (int j = 0; matched && (j < this.Size); j++)
+                for (int j = 0; matched == true && j < this.Size; j++)
                 {
                     matched =
                         (this.Values[j].Value & this.Values[j].Mask)
