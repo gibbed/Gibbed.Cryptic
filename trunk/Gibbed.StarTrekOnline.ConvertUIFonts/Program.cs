@@ -20,12 +20,28 @@
  *    distribution.
  */
 
-namespace Gibbed.StarTrekOnline.ConvertUIGen
+using System.IO;
+using Gibbed.Cryptic.ConvertBin;
+using UIStyleFont = Gibbed.StarTrekOnline.Serialization.UIStyleFont;
+
+namespace Gibbed.StarTrekOnline.ConvertUIFonts
 {
-    internal enum Mode
+    internal class Program
     {
-        Unknown,
-        ToXML,
-        ToBIN,
+        private class UIGenConverter : Converter<UIStyleFont.UIStyleFont>
+        {
+            protected override string GetPath(UIStyleFont.UIStyleFont entry)
+            {
+                var name = entry.FileName;
+                name = name.Replace('/', '\\');
+                name = Path.ChangeExtension(Path.Combine(name, entry.Name), ".xml");
+                return name;
+            }
+        }
+
+        public static void Main(string[] args)
+        {
+            new UIGenConverter().Main(0x9B818B51, args);
+        }
     }
 }

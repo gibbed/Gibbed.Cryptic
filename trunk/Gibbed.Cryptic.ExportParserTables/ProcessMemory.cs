@@ -150,7 +150,7 @@ namespace Gibbed.Cryptic.ExportParserTables
 
         public uint Search(ByteSearch pattern)
         {
-			const int blockSize = 0x00500000;
+			const int blockSize = 0x00A00000;
             var data = new byte[blockSize];
 
             var address = this.MainModuleAddress;
