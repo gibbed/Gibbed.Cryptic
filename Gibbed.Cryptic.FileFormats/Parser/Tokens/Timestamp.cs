@@ -20,11 +20,20 @@
  *    distribution.
  */
 
+using System.IO;
+using System.Xml;
+using Gibbed.IO;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class Timestamp : BasicValueToken
     {
         public override StorageCompatability Storage { get { return StorageCompatability.DirectValue; } }
         public override string NameDirectValue { get { return "TIMESTAMP"; } }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
+            output.WriteValue(input.ReadValueS32());
+        }
     }
 }

@@ -20,11 +20,20 @@
  *    distribution.
  */
 
+using System.IO;
+using System.Xml;
+using Gibbed.IO;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class BooleanFlag : BasicValueToken
     {
         public override StorageCompatability Storage { get { return StorageCompatability.DirectValue; } }
         public override string NameDirectValue { get { return "BOOLFLAG"; } }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
+            output.WriteValue(input.ReadValueU8());
+        }
     }
 }

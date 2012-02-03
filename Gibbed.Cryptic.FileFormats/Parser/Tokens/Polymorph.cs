@@ -20,6 +20,11 @@
  *    distribution.
  */
 
+using System;
+using System.IO;
+using System.Xml;
+using Gibbed.IO;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class Polymorph : Token
@@ -56,6 +61,33 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
                 case 1: return ColumnParameter.Subtable;
                 default: return ColumnParameter.None;
             }
+        }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
+            var flags = Parser.ColumnFlags.None;
+            flags |= column.Flags & Parser.ColumnFlags.FIXED_ARRAY;
+            flags |= column.Flags & Parser.ColumnFlags.EARRAY;
+            flags |= column.Flags & Parser.ColumnFlags.INDIRECT;
+
+            if (flags == ColumnFlags.INDIRECT)
+            {
+                var hasValue = input.ReadValueU32();
+                if (hasValue == 0)
+                {
+                    return;
+                }
+            }
+
+            var index = input.ReadValueS32();
+            var target = column.Subtable.Columns[index];
+
+            output.WriteStartElement("polymorph");
+            output.WriteAttributeString("name", target.Name);
+
+            BlobFile.DeserializeColumn(target, input, output);
+
+            output.WriteEndElement();
         }
     }
 }

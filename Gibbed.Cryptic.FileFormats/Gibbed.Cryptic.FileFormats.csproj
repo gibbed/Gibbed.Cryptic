@@ -40,11 +40,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BlobFile.cs" />
+    <Compile Include="BlobReader.cs" />
+    <Compile Include="BlobWriter.cs" />
+    <Compile Include="Blob\DependencyEntry.cs" />
+    <Compile Include="Blob\FileEntry.cs" />
+    <Compile Include="ICrypticStream.cs" />
+    <Compile Include="ICrypticStructure.cs" />
+    <Compile Include="MultiValueInstruction.cs" />
+    <Compile Include="ParserSchemaFile.cs" />
+    <Compile Include="ParserSchema\Column.cs" />
+    <Compile Include="ParserSchema\Table.cs" />
     <Compile Include="Parser\BasicStringToken.cs" />
     <Compile Include="Parser\BasicValueToken.cs" />
     <Compile Include="Parser\ColumnParameter.cs" />
     <Compile Include="Parser\ColumnFlags.cs" />
     <Compile Include="Parser\GlobalTokens.cs" />
+    <Compile Include="Parser\Opcode.cs" />
     <Compile Include="Parser\StorageCompatability.cs" />
     <Compile Include="Parser\Token.cs" />
     <Compile Include="JournalFile.cs" />
@@ -79,6 +91,8 @@
     <Compile Include="Parser\Tokens\Structure.cs" />
     <Compile Include="Parser\Tokens\Timestamp.cs" />
     <Compile Include="Parser\Tokens\Byte.cs" />
+    <Compile Include="StreamHelpers.cs" />
+    <Compile Include="StringHelpers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gibbed.IO\Gibbed.IO.csproj">

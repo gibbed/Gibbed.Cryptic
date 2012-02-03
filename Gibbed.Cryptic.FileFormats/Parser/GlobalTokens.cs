@@ -56,6 +56,67 @@ namespace Gibbed.Cryptic.FileFormats.Parser
             new Tokens.Command(), // 25
         };
 
+        public static byte Count { get { return (byte)Tokens.Length; } }
+
+        public static Token MatchToken(string name, out byte id, out Parser.ColumnFlags flags)
+        {
+            name = name.ToLowerInvariant();
+
+            for (byte i = 0; i < Tokens.Length; i++)
+            {
+                var token = Tokens[i];
+                if (token == null)
+                {
+                    continue;
+                }
+
+                if (token.NameDirectValue != null &&
+                    name == token.NameDirectValue.ToLowerInvariant())
+                {
+                    id = i;
+                    flags = ColumnFlags.None;
+                    return token;
+                }
+                else if (token.NameDirectFixedArray != null &&
+                    name == token.NameDirectFixedArray.ToLowerInvariant())
+                {
+                    id = i;
+                    flags = ColumnFlags.FIXED_ARRAY;
+                    return token;
+                }
+                else if (token.NameDirectArray != null &&
+                    name == token.NameDirectArray.ToLowerInvariant())
+                {
+                    id = i;
+                    flags = ColumnFlags.EARRAY;
+                    return token;
+                }
+                else if (token.NameIndirectValue != null &&
+                    name == token.NameIndirectValue.ToLowerInvariant())
+                {
+                    id = i;
+                    flags = ColumnFlags.INDIRECT;
+                    return token;
+                }
+                else if (token.NameIndirectFixedArray != null &&
+                    name == token.NameIndirectFixedArray.ToLowerInvariant())
+                {
+                    id = i;
+                    flags = ColumnFlags.INDIRECT | ColumnFlags.FIXED_ARRAY;
+                    return token;
+                }
+                else if (token.NameIndirectArray != null &&
+                    name == token.NameIndirectArray.ToLowerInvariant())
+                {
+                    id = i;
+                    flags = ColumnFlags.INDIRECT | ColumnFlags.EARRAY;
+                    return token;
+                }
+            }
+
+            throw new ArgumentException("token not found", "name");
+        }
+
         public static Token GetToken(byte index)
         {
             if (index < 0 || index >= Tokens.Length)

@@ -20,6 +20,10 @@
  *    distribution.
  */
 
+using System.IO;
+using System.Xml;
+using Gibbed.IO;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class CurrentFile : BasicStringToken
@@ -27,5 +31,10 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
         public override StorageCompatability Storage { get { return StorageCompatability.IndirectValue; } }
         public override string NameDirectValue { get { return "CURRENTFILE_X"; } }
         public override string NameIndirectValue { get { return "CURRENTFILE"; } }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
+            output.WriteValue(input.ReadStringPascalUncapped());
+        }
     }
 }

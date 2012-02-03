@@ -336,13 +336,14 @@ namespace Gibbed.Cryptic.ExportParserTables
                     {
                         return Encoding.ASCII.GetString(data, 0, i);
                     }
-                    else if (current >= 102480)
-                    {
-                        throw new InvalidOperationException();
-                    }
                 }
 
                 current += block.Length;
+
+                if (current >= 102480)
+                {
+                    throw new InvalidOperationException();
+                }
             }
         }
 

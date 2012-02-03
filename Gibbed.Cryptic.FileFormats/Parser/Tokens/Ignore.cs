@@ -20,6 +20,9 @@
  *    distribution.
  */
 
+using System.IO;
+using System.Xml;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class Ignore : Token
@@ -29,6 +32,10 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
         public override ColumnParameter GetParameter(ColumnFlags flags, int index)
         {
             return ColumnParameter.None;
+        }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
         }
     }
 }

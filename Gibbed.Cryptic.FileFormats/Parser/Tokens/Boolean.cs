@@ -20,6 +20,10 @@
  *    distribution.
  */
 
+using System.IO;
+using System.Xml;
+using Gibbed.IO;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class Boolean : BasicValueToken
@@ -31,5 +35,10 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 
         public override string NameDirectValue { get { return "BOOL"; } }
         public override string NameDirectFixedArray { get { return "BOOLFIXEDARRAY"; } }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
+            output.WriteValue(input.ReadValueU8());
+        }
     }
 }

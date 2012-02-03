@@ -20,6 +20,11 @@
  *    distribution.
  */
 
+using System;
+using System.IO;
+using System.Xml;
+using Gibbed.IO;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class MATPYR : BasicValueToken
@@ -29,6 +34,23 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
         public override StorageCompatability Storage
         {
             get { return StorageCompatability.DirectFixedArray; }
+        }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
+            throw new NotSupportedException();
+
+            output.WriteStartElement("x");
+            output.WriteValue(input.ReadValueF32());
+            output.WriteEndElement();
+
+            output.WriteStartElement("y");
+            output.WriteValue(input.ReadValueF32());
+            output.WriteEndElement();
+
+            output.WriteStartElement("z");
+            output.WriteValue(input.ReadValueF32());
+            output.WriteEndElement();
         }
     }
 }

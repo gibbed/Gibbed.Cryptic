@@ -20,6 +20,10 @@
  *    distribution.
  */
 
+using System.IO;
+using System.Xml;
+using Gibbed.IO;
+
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class Int64 : BasicValueToken
@@ -30,5 +34,10 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
         }
         public override string NameDirectValue { get { return "INT64"; } }
         public override string NameDirectFixedArray { get { return "INT64FIXEDARRAY"; } }
+
+        public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
+        {
+            output.WriteValue(input.ReadValueS64());
+        }
     }
 }
