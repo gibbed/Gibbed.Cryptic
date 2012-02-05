@@ -31,6 +31,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
             new Tokens.Ignore(), // 0
             new Tokens.Start(), // 1
             new Tokens.End(), // 2
+
             new Tokens.Byte(), // 3
             new Tokens.Int16(), // 4
             new Tokens.Int32(), // 5

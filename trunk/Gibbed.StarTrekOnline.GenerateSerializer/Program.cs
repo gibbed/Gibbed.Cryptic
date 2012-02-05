@@ -65,13 +65,23 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                     case 3: return typeof(byte);
                     case 4: return typeof(short);
                     case 5: return typeof(int);
+                    case 6: return typeof(long);
                     case 7: return typeof(float);
                     case 8: return typeof(string);
                     case 9: return typeof(string);
+                    case 10: return typeof(int);
+                    case 11: return typeof(int);
+                    case 12: return typeof(bool);
+                    case 14: return typeof(bool);
+                    case 16: return typeof(MATPYR);
+                    case 17: return typeof(string);
                     case 18: return typeof(string);
                     case 20: return tableTypes[column.Subtable];
                     case 21: return typeof(object);
+                    case 22: return typeof(StashTable);
                     case 23: return typeof(uint);
+                    case 24: return typeof(MultiValue);
+                    case 25: return typeof(string);
                     default: throw new NotImplementedException();
                 }
             }
@@ -79,9 +89,15 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             {
                 switch (column.Token)
                 {
+                    case 3: return typeof(byte[]);
                     case 4: return typeof(short[]);
                     case 5: return typeof(int[]);
+                    case 6: return typeof(long[]);
                     case 7: return typeof(float[]);
+                    case 8: return typeof(string[]);
+                    case 9: return typeof(string[]);
+                    case 15: return typeof(QUATPYR[]);
+                    case 16: return typeof(MATPYR[]);
                     default: throw new NotImplementedException();
                 }
             }
@@ -89,10 +105,19 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             {
                 switch (column.Token)
                 {
+                    case 3: return typeof(List<byte>);
+                    case 4: return typeof(List<short>);
                     case 5: return typeof(List<int>);
+                    case 6: return typeof(List<long>);
+                    case 7: return typeof(List<float>);
                     case 8: return typeof(List<string>);
+                    case 9: return typeof(List<string>);
+                    case 16: return typeof(List<MATPYR>);
+                    case 17: return typeof(List<string>);
+                    case 19: return typeof(List<FunctionCall>);
                     case 20: return typeof(List<>).MakeGenericType(tableTypes[column.Subtable]);
-                    case 24: return typeof(List<MultiValueInstruction>);
+                    case 21: return typeof(List<object>);
+                    case 24: return typeof(List<MultiValue>);
                     default: throw new NotImplementedException();
                 }
             }
@@ -106,9 +131,10 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             {
                 return false;
             }
-            else if (column.Token == 0 ||
-                column.Token == 1 ||
-                column.Token == 2)
+            else if (column.Token == 0 || // ignore
+                column.Token == 1 || // start
+                column.Token == 2 || // end
+                column.Token == 25) // command
             {
                 return false;
             }
@@ -119,27 +145,28 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
         private static MethodInfo GetSerializeMethod(ParserSchema.Column column)
         {
             var token = Parser.GlobalTokens.GetToken(column.Token);
-            string methodName = null;
+
+            string name = null;
 
             if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
             {
-                methodName = "SerializeValue" + token.GetType().Name;
+                name = "SerializeValue" + token.GetType().Name;
             }
             else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
             {
-                methodName = "SerializeArray" + token.GetType().Name;
+                name = "SerializeArray" + token.GetType().Name;
             }
             else
             {
-                methodName = "SerializeList" + token.GetType().Name;
+                name = "SerializeList" + token.GetType().Name;
             }
 
             var methodInfo = typeof(ICrypticStream).GetMethod(
-                methodName,
+                name,
                 BindingFlags.Public | BindingFlags.Instance);
             if (methodInfo == null)
             {
-                throw new NotSupportedException(methodName + " is missing");
+                throw new NotSupportedException(name + " is missing");
             }
 
             return methodInfo;
@@ -247,7 +274,6 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
 
             var label = msil.DefineLabel();
             var isNull = msil.DeclareLocal(typeof(bool));
-            isNull.SetLocalSymInfo("bob");
 
             msil.Emit(OpCodes.Ldarg_1);
             msil.Emit(OpCodes.Ldnull);
@@ -364,9 +390,15 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
         public static void Main(string[] args)
         {
             var showHelp = false;
+            string version = null;
 
             var options = new OptionSet()
             {
+                {
+                    "v|version=",
+                    "set version",
+                    v => version = v
+                },
                 {
                     "h|help",
                     "show this message and exit", 
@@ -388,9 +420,9 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 return;
             }
 
-            if (extras.Count < 1 || extras.Count > 2 || showHelp == true)
+            if (extras.Count < 0 || extras.Count > 1 || showHelp == true)
             {
-                Console.WriteLine("Usage: {0} [OPTIONS]+ target_name [output_dll]", GetExecutableName());
+                Console.WriteLine("Usage: {0} [OPTIONS]+ [output_dll]", GetExecutableName());
                 Console.WriteLine();
                 Console.WriteLine("Options:");
                 options.WriteOptionDescriptions(Console.Out);
@@ -400,10 +432,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             var loader = new ParserLoader(
                 Path.Combine(GetExecutablePath(), "parsers", "Star Trek Online"));
 
-            var inputName = extras[0];
-            var outputPath = extras.Count > 1 ? extras[1] : Path.ChangeExtension(inputName, ".dll");
-
-            var parser = loader.LoadParser(inputName);
+            var outputPath = extras.Count > 0 ? extras[0] : "Gibbed.StarTrekOnline.Serialization.dll";
 
             var assemblyName = new AssemblyName();
             assemblyName.Name = Path.GetFileNameWithoutExtension(outputPath);
@@ -413,60 +442,100 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             var assemblyBuilder = currentDomain.DefineDynamicAssembly(
                 assemblyName,
                 AssemblyBuilderAccess.Save);
-            
+
+            if (version != null)
+            {
+                assemblyBuilder.SetCustomAttribute(
+                    new CustomAttributeBuilder(typeof(AssemblyDescriptionAttribute)
+                        .GetConstructor(new Type[] { typeof(string) }), new object[] { version }));
+            }
+
+            assemblyBuilder.DefineVersionInfoResource();
 
             var moduleBuilder = assemblyBuilder.DefineDynamicModule(
-                assemblyName.Name, assemblyName.Name + ".dll", true);
+                assemblyName.Name, Path.GetFileName(outputPath));
 
-            var queue = new Queue<KeyValuePair<string, ParserSchema.Table>>();
+            var queue = new Queue<QueuedType>();
             var done = new List<string>();
 
             var tableTypes = new Dictionary<ParserSchema.Table, TypeBuilder>();
 
             queue.Clear();
             done.Clear();
-            queue.Enqueue(new KeyValuePair<string, ParserSchema.Table>(inputName, parser.Table));
+            foreach (var parserName in loader.ParserNames)
+            {
+                queue.Enqueue(new QueuedType(parserName, loader.LoadParser(parserName).Table));
+            }
+
             while (queue.Count > 0)
             {
-                var kv = queue.Dequeue();
-                var parserName = kv.Key;
-                var parserTable = kv.Value;
+                var qt = queue.Dequeue();
+                done.Add(qt.Key);
 
-                done.Add(parserName);
+                TypeBuilder typeBuilder;
 
-                var typeBuilder = moduleBuilder.DefineType(
-                    assemblyName.Name + "." + parserName,
-                    TypeAttributes.Public,
-                    null,
-                    new Type[] { typeof(ICrypticStructure) });
+                if (qt.Parent == null)
+                {
+                    typeBuilder = moduleBuilder.DefineType(
+                        "Gibbed.StarTrekOnline.Serialization." + qt.Name,
+                        TypeAttributes.Public,
+                        null,
+                        new Type[] { typeof(ICrypticStructure) });
+                }
+                else
+                {
+                    typeBuilder = tableTypes[qt.Parent.Table].DefineNestedType(
+                        qt.Name,
+                        TypeAttributes.NestedPublic,
+                        null,
+                        new Type[] { typeof(ICrypticStructure) });
+                }
 
                 typeBuilder.SetCustomAttribute(
                     new CustomAttributeBuilder(typeof(DataContractAttribute)
                         .GetConstructor(Type.EmptyTypes), new object[] { }));
 
-                tableTypes.Add(parserTable, typeBuilder);
+                tableTypes.Add(qt.Table, typeBuilder);
 
-                foreach (var column in parserTable.Columns
+                foreach (var column in qt.Table.Columns
                     .Where(c => IsGoodColumn(c)))
                 {
-                    if (column.Subtable != null &&
-                        string.IsNullOrEmpty(column.SubtableExternalName) == false &&
-                        done.Contains(column.SubtableExternalName) == false &&
-                        queue.Where(e => e.Key == column.SubtableExternalName).Count() == 0)
+                    if (column.Token == 20)
                     {
-                        queue.Enqueue(new KeyValuePair<string, ParserSchema.Table>(column.SubtableExternalName, column.Subtable));
-                    }
+                        if (column.SubtableIsExternal == true)
+                        {
+                            if (done.Contains(column.SubtableExternalName) == false &&
+                                queue.Where(e => e.Name == column.SubtableExternalName && e.Parent == null).Count() == 0)
+                            {
+                                queue.Enqueue(new QueuedType(column.SubtableExternalName, column.Subtable));
+                            }
+                        }
+                        else
+                        {
+                            var key = qt.Key + "." + column.Name;
 
-                    if (column.Token == 21)
+                            if (done.Contains(key) == false &&
+                                queue.Where(e => e.Name == column.Name && e.Parent == qt).Count() == 0)
+                            {
+                                queue.Enqueue(new QueuedType(column.Name, column.Subtable, qt));
+                            }
+                        }
+                    }
+                    else if (column.Token == 21)
                     {
                         foreach (var subcolumn in column.Subtable.Columns)
                         {
-                            if (subcolumn.Subtable != null &&
-                                string.IsNullOrEmpty(subcolumn.SubtableExternalName) == false &&
-                                done.Contains(subcolumn.SubtableExternalName) == false &&
-                                queue.Where(e => e.Key == subcolumn.SubtableExternalName).Count() == 0)
+                            if (subcolumn.SubtableIsExternal == true)
                             {
-                                queue.Enqueue(new KeyValuePair<string, ParserSchema.Table>(subcolumn.SubtableExternalName, subcolumn.Subtable));
+                                if (done.Contains(subcolumn.SubtableExternalName) == false &&
+                                    queue.Where(e => e.Name == subcolumn.SubtableExternalName && e.Parent == null).Count() == 0)
+                                {
+                                    queue.Enqueue(new QueuedType(subcolumn.SubtableExternalName, subcolumn.Subtable));
+                                }
+                            }
+                            else
+                            {
+                                throw new NotSupportedException();
                             }
                         }
                     }
@@ -475,40 +544,59 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
 
             queue.Clear();
             done.Clear();
-            queue.Enqueue(new KeyValuePair<string, ParserSchema.Table>(inputName, parser.Table));
+            foreach (var parserName in loader.ParserNames)
+            {
+                queue.Enqueue(new QueuedType(parserName, loader.LoadParser(parserName).Table));
+            }
+
             while (queue.Count > 0)
             {
-                var kv = queue.Dequeue();
-                var parserName = kv.Key;
-                var parserTable = kv.Value;
+                var qt = queue.Dequeue();
+                done.Add(qt.Key);
 
-                done.Add(parserName);
+                var typeBuilder = tableTypes[qt.Table];
 
-                var typeBuilder = tableTypes[parserTable];
+                Generate(qt.Table, typeBuilder, tableTypes);
 
-                Generate(parserTable, typeBuilder, tableTypes);
-
-                foreach (var column in parserTable.Columns
+                foreach (var column in qt.Table.Columns
                     .Where(c => IsGoodColumn(c)))
                 {
-                    if (column.Subtable != null &&
-                        string.IsNullOrEmpty(column.SubtableExternalName) == false &&
-                        done.Contains(column.SubtableExternalName) == false &&
-                        queue.Where(e => e.Key == column.SubtableExternalName).Count() == 0)
+                    if (column.Token == 20)
                     {
-                        queue.Enqueue(new KeyValuePair<string, ParserSchema.Table>(column.SubtableExternalName, column.Subtable));
-                    }
+                        if (column.SubtableIsExternal == true)
+                        {
+                            if (done.Contains(column.SubtableExternalName) == false &&
+                                queue.Where(e => e.Name == column.SubtableExternalName && e.Parent == null).Count() == 0)
+                            {
+                                queue.Enqueue(new QueuedType(column.SubtableExternalName, column.Subtable));
+                            }
+                        }
+                        else
+                        {
+                            var key = qt.Key + "." + column.Name;
 
-                    if (column.Token == 21)
+                            if (done.Contains(key) == false &&
+                                queue.Where(e => e.Name == column.Name && e.Parent == qt).Count() == 0)
+                            {
+                                queue.Enqueue(new QueuedType(column.Name, column.Subtable, qt));
+                            }
+                        }
+                    }
+                    else if (column.Token == 21)
                     {
                         foreach (var subcolumn in column.Subtable.Columns)
                         {
-                            if (subcolumn.Subtable != null &&
-                                string.IsNullOrEmpty(subcolumn.SubtableExternalName) == false &&
-                                done.Contains(subcolumn.SubtableExternalName) == false &&
-                                queue.Where(e => e.Key == subcolumn.SubtableExternalName).Count() == 0)
+                            if (subcolumn.SubtableIsExternal == true)
                             {
-                                queue.Enqueue(new KeyValuePair<string, ParserSchema.Table>(subcolumn.SubtableExternalName, subcolumn.Subtable));
+                                if (done.Contains(subcolumn.SubtableExternalName) == false &&
+                                    queue.Where(e => e.Name == subcolumn.SubtableExternalName && e.Parent == null).Count() == 0)
+                                {
+                                    queue.Enqueue(new QueuedType(subcolumn.SubtableExternalName, subcolumn.Subtable));
+                                }
+                            }
+                            else
+                            {
+                                throw new NotSupportedException();
                             }
                         }
                     }

@@ -39,7 +39,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
         public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
         {
             throw new NotSupportedException();
-            output.WriteValue(input.ReadValueF32());
+            //output.WriteValue(input.ReadValueF32());
         }
     }
 }

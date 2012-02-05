@@ -76,9 +76,42 @@ namespace Gibbed.Cryptic.FileFormats
             this.Output.WriteValueU8(value);
         }
 
+        public void SerializeArrayByte(ref byte[] array, int count)
+        {
+            if (array.Length != count)
+            {
+                throw new ArgumentException("array count mismatch", "array");
+            }
+
+            this.Output.Write(array, 0, count);
+        }
+
+        public void SerializeListByte(ref List<byte> list)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SerializeValueInt16(ref short value)
         {
             this.Output.WriteValueS32(value);
+        }
+
+        public void SerializeArrayInt16(ref short[] array, int count)
+        {
+            if (array.Length != count)
+            {
+                throw new ArgumentException("array count mismatch", "array");
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                this.Output.WriteValueS32(array[i]);
+            }
+        }
+
+        public void SerializeListInt16(ref List<short> list)
+        {
+            throw new NotImplementedException();
         }
 
         public void SerializeValueInt32(ref int value)
@@ -86,9 +119,69 @@ namespace Gibbed.Cryptic.FileFormats
             this.Output.WriteValueS32(value);
         }
 
+        public void SerializeArrayInt32(ref int[] array, int count)
+        {
+            if (array.Length != count)
+            {
+                throw new ArgumentException("array count mismatch", "array");
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                this.Output.WriteValueS32(array[i]);
+            }
+        }
+
+        public void SerializeListInt32(ref List<int> list)
+        {
+            if (list.Count > 800000)
+            {
+                throw new ArgumentException("list has too many items", "list");
+            }
+
+            this.Output.WriteValueS32(list.Count);
+            foreach (var item in list)
+            {
+                this.Output.WriteValueS32(item);
+            }
+        }
+
+        public void SerializeValueInt64(ref long value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayInt64(ref long[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListInt64(ref List<long> list)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SerializeValueFloat(ref float value)
         {
             this.Output.WriteValueF32(value);
+        }
+
+        public void SerializeArrayFloat(ref float[] array, int count)
+        {
+            if (array.Length != count)
+            {
+                throw new ArgumentException("array count mismatch", "array");
+            }
+
+            for (int i = 0; i < count; i++)
+            {
+                this.Output.WriteValueF32(array[i]);
+            }
+        }
+
+        public void SerializeListFloat(ref List<float> list)
+        {
+            throw new NotImplementedException();
         }
 
         public void SerializeValueString(ref string value)
@@ -96,9 +189,23 @@ namespace Gibbed.Cryptic.FileFormats
             this.Output.WriteStringPascalUncapped(value);
         }
 
-        public void SerializeValueReference(ref string value)
+        public void SerializeArrayString(ref string[] array, int count)
         {
-            Output.WriteStringPascalUncapped(value);
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListString(ref List<string> list)
+        {
+            if (list.Count > 800000)
+            {
+                throw new ArgumentException("list has too many items", "list");
+            }
+
+            this.Output.WriteValueS32(list.Count);
+            foreach (var item in list)
+            {
+                this.Output.WriteStringPascalUncapped(item);
+            }
         }
 
         public void SerializeValueCurrentFile(ref string value)
@@ -106,7 +213,152 @@ namespace Gibbed.Cryptic.FileFormats
             this.Output.WriteStringPascalUncapped(value);
         }
 
-        private void SerializeValueStructure(object value, bool optional)
+        public void SerializeArrayCurrentFile(ref string[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListCurrentFile(ref List<string> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueTimestamp(ref int value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayTimestamp(ref int[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListTimestamp(ref List<int> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueLineNumber(ref int value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayLineNumber(ref int[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListLineNumber(ref List<int> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueBoolean(ref bool value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayBoolean(ref bool[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListBoolean(ref List<bool> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueBooleanFlag(ref bool value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayBooleanFlag(ref bool[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListBooleanFlag(ref List<bool> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueQUATPYR(ref QUATPYR value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayQUATPYR(ref QUATPYR[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListQUATPYR(ref List<QUATPYR> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueMATPYR(ref MATPYR value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayMATPYR(ref MATPYR[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListMATPYR(ref List<MATPYR> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueFilename(ref string value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayFilename(ref string[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListFilename(ref List<string> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueReference(ref string value)
+        {
+            this.Output.WriteStringPascalUncapped(value);
+        }
+
+        public void SerializeArrayReference(ref string[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListReference(ref List<string> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueFunctionCall(ref FunctionCall value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayFunctionCall(ref FunctionCall[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListFunctionCall(ref List<FunctionCall> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void SerializeStructure(ICrypticStructure value, bool optional)
         {
             if (optional == true)
             {
@@ -127,7 +379,7 @@ namespace Gibbed.Cryptic.FileFormats
 #if !ALLINMEMORY
             using (var data = new MemoryStream())
             {
-                ((ICrypticStructure)value).Serialize(new BlobWriter(data));
+                value.Serialize(new BlobWriter(data));
                 data.Position = 0;
                 this.Output.WriteValueU32((uint)data.Length);
                 this.Output.WriteFromStream(data, data.Length);
@@ -137,12 +389,12 @@ namespace Gibbed.Cryptic.FileFormats
             this.Output.Seek(4, SeekOrigin.Current);
 
             var start = this.Output.Position;
-            ((ICrypticStructure)value).Serialize(this);
+            value.Serialize(this);
 
             var end = this.Output.Position;
 
             this.Output.Seek(size, SeekOrigin.Begin);
-            Output.WriteValueU32((uint)(end - start));
+            this.Output.WriteValueU32((uint)(end - start));
             this.Output.Seek(end, SeekOrigin.Begin);
 #endif
         }
@@ -150,7 +402,29 @@ namespace Gibbed.Cryptic.FileFormats
         public void SerializeValueStructure<TType>(ref TType value, bool optional)
             where TType : ICrypticStructure, new()
         {
-            SerializeValueStructure(value, optional);
+            this.SerializeStructure(value, optional);
+        }
+
+        public void SerializeArrayStructure<TType>(ref TType[] array, int count)
+            where TType : ICrypticStructure, new()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListStructure<TType>(ref List<TType> list)
+            where TType : ICrypticStructure, new()
+        {
+            if (list.Count > 800000)
+            {
+                throw new ArgumentException("list has too many items", "list");
+            }
+
+            this.Output.WriteValueS32(list.Count);
+            for (int i = 0; i < list.Count; i++)
+            {
+                var item = list[i];
+                this.SerializeValueStructure<TType>(ref item, false);
+            }
         }
 
         public void SerializeValuePolymorph(ref object value, bool optional, Type[] validTypes)
@@ -178,7 +452,32 @@ namespace Gibbed.Cryptic.FileFormats
             }
 
             this.Output.WriteValueS32(index);
-            SerializeValueStructure(value, false);
+            this.SerializeStructure((ICrypticStructure)value, false);
+        }
+
+        public void SerializeArrayPolymorph(ref object[] array, int count, Type[] validTypes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListPolymorph(ref List<object> list, Type[] validTypes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueStashTable(ref StashTable value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayStashTable(ref StashTable[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListStashTable(ref List<StashTable> list)
+        {
+            throw new NotImplementedException();
         }
 
         public void SerializeValueBit(ref uint value)
@@ -186,95 +485,32 @@ namespace Gibbed.Cryptic.FileFormats
             this.Output.WriteValueU32(value);
         }
 
-        public void SerializeArrayInt16(ref short[] array, int count)
+        public void SerializeArrayBit(ref uint[] array, int count)
         {
-            if (array.Length != count)
-            {
-                throw new InvalidOperationException();
-            }
-
-            for (int i = 0; i < count; i++)
-            {
-                this.Output.WriteValueS32(array[i]);
-            }
+            throw new NotImplementedException();
         }
 
-        public void SerializeArrayInt32(ref int[] array, int count)
+        public void SerializeListBit(ref List<uint> list)
         {
-            if (array.Length != count)
-            {
-                throw new InvalidOperationException();
-            }
-
-            for (int i = 0; i < count; i++)
-            {
-                this.Output.WriteValueS32(array[i]);
-            }
+            throw new NotImplementedException();
         }
 
-        public void SerializeArrayFloat(ref float[] array, int count)
+        public void SerializeValueMultiValue(ref MultiValue value)
         {
-            if (array.Length != count)
-            {
-                throw new InvalidOperationException();
-            }
-
-            for (int i = 0; i < count; i++)
-            {
-                this.Output.WriteValueF32(array[i]);
-            }
+            throw new NotImplementedException();
         }
 
-        public void SerializeListInt32(ref List<int> list)
+        public void SerializeArrayMultiValue(ref MultiValue[] array, int count)
         {
-            if (list.Count > 800000)
-            {
-                throw new InvalidOperationException();
-            }
-
-            this.Output.WriteValueS32(list.Count);
-            foreach (var item in list)
-            {
-                this.Output.WriteValueS32(item);
-            }
-        }
-
-        public void SerializeListString(ref List<string> list)
-        {
-            if (list.Count > 800000)
-            {
-                throw new InvalidOperationException();
-            }
-
-            this.Output.WriteValueS32(list.Count);
-            foreach (var item in list)
-            {
-                this.Output.WriteStringPascalUncapped(item);
-            }
-        }
-
-        public void SerializeListStructure<TType>(ref List<TType> list)
-            where TType : ICrypticStructure, new()
-        {
-            if (list.Count > 800000)
-            {
-                throw new InvalidOperationException();
-            }
-
-            this.Output.WriteValueS32(list.Count);
-            for (int i = 0; i < list.Count; i++)
-            {
-                var item = list[i];
-                this.SerializeValueStructure<TType>(ref item, false);
-            }
+            throw new NotImplementedException();
         }
 
         // todo: create real multival handling
-        public void SerializeListMultiValue(ref List<MultiValueInstruction> list)
+        public void SerializeListMultiValue(ref List<MultiValue> list)
         {
             if (list.Count > 800000)
             {
-                throw new InvalidOperationException();
+                throw new ArgumentException("list has too many items", "list");
             }
 
             this.Output.WriteValueS32(list.Count);
@@ -340,8 +576,7 @@ namespace Gibbed.Cryptic.FileFormats
                         break;
                     }
 
-                    default:
-                    throw new NotSupportedException("unhandled opcode in multival");
+                    default: throw new NotSupportedException("unhandled opcode in multival");
                 }
             }
         }
