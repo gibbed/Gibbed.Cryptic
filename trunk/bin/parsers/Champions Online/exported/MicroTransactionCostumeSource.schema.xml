@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MicroTransactionCostumeSource">
+  <table>
+    <column name="MicroTransactionCostumeSource" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Product" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="MicroTransactionProduct" />
+    </column>
+    <column name="hItem" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="hCostumeSet" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>CostumeSet</dictionary_name>
+    </column>
+    <column name="Hidden" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="Owned" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="New" type="U8">
+      <offset>18</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

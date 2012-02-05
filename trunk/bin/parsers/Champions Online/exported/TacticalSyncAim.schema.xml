@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalSyncAim">
+  <table>
+    <column name="TacticalSyncAim" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Speed" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="minDurationSeconds" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

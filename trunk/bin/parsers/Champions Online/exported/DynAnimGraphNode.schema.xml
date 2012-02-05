@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynAnimGraphNode">
+  <table>
+    <column name="DynAnimGraphNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="X" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Y" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Move" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="DynAnimGraphMove" />
+    </column>
+    <column name="Path" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="DynAnimGraphPath" />
+    </column>
+    <column name="interpBlock" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Interpolation" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="EaseIn" type="INT">
+      <offset>28</offset>
+      <static_define_list />
+    </column>
+    <column name="EaseOut" type="INT">
+      <offset>32</offset>
+      <static_define_list />
+    </column>
+    <column name="NoSelfInterp" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="ForceEndFreeze" type="U8">
+      <offset>37</offset>
+    </column>
+    <column name="OverrideAllBones" type="U8">
+      <offset>38</offset>
+    </column>
+    <column name="OverrideMovement" type="U8">
+      <offset>39</offset>
+    </column>
+    <column name="FxEvent" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="DynAnimGraphFxEvent" />
+    </column>
+    <column name="GraphImpact" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="DynAnimGraphTriggerImpact" />
+    </column>
+    <column name="InheritBits" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="DynAnimGraphNodeInheritBits" />
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>52</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

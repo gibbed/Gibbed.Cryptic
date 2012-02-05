@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldAtmosphereProperties">
+  <table>
+    <column name="WorldAtmosphereProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="PlanetRadius" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="AtmosphereThickness" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="AerosolAtmosphereThickness" type="IGNORE" />
+    <column name="RayleighScattering" type="IGNORE" />
+    <column name="MieScattering" type="IGNORE" />
+    <column name="MiePhaseAsymmetry" type="IGNORE" />
+    <column name="IntensityMultiplier" type="IGNORE" />
+    <column name="ParticleHSV" type="IGNORE" />
+    <column name="AerosolParticleHSV" type="IGNORE" />
+    <column name="NormalizedViewHeight" type="IGNORE" />
+    <column name="End" type="END" />
+  </table>
+</parser>

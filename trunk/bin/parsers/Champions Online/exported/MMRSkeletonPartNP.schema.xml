@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MMRSkeletonPartNP">
+  <table>
+    <column name="MMRSkeletonPartNP" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="cap" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="Capsule" />
+    </column>
+    <column name="xyzSizeBox" type="F32FIXEDARRAY">
+      <offset>36</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="posBox" type="F32FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="pyrBox" type="F32FIXEDARRAY">
+      <offset>60</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="bodyIndex" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="isBox" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="isBody" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="parse_TemplatePreloadLists">
+  <table>
+    <column name="Template" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="parse_preload_file" />
+    </column>
+    <column name="Folder" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Template</redundant_name>
+      <subtable external="parse_preload_dir" />
+    </column>
+    <column name="LateTemplate" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="parse_preload_file" />
+    </column>
+    <column name="LateFolder" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>LateTemplate</redundant_name>
+      <subtable external="parse_preload_dir" />
+    </column>
+  </table>
+</parser>

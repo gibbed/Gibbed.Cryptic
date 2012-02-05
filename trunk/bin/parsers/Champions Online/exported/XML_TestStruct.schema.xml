@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="XML_TestStruct">
+  <table>
+    <column name="XML_TestStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="i" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="F" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="aint" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NotifyAudioEventData">
+  <table>
+    <column name="NotifyAudioEventData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Int" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Float" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="String" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

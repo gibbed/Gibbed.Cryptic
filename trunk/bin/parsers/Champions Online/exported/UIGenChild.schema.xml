@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenChild">
+  <table>
+    <column name="UIGenChild" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="hChild" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>UIGen</dictionary_name>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

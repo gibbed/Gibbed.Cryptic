@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ParseInfo">
+  <table>
+    <column type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="}" type="END" />
+    <column name="Column" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="Column" />
+    </column>
+  </table>
+</parser>

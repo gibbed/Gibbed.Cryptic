@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PriceContainer">
+  <table>
+    <column name="PriceContainer" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Price" type="F32">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fPrice" type="F32">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Price</redundant_name>
+    </column>
+    <column name="Currency" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pCurrency" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Currency</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

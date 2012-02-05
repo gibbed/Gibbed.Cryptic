@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EMSearchResult">
+  <table>
+    <column name="EMSearchResult" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="tab_name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="panel_name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Desc" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Rows" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="ResourceSearchResultRow" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

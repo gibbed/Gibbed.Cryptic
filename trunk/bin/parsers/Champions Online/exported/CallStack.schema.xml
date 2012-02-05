@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CallStack">
+  <table>
+    <column name="CallStack" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Modules" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="CallStackModule" />
+    </column>
+    <column name="Entries" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CallStackEntry" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

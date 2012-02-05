@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynFxDamageRangeInfoFxRef">
+  <table>
+    <column name="DynFxDamageRangeInfoFxRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="hFX" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>DynFxInfo</dictionary_name>
+    </column>
+    <column name="Hue" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="PassParam" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DynDefineParam" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

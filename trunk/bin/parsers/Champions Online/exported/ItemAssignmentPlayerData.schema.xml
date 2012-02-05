@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentPlayerData">
+  <table>
+    <column name="ItemAssignmentPlayerData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AvailableAssignments" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="ItemAssignmentDefRef" />
+    </column>
+    <column name="AllPersonalAssignments" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="ItemAssignmentDefRef" />
+    </column>
+    <column name="AvailablePersonalAssignments" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="ItemAssignmentDefRef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

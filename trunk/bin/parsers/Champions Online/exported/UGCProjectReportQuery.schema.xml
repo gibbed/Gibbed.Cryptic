@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectReportQuery">
+  <table>
+    <column name="UGCProjectReportQuery" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContainerID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ProjName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="uOwnerAccountID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="OwnerAccountName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Banned" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="TemporarilyBanned" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="NaughtyValue" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Reports" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="UGCProjectReport" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

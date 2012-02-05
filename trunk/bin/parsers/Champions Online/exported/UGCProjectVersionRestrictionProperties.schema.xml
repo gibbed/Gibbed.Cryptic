@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectVersionRestrictionProperties">
+  <table>
+    <column name="UGCProjectVersionRestrictionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MinLevel" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iMinLevel" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MinLevel</redundant_name>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iMaxLevel" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MaxLevel</redundant_name>
+    </column>
+    <column name="Faction" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCProjectVersionFactionRestrictionProperties" />
+    </column>
+    <column name="eaFactions" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Faction</redundant_name>
+      <subtable external="UGCProjectVersionFactionRestrictionProperties" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyInfoGroup">
+  <table>
+    <column name="SkyInfoGroup" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Sky" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="SkyInfoOverride" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

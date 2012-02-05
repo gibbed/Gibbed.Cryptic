@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WleAELODProps">
+  <table>
+    <column name="WleAELODProps" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LowDetail" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="HighDetail" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="HighFillDetail" type="EMBEDDEDSTRUCT">
+      <offset>112</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="FadeNode" type="EMBEDDEDSTRUCT">
+      <offset>168</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="LODScale" type="EMBEDDEDSTRUCT">
+      <offset>224</offset>
+      <subtable external="WleAEParamFloat" />
+    </column>
+    <column name="IgnoreLODOverride" type="EMBEDDEDSTRUCT">
+      <offset>300</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

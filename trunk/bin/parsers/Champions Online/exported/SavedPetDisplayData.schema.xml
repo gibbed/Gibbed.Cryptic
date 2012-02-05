@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SavedPetDisplayData">
+  <table>
+    <column name="SavedPetDisplayData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PetID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="PowerData" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="SavedPetPowerDisplayData" />
+    </column>
+    <column name="uLastRequestTime" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="UpdateRequested" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

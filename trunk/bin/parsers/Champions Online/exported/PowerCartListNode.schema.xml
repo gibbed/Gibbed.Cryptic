@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerCartListNode">
+  <table>
+    <column name="PowerCartListNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="IsEnhancement" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="IsRank" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="PowerListNode" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="PowerListNode" />
+    </column>
+    <column name="Upgrade" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="PTNodeUpgrade" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

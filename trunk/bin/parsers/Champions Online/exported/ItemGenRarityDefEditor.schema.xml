@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemGenRarityDefEditor">
+  <table>
+    <column name="ItemGenRarityDefEditor" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Rarity" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="ItemGenRarityDef" />
+    </column>
+    <column name="Tier" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="ItemGenTier" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CritterPowerConfig">
+  <table>
+    <column name="CritterPowerConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Power" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="Name" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <redundant_name>Power</redundant_name>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="Key" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Order" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="AIPreferredMinRange" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="AIPreferedMinRange" type="F32">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AIPreferredMinRange</redundant_name>
+    </column>
+    <column name="AIPreferredMaxRange" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="AIPreferedMaxRange" type="F32">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AIPreferredMaxRange</redundant_name>
+    </column>
+    <column name="AIWeight" type="F32">
+      <offset>20</offset>
+      <default>1</default>
+    </column>
+    <column name="AIWeightModifier" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="AIWeightModifier" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AIWeightModifier</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="AIChainTarget" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AIChainTime" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="AIChainRequiresBlock" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="AIChainRequires" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AIChainRequiresBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="AIEndConditionBlock" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="AIEndCondition" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AIEndConditionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="AIRequiresBlock" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="AIRequires" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AIRequiresBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="AITargetOverrideBlock" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="AITargetOverride" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AITargetOverrideBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="AICureRequiresBlock" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="AICureRequires" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AICureRequiresBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="AIPowerConfigDef" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>AIPowerConfigDef</dictionary_name>
+    </column>
+    <column name="AIPowerConfigDefInst" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="AIPowerConfigDef" />
+    </column>
+    <column name="Group" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="Chance" type="F32">
+      <offset>68</offset>
+      <default>1</default>
+    </column>
+    <column name="Weight" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>76</offset>
+      <default>-1</default>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>80</offset>
+      <default>-1</default>
+    </column>
+    <column name="AddPowerRequiresBlock" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="AddPowerRequires" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AddPowerRequiresBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="AutoDescDisabled" type="U8">
+      <offset>88</offset>
+    </column>
+    <column name="Disabled" type="U8">
+      <offset>89</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

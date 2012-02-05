@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldCellLocalMidParsed">
+  <table>
+    <column name="WorldCellLocalMidParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="local_mid" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

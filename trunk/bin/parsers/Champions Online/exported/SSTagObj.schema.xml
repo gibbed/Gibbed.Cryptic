@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SSTagObj">
+  <table>
+    <column name="SSTagObj" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="oldTags" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Tags" type="STRINGARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="Offset" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="SSOffset" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

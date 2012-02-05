@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TerrainDefaultBrush">
+  <table>
+    <column name="TerrainDefaultBrush" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Order" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="ToolTip" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="BrushTemplate" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="TerrainBrushTemplate" />
+    </column>
+    <column name="BrushValues" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="TerrainBrushValues" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

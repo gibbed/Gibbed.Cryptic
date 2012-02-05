@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenericListOfLinksForHttpXpath">
+  <table>
+    <column name="GenericListOfLinksForHttpXpath" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ListName" type="FIXEDSTRING">
+      <offset>0</offset>
+      <string_length>256</string_length>
+    </column>
+    <column name="Offset" type="INT">
+      <offset>256</offset>
+    </column>
+    <column name="limit" type="INT">
+      <offset>260</offset>
+    </column>
+    <column name="more" type="INT">
+      <offset>264</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>268</offset>
+    </column>
+    <column name="Links" type="STRUCT">
+      <offset>272</offset>
+      <subtable external="GenericLinkForHttpXpath" />
+    </column>
+    <column name="Comment" type="STRING">
+      <offset>276</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AIDebugTeamInfo">
+  <table>
+    <column name="AIDebugTeamInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Members" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="AIDebugTeamMember" />
+    </column>
+    <column name="teamBasicInfo" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="AIDebugBasicInfo" />
+    </column>
+    <column name="healingAssignments" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="AIDebugTeamMemberAssignment" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

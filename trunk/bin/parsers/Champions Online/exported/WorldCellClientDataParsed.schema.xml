@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldCellClientDataParsed">
+  <table>
+    <column name="WorldCellClientDataParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="interaction_entries" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="WorldInteractionEntryClientParsed" />
+    </column>
+    <column name="volume_entries" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="WorldVolumeEntryClientParsed" />
+    </column>
+    <column name="collision_entries" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="WorldCollisionEntryParsed" />
+    </column>
+    <column name="altpivot_entries" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="WorldAltPivotEntryParsed" />
+    </column>
+    <column name="sound_entries" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="WorldSoundEntryParsed" />
+    </column>
+    <column name="light_entries" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="WorldLightEntryParsed" />
+    </column>
+    <column name="fx_entries" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="WorldFXEntryParsed" />
+    </column>
+    <column name="animation_entries" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="WorldAnimationEntryParsed" />
+    </column>
+    <column name="wind_source_entries" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="WorldWindSourceEntryParsed" />
+    </column>
+    <column name="drawables" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="WorldCellDrawableDataParsed" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

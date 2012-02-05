@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxyLockContainer">
+  <table>
+    <column name="AccountProxyLockContainer" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pLock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="AccountProxyLock" />
+    </column>
+    <column name="Dirty" type="IGNORE" />
+    <column name="sentToAccountServer" type="IGNORE" />
+    <column name="ppLocks" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

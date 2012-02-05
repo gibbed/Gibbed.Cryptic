@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCAnimBitRange">
+  <table>
+    <column name="PCAnimBitRange" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Bit" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Min" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Max" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

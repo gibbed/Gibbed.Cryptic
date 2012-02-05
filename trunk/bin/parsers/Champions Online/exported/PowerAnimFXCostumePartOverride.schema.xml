@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerAnimFXCostumePartOverride">
+  <table>
+    <column name="PowerAnimFXCostumePartOverride" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FxGeo" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Color" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color1" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color2" type="F32FIXEDARRAY">
+      <offset>36</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color3" type="F32FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

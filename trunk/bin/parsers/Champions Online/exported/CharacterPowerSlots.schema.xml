@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CharacterPowerSlots">
+  <table>
+    <column name="CharacterPowerSlots" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ppSets" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
+      </flags>
+      <subtable external="PowerSlotSet" />
+    </column>
+    <column name="uiIndex" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

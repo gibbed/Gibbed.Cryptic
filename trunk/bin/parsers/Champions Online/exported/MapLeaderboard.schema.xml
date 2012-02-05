@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MapLeaderboard">
+  <table>
+    <column name="MapLeaderboard" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapKey" type="INT64">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Entities" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="PlayerLeaderboard" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

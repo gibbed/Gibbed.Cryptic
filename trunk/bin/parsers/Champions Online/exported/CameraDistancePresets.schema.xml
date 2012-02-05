@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CameraDistancePresets">
+  <table>
+    <column name="CameraDistancePresets" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Closest" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Close" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Medium" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Far" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="MaxZoomMin" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MaxZoomMax" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="AutoAdjustClosestDistance" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

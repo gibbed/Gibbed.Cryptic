@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ResourcePackParsed">
+  <table>
+    <column name="ResourcePackParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Pack" type="START" />
+    <column name="FileName" type="FILENAME">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="packname" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Folder" type="STRINGARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

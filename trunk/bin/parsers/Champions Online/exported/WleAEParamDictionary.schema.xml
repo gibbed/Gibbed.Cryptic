@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WleAEParamDictionary">
+  <table>
+    <column name="WleAEParamDictionary" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="is_specified" type="BOOLFLAG">
+      <offset>0</offset>
+    </column>
+    <column name="refvalue" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

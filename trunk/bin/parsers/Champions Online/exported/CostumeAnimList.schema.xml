@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeAnimList">
+  <table>
+    <column name="CostumeAnimList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Animation" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="CostumeAnim" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

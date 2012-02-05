@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Expression_StructParam">
+  <table>
+    <column name="Expression" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column type="MULTIVAL">
+      <offset>0</offset>
+      <flags>
+        <flag>EARRAY</flag>
+      </flags>
+    </column>
+    <column name="Lines" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>EDIT_ONLY</flag>
+      </flags>
+      <subtable external="ExprLine_StructParam" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>EDIT_ONLY</flag>
+      </flags>
+    </column>
+    <column type="F32">
+      <offset>12</offset>
+      <flags>
+        <flag>EDIT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

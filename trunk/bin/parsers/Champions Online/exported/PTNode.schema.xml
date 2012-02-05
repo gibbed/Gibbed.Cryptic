@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PTNode">
+  <table>
+    <column name="PTNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hDef" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>PowerTreeNodeDef</dictionary_name>
+    </column>
+    <column name="iRank" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bEscrow" type="U8">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uiPowerReplaceID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="ppPurchaseTracker" type="STRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="PowerPurchaseTracker" />
+    </column>
+    <column name="ppPowers" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="Power" />
+    </column>
+    <column name="ppEnhancements" type="STRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="Power" />
+    </column>
+    <column name="ppEnhancementTrackers" type="STRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PTNodeEnhancementTracker" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerDefBuffList">
+  <table>
+    <column name="PowerDefBuffList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ModStack" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="AttribModStack" />
+    </column>
+    <column name="Size" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

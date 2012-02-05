@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMapFakeZone">
+  <table>
+    <column name="UIGenMapFakeZone" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="MapFormat" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="SmallMap" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>REQUIRED</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TileCount" type="INT16FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="WorldSize" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="WorldOffset" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="ShowIcons" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="Highlights" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="UIGenMapFakeZoneHighlights" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

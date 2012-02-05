@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UICostumeSlot">
+  <table>
+    <column name="UICostumeSlot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SlotID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Index" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Costume" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="SlotDef" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCSlotDef" />
+    </column>
+    <column name="IsUnlocked" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

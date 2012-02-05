@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisBackdropSunUGC">
+  <table>
+    <column name="GenesisBackdropSunUGC" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LightParams" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="SpaceBackdropLight" />
+    </column>
+    <column name="ObjectID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Distance" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

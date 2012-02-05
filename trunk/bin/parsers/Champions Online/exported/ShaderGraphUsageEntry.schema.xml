@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShaderGraphUsageEntry">
+  <table>
+    <column name="ShaderGraphUsageEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FileName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="countInScene" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="tricountInScene" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="variationCount" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="materialScore" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="rawMaterialScore" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="instruction_count" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="texture_fetch_count" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="temporaries_count" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="dynamic_constant_count" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="pixels" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="Factor" type="INT64">
+      <offset>48</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

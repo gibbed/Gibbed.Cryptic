@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GfxShadowLightDebug">
+  <table>
+    <column name="GfxShadowLightDebug" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ShadowCasterObjs" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ShadowCasterTris" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ShadowmapQuality" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

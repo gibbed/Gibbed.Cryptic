@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CutsceneTexturePoint">
+  <table>
+    <column name="CutsceneTexturePoint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="common" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Length" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="FixedLength" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Alpha" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="Scale" type="F32">
+      <offset>24</offset>
+      <default>1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

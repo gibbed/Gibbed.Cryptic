@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BinFileList">
+  <table>
+    <column name="BinFileList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="layer_names" type="STRINGARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="layer_region_names" type="STRINGARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="scene_filename" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="source_files" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="BinFileEntry" />
+    </column>
+    <column name="output_files" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="BinFileEntry" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

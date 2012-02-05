@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RawByteCopyGroup">
+  <table>
+    <column name="RawByteCopyGroup" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TotalSize" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="DefaultToOn" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="onBlocks" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="ByteBlockList" />
+    </column>
+    <column name="offBlocks" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="ByteBlockList" />
+    </column>
+    <column name="OnBits" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="SingleBit" />
+    </column>
+    <column name="OffBits" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="SingleBit" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

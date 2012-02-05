@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CachedDoorDestination">
+  <table>
+    <column name="CachedDoorDestination" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Entry" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldInteractionPropertyEntry" />
+    </column>
+    <column name="uiExpireTime" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="DoorKey" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

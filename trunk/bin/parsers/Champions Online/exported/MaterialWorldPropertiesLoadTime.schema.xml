@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MaterialWorldPropertiesLoadTime">
+  <table>
+    <column name="MaterialWorldPropertiesLoadTime" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="PhysicalProperties" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>PhysicalProperties</dictionary_name>
+    </column>
+    <column name="SoundProfile" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PhysicalProperties</redundant_name>
+      <dictionary_name>PhysicalProperties</dictionary_name>
+    </column>
+    <column name="WorldFlags" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

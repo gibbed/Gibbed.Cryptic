@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenJailDef">
+  <table>
+    <column name="UIGenJailDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="CellBlock" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="UIGenJailCellBlock" />
+    </column>
+    <column name="Font" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="Version" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="StateDef" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="UIGenStateDef" />
+    </column>
+    <column name="ComplexStateDef" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="UIGenComplexStateDef" />
+    </column>
+    <column name="BeforeCreate" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="BeforeHide" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="ScaleAsIf" type="INT16FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="ScaleNoShrink" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="ScaleNoGrow" type="U8">
+      <offset>37</offset>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

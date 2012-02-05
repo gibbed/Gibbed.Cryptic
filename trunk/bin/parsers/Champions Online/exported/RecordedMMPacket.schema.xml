@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RecordedMMPacket">
+  <table>
+    <column name="RecordedMMPacket" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="serverProcessCount" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="updates" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="RecordedEntityUpdate" />
+    </column>
+    <column name="costumeChanges" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="RecordedEntityCostumeChange" />
+    </column>
+    <column name="createdEnts" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="RecordedEntity" />
+    </column>
+    <column name="destroyedEnts" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="RecordedEntityDestruction" />
+    </column>
+    <column name="interactionUpdates" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="RecordedWIN" />
+    </column>
+    <column name="entDamage" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="RecordedEntityDamage" />
+    </column>
+    <column name="MapState" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="RecordedMapStateUpdate" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

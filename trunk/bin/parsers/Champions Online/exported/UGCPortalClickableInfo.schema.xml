@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCPortalClickableInfo">
+  <table>
+    <column name="UGCPortalClickableInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="mission_name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="layout_name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="room_name" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="challenge_name" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="is_volume" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="is_whole_map" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

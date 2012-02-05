@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NewDiscountResponse">
+  <table>
+    <column name="NewDiscountResponse" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uAccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="RequestID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Discounts" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ProductDiscountEntry" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

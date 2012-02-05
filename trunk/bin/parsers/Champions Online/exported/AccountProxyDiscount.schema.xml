@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxyDiscount">
+  <table>
+    <column name="AccountProxyDiscount" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="InternalName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Currency" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="uPercentageDiscount" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Enabled" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="uStartSS2000" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="uEndSS2000" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="Prerequisites" type="STRINGARRAY">
+      <offset>32</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Products" type="STRINGARRAY">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="BlacklistProducts" type="U8">
+      <offset>40</offset>
+    </column>
+    <column name="Categories" type="STRINGARRAY">
+      <offset>44</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="BlacklistCategories" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

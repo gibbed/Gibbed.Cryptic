@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueRulesData">
+  <table>
+    <column name="QueueRulesData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="String" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Index" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="BolsterLevel" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Empty" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="Bolster" type="U8">
+      <offset>25</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

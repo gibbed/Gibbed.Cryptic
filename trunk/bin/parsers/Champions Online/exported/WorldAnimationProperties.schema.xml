@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldAnimationProperties">
+  <table>
+    <column name="WorldAnimationProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="TimeOffset" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="SwayAngle" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="SwayTime" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="RotationTime" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ScaleAmount" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ScaleTime" type="F32FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TranslationAmount" type="F32FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TranslationTime" type="F32FIXEDARRAY">
+      <offset>76</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TranslationLoop" type="U8">
+      <offset>88</offset>
+    </column>
+    <column name="LocalSpace" type="U8">
+      <offset>89</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

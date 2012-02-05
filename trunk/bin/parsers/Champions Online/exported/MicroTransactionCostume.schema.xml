@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MicroTransactionCostume">
+  <table>
+    <column name="MicroTransactionCostume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hCostume" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="Sources" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="MicroTransactionCostumeSource" />
+    </column>
+    <column name="Hidden" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="Owned" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="New" type="U8">
+      <offset>10</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

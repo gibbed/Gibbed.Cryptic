@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CutscenePathList">
+  <table>
+    <column name="CutscenePathList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Path" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="CutscenePath" />
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="BlendRate" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

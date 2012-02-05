@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="JiraIssue">
+  <table>
+    <column name="JiraIssue" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="assignee" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="Status" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="resolution" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

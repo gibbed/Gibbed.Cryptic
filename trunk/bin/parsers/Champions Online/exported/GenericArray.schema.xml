@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenericArray">
+  <table>
+    <column name="GenericArray" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Array" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="GenericArray" />
+    </column>
+    <column name="integer" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="floating" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="String" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

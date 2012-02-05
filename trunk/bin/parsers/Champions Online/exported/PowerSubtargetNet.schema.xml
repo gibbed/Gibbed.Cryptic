@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerSubtargetNet">
+  <table>
+    <column name="PowerSubtargetNet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="cpchName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Health" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="HealthMax" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Category" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenBundleTexture">
+  <table>
+    <column name="UIGenBundleTexture" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Texture" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="Mask" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TopLeftColor" type="INT">
+      <offset>8</offset>
+      <static_define_list />
+    </column>
+    <column name="Color" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TopLeftColor</redundant_name>
+      <static_define_list />
+    </column>
+    <column name="TopRightColor" type="INT">
+      <offset>12</offset>
+      <static_define_list />
+    </column>
+    <column name="BottomLeftColor" type="INT">
+      <offset>16</offset>
+      <static_define_list />
+    </column>
+    <column name="BottomRightColor" type="INT">
+      <offset>20</offset>
+      <static_define_list />
+    </column>
+    <column name="Rotation" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="UIAngle" />
+    </column>
+    <column name="LowerLayer" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="UIGenBundleTexture" />
+    </column>
+    <column name="Layer" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="UIGenBundleTexture" />
+    </column>
+    <column name="Animation" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="UIGenBundleTextureAnimation" />
+    </column>
+    <column name="TextureCoordinateData" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="OffsetU" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="OffsetV" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="ScaleU" type="F32">
+      <offset>52</offset>
+      <default>1</default>
+    </column>
+    <column name="ScaleV" type="F32">
+      <offset>56</offset>
+      <default>1</default>
+    </column>
+    <column name="Mode" type="BIT">
+      <offset>60</offset>
+      <bit_offset>262144</bit_offset>
+      <static_define_list />
+    </column>
+    <column name="Effect" type="BIT">
+      <offset>60</offset>
+      <bit_offset>262148</bit_offset>
+      <static_define_list />
+    </column>
+    <column name="Alignment" type="BIT">
+      <offset>60</offset>
+      <bit_offset>327688</bit_offset>
+      <static_define_list />
+    </column>
+    <column name="Additive" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ForceBottomLayer" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

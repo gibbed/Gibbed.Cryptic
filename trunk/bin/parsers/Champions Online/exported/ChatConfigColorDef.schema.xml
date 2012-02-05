@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatConfigColorDef">
+  <table>
+    <column name="ChatConfigColorDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pchName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Name</redundant_name>
+    </column>
+    <column name="Color" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iColor" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Color</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

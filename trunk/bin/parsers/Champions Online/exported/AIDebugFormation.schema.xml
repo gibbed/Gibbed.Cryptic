@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AIDebugFormation">
+  <table>
+    <column name="AIDebugFormation" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="formationPos" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="positions" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="AIDebugFormationPosition" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

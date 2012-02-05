@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FriendsListChatCommand">
+  <table>
+    <column name="FriendsListChatCommand" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="allFriends" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="FriendChatCommand" />
+    </column>
+    <column name="pendingFriends" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="FriendChatCommand" />
+    </column>
+    <column name="incomingFriends" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="FriendChatCommand" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

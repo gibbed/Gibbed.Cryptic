@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PTNodeDefRefCont">
+  <table>
+    <column name="PTNodeDefRefCont" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="NodeDef" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>PowerTreeNodeDef</dictionary_name>
+    </column>
+    <column name="hNodeDef" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>NodeDef</redundant_name>
+      <dictionary_name>PowerTreeNodeDef</dictionary_name>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

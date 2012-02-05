@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynFxCostume">
+  <table>
+    <column name="DynFxCostume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="CostumeName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="InheritBits" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="BitFlash" type="STRINGARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="BitToggle" type="STRINGARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="BitSet" type="STRINGARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="BitClear" type="STRINGARRAY">
+      <offset>20</offset>
+    </column>
+    <column name="Param" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="DynApplyParam" />
+    </column>
+    <column name="NotDependentSkeleton" type="BOOLFLAG">
+      <offset>28</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

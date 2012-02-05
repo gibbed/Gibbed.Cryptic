@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRTestBG">
+  <table>
+    <column name="MRTestBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="toBG" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="MRTestToBG" />
+    </column>
+    <column name="fxHandle" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="spcStartAnim" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="MRTestBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

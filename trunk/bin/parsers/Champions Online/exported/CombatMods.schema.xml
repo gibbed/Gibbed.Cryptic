@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatMods">
+  <table>
+    <column name="CombatMods" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Higher" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="CombatMod" />
+    </column>
+    <column name="Lower" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="CombatMod" />
+    </column>
+    <column name="HigherPlayer" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="CombatMod" />
+    </column>
+    <column name="LowerPlayer" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="CombatMod" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

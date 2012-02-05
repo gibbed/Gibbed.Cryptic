@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CachedFrameTargetLoS">
+  <table>
+    <column name="CachedFrameTargetLoS" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Entity" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Entity" />
+    </column>
+    <column name="Node" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="WorldInteractionNode" />
+    </column>
+    <column name="Camera" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="LoS" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

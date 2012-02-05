@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LeaderboardDataDef">
+  <table>
+    <column name="LeaderboardDataDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="ValueExprBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ValueExpr" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ValueExprBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

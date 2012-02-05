@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GlobalExpressions">
+  <table>
+    <column name="GlobalExpressions" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ItemEPValue" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="StoreEPConversion" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="InteractGlowDistance" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

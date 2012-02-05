@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RefSystemOverview">
+  <table>
+    <column name="RefSystemOverview" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="handleTable" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="handleTableNumEntries" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="handleTableSize" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="handleTableWasted" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="referentTable" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="referentTableNumEntries" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="referentTableSize" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="referentTableWasted" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Dictionaries" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="RefSystemDictionaryOverview" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

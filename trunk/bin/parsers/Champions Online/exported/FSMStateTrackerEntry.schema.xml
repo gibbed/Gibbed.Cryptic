@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FSMStateTrackerEntry">
+  <table>
+    <column name="FSMStateTrackerEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="totalTimeRun" type="INT64">
+      <offset>0</offset>
+    </column>
+    <column name="lastEntryTime" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="lastRunTime" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="SubFSMOverride" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="StatePath" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

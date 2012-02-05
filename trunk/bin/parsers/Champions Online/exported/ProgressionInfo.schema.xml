@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ProgressionInfo">
+  <table>
+    <column name="ProgressionInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ppchCompletedNodes" type="STRINGARRAY">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ppchCompletedMissions" type="STRINGARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="hCurrentProgressionNode" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>GameProgressionNode</dictionary_name>
+    </column>
+    <column name="ppchUnlockedNodes" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

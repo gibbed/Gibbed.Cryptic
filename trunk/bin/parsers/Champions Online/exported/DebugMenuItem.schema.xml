@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DebugMenuItem">
+  <table>
+    <column name="DebugMenuItem" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="displayText" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="CommandString" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="rolloverText" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="subItems" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="DebugMenuItem" />
+    </column>
+    <column name="Open" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

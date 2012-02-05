@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynClothCollisionInfo">
+  <table>
+    <column name="DynClothCollisionInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="InfoName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Shape" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DynClothCollisionShape" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

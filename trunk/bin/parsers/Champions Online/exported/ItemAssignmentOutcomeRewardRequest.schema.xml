@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentOutcomeRewardRequest">
+  <table>
+    <column name="ItemAssignmentOutcomeRewardRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Outcome" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NumericRewards" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ItemNumericData" />
+    </column>
+    <column name="ItemRewards" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="Item" />
+    </column>
+    <column name="Rewards" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <subtable external="InventorySlot" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

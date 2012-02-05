@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SpawnBoxes">
+  <table>
+    <column name="SpawnBoxes" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uiSpawnBoxes" type="INTFIXEDARRAY">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="SpawnBoxSize" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="AreaCheck" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

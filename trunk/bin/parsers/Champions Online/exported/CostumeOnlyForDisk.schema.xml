@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeOnlyForDisk">
+  <table>
+    <column name="CostumeOnlyForDisk" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Costume" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="PlayerCostumeV0" />
+    </column>
+    <column name="CostumeV5" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

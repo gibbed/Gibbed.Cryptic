@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectSearchInfo">
+  <table>
+    <column name="UGCProjectSearchInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AccessLevel" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="MaxEditSlots" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="IsReviewer" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="OwnerAccountID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Simple_Raw" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Simple_SSSTree" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="filters" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="UGCProjectSearchFilter" />
+    </column>
+    <column name="Import" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="VirtualShardID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="PlayerAllegiance" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PlayerLevel" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="Lang" type="INT">
+      <offset>44</offset>
+      <static_define_list />
+    </column>
+    <column name="SpecialType" type="INT">
+      <offset>48</offset>
+      <static_define_list />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

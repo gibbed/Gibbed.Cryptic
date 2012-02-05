@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynActTriggerImpact">
+  <table>
+    <column name="DynActTriggerImpact" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Direction" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Bone" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Frame" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Offset" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LineNum" type="LINENUM">
+      <offset>32</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DSP_SLowpass">
+  <table>
+    <column name="DSP_SLowpass" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="lowpass_cutoff" type="F32">
+      <offset>0</offset>
+      <default>1167867904</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

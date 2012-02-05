@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionObjectiveOld_CompleteChallenge">
+  <table>
+    <column name="GenesisMissionObjectiveOld_CompleteChallenge" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ChallengeName" type="STRINGARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

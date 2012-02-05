@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCPerProjectDefaults">
+  <table>
+    <column name="UGCPerProjectDefaults" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AllegianceRestriction" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DefaultTransitionPrompt" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="UGCDialogTreePrompt" />
+    </column>
+    <column name="NonCombatType" type="INT">
+      <offset>8</offset>
+      <static_define_list />
+    </column>
+    <column name="CombatType" type="INT">
+      <offset>12</offset>
+      <static_define_list />
+    </column>
+    <column name="Allegiance" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="UGCPerAllegianceDefaults" />
+    </column>
+    <column name="VariableDef" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="Behavior" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="NoCombatBehavior" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="TrapObject" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="CustomInteriorMap" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="hInteriorKit" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>GenesisInteriorKit</dictionary_name>
+    </column>
+    <column name="hInteriorSky" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>SkyInfo</dictionary_name>
+    </column>
+    <column name="hInteriorBackdrop" type="REFERENCE">
+      <offset>48</offset>
+      <dictionary_name>GenesisBackdrop</dictionary_name>
+    </column>
+    <column name="hInteriorClickyInteractionDef" type="REFERENCE">
+      <offset>52</offset>
+      <dictionary_name>InteractionDef</dictionary_name>
+    </column>
+    <column name="InteriorKillObject" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="InteriorDetailObject" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="InteriorDestructibleObject" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="InteriorContactCostume" type="STRING">
+      <offset>68</offset>
+    </column>
+    <column name="MaxRoomSize" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="hSpaceBackdrop" type="REFERENCE">
+      <offset>76</offset>
+      <dictionary_name>GenesisBackdrop</dictionary_name>
+    </column>
+    <column name="hSpaceSky" type="REFERENCE">
+      <offset>80</offset>
+      <dictionary_name>SkyInfo</dictionary_name>
+    </column>
+    <column name="hSpaceClickyInteractionDef" type="REFERENCE">
+      <offset>84</offset>
+      <dictionary_name>InteractionDef</dictionary_name>
+    </column>
+    <column name="SpaceKillObject" type="STRING">
+      <offset>88</offset>
+    </column>
+    <column name="SpaceDetailObject" type="STRING">
+      <offset>92</offset>
+    </column>
+    <column name="SpaceDestructibleObject" type="STRING">
+      <offset>96</offset>
+    </column>
+    <column name="SpacePlanetObject" type="STRING">
+      <offset>100</offset>
+    </column>
+    <column name="SpaceRingObject" type="STRING">
+      <offset>104</offset>
+    </column>
+    <column name="SpaceContactCostume" type="STRING">
+      <offset>108</offset>
+    </column>
+    <column name="SpaceSunObject" type="STRING">
+      <offset>112</offset>
+    </column>
+    <column name="hGroundBackdrop" type="REFERENCE">
+      <offset>116</offset>
+      <dictionary_name>GenesisBackdrop</dictionary_name>
+    </column>
+    <column name="hGroundSky" type="REFERENCE">
+      <offset>120</offset>
+      <dictionary_name>SkyInfo</dictionary_name>
+    </column>
+    <column name="GroundBuildingObject" type="STRING">
+      <offset>124</offset>
+    </column>
+    <column name="ProgressionNodeType1" type="INT">
+      <offset>128</offset>
+      <static_define_list />
+    </column>
+    <column name="ProgressionNodeType2" type="INT">
+      <offset>132</offset>
+      <static_define_list />
+    </column>
+    <column name="Budget" type="STRUCT">
+      <offset>136</offset>
+      <subtable external="UGCProjectBudget" />
+    </column>
+    <column name="DefaultDoorMap" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PVPGroupDef">
+  <table>
+    <column name="PVPGroupDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="SubGroup:" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PVPSubGroup" />
+    </column>
+    <column name="subgroup" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SubGroup:</redundant_name>
+      <subtable external="PVPSubGroup" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerTables">
+  <table>
+    <column name="PowerTables" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PowerTable" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PowerTable" />
+    </column>
+    <column name="stPowerTables" type="STASHTABLE">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="BasicFactBonusHitPointsMax" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

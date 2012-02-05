@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRRagDollParts">
+  <table>
+    <column name="MRRagDollParts" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Parts" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="MRRagDollPart" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

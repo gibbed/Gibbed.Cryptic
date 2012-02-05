@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Category">
+  <table>
+    <column name="Category" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="hDisplayName" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>DisplayName</redundant_name>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Description" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="hDescriptionRef" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Description</redundant_name>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="SubCategoryNames" type="STRINGARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="ShowTicketsDefault" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="Hidden" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

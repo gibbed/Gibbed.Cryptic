@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NinePatch">
+  <table>
+    <column name="NinePatch" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="file_name" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="texture_name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="stretchableX" type="INT16FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="stretchableY" type="INT16FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="paddingX" type="INT16FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="paddingY" type="INT16FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="EndNinePatch" type="END" />
+  </table>
+</parser>

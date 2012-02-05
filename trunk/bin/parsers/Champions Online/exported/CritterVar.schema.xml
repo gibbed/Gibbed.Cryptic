@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CritterVar">
+  <table>
+    <column name="CritterVar" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Order" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Var" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="WorldVariable" />
+    </column>
+    <column name="Name" type="IGNORE" />
+    <column name="Type" type="IGNORE" />
+    <column name="Int" type="IGNORE" />
+    <column name="Float" type="IGNORE" />
+    <column name="String" type="IGNORE" />
+    <column name="Msg" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

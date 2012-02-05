@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldDrawableSubobjectParsed">
+  <table>
+    <column name="WorldDrawableSubobjectParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="materialdraw_idxs" type="INTARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="modeldraw_idx" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="subobject_idx" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

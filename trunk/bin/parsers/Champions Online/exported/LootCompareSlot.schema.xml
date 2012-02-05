@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LootCompareSlot">
+  <table>
+    <column name="LootCompareSlot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Slot" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Item" />
+    </column>
+    <column name="SrcBagId" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="SrcSlot" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="tradeSlotPetID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="DiffCount" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

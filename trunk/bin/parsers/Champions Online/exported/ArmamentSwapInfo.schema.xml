@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ArmamentSwapInfo">
+  <table>
+    <column name="ArmamentSwapInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hClassSwap" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="ActiveItemSwap" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ArmamentActiveItemSwap" />
+    </column>
+    <column name="HasQueuedArmaments" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InteriorOptionRef">
+  <table>
+    <column name="InteriorOptionRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="hOption" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+      <dictionary_name>InteriorOptionDef</dictionary_name>
+    </column>
+    <column name="hChoice" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>InteriorOptionChoice</dictionary_name>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

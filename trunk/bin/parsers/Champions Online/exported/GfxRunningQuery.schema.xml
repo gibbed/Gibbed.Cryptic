@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GfxRunningQuery">
+  <table>
+    <column name="GfxRunningQuery" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="History" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>10</num_elements>
+    </column>
+    <column name="Index" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="EndRunningQuery" type="END" />
+  </table>
+</parser>

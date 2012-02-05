@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContactDialogOption">
+  <table>
+    <column name="ContactDialogOption" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="DisplayString" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>8</offset>
+      <static_define_list />
+    </column>
+    <column name="NeedsConfirm" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="ConfirmHeader" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ConfirmText" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ShowRewardChooser" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="uCooldownExpireTime" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="IsDefaultBackOption" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="Visited" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="CannotChoose" type="U8">
+      <offset>34</offset>
+    </column>
+    <column name="TeamMembersEligibleToSee" type="INTARRAY">
+      <offset>36</offset>
+    </column>
+    <column name="TeamMembersEligibleToInteract" type="INTARRAY">
+      <offset>40</offset>
+    </column>
+    <column name="data" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="ContactDialogOptionData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

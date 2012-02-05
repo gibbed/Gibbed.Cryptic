@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WleAEPhysicalProps">
+  <table>
+    <column name="WleAEPhysicalProps" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Debris" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="CameraFacing" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="AxisCameraFacing" type="EMBEDDEDSTRUCT">
+      <offset>112</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="DontCastShadows" type="EMBEDDEDSTRUCT">
+      <offset>168</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="DontReceiveShadows" type="EMBEDDEDSTRUCT">
+      <offset>224</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="EditorVisibleOnly" type="EMBEDDEDSTRUCT">
+      <offset>280</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="NoCollision" type="EMBEDDEDSTRUCT">
+      <offset>336</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="NoCollisionWithCamera" type="EMBEDDEDSTRUCT">
+      <offset>392</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="FullCollision" type="EMBEDDEDSTRUCT">
+      <offset>448</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="AlwaysCollide" type="EMBEDDEDSTRUCT">
+      <offset>504</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="CameraCollision" type="EMBEDDEDSTRUCT">
+      <offset>560</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="InstanceOnPlace" type="EMBEDDEDSTRUCT">
+      <offset>616</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="NoOcclusion" type="EMBEDDEDSTRUCT">
+      <offset>672</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="OcclusionOnly" type="EMBEDDEDSTRUCT">
+      <offset>728</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="DoubleSidedOccluder" type="EMBEDDEDSTRUCT">
+      <offset>784</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="Permeable" type="EMBEDDEDSTRUCT">
+      <offset>840</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="CombatJobLocation" type="EMBEDDEDSTRUCT">
+      <offset>896</offset>
+      <subtable external="WleAEParamBool" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

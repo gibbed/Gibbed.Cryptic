@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CraftingSkillRangeSet">
+  <table>
+    <column name="CraftingSkillRangeSet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CraftingSkillRange" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="CraftingSkillRange" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

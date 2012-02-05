@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BeaconDebugInfo">
+  <table>
+    <column name="BeaconDebugInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Path" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="BeaconDebugPath" />
+    </column>
+    <column name="EndPos" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="StartPos" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="pathJumpHeight" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="entHeight" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="sendPath" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

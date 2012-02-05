@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AlgoPet">
+  <table>
+    <column name="AlgoPet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hAlgoPet" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>AlgoPetDef</dictionary_name>
+    </column>
+    <column name="ppEscrowNodes" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PTNodeDefRefCont" />
+    </column>
+    <column name="Costume" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>-1</default>
+    </column>
+    <column name="iCostume" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Costume</redundant_name>
+      <default>-1</default>
+    </column>
+    <column name="RandomCostume" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="pCostume" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>RandomCostume</redundant_name>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="hSpecies" type="REFERENCE">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>Species</dictionary_name>
+    </column>
+    <column name="PetName" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pchPetName" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>PetName</redundant_name>
+    </column>
+    <column name="PetSubName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pchPetSubName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>PetSubName</redundant_name>
+    </column>
+    <column name="hAllegiance" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

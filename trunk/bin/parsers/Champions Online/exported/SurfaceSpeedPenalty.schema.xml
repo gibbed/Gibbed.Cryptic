@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SurfaceSpeedPenalty">
+  <table>
+    <column name="SurfaceSpeedPenalty" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="penalty" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="spc" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="SurfaceSpeedPenaltyFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

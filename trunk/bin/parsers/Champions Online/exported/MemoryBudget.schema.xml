@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MemoryBudget">
+  <table>
+    <column name="MemoryBudget" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Size" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="SizeSecondary" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Stats" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="ModuleMemOperationStats" />
+    </column>
+    <column name="Budget" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="MemoryBudget" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

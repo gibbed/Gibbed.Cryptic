@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentMapSettings">
+  <table>
+    <column name="ItemAssignmentMapSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="RarityCount" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ItemAssignmentRarityCount" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

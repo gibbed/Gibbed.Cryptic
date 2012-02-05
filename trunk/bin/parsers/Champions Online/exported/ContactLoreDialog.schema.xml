@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContactLoreDialog">
+  <table>
+    <column name="ContactLoreDialog" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="optionText" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Condition" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="LoreItem" type="REFERENCE">
+      <offset>16</offset>
+      <flags>
+        <flag>NON_NULL_REF__ERROR_ONLY</flag>
+      </flags>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SoundSourceDebugPathLeg">
+  <table>
+    <column name="SoundSourceDebugPathLeg" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="collision" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="line_start" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="line_end" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="conn_local_min" type="F32FIXEDARRAY">
+      <offset>36</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="conn_local_max" type="F32FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="rot_conn_mat" type="MATPYR">
+      <offset>60</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_conn_mat" type="F32FIXEDARRAY">
+      <offset>96</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

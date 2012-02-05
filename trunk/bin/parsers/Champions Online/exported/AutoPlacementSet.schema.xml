@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AutoPlacementSet">
+  <table>
+    <column name="AutoPlacementSet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="SetName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Proximity" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Variance" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="GroupList" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="AutoPlacementGroup" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

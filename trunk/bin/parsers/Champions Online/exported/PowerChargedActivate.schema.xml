@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerChargedActivate">
+  <table>
+    <column name="PowerChargedActivate" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TimeMin" type="F32">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="TimeMax" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="ActivateBits" type="STRINGARRAY">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ActivateFX" type="STRINGARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ActivateMissFX" type="STRINGARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ActivateFXParamBlock" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="ActivateFXParam" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ActivateFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

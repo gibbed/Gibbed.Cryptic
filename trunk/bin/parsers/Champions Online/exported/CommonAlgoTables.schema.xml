@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CommonAlgoTables">
+  <table>
+    <column name="CommonAlgoTables" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CraftingCountAdjust" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="CraftingCountAdjustDef" />
+    </column>
+    <column name="ComponentCountTableEntry" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ComponentCountTableEntry" />
+    </column>
+    <column name="AlgoItemLevels" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="AlgoItemLevelsDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

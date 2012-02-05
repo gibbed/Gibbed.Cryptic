@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="inhTestStruct">
+  <table>
+    <column name="inhTestStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SubStructs" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="inhTestSubStruct" />
+    </column>
+    <column name="Inheritance" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>INHERITANCE_STRUCT</flag>
+      </flags>
+      <subtable external="InheritanceData" />
+    </column>
+    <column name="OptionalStruct" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="inhTestSubStruct" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AutoPlacementParams">
+  <table>
+    <column name="AutoPlacementParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AutoPlacementVolumes" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="AutoPlacementVolume" />
+    </column>
+    <column name="PlacementProperties" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="AutoPlacementSet" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

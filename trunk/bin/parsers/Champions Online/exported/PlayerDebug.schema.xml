@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerDebug">
+  <table>
+    <column name="PlayerDebug" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CombatEvents" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CombatDebugPerfEvent" />
+    </column>
+    <column name="encDebug" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="EncounterDebug" />
+    </column>
+    <column name="showServerFPS" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="currServerFPS" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="clientsLoggedInCount" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="clientsNotLoggedInCount" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="numSpawnedEnts" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="numRunningEncs" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="numTotalEncs" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="spawnedFSMCost" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="potentialFSMCost" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="canRepeatMissions" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="aiDebugInfo" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="AIDebug" />
+    </column>
+    <column name="bcnDebugInfo" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="BeaconDebugInfo" />
+    </column>
+    <column name="showPathPerfCmds" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="showPathPerfLiving" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="showPhysicsPerfMenu" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="combatDebugPerf" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="showMissionDebugMenu" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="allowAllInteractions" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

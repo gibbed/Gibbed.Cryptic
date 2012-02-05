@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynActIfBlock">
+  <table>
+    <column name="DynActIfBlock" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="logic" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="off" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="DynBitFieldStatic" />
+    </column>
+    <column name="on" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DynBitFieldStatic" />
+    </column>
+    <column name="NextAction" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="EndSequence" type="BOOLFLAG">
+      <offset>32</offset>
+    </column>
+    <column name="setBits" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="DynBitFieldStatic" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

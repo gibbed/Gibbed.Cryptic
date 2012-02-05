@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExodusPopulateObject">
+  <table>
+    <column name="ExodusPopulateObject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="hObjectDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>ExodusPopulateObjectDef</dictionary_name>
+    </column>
+    <column name="Geo" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="ExodusGroupDefRef" />
+    </column>
+    <column name="Source" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="X" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="Z" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="Yaw" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="v2OrigMin" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="v2OrigMax" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="v2Min" type="F32FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="v2Max" type="F32FIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="ExcludeUsingRadius" type="U8">
+      <offset>68</offset>
+    </column>
+    <column name="Immobile" type="U8">
+      <offset>69</offset>
+    </column>
+    <column name="Challenge" type="U8">
+      <offset>70</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

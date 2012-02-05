@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCPlayResult">
+  <table>
+    <column name="UGCPlayResult" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Status" type="INT">
+      <offset>0</offset>
+      <static_define_list />
+    </column>
+    <column name="ZoneMap" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="ZoneMapInfo" />
+    </column>
+    <column name="FileName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="BinningData" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="UGCMapBinningData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

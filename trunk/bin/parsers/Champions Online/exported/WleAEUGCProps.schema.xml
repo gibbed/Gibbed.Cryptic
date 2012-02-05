@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WleAEUGCProps">
+  <table>
+    <column name="WleAEUGCProps" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="VisibleName" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WleAEParamMessage" />
+    </column>
+    <column name="Description" type="EMBEDDEDSTRUCT">
+      <offset>88</offset>
+      <subtable external="WleAEParamMessage" />
+    </column>
+    <column name="MinLevel" type="EMBEDDEDSTRUCT">
+      <offset>176</offset>
+      <subtable external="WleAEParamInt" />
+    </column>
+    <column name="MaxLevel" type="EMBEDDEDSTRUCT">
+      <offset>240</offset>
+      <subtable external="WleAEParamInt" />
+    </column>
+    <column name="ImageOverride" type="EMBEDDEDSTRUCT">
+      <offset>304</offset>
+      <subtable external="WleAEParamTexture" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

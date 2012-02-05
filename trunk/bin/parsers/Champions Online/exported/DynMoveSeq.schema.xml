@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynMoveSeq">
+  <table>
+    <column name="DynMoveSeq" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="DynMoveSeq" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="DynAnimTrack" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DynMoveAnimTrack" />
+    </column>
+    <column name="DynFxEvent" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="DynMoveFxEvent" />
+    </column>
+    <column name="Speed" type="F32">
+      <offset>68</offset>
+      <default>1</default>
+    </column>
+    <column name="IKTarget" type="STRING">
+      <offset>72</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Distance" type="F32">
+      <offset>76</offset>
+    </column>
+    <column name="MinRate" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="MaxRate" type="F32">
+      <offset>84</offset>
+    </column>
+    <column name="Length" type="F32">
+      <offset>88</offset>
+    </column>
+    <column name="Verified" type="U8">
+      <offset>92</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="Ragdoll" type="BOOLFLAG">
+      <offset>93</offset>
+    </column>
+    <column name="RegisterWep" type="BOOLFLAG">
+      <offset>94</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

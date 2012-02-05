@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisZoneNodeLayout">
+  <table>
+    <column name="GenesisZoneNodeLayout" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LayoutName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="TransmogrifyVersion" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Seed" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="IsVistaTerrain" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="Backdrop" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="GenesisBackdrop" />
+    </column>
+    <column name="GeoType" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>GenesisGeotype</dictionary_name>
+    </column>
+    <column name="Ecosystem" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>GenesisEcosystem</dictionary_name>
+    </column>
+    <column name="ColorShift" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="PlayAreaMin" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="PlayAreaMax" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="PlayHeights" type="F32FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="PlayAreaBuffer" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="VistaMap" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GenesisNode" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="GenesisNode" />
+    </column>
+    <column name="GenesisNodeConnectionGroup" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="GenesisNodeConnectionGroup" />
+    </column>
+    <column name="NodeBorder" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="GenesisNodeBorder" />
+    </column>
+    <column name="NoSharingDetail" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

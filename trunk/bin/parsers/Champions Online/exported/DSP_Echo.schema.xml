@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DSP_Echo">
+  <table>
+    <column name="DSP_Echo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="echo_delay" type="F32">
+      <offset>0</offset>
+      <default>500</default>
+    </column>
+    <column name="echo_decayratio" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="echo_maxchannels" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="echo_drymix" type="F32">
+      <offset>12</offset>
+      <default>1</default>
+    </column>
+    <column name="echo_wetmix" type="F32">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

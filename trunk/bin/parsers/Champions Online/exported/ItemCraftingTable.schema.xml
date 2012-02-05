@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemCraftingTable">
+  <table>
+    <column name="ItemCraftingTable" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Resource" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ResultCount" type="INT">
+      <offset>4</offset>
+      <default>1</default>
+    </column>
+    <column name="ItemResult" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="Result" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ItemResult</redundant_name>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="ItemPowerResult" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>ItemPowerDef</dictionary_name>
+    </column>
+    <column name="Part" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="ItemCraftingComponent" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

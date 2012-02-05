@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WleEncounterActorBuffer">
+  <table>
+    <column name="WleEncounterActorBuffer" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="parentHandle" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="TrackerHandle" />
+    </column>
+    <column name="Properties" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="WorldActorProperties" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

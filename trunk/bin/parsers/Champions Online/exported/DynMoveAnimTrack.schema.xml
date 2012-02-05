@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynMoveAnimTrack">
+  <table>
+    <column name="DynMoveAnimTrack" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="First" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Last" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="uiFirstFrame" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="uiLastFrame" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Offset" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="frameSnapshot" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <subtable external="DynAnimFrameSnapshot" />
+    </column>
+    <column name="NonInterpFrames" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="DynMoveFrameRange" />
+    </column>
+    <column name="BoneOffset" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="DynMoveBoneOffset" />
+    </column>
+    <column name="BoneRotation" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="DynMoveBoneRotOffset" />
+    </column>
+    <column name="NoInterp" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="AnimTrackName" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Verified" type="U8">
+      <offset>52</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

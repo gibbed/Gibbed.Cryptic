@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectInfoPermission">
+  <table>
+    <column name="UGCProjectInfoPermission" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="accountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="CopyPermission" type="INT">
+      <offset>8</offset>
+      <static_define_list />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

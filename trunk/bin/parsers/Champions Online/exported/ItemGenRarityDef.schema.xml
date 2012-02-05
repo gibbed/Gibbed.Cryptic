@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemGenRarityDef">
+  <table>
+    <column name="ItemGenRarityDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list />
+    </column>
+    <column name="PowerChoice" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list />
+    </column>
+    <column name="Suffix" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Prefix" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Quality" type="INT">
+      <offset>32</offset>
+      <static_define_list />
+    </column>
+    <column name="FlagsToAdd" type="INT">
+      <offset>36</offset>
+      <static_define_list />
+    </column>
+    <column name="FlagsToRemove" type="INT">
+      <offset>40</offset>
+      <static_define_list />
+    </column>
+    <column name="Durability" type="F32">
+      <offset>44</offset>
+      <default>-1</default>
+    </column>
+    <column name="DurabilityTable" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="Tag" type="INT">
+      <offset>56</offset>
+      <static_define_list />
+    </column>
+    <column name="Categories" type="INTARRAY">
+      <offset>60</offset>
+      <static_define_list />
+    </column>
+    <column name="ItemSet" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="ItemDefRef" />
+    </column>
+    <column name="TrainableNode" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="PTNodeDefRef" />
+    </column>
+    <column name="TrainableNodeRank" type="INT">
+      <offset>72</offset>
+      <default>1</default>
+    </column>
+    <column name="Art" type="REFERENCE">
+      <offset>76</offset>
+      <dictionary_name>ItemArt</dictionary_name>
+    </column>
+    <column name="RewardCostume" type="REFERENCE">
+      <offset>80</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="Subtarget" type="REFERENCE">
+      <offset>84</offset>
+      <dictionary_name>PowerSubtarget</dictionary_name>
+    </column>
+    <column name="Costumes" type="STRUCT">
+      <offset>88</offset>
+      <subtable external="ItemCostume" />
+    </column>
+    <column name="CostumeRefs" type="STRUCT">
+      <offset>92</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="CostumeRefEditor" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

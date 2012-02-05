@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldLayerFSMProperties">
+  <table>
+    <column name="WorldLayerFSMProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="FSM" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="FSMName" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FSM</redundant_name>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="Variable" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="WorldVariable" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

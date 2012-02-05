@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribStat">
+  <table>
+    <column name="AttribStat" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="KeyName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="estrNameMessage" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="estrDescMessage" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Current" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Base" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

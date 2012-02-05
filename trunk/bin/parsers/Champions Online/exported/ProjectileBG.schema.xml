@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ProjectileBG">
+  <table>
+    <column name="ProjectileBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="toBG" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="ProjectileToBG" />
+    </column>
+    <column name="spcSettled" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="doStart" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="started" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="inAir" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="isFalling" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="settled" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="playedKeyword" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="playedFlagFalling" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="playedFlagImpact" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

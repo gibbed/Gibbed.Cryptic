@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameProgressionNode">
+  <table>
+    <column name="GameProgressionNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>8</offset>
+      <static_define_list />
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Summary" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="ArtFileName" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MissionGroupInfo" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="GameProgressionNodeMissionGroupInfo" />
+    </column>
+    <column name="Child" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="GameProgressionNodeChildRef" />
+    </column>
+    <column name="hParent" type="REFERENCE">
+      <offset>48</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <dictionary_name>GameProgressionNode</dictionary_name>
+    </column>
+    <column name="hNext" type="REFERENCE">
+      <offset>52</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <dictionary_name>GameProgressionNode</dictionary_name>
+    </column>
+    <column name="hPrevious" type="REFERENCE">
+      <offset>56</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <dictionary_name>GameProgressionNode</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerStatsInfo">
+  <table>
+    <column name="PlayerStatsInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dirtyBit" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="eaPlayerStats" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="PlayerStat" />
+    </column>
+    <column name="eaPlayerStatPlaceholders" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="PlayerStat" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QualityEntry">
+  <table>
+    <column name="QualityEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Quality" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="hMessage" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="hSimpleMessage" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

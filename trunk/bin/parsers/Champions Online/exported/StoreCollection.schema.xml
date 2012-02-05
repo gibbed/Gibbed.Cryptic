@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StoreCollection">
+  <table>
+    <column name="StoreCollection" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="optionText" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Condition" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Store" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="StoreRef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

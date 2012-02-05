@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MicroTrans_ShardConfig">
+  <table>
+    <column name="MicroTrans_ShardConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ShardCategory" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list />
+    </column>
+    <column name="Currency" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="Prefix" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="CategoryPrefix" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Prefix</redundant_name>
+    </column>
+    <column name="MOTD" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="MicroTrans_MOTDConfig" />
+    </column>
+    <column name="PointBuyEnabled" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="SteamWalletEnabled" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

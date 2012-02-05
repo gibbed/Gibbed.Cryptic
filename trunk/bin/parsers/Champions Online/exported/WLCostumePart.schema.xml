@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WLCostumePart">
+  <table>
+    <column name="WLCostumePart" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="BoneName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="OrigAttachmentBone" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Geometry" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Model" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Material" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SecondMaterialInfo" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="WLCostumeMaterialInfo" />
+    </column>
+    <column name="ClothInfo" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ClothColInfo" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StumpGeo" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StumpModel" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="rot_mTransform" type="MATPYR">
+      <offset>44</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_mTransform" type="F32FIXEDARRAY">
+      <offset>80</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TexSwap" type="STRUCT">
+      <offset>92</offset>
+      <subtable external="CostumeTextureSwap" />
+    </column>
+    <column name="Set" type="STRUCT">
+      <offset>96</offset>
+      <subtable external="MaterialNamedConstant" />
+    </column>
+    <column name="TexSwap2" type="STRUCT">
+      <offset>108</offset>
+      <subtable external="CostumeTextureSwap" />
+    </column>
+    <column name="Set2" type="STRUCT">
+      <offset>112</offset>
+      <subtable external="MaterialNamedConstant" />
+    </column>
+    <column name="uiRequiredLOD" type="INT">
+      <offset>116</offset>
+    </column>
+    <column name="NoShadow" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Color" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

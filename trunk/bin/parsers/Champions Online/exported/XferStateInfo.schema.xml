@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="XferStateInfo">
+  <table>
+    <column name="XferStateInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FileName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="State" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="bytes_requested" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="start_ticks" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="blocks_so_far" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="blocks_total" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="block_size" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="cum_bytes_requested" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="total_bytes_sent" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="total_bytes_received" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="filedata_size" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

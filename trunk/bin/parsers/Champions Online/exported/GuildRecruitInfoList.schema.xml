@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GuildRecruitInfoList">
+  <table>
+    <column name="GuildRecruitInfoList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Guilds" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="GuildRecruitInfo" />
+    </column>
+    <column name="timeTaken" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="cooldownEnd" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

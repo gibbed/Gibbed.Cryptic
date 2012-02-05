@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShardInfo_Full">
+  <table>
+    <column name="ShardInfo_Full" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+      <format_string>HTML_DEF_FIELDS_TO_SHOW = "basicInfo.MonitoringLink, basicInfo.productName, basicInfo.ShardName, basicInfo.ShardCategoryName, basicInfo.VersionString, Players, Entities, GameServers, Alerts, Machines, LoggingIn, NumNotResponding, NumCrashed, NumDiedAtStartup, AvgCPU60, MaxCPU60, MinVirtAvail, MinPhysAvail, AvgPhysAvail, dbUpdPerSec, CreationTime, LastUpdateTime, MaxCrashes, RunningSlow, LongestStall, SetPrepatchVersion, MakePermanent"</format_string>
+    </column>
+    <column name="{" type="START" />
+    <column name="basicInfo" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="ShardInfo_Basic" />
+    </column>
+    <column name="perfInfo" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="players" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="Entities" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="GameServers" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="Alerts" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="Machines" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="LoggingIn" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="NumNotResponding" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="NumCrashed" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="AvgCPU60" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="MaxCPU60" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="MinVirtAvail" type="INT64">
+      <offset>104</offset>
+    </column>
+    <column name="MinPhysAvail" type="INT64">
+      <offset>112</offset>
+    </column>
+    <column name="AvgPhysAvail" type="INT64">
+      <offset>120</offset>
+    </column>
+    <column name="dbUpdPerSec" type="F32">
+      <offset>128</offset>
+    </column>
+    <column name="creationTime" type="INT">
+      <offset>132</offset>
+    </column>
+    <column name="LastUpdateTime" type="INT">
+      <offset>136</offset>
+    </column>
+    <column name="NumDiedAtStartup" type="INT">
+      <offset>140</offset>
+    </column>
+    <column name="MaxCrashes" type="INT">
+      <offset>144</offset>
+    </column>
+    <column name="RunningSlow" type="INT">
+      <offset>148</offset>
+    </column>
+    <column name="LongestStall" type="INT">
+      <offset>152</offset>
+    </column>
+    <column name="AllLastMinuteFiles" type="OPTIONALSTRUCT">
+      <offset>160</offset>
+      <subtable external="AllLastMinuteFilesInfo" />
+    </column>
+    <column name="SetPrepatchVersion" type="STRING">
+      <offset>168</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="MakePermanent" type="COMMAND">
+      <offset>0</offset>
+      <command_string>MakeShardPermanent $FIELD(basicInfo.ShardName) $NORETURN</command_string>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

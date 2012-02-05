@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldCellEntrySharedBounds">
+  <table>
+    <column name="WorldCellEntrySharedBounds" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="local_min" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="local_max" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>24</offset>
+      <float_rounding>ONES</float_rounding>
+    </column>
+    <column name="near_lod_near_dist" type="F32">
+      <offset>28</offset>
+      <float_rounding>ONES</float_rounding>
+    </column>
+    <column name="far_lod_near_dist" type="F32">
+      <offset>32</offset>
+      <float_rounding>ONES</float_rounding>
+    </column>
+    <column name="far_lod_far_dist" type="F32">
+      <offset>36</offset>
+      <float_rounding>ONES</float_rounding>
+    </column>
+    <column name="model_idx" type="INT">
+      <offset>40</offset>
+      <default>-1</default>
+    </column>
+    <column name="model_scale" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="use_model_bounds" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynFxLogLine">
+  <table>
+    <column name="DynFxLogLine" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uiGuid" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Time" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="FXInfo" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FXID" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="esLine" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="State" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="DynFxLogState" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SpecialDialogOverrideData">
+  <table>
+    <column name="SpecialDialogOverrideData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SourceName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SpecialDialogBlock" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="SpecialDialogBlock" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatTrackerNetList">
+  <table>
+    <column name="CombatTrackerNetList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Dirty" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="ID" type="BIT">
+      <offset>0</offset>
+      <bit_offset>458760</bit_offset>
+    </column>
+    <column name="Touched" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="Events" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CombatTrackerNet" />
+    </column>
+    <column name="EventsBuffer" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <subtable external="CombatTrackerNet" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

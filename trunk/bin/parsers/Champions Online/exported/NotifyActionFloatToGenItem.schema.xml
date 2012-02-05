@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NotifyActionFloatToGenItem">
+  <table>
+    <column name="NotifyActionFloatToGenItem" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hFont" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="String" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Lifetime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="LifetimeMax" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Scale" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="GoalX" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="GoalY" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="StartX" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="StartY" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

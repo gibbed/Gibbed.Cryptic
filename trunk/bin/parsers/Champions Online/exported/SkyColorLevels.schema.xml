@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyColorLevels">
+  <table>
+    <column name="SkyColorLevels" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="InputRange" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="OutputRange" type="F32FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Gamma" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="EndLevels" type="END" />
+  </table>
+</parser>

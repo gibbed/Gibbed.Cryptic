@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CursorModePetRallyDef">
+  <table>
+    <column name="CursorModePetRallyDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CursorModeName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CursorModeName:" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CursorModeName</redundant_name>
+    </column>
+    <column name="CursorModeUnplaceableName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CursorModeUnplaceableName:" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CursorModeUnplaceableName</redundant_name>
+    </column>
+    <column name="RallyDragPlacementFXName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RallyDragPlacementFXName:" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RallyDragPlacementFXName</redundant_name>
+    </column>
+    <column name="RallyPointFXBaseName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RallyPointFXBaseName:" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RallyPointFXBaseName</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

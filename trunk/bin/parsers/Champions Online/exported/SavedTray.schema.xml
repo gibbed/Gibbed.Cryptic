@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SavedTray">
+  <table>
+    <column name="SavedTray" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="piUITrayIndex" type="INTARRAY">
+      <offset>0</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="puiNoSlotPowerIDs" type="INTARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="ppTrayElems" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="TrayElem" />
+    </column>
+    <column name="ppAutoAttackElems" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="TrayElem" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

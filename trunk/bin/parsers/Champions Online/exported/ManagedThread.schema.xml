@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ManagedThread">
+  <table>
+    <column name="ManagedThread" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Update Performance" type="COMMAND">
+      <offset>0</offset>
+      <command_string>UpdatePerformanceCmd $FIELD(thread_id) $NORETURN $NOCONFIRM</command_string>
+    </column>
+    <column name="Restrict Core" type="COMMAND">
+      <offset>0</offset>
+      <command_string>SetCoresForThread $FIELD(thread_id) $INT(What core num should this thread run on?)</command_string>
+    </column>
+    <column name="thread_id" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="relative_priority" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="thread_name" type="FIXEDSTRING">
+      <offset>12</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="filename_creator" type="STRING">
+      <offset>140</offset>
+    </column>
+    <column name="linenumber_creator" type="INT">
+      <offset>144</offset>
+    </column>
+    <column name="External" type="U8">
+      <offset>148</offset>
+    </column>
+    <column name="DisallowDisableAsync" type="U8">
+      <offset>149</offset>
+    </column>
+    <column name="stack_size" type="INT">
+      <offset>152</offset>
+    </column>
+    <column name="perf" type="EMBEDDEDSTRUCT">
+      <offset>160</offset>
+      <subtable external="ManagedThreadPerformance" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

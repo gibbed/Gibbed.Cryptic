@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FilteredListReturn">
+  <table>
+    <column name="FilteredListReturn" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Title" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Offset" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="limit" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="more" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Objects" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="fakeObject" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

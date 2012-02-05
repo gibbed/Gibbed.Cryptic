@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GamePermissionDefs">
+  <table>
+    <column name="GamePermissionDefs" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Permission" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="GamePermissionDef" />
+    </column>
+    <column name="InvBagRestrictions" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="GamePermissionBagRestriction" />
+    </column>
+    <column name="TimedTokenList" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="GamePermissionTimed" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

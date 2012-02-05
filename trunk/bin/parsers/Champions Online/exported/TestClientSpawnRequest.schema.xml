@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TestClientSpawnRequest">
+  <table>
+    <column name="TestClientSpawnRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="cScriptName" type="FIXEDSTRING">
+      <offset>0</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="cMapName" type="FIXEDSTRING">
+      <offset>260</offset>
+      <string_length>1024</string_length>
+    </column>
+    <column name="InstanceIndex" type="INT">
+      <offset>1284</offset>
+    </column>
+    <column name="spawnPos" type="F32FIXEDARRAY">
+      <offset>1288</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="OwnerID" type="INT">
+      <offset>1300</offset>
+    </column>
+    <column name="NumToSpawn" type="INT">
+      <offset>1304</offset>
+    </column>
+    <column name="SpawnDelay" type="F32">
+      <offset>1308</offset>
+    </column>
+    <column name="CmdLine" type="STRING">
+      <offset>1316</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

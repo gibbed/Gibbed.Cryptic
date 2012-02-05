@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TeamInfoPlayer">
+  <table>
+    <column name="TeamInfoPlayer" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContainerID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="PetList" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="TeamInfoPet" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

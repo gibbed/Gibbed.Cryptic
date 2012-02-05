@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LightCloudLayer">
+  <table>
+    <column name="LightCloudLayer" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="scroll_rate" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Scale" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Multiplier" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

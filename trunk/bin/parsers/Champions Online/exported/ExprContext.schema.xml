@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExprContext">
+  <table>
+    <column name="ExprContext" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Input" type="STRING">
+      <offset>528</offset>
+    </column>
+    <column name="stringResult" type="STRING">
+      <offset>532</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="selfPtr" type="OPTIONALSTRUCT">
+      <offset>536</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Entity" />
+    </column>
+    <column name="FSMContext" type="OPTIONALSTRUCT">
+      <offset>544</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="FSMContext" />
+    </column>
+    <column name="Parent" type="OPTIONALSTRUCT">
+      <offset>900</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+        <flag>STRUCT_NORECURSE</flag>
+      </flags>
+      <subtable external="ExprContext" />
+    </column>
+    <column name="exprFile" type="STRING">
+      <offset>916</offset>
+    </column>
+    <column name="ExprLine" type="INT">
+      <offset>920</offset>
+    </column>
+    <column name="exprContextFile" type="STRING">
+      <offset>924</offset>
+    </column>
+    <column name="exprContextLine" type="INT">
+      <offset>928</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

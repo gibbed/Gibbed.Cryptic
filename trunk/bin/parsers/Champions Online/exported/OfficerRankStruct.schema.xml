@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OfficerRankStruct">
+  <table>
+    <column name="OfficerRankStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="OfficerRankDef" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="OfficerRankDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

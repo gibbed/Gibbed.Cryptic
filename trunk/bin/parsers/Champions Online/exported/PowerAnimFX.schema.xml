@@ -1,0 +1,685 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerAnimFX">
+  <table>
+    <column name="PowerAnimFX" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uiStanceID" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="StanceTransitionTime" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="HitAnimKeyword" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AnimKeyword" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StickyStanceWords" type="STRINGARRAY">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StanceStickyBits" type="STRINGARRAY">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StanceStickyFX" type="STRINGARRAY">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StanceStickyFXParamBlock" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="StanceStickyFXParam" type="STRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>StanceStickyFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="StanceFlashBits" type="STRINGARRAY">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StanceFlashFX" type="STRINGARRAY">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StanceFlashFXParamBlock" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="StanceFlashFXParam" type="STRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>StanceFlashFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="ChargeStickyBits" type="STRINGARRAY">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ChargeBits" type="STRINGARRAY">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ChargeStickyBits</redundant_name>
+    </column>
+    <column name="ChargeStickyFX" type="STRINGARRAY">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ChargeFX" type="STRINGARRAY">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ChargeStickyFX</redundant_name>
+    </column>
+    <column name="ChargeStickyFXParamBlock" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="ChargeStickyFXParam" type="STRUCT">
+      <offset>64</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ChargeStickyFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="ChargeFXParam" type="STRUCT">
+      <offset>64</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ChargeStickyFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="ChargeFlashBits" type="STRINGARRAY">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ChargeFlashFX" type="STRINGARRAY">
+      <offset>72</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ChargeFlashFXParamBlock" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="ChargeFlashFXParam" type="STRUCT">
+      <offset>76</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ChargeFlashFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="LungeStickyBits" type="STRINGARRAY">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LungeStickyFX" type="STRINGARRAY">
+      <offset>84</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LungeStickyFXParamBlock" type="STRUCT">
+      <offset>88</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="LungeStickyFXParam" type="STRUCT">
+      <offset>88</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>LungeStickyFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="LungeFlashBits" type="STRINGARRAY">
+      <offset>92</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LungeFlashFX" type="STRINGARRAY">
+      <offset>96</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LungeFlashFXParamBlock" type="STRUCT">
+      <offset>100</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="LungeFlashFXParam" type="STRUCT">
+      <offset>100</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>LungeFlashFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="ActivateStickyBits" type="STRINGARRAY">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ActivateStickyFX" type="STRINGARRAY">
+      <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ActivateStickyFXParamBlock" type="STRUCT">
+      <offset>112</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="ActivateStickyFXParam" type="STRUCT">
+      <offset>112</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ActivateStickyFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="ActivateBits" type="STRINGARRAY">
+      <offset>116</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ActivateAnimFlag" type="STRING">
+      <offset>120</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ActivateFX" type="STRUCT">
+      <offset>124</offset>
+      <subtable external="PowerActivateFX" />
+    </column>
+    <column name="ActivateNearFX" type="STRUCT">
+      <offset>128</offset>
+      <subtable external="PowerActivateFX" />
+    </column>
+    <column name="ActivateMissFX" type="STRUCT">
+      <offset>132</offset>
+      <subtable external="PowerActivateFX" />
+    </column>
+    <column name="ActivateFXParamBlock" type="STRUCT">
+      <offset>136</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="ActivateFXParam" type="STRUCT">
+      <offset>136</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ActivateFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="PeriodicActivateBits" type="STRINGARRAY">
+      <offset>140</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PeriodicActivateFX" type="STRUCT">
+      <offset>144</offset>
+      <subtable external="PowerActivateFX" />
+    </column>
+    <column name="PeriodicActivateFXParamBlock" type="STRUCT">
+      <offset>148</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="PeriodicActivateFXParam" type="STRUCT">
+      <offset>148</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PeriodicActivateFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="DeactivateBits" type="STRINGARRAY">
+      <offset>152</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DeactivateFX" type="STRINGARRAY">
+      <offset>156</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DeactivateFXParamBlock" type="STRUCT">
+      <offset>160</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="DeactivateFXParam" type="STRUCT">
+      <offset>160</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>DeactivateFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="DeactivateAnimFlag" type="STRING">
+      <offset>164</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ChargedActivate" type="STRUCT">
+      <offset>168</offset>
+      <subtable external="PowerChargedActivate" />
+    </column>
+    <column name="TargetedBits" type="STRINGARRAY">
+      <offset>172</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetedFX" type="STRINGARRAY">
+      <offset>176</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetedFXParamBlock" type="STRUCT">
+      <offset>180</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="TargetedFXParam" type="STRUCT">
+      <offset>180</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TargetedFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="HitBits" type="STRINGARRAY">
+      <offset>184</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="HitFX" type="STRINGARRAY">
+      <offset>188</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="HitFXParamBlock" type="STRUCT">
+      <offset>192</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="HitFXParam" type="STRUCT">
+      <offset>192</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>HitFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="HitStickyFX" type="STRINGARRAY">
+      <offset>196</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="HitStickyFXParamBlock" type="STRUCT">
+      <offset>200</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="HitStickyFXParam" type="STRUCT">
+      <offset>200</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>HitStickyFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="BlockBits" type="STRINGARRAY">
+      <offset>204</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MissBits" type="STRINGARRAY">
+      <offset>204</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>BlockBits</redundant_name>
+    </column>
+    <column name="BlockFX" type="STRINGARRAY">
+      <offset>208</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MissFX" type="STRINGARRAY">
+      <offset>208</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>BlockFX</redundant_name>
+    </column>
+    <column name="BlockFXParamBlock" type="STRUCT">
+      <offset>212</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="MissFXParamBlock" type="STRUCT">
+      <offset>212</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>BlockFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="BlockFXParam" type="STRUCT">
+      <offset>212</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>BlockFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="DeathBits" type="STRINGARRAY">
+      <offset>216</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DeathFX" type="STRINGARRAY">
+      <offset>220</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DeathFXParamBlock" type="STRUCT">
+      <offset>224</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="DeathFXParam" type="STRUCT">
+      <offset>224</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>DeathFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="DeathAnimStanceWords" type="STRINGARRAY">
+      <offset>228</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NearActivateFXDistance" type="F32">
+      <offset>232</offset>
+    </column>
+    <column name="FramesBeforeActivateBits" type="INT">
+      <offset>236</offset>
+    </column>
+    <column name="FramesBeforeActivateFX" type="INT">
+      <offset>240</offset>
+    </column>
+    <column name="FramesBeforeTargeted" type="INT">
+      <offset>244</offset>
+    </column>
+    <column name="FramesBeforeHit" type="INTARRAY">
+      <offset>248</offset>
+    </column>
+    <column name="FramesBeforeBlock" type="INT">
+      <offset>252</offset>
+    </column>
+    <column name="FramesBeforePeriodicActivateBits" type="INT">
+      <offset>256</offset>
+    </column>
+    <column name="FramesBeforePeriodicActivateFX" type="INT">
+      <offset>260</offset>
+    </column>
+    <column name="FramesBeforePeriodicTargeted" type="INT">
+      <offset>264</offset>
+    </column>
+    <column name="FramesBeforePeriodicHit" type="INTARRAY">
+      <offset>268</offset>
+    </column>
+    <column name="FramesBeforePeriodicBlock" type="INT">
+      <offset>272</offset>
+    </column>
+    <column name="DefaultHue" type="F32">
+      <offset>276</offset>
+    </column>
+    <column name="DefaultEmit" type="REFERENCE">
+      <offset>280</offset>
+      <dictionary_name>PowerEmit</dictionary_name>
+    </column>
+    <column name="ProjectileSpeed" type="F32">
+      <offset>284</offset>
+    </column>
+    <column name="SpeedPenaltyDuringCharge" type="F32">
+      <offset>288</offset>
+    </column>
+    <column name="SpeedPenaltyDuringActivate" type="F32">
+      <offset>292</offset>
+    </column>
+    <column name="Lunge" type="OPTIONALSTRUCT">
+      <offset>296</offset>
+      <subtable external="PowerLunge" />
+    </column>
+    <column name="Grab" type="OPTIONALSTRUCT">
+      <offset>300</offset>
+      <subtable external="PowerGrab" />
+    </column>
+    <column name="SlideFrameStart" type="INT">
+      <offset>304</offset>
+    </column>
+    <column name="MovementFrameStart" type="INT">
+      <offset>304</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SlideFrameStart</redundant_name>
+    </column>
+    <column name="SlideFrameCount" type="INT">
+      <offset>308</offset>
+    </column>
+    <column name="MovementFrameCount" type="INT">
+      <offset>308</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SlideFrameCount</redundant_name>
+    </column>
+    <column name="SlideDistance" type="F32">
+      <offset>312</offset>
+    </column>
+    <column name="MovementDistance" type="F32">
+      <offset>312</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SlideDistance</redundant_name>
+    </column>
+    <column name="MovementSpeed" type="F32">
+      <offset>316</offset>
+    </column>
+    <column name="CostumePartOverride" type="OPTIONALSTRUCT">
+      <offset>320</offset>
+      <subtable external="PowerAnimFXCostumePartOverride" />
+    </column>
+    <column name="cpchPCBoneName" type="STRING">
+      <offset>324</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="bfUsedFields" type="INTFIXEDARRAY">
+      <offset>328</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>5</num_elements>
+    </column>
+    <column name="RootDuringCharge" type="BIT">
+      <offset>348</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="RootDuringActivate" type="BIT">
+      <offset>348</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="PlayChargeDuringActivate" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="KeepStance" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="StanceSTO" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="PersistedWeaponStanceSTO" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="EmitCustomizable" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="DelayedHit" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="DelayedHitShared" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="LocationHit" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="NoPeriodicHitBits" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="MainTargetOnly" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="GlobalFX" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="CapsuleHit" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="DisableTurnToFaceTarget" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="LocationActivate" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="FlashTriggersStanceSwitch" type="BIT">
+      <offset>348</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="HasSticky" type="BIT">
+      <offset>348</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65553</bit_offset>
+    </column>
+    <column name="ReactTrigger" type="BIT">
+      <offset>348</offset>
+      <bit_offset>524306</bit_offset>
+      <static_define_list />
+    </column>
+    <column name="RootOptionalHack" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

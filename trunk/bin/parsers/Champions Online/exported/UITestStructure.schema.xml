@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UITestStructure">
+  <table>
+    <column name="UITestStructure" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="OtherName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Start" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="End" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Alternates" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="UITestSubStructure" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

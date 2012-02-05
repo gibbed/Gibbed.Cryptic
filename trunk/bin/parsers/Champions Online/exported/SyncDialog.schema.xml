@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SyncDialog">
+  <table>
+    <column name="SyncDialog" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uiTeamID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Members" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="SyncDialogMember" />
+    </column>
+    <column name="uiExpireTime" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="hContactDef" type="REFERENCE">
+      <offset>12</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <dictionary_name>ContactDef</dictionary_name>
+    </column>
+    <column name="data" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="ContactDialogOptionData" />
+    </column>
+    <column name="Initiator" type="INT">
+      <offset>20</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

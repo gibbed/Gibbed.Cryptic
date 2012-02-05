@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyTimeWind">
+  <table>
+    <column name="SkyTimeWind" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Speed" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="SpeedVariation" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Direction" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="DirectionVariation" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Turbulence" type="F32">
+      <offset>36</offset>
+      <default>1056964608</default>
+    </column>
+    <column name="Turbulance" type="F32">
+      <offset>36</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Turbulence</redundant_name>
+      <default>1056964608</default>
+    </column>
+    <column name="variationScale" type="F32">
+      <offset>40</offset>
+      <default>1022739087</default>
+    </column>
+    <column name="EndWind" type="END" />
+  </table>
+</parser>

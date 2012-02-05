@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldExpressionActionProperties">
+  <table>
+    <column name="WorldExpressionActionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="ExprBlock" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

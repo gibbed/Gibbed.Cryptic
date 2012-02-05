@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueConcedeDataUI">
+  <table>
+    <column name="QueueConcedeDataUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="InitiatorName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="uInitiatorID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="VoteCount" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="VotesRequired" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="GroupSize" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="AlreadyVoted" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

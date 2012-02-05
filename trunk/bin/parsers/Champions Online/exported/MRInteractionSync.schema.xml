@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRInteractionSync">
+  <table>
+    <column name="MRInteractionSync" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="pathVersionToStart" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="triggerWaypointIndex" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="MRInteractionSyncFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

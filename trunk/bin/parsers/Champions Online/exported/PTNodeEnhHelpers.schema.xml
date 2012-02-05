@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PTNodeEnhHelpers">
+  <table>
+    <column name="PTNodeEnhHelpers" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AutoEnhancement" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PTNodeEnhHelper" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenChatLogState">
+  <table>
+    <column name="UIGenChatLogState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>21</default>
+      <static_define_list />
+    </column>
+    <column name="Scrollbar" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="UIGenScrollbarState" />
+    </column>
+    <column name="TabStates" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="UIGenChatLogTabState" />
+    </column>
+    <column name="ActiveLink" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="ChatLink" />
+    </column>
+    <column name="selection" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="UIGenChatLogSelection" />
+    </column>
+    <column name="EntryLayouts" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="UIGenChatLogEntryLayout" />
+    </column>
+    <column name="FilterTab" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="LastEntryID" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="FramesSinceLastCompletedResize" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="LastWidth" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="LastHeight" type="F32">
+      <offset>76</offset>
+    </column>
+    <column name="LastFontScale" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="VisibleScrollBarWidth" type="F32">
+      <offset>84</offset>
+    </column>
+    <column name="PreviousVisibilityConfigCRC" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="ChatConfigVersion" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="Selecting" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Resizing" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Rescaling" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="MouseUp" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="NewMessageInActiveTab" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="QueuedActions" type="STRUCT">
+      <offset>100</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

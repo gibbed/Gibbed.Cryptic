@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AIDebugTeamMember">
+  <table>
+    <column name="AIDebugTeamMember" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Ref" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="job_name" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="critter_name" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="role_name" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="combatTokens" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="combatTokenRateSelf" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="combatTokenRateSocial" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

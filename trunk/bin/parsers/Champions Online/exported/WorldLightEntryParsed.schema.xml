@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldLightEntryParsed">
+  <table>
+    <column name="WorldLightEntryParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="base_data" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldCellEntryParsed" />
+    </column>
+    <column name="light_data" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <subtable external="LightData" />
+    </column>
+    <column name="animation_entry_id" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

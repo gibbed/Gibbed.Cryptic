@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldCurve">
+  <table>
+    <column name="WorldCurve" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Spline" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="Spline" />
+    </column>
+    <column name="TerrainExcluder" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="TerrainFilter" type="U8">
+      <offset>21</offset>
+    </column>
+    <column name="GenesisPath" type="U8">
+      <offset>22</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

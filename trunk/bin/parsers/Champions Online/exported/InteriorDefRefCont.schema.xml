@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InteriorDefRefCont">
+  <table>
+    <column name="InteriorDefRefCont" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hInterior" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>InteriorDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

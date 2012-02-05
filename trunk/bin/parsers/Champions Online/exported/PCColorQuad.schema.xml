@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCColorQuad">
+  <table>
+    <column name="PCColorQuad" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Color0" type="U8FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color1" type="U8FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color2" type="U8FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color3" type="U8FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Weight" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

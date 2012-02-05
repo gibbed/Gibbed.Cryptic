@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DoorBG">
+  <table>
+    <column name="DoorBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Start" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Finished" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="usepos" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="usefacing" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="useroll" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="Delay" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="pyStart" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="pyEnd" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Timer" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

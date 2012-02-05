@@ -1,0 +1,277 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerTeam">
+  <table>
+    <column name="PlayerTeam" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="iTeamID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iRejoinID" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="hTeam" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <dictionary_name>CopyDict_TEAM</dictionary_name>
+    </column>
+    <column name="bMapLocal" type="BIT">
+      <offset>12</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="bSyncingCompletedMissionsWithTeam" type="BIT">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="bSyncingCompletedMissionsVersionWithTeam" type="BIT">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="bUpdatingTeamProgress" type="BIT">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="iTimeSinceHandleInit" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="iTimeSinceLastUpdate" type="INT">
+      <offset>20</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="eState" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list />
+    </column>
+    <column name="pcInviterName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iLogoutTime" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iVersion" type="INT">
+      <offset>36</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="iInChat" type="INT">
+      <offset>40</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="fLastUpdate" type="F32">
+      <offset>44</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="bTriedRejoining" type="U8">
+      <offset>48</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="bUpdateTeamPowers" type="U8">
+      <offset>49</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="bTeamMissionMapTransfer" type="U8">
+      <offset>50</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="iNumMatchTries" type="U8">
+      <offset>51</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="bInTeamDialog" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="bIsTeamSpokesman" type="U8">
+      <offset>53</offset>
+    </column>
+    <column name="eMode" type="INT">
+      <offset>56</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list />
+    </column>
+    <column name="eLootMode" type="INT">
+      <offset>60</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list />
+    </column>
+    <column name="eLootQuality" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iCompletedMissionsVersion" type="INT">
+      <offset>68</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ppchCompletedMissions" type="STRINGARRAY">
+      <offset>72</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iNearbyTeamSize" type="INT">
+      <offset>76</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchDestinationMap" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="iTeamSizeTimestamp" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="iAverageTeamLevel" type="INT">
+      <offset>88</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="iAverageTeamLevelTime" type="INT">
+      <offset>92</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="iLastTeamIDForInitialMeeting" type="INT">
+      <offset>96</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="lastRecruitType" type="INT">
+      <offset>100</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="iLastTeamMissionSyncTimestamp" type="INT">
+      <offset>104</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="iLastTeamProgressUpdate" type="INT">
+      <offset>108</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="iLastCompletedMissionsVersionSync" type="INT">
+      <offset>112</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="dirtyBit" type="U8">
+      <offset>116</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="bAutoAcceptInvites" type="IGNORE" />
+    <column name="eInviteResponse" type="IGNORE" />
+    <column name="eEOIForSelf" type="IGNORE" />
+    <column name="bEOIForOthers" type="IGNORE" />
+    <column name="bAutoSidekickOnTeamJoin" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

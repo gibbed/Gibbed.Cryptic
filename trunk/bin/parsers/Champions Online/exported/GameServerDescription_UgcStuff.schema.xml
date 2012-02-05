@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameServerDescription_UgcStuff">
+  <table>
+    <column name="GameServerDescription_UgcStuff" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UgcUUID" type="FIXEDSTRING">
+      <offset>0</offset>
+      <string_length>40</string_length>
+    </column>
+    <column name="OwnerAccountID" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="OwnerAccountName" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

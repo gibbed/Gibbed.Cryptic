@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CameraMat">
+  <table>
+    <column name="CameraMat" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="rot_mat" type="MATPYR">
+      <offset>4</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_mat" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

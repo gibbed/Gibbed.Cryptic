@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LocationTargetingConfig">
+  <table>
+    <column name="LocationTargetingConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CursorName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetReticleFxName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FxParamNameScale" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FxParamNameColor" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GroundHeightAdjustment" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="KeybindName" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CastAtMaxDistance" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="OutOfRangeColor" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="InRangeColor" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DefaultInventory">
+  <table>
+    <column name="DefaultInventory" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="InventoryName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="InventoryBags" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="InvBagDef" />
+    </column>
+    <column name="GrantItem" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DefaultItemDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

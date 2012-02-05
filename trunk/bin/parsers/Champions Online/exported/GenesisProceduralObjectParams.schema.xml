@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisProceduralObjectParams">
+  <table>
+    <column name="GenesisProceduralObjectParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ModelName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Property" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PropertyLoad" />
+    </column>
+    <column name="PowerVolume" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="WorldPowerVolumeProperties" />
+    </column>
+    <column name="FXVolume" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="WorldFXVolumeProperties" />
+    </column>
+    <column name="SkyVolume" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="WorldSkyVolumeProperties" />
+    </column>
+    <column name="SoundVolume" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="WorldSoundVolumeProperties" />
+    </column>
+    <column name="ActionVolume" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="WorldActionVolumeProperties" />
+    </column>
+    <column name="EventVolume" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="WorldEventVolumeProperties" />
+    </column>
+    <column name="OptionalActionVolume" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="WorldOptionalActionVolumeProperties" />
+    </column>
+    <column name="Curve" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="WorldCurve" />
+    </column>
+    <column name="PatrolProperties" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="WorldPatrolProperties" />
+    </column>
+    <column name="InteractionProperties" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="WorldInteractionProperties" />
+    </column>
+    <column name="SpawnProperties" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="WorldSpawnProperties" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

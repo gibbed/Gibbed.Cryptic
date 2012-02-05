@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DoorTransitionSequenceDef">
+  <table>
+    <column name="DoorTransitionSequenceDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FileName" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Allegiance" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>Allegiance</dictionary_name>
+    </column>
+    <column name="RegionType" type="INTARRAY">
+      <offset>16</offset>
+      <static_define_list />
+    </column>
+    <column name="PlayAnimationList" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="DoorTransitionAnimation" />
+    </column>
+    <column name="PlayCutscene" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>Cutscene</dictionary_name>
+    </column>
+    <column name="OrientToMapExit" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

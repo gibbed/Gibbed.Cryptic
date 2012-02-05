@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldEncounterHackProperties">
+  <table>
+    <column name="WorldEncounterHackProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="BaseDef" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>VITAL_REF</flag>
+      </flags>
+      <dictionary_name>EncounterDef</dictionary_name>
+    </column>
+    <column name="PhysicalSize" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="AgroSize" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

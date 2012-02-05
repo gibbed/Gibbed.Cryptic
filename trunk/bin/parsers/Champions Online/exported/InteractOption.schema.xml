@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InteractOption">
+  <table>
+    <column name="InteractOption" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hNode" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>WorldInteractionNode</dictionary_name>
+    </column>
+    <column name="entRef" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="VolumeName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Index" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="LootBag" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="InventoryBag" />
+    </column>
+    <column name="InteractString" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="DetailString" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="InteractTexture" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TeammateType" type="INT">
+      <offset>32</offset>
+      <static_define_list />
+    </column>
+    <column name="TeammateID" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="Category" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Priority" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="uNodeInteractDist" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="NodePosFallback" type="F32FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="NodeRadiusFallback" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="Disabled" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="AutoExecute" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="CanPickup" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="CanThrow" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

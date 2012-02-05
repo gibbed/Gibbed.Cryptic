@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WleAEParamWorldVariableDef">
+  <table>
+    <column name="WleAEParamWorldVariableDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="is_specified" type="BOOLFLAG">
+      <offset>0</offset>
+    </column>
+    <column name="var_def" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="display_if_unspecified" type="BOOLFLAG">
+      <offset>64</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

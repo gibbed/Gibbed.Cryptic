@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SavedPetSortData">
+  <table>
+    <column name="SavedPetSortData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SortFirst" type="INTARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="SortLast" type="INTARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

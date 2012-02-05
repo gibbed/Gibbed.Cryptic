@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PushFG">
+  <table>
+    <column name="PushFG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="toBG" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="PushToBG" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

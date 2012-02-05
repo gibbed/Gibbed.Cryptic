@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DSP_ParamEQ">
+  <table>
+    <column name="DSP_ParamEQ" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="parameq_center" type="F32">
+      <offset>0</offset>
+      <default>1174011904</default>
+    </column>
+    <column name="parameq_bandwidth" type="F32">
+      <offset>4</offset>
+      <default>1</default>
+    </column>
+    <column name="parameq_gain" type="F32">
+      <offset>8</offset>
+      <default>1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SSObjSet">
+  <table>
+    <column name="SSObjSet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MissionUID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="MissionName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="LibObject" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="SSLibObj" />
+    </column>
+    <column name="ObjectTags" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="SSTagObj" />
+    </column>
+    <column name="Cluster" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="SSCluster" />
+    </column>
+    <column name="HasPortal" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

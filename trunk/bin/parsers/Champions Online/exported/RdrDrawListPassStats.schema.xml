@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RdrDrawListPassStats">
+  <table>
+    <column name="RdrDrawListPassStats" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="objects_drawn" type="INTFIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>10</num_elements>
+    </column>
+    <column name="triangles_drawn" type="INTFIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>10</num_elements>
+    </column>
+    <column name="opaque_objects_drawn" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="alpha_objects_drawn" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="opaque_triangles_drawn" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="alpha_triangles_drawn" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

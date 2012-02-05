@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="VoiceUserPrefs">
+  <table>
+    <column name="VoiceUserPrefs" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Volume" type="INT">
+      <offset>0</offset>
+      <default>40</default>
+    </column>
+    <column name="Muted" type="BIT">
+      <offset>4</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

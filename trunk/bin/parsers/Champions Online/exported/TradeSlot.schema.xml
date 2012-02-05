@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TradeSlot">
+  <table>
+    <column name="TradeSlot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Item" />
+    </column>
+    <column name="SrcBagId" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="SrcSlot" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="tradeSlotPetID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

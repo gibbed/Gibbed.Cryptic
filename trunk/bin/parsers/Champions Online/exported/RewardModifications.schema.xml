@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RewardModifications">
+  <table>
+    <column name="RewardModifications" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CombatValueLevelTable" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ModifyByDifficulty" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="ItemRewardModificationTable" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="UseGenericDifficultyPowerScaling" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="RewardExtraAlgoNumerics" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="RewardGenericNumeric" />
+    </column>
+    <column name="StaticMapRewardTableName" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StaticMapRewardTableLevelDiffMax" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="StaticMapRewardTableShardVariable" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StaticMapRewardTableShardValue" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DirectRewardNotifyMessageKey" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

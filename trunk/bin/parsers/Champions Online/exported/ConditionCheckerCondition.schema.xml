@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ConditionCheckerCondition">
+  <table>
+    <column name="ConditionCheckerCondition" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="LastInternalFrame" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="FirstTime" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="FirstUtilitiesLibTicks" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

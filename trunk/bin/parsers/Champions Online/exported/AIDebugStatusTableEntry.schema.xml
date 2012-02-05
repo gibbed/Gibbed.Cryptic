@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AIDebugStatusTableEntry">
+  <table>
+    <column name="AIDebugStatusTableEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Index" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="entRef" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="AggroBuckets" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="AIDebugAggroBucket" />
+    </column>
+    <column name="aggroCounterTotal" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="aggroGaugeTotal" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="totalBaseDangerVal" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="inFrontArc" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="legalTarget" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="taunter" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

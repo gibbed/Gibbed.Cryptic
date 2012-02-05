@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GfxFontDataList">
+  <table>
+    <column name="GfxFontDataList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Font" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="GfxFontData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

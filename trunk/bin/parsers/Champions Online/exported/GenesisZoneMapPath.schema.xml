@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisZoneMapPath">
+  <table>
+    <column name="GenesisZoneMapPath" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Path" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Tags" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Width" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="MinLength" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="MaxLength" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Windiness" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="NoDetailsOrPaths" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="DetailSeed" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="VisibleName" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="StartRoom" type="STRINGARRAY">
+      <offset>40</offset>
+    </column>
+    <column name="EndRoom" type="STRINGARRAY">
+      <offset>44</offset>
+    </column>
+    <column name="ControlPoints" type="INTARRAY">
+      <offset>48</offset>
+    </column>
+    <column name="StartDoor" type="INTARRAY">
+      <offset>52</offset>
+    </column>
+    <column name="EndDoor" type="INTARRAY">
+      <offset>56</offset>
+    </column>
+    <column name="detail_kit_1" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Details" type="REFERENCE">
+      <offset>60</offset>
+      <dictionary_name>GenesisDetailKit</dictionary_name>
+    </column>
+    <column name="DetailKit" type="REFERENCE">
+      <offset>60</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Details</redundant_name>
+      <dictionary_name>GenesisDetailKit</dictionary_name>
+    </column>
+    <column name="DetailDensity" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="Detail2" type="EMBEDDEDSTRUCT">
+      <offset>72</offset>
+      <subtable external="GenesisDetailKitAndDensity" />
+    </column>
+    <column name="SideTrail" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Mission" type="STRUCT">
+      <offset>88</offset>
+      <subtable external="GenesisRoomMission" />
+    </column>
+    <column name="Seed" type="IGNORE" />
+    <column name="LightDetail" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

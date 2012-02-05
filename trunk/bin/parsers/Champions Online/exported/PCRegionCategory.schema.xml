@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCRegionCategory">
+  <table>
+    <column name="PCRegionCategory" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="PCRegion" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CostumeRegion</dictionary_name>
+    </column>
+    <column name="hRegion" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>PCRegion</redundant_name>
+      <dictionary_name>CostumeRegion</dictionary_name>
+    </column>
+    <column name="PCCategory" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CostumeCategory</dictionary_name>
+    </column>
+    <column name="hCategory" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>PCCategory</redundant_name>
+      <dictionary_name>CostumeCategory</dictionary_name>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

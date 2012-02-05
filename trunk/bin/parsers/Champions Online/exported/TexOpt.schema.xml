@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TexOpt">
+  <table>
+    <column name="IsFolder" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="TexOpt" type="IGNORE" />
+    <column name="F" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TS" type="TIMESTAMP">
+      <offset>32</offset>
+    </column>
+    <column name="TextureName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>8</offset>
+      <static_define_list />
+    </column>
+    <column name="MipFilter" type="INT">
+      <offset>16</offset>
+      <static_define_list />
+    </column>
+    <column name="Quality" type="INT">
+      <offset>20</offset>
+      <static_define_list />
+    </column>
+    <column name="Compression" type="INT">
+      <offset>24</offset>
+      <static_define_list />
+    </column>
+    <column name="Fade" type="IGNORE" />
+    <column name="AlphaMIPThreshold" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="BorderColor" type="U8FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="TexReduceScale" type="U8">
+      <offset>40</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

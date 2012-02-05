@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OldActorAIInfo">
+  <table>
+    <column name="OldActorAIInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FSM" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="aiFSMName" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FSM</redundant_name>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="Variable" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="OldEncounterVariable" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

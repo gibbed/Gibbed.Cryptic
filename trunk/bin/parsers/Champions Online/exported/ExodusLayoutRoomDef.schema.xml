@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExodusLayoutRoomDef">
+  <table>
+    <column name="ExodusLayoutRoomDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="hRoomDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>ExodusRoomDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CraftComponentInfo">
+  <table>
+    <column name="CraftComponentInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Item" />
+    </column>
+    <column name="Need" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Have" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="wleNotesNote">
+  <table>
+    <column name="wleNotesNote" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="note_name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="note_content" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="note_type" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="note_cam_dist" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="note_cam_center" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="note_cam_target" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="note_tex_id" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="note_color" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="tracker_handle" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="user_name" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

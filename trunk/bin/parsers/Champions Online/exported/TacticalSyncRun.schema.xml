@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalSyncRun">
+  <table>
+    <column name="TacticalSyncRun" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Speed" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="cooldownSeconds" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="maxDurationSeconds" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="fuelRefillRate" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="fuelRefillDelay" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

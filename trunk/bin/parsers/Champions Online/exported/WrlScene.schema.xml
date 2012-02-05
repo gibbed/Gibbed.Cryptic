@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WrlScene">
+  <table>
+    <column name="WrlScene" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="FN" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Def" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="WrlDef" />
+    </column>
+  </table>
+</parser>

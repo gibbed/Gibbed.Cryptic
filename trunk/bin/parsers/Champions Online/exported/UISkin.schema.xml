@@ -1,0 +1,597 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UISkin">
+  <table>
+    <column name="UISkin" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Background:" type="U8FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Highlight:" type="U8FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Button:" type="U8FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Button(Highlight):" type="U8FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Button(Pressed):" type="U8FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Button(Disabled):" type="U8FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Button(Changed):" type="U8FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Button(Parented):" type="U8FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Border:" type="U8FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Border(Inactive):" type="U8FIXEDARRAY">
+      <offset>36</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="ThinBorder:" type="U8FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="TitleBar:" type="U8FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="TitleBar(Inactive):" type="U8FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Trough:" type="U8FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Trough(Pressed):" type="U8FIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Entry:" type="U8FIXEDARRAY">
+      <offset>60</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Entry(Active):" type="U8FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Entry(Disabled):" type="U8FIXEDARRAY">
+      <offset>68</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Entry(Changed):" type="U8FIXEDARRAY">
+      <offset>72</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Entry(Parented):" type="U8FIXEDARRAY">
+      <offset>72</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="NormalFont:" type="REFERENCE">
+      <offset>80</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="hNormal" type="REFERENCE">
+      <offset>80</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>NormalFont:</redundant_name>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="TitlebarFont:" type="REFERENCE">
+      <offset>84</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="hTitlebar" type="REFERENCE">
+      <offset>84</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TitlebarFont:</redundant_name>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="TitlebarBar:" type="REFERENCE">
+      <offset>88</offset>
+      <dictionary_name>UIStyleBar</dictionary_name>
+    </column>
+    <column name="UseStyleBorders" type="U8">
+      <offset>92</offset>
+    </column>
+    <column name="ButtonStyle:" type="REFERENCE">
+      <offset>96</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ButtonStyle(Highlight):" type="REFERENCE">
+      <offset>100</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ButtonStyle(Pressed):" type="REFERENCE">
+      <offset>104</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ButtonStyle(Disabled):" type="REFERENCE">
+      <offset>108</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="PaneStyle:" type="REFERENCE">
+      <offset>112</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="PaneTitleStyle:" type="REFERENCE">
+      <offset>116</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="WindowTitleCloseButton:" type="STRING">
+      <offset>120</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="WindowTitleStyle:" type="REFERENCE">
+      <offset>124</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="WindowStyle:" type="REFERENCE">
+      <offset>128</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="MenuBarStyle:" type="REFERENCE">
+      <offset>132</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="MenuBarButtonStyle:" type="REFERENCE">
+      <offset>136</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="MenuBarButtonStyle(Opened):" type="REFERENCE">
+      <offset>140</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="MenuPopupStyle:" type="REFERENCE">
+      <offset>144</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="MenuPopupStyle(Highlight):" type="REFERENCE">
+      <offset>148</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TextEntryStyle:" type="REFERENCE">
+      <offset>152</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TextEntryStyle(Highlight):" type="REFERENCE">
+      <offset>156</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TextEntryStyle(Disabled):" type="REFERENCE">
+      <offset>160</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TextEntryStyle(SelectedText):" type="REFERENCE">
+      <offset>164</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ComboBoxStyle:" type="REFERENCE">
+      <offset>168</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ComboBoxStyle(Highlight):" type="REFERENCE">
+      <offset>172</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ComboBoxStyle(Opened):" type="REFERENCE">
+      <offset>176</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ComboBoxStyle(Disabled):" type="REFERENCE">
+      <offset>180</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ListHeaderStyle:" type="REFERENCE">
+      <offset>184</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ListStyle:" type="REFERENCE">
+      <offset>188</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ListStyle(SelectedItem):" type="REFERENCE">
+      <offset>192</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TabGroupStyle:" type="REFERENCE">
+      <offset>196</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TabGroupStyle(Selected):" type="REFERENCE">
+      <offset>200</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="VerticalTabGroupStyle:" type="REFERENCE">
+      <offset>204</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="VerticalTabGroupStyle(Selected):" type="REFERENCE">
+      <offset>208</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowUp:" type="STRING">
+      <offset>212</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowDown:" type="STRING">
+      <offset>216</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowLeft:" type="STRING">
+      <offset>220</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowRight:" type="STRING">
+      <offset>224</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarVTroughStyle:" type="REFERENCE">
+      <offset>228</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ScrollbarVHandleStyle:" type="REFERENCE">
+      <offset>232</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ScrollbarHTroughStyle:" type="REFERENCE">
+      <offset>236</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ScrollbarHHandleStyle:" type="REFERENCE">
+      <offset>240</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="SmallArrowUp:" type="STRING">
+      <offset>244</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="SmallArrowDown:" type="STRING">
+      <offset>248</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TreeStyle:" type="REFERENCE">
+      <offset>252</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TreeStyle(SelectedItem):" type="REFERENCE">
+      <offset>256</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TreeLineColor:" type="U8FIXEDARRAY">
+      <offset>260</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="TreeLineColor(Dragging):" type="U8FIXEDARRAY">
+      <offset>264</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="TreechartBGStyle:" type="REFERENCE">
+      <offset>268</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TreechartPlaceholderStyle:" type="REFERENCE">
+      <offset>272</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TreechartGroupContentBGStyle:" type="REFERENCE">
+      <offset>276</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TreechartGroupBottomStyle:" type="REFERENCE">
+      <offset>280</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TreechartNodeHighlightStyle:" type="REFERENCE">
+      <offset>284</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TreechartArrowHighlightStyle:" type="REFERENCE">
+      <offset>288</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="TreechartArrowHead:" type="STRING">
+      <offset>292</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TreechartArrowBody:" type="STRING">
+      <offset>296</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TreechartArrowTail:" type="STRING">
+      <offset>300</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TreechartArrowGrabHead:" type="STRING">
+      <offset>304</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TreechartArrowGrabBody:" type="STRING">
+      <offset>308</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TreechartArrowGrabTail:" type="STRING">
+      <offset>312</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TreechartArrowHighlight:" type="STRING">
+      <offset>316</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="AccordionButtonStyle:" type="REFERENCE">
+      <offset>320</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="AccordionButtonStyle(Highlight):" type="REFERENCE">
+      <offset>324</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="AccordionButtonStyle(Pressed):" type="REFERENCE">
+      <offset>328</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="AccordionButtonStyle(Disabled):" type="REFERENCE">
+      <offset>332</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="DefaultCursor:" type="STRING">
+      <offset>336</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TextCursor:" type="STRING">
+      <offset>340</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="DragCursorBottomLeft:" type="STRING">
+      <offset>344</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorBottomRight:" type="STRING">
+      <offset>348</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorTopLeft:" type="STRING">
+      <offset>352</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorTopRight:" type="STRING">
+      <offset>356</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorBottom:" type="STRING">
+      <offset>360</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorLeft:" type="STRING">
+      <offset>364</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorRight:" type="STRING">
+      <offset>368</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorTop:" type="STRING">
+      <offset>372</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorAnyDirection:" type="STRING">
+      <offset>376</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="PaneTreePane:" type="REFERENCE">
+      <offset>380</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ArrowDropDown:" type="STRING">
+      <offset>384</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="SliderHandle:" type="STRING">
+      <offset>388</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="SliderTroughHL:" type="STRING">
+      <offset>392</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="SliderTroughHM:" type="STRING">
+      <offset>396</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="SliderTroughHR:" type="STRING">
+      <offset>400</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="Minus:" type="STRING">
+      <offset>404</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="Plus:" type="STRING">
+      <offset>408</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="CheckBoxChecked:" type="STRING">
+      <offset>412</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="CheckBoxUnchecked:" type="STRING">
+      <offset>416</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="RadioBoxChecked:" type="STRING">
+      <offset>420</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="RadioBoxUnchecked:" type="STRING">
+      <offset>424</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

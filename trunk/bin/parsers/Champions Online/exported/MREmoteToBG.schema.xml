@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MREmoteToBG">
+  <table>
+    <column name="MREmoteToBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="setsNew" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="MREmoteSet" />
+    </column>
+    <column name="handlesToDestroy" type="INTARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

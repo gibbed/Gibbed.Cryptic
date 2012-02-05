@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameProgressionNodeMissionGroupInfo">
+  <table>
+    <column name="GameProgressionNodeMissionGroupInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Major" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="TimeToComplete" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SpawnPoint" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MissionRequired" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="MissionDefRef" />
+    </column>
+    <column name="AllowedMissionMap" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="GameProgressionAllowedMissionMap" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

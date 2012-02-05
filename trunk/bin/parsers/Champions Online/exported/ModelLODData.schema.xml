@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ModelLODData">
+  <table>
+    <column name="ModelLODData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="data_size" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="vert_count" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="tri_count" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="tex_count" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="texel_density_avg" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="texel_density_stddev" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="process_time_flags" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Pack" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="ModelPackData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

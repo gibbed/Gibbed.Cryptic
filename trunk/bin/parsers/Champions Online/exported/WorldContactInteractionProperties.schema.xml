@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldContactInteractionProperties">
+  <table>
+    <column name="WorldContactInteractionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="ContactDef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>Contact</dictionary_name>
+    </column>
+    <column name="DialogName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxyKeyValueInfoListContainer">
+  <table>
+    <column name="AccountProxyKeyValueInfoListContainer" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="List" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="AccountProxyKeyValueInfoContainer" />
+    </column>
+    <column name="ppList" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>List</redundant_name>
+      <subtable external="AccountProxyKeyValueInfoContainer" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

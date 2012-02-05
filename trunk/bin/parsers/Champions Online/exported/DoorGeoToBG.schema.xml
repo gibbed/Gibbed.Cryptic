@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DoorGeoToBG">
+  <table>
+    <column name="DoorGeoToBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="posTarget" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="rotTarget" type="QUATPYR">
+      <offset>12</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="timeTotal" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="VoiceUser">
+  <table>
+    <column name="VoiceUser" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="prefs" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="VoiceUserPrefs" />
+    </column>
+    <column name="ID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="externName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="externURI" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Channels" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="VoiceChannelUser" />
+    </column>
+    <column name="Volume" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="targetVolume" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="isMutedByMe" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisDetailKitAndDensity">
+  <table>
+    <column name="GenesisDetailKitAndDensity" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Details" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>GenesisDetailKit</dictionary_name>
+    </column>
+    <column name="DetailKit" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Details</redundant_name>
+      <dictionary_name>GenesisDetailKit</dictionary_name>
+    </column>
+    <column name="DetailDensity" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

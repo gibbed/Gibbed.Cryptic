@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="KeyBind">
+  <table>
+    <column name="KeyBind" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Key1" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="Key2" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="Key" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Command" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Secondary" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ContinueProcessing" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="IsChar" type="IGNORE" />
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeCreatorCostumeRef">
+  <table>
+    <column name="CostumeCreatorCostumeRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Costume" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="WLCostume" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>Costume</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContactMissionOffer">
+  <table>
+    <column name="ContactMissionOffer" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MissionDef" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <dictionary_name>Mission</dictionary_name>
+    </column>
+    <column name="AllowGrantOrReturn" type="INT">
+      <offset>4</offset>
+      <static_define_list />
+    </column>
+    <column name="SpecialDialogName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SubMissionName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="GreetingDialog" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="DialogBlock" />
+    </column>
+    <column name="OfferDialog" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="DialogBlock" />
+    </column>
+    <column name="AcceptDialog" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>OfferDialog</redundant_name>
+      <subtable external="DialogBlock" />
+    </column>
+    <column name="InProgressDialog" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="DialogBlock" />
+    </column>
+    <column name="CompleteDialog" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="DialogBlock" />
+    </column>
+    <column name="FailureDialog" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="DialogBlock" />
+    </column>
+    <column name="acceptStringMesg" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="AcceptTargetDialog" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="declineStringMesg" type="EMBEDDEDSTRUCT">
+      <offset>52</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DeclineTargetDialog" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="turnInStringMesg" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="rewardAcceptMesg" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RewardAcceptTargetDialog" type="STRING">
+      <offset>92</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="rewardChooseMesg" type="EMBEDDEDSTRUCT">
+      <offset>96</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RewardChooseTargetDialog" type="STRING">
+      <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RemoteFlags" type="INT">
+      <offset>112</offset>
+      <static_define_list />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExodusPopulateRoom">
+  <table>
+    <column name="ExodusPopulateRoom" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Tile" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ExodusPopulateTile" />
+    </column>
+    <column name="Origin" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="ExodusPoint" />
+    </column>
+    <column name="Size" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="ExodusPoint" />
+    </column>
+    <column name="Object" type="STRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="ExodusPopulateObject" />
+    </column>
+    <column name="TileSize" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="WorldSize" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="ExodusPoint" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

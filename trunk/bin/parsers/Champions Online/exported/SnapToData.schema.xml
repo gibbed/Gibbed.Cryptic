@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SnapToData">
+  <table>
+    <column name="SnapToData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="HistorySampleTime" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="HistoryMultiplier" type="F32">
+      <offset>4</offset>
+      <default>1</default>
+    </column>
+    <column name="MinSpeed" type="F32">
+      <offset>8</offset>
+      <default>5</default>
+    </column>
+    <column name="MaxSpeed" type="F32">
+      <offset>12</offset>
+      <default>30</default>
+    </column>
+    <column name="MaxAngle" type="F32">
+      <offset>16</offset>
+      <default>120</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

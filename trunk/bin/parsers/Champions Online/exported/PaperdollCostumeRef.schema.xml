@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PaperdollCostumeRef">
+  <table>
+    <column name="PaperdollCostumeRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hCostume" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>WLCostume</dictionary_name>
+    </column>
+    <column name="refCount" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uChangedTime" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Respecs">
+  <table>
+    <column name="Respecs" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Respecs" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="Respec" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

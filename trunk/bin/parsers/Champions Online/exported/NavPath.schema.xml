@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NavPath">
+  <table>
+    <column name="NavPath" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Waypoints" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="NavPathWaypoint" />
+    </column>
+    <column name="curWaypoint" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="circular" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="pingpong" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="pingpongRev" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

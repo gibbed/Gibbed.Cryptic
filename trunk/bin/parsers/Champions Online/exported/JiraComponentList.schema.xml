@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="JiraComponentList">
+  <table>
+    <column name="JiraComponentList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Components" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="JiraComponent" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

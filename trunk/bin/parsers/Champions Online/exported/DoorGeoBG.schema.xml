@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DoorGeoBG">
+  <table>
+    <column name="DoorGeoBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="posTarget" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="rotTarget" type="QUATPYR">
+      <offset>12</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="posStart" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="rotStart" type="QUATPYR">
+      <offset>40</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="timeTotal" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="timeRemaining" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="ratioFromTarget" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
+      <subtable external="DoorGeoBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

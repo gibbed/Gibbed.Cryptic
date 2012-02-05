@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueInfo">
+  <table>
+    <column name="QueueInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="iContainerID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pchName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="hDef" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>QueueDef</dictionary_name>
+    </column>
+    <column name="eaInstances" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="QueueInstance" />
+    </column>
+    <column name="uiCurrentID" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iNextFrameTime" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="iMinMapSize" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="iMaxMapSize" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="bDirty" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="bUpdating" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="bAutoFill" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="bNeverLaunchMaps" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="iAverageWaitTime" type="IGNORE" />
+    <column name="eaOrderedMembers" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="eaMaps" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

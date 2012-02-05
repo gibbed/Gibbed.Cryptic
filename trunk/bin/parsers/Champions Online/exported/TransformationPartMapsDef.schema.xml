@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TransformationPartMapsDef">
+  <table>
+    <column name="TransformationPartMapsDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TransformPart" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="TransformationPart" />
+    </column>
+    <column name="GeoMap" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="TransformationGeoMap" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemVars">
+  <table>
+    <column name="ItemVars" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ItemVar" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ItemVar" />
+    </column>
+    <column name="stItemVars" type="STASHTABLE">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

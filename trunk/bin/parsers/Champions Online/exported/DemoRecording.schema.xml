@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DemoRecording">
+  <table>
+    <column name="DemoRecording" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Version" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="worldgridName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="ZoneName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ZMInfo" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="ZoneMapInfo" />
+    </column>
+    <column name="zmInfoFilename" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="StartTime" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="EndTime" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="startWorldTime" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="activePlayerRef" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="packets" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="RecordedMMPacket" />
+    </column>
+    <column name="Messages" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="RecordedMessage" />
+    </column>
+    <column name="fovy" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="relativeCameraViews" type="STRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="CameraMatRelative" />
+    </column>
+    <column name="cameraViews" type="STRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="CameraMat" />
+    </column>
+    <column name="CutsceneDef" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="CutsceneDef" />
+    </column>
+    <column name="nearz" type="IGNORE" />
+    <column name="farz" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

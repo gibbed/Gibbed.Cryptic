@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Widget">
+  <table>
+    <column name="ColorWidget" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="ColorWidget" />
+    </column>
+    <column name="StringWidget" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="StringWidget" />
+    </column>
+    <column name="Vec3Widget" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="Vec3Widget" />
+    </column>
+  </table>
+</parser>

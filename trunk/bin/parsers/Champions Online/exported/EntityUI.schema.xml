@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EntityUI">
+  <table>
+    <column name="EntityUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="VisCache" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="EntityVisibilityCache" />
+    </column>
+    <column name="Bubbles" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ChatBubble" />
+    </column>
+    <column name="Draw" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="WasOnscreen" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Gen" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="UIGen" />
+    </column>
+    <column name="EncounterData" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="EncounterUIData" />
+    </column>
+    <column name="OffscreenData" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="OffscreenUIData" />
+    </column>
+    <column name="LastOffscreenLoS" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="uiLastOffscreenLoSCheck" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="uiLastDamaged" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="uiLastFlank" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="uiLastDamagedByPlayer" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="LastDamageAngle" type="F32">
+      <offset>48</offset>
+      <default>-1</default>
+    </column>
+    <column name="LastDamageTangentAngle" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="uiLastDamageDirectionTimes" type="INTFIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="DamageFloatGroups" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="DamageFloatGroup" />
+    </column>
+    <column name="uiLastTime" type="INT">
+      <offset>76</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="BoxMin" type="F32FIXEDARRAY">
+      <offset>80</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="BoxMax" type="F32FIXEDARRAY">
+      <offset>92</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="vuiLowerAtTime" type="INTFIXEDARRAY">
+      <offset>104</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

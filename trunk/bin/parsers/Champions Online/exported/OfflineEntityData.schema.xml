@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OfflineEntityData">
+  <table>
+    <column name="OfflineEntityData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uiPetID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="EntType" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ClassType" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="uiLastUpdateTime" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Pet" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Entity" />
+    </column>
+    <column name="hRequest" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>CopyDict_ENTITYPLAYER</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

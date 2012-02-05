@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DSP_Chorus">
+  <table>
+    <column name="DSP_Chorus" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="chorus_drymix" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="chorus_wetmix1" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="chorus_wetmix2" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="chorus_wetmix3" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="chorus_delay" type="F32">
+      <offset>16</offset>
+      <default>40</default>
+    </column>
+    <column name="chorus_rate" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="chorus_depth" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="chorus_feedback" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

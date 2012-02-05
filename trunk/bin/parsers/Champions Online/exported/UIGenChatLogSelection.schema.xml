@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenChatLogSelection">
+  <table>
+    <column name="UIGenChatLogSelection" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="StartEntryId" type="INT">
+      <offset>0</offset>
+      <default>-1</default>
+    </column>
+    <column name="EndEntryId" type="INT">
+      <offset>8</offset>
+      <default>-1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

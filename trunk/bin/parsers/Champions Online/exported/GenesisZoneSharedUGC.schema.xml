@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisZoneSharedUGC">
+  <table>
+    <column name="GenesisZoneSharedUGC" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LayoutName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="LayoutSeed" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="TransmogrifyVersion" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Object" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisObject" />
+    </column>
+    <column name="Mission" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="GenesisZoneSharedUGCMission" />
+    </column>
+    <column name="Backdrop" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="GenesisBackdrop" />
+    </column>
+    <column name="UGCBackdrop" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="GenesisBackdropUGC" />
+    </column>
+    <column name="ExternalMapName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ExternalRegionName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MapVariable" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="GenesisZoneMapVariable" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

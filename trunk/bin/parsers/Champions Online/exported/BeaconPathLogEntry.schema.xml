@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BeaconPathLogEntry">
+  <table>
+    <column name="BeaconPathLogEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EntityRef" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="sourcePos" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="targetPos" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="totalCycles" type="INT64">
+      <offset>32</offset>
+    </column>
+    <column name="findSource" type="INT64">
+      <offset>40</offset>
+    </column>
+    <column name="findTarget" type="INT64">
+      <offset>48</offset>
+    </column>
+    <column name="findPath" type="INT64">
+      <offset>56</offset>
+    </column>
+    <column name="abs_time" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="searchResult" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="sourceBeaconPos" type="F32FIXEDARRAY">
+      <offset>72</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="targetBeaconPos" type="F32FIXEDARRAY">
+      <offset>84</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ownerFile" type="STRING">
+      <offset>96</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ownerLine" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="triviaStr" type="STRING">
+      <offset>104</offset>
+    </column>
+    <column name="jumpHeight" type="F32">
+      <offset>108</offset>
+    </column>
+    <column name="canFly" type="BIT">
+      <offset>112</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Success" type="BIT">
+      <offset>112</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

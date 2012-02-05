@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DefaultSettingsRules">
+  <table>
+    <column name="DefaultSettingsRules" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="resolution" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ResolutionRule" />
+    </column>
+    <column name="filltwoboneskinning" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="fillgpuparticles" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="fillnoshadows" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="fillsplatshadows" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="fillnoeffects" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="filloutliningintel" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="filllightingqualitylow" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="filllightingqualitylowintel" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="filldetail05" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="filldetail075" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="fillterrainlow" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="fillhighqualitydof" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="fillssao" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="fillmsaa" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="fillvfxlow" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="fillvfxmedium" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="filllensflare" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="defaultsversionnumber" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

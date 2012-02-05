@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RewardConfig">
+  <table>
+    <column name="RewardConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Modifications" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="RewardModifications" />
+    </column>
+    <column name="MissionMods" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="MissionMods" />
+    </column>
+    <column name="TeamMods" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
+      <subtable external="TeamMods" />
+    </column>
+    <column name="RecruitMods" type="EMBEDDEDSTRUCT">
+      <offset>88</offset>
+      <subtable external="RecruitMods" />
+    </column>
+    <column name="OriginMappings" type="EMBEDDEDSTRUCT">
+      <offset>96</offset>
+      <subtable external="OriginToPickupTypeMappings" />
+    </column>
+    <column name="IgnoreSubRank" type="U8">
+      <offset>100</offset>
+    </column>
+    <column name="ComputeRewardQuality" type="U8">
+      <offset>101</offset>
+    </column>
+    <column name="lifetimeRewards" type="EMBEDDEDSTRUCT">
+      <offset>104</offset>
+      <subtable external="LifetimeRewardsInfo" />
+    </column>
+    <column name="LifetimeRewardsList" type="STRUCT">
+      <offset>108</offset>
+      <subtable external="LifetimeRewardsInfo" />
+    </column>
+    <column name="NumericsNotGivenToWholeTeam" type="STRINGARRAY">
+      <offset>112</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GiftData" type="EMBEDDEDSTRUCT">
+      <offset>116</offset>
+      <subtable external="ExperienceGift" />
+    </column>
+    <column name="RoundRobinEachKill" type="BIT">
+      <offset>128</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ShareLootedNumericsWithTeamMembers" type="BIT">
+      <offset>128</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="BlockRewardPackClientSend" type="BIT">
+      <offset>128</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="NoDeathPenaltyInPowerHouse" type="BIT">
+      <offset>128</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumePreset">
+  <table>
+    <column name="CostumePreset" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Costume" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="Group" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SlotType" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="OverrideExcludeValues" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="ExcludeGroup" type="U8">
+      <offset>29</offset>
+    </column>
+    <column name="ExcludeSlotType" type="U8">
+      <offset>30</offset>
+    </column>
+    <column name="Order" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="OverrideValidateValues" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="CostumeTestParts" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="ValidatePlayerCostumeItems" />
+    </column>
+    <column name="PresetCategory" type="REFERENCE">
+      <offset>60</offset>
+      <dictionary_name>CostumePresetCategory</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

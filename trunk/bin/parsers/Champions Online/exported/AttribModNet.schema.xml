@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribModNet">
+  <table>
+    <column name="AttribModNet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dirtyBit" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="hPowerDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="uiDefIdx" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="uiDurationOriginal" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Magnitude" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="MagnitudeOriginal" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Health" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="HealthMax" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="ResistPositive" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ResistNegative" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

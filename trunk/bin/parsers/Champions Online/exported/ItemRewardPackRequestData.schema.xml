@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemRewardPackRequestData">
+  <table>
+    <column name="ItemRewardPackRequestData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hRewardPackItem" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="Rewards" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="InvRewardRequest" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

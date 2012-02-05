@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PetRequestChoice">
+  <table>
+    <column name="PetRequestChoice" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Allegiance" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Allegiance</dictionary_name>
+    </column>
+    <column name="PetDef" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>PetDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

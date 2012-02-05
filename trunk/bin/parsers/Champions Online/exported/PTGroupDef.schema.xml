@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PTGroupDef">
+  <table>
+    <column name="PTGroupDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Group" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="NameFull" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayMessage" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayDescription" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Requires" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALWAYS_ALLOC</flag>
+      </flags>
+      <subtable external="PTPurchaseRequirements" />
+    </column>
+    <column name="Max" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="X" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="Y" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="Order" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="Node" type="STRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="PTNodeDef" />
+    </column>
+    <column name="UIGridRow" type="U8">
+      <offset>56</offset>
+    </column>
+    <column name="HasMasterNode" type="BIT">
+      <offset>60</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="isFirst" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

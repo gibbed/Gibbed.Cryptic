@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCArtistPartData">
+  <table>
+    <column name="PCArtistPartData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ExtraColor" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCMaterialColor" />
+    </column>
+    <column name="eaExtraColors" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ExtraColor</redundant_name>
+      <subtable external="PCMaterialColor" />
+    </column>
+    <column name="ExtraValue" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCMaterialConstant" />
+    </column>
+    <column name="eaExtraConstants" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ExtraValue</redundant_name>
+      <subtable external="PCMaterialConstant" />
+    </column>
+    <column name="ExtraTexture" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCTextureRef" />
+    </column>
+    <column name="eaExtraTextures" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ExtraTexture</redundant_name>
+      <subtable external="PCTextureRef" />
+    </column>
+    <column name="NoShadow" type="U8">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bNoShadow" type="U8">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>NoShadow</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

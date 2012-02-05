@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TerrainBrushFalloff">
+  <table>
+    <column name="TerrainBrushFalloff" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="diameter_multi" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="hardness_multi" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="strength_multi" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="invert_filters" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

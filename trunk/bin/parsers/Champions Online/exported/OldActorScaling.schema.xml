@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OldActorScaling">
+  <table>
+    <column name="OldActorScaling" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Info" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="OldActorInfo" />
+    </column>
+    <column name="aiInfo" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="OldActorAIInfo" />
+    </column>
+    <column name="Position" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="OldActorPosition" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

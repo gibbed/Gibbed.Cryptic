@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldEncounterEventProperties">
+  <table>
+    <column name="WorldEncounterEventProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="SuccessCondition" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="FailureCondition" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="SuccessAction" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="FailureAction" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

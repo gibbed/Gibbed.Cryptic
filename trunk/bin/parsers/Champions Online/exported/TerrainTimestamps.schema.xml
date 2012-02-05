@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TerrainTimestamps">
+  <table>
+    <column name="TerrainTimestamps" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Version" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="deplist" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="TerrainTimestamp" />
+    </column>
+    <column name="bin_time" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

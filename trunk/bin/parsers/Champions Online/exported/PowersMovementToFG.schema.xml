@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowersMovementToFG">
+  <table>
+    <column name="PowersMovementToFG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Ignores" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PMIgnore" />
+    </column>
+    <column name="knockDown" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="idLungeActivate" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="idLungeFinished" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="vecLungeFinished" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PMMove">
+  <table>
+    <column name="PMMove" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Speed" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="erTarget" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="vecTarget" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="MoveDir" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="timeStart" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="timeNotify" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="distNotify" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="timeStop" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="distStop" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="lurchTraveled" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="DefaultDir" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="started" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="firstTickProcessed" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="faceAway" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="stopLurching" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="FaceDuringPowerActivation" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

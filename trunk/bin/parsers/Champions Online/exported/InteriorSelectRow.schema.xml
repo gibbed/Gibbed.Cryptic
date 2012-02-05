@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InteriorSelectRow">
+  <table>
+    <column name="InteriorSelectRow" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayNameMsg" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="interiorName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hInterior" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>InteriorDef</dictionary_name>
+    </column>
+    <column name="unlocked" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="MicroTransactionID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Product" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="MicroTransactionUIProduct" />
+    </column>
+    <column name="FullProductList" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="MicroTransactionUIProduct" />
+    </column>
+    <column name="MinimumProductPrice" type="INT64">
+      <offset>32</offset>
+    </column>
+    <column name="MaximumProductPrice" type="INT64">
+      <offset>40</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

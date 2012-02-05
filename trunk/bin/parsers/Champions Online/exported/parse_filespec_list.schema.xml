@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="parse_filespec_list">
+  <table>
+    <column name="Include:" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="parse_filespec_include" />
+    </column>
+    <column name="Exclude:" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Include:</redundant_name>
+      <subtable external="parse_filespec_exclude" />
+    </column>
+  </table>
+</parser>

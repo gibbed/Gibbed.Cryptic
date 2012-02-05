@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisConfig">
+  <table>
+    <column name="GenesisConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FallbackPromptText" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="VariableDef" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="VistaThickness" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="VistaHoleSize" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="BoundsSkyFade" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="WorldSkyVolumeProperties" />
+    </column>
+    <column name="CheckedAttrib" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="GenesisConfigCheckedAttrib" />
+    </column>
+    <column name="WarpActionCategory" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

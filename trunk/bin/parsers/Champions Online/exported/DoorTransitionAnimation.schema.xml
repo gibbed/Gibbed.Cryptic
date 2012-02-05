@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DoorTransitionAnimation">
+  <table>
+    <column name="DoorTransitionAnimation" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AnimationListName" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <dictionary_name>AIAnimList</dictionary_name>
+    </column>
+    <column name="FreezeDuration" type="F32">
+      <offset>4</offset>
+      <default>-1</default>
+    </column>
+    <column name="Duration" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FreezeDuration</redundant_name>
+      <default>-1</default>
+    </column>
+    <column name="PreDelay" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

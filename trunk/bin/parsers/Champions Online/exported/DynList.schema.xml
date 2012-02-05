@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynList">
+  <table>
+    <column name="DynList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Type" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="DynListNode" />
+    </column>
+    <column name="Global" type="BOOLFLAG">
+      <offset>8</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

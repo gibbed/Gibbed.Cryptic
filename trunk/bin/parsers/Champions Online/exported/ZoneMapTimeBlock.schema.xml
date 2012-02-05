@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ZoneMapTimeBlock">
+  <table>
+    <column name="ZoneMapTimeBlock" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Duration" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Tag" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="EndTimeBlock" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="HttpGlobObjWrapper">
+  <table>
+    <column name="HttpGlobObjWrapper" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Label" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Struct" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="HttpGlobObjWrapper" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

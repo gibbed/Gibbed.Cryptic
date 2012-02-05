@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StoredCritterLoreEntry">
+  <table>
+    <column name="StoredCritterLoreEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="estrDisplayName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="hCostume" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="eaiAttribs" type="INTARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="eafValues" type="F32ARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

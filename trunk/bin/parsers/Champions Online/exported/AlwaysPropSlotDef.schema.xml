@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AlwaysPropSlotDef">
+  <table>
+    <column name="AlwaysPropSlotDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Type" type="INTARRAY">
+      <offset>8</offset>
+      <static_define_list />
+    </column>
+    <column name="AllowPowerCategory" type="INT">
+      <offset>12</offset>
+      <default>-1</default>
+      <static_define_list />
+    </column>
+    <column name="MaxPropPowers" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="PowerMax" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MaxPropPowers</redundant_name>
+    </column>
+    <column name="MinPropPowers" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="IgnorePurposeForMax" type="INT">
+      <offset>24</offset>
+      <default>-1</default>
+      <static_define_list />
+    </column>
+    <column name="Category" type="INT">
+      <offset>28</offset>
+      <static_define_list />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

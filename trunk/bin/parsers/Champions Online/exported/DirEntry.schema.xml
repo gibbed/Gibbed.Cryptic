@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DirEntry">
+  <table>
+    <column name="DirEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Version" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="FileVersion" />
+    </column>
+    <column name="versions" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Version</redundant_name>
+      <subtable external="load_FileVersion" />
+    </column>
+    <column name="File" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DirEntry" />
+    </column>
+    <column name="Children" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>File</redundant_name>
+      <subtable external="DirEntry" />
+    </column>
+    <column name="Checkout" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="Checkout" />
+    </column>
+    <column name="checkouts" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Checkout</redundant_name>
+      <subtable external="Checkout" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

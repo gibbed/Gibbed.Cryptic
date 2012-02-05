@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TerrainExportInfoBlock">
+  <table>
+    <column name="TerrainExportInfoBlock" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Min" type="INTFIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Max" type="INTFIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

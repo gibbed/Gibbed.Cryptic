@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShardInfo_Basic_List">
+  <table>
+    <column name="ShardInfo_Basic_List" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Shards" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ShardInfo_Basic" />
+    </column>
+    <column name="Message" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="UserMessage" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CalendarEntry">
+  <table>
+    <column name="CalendarEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uStartDate" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="uEndDate" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="msgDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="msgDisplayDescShort" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="msgDisplayDescLong" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Background" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayTag" type="INTARRAY">
+      <offset>52</offset>
+      <static_define_list />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

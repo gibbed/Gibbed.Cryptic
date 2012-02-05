@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FSMStateLayout">
+  <table>
+    <column name="FSMStateLayout" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="X" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Y" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="onFirstEntryOpen" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="onEntryOpen" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="actionOpen" type="U8">
+      <offset>10</offset>
+    </column>
+    <column name="subFSMOpen" type="U8">
+      <offset>11</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

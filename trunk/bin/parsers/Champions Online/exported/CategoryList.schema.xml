@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CategoryList">
+  <table>
+    <column name="CategoryList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Categories" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="Category" />
+    </column>
+    <column name="MainCategoryNames" type="STRINGARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

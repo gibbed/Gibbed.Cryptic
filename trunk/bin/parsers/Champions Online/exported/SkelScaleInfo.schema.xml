@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkelScaleInfo">
+  <table>
+    <column name="SkelScaleInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="ScaleInfoName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="ScaleAnimTrack" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="SkelScaleAnimTrack" />
+    </column>
+    <column name="HeightFixupBone" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScaleGroup" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="SkelScaleGroup" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

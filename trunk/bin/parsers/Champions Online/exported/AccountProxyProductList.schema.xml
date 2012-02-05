@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxyProductList">
+  <table>
+    <column name="AccountProxyProductList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="List" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="AccountProxyProduct" />
+    </column>
+    <column name="uTimestamp" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uVersion" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

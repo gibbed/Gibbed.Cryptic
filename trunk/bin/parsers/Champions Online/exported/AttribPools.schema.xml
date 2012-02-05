@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribPools">
+  <table>
+    <column name="AttribPools" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Pool" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="AttribPool" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

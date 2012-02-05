@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MaterialProfileData">
+  <table>
+    <column name="MaterialProfileData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MaterialProfile" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="MaterialAssemblerProfile" />
+    </column>
+    <column name="LightingModel" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="GfxLightingModel" />
+    </column>
+    <column name="Light" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="RdrLightDefinition" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

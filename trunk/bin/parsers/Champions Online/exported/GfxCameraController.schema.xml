@@ -1,0 +1,287 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GfxCameraController">
+  <table>
+    <column name="GfxCameraController" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="LastView" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="GfxCameraView" />
+    </column>
+    <column name="rot_LastCameraMatrix" type="MATPYR">
+      <offset>4</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_LastCameraMatrix" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="SkyGroupOverride" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="SkyInfoGroup" />
+    </column>
+    <column name="TimeOverride" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="CameraFunction" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="ProjectionFOV" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="TargetProjectionFOV" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="DefaultProjectionFOV" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="OrthoMode" type="U8">
+      <offset>76</offset>
+    </column>
+    <column name="OrthoZoom" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="OrthoModeEx" type="U8">
+      <offset>84</offset>
+    </column>
+    <column name="OrthoAspect" type="F32">
+      <offset>88</offset>
+    </column>
+    <column name="OrthoWidth" type="F32">
+      <offset>92</offset>
+    </column>
+    <column name="OrthoHeight" type="F32">
+      <offset>96</offset>
+    </column>
+    <column name="OrthoCullWidth" type="F32">
+      <offset>100</offset>
+    </column>
+    <column name="OrthoCullHeight" type="F32">
+      <offset>104</offset>
+    </column>
+    <column name="OrthoNear" type="F32">
+      <offset>108</offset>
+    </column>
+    <column name="OrthoFar" type="F32">
+      <offset>112</offset>
+    </column>
+    <column name="CameraDistance" type="F32">
+      <offset>116</offset>
+    </column>
+    <column name="LastCameraDistance" type="F32">
+      <offset>120</offset>
+    </column>
+    <column name="TargetDist" type="F32">
+      <offset>124</offset>
+    </column>
+    <column name="Delay" type="F32">
+      <offset>128</offset>
+    </column>
+    <column name="Speed" type="F32">
+      <offset>132</offset>
+    </column>
+    <column name="PanSpeed" type="F32">
+      <offset>136</offset>
+    </column>
+    <column name="ZoomStep" type="F32">
+      <offset>140</offset>
+    </column>
+    <column name="CamCenter" type="F32FIXEDARRAY">
+      <offset>144</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CamFocus" type="F32FIXEDARRAY">
+      <offset>156</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LockedCenter" type="F32FIXEDARRAY">
+      <offset>168</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CamPYR" type="F32FIXEDARRAY">
+      <offset>180</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TargetPYR" type="F32FIXEDARRAY">
+      <offset>192</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CenterOffset" type="F32FIXEDARRAY">
+      <offset>204</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CameraPosition" type="F32FIXEDARRAY">
+      <offset>216</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="StartSpeed" type="F32">
+      <offset>228</offset>
+    </column>
+    <column name="MaxSpeed" type="F32">
+      <offset>232</offset>
+    </column>
+    <column name="AccelerationDelay" type="F32">
+      <offset>236</offset>
+    </column>
+    <column name="AccelerationRate" type="F32">
+      <offset>240</offset>
+    </column>
+    <column name="BlockTime" type="F32">
+      <offset>244</offset>
+    </column>
+    <column name="AutoAdjustTimeout" type="F32">
+      <offset>248</offset>
+    </column>
+    <column name="LockPivot" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ModeSwitch" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="MultiDrag" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="Forward" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Backward" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="Left" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="Right" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="Up" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="Down" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="Zoom" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="ZoomFast" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="SetCenter" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="Pan" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="PanFast" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="Rotate" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="RotateL" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="RotateR" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="RotateU" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65553</bit_offset>
+    </column>
+    <column name="RotateD" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65554</bit_offset>
+    </column>
+    <column name="FreeLook" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65555</bit_offset>
+    </column>
+    <column name="Locked" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65556</bit_offset>
+    </column>
+    <column name="LockedToTarget" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
+    <column name="LockControllerCameraControl" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65558</bit_offset>
+    </column>
+    <column name="LockAutoAdjust" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65559</bit_offset>
+    </column>
+    <column name="UseHorizontalFOV" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65560</bit_offset>
+    </column>
+    <column name="Initialized" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65561</bit_offset>
+    </column>
+    <column name="PyrPreInit" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65562</bit_offset>
+    </column>
+    <column name="DoShadowScaling" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65563</bit_offset>
+    </column>
+    <column name="OverrideNoFogClip" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65564</bit_offset>
+    </column>
+    <column name="OverrideBackgroundColor" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65565</bit_offset>
+    </column>
+    <column name="OverrideDisableShadows" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65566</bit_offset>
+    </column>
+    <column name="OverrideDisable3D" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65567</bit_offset>
+    </column>
+    <column name="OverrideTime" type="BIT">
+      <offset>256</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="OverrideHideEditorObjects" type="BIT">
+      <offset>256</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="OverrideDisableShadowPulse" type="BIT">
+      <offset>256</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="ClearColor" type="F32FIXEDARRAY">
+      <offset>260</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="martinCam" type="EMBEDDEDSTRUCT">
+      <offset>280</offset>
+      <subtable external="GfxMartinCam" />
+    </column>
+    <column name="EndCameraController" type="END" />
+  </table>
+</parser>

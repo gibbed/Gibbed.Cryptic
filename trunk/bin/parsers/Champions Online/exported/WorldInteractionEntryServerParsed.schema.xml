@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldInteractionEntryServerParsed">
+  <table>
+    <column name="WorldInteractionEntryServerParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="base_data" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldCellEntryParsed" />
+    </column>
+    <column name="UID" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="initial_selected_child" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="visible_child_count" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="full_interaction_properties" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="WorldInteractionProperties" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

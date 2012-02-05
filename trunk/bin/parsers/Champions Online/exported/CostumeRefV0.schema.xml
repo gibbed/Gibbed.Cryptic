@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeRefV0">
+  <table>
+    <column name="CostumeRefV0" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dirtyBit" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="dirtiedCount" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="pEffectiveCostume" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="PlayerCostumeV0" />
+    </column>
+    <column name="pStoredCostume" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="PlayerCostumeV0" />
+    </column>
+    <column name="pSubstituteCostume" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="PlayerCostumeV0" />
+    </column>
+    <column name="hReferencedCostume" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="pcDestructibleObjectCostume" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="hMood" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>PCMood</dictionary_name>
+    </column>
+    <column name="eaAdditionalFX" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="PCFXNoPersist" />
+    </column>
+    <column name="hReferencedCostume" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

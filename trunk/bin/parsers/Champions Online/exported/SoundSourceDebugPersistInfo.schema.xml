@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SoundSourceDebugPersistInfo">
+  <table>
+    <column name="SoundSourceDebugPersistInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="vel" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Dir" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="directionality" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="dist" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="memory_usage_max" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

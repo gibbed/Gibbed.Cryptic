@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GeneralParticlePreviewSettings">
+  <table>
+    <column name="GeneralParticlePreviewSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UpdateRate" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="TestVelocity" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TestMagnetPos" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TestEmitTargetPos" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="GraphHeight" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="Opacity" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="Axes" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="GridSize" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="GridAlpha" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="HueShift" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="SaturationShift" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="ValueShift" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="ScaleFactor" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="TestHueShift" type="BOOLFLAG">
+      <offset>76</offset>
+    </column>
+    <column name="GridXZ" type="BOOLFLAG">
+      <offset>77</offset>
+    </column>
+    <column name="GridXY" type="BOOLFLAG">
+      <offset>78</offset>
+    </column>
+    <column name="GridYZ" type="BOOLFLAG">
+      <offset>79</offset>
+    </column>
+    <column name="DrawWorld" type="BOOLFLAG">
+      <offset>80</offset>
+    </column>
+    <column name="IsInScreenSpace" type="BOOLFLAG">
+      <offset>81</offset>
+    </column>
+    <column name="RebuildUI" type="U8">
+      <offset>82</offset>
+    </column>
+    <column name="DropNode" type="U8">
+      <offset>83</offset>
+    </column>
+    <column name="ResetSet" type="U8">
+      <offset>84</offset>
+    </column>
+    <column name="AutoSave" type="U8">
+      <offset>85</offset>
+    </column>
+    <column name="TestNode" type="OPTIONALSTRUCT">
+      <offset>88</offset>
+      <subtable external="DynNode" />
+    </column>
+    <column name="TestMagnetNode" type="OPTIONALSTRUCT">
+      <offset>92</offset>
+      <subtable external="DynNode" />
+    </column>
+    <column name="TestEmitTargetNode" type="OPTIONALSTRUCT">
+      <offset>96</offset>
+      <subtable external="DynNode" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

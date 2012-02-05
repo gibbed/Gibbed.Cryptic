@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FlightBG">
+  <table>
+    <column name="FlightBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="vel" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="velAdditive" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="pyrTarget" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="offsetResource" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="gravitySpeed" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="forwardPitchMag" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="inputMoveYaw" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="inputFaceYaw" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="FlightBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

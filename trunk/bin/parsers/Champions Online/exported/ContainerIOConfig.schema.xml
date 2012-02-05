@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContainerIOConfig">
+  <table>
+    <column name="ContainerIOConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MergerScript" type="FIXEDSTRING">
+      <offset>0</offset>
+      <string_length>1024</string_length>
+    </column>
+    <column name="OfflineBackupScript" type="FIXEDSTRING">
+      <offset>1024</offset>
+      <string_length>1024</string_length>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

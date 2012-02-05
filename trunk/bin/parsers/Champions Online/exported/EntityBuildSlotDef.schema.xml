@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EntityBuildSlotDef">
+  <table>
+    <column name="EntityBuildSlotDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="BuildChangedPower" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ExprBlockCanChangeToBuild" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprCanChangeToBuildBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockCanChangeToBuild</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprCanChangeToBuild" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockCanChangeToBuild</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="IgnoreCostumeSwap" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="TransformationDef" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OldActorPosition">
+  <table>
+    <column name="OldActorPosition" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RotateOffset" type="QUATPYR">
+      <offset>0</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="PosOffset" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="AbsoluteOverride" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynLoop">
+  <table>
+    <column name="DynLoop" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Global" type="BOOLFLAG">
+      <offset>0</offset>
+    </column>
+    <column name="CyclePeriod" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="CyclePeriodJitter" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Distance" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="DistanceJitter" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="LODNear" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="LODFar" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="LifeSpan" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="childCallCollection" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="CallParam" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="DynChildCall" />
+    </column>
+    <column name="Call" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CallParam</redundant_name>
+      <subtable external="Call" />
+    </column>
+    <column name="CallList" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="DynChildCallList" />
+    </column>
+    <column name="SendMessage" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="DynFxMessage" />
+    </column>
+    <column name="SelfMessage" type="STRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SendMessage</redundant_name>
+      <subtable external="SelfMessage" />
+    </column>
+    <column name="Message" type="STRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SendMessage</redundant_name>
+      <subtable external="SelfMessage" />
+    </column>
+    <column name="Name" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="GroupTextures" type="BOOLFLAG">
+      <offset>48</offset>
+    </column>
+    <column name="SortAsBlock" type="BOOLFLAG">
+      <offset>49</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

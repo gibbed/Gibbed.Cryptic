@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldCellServerDataParsed">
+  <table>
+    <column name="WorldCellServerDataParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="interaction_entries" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="WorldInteractionEntryServerParsed" />
+    </column>
+    <column name="volume_entries" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="WorldVolumeEntryServerParsed" />
+    </column>
+    <column name="collision_entries" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="WorldCollisionEntryParsed" />
+    </column>
+    <column name="altpivot_entries" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="WorldAltPivotEntryParsed" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

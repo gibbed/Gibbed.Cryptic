@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GroupDefBak">
+  <table>
+    <column name="GroupDefBak" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="pre_copy" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="GroupDef" />
+    </column>
+    <column name="post_copy" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="GroupDef" />
+    </column>
+    <column name="is_undo" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCInteractProperties">
+  <table>
+    <column name="UGCInteractProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="InteractText" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="InteractAnim" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>AIAnimList</dictionary_name>
+    </column>
+    <column name="InteractDuration" type="INT">
+      <offset>8</offset>
+      <default>1</default>
+      <static_define_list />
+    </column>
+    <column name="SucceedCheckedAttrib" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisCheckedAttrib" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

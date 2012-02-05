@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EntityAttach">
+  <table>
+    <column name="EntityAttach" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="eaiAttached" type="INTARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="erAttachedTo" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="BoneName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ExtraBit" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PosOffset" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="rotOffset" type="QUATPYR">
+      <offset>28</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Riding" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

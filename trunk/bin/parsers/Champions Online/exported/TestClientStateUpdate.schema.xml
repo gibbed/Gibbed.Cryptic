@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TestClientStateUpdate">
+  <table>
+    <column name="TestClientStateUpdate" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="State" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Ents" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="TestClientEntity" />
+    </column>
+    <column name="Objects" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="TestClientObject" />
+    </column>
+    <column name="Powers" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="TestClientPower" />
+    </column>
+    <column name="ID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="MyRef" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="STOSpaceshipMovement" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="InstanceIndex" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="IsTeamed" type="U8">
+      <offset>40</offset>
+    </column>
+    <column name="IsInvited" type="U8">
+      <offset>41</offset>
+    </column>
+    <column name="IsRequested" type="U8">
+      <offset>42</offset>
+    </column>
+    <column name="NumMembers" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="NumRequests" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="MyMissions" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="TestClientMission" />
+    </column>
+    <column name="Interacts" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="TestClientInteract" />
+    </column>
+    <column name="Contacts" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="TestClientContact" />
+    </column>
+    <column name="ContactDialog" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="TestClientContactDialog" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynFxDamageInfo">
+  <table>
+    <column name="DynFxDamageInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="DynFxDamageInfo" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DamageRange" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DynFxDamageRangeInfo" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

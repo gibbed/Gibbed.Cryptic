@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BeaconMovementFG">
+  <table>
+    <column name="BeaconMovementFG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Target" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Count" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="targetID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="recvTargetID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="reached" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="doMove" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Finished" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Optional" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

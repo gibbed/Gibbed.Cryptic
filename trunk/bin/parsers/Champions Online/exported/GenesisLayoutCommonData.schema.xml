@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisLayoutCommonData">
+  <table>
+    <column name="GenesisLayoutCommonData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LayoutSeed" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="BackdropInfo" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="GenesisMapDescBackdrop" />
+    </column>
+    <column name="NoSharingDetail" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="EncounterJitter" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="GenesisEncounterJitter" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

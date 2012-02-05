@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyTimeColorCorrection">
+  <table>
+    <column name="SkyTimeColorCorrection" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Curve" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="SkyColorCurve" />
+    </column>
+    <column name="Levels" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="SkyColorLevels" />
+    </column>
+    <column name="CurveRed" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="SkyColorCurve" />
+    </column>
+    <column name="CurveGreen" type="EMBEDDEDSTRUCT">
+      <offset>88</offset>
+      <subtable external="SkyColorCurve" />
+    </column>
+    <column name="CurveBlue" type="EMBEDDEDSTRUCT">
+      <offset>120</offset>
+      <subtable external="SkyColorCurve" />
+    </column>
+    <column name="ColorCurveMulti" type="F32FIXEDARRAY">
+      <offset>152</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LevelsRed" type="EMBEDDEDSTRUCT">
+      <offset>164</offset>
+      <subtable external="SkyColorLevels" />
+    </column>
+    <column name="LevelsGreen" type="EMBEDDEDSTRUCT">
+      <offset>184</offset>
+      <subtable external="SkyColorLevels" />
+    </column>
+    <column name="LevelsBlue" type="EMBEDDEDSTRUCT">
+      <offset>204</offset>
+      <subtable external="SkyColorLevels" />
+    </column>
+    <column name="SaturationCurve" type="EMBEDDEDSTRUCT">
+      <offset>224</offset>
+      <subtable external="SkyColorCurve" />
+    </column>
+    <column name="TintCurve" type="EMBEDDEDSTRUCT">
+      <offset>256</offset>
+      <subtable external="SkyColorCurveHSV" />
+    </column>
+    <column name="LocalContrast" type="F32">
+      <offset>320</offset>
+    </column>
+    <column name="UnsharpAmount" type="F32">
+      <offset>324</offset>
+    </column>
+    <column name="UnsharpThreshold" type="F32">
+      <offset>328</offset>
+    </column>
+    <column name="ScreenTintSpecificOverlap" type="F32">
+      <offset>332</offset>
+    </column>
+    <column name="ScreenTintSpecificHues" type="F32FIXEDARRAY">
+      <offset>336</offset>
+      <num_elements>6</num_elements>
+    </column>
+    <column name="ScreenTintSpecificSaturations" type="F32FIXEDARRAY">
+      <offset>360</offset>
+      <num_elements>6</num_elements>
+    </column>
+    <column name="ScreenTintSpecificValues" type="F32FIXEDARRAY">
+      <offset>384</offset>
+      <num_elements>6</num_elements>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>408</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="MasterSaturation" type="F32">
+      <offset>412</offset>
+    </column>
+    <column name="MasterSaturationBias" type="F32">
+      <offset>416</offset>
+    </column>
+    <column name="MasterValue" type="F32">
+      <offset>420</offset>
+    </column>
+    <column name="MasterContrast" type="F32">
+      <offset>424</offset>
+    </column>
+    <column name="MasterBalance" type="F32">
+      <offset>428</offset>
+    </column>
+    <column name="ColorValue" type="F32FIXEDARRAY">
+      <offset>432</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ColorContrast" type="F32FIXEDARRAY">
+      <offset>444</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ColorBalance" type="F32FIXEDARRAY">
+      <offset>456</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="EndSkyColorCorrection" type="END" />
+  </table>
+</parser>

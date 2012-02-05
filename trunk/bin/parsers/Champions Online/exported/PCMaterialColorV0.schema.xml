@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCMaterialColorV0">
+  <table>
+    <column name="PCMaterialColorV0" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="pcName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="Color" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

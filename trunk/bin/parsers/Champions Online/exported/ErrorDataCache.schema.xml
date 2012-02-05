@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ErrorDataCache">
+  <table>
+    <column name="ErrorDataCache" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ErrorData" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="ErrorData" />
+    </column>
+    <column name="UniqueID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="DumpFlags" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="assertbuf" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

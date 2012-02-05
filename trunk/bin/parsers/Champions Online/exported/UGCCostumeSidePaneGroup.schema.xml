@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCCostumeSidePaneGroup">
+  <table>
+    <column name="UGCCostumeSidePaneGroup" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Region" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Species" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>SpeciesDef</dictionary_name>
+    </column>
+    <column name="Gender" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>SpeciesDef</dictionary_name>
+    </column>
+    <column name="Allegiance" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>AllegianceDef</dictionary_name>
+    </column>
+    <column name="HideStance" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

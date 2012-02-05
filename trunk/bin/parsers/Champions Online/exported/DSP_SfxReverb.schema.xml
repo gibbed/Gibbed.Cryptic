@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DSP_SfxReverb">
+  <table>
+    <column name="DSP_SfxReverb" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="sfxreverb_drylevel" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="sfxreverb_room" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="sfxreverb_roomhf" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="sfxreverb_roomrollofffactor" type="F32">
+      <offset>12</offset>
+      <default>10</default>
+    </column>
+    <column name="sfxreverb_decaytime" type="F32">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="sfxreverb_decayhfratio" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="sfxreverb_reflectionslevel" type="F32">
+      <offset>24</offset>
+      <default>-971227136</default>
+    </column>
+    <column name="sfxreverb_reflectionsdelay" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="sfxreverb_reverblevel" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="sfxreverb_reverbdelay" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="sfxreverb_diffusion" type="F32">
+      <offset>40</offset>
+      <default>100</default>
+    </column>
+    <column name="sfxreverb_density" type="F32">
+      <offset>44</offset>
+      <default>100</default>
+    </column>
+    <column name="sfxreverb_hfreference" type="F32">
+      <offset>48</offset>
+      <default>1167867904</default>
+    </column>
+    <column name="sfxreverb_roomlf" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="sfxreverb_lfreference" type="F32">
+      <offset>56</offset>
+      <default>250</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

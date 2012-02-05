@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisRoomMission">
+  <table>
+    <column name="GenesisRoomMission" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MissionUID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="MissionName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Object" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="GenesisObject" />
+    </column>
+    <column name="Patrol" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisPatrolObject" />
+    </column>
+    <column name="ReplaceObject" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="GenesisInteriorReplace" />
+    </column>
+    <column name="HasPortal" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="DetailKit" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

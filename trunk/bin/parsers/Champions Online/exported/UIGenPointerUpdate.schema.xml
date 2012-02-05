@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenPointerUpdate">
+  <table>
+    <column name="UIGenPointerUpdate" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ExpressionBlock" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Expression" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExpressionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

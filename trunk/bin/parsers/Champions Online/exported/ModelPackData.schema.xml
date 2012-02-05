@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ModelPackData">
+  <table>
+    <column name="ModelPackData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="tris" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="PackData" />
+    </column>
+    <column name="verts" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="PackData" />
+    </column>
+    <column name="norms" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="PackData" />
+    </column>
+    <column name="binorms" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="PackData" />
+    </column>
+    <column name="tangents" type="EMBEDDEDSTRUCT">
+      <offset>48</offset>
+      <subtable external="PackData" />
+    </column>
+    <column name="sts" type="EMBEDDEDSTRUCT">
+      <offset>60</offset>
+      <subtable external="PackData" />
+    </column>
+    <column name="sts3" type="EMBEDDEDSTRUCT">
+      <offset>72</offset>
+      <subtable external="PackData" />
+    </column>
+    <column name="Colors" type="EMBEDDEDSTRUCT">
+      <offset>84</offset>
+      <subtable external="PackData" />
+    </column>
+    <column name="Weights" type="EMBEDDEDSTRUCT">
+      <offset>96</offset>
+      <subtable external="PackData" />
+    </column>
+    <column name="matidxs" type="EMBEDDEDSTRUCT">
+      <offset>108</offset>
+      <subtable external="PackData" />
+    </column>
+    <column name="verts2" type="EMBEDDEDSTRUCT">
+      <offset>120</offset>
+      <subtable external="PackData" />
+    </column>
+    <column name="norms2" type="EMBEDDEDSTRUCT">
+      <offset>132</offset>
+      <subtable external="PackData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

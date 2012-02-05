@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MMRFxConstantNP">
+  <table>
+    <column name="MMRFxConstantNP" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="fxParams" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="DynParamBlock" />
+    </column>
+    <column name="vecLastKnownTarget" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>
