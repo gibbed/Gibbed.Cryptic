@@ -31,6 +31,8 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
 {
     public class ParserLoader
     {
+        public IEnumerable<string> ParserNames { get { return this.Paths.Keys; } }
+
         private Dictionary<string, string> Paths
             = new Dictionary<string, string>();
         private Dictionary<string, ParserSchemaFile> LoadedParsers
@@ -41,6 +43,11 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             foreach (var inputPath in Directory.GetFiles(path, "*.schema.xml", SearchOption.AllDirectories))
             {
                 var name = ParserSchemaFile.GetNameFromFile(inputPath);
+                if (name == "ReferenceEArrayTemplate")
+                {
+                    continue;
+                }
+
                 this.Paths.Add(name, inputPath);
             }
         }

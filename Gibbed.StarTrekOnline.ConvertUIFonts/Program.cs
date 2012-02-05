@@ -22,15 +22,14 @@
 
 using System.IO;
 using Gibbed.Cryptic.ConvertBin;
-using UIStyleFont = Gibbed.StarTrekOnline.Serialization.UIStyleFont;
 
 namespace Gibbed.StarTrekOnline.ConvertUIFonts
 {
     internal class Program
     {
-        private class UIGenConverter : Converter<UIStyleFont.UIStyleFont>
+        private class UIGenConverter : Converter<Serialization.UIStyleFont>
         {
-            protected override string GetPath(UIStyleFont.UIStyleFont entry)
+            protected override string GetPath(Serialization.UIStyleFont entry)
             {
                 var name = entry.FileName;
                 name = name.Replace('/', '\\');

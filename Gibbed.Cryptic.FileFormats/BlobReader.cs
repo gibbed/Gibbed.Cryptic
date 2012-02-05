@@ -66,9 +66,34 @@ namespace Gibbed.Cryptic.FileFormats
             value = this.Input.ReadValueU8();
         }
 
+        public void SerializeArrayByte(ref byte[] array, int count)
+        {
+            array = new byte[count];
+            this.Input.Read(array, 0, count);
+        }
+
+        public void SerializeListByte(ref List<byte> list)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SerializeValueInt16(ref short value)
         {
             value = (short)this.Input.ReadValueS32();
+        }
+
+        public void SerializeArrayInt16(ref short[] array, int count)
+        {
+            array = new short[count];
+            for (int i = 0; i < count; i++)
+            {
+                array[i] = (short)this.Input.ReadValueS32();
+            }
+        }
+
+        public void SerializeListInt16(ref List<short> list)
+        {
+            throw new NotImplementedException();
         }
 
         public void SerializeValueInt32(ref int value)
@@ -76,9 +101,62 @@ namespace Gibbed.Cryptic.FileFormats
             value = this.Input.ReadValueS32();
         }
 
+        public void SerializeArrayInt32(ref int[] array, int count)
+        {
+            array = new int[count];
+            for (int i = 0; i < count; i++)
+            {
+                array[i] = this.Input.ReadValueS32();
+            }
+        }
+
+        public void SerializeListInt32(ref List<int> list)
+        {
+            var count = this.Input.ReadValueU32();
+            if (count > 800000)
+            {
+                throw new FormatException();
+            }
+
+            list = new List<int>();
+            for (uint i = 0; i < count; i++)
+            {
+                list.Add(this.Input.ReadValueS32());
+            }
+        }
+
+        public void SerializeValueInt64(ref long value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayInt64(ref long[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListInt64(ref List<long> list)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SerializeValueFloat(ref float value)
         {
             value = this.Input.ReadValueF32();
+        }
+
+        public void SerializeArrayFloat(ref float[] array, int count)
+        {
+            array = new float[count];
+            for (int i = 0; i < count; i++)
+            {
+                array[i] = this.Input.ReadValueF32();
+            }
+        }
+
+        public void SerializeListFloat(ref List<float> list)
+        {
+            throw new NotImplementedException();
         }
 
         public void SerializeValueString(ref string value)
@@ -86,9 +164,24 @@ namespace Gibbed.Cryptic.FileFormats
             value = this.Input.ReadStringPascalUncapped();
         }
 
-        public void SerializeValueReference(ref string value)
+        public void SerializeArrayString(ref string[] array, int count)
         {
-            value = this.Input.ReadStringPascalUncapped();
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListString(ref List<string> list)
+        {
+            var count = this.Input.ReadValueU32();
+            if (count > 800000)
+            {
+                throw new FormatException();
+            }
+
+            list = new List<string>();
+            for (uint i = 0; i < count; i++)
+            {
+                list.Add(this.Input.ReadStringPascalUncapped());
+            }
         }
 
         public void SerializeValueCurrentFile(ref string value)
@@ -96,7 +189,152 @@ namespace Gibbed.Cryptic.FileFormats
             value = this.Input.ReadStringPascalUncapped();
         }
 
-        private object SerializeValueStructure(Type type, bool optional)
+        public void SerializeArrayCurrentFile(ref string[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListCurrentFile(ref List<string> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueTimestamp(ref int value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayTimestamp(ref int[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListTimestamp(ref List<int> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueLineNumber(ref int value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayLineNumber(ref int[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListLineNumber(ref List<int> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueBoolean(ref bool value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayBoolean(ref bool[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListBoolean(ref List<bool> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueBooleanFlag(ref bool value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayBooleanFlag(ref bool[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListBooleanFlag(ref List<bool> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueQUATPYR(ref QUATPYR value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayQUATPYR(ref QUATPYR[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListQUATPYR(ref List<QUATPYR> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueMATPYR(ref MATPYR value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayMATPYR(ref MATPYR[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListMATPYR(ref List<MATPYR> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueFilename(ref string value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayFilename(ref string[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListFilename(ref List<string> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueReference(ref string value)
+        {
+            value = this.Input.ReadStringPascalUncapped();
+        }
+
+        public void SerializeArrayReference(ref string[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListReference(ref List<string> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueFunctionCall(ref FunctionCall value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayFunctionCall(ref FunctionCall[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListFunctionCall(ref List<FunctionCall> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        private ICrypticStructure SerializeValueStructure(Type type, bool optional)
         {
             if (optional == true)
             {
@@ -115,7 +353,7 @@ namespace Gibbed.Cryptic.FileFormats
 
 #if ALLINMEMORY
             var end = this.Input.Position + dataSize;
-            
+
             var instance = (ICrypticStructure)Activator.CreateInstance(type);
             instance.Serialize(this);
 
@@ -147,6 +385,30 @@ namespace Gibbed.Cryptic.FileFormats
             value = (TType)SerializeValueStructure(typeof(TType), optional);
         }
 
+        public void SerializeArrayStructure<TType>(ref TType[] array, int count)
+            where TType : ICrypticStructure, new()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListStructure<TType>(ref List<TType> list)
+            where TType : ICrypticStructure, new()
+        {
+            var count = this.Input.ReadValueU32();
+            if (count > 800000)
+            {
+                throw new FormatException();
+            }
+
+            list = new List<TType>();
+            for (uint i = 0; i < count; i++)
+            {
+                TType instance = default(TType);
+                this.SerializeValueStructure<TType>(ref instance, false);
+                list.Add(instance);
+            }
+        }
+
         public void SerializeValuePolymorph(ref object value, bool optional, Type[] validTypes)
         {
             if (optional == true)
@@ -168,88 +430,58 @@ namespace Gibbed.Cryptic.FileFormats
             value = SerializeValueStructure(type, false);
         }
 
+        public void SerializeArrayPolymorph(ref object[] array, int count, Type[] validTypes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListPolymorph(ref List<object> list, Type[] validTypes)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueStashTable(ref StashTable value)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeArrayStashTable(ref StashTable[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListStashTable(ref List<StashTable> list)
+        {
+            throw new NotImplementedException();
+        }
+
         public void SerializeValueBit(ref uint value)
         {
             value = this.Input.ReadValueU32();
         }
 
-        public void SerializeArrayInt16(ref short[] array, int count)
+        public void SerializeArrayBit(ref uint[] array, int count)
         {
-            array = new short[count];
-            for (int i = 0; i < count; i++)
-            {
-                array[i] = (short)this.Input.ReadValueS32();
-            }
+            throw new NotImplementedException();
         }
 
-        public void SerializeArrayInt32(ref int[] array, int count)
+        public void SerializeListBit(ref List<uint> list)
         {
-            array = new int[count];
-            for (int i = 0; i < count; i++)
-            {
-                array[i] = this.Input.ReadValueS32();
-            }
+            throw new NotImplementedException();
         }
 
-        public void SerializeArrayFloat(ref float[] array, int count)
+        public void SerializeValueMultiValue(ref MultiValue value)
         {
-            array = new float[count];
-            for (int i = 0; i < count; i++)
-            {
-                array[i] = this.Input.ReadValueF32();
-            }
+            throw new NotImplementedException();
         }
 
-        public void SerializeListInt32(ref List<int> list)
+        public void SerializeArrayMultiValue(ref MultiValue[] array, int count)
         {
-            var count = this.Input.ReadValueU32();
-            if (count > 800000)
-            {
-                throw new FormatException();
-            }
-
-            list = new List<int>();
-            for (uint i = 0; i < count; i++)
-            {
-                list.Add(this.Input.ReadValueS32());
-            }
-        }
-
-        public void SerializeListString(ref List<string> list)
-        {
-            var count = this.Input.ReadValueU32();
-            if (count > 800000)
-            {
-                throw new FormatException();
-            }
-
-            list = new List<string>();
-            for (uint i = 0; i < count; i++)
-            {
-                list.Add(this.Input.ReadStringPascalUncapped());
-            }
-        }
-
-        public void SerializeListStructure<TType>(ref List<TType> list)
-            where TType : ICrypticStructure, new()
-        {
-            var count = this.Input.ReadValueU32();
-            if (count > 800000)
-            {
-                throw new FormatException();
-            }
-
-            list = new List<TType>();
-            for (uint i = 0; i < count; i++)
-            {
-                TType instance = default(TType);
-                this.SerializeValueStructure<TType>(ref instance, false);
-                list.Add(instance);
-            }
+            throw new NotImplementedException();
         }
 
         // todo: create real multival handling
-        public void SerializeListMultiValue(ref List<MultiValueInstruction> list)
+        public void SerializeListMultiValue(ref List<MultiValue> list)
         {
             var count = this.Input.ReadValueU32();
             if (count > 800000)
@@ -257,7 +489,7 @@ namespace Gibbed.Cryptic.FileFormats
                 throw new FormatException();
             }
 
-            list = new List<MultiValueInstruction>();
+            list = new List<MultiValue>();
             for (uint i = 0; i < count; i++)
             {
                 object arg;
@@ -322,14 +554,15 @@ namespace Gibbed.Cryptic.FileFormats
                         break;
                     }
 
-                    default: throw new NotSupportedException("unhandled opcode in multival");
+                    default:
+                    throw new NotSupportedException("unhandled opcode in multival");
                 }
 
-                list.Add(new MultiValueInstruction()
-                    {
-                        Op = name,
-                        Arg = arg,
-                    });
+                list.Add(new MultiValue()
+                {
+                    Op = name,
+                    Arg = arg,
+                });
             }
         }
     }

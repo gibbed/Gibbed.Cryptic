@@ -100,10 +100,12 @@ namespace Gibbed.Cryptic.FileFormats
                 if (_subtable != null)
                 {
                     column.SubtableExternalName = _subtable.GetAttribute("external", "");
-                    
+                    column.SubtableIsExternal = true;
+
                     var _subtable_table = _subtable.SelectSingleNode("table");
                     if (_subtable_table != null)
                     {
+                        column.SubtableIsExternal = false;
                         column.Subtable = LoadTable(_subtable_table);
                     }
                 }

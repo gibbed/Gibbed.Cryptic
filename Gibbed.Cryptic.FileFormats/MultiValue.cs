@@ -20,39 +20,11 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats.ParserSchema
+namespace Gibbed.Cryptic.FileFormats
 {
-    public class Column
+    public class MultiValue
     {
-        public string Name;
-        public byte Token;
-        
-        public uint Offset;
-
-        public Parser.ColumnFlags Flags;
-
-        public string RedundantName;
-
-        public string FloatRounding;
-        public byte MinBits;
-
-        public int NumberOfElements;
-        public int Default;
-        public int StringLength;
-        public string DefaultString;
-        public string CommandString;
-        public int Size;
-        public int BitOffset;
-
-        public string DictionaryName;
-
-        public Table Subtable;
-        public bool SubtableIsExternal;
-        public string SubtableExternalName;
-
-        public override string ToString()
-        {
-            return this.Name;
-        }
+        public string Op;
+        public object Arg;
     }
 }

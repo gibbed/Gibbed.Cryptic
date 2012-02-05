@@ -22,15 +22,14 @@
 
 using System.IO;
 using Gibbed.Cryptic.ConvertBin;
-using UIGen = Gibbed.StarTrekOnline.Serialization.UIGen;
 
 namespace Gibbed.StarTrekOnline.ConvertUIGen
 {
     internal class Program
     {
-        private class UIGenConverter : Converter<UIGen.UIGen>
+        private class UIGenConverter : Converter<Serialization.UIGen>
         {
-            protected override string GetPath(UIGen.UIGen entry)
+            protected override string GetPath(Serialization.UIGen entry)
             {
                 var name = entry.FileName;
                 name = name.Replace('/', '\\');
