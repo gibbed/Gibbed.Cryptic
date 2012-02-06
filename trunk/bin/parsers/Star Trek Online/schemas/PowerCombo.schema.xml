@@ -45,11 +45,15 @@
     </column>
     <column name="ModeRequire" type="INTARRAY">
       <offset>16</offset>
-      <static_define_list external="PowerMode" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="ModeExclude" type="INTARRAY">
       <offset>20</offset>
-      <static_define_list external="PowerMode" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="PercentChargeRequired" type="F32">
       <offset>24</offset>

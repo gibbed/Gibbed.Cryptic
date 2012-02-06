@@ -13,11 +13,15 @@
         <flag>STRUCTPARAM</flag>
         <flag>KEY</flag>
       </flags>
-      <static_define_list external="ItemQuality" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Value" type="INT">
       <offset>4</offset>
-      <static_define_list external="ItemAssignmentWeightType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Weight" type="INT">
       <offset>4</offset>
@@ -25,7 +29,9 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>Value</redundant_name>
-      <static_define_list external="ItemAssignmentWeightType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Outcome" type="STRUCT">
       <offset>8</offset>

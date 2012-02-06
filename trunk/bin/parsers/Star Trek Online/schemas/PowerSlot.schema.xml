@@ -16,11 +16,15 @@
     </column>
     <column name="Requires" type="INTARRAY">
       <offset>4</offset>
-      <static_define_list external="PowerCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Excludes" type="INTARRAY">
       <offset>8</offset>
-      <static_define_list external="PowerCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="DefAutoSlotReplace" type="REFERENCE">
       <offset>12</offset>

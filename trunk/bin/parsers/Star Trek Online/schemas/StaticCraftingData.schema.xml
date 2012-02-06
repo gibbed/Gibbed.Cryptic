@@ -21,7 +21,9 @@
     </column>
     <column name="Quality" type="INT">
       <offset>8</offset>
-      <static_define_list external="ItemQuality" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Components" type="STRUCT">
       <offset>12</offset>

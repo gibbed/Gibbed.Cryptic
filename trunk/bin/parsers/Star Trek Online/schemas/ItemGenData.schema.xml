@@ -47,11 +47,15 @@
     </column>
     <column name="Tag" type="INT">
       <offset>24</offset>
-      <static_define_list external="ItemTag" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Categories" type="INTARRAY">
       <offset>28</offset>
-      <static_define_list external="ItemCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Tier" type="STRUCT">
       <offset>32</offset>
@@ -82,7 +86,9 @@
     </column>
     <column name="RewardCategory" type="INTARRAY">
       <offset>56</offset>
-      <static_define_list external="ItemGenRewardCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="LaunchType" type="INT">
       <offset>60</offset>
@@ -127,7 +133,9 @@
     </column>
     <column name="bag" type="INTARRAY">
       <offset>116</offset>
-      <static_define_list external="InvBagIDs" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="bag2" type="INTARRAY">
       <offset>116</offset>
@@ -135,7 +143,9 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>bag</redundant_name>
-      <static_define_list external="InvBagIDs" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="EquipLimit" type="OPTIONALSTRUCT">
       <offset>120</offset>

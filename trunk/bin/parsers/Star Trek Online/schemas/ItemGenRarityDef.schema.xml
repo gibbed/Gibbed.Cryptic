@@ -13,11 +13,15 @@
         <flag>STRUCTPARAM</flag>
         <flag>KEY</flag>
       </flags>
-      <static_define_list external="ItemGenRarity" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="PowerChoice" type="INTARRAY">
       <offset>4</offset>
-      <static_define_list external="ItemGenRarity" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Suffix" type="EMBEDDEDSTRUCT">
       <offset>8</offset>
@@ -29,7 +33,9 @@
     </column>
     <column name="Quality" type="INT">
       <offset>32</offset>
-      <static_define_list external="ItemQuality" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="FlagsToAdd" type="INT">
       <offset>36</offset>
@@ -56,11 +62,15 @@
     </column>
     <column name="Tag" type="INT">
       <offset>56</offset>
-      <static_define_list external="ItemTag" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Categories" type="INTARRAY">
       <offset>60</offset>
-      <static_define_list external="ItemCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="ItemSet" type="STRUCT">
       <offset>64</offset>

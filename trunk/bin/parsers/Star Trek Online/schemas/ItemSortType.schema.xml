@@ -30,7 +30,9 @@
     </column>
     <column name="RestrictBagID" type="INT">
       <offset>20</offset>
-      <static_define_list external="InvBagIDs" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="RestrictSlotType" type="INT">
       <offset>24</offset>
@@ -38,7 +40,9 @@
     </column>
     <column name="ItemCategory" type="INT">
       <offset>28</offset>
-      <static_define_list external="ItemCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="}" type="END" />
   </table>

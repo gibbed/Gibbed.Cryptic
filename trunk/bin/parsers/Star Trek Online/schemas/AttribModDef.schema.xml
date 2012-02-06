@@ -10,7 +10,9 @@
     <column name="Attrib" type="INT">
       <offset>0</offset>
       <default>-1</default>
-      <static_define_list external="AttribType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Aspect" type="INT">
       <offset>4</offset>
@@ -509,12 +511,16 @@
     <column name="StackGroup" type="BIT">
       <offset>164</offset>
       <bit_offset>524307</bit_offset>
-      <static_define_list external="ModStackGroup" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="StackGroupPending" type="BIT">
       <offset>168</offset>
       <bit_offset>524288</bit_offset>
-      <static_define_list external="ModStackGroup" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Personal" type="BIT">
       <offset>168</offset>

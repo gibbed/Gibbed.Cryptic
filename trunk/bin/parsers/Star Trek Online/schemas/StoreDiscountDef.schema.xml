@@ -47,7 +47,9 @@
     </column>
     <column name="ApplyToItemCategory" type="INT">
       <offset>36</offset>
-      <static_define_list external="ItemCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="DiscountCostItem" type="REFERENCE">
       <offset>40</offset>

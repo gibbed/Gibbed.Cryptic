@@ -15,7 +15,9 @@
     </column>
     <column name="Category" type="INT">
       <offset>4</offset>
-      <static_define_list external="PowerTreeUICategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="TreeNodes" type="STRUCT">
       <offset>8</offset>

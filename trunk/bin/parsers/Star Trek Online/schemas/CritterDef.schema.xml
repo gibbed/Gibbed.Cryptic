@@ -92,7 +92,9 @@
     </column>
     <column name="CritterTags" type="INTARRAY">
       <offset>84</offset>
-      <static_define_list external="CritterTag" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="SpawnLimit" type="INT">
       <offset>88</offset>

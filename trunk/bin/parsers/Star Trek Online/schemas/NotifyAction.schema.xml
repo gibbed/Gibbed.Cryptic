@@ -36,11 +36,15 @@
     </column>
     <column name="GenEnterGlobalState" type="INTARRAY">
       <offset>16</offset>
-      <static_define_list external="UIGenState" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="GenExitGlobalState" type="INTARRAY">
       <offset>20</offset>
-      <static_define_list external="UIGenState" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="GenEnterState" type="STRUCT">
       <offset>24</offset>

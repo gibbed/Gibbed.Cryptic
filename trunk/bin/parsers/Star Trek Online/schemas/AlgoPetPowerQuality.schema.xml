@@ -12,11 +12,15 @@
       <flags>
         <flag>STRUCTPARAM</flag>
       </flags>
-      <static_define_list external="ItemQuality" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="SharedCategory" type="INTARRAY">
       <offset>4</offset>
-      <static_define_list external="AlgoCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="PowerChoice" type="STRUCT">
       <offset>8</offset>

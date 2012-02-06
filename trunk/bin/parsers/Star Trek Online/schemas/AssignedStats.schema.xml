@@ -13,7 +13,9 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list external="AttribType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="eType" type="INT">
       <offset>0</offset>
@@ -23,7 +25,9 @@
         <flag>PERSIST</flag>
       </flags>
       <redundant_name>Type</redundant_name>
-      <static_define_list external="AttribType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Points" type="INT">
       <offset>4</offset>

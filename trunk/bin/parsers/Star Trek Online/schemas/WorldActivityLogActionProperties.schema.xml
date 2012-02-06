@@ -8,7 +8,9 @@
     </column>
     <column name="EntryType" type="INT">
       <offset>0</offset>
-      <static_define_list external="ActivityLogEntryType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="ArgString" type="EMBEDDEDSTRUCT">
       <offset>4</offset>

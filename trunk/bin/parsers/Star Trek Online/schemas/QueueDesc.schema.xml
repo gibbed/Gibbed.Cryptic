@@ -56,7 +56,9 @@
     </column>
     <column name="Category" type="INT">
       <offset>72</offset>
-      <static_define_list external="QueueCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Params" type="OPTIONALSTRUCT">
       <offset>76</offset>
@@ -75,7 +77,9 @@
     </column>
     <column name="RegionFlags" type="INT">
       <offset>88</offset>
-      <static_define_list external="ControlSchemeRegionType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="uCooldownTime" type="INT">
       <offset>92</offset>

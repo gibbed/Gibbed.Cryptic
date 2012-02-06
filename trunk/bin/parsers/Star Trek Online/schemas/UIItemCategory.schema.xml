@@ -33,7 +33,9 @@
     </column>
     <column name="Category" type="INT">
       <offset>16</offset>
-      <static_define_list external="ItemCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="CategoryData" type="OPTIONALSTRUCT">
       <offset>20</offset>

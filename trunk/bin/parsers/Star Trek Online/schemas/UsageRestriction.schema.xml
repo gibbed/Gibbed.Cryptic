@@ -34,7 +34,9 @@
     </column>
     <column name="UICategory" type="INT">
       <offset>20</offset>
-      <static_define_list external="UsageRestrictionCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="RequiredAllegiance" type="STRUCT">
       <offset>24</offset>
@@ -46,7 +48,9 @@
     </column>
     <column name="ClassCategoryAllowed" type="INTARRAY">
       <offset>32</offset>
-      <static_define_list external="CharClassCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="}" type="END" />
   </table>

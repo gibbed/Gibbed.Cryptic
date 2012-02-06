@@ -75,7 +75,9 @@
     </column>
     <column name="RestrictBagID" type="INTARRAY">
       <offset>96</offset>
-      <static_define_list external="InvBagIDs" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="RestrictBag2ID" type="INTARRAY">
       <offset>96</offset>
@@ -83,7 +85,9 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>RestrictBagID</redundant_name>
-      <static_define_list external="InvBagIDs" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="RestrictSlotType" type="INT">
       <offset>100</offset>
@@ -134,7 +138,9 @@
     </column>
     <column name="Quality" type="INT">
       <offset>148</offset>
-      <static_define_list external="ItemQuality" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="NumBagSlots" type="INT">
       <offset>152</offset>
@@ -265,7 +271,9 @@
     </column>
     <column name="LoreCategory" type="INT">
       <offset>268</offset>
-      <static_define_list external="LoreCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="JournalData" type="OPTIONALSTRUCT">
       <offset>272</offset>
@@ -273,11 +281,15 @@
     </column>
     <column name="Tag" type="INT">
       <offset>276</offset>
-      <static_define_list external="ItemTag" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Categories" type="INTARRAY">
       <offset>280</offset>
-      <static_define_list external="ItemCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="PetGrant" type="REFERENCE">
       <offset>284</offset>

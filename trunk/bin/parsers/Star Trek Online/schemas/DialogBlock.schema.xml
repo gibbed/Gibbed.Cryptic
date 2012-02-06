@@ -43,7 +43,9 @@
     </column>
     <column name="Phrase" type="INT">
       <offset>20</offset>
-      <static_define_list external="ContactAudioPhrases" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="AnimList" type="REFERENCE">
       <offset>24</offset>

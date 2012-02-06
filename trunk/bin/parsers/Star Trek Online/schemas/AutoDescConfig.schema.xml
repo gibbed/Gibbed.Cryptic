@@ -9,11 +9,15 @@
     <column name="{" type="START" />
     <column name="PercentAttribs" type="INTARRAY">
       <offset>0</offset>
-      <static_define_list external="AttribType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="ScaledAttribs" type="INTARRAY">
       <offset>4</offset>
-      <static_define_list external="AttribType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Variance" type="BIT">
       <offset>8</offset>

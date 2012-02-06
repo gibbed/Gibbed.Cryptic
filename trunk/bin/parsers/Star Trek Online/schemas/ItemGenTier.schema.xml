@@ -54,11 +54,15 @@
     </column>
     <column name="Tag" type="INT">
       <offset>60</offset>
-      <static_define_list external="ItemTag" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Categories" type="INTARRAY">
       <offset>64</offset>
-      <static_define_list external="ItemCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="ItemSet" type="STRUCT">
       <offset>68</offset>

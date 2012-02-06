@@ -42,7 +42,9 @@
     </column>
     <column name="Category" type="INT">
       <offset>44</offset>
-      <static_define_list external="StoreCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="RequiredNumeric" type="REFERENCE">
       <offset>48</offset>

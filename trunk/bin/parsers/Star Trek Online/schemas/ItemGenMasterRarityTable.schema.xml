@@ -15,7 +15,9 @@
     </column>
     <column name="RewardCategory" type="INT">
       <offset>4</offset>
-      <static_define_list external="ItemGenRewardCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Entry" type="STRUCT">
       <offset>8</offset>

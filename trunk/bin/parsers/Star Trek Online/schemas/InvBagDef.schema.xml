@@ -13,7 +13,9 @@
         <flag>STRUCTPARAM</flag>
         <flag>KEY</flag>
       </flags>
-      <static_define_list external="InvBagIDs" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="fname" type="CURRENTFILE">
       <offset>4</offset>
@@ -116,7 +118,9 @@
     </column>
     <column name="PrimaryOnlyCategories" type="INTARRAY">
       <offset>80</offset>
-      <static_define_list external="ItemCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="ChangeActiveSlotDelay" type="F32">
       <offset>84</offset>

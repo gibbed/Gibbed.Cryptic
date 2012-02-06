@@ -16,11 +16,15 @@
     </column>
     <column name="ModifierType" type="INT">
       <offset>4</offset>
-      <static_define_list external="ItemAssignmentOutcomeModifierType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="ItemCategory" type="INTARRAY">
       <offset>8</offset>
-      <static_define_list external="ItemCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="WeightAdjustment" type="IGNORE" />
     <column name="AffectedOutcome" type="IGNORE" />

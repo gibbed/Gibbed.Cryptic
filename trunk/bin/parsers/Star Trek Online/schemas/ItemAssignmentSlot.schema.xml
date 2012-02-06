@@ -9,11 +9,15 @@
     <column name="{" type="START" />
     <column name="RequiredItemCategory" type="INTARRAY">
       <offset>0</offset>
-      <static_define_list external="ItemCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="RestrictItemCategory" type="INTARRAY">
       <offset>4</offset>
-      <static_define_list external="ItemCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="OutcomeModifier" type="STRINGARRAY">
       <offset>8</offset>

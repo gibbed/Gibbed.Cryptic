@@ -220,11 +220,15 @@
     </column>
     <column name="Type" type="INT">
       <offset>164</offset>
-      <static_define_list external="CharClassTypes" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Category" type="INT">
       <offset>168</offset>
-      <static_define_list external="CharClassCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="DefaultPlayingStyle" type="STRING">
       <offset>172</offset>

@@ -45,7 +45,9 @@
     </column>
     <column name="Category" type="INT">
       <offset>24</offset>
-      <static_define_list external="PlayerStatCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
       <offset>28</offset>
@@ -83,7 +85,9 @@
     </column>
     <column name="PlayerStatTag" type="INTARRAY">
       <offset>52</offset>
-      <static_define_list external="PlayerStatTag" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="PlayerPerMatchStat" type="U8">
       <offset>56</offset>

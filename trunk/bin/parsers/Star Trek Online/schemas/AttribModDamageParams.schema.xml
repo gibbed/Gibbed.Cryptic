@@ -13,15 +13,21 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>1148</default>
-      <static_define_list external="AttribType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="DamageType" type="INT">
       <offset>4</offset>
-      <static_define_list external="AttribType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Affects" type="INTARRAY">
       <offset>8</offset>
-      <static_define_list external="AttribType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="}" type="END" />
   </table>

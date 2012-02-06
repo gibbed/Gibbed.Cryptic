@@ -77,12 +77,16 @@
     <column name="PrimarySpacing" type="INT16">
       <offset>40</offset>
       <default>4</default>
-      <static_define_list external="UISize" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="SecondarySpacing" type="INT16">
       <offset>42</offset>
       <default>4</default>
-      <static_define_list external="UISize" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="MaxWidth" type="INT16">
       <offset>44</offset>
@@ -90,7 +94,9 @@
         <flag>STRUCTPARAM</flag>
       </flags>
       <default>350</default>
-      <static_define_list external="UISize" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="InheritAlpha" type="BIT">
       <offset>44</offset>

@@ -13,11 +13,15 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>1189</default>
-      <static_define_list external="AttribType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="PowerCategory" type="INT">
       <offset>4</offset>
-      <static_define_list external="PowerCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="}" type="END" />
   </table>

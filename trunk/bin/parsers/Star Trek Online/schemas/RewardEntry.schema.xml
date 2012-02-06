@@ -84,7 +84,9 @@
     </column>
     <column name="Quality" type="INT">
       <offset>72</offset>
-      <static_define_list external="ItemQuality" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="BroadcastChatMessage" type="EMBEDDEDSTRUCT">
       <offset>80</offset>

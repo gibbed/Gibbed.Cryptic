@@ -234,7 +234,9 @@
     </column>
     <column name="MinigameType" type="INT">
       <offset>240</offset>
-      <static_define_list external="MinigameType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="AllowedClassCategory" type="INTARRAY">
       <offset>244</offset>
@@ -267,7 +269,9 @@
     </column>
     <column name="ContactIndicatorOverride" type="INT">
       <offset>268</offset>
-      <static_define_list external="ContactIndicator" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="ItemAssignmentData" type="OPTIONALSTRUCT">
       <offset>272</offset>

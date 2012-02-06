@@ -19,11 +19,15 @@
     </column>
     <column name="NonCombatType" type="INT">
       <offset>8</offset>
-      <static_define_list external="MissionPlayType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="CombatType" type="INT">
       <offset>12</offset>
-      <static_define_list external="MissionPlayType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Allegiance" type="STRUCT">
       <offset>16</offset>
@@ -149,11 +153,15 @@
     </column>
     <column name="ProgressionNodeType1" type="INT">
       <offset>160</offset>
-      <static_define_list external="GameProgressionNodeType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="ProgressionNodeType2" type="INT">
       <offset>164</offset>
-      <static_define_list external="GameProgressionNodeType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="SpecialComponent" type="STRUCT">
       <offset>168</offset>

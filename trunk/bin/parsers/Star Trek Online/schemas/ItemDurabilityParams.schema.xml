@@ -13,11 +13,15 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>1172</default>
-      <static_define_list external="AttribType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="BagID" type="INT">
       <offset>4</offset>
-      <static_define_list external="InvBagIDs" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="SlotNum" type="INT">
       <offset>8</offset>

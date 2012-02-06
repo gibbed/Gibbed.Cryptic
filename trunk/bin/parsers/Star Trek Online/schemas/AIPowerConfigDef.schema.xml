@@ -156,7 +156,9 @@
     </column>
     <column name="curePowerTags" type="INTARRAY">
       <offset>52</offset>
-      <static_define_list external="PowerTag" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="CureTags" type="INTARRAY">
       <offset>52</offset>
@@ -164,7 +166,9 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>curePowerTags</redundant_name>
-      <static_define_list external="PowerTag" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="FileName" type="CURRENTFILE">
       <offset>56</offset>

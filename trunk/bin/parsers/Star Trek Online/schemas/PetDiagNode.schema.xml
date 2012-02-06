@@ -9,11 +9,15 @@
     <column name="{" type="START" />
     <column name="Category" type="INTARRAY">
       <offset>0</offset>
-      <static_define_list external="PowerCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Purpose" type="INT">
       <offset>4</offset>
-      <static_define_list external="PowerPurpose" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Count" type="INT">
       <offset>8</offset>

@@ -54,14 +54,18 @@
     </column>
     <column name="Type" type="INTARRAY">
       <offset>36</offset>
-      <static_define_list external="CharClassTypes" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="MaxPuppets" type="INT">
       <offset>40</offset>
     </column>
     <column name="PuppetType" type="INTARRAY">
       <offset>44</offset>
-      <static_define_list external="CharClassTypes" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="MaxSimultaneousTraining" type="INT">
       <offset>48</offset>
@@ -90,7 +94,9 @@
     </column>
     <column name="ExcludeLastActivePuppetClassCategory" type="INTARRAY">
       <offset>76</offset>
-      <static_define_list external="CharClassCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="}" type="END" />
   </table>

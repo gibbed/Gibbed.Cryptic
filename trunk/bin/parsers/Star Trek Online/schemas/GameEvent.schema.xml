@@ -323,11 +323,15 @@
     </column>
     <column name="ItemCategories" type="INTARRAY">
       <offset>268</offset>
-      <static_define_list external="ItemCategory" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="bagType" type="INT">
       <offset>272</offset>
-      <static_define_list external="InvBagIDs" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Pos" type="F32FIXEDARRAY">
       <offset>276</offset>
@@ -377,7 +381,9 @@
     <column name="MinigameType" type="INT">
       <offset>324</offset>
       <default>-1</default>
-      <static_define_list external="MinigameType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="PvPQueueMatchResult" type="INT">
       <offset>328</offset>

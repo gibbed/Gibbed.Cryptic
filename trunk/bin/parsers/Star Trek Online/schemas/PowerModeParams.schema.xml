@@ -13,11 +13,15 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>1180</default>
-      <static_define_list external="AttribType" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="PowerMode" type="INT">
       <offset>4</offset>
-      <static_define_list external="PowerMode" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="MissionEvent" type="BIT">
       <offset>8</offset>
