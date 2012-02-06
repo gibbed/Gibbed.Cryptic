@@ -20,11 +20,27 @@
  *    distribution.
  */
 
-namespace Gibbed.Cryptic.FileFormats
+using System.IO;
+using Gibbed.Cryptic.ConvertBin;
+
+namespace Gibbed.StarTrekOnline.ConvertUIGenJailDef
 {
-    public class MultiValueInstruction
+    internal class Program
     {
-        public string Op;
-        public object Arg;
+        private class UIGenConverter : Converter<Serialization.UIGenJailDef>
+        {
+            protected override string GetPath(Serialization.UIGenJailDef entry)
+            {
+                var name = entry.FileName;
+                name = name.Replace('/', '\\');
+                name = Path.ChangeExtension(Path.Combine(name, entry.Name), ".xml");
+                return name;
+            }
+        }
+
+        public static void Main(string[] args)
+        {
+            new UIGenConverter().Main(0x28DBF7A1, args);
+        }
     }
 }
