@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PreloadedLightCombo">
+  <table>
+    <column name="PreloadedLightCombo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Light0" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>FLAGS</format>
+    </column>
+    <column name="Light1" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>FLAGS</format>
+    </column>
+    <column name="Light2" type="INT">
+      <offset>8</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>FLAGS</format>
+    </column>
+    <column name="Light3" type="INT">
+      <offset>12</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>FLAGS</format>
+    </column>
+    <column name="Light4" type="INT">
+      <offset>16</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>FLAGS</format>
+    </column>
+    <column name="light_mask" type="INT">
+      <offset>20</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="V1" type="IGNORE" />
+    <column name="EndLightCombo" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemCraftingComponent">
+  <table>
+    <column name="ItemCraftingComponent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Item" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="Count" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="Weight" type="F32">
+      <offset>8</offset>
+      <default>1</default>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>12</offset>
+      <default>1</default>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>16</offset>
+      <default>50</default>
+    </column>
+    <column name="DeconstructOnly" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="CountType" type="INT">
+      <offset>24</offset>
+      <static_define_list external="ComponentCountType" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

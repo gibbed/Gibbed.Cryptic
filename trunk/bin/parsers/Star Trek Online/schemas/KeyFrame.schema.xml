@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="KeyFrame">
+  <table>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>8</offset>
+      <default>3</default>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="Count" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Value" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="Value" />
+    </column>
+    <column name="Rate" type="EMBEDDEDSTRUCT">
+      <offset>712</offset>
+      <subtable external="Value" />
+    </column>
+    <column name="Amp" type="EMBEDDEDSTRUCT">
+      <offset>1408</offset>
+      <subtable external="Value" />
+    </column>
+    <column name="Freq" type="EMBEDDEDSTRUCT">
+      <offset>2104</offset>
+      <subtable external="Value" />
+    </column>
+    <column name="CycleOffset" type="EMBEDDEDSTRUCT">
+      <offset>2800</offset>
+      <subtable external="Value" />
+    </column>
+    <column name="childCallCollection" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="CallParam" type="STRUCT">
+      <offset>3496</offset>
+      <subtable external="DynChildCall" />
+    </column>
+    <column name="Call" type="STRUCT">
+      <offset>3496</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CallParam</redundant_name>
+      <subtable external="Call" />
+    </column>
+    <column name="CallList" type="STRUCT">
+      <offset>3500</offset>
+      <subtable external="DynChildCallList" />
+    </column>
+    <column name="LoopStart" type="STRUCT">
+      <offset>3528</offset>
+      <subtable external="DynLoopRef" />
+    </column>
+    <column name="LoopStop" type="STRUCT">
+      <offset>3532</offset>
+      <subtable external="DynLoopRef" />
+    </column>
+    <column name="LoopEnd" type="STRUCT">
+      <offset>3532</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>LoopStop</redundant_name>
+      <subtable external="DynLoopRef" />
+    </column>
+    <column name="EmitterStart" type="STRUCT">
+      <offset>3536</offset>
+      <subtable external="DynParticleEmitterRef" />
+    </column>
+    <column name="EmitterStop" type="STRUCT">
+      <offset>3540</offset>
+      <subtable external="DynParticleEmitterRef" />
+    </column>
+    <column name="RaycastStart" type="STRUCT">
+      <offset>3544</offset>
+      <subtable external="DynRaycastRef" />
+    </column>
+    <column name="RaycastStop" type="STRUCT">
+      <offset>3548</offset>
+      <subtable external="DynRaycastRef" />
+    </column>
+    <column name="ForceStart" type="STRUCT">
+      <offset>3552</offset>
+      <subtable external="DynForceRef" />
+    </column>
+    <column name="ForceStop" type="STRUCT">
+      <offset>3556</offset>
+      <subtable external="DynForceRef" />
+    </column>
+    <column name="Costume" type="STRUCT">
+      <offset>3560</offset>
+      <subtable external="DynFxCostume" />
+    </column>
+    <column name="SendMessage" type="STRUCT">
+      <offset>3504</offset>
+      <subtable external="DynFxMessage" />
+    </column>
+    <column name="Message" type="STRUCT">
+      <offset>3504</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SendMessage</redundant_name>
+      <subtable external="SelfMessage" />
+    </column>
+    <column name="SelfMessage" type="STRUCT">
+      <offset>3504</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SendMessage</redundant_name>
+      <subtable external="SelfMessage" />
+    </column>
+    <column name="Parent" type="OPTIONALSTRUCT">
+      <offset>3564</offset>
+      <subtable external="DynParentBhvr" />
+    </column>
+    <column name="Physics" type="OPTIONALSTRUCT">
+      <offset>3568</offset>
+      <subtable external="DynFxPhysicsInfo" />
+    </column>
+    <column name="SkinToChildren" type="BOOLFLAG">
+      <offset>3681</offset>
+    </column>
+    <column name="InheritVelocity" type="F32">
+      <offset>3676</offset>
+    </column>
+    <column name="SoundStart" type="STRINGARRAY">
+      <offset>3508</offset>
+    </column>
+    <column name="SoundEnd" type="STRINGARRAY">
+      <offset>3512</offset>
+    </column>
+    <column name="FadeOutTime" type="F32">
+      <offset>3668</offset>
+    </column>
+    <column name="FadeInTime" type="F32">
+      <offset>3672</offset>
+    </column>
+    <column name="SystemFadeOut" type="BOOLFLAG">
+      <offset>3680</offset>
+    </column>
+    <column name="SystemFade" type="BOOLFLAG">
+      <offset>3680</offset>
+    </column>
+    <column name="EntCostumeParts" type="STRINGARRAY">
+      <offset>3516</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="EntMaterialExcludeOptionalParts" type="BOOL">
+      <offset>3684</offset>
+    </column>
+    <column name="SeverBones" type="STRINGARRAY">
+      <offset>3520</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RestoreSeveredBones" type="STRINGARRAY">
+      <offset>3524</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Hide" type="BOOLFLAG">
+      <offset>3682</offset>
+    </column>
+    <column name="Unhide" type="BOOLFLAG">
+      <offset>3683</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

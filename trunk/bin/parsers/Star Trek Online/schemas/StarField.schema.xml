@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StarField">
+  <table>
+    <column name="StarField" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="StarSeed" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="StarCount" type="INT">
+      <offset>4</offset>
+      <default>100</default>
+    </column>
+    <column name="StarSizeMin" type="F32">
+      <offset>8</offset>
+      <default>1050253722</default>
+    </column>
+    <column name="StarSizeMax" type="F32">
+      <offset>12</offset>
+      <default>1056964608</default>
+    </column>
+    <column name="StarColorHSVMin" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="StarColorHSVMax" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="UseRandomRotation" type="U8">
+      <offset>40</offset>
+      <default>1</default>
+    </column>
+    <column name="ScaleWithFov" type="U8">
+      <offset>41</offset>
+      <default>1</default>
+    </column>
+    <column name="SliceAxis" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="SliceAngle" type="F32">
+      <offset>56</offset>
+      <default>180</default>
+    </column>
+    <column name="SliceFade" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="HalfDome" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>68</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="EndStarField" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldActivityLogActionProperties">
+  <table>
+    <column name="WorldActivityLogActionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="EntryType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="ActivityLogEntryType" />
+    </column>
+    <column name="ArgString" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

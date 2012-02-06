@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatCommonBuiltInMessageTypeInfo">
+  <table>
+    <column name="ChatCommonBuiltInMessageTypeInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="kType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="ChatLogEntryType" />
+    </column>
+    <column name="TypeName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="DisplayNameKey" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ChannelPrefix" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

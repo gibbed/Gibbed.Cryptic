@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LogicalGroupSpawnProperties">
+  <table>
+    <column name="LogicalGroupSpawnProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="RandomType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="LogicalGroupRandomType" />
+    </column>
+    <column name="SpawnAmountType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="LogicalGroupSpawnAmountType" />
+    </column>
+    <column name="SpawnAmount" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="LockoutRadius" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

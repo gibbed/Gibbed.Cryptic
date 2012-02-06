@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AuthCaptureRequest">
+  <table>
+    <column name="AuthCaptureRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uAccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="CmdID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="PaymentMethodID" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Currency" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Proxy" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ip" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="BankName" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Items" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="TransactionItem" />
+    </column>
+    <column name="RequestID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="AuthOnly" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="VerifyPrice" type="U8">
+      <offset>37</offset>
+    </column>
+    <column name="uLockContainerID" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="uSteamID" type="INT64">
+      <offset>48</offset>
+    </column>
+    <column name="LocCode" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="Category" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="Orderid" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="TransactionID" type="STRING">
+      <offset>68</offset>
+    </column>
+    <column name="Provider" type="INT">
+      <offset>72</offset>
+      <static_define_list external="TransactionProvider" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

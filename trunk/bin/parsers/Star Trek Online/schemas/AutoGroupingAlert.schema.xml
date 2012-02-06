@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AutoGroupingAlert">
+  <table>
+    <column name="AutoGroupingAlert" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Count" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="FullString" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Level" type="INT">
+      <offset>12</offset>
+      <static_define_list external="enumAlertLevel" />
+    </column>
+    <column name="Category" type="INT">
+      <offset>16</offset>
+      <static_define_list external="enumAlertCategory" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

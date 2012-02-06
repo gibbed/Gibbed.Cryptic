@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShaderInput">
+  <table>
+    <column name="ShaderInput" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>8</offset>
+      <static_define_list external="ShaderDataType" />
+    </column>
+    <column name="Float" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="FloatRange" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Texture" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Hidden" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="NoAutoConnect" type="U8">
+      <offset>29</offset>
+    </column>
+    <column name="NotForAssembler" type="U8">
+      <offset>30</offset>
+    </column>
+    <column name="NoManualConnect" type="U8">
+      <offset>31</offset>
+    </column>
+    <column name="Default" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="ShaderInputDefault" />
+    </column>
+    <column name="EndInput" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Font">
+  <table>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Size" type="INT">
+      <offset>4</offset>
+      <default>16</default>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="Italic" type="BOOLFLAG">
+      <offset>8</offset>
+    </column>
+    <column name="Bold" type="BOOLFLAG">
+      <offset>9</offset>
+    </column>
+    <column name="Outline" type="U8">
+      <offset>10</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="DropShadow" type="U8FIXEDARRAY">
+      <offset>11</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Align" type="INT">
+      <offset>16</offset>
+      <static_define_list external="TexWordAlign" />
+    </column>
+    <column name="EndFont" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionPromptBlock">
+  <table>
+    <column name="GenesisMissionPromptBlock" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="BlockName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Costume2" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="CostumeType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="GenesisMissionCostumeType" />
+    </column>
+    <column name="UsePetCostume" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CostumeType</redundant_name>
+      <static_define_list external="GenesisMissionCostumeType" />
+    </column>
+    <column name="Costume" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="PetCostume" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>PetContactList</dictionary_name>
+    </column>
+    <column name="CostumeCritterGroupType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="ContactMapVarOverrideType" />
+    </column>
+    <column name="CostumeCritterGroup" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>CritterGroup</dictionary_name>
+    </column>
+    <column name="CostumeMapVar" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="CostumeIdentifier" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="HeadshotStyle" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="CutsceneDef" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>CutsceneDef</dictionary_name>
+    </column>
+    <column name="AnimList" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>AIAnimList</dictionary_name>
+    </column>
+    <column name="TitleText" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="BodyText" type="STRINGARRAY">
+      <offset>48</offset>
+    </column>
+    <column name="Phrase" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="DialogFlags" type="INT">
+      <offset>56</offset>
+      <static_define_list external="SpecialDialogFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Action" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="GenesisMissionPromptAction" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenDragDrop">
+  <table>
+    <column name="UIGenDragDrop" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Source" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UIGen" />
+    </column>
+    <column name="Type" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TextPayload" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="IntPayload" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="FloatPayload" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="Cursor" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Button" type="INT">
+      <offset>32</offset>
+      <static_define_list external="MouseButton" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

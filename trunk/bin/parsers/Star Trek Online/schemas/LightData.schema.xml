@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LightData">
+  <table>
+    <column name="LightData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="light_type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="LightType" />
+    </column>
+    <column name="light_affect_type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="LightAffectType" />
+    </column>
+    <column name="rot_world_mat" type="MATPYR">
+      <offset>8</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_world_mat" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ambient_hsv" type="F32FIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="diffuse_hsv" type="F32FIXEDARRAY">
+      <offset>68</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="specular_hsv" type="F32FIXEDARRAY">
+      <offset>80</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="secondary_diffuse_hsv" type="F32FIXEDARRAY">
+      <offset>92</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="inner_radius" type="F32">
+      <offset>116</offset>
+    </column>
+    <column name="outer_radius" type="F32">
+      <offset>120</offset>
+    </column>
+    <column name="inner_cone_angle" type="F32">
+      <offset>124</offset>
+    </column>
+    <column name="outer_cone_angle" type="F32">
+      <offset>128</offset>
+    </column>
+    <column name="inner_cone_angle2" type="F32">
+      <offset>132</offset>
+    </column>
+    <column name="outer_cone_angle2" type="F32">
+      <offset>136</offset>
+    </column>
+    <column name="min_shadow_val" type="F32">
+      <offset>140</offset>
+    </column>
+    <column name="shadow_near_plane" type="F32">
+      <offset>144</offset>
+    </column>
+    <column name="shadow_fade_val" type="F32">
+      <offset>148</offset>
+    </column>
+    <column name="shadow_fade_time" type="F32">
+      <offset>152</offset>
+    </column>
+    <column name="shadow_fade_dark_time" type="F32">
+      <offset>156</offset>
+    </column>
+    <column name="shadow_pulse_amount" type="F32">
+      <offset>160</offset>
+    </column>
+    <column name="shadow_pulse_rate" type="F32">
+      <offset>164</offset>
+    </column>
+    <column name="texture_name" type="STRING">
+      <offset>168</offset>
+    </column>
+    <column name="cloud_texture_name" type="STRING">
+      <offset>172</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="cloud_layer_0" type="EMBEDDEDSTRUCT">
+      <offset>176</offset>
+      <subtable external="LightCloudLayer" />
+    </column>
+    <column name="cloud_layer_1" type="EMBEDDEDSTRUCT">
+      <offset>192</offset>
+      <subtable external="LightCloudLayer" />
+    </column>
+    <column name="cast_shadows" type="U8">
+      <offset>216</offset>
+    </column>
+    <column name="dynamic" type="U8">
+      <offset>217</offset>
+    </column>
+    <column name="is_sun" type="U8">
+      <offset>218</offset>
+    </column>
+    <column name="key_light" type="U8">
+      <offset>219</offset>
+    </column>
+    <column name="infinite_shadows" type="U8">
+      <offset>220</offset>
+    </column>
+    <column name="visual_lod_scale" type="F32">
+      <offset>224</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

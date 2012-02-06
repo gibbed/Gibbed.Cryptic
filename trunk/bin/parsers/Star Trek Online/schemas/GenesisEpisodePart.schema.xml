@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisEpisodePart">
+  <table>
+    <column name="GenesisEpisodePart" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="MapDesc" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>GenesisMapDescription</dictionary_name>
+    </column>
+    <column name="MissionName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ContinueFrom" type="INT">
+      <offset>12</offset>
+      <static_define_list external="GenesisMissionExitFrom" />
+    </column>
+    <column name="ContinueRoom" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ContinueChallenge" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="ContinueMissionText" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="ContinuePromptCostume2" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="GenesisMissionCostume" />
+    </column>
+    <column name="ContinuePromptButtonText" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="ContinuePromptCategoryName" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="ContinuePromptPriority" type="INT">
+      <offset>64</offset>
+      <static_define_list external="WorldOptionalActionPriority" />
+    </column>
+    <column name="ContinuePromptTitleText" type="STRING">
+      <offset>68</offset>
+    </column>
+    <column name="ContinuePromptBodyText" type="STRINGARRAY">
+      <offset>72</offset>
+    </column>
+    <column name="StartTransitionOverride" type="REFERENCE">
+      <offset>76</offset>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="ContinueTransitionOverride" type="REFERENCE">
+      <offset>80</offset>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="ContinuePromptCostume" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

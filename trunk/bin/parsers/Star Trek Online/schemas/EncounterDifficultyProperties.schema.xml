@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EncounterDifficultyProperties">
+  <table>
+    <column name="EncounterDifficultyProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="DifficultyType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="EncounterDifficultyType" />
+    </column>
+    <column name="SpecifiedDifficulty" type="INT">
+      <offset>4</offset>
+      <static_define_list external="EncounterDifficulty" />
+    </column>
+    <column name="MapVariable" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

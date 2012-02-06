@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MissionDefRequest">
+  <table>
+    <column name="MissionDefRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="MissionDefRequestType" />
+    </column>
+    <column name="RequestedDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="RequestedMissionSet" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>MissionSet</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

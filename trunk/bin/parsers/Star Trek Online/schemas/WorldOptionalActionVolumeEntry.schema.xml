@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldOptionalActionVolumeEntry">
+  <table>
+    <column name="WorldOptionalActionVolumeEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="VisibleCondition" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="EnabledCondition" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Category" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Priority" type="INT">
+      <offset>24</offset>
+      <default>5</default>
+      <static_define_list external="WorldOptionalActionPriority" />
+    </column>
+    <column name="AutoExecute" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="Actions" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="WorldGameActionBlock" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CritterOverrideDef">
+  <table>
+    <column name="CritterOverrideDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Mass" type="F32">
+      <offset>12</offset>
+      <default>-1</default>
+    </column>
+    <column name="Comment" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="OnDeathPower" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="ref_PowerDef" />
+    </column>
+    <column name="Flags" type="INT">
+      <offset>24</offset>
+      <default>1</default>
+      <static_define_list external="kCritterOverrideFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

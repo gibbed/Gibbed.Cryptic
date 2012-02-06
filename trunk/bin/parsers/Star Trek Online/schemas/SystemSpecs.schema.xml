@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SystemSpecs">
+  <table>
+    <column name="SystemSpecs" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="physicalMemoryMax" type="INT64">
+      <offset>0</offset>
+    </column>
+    <column name="physicalMemoryAvailable" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="virtualAddressSpace" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="videoCardName" type="FIXEDSTRING">
+      <offset>24</offset>
+      <string_length>256</string_length>
+    </column>
+    <column name="VideoCardVendorID" type="INT">
+      <offset>288</offset>
+    </column>
+    <column name="VideoCardDeviceID" type="INT">
+      <offset>292</offset>
+    </column>
+    <column name="CPUSpeed" type="F32">
+      <offset>296</offset>
+    </column>
+    <column name="RAMSpeedGBs" type="F32">
+      <offset>300</offset>
+    </column>
+    <column name="numVirtualCPUs" type="INT">
+      <offset>304</offset>
+    </column>
+    <column name="numRealCPUs" type="INT">
+      <offset>308</offset>
+    </column>
+    <column name="cpuCacheSize" type="INT">
+      <offset>312</offset>
+    </column>
+    <column name="cpuIdentifier" type="FIXEDSTRING">
+      <offset>316</offset>
+      <string_length>256</string_length>
+    </column>
+    <column name="videoDriverVersion" type="FIXEDSTRING">
+      <offset>572</offset>
+      <string_length>256</string_length>
+    </column>
+    <column name="videoMemory" type="INT">
+      <offset>832</offset>
+    </column>
+    <column name="videoDriverState" type="INT">
+      <offset>836</offset>
+    </column>
+    <column name="isUsingD3DDebug" type="INT">
+      <offset>840</offset>
+    </column>
+    <column name="OSVER0_LowVersion" type="INT">
+      <offset>844</offset>
+    </column>
+    <column name="OSVER1_HighVersion" type="INT">
+      <offset>848</offset>
+    </column>
+    <column name="OSVER2_Build" type="INT">
+      <offset>852</offset>
+    </column>
+    <column name="OSVER3_ServicePackMajor" type="INT">
+      <offset>856</offset>
+    </column>
+    <column name="OSVER4_ServicePackMinor" type="INT">
+      <offset>860</offset>
+    </column>
+    <column name="OSVER5_HostVersion" type="FIXEDSTRING">
+      <offset>864</offset>
+      <string_length>256</string_length>
+    </column>
+    <column name="audioX64CheckSkipped" type="INT">
+      <offset>1120</offset>
+    </column>
+    <column name="fmodVersion" type="INT">
+      <offset>1124</offset>
+    </column>
+    <column name="audioDriverName" type="FIXEDSTRING">
+      <offset>1128</offset>
+      <string_length>256</string_length>
+    </column>
+    <column name="audioDriverOutput" type="FIXEDSTRING">
+      <offset>1384</offset>
+      <string_length>256</string_length>
+    </column>
+    <column name="audioDriverVersion" type="FIXEDSTRING">
+      <offset>1640</offset>
+      <string_length>256</string_length>
+    </column>
+    <column name="computerName" type="FIXEDSTRING">
+      <offset>1896</offset>
+      <string_length>256</string_length>
+    </column>
+    <column name="SVNBuildNumber" type="INT">
+      <offset>2152</offset>
+    </column>
+    <column name="numMonitors" type="INT">
+      <offset>2156</offset>
+    </column>
+    <column name="atiCrossfireGPUCount" type="INT">
+      <offset>2160</offset>
+    </column>
+    <column name="nvidiaSLIGPUCount" type="INT">
+      <offset>2164</offset>
+    </column>
+    <column name="RenderingHacks" type="INT">
+      <offset>2168</offset>
+      <static_define_list external="RenderingHacks" />
+    </column>
+    <column name="isRunningNortonAV" type="U8">
+      <offset>2173</offset>
+    </column>
+    <column name="isX64" type="U8">
+      <offset>2174</offset>
+    </column>
+    <column name="isVista" type="U8">
+      <offset>2175</offset>
+    </column>
+    <column name="hasSSE" type="U8">
+      <offset>2176</offset>
+    </column>
+    <column name="hasSSE2" type="U8">
+      <offset>2177</offset>
+    </column>
+    <column name="material_hardware_supported_features" type="INT">
+      <offset>2180</offset>
+      <static_define_list external="ShaderGraphFeatures" />
+      <format>FLAGS</format>
+    </column>
+    <column name="material_supported_features" type="INT">
+      <offset>2184</offset>
+      <static_define_list external="ShaderGraphFeatures" />
+      <format>FLAGS</format>
+    </column>
+    <column name="isDx11Enabled" type="U8">
+      <offset>2188</offset>
+    </column>
+    <column name="supportedDXVersion" type="F32">
+      <offset>2192</offset>
+    </column>
+    <column name="diskFree" type="INT64">
+      <offset>2200</offset>
+    </column>
+    <column name="diskTotal" type="INT64">
+      <offset>2208</offset>
+    </column>
+    <column name="isWine" type="U8">
+      <offset>2216</offset>
+    </column>
+    <column name="wineVersion" type="FIXEDSTRING">
+      <offset>2217</offset>
+      <string_length>1024</string_length>
+    </column>
+    <column name="isUnsupportedSpecs" type="U8">
+      <offset>3241</offset>
+    </column>
+    <column name="Trivia" type="OPTIONALSTRUCT">
+      <offset>3244</offset>
+      <subtable external="TriviaList" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

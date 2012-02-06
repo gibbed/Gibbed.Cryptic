@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionCostume">
+  <table>
+    <column name="GenesisMissionCostume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CostumeType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GenesisMissionCostumeType" />
+    </column>
+    <column name="UsePetCostume" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CostumeType</redundant_name>
+      <static_define_list external="GenesisMissionCostumeType" />
+    </column>
+    <column name="Costume" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="PetCostume" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>PetContactList</dictionary_name>
+    </column>
+    <column name="CostumeCritterGroupType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ContactMapVarOverrideType" />
+    </column>
+    <column name="CostumeCritterGroup" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>CritterGroup</dictionary_name>
+    </column>
+    <column name="CostumeMapVar" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="CostumeIdentifier" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

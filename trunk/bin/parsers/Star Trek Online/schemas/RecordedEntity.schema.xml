@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RecordedEntity">
+  <table>
+    <column name="RecordedEntity" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EntityRef" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ContainerID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="EntitySendDistance" type="F32">
+      <offset>8</offset>
+      <default>300</default>
+    </column>
+    <column name="EntityAttach" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="SavedEntityData" />
+    </column>
+    <column name="EntityType" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="entityTypeEnum" type="INT">
+      <offset>20</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="CostumeName" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Costume" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="CostumeRefV0" />
+    </column>
+    <column name="CostumeV5" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="CostumeRef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

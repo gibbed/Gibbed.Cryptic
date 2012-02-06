@@ -1,0 +1,121 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SoundDSP">
+  <table>
+    <column name="SoundDSP" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="DSPType" />
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="distortion" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>sfxreverb</redundant_name>
+      <subtable external="DSP_Distortion" />
+    </column>
+    <column name="highpass" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>sfxreverb</redundant_name>
+      <subtable external="DSP_HighPass" />
+    </column>
+    <column name="Echo" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>sfxreverb</redundant_name>
+      <subtable external="DSP_Echo" />
+    </column>
+    <column name="chorus" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>sfxreverb</redundant_name>
+      <subtable external="DSP_Chorus" />
+    </column>
+    <column name="compressor" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>sfxreverb</redundant_name>
+      <subtable external="DSP_Compressor" />
+    </column>
+    <column name="flange" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>sfxreverb</redundant_name>
+      <subtable external="DSP_Flange" />
+    </column>
+    <column name="lowpass" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>sfxreverb</redundant_name>
+      <subtable external="DSP_Lowpass" />
+    </column>
+    <column name="slowpass" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>sfxreverb</redundant_name>
+      <subtable external="DSP_SLowpass" />
+    </column>
+    <column name="normalize" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>sfxreverb</redundant_name>
+      <subtable external="DSP_Normalize" />
+    </column>
+    <column name="parameq" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>sfxreverb</redundant_name>
+      <subtable external="DSP_ParamEQ" />
+    </column>
+    <column name="pitchshift" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>sfxreverb</redundant_name>
+      <subtable external="DSP_Pitchshift" />
+    </column>
+    <column name="sfxreverb" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DSP_SfxReverb" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

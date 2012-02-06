@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DefaultTrayElemDef">
+  <table>
+    <column name="DefaultTrayElemDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="RelativeTo" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Tray" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Slot" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="NodeDef" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>PTNodeDef</dictionary_name>
+    </column>
+    <column name="BagID" type="INT">
+      <offset>20</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="BagSlot" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="ItemPowerIndex" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="EnableAutoAttack" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="SlotEntireBag" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

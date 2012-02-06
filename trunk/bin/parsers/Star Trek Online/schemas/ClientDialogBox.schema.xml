@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClientDialogBox">
+  <table>
+    <column name="ClientDialogBox" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="NotifyType" />
+    </column>
+    <column name="Title" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Body" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="OK" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Cancel" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="hTarget" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>UIGen</dictionary_name>
+    </column>
+    <column name="CancelDialog" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

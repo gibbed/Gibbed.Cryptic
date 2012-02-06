@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemArtBagState">
+  <table>
+    <column name="ItemArtBagState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="BagID" type="INT">
+      <offset>0</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="Slot" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="hItemArt" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>ItemArt</dictionary_name>
+    </column>
+    <column name="ppchBits" type="STRINGARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ppchFXNames" type="STRINGARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Bone" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GeoOverride" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Rot" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

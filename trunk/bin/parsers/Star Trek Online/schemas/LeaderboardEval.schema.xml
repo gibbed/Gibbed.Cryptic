@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LeaderboardEval">
+  <table>
+    <column name="LeaderboardEval" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RankingType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="LeaderboardRankingType" />
+    </column>
+    <column name="PointExprBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="PointExpr" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PointExprBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="DefaultRank" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="LeaderboardRank" />
+    </column>
+    <column name="RankingBeta" type="F32">
+      <offset>16</offset>
+      <default>1082479818</default>
+    </column>
+    <column name="RankingDynamicsFactor" type="F32">
+      <offset>20</offset>
+      <default>1062556454</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

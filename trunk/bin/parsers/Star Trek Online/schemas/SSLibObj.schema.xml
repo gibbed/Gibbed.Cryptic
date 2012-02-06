@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SSLibObj">
+  <table>
+    <column name="SSLibObj" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="obj" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="UID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="StartSpawnUsingTransition" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="ChallengeType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="GenesisChallengeType" />
+    </column>
+    <column name="ExternalName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ChallengeID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Offset" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="SSOffset" />
+    </column>
+    <column name="PatrolType" type="INT">
+      <offset>84</offset>
+      <static_define_list external="GenesisSpacePatrolType" />
+    </column>
+    <column name="PatrolRefName" type="STRING">
+      <offset>88</offset>
+    </column>
+    <column name="SourceContext" type="OPTIONALSTRUCT">
+      <offset>96</offset>
+      <subtable external="GenesisRuntimeErrorContext" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

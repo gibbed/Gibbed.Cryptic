@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisInteriorTag">
+  <table>
+    <column name="GenesisInteriorTag" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Inherits" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Connection" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="GenesisInteriorTagConnection" />
+    </column>
+    <column name="DetailObjects" type="STRINGARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="Light" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="LeftStep" type="INT">
+      <offset>20</offset>
+      <static_define_list external="GenesisInteriorStep" />
+    </column>
+    <column name="RightStep" type="INT">
+      <offset>24</offset>
+      <static_define_list external="GenesisInteriorStep" />
+    </column>
+    <column name="FrontStep" type="INT">
+      <offset>28</offset>
+      <static_define_list external="GenesisInteriorStep" />
+    </column>
+    <column name="BackStep" type="INT">
+      <offset>32</offset>
+      <static_define_list external="GenesisInteriorStep" />
+    </column>
+    <column name="FallbackToParent" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

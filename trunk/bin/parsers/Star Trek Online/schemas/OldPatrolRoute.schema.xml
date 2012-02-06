@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OldPatrolRoute">
+  <table>
+    <column name="OldPatrolRoute" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="routeName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="RouteType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="OldPatrolRouteType" />
+    </column>
+    <column name="Point" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="OldPatrolPoint" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

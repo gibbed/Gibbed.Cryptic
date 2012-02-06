@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueConfig">
+  <table>
+    <column name="QueueConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MemberResponseTimeout" type="INT">
+      <offset>0</offset>
+      <default>60</default>
+    </column>
+    <column name="CheckOffersResponseTimeout" type="INT">
+      <offset>4</offset>
+      <default>30</default>
+    </column>
+    <column name="PrivateResponseTimeout" type="INT">
+      <offset>8</offset>
+      <default>300</default>
+    </column>
+    <column name="MemberDelayTimeout" type="INT">
+      <offset>12</offset>
+      <default>180</default>
+    </column>
+    <column name="MemberInviteTimeout" type="INT">
+      <offset>16</offset>
+      <default>30</default>
+    </column>
+    <column name="MaxQueueCount" type="INT">
+      <offset>20</offset>
+      <default>3</default>
+    </column>
+    <column name="MapLaunchCountdown" type="INT">
+      <offset>24</offset>
+      <default>10</default>
+    </column>
+    <column name="KickLogoutTime" type="INT">
+      <offset>28</offset>
+      <default>10</default>
+    </column>
+    <column name="LeaverPenaltyDuration" type="INT">
+      <offset>32</offset>
+      <default>900</default>
+    </column>
+    <column name="LeaverPenaltyTime" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>LeaverPenaltyDuration</redundant_name>
+      <default>900</default>
+    </column>
+    <column name="MemberAcceptTimeout" type="INT">
+      <offset>36</offset>
+      <default>120</default>
+    </column>
+    <column name="MemberAcceptValidateTimeout" type="INT">
+      <offset>40</offset>
+      <default>240</default>
+    </column>
+    <column name="MemberInMapTimeout" type="INT">
+      <offset>44</offset>
+      <default>45</default>
+    </column>
+    <column name="AutoConcedeTime" type="INT">
+      <offset>48</offset>
+      <default>10</default>
+    </column>
+    <column name="ManualConcedeTime" type="INT">
+      <offset>52</offset>
+      <default>30</default>
+    </column>
+    <column name="ConcedeRetryTime" type="INT">
+      <offset>56</offset>
+      <default>60</default>
+    </column>
+    <column name="ConcedeVotePercent" type="F32">
+      <offset>60</offset>
+      <default>1056964608</default>
+    </column>
+    <column name="MaxPasswordLength" type="INT">
+      <offset>64</offset>
+      <default>16</default>
+    </column>
+    <column name="MinGameInitTime" type="INT">
+      <offset>68</offset>
+      <default>8</default>
+    </column>
+    <column name="QueueGenName" type="STRING">
+      <offset>72</offset>
+      <default_string>QueueUI</default_string>
+    </column>
+    <column name="PvEQueueGenName" type="STRING">
+      <offset>76</offset>
+    </column>
+    <column name="FriendlyFX" type="STRING">
+      <offset>80</offset>
+    </column>
+    <column name="EnemyFX" type="STRING">
+      <offset>84</offset>
+    </column>
+    <column name="ShowClientsInvalidQueuesWithReason" type="INTARRAY">
+      <offset>88</offset>
+      <static_define_list external="QueueCannotUseReason" />
+    </column>
+    <column name="ProvideIndividualMapInfo" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="EnableMissionReturnAtEnd" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="EnableInMapPlayerChatUpdates" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="EnableStrictTeamRules" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="DisbandAutoTeamsWhenMatchEnds" type="BIT">
+      <offset>92</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="DisableJoinOrCreateOnAllQueueMaps" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="RemainInPrivateQueuesAfterMapFinishes" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

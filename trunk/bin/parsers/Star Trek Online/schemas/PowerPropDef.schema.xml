@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerPropDef">
+  <table>
+    <column name="PowerPropDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PropPower" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="CharacterType" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list external="CharClassTypes" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

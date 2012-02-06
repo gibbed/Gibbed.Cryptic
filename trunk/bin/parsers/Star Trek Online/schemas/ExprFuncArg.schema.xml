@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExprFuncArg">
+  <table>
+    <column name="ExprFuncArg" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="staticCheckType" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="allowNULLPtr" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="scTypeCategory" type="INT">
+      <offset>20</offset>
+      <static_define_list external="ExprStaticCheckCategory" />
+    </column>
+    <column name="ptrTypeName" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ResourceActionList">
+  <table>
+    <column name="ResourceActionList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Action" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ResourceAction" />
+    </column>
+    <column name="DisableValidation" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="Result" type="INT">
+      <offset>8</offset>
+      <static_define_list external="ResourceActionResult" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

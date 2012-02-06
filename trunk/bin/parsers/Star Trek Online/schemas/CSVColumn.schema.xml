@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CSVColumn">
+  <table>
+    <column name="CSVColumn" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Title" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ObjPath" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="ppchFixes" type="STRINGARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>12</offset>
+      <static_define_list external="CSVColumnType" />
+    </column>
+    <column name="RemoveWhitespace" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Prefix" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Tokens" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

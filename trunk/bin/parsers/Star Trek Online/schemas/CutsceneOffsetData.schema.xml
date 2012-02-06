@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CutsceneOffsetData">
+  <table>
+    <column name="CutsceneOffsetData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="OffsetType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="CutsceneOffsetType" />
+    </column>
+    <column name="CutsceneEntName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="EncounterName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ActorName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="BoneName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="EntityRef" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

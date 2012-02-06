@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CutscenePath">
+  <table>
+    <column name="CutscenePath" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="common" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="RelativePos" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="main_offset" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="OffsetType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="CutsceneOffsetType" />
+    </column>
+    <column name="CutsceneEntName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="EncounterName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ActorName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="BoneName" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="EntityRef" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="TwoRelativePos" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="SecondaryOffset" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="CutsceneOffsetData" />
+    </column>
+    <column name="Type" type="INT">
+      <offset>60</offset>
+      <static_define_list external="CutscenePathType" />
+    </column>
+    <column name="CamPosition" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="CutscenePathPoint" />
+    </column>
+    <column name="CamTarget" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="CutscenePathPoint" />
+    </column>
+    <column name="Angle" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="SmoothPositions" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="SmoothTargets" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="CamPosSpline" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+      <subtable external="Spline" />
+    </column>
+    <column name="CamTargetSpline" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+      <subtable external="Spline" />
+    </column>
+    <column name="UseDoF" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="DOFBlur" type="F32">
+      <offset>92</offset>
+    </column>
+    <column name="DOFDist" type="F32">
+      <offset>96</offset>
+    </column>
+    <column name="FollowPlayer" type="U8">
+      <offset>100</offset>
+    </column>
+    <column name="FollowContact" type="U8">
+      <offset>101</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldCraftingInteractionProperties">
+  <table>
+    <column name="WorldCraftingInteractionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="SkillTypes" type="INT">
+      <offset>0</offset>
+      <static_define_list external="WorldSkillType" />
+    </column>
+    <column name="MaxSkill" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="CraftRewardTable" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="DeconstructRewardTable" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="ExperimentRewardTable" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

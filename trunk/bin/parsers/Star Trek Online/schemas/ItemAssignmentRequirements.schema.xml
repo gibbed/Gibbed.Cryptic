@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentRequirements">
+  <table>
+    <column name="ItemAssignmentRequirements" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MinimumLevel" type="INT">
+      <offset>0</offset>
+      <default>1</default>
+    </column>
+    <column name="MaximumLevel" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="RequiredMap" type="STRINGARRAY">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RequiredMapType" type="INTARRAY">
+      <offset>12</offset>
+      <static_define_list external="ZoneMapType" />
+    </column>
+    <column name="RequiredRegionType" type="INTARRAY">
+      <offset>16</offset>
+      <static_define_list external="WorldRegionType" />
+    </column>
+    <column name="RequiredVolume" type="STRINGARRAY">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RequiredAllegiance" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>AllegianceDef</dictionary_name>
+    </column>
+    <column name="RequiredNumericItem" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="RequiredNumericValue" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="ItemCost" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="ItemAssignmentItemCost" />
+    </column>
+    <column name="RequiredMission" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="RequiredItemAssignment" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>ItemAssignmentDef</dictionary_name>
+    </column>
+    <column name="ExprBlockRequires" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="RequiresBlock" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockRequires</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprRequires" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockRequires</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="hRequiredItemCost" type="IGNORE" />
+    <column name="iRequiredItemCostCount" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

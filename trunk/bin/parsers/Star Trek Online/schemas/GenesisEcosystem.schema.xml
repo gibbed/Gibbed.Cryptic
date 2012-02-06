@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisEcosystem">
+  <table>
+    <column name="GenesisEcosystem" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FileName" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Tags" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="SoundInfo" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisSoundInfo" />
+    </column>
+    <column name="WaterPlane" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="PathGeometry" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="ClearingSize" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="ClearingFalloff" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="JustPlacedObject" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="GroupDefRef" />
+    </column>
+    <column name="Ecotype" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="GenesisEcotype" />
+    </column>
+    <column name="ExclusionVersion" type="INT">
+      <offset>40</offset>
+      <default>1</default>
+      <static_define_list external="TerrainExclusionVersion" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

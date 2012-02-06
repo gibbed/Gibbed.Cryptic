@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyColorCurveHSV">
+  <table>
+    <column name="SkyColorCurveHSV" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Point_0" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Point_1" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Point_2" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Point_3" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="PointHSV_0" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="PointHSV_1" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="PointHSV_2" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="PointHSV_3" type="F32FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="EndCurve" type="END" />
+  </table>
+</parser>

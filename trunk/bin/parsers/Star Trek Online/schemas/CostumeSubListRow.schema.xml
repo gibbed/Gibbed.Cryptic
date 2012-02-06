@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeSubListRow">
+  <table>
+    <column name="CostumeSubListRow" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>8</offset>
+      <static_define_list external="CostumeEditLineType" />
+    </column>
+    <column name="line" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="CostumeEditLine" />
+    </column>
+    <column name="PlayerInitial" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="Tex" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="Mat" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCMaterialDef" />
+    </column>
+    <column name="Geo" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCGeometryDef" />
+    </column>
+    <column name="Bone" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCBoneDef" />
+    </column>
+    <column name="Cat" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCCategory" />
+    </column>
+    <column name="Value" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCBodyScaleValue" />
+    </column>
+    <column name="Overlay" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="CostumeRefForSet" />
+    </column>
+    <column name="GuildOverlay" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PlayerCostumeHolder" />
+    </column>
+    <column name="UnlockInfo" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UnlockMetaData" />
+    </column>
+    <column name="Product" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="MicroTransactionUIProduct" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

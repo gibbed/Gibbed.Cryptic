@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldGameActionProperties">
+  <table>
+    <column name="WorldGameActionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="ActionType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="WorldGameActionType" />
+    </column>
+    <column name="GrantMissionProperties" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="WorldGrantMissionActionProperties" />
+    </column>
+    <column name="GrantSubMissionProperties" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="WorldGrantSubMissionActionProperties" />
+    </column>
+    <column name="MissionOfferProperties" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="WorldMissionOfferActionProperties" />
+    </column>
+    <column name="DropMissionProperties" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="WorldDropMissionActionProperties" />
+    </column>
+    <column name="GiveItemProperties" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="WorldGiveItemActionProperties" />
+    </column>
+    <column name="TakeItemProperties" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="WorldTakeItemActionProperties" />
+    </column>
+    <column name="GiveDoorKeyItemProperties" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="WorldGiveDoorKeyItemActionProperties" />
+    </column>
+    <column name="NPCSendEmailProperties" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="WorldNPCSendEmailActionProperties" />
+    </column>
+    <column name="ShardVariableProperties" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="WorldShardVariableActionProperties" />
+    </column>
+    <column name="GADAttribValueProperties" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="WorldGADAttribValueActionProperties" />
+    </column>
+    <column name="NemesisStateProperties" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="WorldChangeNemesisStateActionProperties" />
+    </column>
+    <column name="ActivityLogProperties" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="WorldActivityLogActionProperties" />
+    </column>
+    <column name="SendFloaterProperties" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="WorldSendFloaterActionProperties" />
+    </column>
+    <column name="SendNotificationProperties" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="WorldSendNotificationActionProperties" />
+    </column>
+    <column name="ContactProperties" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="WorldContactActionProperties" />
+    </column>
+    <column name="WarpProperties" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="WorldWarpActionProperties" />
+    </column>
+    <column name="ExpressionProperties" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <subtable external="WorldExpressionActionProperties" />
+    </column>
+    <column name="GuildStatUpdateProperties" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <subtable external="WorldGuildStatUpdateActionProperties" />
+    </column>
+    <column name="GuildThemeSetProperties" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <subtable external="WorldGuildThemeSetActionProperties" />
+    </column>
+    <column name="ItemAssignmentProperties" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <subtable external="WorldItemAssignmentActionProperties" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

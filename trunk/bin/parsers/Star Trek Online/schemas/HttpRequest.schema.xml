@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="HttpRequest">
+  <table>
+    <column name="HttpRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="method" type="INT">
+      <offset>0</offset>
+      <static_define_list external="HttpMethod" />
+    </column>
+    <column name="major_version" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="minor_version" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Path" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="headers" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="NameValuePairList" />
+    </column>
+    <column name="Vars" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="UrlArgumentList" />
+    </column>
+    <column name="Cookies" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="NameValuePairList" />
+    </column>
+    <column name="Link" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="NetLink" />
+    </column>
+    <column name="legacy" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="HttpLegacySupport" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

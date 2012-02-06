@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RecurringSchedule">
+  <table>
+    <column name="RecurringSchedule" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="minute" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="hour" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="dom" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="month" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="dow" type="INT">
+      <offset>16</offset>
+      <static_define_list external="DayOfWeek" />
+    </column>
+    <column name="Command" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

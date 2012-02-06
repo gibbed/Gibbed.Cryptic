@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldTimeInteractionProperties">
+  <table>
+    <column name="WorldTimeInteractionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="UseTime" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="ActiveTime" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="CooldownTime" type="INT">
+      <offset>8</offset>
+      <static_define_list external="WorldCooldownTime" />
+    </column>
+    <column name="CustomCooldownTime" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="DynamicCooldownType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="WorldDynamicSpawnType" />
+    </column>
+    <column name="InterruptOnPower" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="InterruptOnDamage" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="InterruptOnMove" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="NoRespawn" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="TeamUsableWhenActive" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="HideDuringCooldown" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BulletinMessage">
+  <table>
+    <column name="BulletinMessage" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Language" type="INT">
+      <offset>0</offset>
+      <static_define_list external="Language" />
+    </column>
+    <column name="Title" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="MessageBody" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

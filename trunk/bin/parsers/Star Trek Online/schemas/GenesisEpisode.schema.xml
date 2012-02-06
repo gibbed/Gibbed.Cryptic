@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisEpisode">
+  <table>
+    <column name="GenesisEpisode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Comments" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="levelDef" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="LevelType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="MissionLevelType" />
+    </column>
+    <column name="UsePlayerLevel" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>LevelType</redundant_name>
+      <static_define_list external="MissionLevelType" />
+    </column>
+    <column name="Level" type="INT">
+      <offset>20</offset>
+      <default>1</default>
+    </column>
+    <column name="Level:" type="INT">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Level</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="MapVariableForLevel" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="LevelClamp" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="MissionLevelClamp" />
+    </column>
+    <column name="RewardScale" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="RequiresBlock" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="UIString" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="Summary" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="DescriptionText" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="Reward" type="REFERENCE">
+      <offset>56</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="Category" type="REFERENCE">
+      <offset>60</offset>
+      <dictionary_name>MissionCategory</dictionary_name>
+    </column>
+    <column name="Grant" type="EMBEDDEDSTRUCT">
+      <offset>64</offset>
+      <subtable external="GenesisEpisodeGrantDescription" />
+    </column>
+    <column name="Part" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="GenesisEpisodePart" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

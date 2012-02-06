@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EncounterWaveProperties">
+  <table>
+    <column name="EncounterWaveProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="WaveCondition" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="WaveIntervalType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="WorldEncounterWaveTimerType" />
+    </column>
+    <column name="WaveInterval" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="WaveDelayType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="WorldEncounterWaveDelayTimerType" />
+    </column>
+    <column name="WaveDelayMin" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="WaveDelayMax" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="OverrideParentValues" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

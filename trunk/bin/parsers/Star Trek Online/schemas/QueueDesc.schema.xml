@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueDesc">
+  <table>
+    <column name="QueueDesc" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="QueueName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CategoryIcon" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RequiredMission" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CategoryDisplayName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="PrivateName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="displayNameMesg" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="descriptionMesg" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="cooldownDisplayNameMesg" type="EMBEDDEDSTRUCT">
+      <offset>48</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="cooldownDescriptionMesg" type="EMBEDDEDSTRUCT">
+      <offset>60</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Category" type="INT">
+      <offset>72</offset>
+      <static_define_list external="QueueCategory" />
+    </column>
+    <column name="Params" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="QueueInstanceParams" />
+    </column>
+    <column name="CannotUseReason" type="INT">
+      <offset>80</offset>
+      <static_define_list external="QueueCannotUseReason" />
+    </column>
+    <column name="QueueState" type="INT">
+      <offset>84</offset>
+      <static_define_list external="PlayerQueueState" />
+    </column>
+    <column name="RegionFlags" type="INT">
+      <offset>88</offset>
+      <static_define_list external="ControlSchemeRegionType" />
+    </column>
+    <column name="uCooldownTime" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="uiInstanceID" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="MapKey" type="INT64">
+      <offset>104</offset>
+    </column>
+    <column name="uiMapID" type="INT64">
+      <offset>104</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MapKey</redundant_name>
+    </column>
+    <column name="uiOwnerID" type="INT">
+      <offset>112</offset>
+    </column>
+    <column name="uAvgWaitTime" type="INT">
+      <offset>116</offset>
+    </column>
+    <column name="ElapsedMapTime" type="INT">
+      <offset>120</offset>
+    </column>
+    <column name="PlayerCountMax" type="INT">
+      <offset>124</offset>
+    </column>
+    <column name="PlayerCountMin" type="INT">
+      <offset>128</offset>
+    </column>
+    <column name="GroupPlayerCount" type="INTARRAY">
+      <offset>132</offset>
+    </column>
+    <column name="TotalPlayerCount" type="INT">
+      <offset>136</offset>
+    </column>
+    <column name="hGroup1Allegiance" type="REFERENCE">
+      <offset>140</offset>
+      <dictionary_name>AllegianceDef</dictionary_name>
+    </column>
+    <column name="hGroup2Allegiance" type="REFERENCE">
+      <offset>144</offset>
+      <dictionary_name>AllegianceDef</dictionary_name>
+    </column>
+    <column name="Bolster" type="U8">
+      <offset>148</offset>
+    </column>
+    <column name="AllGroupsSameAllegiance" type="U8">
+      <offset>149</offset>
+    </column>
+    <column name="Overtime" type="U8">
+      <offset>150</offset>
+    </column>
+    <column name="HasPassword" type="U8">
+      <offset>151</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

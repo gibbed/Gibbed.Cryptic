@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMapFakeZoneHighlight">
+  <table>
+    <column name="UIGenMapFakeZoneHighlight" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Map" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Source" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="UIGenMapFakeZoneHighlightBox" />
+    </column>
+    <column name="Mapped" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="UIGenMapFakeZoneHighlightBox" />
+    </column>
+    <column name="Highlight" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="UIGenMapFakeZoneHighlightBox" />
+    </column>
+    <column name="Color" type="INT">
+      <offset>52</offset>
+      <default>-128</default>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
+    </column>
+    <column name="ShowIcons" type="U8">
+      <offset>56</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

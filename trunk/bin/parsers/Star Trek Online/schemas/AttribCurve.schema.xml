@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribCurve">
+  <table>
+    <column name="AttribCurve" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <static_define_list external="AttribCurveType" />
+    </column>
+    <column name="Attrib" type="INT">
+      <offset>4</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Aspect" type="INT">
+      <offset>8</offset>
+      <static_define_list external="AttribAspect" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

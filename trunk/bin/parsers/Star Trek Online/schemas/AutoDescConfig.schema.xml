@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AutoDescConfig">
+  <table>
+    <column name="AutoDescConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PercentAttribs" type="INTARRAY">
+      <offset>0</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="ScaledAttribs" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Variance" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

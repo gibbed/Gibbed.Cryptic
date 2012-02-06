@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionObjectiveOld">
+  <table>
+    <column name="GenesisMissionObjectiveOld" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <default>12</default>
+      <static_define_list external="GenesisWhenType" />
+    </column>
+    <column name="CompleteChallenge" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="GenesisMissionObjectiveOld_CompleteChallenge" />
+    </column>
+    <column name="ReachLocation" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="GenesisMissionObjectiveOld_ReachLocation" />
+    </column>
+    <column name="KillCritter" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisMissionObjectiveOld_KillCritter" />
+    </column>
+    <column name="KillCritterGroup" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="GenesisMissionObjectiveOld_KillCritterGroup" />
+    </column>
+    <column name="TalkToContact" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="GenesisMissionObjectiveOld_TalkToContact" />
+    </column>
+    <column name="CollectItems" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="GenesisMissionObjectiveOld_CollectItems" />
+    </column>
+    <column name="PromptComplete" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="GenesisMissionObjectiveOld_PromptComplete" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

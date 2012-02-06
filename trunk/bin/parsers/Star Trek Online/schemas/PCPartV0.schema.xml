@@ -1,0 +1,555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCPartV0">
+  <table>
+    <column name="PCPartV0" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Bone" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CostumeBone</dictionary_name>
+    </column>
+    <column name="hBoneDef" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Bone</redundant_name>
+      <dictionary_name>CostumeBone</dictionary_name>
+    </column>
+    <column name="Geometry" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CostumeGeometry</dictionary_name>
+    </column>
+    <column name="hGeoDef" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Geometry</redundant_name>
+      <dictionary_name>CostumeGeometry</dictionary_name>
+    </column>
+    <column name="Material" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CostumeMaterial</dictionary_name>
+    </column>
+    <column name="hMatDef" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Material</redundant_name>
+      <dictionary_name>CostumeMaterial</dictionary_name>
+    </column>
+    <column name="TextureGroup" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="hTextureGroup" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>TextureGroup</redundant_name>
+    </column>
+    <column name="PatternTexture" type="REFERENCE">
+      <offset>16</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="hPatternTexture" type="REFERENCE">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>PatternTexture</redundant_name>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="DetailTexture" type="REFERENCE">
+      <offset>20</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="hDetailTexture" type="REFERENCE">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>DetailTexture</redundant_name>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="SpecularTexture" type="REFERENCE">
+      <offset>24</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="hSpecularTexture" type="REFERENCE">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>SpecularTexture</redundant_name>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="DiffuseTexture" type="REFERENCE">
+      <offset>28</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="hDiffuseTexture" type="REFERENCE">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>DiffuseTexture</redundant_name>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="MovableTexture" type="REFERENCE">
+      <offset>32</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="hMovableTexture" type="REFERENCE">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableTexture</redundant_name>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="iBoneGroupIndex" type="INT">
+      <offset>36</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <default>-1</default>
+    </column>
+    <column name="Color0" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color0" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Color0</redundant_name>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color1" type="F32FIXEDARRAY">
+      <offset>56</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color1" type="F32FIXEDARRAY">
+      <offset>56</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Color1</redundant_name>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color2" type="F32FIXEDARRAY">
+      <offset>72</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color2" type="F32FIXEDARRAY">
+      <offset>72</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Color2</redundant_name>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color3" type="F32FIXEDARRAY">
+      <offset>88</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color3" type="F32FIXEDARRAY">
+      <offset>88</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Color3</redundant_name>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="glowScale" type="U8FIXEDARRAY">
+      <offset>104</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="CustomReflection" type="U8">
+      <offset>108</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bCustomReflection" type="U8">
+      <offset>108</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>CustomReflection</redundant_name>
+    </column>
+    <column name="CustomSpecularity" type="U8">
+      <offset>109</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bCustomSpecularity" type="U8">
+      <offset>109</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>CustomSpecularity</redundant_name>
+    </column>
+    <column name="Reflection" type="U8FIXEDARRAY">
+      <offset>110</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Reflection" type="U8FIXEDARRAY">
+      <offset>110</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Reflection</redundant_name>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="specularity" type="U8FIXEDARRAY">
+      <offset>114</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="ColorLink" type="INT">
+      <offset>120</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="PCColorLink" />
+    </column>
+    <column name="eColorLink" type="INT">
+      <offset>120</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ColorLink</redundant_name>
+      <static_define_list external="PCColorLink" />
+    </column>
+    <column name="MaterialLink" type="INT">
+      <offset>124</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="PCColorLink" />
+    </column>
+    <column name="eMaterialLink" type="INT">
+      <offset>124</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MaterialLink</redundant_name>
+      <static_define_list external="PCColorLink" />
+    </column>
+    <column name="GeoLink" type="U8">
+      <offset>128</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bGeoLink" type="U8">
+      <offset>128</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>GeoLink</redundant_name>
+    </column>
+    <column name="NoShadow" type="U8">
+      <offset>129</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bNoShadow" type="U8">
+      <offset>129</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>NoShadow</redundant_name>
+    </column>
+    <column name="fPatternValue" type="F32">
+      <offset>136</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fDetailValue" type="F32">
+      <offset>140</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fSpecularValue" type="F32">
+      <offset>144</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fDiffuseValue" type="F32">
+      <offset>148</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fMovableValue" type="F32">
+      <offset>152</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="MovableX" type="F32">
+      <offset>156</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fMovableX" type="F32">
+      <offset>156</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableX</redundant_name>
+    </column>
+    <column name="MovableY" type="F32">
+      <offset>160</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fMovableY" type="F32">
+      <offset>160</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableY</redundant_name>
+    </column>
+    <column name="MovableScaleX" type="F32">
+      <offset>164</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="MovScaleX" type="F32">
+      <offset>164</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableScaleX</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="fMovableScaleX" type="F32">
+      <offset>164</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableScaleX</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="MovableScaleY" type="F32">
+      <offset>168</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="MovScaleY" type="F32">
+      <offset>168</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableScaleY</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="fMovableScaleY" type="F32">
+      <offset>168</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableScaleY</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="MovableRotation" type="F32">
+      <offset>172</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="MovRotation" type="F32">
+      <offset>172</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableRotation</redundant_name>
+    </column>
+    <column name="fMovableRotation" type="F32">
+      <offset>172</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableRotation</redundant_name>
+    </column>
+    <column name="ExtraColor" type="STRUCT">
+      <offset>176</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCMaterialColorV0" />
+    </column>
+    <column name="eaExtraColors" type="STRUCT">
+      <offset>176</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ExtraColor</redundant_name>
+      <subtable external="PCMaterialColorV0" />
+    </column>
+    <column name="ExtraValue" type="STRUCT">
+      <offset>180</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCMaterialConstant" />
+    </column>
+    <column name="eaExtraConstants" type="STRUCT">
+      <offset>180</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ExtraValue</redundant_name>
+      <subtable external="PCMaterialConstant" />
+    </column>
+    <column name="ExtraTexture" type="STRUCT">
+      <offset>184</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCTextureRef" />
+    </column>
+    <column name="eaExtraTextures" type="STRUCT">
+      <offset>184</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ExtraTexture</redundant_name>
+      <subtable external="PCTextureRef" />
+    </column>
+    <column name="Cloth" type="OPTIONALSTRUCT">
+      <offset>188</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCPartV0" />
+    </column>
+    <column name="pClothLayer" type="OPTIONALSTRUCT">
+      <offset>188</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Cloth</redundant_name>
+      <subtable external="PCPartV0" />
+    </column>
+    <column name="ControlledRandomLocks" type="INT">
+      <offset>192</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="PCControlledRandomLock" />
+    </column>
+    <column name="eControlledRandomLocks" type="INT">
+      <offset>192</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ControlledRandomLocks</redundant_name>
+      <static_define_list external="PCControlledRandomLock" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

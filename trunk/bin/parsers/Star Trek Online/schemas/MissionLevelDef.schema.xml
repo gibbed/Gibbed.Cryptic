@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MissionLevelDef">
+  <table>
+    <column name="MissionLevelDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LevelType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="MissionLevelType" />
+    </column>
+    <column name="UsePlayerLevel" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>LevelType</redundant_name>
+      <static_define_list external="MissionLevelType" />
+    </column>
+    <column name="Level" type="INT">
+      <offset>4</offset>
+      <default>1</default>
+    </column>
+    <column name="Level:" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Level</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="MapVariableForLevel" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="LevelClamp" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="MissionLevelClamp" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemDeconstructSkillDefault">
+  <table>
+    <column name="ItemDeconstructSkillDefault" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SkillType" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list external="SkillType" />
+    </column>
+    <column name="PrimaryRecipe" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="SecondaryRecipe" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="DeviceRecipe" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

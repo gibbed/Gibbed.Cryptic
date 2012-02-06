@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LibFileLoad">
+  <table>
+    <column name="LibFileLoad" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Version" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Def" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="GroupDef" />
+    </column>
+    <column name="TerrainMaterialEntry" type="STRINGARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="TerrainObjectEntry" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="TerrainObjectEntry" />
+    </column>
+    <column name="TerrainBlockRange" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="TerrainBlockRange" />
+    </column>
+    <column name="NonPlayableTerrain" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="EnableExclusion" type="INT">
+      <offset>28</offset>
+      <static_define_list external="TerrainExclusionVersion" />
+    </column>
+    <column name="ColorShift" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="End" type="IGNORE" />
+    <column name="roadparams" type="IGNORE" />
+    <column name="TerrainEcotypeEntry" type="IGNORE" />
+    <column name="UpsampleRes" type="IGNORE" />
+    <column name="Rivers" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="Roadlist" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+  </table>
+</parser>

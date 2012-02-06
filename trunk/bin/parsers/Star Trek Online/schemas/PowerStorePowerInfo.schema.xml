@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerStorePowerInfo">
+  <table>
+    <column name="PowerStorePowerInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hTree" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>PowerTreeDef</dictionary_name>
+    </column>
+    <column name="hNode" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>PTNodeDef</dictionary_name>
+    </column>
+    <column name="Rank" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="FailsRequirements" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="RequirementsText" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="StoreName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Index" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="CostInfo" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="PowerStoreCostInfo" />
+    </column>
+    <column name="TrainerType" type="INT">
+      <offset>36</offset>
+      <static_define_list external="PowerStoreTrainerType" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

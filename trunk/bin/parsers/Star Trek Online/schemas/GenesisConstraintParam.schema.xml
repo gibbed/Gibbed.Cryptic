@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisConstraintParam">
+  <table>
+    <column name="GenesisConstraintParam" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GenesisParamType" />
+    </column>
+    <column name="Value" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

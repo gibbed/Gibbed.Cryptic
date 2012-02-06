@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenScrollViewState">
+  <table>
+    <column name="UIGenScrollViewState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>17</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="Scrollbar" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="UIGenScrollbarState" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

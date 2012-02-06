@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContactInfo">
+  <table>
+    <column name="ContactInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="entRef" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ContactDef" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StaticEncName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="currIndicator" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ContactIndicator" />
+    </column>
+    <column name="nextOfferLevel" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>20</offset>
+      <static_define_list external="ContactFlags" />
+    </column>
+    <column name="peAllowedClassCategories" type="INTARRAY">
+      <offset>24</offset>
+    </column>
+    <column name="availableSpecialDialogs" type="INTARRAY">
+      <offset>28</offset>
+    </column>
+    <column name="AllowSwitchToLastActivePuppet" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

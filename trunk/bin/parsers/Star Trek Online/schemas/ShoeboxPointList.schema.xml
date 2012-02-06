@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShoeboxPointList">
+  <table>
+    <column name="ShoeboxPointList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Equidist" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="FollowPoints" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>8</offset>
+      <static_define_list external="ShoeboxPointListType" />
+    </column>
+    <column name="OrbitObject" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="SSObjSet" />
+    </column>
+    <column name="MinRad" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MaxRad" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="MinTilt" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="MaxTilt" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="MinYaw" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="MaxYaw" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="MinHoriz" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="MaxHoriz" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="MinVert" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="MaxVert" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="CurveObject" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="SSLibObj" />
+    </column>
+    <column name="CurveObjectTags" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="SSTagObj" />
+    </column>
+    <column name="Point" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="ShoeboxPoint" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

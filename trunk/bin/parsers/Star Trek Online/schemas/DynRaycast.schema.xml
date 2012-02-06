@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynRaycast">
+  <table>
+    <column name="DynRaycast" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Tag" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="BoneName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OrientToNormal" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="UseParentRotation" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="Range" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Filter" type="INT">
+      <offset>16</offset>
+      <default>1</default>
+      <static_define_list external="eDynRaycastFilter" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Update" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="ForceDown" type="BOOLFLAG">
+      <offset>21</offset>
+    </column>
+    <column name="CopyScale" type="BOOLFLAG">
+      <offset>22</offset>
+    </column>
+    <column name="UpdatePeriod" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="HitEvent" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="DynRaycastHitEvent" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

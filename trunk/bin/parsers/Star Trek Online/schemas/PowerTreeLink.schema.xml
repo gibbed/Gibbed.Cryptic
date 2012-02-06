@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerTreeLink">
+  <table>
+    <column name="PowerTreeLink" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hTree" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>PowerTreeDef</dictionary_name>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="PowerTreeRelationship" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerCombo">
+  <table>
+    <column name="PowerCombo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Power" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="ComboOrder" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="ExprBlockRequires" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="RequiresBlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockRequires</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="Requires" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockRequires</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ModeRequire" type="INTARRAY">
+      <offset>16</offset>
+      <static_define_list external="PowerMode" />
+    </column>
+    <column name="ModeExclude" type="INTARRAY">
+      <offset>20</offset>
+      <static_define_list external="PowerMode" />
+    </column>
+    <column name="PercentChargeRequired" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="TimeChargeRequired" type="F32">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PercentChargeRequired</redundant_name>
+    </column>
+    <column name="ExprBlockTargetClient" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="TargetClient" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockTargetClient</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

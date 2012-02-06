@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CStoreUpdate">
+  <table>
+    <column name="CStoreUpdate" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="CStoreUpdateType" />
+    </column>
+    <column name="List" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="MicroTransactionProductList" />
+    </column>
+    <column name="Product" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="AccountProxyProduct" />
+    </column>
+    <column name="ProductList" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="AccountProxyProductList" />
+    </column>
+    <column name="Info" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="AccountProxyKeyValueInfo" />
+    </column>
+    <column name="InfoList" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="AccountProxyKeyValueInfoList" />
+    </column>
+    <column name="Methods" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="CachedPaymentMethod" />
+    </column>
+    <column name="SteamCurrency" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

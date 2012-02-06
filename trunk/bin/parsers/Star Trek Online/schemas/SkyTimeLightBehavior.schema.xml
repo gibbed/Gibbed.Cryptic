@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyTimeLightBehavior">
+  <table>
+    <column name="SkyTimeLightBehavior" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="LightRange" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="LightAdaptation" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="LightAdaptationRate" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Exposure" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="BlueshiftMin" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="BlueshiftMax" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="BlueshiftHSV" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>40</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="ExposureMin" type="IGNORE" />
+    <column name="ExposureMax" type="IGNORE" />
+    <column name="LuminanceRange" type="IGNORE" />
+    <column name="EndSkyLightBehavior" type="END" />
+  </table>
+</parser>

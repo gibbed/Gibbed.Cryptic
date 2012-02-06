@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LensFlarePiece">
+  <table>
+    <column name="LensFlarePiece" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="MaterialName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="TextureName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Size" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Color" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="Offset" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="EndLensFlarePiece" type="END" />
+  </table>
+</parser>

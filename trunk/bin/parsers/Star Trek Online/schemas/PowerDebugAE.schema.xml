@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerDebugAE">
+  <table>
+    <column name="PowerDebugAE" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="erEnt" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="CasterPos" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Type" type="INT">
+      <offset>16</offset>
+      <static_define_list external="EffectArea" />
+    </column>
+    <column name="CastLoc" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TargetLoc" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Length" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="Arc" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="isClient" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="HitEnts" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="AEPowersDebugHit" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

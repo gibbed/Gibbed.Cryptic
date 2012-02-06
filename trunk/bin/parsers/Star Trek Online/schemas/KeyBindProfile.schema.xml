@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="KeyBindProfile">
+  <table>
+    <column name="KeyBindProfile" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="KeyBind" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="KeyBind" />
+    </column>
+    <column name="TrickleKeys" type="U8">
+      <offset>12</offset>
+      <default>1</default>
+    </column>
+    <column name="TrickleCommands" type="U8">
+      <offset>13</offset>
+      <default>1</default>
+    </column>
+    <column name="Priority" type="INT">
+      <offset>24</offset>
+      <static_define_list external="KeyBindPriority" />
+    </column>
+    <column name="hNameMsg" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="DisplayName" type="REFERENCE">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>hNameMsg</redundant_name>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="UserSelectable" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="Joystick" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="EntityBinds" type="U8">
+      <offset>34</offset>
+    </column>
+    <column name="SchemeRegion" type="STRINGARRAY">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

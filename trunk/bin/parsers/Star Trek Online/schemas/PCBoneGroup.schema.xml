@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCBoneGroup">
+  <table>
+    <column name="PCBoneGroup" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>20</offset>
+      <static_define_list external="PCBoneGroupFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="BoneInGroup" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="PCBoneRef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

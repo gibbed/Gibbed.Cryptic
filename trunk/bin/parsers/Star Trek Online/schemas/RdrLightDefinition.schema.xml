@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RdrLightDefinition">
+  <table>
+    <column name="RdrLightDefinition" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="deviceid" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="normaltext" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="shadowtesttext" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="LightType" type="INT">
+      <offset>20</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="vertexlightparams" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="RdrLightDefinitionParams" />
+    </column>
+    <column name="singledirlightparams" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="RdrLightDefinitionParams" />
+    </column>
+    <column name="EndLight" type="END" />
+  </table>
+</parser>

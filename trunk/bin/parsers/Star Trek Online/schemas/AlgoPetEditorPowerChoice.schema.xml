@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AlgoPetEditorPowerChoice">
+  <table>
+    <column name="AlgoPetEditorPowerChoice" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Rarity" type="INT">
+      <offset>0</offset>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="SharedCategory" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list external="AlgoCategory" />
+    </column>
+    <column name="Category" type="INTARRAY">
+      <offset>8</offset>
+      <static_define_list external="AlgoCategory" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

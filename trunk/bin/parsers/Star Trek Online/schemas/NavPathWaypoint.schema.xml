@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NavPathWaypoint">
+  <table>
+    <column name="NavPathWaypoint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="lastFailPos" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="lastDirToPos" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="connectType" type="INT">
+      <offset>44</offset>
+      <static_define_list external="NavPathConnectType" />
+    </column>
+    <column name="keepWaypoint" type="BIT">
+      <offset>104</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="dontShortcut" type="BIT">
+      <offset>104</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="gotStuck" type="BIT">
+      <offset>104</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="jumped" type="BIT">
+      <offset>104</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="attempted" type="BIT">
+      <offset>104</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="requestedRefine" type="BIT">
+      <offset>104</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="targetWp" type="BIT">
+      <offset>104</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="avoiding" type="BIT">
+      <offset>104</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="attemptedShortcut" type="BIT">
+      <offset>104</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

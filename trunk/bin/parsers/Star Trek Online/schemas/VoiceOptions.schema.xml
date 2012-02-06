@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="VoiceOptions">
+  <table>
+    <column name="VoiceOptions" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SpeakerVolume" type="INT">
+      <offset>0</offset>
+      <default>40</default>
+    </column>
+    <column name="MuteInactive" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="MicLevel" type="INT">
+      <offset>8</offset>
+      <default>40</default>
+    </column>
+    <column name="OpenMic" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="NoVoice" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="MultiMode" type="INT">
+      <offset>20</offset>
+      <static_define_list external="MultiChannelMode" />
+    </column>
+    <column name="DuckPercent" type="F32">
+      <offset>24</offset>
+      <default>1056964608</default>
+    </column>
+    <column name="InputDev" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="OutputDev" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

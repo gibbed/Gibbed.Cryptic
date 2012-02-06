@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAcquireOverride">
+  <table>
+    <column name="ItemAcquireOverride" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ItemType" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="ItemType" />
+    </column>
+    <column name="fromMail" type="BOOLFLAG">
+      <offset>4</offset>
+    </column>
+    <column name="fromTrade" type="BOOLFLAG">
+      <offset>5</offset>
+    </column>
+    <column name="fromStore" type="BOOLFLAG">
+      <offset>6</offset>
+    </column>
+    <column name="fromAuction" type="BOOLFLAG">
+      <offset>7</offset>
+    </column>
+    <column name="fromGameAction" type="BOOLFLAG">
+      <offset>8</offset>
+    </column>
+    <column name="fromMissionReward" type="BOOLFLAG">
+      <offset>9</offset>
+    </column>
+    <column name="PreferredRestrictBag" type="INT">
+      <offset>12</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="BagFullError" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

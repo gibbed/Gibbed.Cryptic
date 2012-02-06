@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OptionSetting">
+  <table>
+    <column name="OptionSetting" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="OptionSettingType" />
+    </column>
+    <column name="DisplayName" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="ToolTip" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="DisabledTooltip" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="IntValue" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="FloatValue" type="F32">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+    </column>
+    <column name="OrigIntValue" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="OrigFloatValue" type="F32">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+    </column>
+    <column name="StringValue" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Min" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="Max" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="Increment" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="ComboBoxOptions" type="STRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="OptionSettingComboChoice" />
+    </column>
+    <column name="ComboChoice" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="OptionSettingComboChoice" />
+    </column>
+    <column name="ComboDefault" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Enabled" type="U8">
+      <offset>84</offset>
+    </column>
+    <column name="Hide" type="U8">
+      <offset>85</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

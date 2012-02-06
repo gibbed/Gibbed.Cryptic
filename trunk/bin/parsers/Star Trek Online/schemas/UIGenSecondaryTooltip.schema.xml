@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenSecondaryTooltip">
+  <table>
+    <column name="UIGenSecondaryTooltip" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hTooltip" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="TooltipBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="TooltipExpr" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TooltipBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Assembly" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <default_string>Tooltip</default_string>
+      <dictionary_name>UITextureAssembly</dictionary_name>
+    </column>
+    <column name="MaxWidth" type="INT16">
+      <offset>12</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default>350</default>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="MaximumWidth" type="INT16">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <redundant_name>MaxWidth</redundant_name>
+      <default>350</default>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="SafeMode" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="FilterProfanity" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65553</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

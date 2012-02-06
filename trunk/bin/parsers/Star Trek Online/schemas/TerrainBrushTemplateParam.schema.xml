@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TerrainBrushTemplateParam">
+  <table>
+    <column name="TerrainBrushTemplateParam" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ToolTip" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="ValueName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="UIType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="TerrainUIType" />
+    </column>
+    <column name="MinVal" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MaxVal" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="Step" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="Bias" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="BiasOffset" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

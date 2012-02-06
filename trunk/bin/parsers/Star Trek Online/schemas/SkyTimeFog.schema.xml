@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyTimeFog">
+  <table>
+    <column name="SkyTimeFog" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="FogColorHSV" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="HighFogColorHSV" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="ClipFogColorHSV" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="ClipBackgroundColorHSV" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="ClipFogDistanceAdjust" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="FogDist" type="F32FIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="HighFogDist" type="F32FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="FogMax" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="HighFogMax" type="F32">
+      <offset>76</offset>
+    </column>
+    <column name="FogHeight" type="F32FIXEDARRAY">
+      <offset>80</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="FogDensity" type="F32FIXEDARRAY">
+      <offset>88</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="VolumeFogPos" type="F32FIXEDARRAY">
+      <offset>96</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="VolumeFogScale" type="F32FIXEDARRAY">
+      <offset>108</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>120</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="EndSkyFog" type="END" />
+  </table>
+</parser>

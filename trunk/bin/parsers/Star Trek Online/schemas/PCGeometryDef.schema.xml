@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCGeometryDef">
+  <table>
+    <column name="PCGeometryDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Bone" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>CostumeBone</dictionary_name>
+    </column>
+    <column name="Geometry" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Model" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MirrorGeometry" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>CostumeGeometry</dictionary_name>
+    </column>
+    <column name="DefaultMaterial" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>CostumeMaterial</dictionary_name>
+    </column>
+    <column name="Material" type="STRINGARRAY">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>CostumeMaterial</dictionary_name>
+    </column>
+    <column name="LOD" type="U8">
+      <offset>48</offset>
+      <default>10</default>
+      <static_define_list external="CostumeLODLevel" />
+    </column>
+    <column name="RestrictedTo" type="U8">
+      <offset>49</offset>
+      <static_define_list external="PCRestriction" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ColorChoices" type="U8">
+      <offset>50</offset>
+      <default>15</default>
+      <static_define_list external="PCColorFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="HasAlpha" type="U8">
+      <offset>51</offset>
+    </column>
+    <column name="Order" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="RandomWeight" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="Category" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="PCCategoryRef" />
+    </column>
+    <column name="Style" type="STRINGARRAY">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>CostumeStyle</dictionary_name>
+    </column>
+    <column name="ClothData" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <subtable external="PCGeometryClothData" />
+    </column>
+    <column name="deprecated_ClothData" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="IsCloth" type="U8">
+      <offset>72</offset>
+    </column>
+    <column name="HasClothBack" type="U8">
+      <offset>73</offset>
+    </column>
+    <column name="ClothInfo" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>DynClothInfo</dictionary_name>
+    </column>
+    <column name="ClothCollision" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>DynClothCollision</dictionary_name>
+    </column>
+    <column name="Options" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="PCGeometryOptions" />
+    </column>
+    <column name="deprecated_Options" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="ChildGeometryDef" type="STRUCT">
+      <offset>88</offset>
+      <subtable external="PCGeometryChildDef" />
+    </column>
+    <column name="IsChild" type="U8">
+      <offset>92</offset>
+    </column>
+    <column name="SubSkeleton" type="STRING">
+      <offset>96</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SubBone" type="STRING">
+      <offset>100</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FXSwap" type="STRUCT">
+      <offset>104</offset>
+      <subtable external="PCFXSwap" />
+    </column>
+    <column name="FX" type="STRUCT">
+      <offset>108</offset>
+      <subtable external="PCFX" />
+    </column>
+    <column name="BodyColorSet0" type="REFERENCE">
+      <offset>112</offset>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="BodyColorSet" type="REFERENCE">
+      <offset>112</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>BodyColorSet0</redundant_name>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="BodyColorSet1" type="REFERENCE">
+      <offset>116</offset>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="BodyColorSet2" type="REFERENCE">
+      <offset>120</offset>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="BodyColorSet3" type="REFERENCE">
+      <offset>124</offset>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="ColorQuadSet" type="REFERENCE">
+      <offset>128</offset>
+      <dictionary_name>CostumeColorQuads</dictionary_name>
+    </column>
+    <column name="DamageFxInfo" type="REFERENCE">
+      <offset>132</offset>
+      <dictionary_name>DynFxDamageInfo</dictionary_name>
+    </column>
+    <column name="CostumeGroups" type="STRINGARRAY">
+      <offset>136</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>CostumeGroupDict</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

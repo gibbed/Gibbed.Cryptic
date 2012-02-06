@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="XMLValue">
+  <table>
+    <column name="XMLValue" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="XMLRPCType" />
+    </column>
+    <column name="Int" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="boolean" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="String" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Double" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="dateTime_iso8601" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="base64" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Struct" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="XMLStruct" />
+    </column>
+    <column name="Array" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="XMLArray" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

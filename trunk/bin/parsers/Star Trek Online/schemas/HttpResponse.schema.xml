@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="HttpResponse">
+  <table>
+    <column name="HttpResponse" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="major_version" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="minor_version" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Code" type="INT">
+      <offset>8</offset>
+      <static_define_list external="HttpResponseCode" />
+    </column>
+    <column name="Reason" type="FIXEDSTRING">
+      <offset>12</offset>
+      <string_length>256</string_length>
+    </column>
+    <column name="headers" type="OPTIONALSTRUCT">
+      <offset>268</offset>
+      <subtable external="NameValuePairList" />
+    </column>
+    <column name="Link" type="OPTIONALSTRUCT">
+      <offset>272</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="NetLink" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

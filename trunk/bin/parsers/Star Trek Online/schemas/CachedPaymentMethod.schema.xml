@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CachedPaymentMethod">
+  <table>
+    <column name="CachedPaymentMethod" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="VID" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="Type" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="billingAddress" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="AccountAddress" />
+    </column>
+    <column name="Currency" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="creditCard" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="CachedCreditCard" />
+    </column>
+    <column name="payPal" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="CachedPayPal" />
+    </column>
+    <column name="directDebit" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="CachedDirectDebit" />
+    </column>
+    <column name="methodProvider" type="INT">
+      <offset>60</offset>
+      <static_define_list external="TransactionProvider" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

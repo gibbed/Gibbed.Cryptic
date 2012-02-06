@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCComponent">
+  <table>
+    <column name="UGCComponent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="ParentID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ChildIDs" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="VisibleName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>16</offset>
+      <static_define_list external="UGCComponentType" />
+    </column>
+    <column name="Placement" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="UGCComponentPlacement" />
+    </column>
+    <column name="MapType" type="INT">
+      <offset>60</offset>
+      <static_define_list external="UGCMapType" />
+    </column>
+    <column name="ObjectName" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="ObjectID" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="When" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <subtable external="UGCWhen" />
+    </column>
+    <column name="PromptWhen" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>When</redundant_name>
+      <subtable external="UGCWhen" />
+    </column>
+    <column name="PromptIsPopup" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>When</redundant_name>
+      <subtable external="UGCWhen" />
+    </column>
+    <column name="HideWhen" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <subtable external="UGCWhen" />
+    </column>
+    <column name="VisibleCheckedAttrib" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <subtable external="GenesisCheckedAttrib" />
+    </column>
+    <column name="IsRoomVolume" type="U8">
+      <offset>84</offset>
+    </column>
+    <column name="VolumeRadius" type="F32">
+      <offset>88</offset>
+    </column>
+    <column name="Ring" type="STRING">
+      <offset>92</offset>
+    </column>
+    <column name="RingID" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="InteractText" type="STRING">
+      <offset>100</offset>
+    </column>
+    <column name="InteractAnim" type="REFERENCE">
+      <offset>104</offset>
+      <dictionary_name>AIAnimList</dictionary_name>
+    </column>
+    <column name="InteractDuration" type="INT">
+      <offset>108</offset>
+      <default>1</default>
+      <static_define_list external="UGCInteractDuration" />
+    </column>
+    <column name="InteractTriggerGroup" type="STRUCT">
+      <offset>112</offset>
+      <subtable external="UGCInteractProperties" />
+    </column>
+    <column name="ContactName" type="STRING">
+      <offset>116</offset>
+    </column>
+    <column name="PromptCostumeName" type="STRING">
+      <offset>120</offset>
+    </column>
+    <column name="DialogBlock" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="BlockIndex" type="INT">
+      <offset>124</offset>
+    </column>
+    <column name="initialPrompt" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="UID" type="INT">
+      <offset>128</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="PromptBody" type="STRING">
+      <offset>132</offset>
+    </column>
+    <column name="Action" type="STRUCT">
+      <offset>136</offset>
+      <subtable external="UGCDialogTreePromptAction" />
+    </column>
+    <column name="PromptButton" type="STRUCT">
+      <offset>136</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Action</redundant_name>
+      <subtable external="UGCDialogTreePromptAction" />
+    </column>
+    <column name="PromptCostume" type="STRING">
+      <offset>140</offset>
+    </column>
+    <column name="PromptPetCostume" type="REFERENCE">
+      <offset>144</offset>
+      <dictionary_name>PetContactList</dictionary_name>
+    </column>
+    <column name="CameraPos" type="STRING">
+      <offset>148</offset>
+    </column>
+    <column name="PromptStyle" type="STRING">
+      <offset>152</offset>
+    </column>
+    <column name="Prompt" type="STRUCT">
+      <offset>164</offset>
+      <subtable external="UGCDialogTreePrompt" />
+    </column>
+    <column name="Block" type="STRUCT">
+      <offset>176</offset>
+      <subtable external="UGCDialogTreeBlock" />
+    </column>
+    <column name="Prompt" type="STRUCT">
+      <offset>176</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Block</redundant_name>
+      <subtable external="UGCDialogTreeBlock" />
+    </column>
+    <column name="ActorID" type="INT">
+      <offset>180</offset>
+    </column>
+    <column name="PromptContactID" type="INT">
+      <offset>180</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ActorID</redundant_name>
+    </column>
+    <column name="ObjectiveID" type="INTARRAY">
+      <offset>184</offset>
+    </column>
+    <column name="PromptWhenObjectiveID" type="INTARRAY">
+      <offset>184</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ObjectiveID</redundant_name>
+    </column>
+    <column name="IsDefault" type="U8">
+      <offset>188</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>192</offset>
+    </column>
+    <column name="ContactName" type="STRING">
+      <offset>192</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>DisplayName</redundant_name>
+    </column>
+    <column name="CostumeName" type="STRING">
+      <offset>196</offset>
+    </column>
+    <column name="fsmProperties" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="FSMRef" type="STRING">
+      <offset>200</offset>
+    </column>
+    <column name="ExternVar" type="STRUCT">
+      <offset>204</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="PatrolPoint" type="INTARRAY">
+      <offset>208</offset>
+    </column>
+    <column name="Detail" type="STRUCT">
+      <offset>212</offset>
+      <subtable external="UGCRoomDetailData" />
+    </column>
+    <column name="RoomDoor" type="INT">
+      <offset>216</offset>
+    </column>
+    <column name="TrapPower" type="STRING">
+      <offset>220</offset>
+    </column>
+    <column name="EmitterIndex" type="INT">
+      <offset>224</offset>
+    </column>
+    <column name="TrapTargetDisabled" type="U8">
+      <offset>228</offset>
+    </column>
+    <column name="Count" type="IGNORE" />
+    <column name="InteractDef" type="IGNORE" />
+    <column name="PromptTitle" type="IGNORE" />
+    <column name="PromptInteractionText" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

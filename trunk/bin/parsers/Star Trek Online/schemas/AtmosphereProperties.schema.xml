@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AtmosphereProperties">
+  <table>
+    <column name="AtmosphereProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PlanetRadius" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="AtmosphereThickness" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="AerosolAtmosphereThickness" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="RayleighScattering" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="MieScattering" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MiePhaseAsymmetry" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="IntensityMultiplier" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="ParticleHSV" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="AerosolParticleHSV" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="NormalizedViewHeight" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="TextureSize" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="SourceFiles" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

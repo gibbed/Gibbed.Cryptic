@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AutoDescAttribMod">
+  <table>
+    <column name="AutoDescAttribMod" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="AttribName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="AttribDesc" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="AttribDescLong" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Dev" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Default" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Custom" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Effect" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Magnitude" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="MagnitudePerSecond" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="MagnitudeVariance" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="MagnitudeActual" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="MagnitudeMaxActual" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="Duration" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Period" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Chance" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ChanceDenormalized" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Delay" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Target" type="STRING">
+      <offset>72</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="StackLimit" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Requires" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Affects" type="STRING">
+      <offset>84</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="PowersInline" type="STRUCT">
+      <offset>88</offset>
+      <flags>
+        <flag>STRUCT_NORECURSE</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="AutoDescPower" />
+    </column>
+    <column name="Expire" type="STRING">
+      <offset>92</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="PowerExpire" type="OPTIONALSTRUCT">
+      <offset>96</offset>
+      <flags>
+        <flag>STRUCT_NORECURSE</flag>
+      </flags>
+      <subtable external="AutoDescPower" />
+    </column>
+    <column name="p" type="OPTIONALSTRUCT">
+      <offset>100</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="AutoDescPower" />
+    </column>
+    <column name="ps" type="STRUCT">
+      <offset>104</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="AutoDescPower" />
+    </column>
+    <column name="c" type="STRUCT">
+      <offset>108</offset>
+      <subtable external="AutoDescAttribMod" />
+    </column>
+    <column name="AttribType" type="INT">
+      <offset>112</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribAspect" type="INT">
+      <offset>116</offset>
+      <static_define_list external="AttribAspect" />
+    </column>
+    <column name="EnhancementExtension" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

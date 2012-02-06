@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FragileScaleSet">
+  <table>
+    <column name="FragileScaleSet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DefaultScale" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Scale" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="FragileScale" />
+    </column>
+    <column name="pattrScale" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="CharacterAttribs" />
+    </column>
+    <column name="TargetType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="FragileTargetType" />
+      <format>FLAGS</format>
+    </column>
+    <column name="IgnoreTags" type="INT">
+      <offset>20</offset>
+      <static_define_list external="PowerTag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCTextureDef">
+  <table>
+    <column name="PCTextureDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="ColorChoices" type="U8">
+      <offset>24</offset>
+      <static_define_list external="PCColorFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="RestrictedTo" type="U8">
+      <offset>25</offset>
+      <static_define_list external="PCRestriction" />
+      <format>FLAGS</format>
+    </column>
+    <column name="TypeFlags" type="U8">
+      <offset>26</offset>
+      <static_define_list external="PCTextureType" />
+      <format>FLAGS</format>
+    </column>
+    <column name="HasSkin" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65560</bit_offset>
+    </column>
+    <column name="TexWordsCaps" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65561</bit_offset>
+    </column>
+    <column name="TexWordsKey" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OrigTexture" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NewTexture" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ExtraTexture" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="PCExtraTexture" />
+    </column>
+    <column name="Order" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="RandomWeight" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="ColorSwap0" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="ColorSwap1" type="U8">
+      <offset>53</offset>
+      <default>1</default>
+    </column>
+    <column name="ColorSwap2" type="U8">
+      <offset>54</offset>
+      <default>2</default>
+    </column>
+    <column name="ColorSwap3" type="U8">
+      <offset>55</offset>
+      <default>3</default>
+    </column>
+    <column name="ColorOptions" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="PCTextureColorOptions" />
+    </column>
+    <column name="ValueOptions" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="PCTextureValueOptions" />
+    </column>
+    <column name="deprecated_ValueOptions" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="ValueConstant" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ConstValueIndex" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="ConstValueDefault" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="ConstValueMin" type="F32">
+      <offset>76</offset>
+    </column>
+    <column name="ConstValueMax" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="MovableOptions" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="PCTextureMovableOptions" />
+    </column>
+    <column name="deprecated_MovableOptions" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="MovableMinX" type="F32">
+      <offset>88</offset>
+    </column>
+    <column name="MovableMaxX" type="F32">
+      <offset>92</offset>
+    </column>
+    <column name="MovableDefaultX" type="F32">
+      <offset>96</offset>
+    </column>
+    <column name="MovableMinY" type="F32">
+      <offset>100</offset>
+    </column>
+    <column name="MovableMaxY" type="F32">
+      <offset>104</offset>
+    </column>
+    <column name="MovableDefaultY" type="F32">
+      <offset>108</offset>
+    </column>
+    <column name="MovableMinScaleX" type="F32">
+      <offset>112</offset>
+      <default>1</default>
+    </column>
+    <column name="MovableMaxScaleX" type="F32">
+      <offset>116</offset>
+      <default>1</default>
+    </column>
+    <column name="MovableDefaultScaleX" type="F32">
+      <offset>120</offset>
+      <default>1</default>
+    </column>
+    <column name="MovableMinScaleY" type="F32">
+      <offset>124</offset>
+      <default>1</default>
+    </column>
+    <column name="MovableMaxScaleY" type="F32">
+      <offset>128</offset>
+      <default>1</default>
+    </column>
+    <column name="MovableDefaultScaleY" type="F32">
+      <offset>132</offset>
+      <default>1</default>
+    </column>
+    <column name="MovableDefaultRotation" type="F32">
+      <offset>136</offset>
+    </column>
+    <column name="MovableCanEditPosition" type="U8">
+      <offset>140</offset>
+    </column>
+    <column name="MovableCanEditRotation" type="U8">
+      <offset>141</offset>
+    </column>
+    <column name="MovableCanEditScale" type="U8">
+      <offset>142</offset>
+    </column>
+    <column name="CostumeGroups" type="STRINGARRAY">
+      <offset>144</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>CostumeGroupDict</dictionary_name>
+    </column>
+    <column name="Group" type="IGNORE" />
+    <column name="Style" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

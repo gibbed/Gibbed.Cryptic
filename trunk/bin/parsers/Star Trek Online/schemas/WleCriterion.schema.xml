@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WleCriterion">
+  <table>
+    <column name="WleCriterion" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="propertyName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="allConds" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list external="WleCriterionCond" />
+    </column>
+    <column name="possibleValues" type="STRINGARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

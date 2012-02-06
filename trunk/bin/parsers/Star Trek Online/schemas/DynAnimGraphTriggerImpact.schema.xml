@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynAnimGraphTriggerImpact">
+  <table>
+    <column name="DynAnimGraphTriggerImpact" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Direction" type="INT">
+      <offset>0</offset>
+      <static_define_list external="DynAnimGraphImpactDirection" />
+    </column>
+    <column name="Bone" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Frame" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Offset" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>
