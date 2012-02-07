@@ -231,15 +231,11 @@
     </column>
     <column name="MinigameType" type="INT">
       <offset>192</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="MinigameType" />
     </column>
     <column name="peAllowedClassCategories" type="INTARRAY">
       <offset>196</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="CharClassCategory" />
     </column>
     <column name="MissionTimeLimit" type="INT">
       <offset>200</offset>

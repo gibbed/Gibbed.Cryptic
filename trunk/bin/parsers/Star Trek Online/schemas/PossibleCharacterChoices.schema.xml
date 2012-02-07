@@ -47,16 +47,12 @@
     </column>
     <column name="UnlockAllegianceFlags" type="INT">
       <offset>40</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="UnlockedAllegianceFlags" />
       <format>FLAGS</format>
     </column>
     <column name="UnlockCreateFlags" type="INT">
       <offset>44</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="UnlockedCreateFlags" />
       <format>FLAGS</format>
     </column>
     <column name="UnlockedSpecies" type="STRUCT">

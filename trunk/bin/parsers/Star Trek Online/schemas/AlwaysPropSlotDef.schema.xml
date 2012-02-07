@@ -26,16 +26,12 @@
     </column>
     <column name="ClassRestrictType" type="INT">
       <offset>12</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="AlwaysPropSlotClassRestrictType" />
     </column>
     <column name="AllowPowerCategory" type="INT">
       <offset>16</offset>
       <default>-1</default>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="PowerCategory" />
     </column>
     <column name="MaxPropPowers" type="INT">
       <offset>20</offset>
@@ -53,15 +49,11 @@
     <column name="IgnorePurposeForMax" type="INT">
       <offset>28</offset>
       <default>-1</default>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="PowerPurpose" />
     </column>
     <column name="Category" type="INT">
       <offset>32</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="AlwaysPropSlotCategory" />
     </column>
     <column name="ImportanceRank" type="INT">
       <offset>36</offset>

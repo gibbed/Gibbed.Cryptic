@@ -45,9 +45,7 @@
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="ControlSchemeRegionType" />
       <format>FLAGS</format>
     </column>
     <column name="eSchemeRegions" type="INT">
@@ -58,9 +56,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
       <redundant_name>SchemeRegions</redundant_name>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="ControlSchemeRegionType" />
       <format>FLAGS</format>
     </column>
     <column name="Secondary" type="BIT">

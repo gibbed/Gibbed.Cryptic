@@ -49,9 +49,7 @@
     </column>
     <column name="Category" type="INT">
       <offset>44</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="ItemAssignmentCategory" />
     </column>
     <column name="Duration" type="INT">
       <offset>48</offset>
@@ -69,9 +67,7 @@
     </column>
     <column name="Weight" type="INT">
       <offset>64</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="ItemAssignmentWeightType" />
     </column>
     <column name="Requirements" type="OPTIONALSTRUCT">
       <offset>68</offset>
@@ -91,9 +87,7 @@
     </column>
     <column name="NumericDurationScaleCategory" type="INT">
       <offset>84</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="ItemAssignmentDurationScaleCategory" />
     </column>
     <column name="IsAbortable" type="BIT">
       <offset>88</offset>

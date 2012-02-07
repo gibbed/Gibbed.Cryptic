@@ -105,9 +105,7 @@
     </column>
     <column name="ItemPowerCategory" type="INT">
       <offset>96</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="ItemPowerCategory" />
       <format>FLAGS</format>
     </column>
     <column name="FactorValue" type="INT">
@@ -121,24 +119,18 @@
     </column>
     <column name="Rarity" type="INT">
       <offset>112</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="ItemGenRarity" />
     </column>
     <column name="Category" type="INT">
       <offset>116</offset>
     </column>
     <column name="ItemCategory" type="INTARRAY">
       <offset>120</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="ItemCategory" />
     </column>
     <column name="RestrictBag" type="INTARRAY">
       <offset>124</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="InvBagIDs" />
     </column>
     <column name="EquipLimit" type="OPTIONALSTRUCT">
       <offset>128</offset>

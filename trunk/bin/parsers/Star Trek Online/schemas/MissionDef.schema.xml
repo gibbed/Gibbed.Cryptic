@@ -492,9 +492,7 @@
     </column>
     <column name="PlayType" type="INT">
       <offset>368</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="MissionPlayType" />
     </column>
     <column name="UGCProjectID" type="INT">
       <offset>372</offset>
@@ -585,15 +583,11 @@
     </column>
     <column name="MissionTag" type="INTARRAY">
       <offset>420</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="MissionTag" />
     </column>
     <column name="MissionUIType" type="INT">
       <offset>424</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="MissionUIType" />
     </column>
     <column name="IconString:" type="IGNORE" />
     <column name="NextActionUniqueID" type="IGNORE" />

@@ -23,15 +23,11 @@
     </column>
     <column name="CharClassType" type="INTARRAY">
       <offset>8</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="CharClassTypes" />
     </column>
     <column name="SchemeRegionType" type="INT">
       <offset>12</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="ControlSchemeRegionType" />
     </column>
     <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
       <offset>16</offset>
@@ -101,21 +97,15 @@
     </column>
     <column name="CategoryDoNotAdd" type="INTARRAY">
       <offset>60</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="PowerCategory" />
     </column>
     <column name="CategoryExclude" type="INTARRAY">
       <offset>64</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="PowerCategory" />
     </column>
     <column name="CategoryRequire" type="INTARRAY">
       <offset>68</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="PowerCategory" />
     </column>
     <column name="NoPrediction" type="BIT">
       <offset>72</offset>
@@ -166,9 +156,7 @@
     </column>
     <column name="PetType" type="INTARRAY">
       <offset>88</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="CharClassTypes" />
     </column>
     <column name="AllowedPetsPerPlayer" type="INT">
       <offset>92</offset>

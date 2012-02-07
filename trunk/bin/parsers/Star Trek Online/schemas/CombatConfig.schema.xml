@@ -33,15 +33,11 @@
     </column>
     <column name="AttribsNet" type="INTARRAY">
       <offset>24</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="AttribType" />
     </column>
     <column name="AttribsInnateNet" type="INTARRAY">
       <offset>28</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="AttribType" />
     </column>
     <column name="SpeedPenaltyDuringChargeDefault" type="F32">
       <offset>32</offset>
@@ -121,15 +117,11 @@
     </column>
     <column name="DisableQueuingIncludeCategories" type="INTARRAY">
       <offset>112</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="PowerCategory" />
     </column>
     <column name="DisableQueuingExcludeCategories" type="INTARRAY">
       <offset>116</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="PowerCategory" />
     </column>
     <column name="DisablePowerQueuing" type="BIT">
       <offset>120</offset>
@@ -420,9 +412,7 @@
     </column>
     <column name="TacticalMovementClassTypes" type="INTARRAY">
       <offset>164</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="CharClassTypes" />
     </column>
     <column name="TacticalMoveGlobalCooldown" type="F32">
       <offset>168</offset>

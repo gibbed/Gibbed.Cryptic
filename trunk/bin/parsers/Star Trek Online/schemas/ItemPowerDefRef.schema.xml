@@ -39,9 +39,7 @@
     </column>
     <column name="AppliesToSlot" type="INT">
       <offset>8</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="InvBagIDs" />
     </column>
     <column name="eAppliesToSlot" type="INT">
       <offset>8</offset>
@@ -49,15 +47,11 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>AppliesToSlot</redundant_name>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="InvBagIDs" />
     </column>
     <column name="RequiredCategories" type="INTARRAY">
       <offset>12</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="ItemCategory" />
     </column>
     <column name="peRequiredCategories" type="INTARRAY">
       <offset>12</offset>
@@ -65,9 +59,7 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>RequiredCategories</redundant_name>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="ItemCategory" />
     </column>
     <column name="ChanceToApply" type="F32">
       <offset>16</offset>
