@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,13 +46,18 @@
     <Compile Include="BlobWriter.cs" />
     <Compile Include="Blob\DependencyEntry.cs" />
     <Compile Include="Blob\FileEntry.cs" />
+    <Compile Include="EnumParser.cs" />
     <Compile Include="FunctionCall.cs" />
     <Compile Include="ICrypticStream.cs" />
     <Compile Include="ICrypticStructure.cs" />
     <Compile Include="MATPYR.cs" />
     <Compile Include="MultiValue.cs" />
+    <Compile Include="ParserEnumFile.cs" />
     <Compile Include="ParserSchemaFile.cs" />
     <Compile Include="ParserSchema\Column.cs" />
+    <Compile Include="ParserSchema\ColumnFormat.cs" />
+    <Compile Include="ParserSchema\Enumeration.cs" />
+    <Compile Include="ParserSchema\EnumerationType.cs" />
     <Compile Include="ParserSchema\Table.cs" />
     <Compile Include="Parser\BasicStringToken.cs" />
     <Compile Include="Parser\BasicValueToken.cs" />

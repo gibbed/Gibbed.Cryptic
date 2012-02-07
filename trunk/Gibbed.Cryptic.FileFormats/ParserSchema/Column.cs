@@ -50,6 +50,12 @@ namespace Gibbed.Cryptic.FileFormats.ParserSchema
         public bool SubtableIsExternal;
         public string SubtableExternalName;
 
+        public Enumeration StaticDefineList;
+        public string StaticDefineListExternalName;
+        public bool StaticDefineListIsExternal;
+
+        public ColumnFormat Format = ColumnFormat.None;
+
         public override string ToString()
         {
             return this.Name;

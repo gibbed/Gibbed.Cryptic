@@ -27,7 +27,7 @@ namespace Gibbed.StarTrekOnline.ConvertUIGen
 {
     internal class Program
     {
-        private class UIGenConverter : Converter<Serialization.UIGen>
+        private class MyConverter : Converter<Serialization.UIGen>
         {
             protected override string GetPath(Serialization.UIGen entry)
             {
@@ -40,7 +40,7 @@ namespace Gibbed.StarTrekOnline.ConvertUIGen
 
         public static void Main(string[] args)
         {
-            new UIGenConverter().Main(0xFEADFED1, args);
+            new MyConverter().Main(0xFEADFED1, args);
         }
     }
 }

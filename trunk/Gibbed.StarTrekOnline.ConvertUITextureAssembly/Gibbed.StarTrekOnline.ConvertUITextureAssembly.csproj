@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{2E258CB7-D13C-478D-AB69-79529D6F9E4E}</ProjectGuid>
+    <ProjectGuid>{2E5761D0-4874-48B6-9D87-17DA1A689773}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gibbed.Cryptic.ExportParserTables</RootNamespace>
-    <AssemblyName>Gibbed.Cryptic.ExportParserTables</AssemblyName>
+    <RootNamespace>Gibbed.StarTrekOnline.ConvertUITextureAssembly</RootNamespace>
+    <AssemblyName>Gibbed.StarTrekOnline.ConvertUITextureAssembly</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Gibbed.StarTrekOnline.Serialization">
+      <HintPath>..\bin\Gibbed.StarTrekOnline.Serialization.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -43,16 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adler32.cs" />
-    <Compile Include="ByteSearch.cs" />
-    <Compile Include="Locator.cs" />
-    <Compile Include="NativeColumn.cs" />
-    <Compile Include="NativeException.cs" />
-    <Compile Include="ProcessMemory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Gibbed.Cryptic.ConvertBin\Gibbed.Cryptic.ConvertBin.csproj">
+      <Project>{87F12BDC-8668-49DE-AF16-303A7A18A6CC}</Project>
+      <Name>Gibbed.Cryptic.ConvertBin</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Gibbed.Cryptic.FileFormats\Gibbed.Cryptic.FileFormats.csproj">
       <Project>{78B8A118-B473-4B77-9658-02B07EDA14C4}</Project>
       <Name>Gibbed.Cryptic.FileFormats</Name>
@@ -61,9 +62,9 @@
       <Project>{047857BA-DAA3-4CA7-AFB8-A1B082B28C6A}</Project>
       <Name>Gibbed.IO</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Gibbed.PortableExecutable\Gibbed.PortableExecutable.csproj">
-      <Project>{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}</Project>
-      <Name>Gibbed.PortableExecutable</Name>
+    <ProjectReference Include="..\NDesk.Options\NDesk.Options.csproj">
+      <Project>{C98A6CD6-9422-4B35-8B7A-F520D75534D1}</Project>
+      <Name>NDesk.Options</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

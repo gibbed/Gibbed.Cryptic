@@ -34,41 +34,149 @@ namespace Gibbed.Cryptic.ExportParserTables
 {
     internal class Program
     {
-        private static uint FindParserTableInfo(ProcessMemory memory)
+        private static string GetEnumType(
+            ProcessMemory memory,
+            uint baseAddress)
         {
-            var nameOffset = memory.Search(new ByteSearch("00 66 66 5F 50 61 72 73 65 54 61 62 6C 65 49 6E 66 6F 73 00"));
-            if (nameOffset == uint.MaxValue)
+            switch (memory.ReadU32(baseAddress))
             {
-                throw new InvalidOperationException();
+                case 1: return "int";
+                case 2: return "string";
+                default: throw new NotSupportedException();
             }
-            nameOffset = nameOffset + 1;
+        }
 
-            var bytes = BitConverter.GetBytes(nameOffset);
-            var sb = new StringBuilder();
-            sb.Append("75 1E ");
-            sb.Append("68 xx xx xx xx ");
-            sb.AppendFormat("68 {0:X2} {1:X2} {2:X2} {3:X2} ",
-                bytes[0], bytes[1], bytes[2], bytes[3]);
-            sb.Append("6A 00 ");
-            sb.Append("68 00 04 00 00 ");
-            sb.Append("E8 xx xx xx xx ");
-            sb.Append("83 C4 10 ");
-            sb.Append("A3 xx xx xx xx ");
-            sb.Append("8B 55 0C ");
+        private static List<KeyValuePair<string, string>> ReadKeyValueList(
+            ProcessMemory memory,
+            uint baseAddress)
+        {
+            var entries = new List<KeyValuePair<string, string>>();
+            var listAddress = memory.ReadU32(baseAddress);
 
-            var codeOffset = memory.Search(new ByteSearch(sb.ToString()));
-            if (codeOffset == uint.MaxValue)
+            if (listAddress != 0)
             {
-                throw new InvalidOperationException();
+                var count = memory.ReadS32(listAddress + 8);
+                if (count > 0)
+                {
+                    var entriesAddress = memory.ReadU32(listAddress + 4);
+                    var data = memory.ReadBytes(entriesAddress, count * 8);
+
+                    for (int i = 0; i < count; i++)
+                    {
+                        var name = memory.ReadStringZ(BitConverter.ToUInt32(data, (i * 8) + 0));
+                        var value = memory.ReadStringZ(BitConverter.ToUInt32(data, (i * 8) + 4));
+                        entries.Add(new KeyValuePair<string, string>(name, value));
+                    }
+                }
             }
 
-            var pointer = memory.ReadU32(codeOffset + 28);
-            if (pointer == 0)
+            return entries;
+        }
+
+        private static List<KeyValuePair<string, string>> ReadEnum(
+            ProcessMemory memory,
+            uint baseAddress)
+        {
+            var elements = new List<KeyValuePair<string, string>>();
+
+            var valueType = 4;
+
+            while (true)
             {
-                throw new InvalidOperationException();
+                var type = memory.ReadU32(baseAddress);
+                if (type == 0)
+                {
+                    break;
+                }
+
+                switch (type)
+                {
+                    case 1:
+                    {
+                        valueType = 1;
+                        baseAddress += 8;
+                        break;
+                    }
+
+                    case 2:
+                    {
+                        valueType = 2;
+                        baseAddress += 8;
+                        break;
+                    }
+
+                    // dynamic bullshit
+                    case 3:
+                    {
+                        baseAddress += 8;
+                        break;
+                    }
+
+                    case 5:
+                    {
+                        var parent = memory.ReadU32(baseAddress + 4);
+                        var nested = ReadEnum(memory, parent);
+                        foreach (var kv in nested)
+                        {
+                            elements.Add(new KeyValuePair<string, string>(kv.Key, kv.Value));
+                        }
+                        return elements;
+                    }
+
+                    default:
+                    {
+                        var name = memory.ReadStringZ(type);
+
+                        object value;
+                        switch (valueType)
+                        {
+                            case 1:
+                            {
+                                value = memory.ReadS32(baseAddress + 4);
+                                baseAddress += 8;
+                                break;
+                            }
+
+                            case 2:
+                            {
+                                value = memory.ReadStringZ(baseAddress + 4);
+                                baseAddress += 8;
+                                break;
+                            }
+
+                            default:
+                            {
+                                throw new NotImplementedException();
+                            }
+                        }
+
+                        elements.Add(new KeyValuePair<string, string>(name, value.ToString()));
+                        break;
+                    }
+                }
             }
 
-            return memory.ReadU32(pointer);
+            return elements;
+        }
+
+        private static void ExportEnum(
+            ProcessMemory memory,
+            uint address,
+            List<KeyValuePair<string, string>> elements,
+            XmlWriter xml)
+        {
+            xml.WriteStartElement("elements");
+            xml.WriteAttributeString("type", GetEnumType(memory, address));
+
+            foreach (var kv in elements)
+            {
+                xml.WriteStartElement("element");
+                xml.WriteAttributeString("name", kv.Key);
+                xml.WriteValue(kv.Value);
+                xml.WriteEndElement();
+            }
+
+            xml.WriteEndElement();
         }
 
         private static string GetTokenName(NativeColumn column, out Parser.ColumnFlags flags)
@@ -112,56 +220,6 @@ namespace Gibbed.Cryptic.ExportParserTables
 
             flags = column.Flags;
             return token.NameDirectValue;
-        }
-
-        private static uint Adler32(byte[] buffer, int offset, int count, uint hash)
-        {
-            uint upper = (ushort)((hash & 0xFFFF0000) >> 16);
-            uint lower = (ushort)((hash & 0x0000FFFF) >> 0);
-
-            do
-            {
-                int run = Math.Min(5552, count);
-                int end = offset + run;
-
-                for (; offset < end; offset++)
-                {
-                    lower += buffer[offset];
-                    upper += lower;
-                }
-
-                lower %= 0xFFF1;
-                upper %= 0xFFF1;
-
-                count -= run;
-            }
-            while (count > 0);
-
-            return ((upper << 16) & 0xFFFF0000) | ((lower & 0x0000FFFF) << 0);
-        }
-
-        private static uint Adler32(string value, uint hash)
-        {
-            var bytes = Encoding.ASCII.GetBytes(value.ToUpperInvariant());
-            return Adler32(bytes, 0, bytes.Length, hash);
-        }
-
-        private static uint Adler32(int value, uint hash)
-        {
-            var bytes = BitConverter.GetBytes(value);
-            return Adler32(bytes, 0, bytes.Length, hash);
-        }
-
-        private static uint Adler32(uint value, uint hash)
-        {
-            var bytes = BitConverter.GetBytes(value);
-            return Adler32(bytes, 0, bytes.Length, hash);
-        }
-
-        private static uint Adler32(ulong value, uint hash)
-        {
-            var bytes = BitConverter.GetBytes(value);
-            return Adler32(bytes, 0, bytes.Length, hash);
         }
 
         private static Dictionary<Parser.ColumnFlags, string> GenerateColumnFlagNames()
@@ -271,7 +329,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                 sb.Append(entry.Value);
             }
 
-            return Adler32(sb.ToString(), hash);
+            return Adler32.Hash(sb.ToString(), hash);
         }
 
         private static uint HashStaticDefineList(
@@ -327,14 +385,14 @@ namespace Gibbed.Cryptic.ExportParserTables
                     default:
                     {
                         var name = memory.ReadStringZ(type);
-                        hash = Adler32(name, hash);
+                        hash = Adler32.Hash(name, hash);
 
                         switch (valueType)
                         {
                             case 1:
                             {
                                 var value = memory.ReadU32(baseAddress + 4);
-                                hash = Adler32(value, hash);
+                                hash = Adler32.Hash(value, hash);
                                 baseAddress += 8;
                                 break;
                             }
@@ -342,7 +400,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                             case 2:
                             {
                                 var value = memory.ReadStringZ(baseAddress + 4);
-                                hash = Adler32(value, hash);
+                                hash = Adler32.Hash(value, hash);
                                 baseAddress += 8;
                                 break;
                             }
@@ -403,10 +461,10 @@ namespace Gibbed.Cryptic.ExportParserTables
 
                 if (string.IsNullOrEmpty(name) == false)
                 {
-                    hash = Adler32(name, hash);
+                    hash = Adler32.Hash(name, hash);
                 }
 
-                hash = Adler32(column.Type, hash);
+                hash = Adler32.Hash(column.Type, hash);
 
                 var token = Parser.GlobalTokens.GetToken(column.Token);
 
@@ -417,13 +475,13 @@ namespace Gibbed.Cryptic.ExportParserTables
                     case Parser.ColumnParameter.StringLength:
                     case Parser.ColumnParameter.Size:
                     {
-                        hash = Adler32(column.Parameter0, hash);
+                        hash = Adler32.Hash(column.Parameter0, hash);
                         break;
                     }
 
                     case Parser.ColumnParameter.BitOffset:
                     {
-                        hash = Adler32(column.Parameter0 >> 16, hash);
+                        hash = Adler32.Hash(column.Parameter0 >> 16, hash);
                         break;
                     }
 
@@ -432,7 +490,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                     {
                         if (column.Parameter0 != 0)
                         {
-                            hash = Adler32(memory.ReadStringZ(column.Parameter0), hash);
+                            hash = Adler32.Hash(memory.ReadStringZ(column.Parameter0), hash);
                         }
                         break;
                     }
@@ -459,7 +517,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                     var unknown20 = memory.ReadStringZ(column.Unknown20);
                     if (string.IsNullOrEmpty(unknown20) == false)
                     {
-                        hash = Adler32(unknown20, hash);
+                        hash = Adler32.Hash(unknown20, hash);
                     }
                 }
             }
@@ -467,11 +525,30 @@ namespace Gibbed.Cryptic.ExportParserTables
             return hash;
         }
 
-        private static void ExportTable(
+        private static string[] FormatNames =
+        {
+            null,
+            "IP", // 1
+            "UNSIGNED", // 2
+            "DATESS2000", // 3
+            "PERCENT", // 4
+            "NOPATH", // 5
+            "HSV", // 6
+            null,
+            "TEXTURE", // 8
+            "COLOR", // 9
+            "FRIENDLYDATE", // 10
+            "FRIENDLYSS2000", // 11
+            "KBYTES", // 12
+            "FLAGS", // 13
+        };
+
+        private static void ExportParserTable(
             ProcessMemory memory,
             uint address,
             XmlWriter xml,
-            List<KeyValuePair<string, uint>> parsers)
+            List<KeyValuePair<string, uint>> parsers,
+            List<KeyValuePair<string, uint>> enums)
         {
             /*xml.WriteComment(string.Format(" {0:X8} ",
                 0x00400000u + (address - (uint)memory.MainModuleAddress.ToInt32())));*/
@@ -644,6 +721,20 @@ namespace Gibbed.Cryptic.ExportParserTables
                                 if (column.Parameter1 != 0)
                                 {
                                     xml.WriteStartElement("static_define_list");
+
+                                    var kv = enums.SingleOrDefault(e => e.Value == column.Parameter1);
+                                    if (kv.Key == null)
+                                    {
+                                        xml.WriteComment(" dynamic enum? ");
+                                        /*xml.WriteStartElement("enum");
+                                        ExportEnum(memory, column.Parameter1, xml);
+                                        xml.WriteEndElement();*/
+                                    }
+                                    else
+                                    {
+                                        xml.WriteAttributeString("external", kv.Key);
+                                    }
+
                                     //xml.WriteComment(string.Format(" {0:X8} ", column.Parameter1));
                                     xml.WriteEndElement();
                                 }
@@ -675,7 +766,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                                         //xml.WriteElementString("subtable", "NOT FOUND? " + column.Parameter1.ToString("X*"));
 
                                         xml.WriteStartElement("table");
-                                        ExportTable(memory, column.Parameter1, xml, parsers);
+                                        ExportParserTable(memory, column.Parameter1, xml, parsers, enums);
                                         xml.WriteEndElement();
                                     }
                                     else
@@ -686,6 +777,20 @@ namespace Gibbed.Cryptic.ExportParserTables
                                     xml.WriteEndElement();
                                 }
                                 break;
+                            }
+                        }
+
+                        var format = column.Unknown1C & 0xFF;
+                        if (format != 0)
+                        {
+                            if (format < FormatNames.Length &&
+                                FormatNames[format] != null)
+                            {
+                                xml.WriteElementString("format", FormatNames[format]);
+                            }
+                            else
+                            {
+                                xml.WriteElementString("format_raw", format.ToString());
                             }
                         }
                     }
@@ -742,35 +847,96 @@ namespace Gibbed.Cryptic.ExportParserTables
                     return;
                 }
 
-                var stashPointer = FindParserTableInfo(memory);
-                var stashCount = memory.ReadS32(stashPointer + 0x08);
-                var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
-                var stashEntries = memory.ReadBytes(stashEntryPointer, stashCount * 8);
-
-                var parsers = new List<KeyValuePair<string, uint>>();
-
-                for (int i = 0; i < stashCount; i++)
+                var tempEnums = new List<KeyValuePair<string, uint>>();
+                var enums = new List<KeyValuePair<string, uint>>();
                 {
-                    var namePointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 0);
-                    var dataPointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 4);
+                    var stashPointer = Locator.FindEnumTable(memory);
+                    var stashCount = memory.ReadS32(stashPointer + 0x08);
+                    var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
+                    var stashEntries = memory.ReadBytes(stashEntryPointer, stashCount * 8);
 
-                    if (namePointer == 0 &&
-                        dataPointer == 0)
+                    for (int i = 0; i < stashCount; i++)
+                    {
+                        var namePointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 0);
+                        var dataPointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 4);
+
+                        if (namePointer == 0 &&
+                            dataPointer == 0)
+                        {
+                            continue;
+                        }
+
+                        var name = memory.ReadStringZ(namePointer);
+
+                        tempEnums.Add(new KeyValuePair<string, uint>(name, dataPointer));
+                    }
+                }
+
+                Directory.CreateDirectory(Path.Combine(outputPath, "enums"));
+                foreach (var kv in tempEnums.OrderBy(kv => kv.Key))
+                {
+                    var name = kv.Key;
+                    var pointer = kv.Value;
+
+                    var elements = ReadEnum(memory, pointer);
+                    if (elements == null)
                     {
                         continue;
                     }
 
-                    var name = memory.ReadStringZ(namePointer);
+                    enums.Add(new KeyValuePair<string, uint>(name, pointer));
 
-                    parsers.Add(new KeyValuePair<string,uint>(name, dataPointer));
+                    Console.WriteLine("[enum] {0}", name);
+
+                    var settings = new XmlWriterSettings()
+                    {
+                        Indent = true,
+                    };
+
+                    using (var xml = XmlWriter.Create(Path.Combine(outputPath, "enums", name + ".enum.xml"), settings))
+                    {
+                        xml.WriteStartDocument();
+                        xml.WriteStartElement("enum");
+                        xml.WriteAttributeString("name", name);
+
+                        ExportEnum(memory, pointer, elements, xml);
+
+                        xml.WriteEndElement();
+                        xml.WriteEndDocument();
+                    }
                 }
 
+                var parsers = new List<KeyValuePair<string, uint>>();
+                {
+                    var stashPointer = Locator.FindParserTable(memory);
+                    var stashCount = memory.ReadS32(stashPointer + 0x08);
+                    var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
+                    var stashEntries = memory.ReadBytes(stashEntryPointer, stashCount * 8);
+
+                    for (int i = 0; i < stashCount; i++)
+                    {
+                        var namePointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 0);
+                        var dataPointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 4);
+
+                        if (namePointer == 0 &&
+                            dataPointer == 0)
+                        {
+                            continue;
+                        }
+
+                        var name = memory.ReadStringZ(namePointer);
+
+                        parsers.Add(new KeyValuePair<string, uint>(name, dataPointer));
+                    }
+                }
+
+                Directory.CreateDirectory(Path.Combine(outputPath, "schemas"));
                 foreach (var kv in parsers.OrderBy(kv => kv.Key))
                 {
                     var name = kv.Key;
                     var pointer = kv.Value;
 
-                    Console.WriteLine(name);
+                    Console.WriteLine("[schema] {0}", name);
 
                     var settings = new XmlWriterSettings()
                     {
@@ -788,7 +954,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                     }
                     */
 
-                    using (var xml = XmlWriter.Create(Path.Combine(outputPath, "exported", name + ".schema.xml"), settings))
+                    using (var xml = XmlWriter.Create(Path.Combine(outputPath, "schemas", name + ".schema.xml"), settings))
                     {
                         xml.WriteStartDocument();
                         xml.WriteStartElement("parser");
@@ -800,7 +966,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                         }
 
                         xml.WriteStartElement("table");
-                        ExportTable(memory, pointer, xml, parsers);
+                        ExportParserTable(memory, pointer, xml, parsers, enums);
                         xml.WriteEndElement();
 
                         xml.WriteEndElement();

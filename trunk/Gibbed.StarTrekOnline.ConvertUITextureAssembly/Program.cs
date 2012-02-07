@@ -23,13 +23,13 @@
 using System.IO;
 using Gibbed.Cryptic.ConvertBin;
 
-namespace Gibbed.StarTrekOnline.ConvertUIFonts
+namespace Gibbed.StarTrekOnline.ConvertUITextureAssembly
 {
     internal class Program
     {
-        private class MyConverter : Converter<Serialization.UIStyleFont>
+        private class MyConverter : Converter<Serialization.UITextureAssembly>
         {
-            protected override string GetPath(Serialization.UIStyleFont entry)
+            protected override string GetPath(Serialization.UITextureAssembly entry)
             {
                 var name = entry.FileName;
                 name = name.Replace('/', '\\');
@@ -40,7 +40,7 @@ namespace Gibbed.StarTrekOnline.ConvertUIFonts
 
         public static void Main(string[] args)
         {
-            new MyConverter().Main(0x9B818B51, args);
+            new MyConverter().Main(0xAE6BCEF1, args);
         }
     }
 }

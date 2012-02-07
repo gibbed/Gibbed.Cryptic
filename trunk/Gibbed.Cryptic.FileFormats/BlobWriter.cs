@@ -580,5 +580,74 @@ namespace Gibbed.Cryptic.FileFormats
                 }
             }
         }
+
+        public void SerializeValueByteEnum<T>(ref T value)
+        {
+            this.Output.WriteValueU8((byte)Convert.ChangeType(value, typeof(byte)));
+        }
+
+        public void SerializeArrayByteEnum<T>(ref T[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListByteEnum<T>(ref List<T> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueInt16Enum<T>(ref T value)
+        {
+            this.Output.WriteValueS32((int)((short)Convert.ChangeType(value, typeof(short))));
+        }
+
+        public void SerializeArrayInt16Enum<T>(ref T[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListInt16Enum<T>(ref List<T> list)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeValueInt32Enum<T>(ref T value)
+        {
+            this.Output.WriteValueS32((int)Convert.ChangeType(value, typeof(int)));
+        }
+
+        public void SerializeArrayInt32Enum<T>(ref T[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListInt32Enum<T>(ref List<T> list)
+        {
+            if (list.Count > 800000)
+            {
+                throw new ArgumentException("list has too many items", "list");
+            }
+
+            this.Output.WriteValueS32(list.Count);
+            foreach (var item in list)
+            {
+                this.Output.WriteValueS32((int)Convert.ChangeType(item, typeof(int)));
+            }
+        }
+
+        public void SerializeValueBitEnum<T>(ref T value)
+        {
+            this.Output.WriteValueU32((uint)Convert.ChangeType(value, typeof(uint)));
+        }
+
+        public void SerializeArrayBitEnum<T>(ref T[] array, int count)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SerializeListBitEnum<T>(ref List<T> list)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

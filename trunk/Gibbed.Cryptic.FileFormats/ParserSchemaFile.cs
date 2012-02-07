@@ -110,6 +110,31 @@ namespace Gibbed.Cryptic.FileFormats
                     }
                 }
 
+                var _sdl = _column.SelectSingleNode("static_define_list");
+                if (_sdl != null)
+                {
+                    column.StaticDefineListExternalName = _sdl.GetAttribute("external", "");
+                    column.StaticDefineListIsExternal = true;
+
+                    var _sdl_elements = _sdl.SelectSingleNode("elements");
+                    if (_sdl_elements != null)
+                    {
+                        column.StaticDefineListIsExternal = false;
+                        column.StaticDefineList = ParserEnumFile.LoadEnumeration(_sdl_elements);
+                    }
+                }
+
+                var _format = GetStringElement(_column, "format", null);
+                if (string.IsNullOrEmpty(_format) == false)
+                {
+                    ParserSchema.ColumnFormat format;
+                    if (Enum.TryParse<ParserSchema.ColumnFormat>(_format, true, out format) == false)
+                    {
+                        throw new FormatException();
+                    }
+                    column.Format = format;
+                }
+
                 table.Columns.Add(column);
             }
 

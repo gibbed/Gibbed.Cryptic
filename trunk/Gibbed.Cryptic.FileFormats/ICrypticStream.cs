@@ -110,5 +110,21 @@ namespace Gibbed.Cryptic.FileFormats
         void SerializeValueMultiValue(ref MultiValue value);
         void SerializeArrayMultiValue(ref MultiValue[] array, int count);
         void SerializeListMultiValue(ref List<MultiValue> list);
+
+        void SerializeValueByteEnum<T>(ref T value);
+        void SerializeArrayByteEnum<T>(ref T[] array, int count);
+        void SerializeListByteEnum<T>(ref List<T> list);
+
+        void SerializeValueInt16Enum<T>(ref T value);
+        void SerializeArrayInt16Enum<T>(ref T[] array, int count);
+        void SerializeListInt16Enum<T>(ref List<T> list);
+
+        void SerializeValueInt32Enum<T>(ref T value);
+        void SerializeArrayInt32Enum<T>(ref T[] array, int count);
+        void SerializeListInt32Enum<T>(ref List<T> list);
+
+        void SerializeValueBitEnum<T>(ref T value);
+        void SerializeArrayBitEnum<T>(ref T[] array, int count);
+        void SerializeListBitEnum<T>(ref List<T> list);
     }
 }
