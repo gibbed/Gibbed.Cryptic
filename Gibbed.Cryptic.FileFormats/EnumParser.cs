@@ -21,49 +21,51 @@
  */
 
 using System;
-using ParserSchema = Gibbed.Cryptic.FileFormats.ParserSchema;
+using System.Collections.Generic;
 
-namespace Gibbed.StarTrekOnline.GenerateSerializer
+namespace Gibbed.Cryptic.FileFormats
 {
-    internal class QueuedType
+    public static class EnumParser<T>
+        where T: struct
     {
-        public string Name;
-        public ParserSchema.Table Table;
-        public QueuedType Parent;
-
-        public QueuedType()
-            : this(null, null, null)
+        public static string ToStringValue(T value)
         {
+            return Enum.Format(typeof(T), value, "g");
         }
 
-        public QueuedType(string name, ParserSchema.Table table)
-            : this(name, table, null)
+        public static T FromStringValue(string value)
         {
-        }
-
-        public QueuedType(string name, ParserSchema.Table table, QueuedType parent)
-        {
-            if (name != null && string.IsNullOrEmpty(name) == true)
+            T parsed;
+            if (Enum.TryParse<T>(value, out parsed) == false)
             {
-                throw new ArgumentException();
+                throw new FormatException();
             }
-
-            this.Name = name;
-            this.Table = table;
-            this.Parent = parent;
+            return parsed;
         }
 
-        public string Key
+        public static List<T> FromStringList(List<string> list)
         {
-            get
+            var items = new List<T>();
+            foreach (var item in list)
             {
-                if (this.Parent == null)
+                T value;
+                if (Enum.TryParse<T>(item, out value) == false)
                 {
-                    return this.Name;
+                    throw new FormatException();
                 }
-
-                return this.Parent.Key + "." + this.Name;
+                items.Add(value);
             }
+            return items;
+        }
+
+        public static List<string> ToStringList(List<T> list)
+        {
+            var items = new List<string>();
+            foreach (var item in list)
+            {
+                items.Add(Enum.Format(typeof(T), item, "g"));
+            }
+            return items;
         }
     }
 }

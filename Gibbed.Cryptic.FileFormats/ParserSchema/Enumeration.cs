@@ -20,27 +20,14 @@
  *    distribution.
  */
 
-using System.IO;
-using Gibbed.Cryptic.ConvertBin;
+using System.Collections.Generic;
 
-namespace Gibbed.StarTrekOnline.ConvertUIFonts
+namespace Gibbed.Cryptic.FileFormats.ParserSchema
 {
-    internal class Program
+    public class Enumeration
     {
-        private class MyConverter : Converter<Serialization.UIStyleFont>
-        {
-            protected override string GetPath(Serialization.UIStyleFont entry)
-            {
-                var name = entry.FileName;
-                name = name.Replace('/', '\\');
-                name = Path.ChangeExtension(Path.Combine(name, entry.Name), ".xml");
-                return name;
-            }
-        }
-
-        public static void Main(string[] args)
-        {
-            new MyConverter().Main(0x9B818B51, args);
-        }
+        public EnumerationType Type;
+        public Dictionary<string, string> Elements
+            = new Dictionary<string, string>();
     }
 }

@@ -48,6 +48,8 @@ namespace Gibbed.Cryptic.ConvertBin
 
         public void Main(uint validHash, string[] args)
         {
+            var serializer = new DataContractSerializer(typeof(TType));
+
             var mode = Mode.Unknown;
             var showHelp = false;
 
@@ -144,8 +146,6 @@ namespace Gibbed.Cryptic.ConvertBin
 
                         xml.WriteStartElement("entries");
                         {
-                            var serializer = new DataContractSerializer(typeof(TType));
-
                             Console.WriteLine("Loading entries...");
                             var entries = BlobReader.LoadResource<TType>(input);
 
@@ -198,7 +198,6 @@ namespace Gibbed.Cryptic.ConvertBin
                 var outputPath = extras.Count > 1 ? extras[1] : Path.ChangeExtension(inputPath, ".bin");
 
                 var entries = new List<TType>();
-                var serializer = new DataContractSerializer(typeof(TType));
 
                 var blob = new BlobFile();
 
@@ -243,7 +242,8 @@ namespace Gibbed.Cryptic.ConvertBin
                         using (var input = File.OpenRead(entryPath))
                         {
                             var reader = XmlDictionaryReader.Create(input);
-                            var entry = (TType)serializer.ReadObject(reader);
+                            var obj = serializer.ReadObject(reader);
+                            var entry = (TType)obj;
                             entries.Add(entry);
                         }
                     }

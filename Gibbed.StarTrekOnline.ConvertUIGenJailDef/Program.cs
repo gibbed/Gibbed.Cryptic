@@ -27,7 +27,7 @@ namespace Gibbed.StarTrekOnline.ConvertUIGenJailDef
 {
     internal class Program
     {
-        private class UIGenConverter : Converter<Serialization.UIGenJailDef>
+        private class MyConverter : Converter<Serialization.UIGenJailDef>
         {
             protected override string GetPath(Serialization.UIGenJailDef entry)
             {
@@ -40,7 +40,7 @@ namespace Gibbed.StarTrekOnline.ConvertUIGenJailDef
 
         public static void Main(string[] args)
         {
-            new UIGenConverter().Main(0x28DBF7A1, args);
+            new MyConverter().Main(0x28DBF7A1, args);
         }
     }
 }
