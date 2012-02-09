@@ -11,6 +11,7 @@
       <offset>0</offset>
       <flags>
         <flag>STRUCTPARAM</flag>
+        <flag>SERVER_ONLY</flag>
       </flags>
       <dictionary_name>RewardTable</dictionary_name>
     </column>
@@ -30,8 +31,14 @@
       <offset>32</offset>
       <default>1</default>
     </column>
-    <column name="ConsumeRequiredItems" type="BIT">
+    <column name="RequiredItemProduct" type="STRING">
       <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ConsumeRequiredItems" type="BIT">
+      <offset>40</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />

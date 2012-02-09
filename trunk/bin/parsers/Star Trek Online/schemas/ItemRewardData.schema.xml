@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemRewardData">
+  <table>
+    <column name="ItemRewardData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hBroadcastChatMessage" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="HideInUI" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

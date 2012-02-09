@@ -84,8 +84,11 @@
       <offset>88</offset>
       <subtable external="EventContactDef" />
     </column>
-    <column name="uHideEventFromClient" type="BIT">
+    <column name="ParentEvent" type="STRING">
       <offset>92</offset>
+    </column>
+    <column name="uHideEventFromClient" type="BIT">
+      <offset>96</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />

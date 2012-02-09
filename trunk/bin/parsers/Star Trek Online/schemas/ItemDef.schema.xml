@@ -191,16 +191,12 @@
     </column>
     <column name="RewardPackInfo" type="OPTIONALSTRUCT">
       <offset>204</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
       <subtable external="RewardPackInfo" />
     </column>
     <column name="RewardTable" type="OPTIONALSTRUCT">
       <offset>204</offset>
       <flags>
         <flag>ALIAS</flag>
-        <flag>SERVER_ONLY</flag>
       </flags>
       <redundant_name>RewardPackInfo</redundant_name>
       <subtable external="RewardPackInfo" />

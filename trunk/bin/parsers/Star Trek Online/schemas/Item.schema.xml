@@ -224,12 +224,12 @@
       </flags>
       <dictionary_name>Mission</dictionary_name>
     </column>
-    <column name="hBroadcastChatMessage" type="REFERENCE">
+    <column name="pRewardData" type="OPTIONALSTRUCT">
       <offset>68</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <dictionary_name>Message</dictionary_name>
+      <subtable external="ItemRewardData" />
     </column>
     <column name="uiTimestamp" type="INT">
       <offset>72</offset>

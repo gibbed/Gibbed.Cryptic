@@ -7,85 +7,99 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="EventName" type="STRING">
+    <column name="Key" type="STRING">
       <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="EventName" type="STRING">
+      <offset>4</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="uStartDate" type="INT">
-      <offset>4</offset>
-      <flags>
-        <flag>NO_TEXT_SAVE</flag>
-      </flags>
-    </column>
-    <column name="uEndDate" type="INT">
       <offset>8</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
-    <column name="StartDate" type="STRING">
+    <column name="uEndDate" type="INT">
       <offset>12</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
     </column>
-    <column name="EndDate" type="STRING">
+    <column name="StartDate" type="STRING">
       <offset>16</offset>
     </column>
-    <column name="msgDisplayName" type="EMBEDDEDSTRUCT">
+    <column name="EndDate" type="STRING">
       <offset>20</offset>
+    </column>
+    <column name="msgDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="DisplayMessage" />
     </column>
     <column name="msgDisplayDescShort" type="EMBEDDEDSTRUCT">
-      <offset>32</offset>
+      <offset>36</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="DisplayMessage" />
     </column>
     <column name="msgDisplayDescLong" type="EMBEDDEDSTRUCT">
-      <offset>44</offset>
+      <offset>48</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="DisplayMessage" />
     </column>
     <column name="Icon" type="STRING">
-      <offset>56</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>NO_TEXT_SAVE</flag>
-      </flags>
-    </column>
-    <column name="Background" type="STRING">
       <offset>60</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
-    <column name="DisplayTag" type="INTARRAY">
+    <column name="Background" type="STRING">
       <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="Parent" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="DisplayTag" type="INTARRAY">
+      <offset>72</offset>
       <static_define_list external="ActivityDisplayTags" />
     </column>
     <column name="EventActive" type="BIT">
-      <offset>68</offset>
+      <offset>76</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="EventMapMove" type="BIT">
-      <offset>68</offset>
+      <offset>76</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="EventContact" type="BIT">
-      <offset>68</offset>
+      <offset>76</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
