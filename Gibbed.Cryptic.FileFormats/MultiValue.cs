@@ -20,11 +20,56 @@
  *    distribution.
  */
 
+using System;
+using System.Collections.Generic;
+
 namespace Gibbed.Cryptic.FileFormats
 {
     public class MultiValue
     {
-        public string Op;
+        private static Dictionary<string, MultiValueOpcode> NamesToOpcodes;
+        private static Dictionary<uint, MultiValueOpcode> ValuesToOpcodes;
+
+        public static bool TryParseOpcode(string name, out MultiValueOpcode op)
+        {
+            if (NamesToOpcodes.ContainsKey(name) == false)
+            {
+                op = MultiValueOpcode.INV;
+                return false;
+            }
+
+            op = NamesToOpcodes[name];
+            return true;
+        }
+
+        public static bool TryParseOpcode(uint value, out MultiValueOpcode op)
+        {
+            if (ValuesToOpcodes.ContainsKey(value) == false)
+            {
+                op = MultiValueOpcode.INV;
+                return false;
+            }
+
+            op = ValuesToOpcodes[value];
+            return true;
+        }
+
+        static MultiValue()
+        {
+            NamesToOpcodes = new Dictionary<string, MultiValueOpcode>();
+            ValuesToOpcodes = new Dictionary<uint, MultiValueOpcode>();
+
+            foreach (MultiValueOpcode value in Enum.GetValues(typeof(MultiValueOpcode)))
+            {
+                var name = Enum.GetName(typeof(MultiValueOpcode), value);
+                NamesToOpcodes.Add(name, value);
+                ValuesToOpcodes.Add((uint)value, value);
+            }
+        }
+
+        public MultiValueOpcode Op;
+        public string OpName { get { return Enum.GetName(typeof(MultiValueOpcode), this.Op); } }
+
         public object Arg;
     }
 }

@@ -44,7 +44,8 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
         {
             if ((column.Flags & Parser.ColumnFlags.ALIAS) != 0 ||
                 (column.Flags & Parser.ColumnFlags.UNKNOWN_32) != 0 ||
-                (column.Flags & Parser.ColumnFlags.NO_WRITE) != 0)
+                (column.Flags & Parser.ColumnFlags.NO_WRITE) != 0 ||
+                (column.Flags & Parser.ColumnFlags.SERVER_ONLY) != 0)
             {
                 return false;
             }
@@ -59,7 +60,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             return true;
         }
 
-        public static MethodInfo GetSerializeMethod(ParserSchema.Column column)
+        public static MethodInfo GetFileSerializerMethod(ParserSchema.Column column)
         {
             var token = Parser.GlobalTokens.GetToken(column.Token);
 
@@ -84,7 +85,43 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 name += "Enum";
             }
 
-            var methodInfo = typeof(ICrypticStream).GetMethod(
+            var methodInfo = typeof(ICrypticFileStream).GetMethod(
+                name,
+                BindingFlags.Public | BindingFlags.Instance);
+            if (methodInfo == null)
+            {
+                throw new NotSupportedException(name + " is missing");
+            }
+
+            return methodInfo;
+        }
+
+        public static MethodInfo GetPacketSerializerMethod(ParserSchema.Column column)
+        {
+            var token = Parser.GlobalTokens.GetToken(column.Token);
+
+            string name = null;
+
+            if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+            {
+                name = "ReadValue" + token.GetType().Name;
+            }
+            else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+            {
+                name = "ReadArray" + token.GetType().Name;
+            }
+            else
+            {
+                name = "ReadList" + token.GetType().Name;
+            }
+
+            if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
+                column.StaticDefineList != null)
+            {
+                name += "Enum";
+            }
+
+            var methodInfo = typeof(ICrypticPacketReader).GetMethod(
                 name,
                 BindingFlags.Public | BindingFlags.Instance);
             if (methodInfo == null)

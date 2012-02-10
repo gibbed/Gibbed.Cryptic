@@ -48,10 +48,12 @@
     <Compile Include="Blob\FileEntry.cs" />
     <Compile Include="EnumParser.cs" />
     <Compile Include="FunctionCall.cs" />
-    <Compile Include="ICrypticStream.cs" />
+    <Compile Include="ICrypticFileStream.cs" />
+    <Compile Include="ICrypticPacketReader.cs" />
     <Compile Include="ICrypticStructure.cs" />
     <Compile Include="MATPYR.cs" />
     <Compile Include="MultiValue.cs" />
+    <Compile Include="PacketReader.cs" />
     <Compile Include="ParserEnumFile.cs" />
     <Compile Include="ParserSchemaFile.cs" />
     <Compile Include="ParserSchema\Column.cs" />
@@ -64,7 +66,7 @@
     <Compile Include="Parser\ColumnParameter.cs" />
     <Compile Include="Parser\ColumnFlags.cs" />
     <Compile Include="Parser\GlobalTokens.cs" />
-    <Compile Include="Parser\Opcode.cs" />
+    <Compile Include="MultiValueOpcode.cs" />
     <Compile Include="Parser\StorageCompatability.cs" />
     <Compile Include="Parser\Token.cs" />
     <Compile Include="JournalFile.cs" />

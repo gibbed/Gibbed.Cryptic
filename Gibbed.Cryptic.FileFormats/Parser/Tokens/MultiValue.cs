@@ -47,13 +47,13 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
         public override string NameDirectFixedArray { get { return "MULTIARRAY"; } }
         public override string NameIndirectArray { get { return "MULTIEARRAY"; } }
 
-        private static Dictionary<string, Opcode> NamesToOpcodes;
+        private static Dictionary<string, MultiValueOpcode> NamesToOpcodes;
         static MultiValue()
         {
-            NamesToOpcodes = new Dictionary<string, Opcode>();
-            foreach (var name in Enum.GetNames(typeof(Opcode)))
+            NamesToOpcodes = new Dictionary<string, MultiValueOpcode>();
+            foreach (var name in Enum.GetNames(typeof(MultiValueOpcode)))
             {
-                NamesToOpcodes.Add(name, (Opcode)Enum.Parse(typeof(Opcode), name));
+                NamesToOpcodes.Add(name, (MultiValueOpcode)Enum.Parse(typeof(MultiValueOpcode), name));
             }
         }
 
@@ -73,58 +73,58 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
             
             switch (op)
             {
-                case Opcode.NON:
-                case Opcode.O_P:
-                case Opcode.C_P:
-                case Opcode.STM:
-                case Opcode.LES:
-                case Opcode.ADD:
-                case Opcode.SUB:
-                case Opcode.MUL:
-                case Opcode.EQU:
-                case Opcode.NOT:
-                case Opcode.RET:
-                case Opcode.AND:
-                case Opcode.NEG:
-                case Opcode.ORR:
-                case Opcode.BAN:
-                case Opcode.RZ_:
-                case Opcode.NLE:
-                case Opcode.GRE:
-                case Opcode.DIV:
-                case Opcode.BOR:
-                case Opcode.NGR:
-                case Opcode.BNT:
+                case MultiValueOpcode.NON:
+                case MultiValueOpcode.O_P:
+                case MultiValueOpcode.C_P:
+                case MultiValueOpcode.STM:
+                case MultiValueOpcode.LES:
+                case MultiValueOpcode.ADD:
+                case MultiValueOpcode.SUB:
+                case MultiValueOpcode.MUL:
+                case MultiValueOpcode.EQU:
+                case MultiValueOpcode.NOT:
+                case MultiValueOpcode.RET:
+                case MultiValueOpcode.AND:
+                case MultiValueOpcode.NEG:
+                case MultiValueOpcode.ORR:
+                case MultiValueOpcode.BAN:
+                case MultiValueOpcode.RZ_:
+                case MultiValueOpcode.NLE:
+                case MultiValueOpcode.GRE:
+                case MultiValueOpcode.DIV:
+                case MultiValueOpcode.BOR:
+                case MultiValueOpcode.NGR:
+                case MultiValueOpcode.BNT:
                 {
                     arg = null;
                     break;
                 }
 
-                case Opcode.S_V:
+                case MultiValueOpcode.S_V:
                 {
                     arg = input.ReadValueU32();
                     break;
                 }
 
-                case Opcode.INT:
-                case Opcode.JZ_:
-                case Opcode.J__:
+                case MultiValueOpcode.INT:
+                case MultiValueOpcode.JZ_:
+                case MultiValueOpcode.J__:
                 {
                     arg = input.ReadValueS64();
                     break;
                 }
 
-                case Opcode.FLT:
+                case MultiValueOpcode.FLT:
                 {
                     arg = input.ReadValueF64();
                     break;
                 }
 
-                case Opcode.STR:
-                case Opcode.FUN:
-                case Opcode.OBJ:
-                case Opcode.IDS:
-                case Opcode.RP_:
+                case MultiValueOpcode.STR:
+                case MultiValueOpcode.FUN:
+                case MultiValueOpcode.OBJ:
+                case MultiValueOpcode.IDS:
+                case MultiValueOpcode.RP_:
                 {
                     arg = input.ReadStringPascalUncapped();
                     break;
