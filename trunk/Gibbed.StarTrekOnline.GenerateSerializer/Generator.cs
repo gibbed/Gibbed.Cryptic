@@ -94,6 +94,8 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 var qt = queue.Dequeue();
                 done.Add(qt.Key);
 
+                Console.WriteLine("Generating type for {0}...", qt.Key);
+
                 TypeBuilder typeBuilder;
 
                 if (qt.Parent == null)
@@ -177,6 +179,8 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             {
                 var qt = queue.Dequeue();
                 done.Add(qt.Key);
+
+                Console.WriteLine("Generating code for {0}...", qt.Key);
 
                 var typeBuilder = this.TableTypes[qt.Table];
 
@@ -601,13 +605,13 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                     for (int i = 0; i < column.Subtable.Columns.Count; i++)
                     {
                         var subcolumn = column.Subtable.Columns[i];
-                        
+
                         cctorMsil.Emit(OpCodes.Ldloc, typeList);
                         cctorMsil.EmitConstant(i);
-                        
+
                         cctorMsil.Emit(OpCodes.Ldtoken, this.GetColumnNativeType(typeBuilder, subcolumn));
                         cctorMsil.Emit(OpCodes.Call, typeof(Type).GetMethod("GetTypeFromHandle", new Type[] { typeof(RuntimeTypeHandle) }));
-                        
+
                         cctorMsil.Emit(OpCodes.Stelem_Ref);
                     }
 
@@ -635,155 +639,464 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 cctorMsil.Emit(OpCodes.Ret);
             }
 
-            var serializeBuilder = typeBuilder.DefineMethod(
-                "Serialize",
-                MethodAttributes.Public | MethodAttributes.Virtual,
-                null,
-                new Type[] { typeof(ICrypticStream) });
-            var serializeDeclaration = typeof(ICrypticStructure).GetMethod("Serialize");
-            typeBuilder.DefineMethodOverride(serializeBuilder, serializeDeclaration);
-            serializeBuilder.DefineParameter(1, ParameterAttributes.None, "stream");
-
-            var msil = serializeBuilder.GetILGenerator();
-
-            var isNullLabel = msil.DefineLabel();
-            var isNullLocal = msil.DeclareLocal(typeof(bool));
-
-            msil.Emit(OpCodes.Ldarg_1);
-            msil.Emit(OpCodes.Ldnull);
-            msil.Emit(OpCodes.Ceq);
-            msil.Emit(OpCodes.Ldc_I4_0);
-            msil.Emit(OpCodes.Ceq);
-            msil.Emit(OpCodes.Stloc, isNullLocal);
-            msil.Emit(OpCodes.Ldloc, isNullLocal);
-            msil.Emit(OpCodes.Brtrue_S, isNullLabel);
-
-            msil.Emit(OpCodes.Ldstr, "stream");
-            msil.Emit(OpCodes.Newobj, typeof(ArgumentNullException).GetConstructor(new Type[] { typeof(string) }));
-            msil.Emit(OpCodes.Throw);
-
-            msil.MarkLabel(isNullLabel);
-
-            foreach (var column in table.Columns
-                .Where(c => Helpers.IsGoodColumn(c)))
+            // Serialize (ICrypticFileStream)
             {
-                var token = Parser.GlobalTokens.GetToken(column.Token);
-                var methodInfo = Helpers.GetSerializeMethod(column);
+                var serializeBuilder = typeBuilder.DefineMethod(
+                    "Serialize",
+                    MethodAttributes.Public | MethodAttributes.Virtual,
+                    null,
+                    new Type[] { typeof(ICrypticFileStream) });
+                var serializeDeclaration = typeof(ICrypticStructure).GetMethod("Serialize", new Type[] { typeof(ICrypticFileStream) });
+                typeBuilder.DefineMethodOverride(serializeBuilder, serializeDeclaration);
+                serializeBuilder.DefineParameter(1, ParameterAttributes.None, "stream");
 
-                var basicFlags = Parser.ColumnFlags.None;
-                basicFlags |= column.Flags & Parser.ColumnFlags.FIXED_ARRAY;
-                basicFlags |= column.Flags & Parser.ColumnFlags.EARRAY;
-                basicFlags |= column.Flags & Parser.ColumnFlags.INDIRECT;
+                var msil = serializeBuilder.GetILGenerator();
 
-                if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
-                    column.StaticDefineList != null)
+                var isNullLabel = msil.DefineLabel();
+                var isNullLocal = msil.DeclareLocal(typeof(bool));
+
+                msil.Emit(OpCodes.Ldarg_1);
+                msil.Emit(OpCodes.Ldnull);
+                msil.Emit(OpCodes.Ceq);
+                msil.Emit(OpCodes.Ldc_I4_0);
+                msil.Emit(OpCodes.Ceq);
+                msil.Emit(OpCodes.Stloc, isNullLocal);
+                msil.Emit(OpCodes.Ldloc, isNullLocal);
+                msil.Emit(OpCodes.Brtrue_S, isNullLabel);
+
+                msil.Emit(OpCodes.Ldstr, "stream");
+                msil.Emit(OpCodes.Newobj, typeof(ArgumentNullException).GetConstructor(new Type[] { typeof(string) }));
+                msil.Emit(OpCodes.Throw);
+
+                msil.MarkLabel(isNullLabel);
+
+                foreach (var column in table.Columns
+                    .Where(c => Helpers.IsGoodColumn(c)))
                 {
-                    if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+                    var token = Parser.GlobalTokens.GetToken(column.Token);
+                    var methodInfo = Helpers.GetFileSerializerMethod(column);
+
+                    var basicFlags = Parser.ColumnFlags.None;
+                    basicFlags |= column.Flags & Parser.ColumnFlags.FIXED_ARRAY;
+                    basicFlags |= column.Flags & Parser.ColumnFlags.EARRAY;
+                    basicFlags |= column.Flags & Parser.ColumnFlags.INDIRECT;
+
+                    if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
+                        column.StaticDefineList != null)
                     {
-                        msil.Emit(OpCodes.Ldarg_1);
-                        msil.Emit(OpCodes.Ldarg_0);
-                        msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldarg_0);
+                            msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        }
+                        else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldarg_0);
+                            msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
+                            msil.EmitConstant(column.NumberOfElements);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        }
+                        else
+                        {
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldarg_0);
+                            msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]), null);
+                        }
                     }
-                    else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+                    else if (column.Token == 20) // structure
                     {
-                        msil.Emit(OpCodes.Ldarg_1);
-                        msil.Emit(OpCodes.Ldarg_0);
-                        msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
-                        msil.EmitConstant(column.NumberOfElements);
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldarg_0);
+                            msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
+                            msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        }
+                        else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldarg_0);
+                            msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
+                            msil.EmitConstant(column.NumberOfElements);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        }
+                        else
+                        {
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldarg_0);
+                            msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]), null);
+                        }
+                    }
+                    else if (column.Token == 21) // polymorph
+                    {
+                        if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldarg_0);
+                            msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
+                            msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
+                            msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        }
+                        else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldarg_0);
+                            msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
+                            msil.EmitConstant(column.NumberOfElements);
+                            msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        }
+                        else
+                        {
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldarg_0);
+                            msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
+                            msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        }
                     }
                     else
                     {
-                        msil.Emit(OpCodes.Ldarg_1);
-                        msil.Emit(OpCodes.Ldarg_0);
-                        msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]), null);
+                        if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldarg_0);
+                            msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        }
+                        else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldarg_0);
+                            msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
+                            msil.EmitConstant(column.NumberOfElements);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        }
+                        else
+                        {
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldarg_0);
+                            msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        }
                     }
                 }
-                else if (column.Token == 20) // structure
-                {
-                    if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
-                    {
-                        msil.Emit(OpCodes.Ldarg_1);
-                        msil.Emit(OpCodes.Ldarg_0);
-                        msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
-                        msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
-                    }
-                    else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
-                    {
-                        msil.Emit(OpCodes.Ldarg_1);
-                        msil.Emit(OpCodes.Ldarg_0);
-                        msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
-                        msil.EmitConstant(column.NumberOfElements);
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
-                    }
-                    else
-                    {
-                        msil.Emit(OpCodes.Ldarg_1);
-                        msil.Emit(OpCodes.Ldarg_0);
-                        msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]), null);
-                    }
-                }
-                else if (column.Token == 21) // polymorph
-                {
-                    if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
-                    {
-                        msil.Emit(OpCodes.Ldarg_1);
-                        msil.Emit(OpCodes.Ldarg_0);
-                        msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
-                        msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
-                        msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]);
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
-                    }
-                    else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
-                    {
-                        msil.Emit(OpCodes.Ldarg_1);
-                        msil.Emit(OpCodes.Ldarg_0);
-                        msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
-                        msil.EmitConstant(column.NumberOfElements);
-                        msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]);
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
-                    }
-                    else
-                    {
-                        msil.Emit(OpCodes.Ldarg_1);
-                        msil.Emit(OpCodes.Ldarg_0);
-                        msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
-                        msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]);
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
-                    }
-                }
-                else
-                {
-                    if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
-                    {
-                        msil.Emit(OpCodes.Ldarg_1);
-                        msil.Emit(OpCodes.Ldarg_0);
-                        msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
-                    }
-                    else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
-                    {
-                        msil.Emit(OpCodes.Ldarg_1);
-                        msil.Emit(OpCodes.Ldarg_0);
-                        msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
-                        msil.EmitConstant(column.NumberOfElements);
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
-                    }
-                    else
-                    {
-                        msil.Emit(OpCodes.Ldarg_1);
-                        msil.Emit(OpCodes.Ldarg_0);
-                        msil.Emit(OpCodes.Ldflda, fieldBuilders[column]);
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
-                    }
-                }
+
+                msil.Emit(OpCodes.Ret);
             }
 
-            msil.Emit(OpCodes.Ret);
+            // Serialize (ICrypticPacketReader)
+            {
+                var serializeBuilder = typeBuilder.DefineMethod(
+                    "Serialize",
+                    MethodAttributes.Public | MethodAttributes.Virtual,
+                    null,
+                    new Type[] { typeof(ICrypticPacketReader), typeof(bool) });
+                var serializeDeclaration = typeof(ICrypticStructure).GetMethod("Serialize", new Type[] { typeof(ICrypticPacketReader), typeof(bool) });
+                typeBuilder.DefineMethodOverride(serializeBuilder, serializeDeclaration);
+                
+                var readerParam = serializeBuilder.DefineParameter(1, ParameterAttributes.None, "reader");
+                var unknownFlagParam = serializeBuilder.DefineParameter(2, ParameterAttributes.None, "unknownFlag");
+
+                var msil = serializeBuilder.GetILGenerator();
+
+                var unknownFlagLocal = msil.DeclareLocal(typeof(bool));
+                var indexLocal = msil.DeclareLocal(typeof(int));
+
+                var readHasFieldLabel = msil.DefineLabel();
+                var readFieldIndexLabel = msil.DefineLabel();
+                var badFieldIndex = msil.DefineLabel();
+                var validFieldIndex = msil.DefineLabel();
+                
+                var switchDefaultLabel = msil.DefineLabel();
+                var switchPostLabel = msil.DefineLabel();
+                var returnLabel = msil.DefineLabel();
+
+                msil.Emit(OpCodes.Ldarg_1);
+                msil.Emit(OpCodes.Callvirt, typeof(ICrypticPacketReader).GetMethod("ReadNativeBoolean"));
+                msil.Emit(OpCodes.Stloc, unknownFlagLocal);
+
+                msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+                msil.Emit(OpCodes.Ldc_I4_0);
+                msil.Emit(OpCodes.Ceq);
+                msil.Emit(OpCodes.Brtrue_S, readHasFieldLabel);
+
+                msil.Emit(OpCodes.Newobj, typeof(FormatException).GetConstructor(Type.EmptyTypes));
+                msil.Emit(OpCodes.Throw);
+
+                msil.MarkLabel(readHasFieldLabel);
+                msil.Emit(OpCodes.Ldarg_1);
+                msil.Emit(OpCodes.Callvirt, typeof(ICrypticPacketReader).GetMethod("ReadNativeBoolean"));
+                msil.Emit(OpCodes.Brtrue_S, readFieldIndexLabel);
+                msil.Emit(OpCodes.Br, returnLabel);
+
+                msil.MarkLabel(readFieldIndexLabel);
+                msil.Emit(OpCodes.Ldarg_1);
+                msil.Emit(OpCodes.Callvirt, typeof(ICrypticPacketReader).GetMethod("ReadNativeInt32Packed"));
+                msil.Emit(OpCodes.Stloc, indexLocal);
+
+                msil.Emit(OpCodes.Ldloc, indexLocal);
+                msil.Emit(OpCodes.Ldc_I4_0);
+                msil.Emit(OpCodes.Blt, badFieldIndex);
+
+                msil.Emit(OpCodes.Ldloc, indexLocal);
+                msil.EmitConstant(table.Columns.Count);
+                msil.Emit(OpCodes.Blt, validFieldIndex);
+
+                msil.MarkLabel(badFieldIndex);
+                msil.Emit(OpCodes.Ldstr, "invalid field index");
+                msil.Emit(OpCodes.Newobj, typeof(FormatException).GetConstructor(new Type[] { typeof(string) }));
+                msil.Emit(OpCodes.Throw);
+
+                msil.MarkLabel(validFieldIndex);
+
+                var jumpTable = new Label[table.Columns.Count];
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
+                    jumpTable[i] = msil.DefineLabel();
+                }
+
+                msil.Emit(OpCodes.Ldloc, indexLocal);
+                msil.Emit(OpCodes.Switch, jumpTable);
+                msil.Emit(OpCodes.Br, switchDefaultLabel);
+
+                for (int i = 0; i < table.Columns.Count; i++)
+                {
+                    msil.MarkLabel(jumpTable[i]);
+
+                    var column = table.Columns[i];
+                    if (Helpers.IsGoodColumn(column) == false)
+                    {
+                        msil.Emit(OpCodes.Ldstr, "cannot serialize " + column.Name);
+                        msil.Emit(OpCodes.Newobj, typeof(InvalidOperationException).GetConstructor(new Type[] { typeof(string) }));
+                        msil.Emit(OpCodes.Throw);
+                        continue;
+                    }
+
+                    msil.Emit(OpCodes.Ldstr, "serializing " + typeBuilder.Name + "." + column.Name);
+                    msil.EmitCall(OpCodes.Call, typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) }), null);
+
+                    var token = Parser.GlobalTokens.GetToken(column.Token);
+                    var methodInfo = Helpers.GetPacketSerializerMethod(column);
+
+                    var basicFlags = Parser.ColumnFlags.None;
+                    basicFlags |= column.Flags & Parser.ColumnFlags.FIXED_ARRAY;
+                    basicFlags |= column.Flags & Parser.ColumnFlags.EARRAY;
+                    basicFlags |= column.Flags & Parser.ColumnFlags.INDIRECT;
+
+                    if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
+                        column.StaticDefineList != null)
+                    {
+                        if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_0);
+
+                            msil.Emit(OpCodes.Ldarg_1);
+
+                            if (column.Token == 23)
+                            {
+                                msil.EmitConstant(column.BitOffset);
+                            }
+
+                            msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+
+                            msil.Emit(OpCodes.Not);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                            
+                            msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
+                        }
+                        else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_0);
+                            
+                            msil.Emit(OpCodes.Ldarg_1);
+
+                            if (column.Token == 23)
+                            {
+                                msil.EmitConstant(column.BitOffset);
+                            }
+
+                            msil.EmitConstant(column.NumberOfElements);
+                            msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+                            msil.Emit(OpCodes.Not);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                            
+                            msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
+                        }
+                        else
+                        {
+                            msil.Emit(OpCodes.Ldarg_0);
+
+                            msil.Emit(OpCodes.Ldarg_1);
+
+                            if (column.Token == 23)
+                            {
+                                msil.EmitConstant(column.BitOffset);
+                            }
+
+                            msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+                            msil.Emit(OpCodes.Not);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]), null);
+
+                            msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
+                        }
+                    }
+                    else if (column.Token == 20) // structure
+                    {
+                        if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_0);
+
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
+                            msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+                            msil.Emit(OpCodes.Not);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                            
+                            msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
+                        }
+                        else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_0);
+
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.EmitConstant(column.NumberOfElements);
+                            msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+                            msil.Emit(OpCodes.Not);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                            
+                            msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
+                        }
+                        else
+                        {
+                            msil.Emit(OpCodes.Ldarg_0);
+
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+                            msil.Emit(OpCodes.Not);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]), null);
+                            
+                            msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
+                        }
+                    }
+                    else if (column.Token == 21) // polymorph
+                    {
+                        if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_0);
+
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]);
+                            msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
+                            msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+                            msil.Emit(OpCodes.Not);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                            
+                            msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
+                        }
+                        else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_0);
+
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]);
+                            msil.EmitConstant(column.NumberOfElements);
+                            msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+                            msil.Emit(OpCodes.Not);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+
+                            msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
+                        }
+                        else
+                        {
+                            msil.Emit(OpCodes.Ldarg_0);
+
+                            msil.Emit(OpCodes.Ldarg_1);
+                            msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]);
+                            msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+                            msil.Emit(OpCodes.Not);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+
+                            msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
+                        }
+                    }
+                    else
+                    {
+                        if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_0);
+
+                            msil.Emit(OpCodes.Ldarg_1);
+
+                            if (column.Token == 23)
+                            {
+                                msil.EmitConstant(column.BitOffset);
+                            }
+
+                            msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+                            msil.Emit(OpCodes.Not);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+
+                            msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
+                        }
+                        else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+                        {
+                            msil.Emit(OpCodes.Ldarg_0);
+
+                            msil.Emit(OpCodes.Ldarg_1);
+
+                            if (column.Token == 23)
+                            {
+                                msil.EmitConstant(column.BitOffset);
+                            }
+
+                            msil.EmitConstant(column.NumberOfElements);
+                            msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+                            msil.Emit(OpCodes.Not);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+
+                            msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
+                        }
+                        else
+                        {
+                            msil.Emit(OpCodes.Ldarg_0);
+
+                            msil.Emit(OpCodes.Ldarg_1);
+
+                            if (column.Token == 23)
+                            {
+                                msil.EmitConstant(column.BitOffset);
+                            }
+
+                            msil.Emit(OpCodes.Ldloc, unknownFlagLocal);
+                            msil.Emit(OpCodes.Not);
+                            msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+
+                            msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
+                        }
+                    }
+
+                    msil.Emit(OpCodes.Br, switchPostLabel);
+                }
+
+                msil.MarkLabel(switchDefaultLabel);
+                msil.Emit(OpCodes.Ldstr, "cannot serialize unknown field");
+                msil.Emit(OpCodes.Newobj, typeof(InvalidOperationException).GetConstructor(new Type[] { typeof(string) }));
+                msil.Emit(OpCodes.Throw);
+
+                msil.MarkLabel(switchPostLabel);
+                msil.Emit(OpCodes.Br, readHasFieldLabel);
+
+                msil.MarkLabel(returnLabel);
+                msil.Emit(OpCodes.Ret);
+            }
         }
     }
 }

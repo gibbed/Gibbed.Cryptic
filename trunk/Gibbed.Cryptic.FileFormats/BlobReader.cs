@@ -30,7 +30,7 @@ using Gibbed.IO;
 
 namespace Gibbed.Cryptic.FileFormats
 {
-    public class BlobReader : ICrypticStream
+    public class BlobReader : ICrypticFileStream
     {
         private Stream Input;
 
@@ -44,9 +44,14 @@ namespace Gibbed.Cryptic.FileFormats
         {
             public List<TType> List;
 
-            public void Serialize(ICrypticStream stream)
+            public void Serialize(ICrypticFileStream stream)
             {
                 stream.SerializeListStructure<TType>(ref this.List);
+            }
+
+            public void Serialize(ICrypticPacketReader reader, bool unknownFlag)
+            {
+                throw new NotSupportedException();
             }
         }
 
@@ -495,72 +500,77 @@ namespace Gibbed.Cryptic.FileFormats
                 object arg;
 
                 var name = this.Input.ReadString(4, true, Encoding.ASCII);
-                switch (name)
+                MultiValueOpcode op;
+                if (MultiValue.TryParseOpcode(name, out op) == false)
                 {
-                    case "NON":
-                    case "O_P":
-                    case "C_P":
-                    case "STM":
-                    case "LES":
-                    case "ADD":
-                    case "SUB":
-                    case "MUL":
-                    case "EQU":
-                    case "NOT":
-                    case "RET":
-                    case "AND":
-                    case "NEG":
-                    case "ORR":
-                    case "BAN":
-                    case "RZ_":
-                    case "NLE":
-                    case "GRE":
-                    case "DIV":
-                    case "BOR":
-                    case "NGR":
-                    case "BNT":
+                    throw new FormatException();
+                }
+                
+                switch (op)
+                {
+                    case MultiValueOpcode.NON:
+                    case MultiValueOpcode.O_P:
+                    case MultiValueOpcode.C_P:
+                    case MultiValueOpcode.STM:
+                    case MultiValueOpcode.LES:
+                    case MultiValueOpcode.ADD:
+                    case MultiValueOpcode.SUB:
+                    case MultiValueOpcode.MUL:
+                    case MultiValueOpcode.EQU:
+                    case MultiValueOpcode.NOT:
+                    case MultiValueOpcode.RET:
+                    case MultiValueOpcode.AND:
+                    case MultiValueOpcode.NEG:
+                    case MultiValueOpcode.ORR:
+                    case MultiValueOpcode.BAN:
+                    case MultiValueOpcode.RZ_:
+                    case MultiValueOpcode.NLE:
+                    case MultiValueOpcode.GRE:
+                    case MultiValueOpcode.DIV:
+                    case MultiValueOpcode.BOR:
+                    case MultiValueOpcode.NGR:
+                    case MultiValueOpcode.BNT:
                     {
                         arg = null;
                         break;
                     }
 
-                    case "S_V":
+                    case MultiValueOpcode.S_V:
                     {
                         arg = this.Input.ReadValueU32();
                         break;
                     }
 
-                    case "INT":
-                    case "JZ_":
-                    case "J__":
+                    case MultiValueOpcode.INT:
+                    case MultiValueOpcode.JZ_:
+                    case MultiValueOpcode.J__:
                     {
                         arg = this.Input.ReadValueS64();
                         break;
                     }
 
-                    case "FLT":
+                    case MultiValueOpcode.FLT:
                     {
                         arg = this.Input.ReadValueF64();
                         break;
                     }
 
-                    case "STR":
-                    case "FUN":
-                    case "OBJ":
-                    case "IDS":
-                    case "RP_":
+                    case MultiValueOpcode.STR:
+                    case MultiValueOpcode.FUN:
+                    case MultiValueOpcode.OBJ:
+                    case MultiValueOpcode.IDS:
+                    case MultiValueOpcode.RP_:
                     {
                         arg = this.Input.ReadStringPascalUncapped();
                         break;
                     }
 
-                    default:
-                    throw new NotSupportedException("unhandled opcode in multival");
+                    default: throw new NotSupportedException("unhandled opcode in multival");
                 }
 
                 list.Add(new MultiValue()
                 {
-                    Op = name,
+                    Op = op,
                     Arg = arg,
                 });
             }

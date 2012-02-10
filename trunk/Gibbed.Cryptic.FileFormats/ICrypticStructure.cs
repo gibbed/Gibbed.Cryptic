@@ -24,6 +24,7 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public interface ICrypticStructure
     {
-        void Serialize(ICrypticStream stream);
+        void Serialize(ICrypticFileStream stream);
+        void Serialize(ICrypticPacketReader reader, bool unknownFlag);
     }
 }
