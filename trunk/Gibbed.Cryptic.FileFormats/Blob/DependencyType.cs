@@ -22,10 +22,9 @@
 
 namespace Gibbed.Cryptic.FileFormats.Blob
 {
-    public class DependencyEntry
+    public enum DependencyType : uint
     {
-        public uint Type;
-        public string Name;
-        public uint Hash;
+        Schema = 0,
+        Function = 1,
     }
 }

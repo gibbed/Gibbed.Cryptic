@@ -137,9 +137,9 @@ namespace Gibbed.Cryptic.ConvertBin
                         foreach (var entry in blob.Dependencies)
                         {
                             xml.WriteStartElement("dependency");
-                            xml.WriteAttributeString("unknown0", entry.Unknown0.ToString());
+                            xml.WriteAttributeString("unknown0", entry.Type.ToString());
                             xml.WriteAttributeString("name", entry.Name);
-                            xml.WriteAttributeString("unknown1", entry.Unknown1.ToString());
+                            xml.WriteAttributeString("unknown1", entry.Hash.ToString());
                             xml.WriteEndElement();
                         }
                         xml.WriteEndElement();
@@ -225,9 +225,9 @@ namespace Gibbed.Cryptic.ConvertBin
                     {
                         blob.Dependencies.Add(new Cryptic.FileFormats.Blob.DependencyEntry()
                         {
-                            Unknown0 = uint.Parse(dependencyNodes.Current.GetAttribute("unknown0", "")),
+                            Type = uint.Parse(dependencyNodes.Current.GetAttribute("unknown0", "")),
                             Name = dependencyNodes.Current.GetAttribute("name", ""),
-                            Unknown1 = uint.Parse(dependencyNodes.Current.GetAttribute("unknown1", "")),
+                            Hash = uint.Parse(dependencyNodes.Current.GetAttribute("unknown1", "")),
                         });
                     }
 

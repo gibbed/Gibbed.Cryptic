@@ -516,12 +516,31 @@ namespace Gibbed.Cryptic.FileFormats
             {
                 case MultiValueOpcode.O_P:
                 case MultiValueOpcode.C_P:
+                case MultiValueOpcode.MUL:
+                case MultiValueOpcode.DIV:
                 {
                     arg = null;
                     break;
                 }
 
+                case MultiValueOpcode.INT:
+                {
+                    var lo = this.ReadNativeUInt32Packed();
+                    var hi = this.ReadNativeUInt32Packed();
+                    arg = (long)(((ulong)hi << 32) | (ulong)lo);
+                    break;
+                }
+
+                case MultiValueOpcode.FLT:
+                {
+                    var lo = this.ReadNativeUInt32Packed();
+                    var hi = this.ReadNativeUInt32Packed();
+                    arg = BitConverter.Int64BitsToDouble(((long)hi << 32) | (long)lo);
+                    break;
+                }
+
                 case MultiValueOpcode.STR:
+                case MultiValueOpcode.FUN:
                 {
                     arg = this.Input.ReadStringZ(Encoding.UTF8);
                     break;

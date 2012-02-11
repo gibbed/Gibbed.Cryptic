@@ -577,6 +577,14 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
 
             var polymorphAttributeTypes = new List<Type>();
 
+            if (table.Columns.Any(c => c.Token == 24) == true)
+            {
+                typeBuilder.SetCustomAttribute(
+                    new CustomAttributeBuilder(typeof(KnownTypeAttribute)
+                        .GetConstructor(new Type[] { typeof(Type) }), new object[] { typeof(StaticVariableType) }));
+                polymorphAttributeTypes.Add(typeof(StaticVariableType));
+            }
+
             var polymorphBuilders = new Dictionary<ParserSchema.Column, FieldBuilder>();
             var polymorphColumns = table.Columns.Where(c => Helpers.IsGoodColumn(c) && c.Token == 21);
             if (polymorphColumns.Count() > 0)
@@ -880,8 +888,10 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                         continue;
                     }
 
+                    /*
                     msil.Emit(OpCodes.Ldstr, "serializing " + typeBuilder.Name + "." + column.Name);
                     msil.EmitCall(OpCodes.Call, typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) }), null);
+                    */
 
                     var token = Parser.GlobalTokens.GetToken(column.Token);
                     var methodInfo = Helpers.GetPacketSerializerMethod(column);
