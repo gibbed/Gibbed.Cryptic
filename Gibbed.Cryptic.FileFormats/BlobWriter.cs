@@ -76,6 +76,38 @@ namespace Gibbed.Cryptic.FileFormats
 #endif
         }
 
+        delegate void WriteNativeValue<TType>(ICrypticFileStream stream, ref TType value);
+
+        private void WriteNativeArray<TType>(
+            ref TType[] array, int count, WriteNativeValue<TType> writeValue)
+        {
+            if (array.Length != count)
+            {
+                throw new ArgumentException("count mismatch in array", "array");
+            }
+
+            for (uint i = 0; i < count; i++)
+            {
+                writeValue(this, ref array[i]);
+            }
+        }
+
+        private void WriteNativeList<TType>(
+            ref List<TType> list, WriteNativeValue<TType> writeValue)
+        {
+            if (list.Count > 800000)
+            {
+                throw new ArgumentException("too many items in list", "list");
+            }
+
+            this.Output.WriteValueS32(list.Count);
+            for (int i = 0; i < list.Count; i++)
+            {
+                var item = list[i];
+                writeValue(this, ref item);
+            }
+        }
+
         public void SerializeValueByte(ref byte value)
         {
             this.Output.WriteValueU8(value);
@@ -103,15 +135,10 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void SerializeArrayInt16(ref short[] array, int count)
         {
-            if (array.Length != count)
-            {
-                throw new ArgumentException("array count mismatch", "array");
-            }
-
-            for (int i = 0; i < count; i++)
-            {
-                this.Output.WriteValueS32(array[i]);
-            }
+            this.WriteNativeArray<short>(
+                ref array, count,
+                (ICrypticFileStream a, ref short b) =>
+                    a.SerializeValueInt16(ref b));
         }
 
         public void SerializeListInt16(ref List<short> list)
@@ -126,29 +153,18 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void SerializeArrayInt32(ref int[] array, int count)
         {
-            if (array.Length != count)
-            {
-                throw new ArgumentException("array count mismatch", "array");
-            }
-
-            for (int i = 0; i < count; i++)
-            {
-                this.Output.WriteValueS32(array[i]);
-            }
+            this.WriteNativeArray<int>(
+                ref array, count,
+                (ICrypticFileStream a, ref int b) =>
+                    a.SerializeValueInt32(ref b));
         }
 
         public void SerializeListInt32(ref List<int> list)
         {
-            if (list.Count > 800000)
-            {
-                throw new ArgumentException("list has too many items", "list");
-            }
-
-            this.Output.WriteValueS32(list.Count);
-            foreach (var item in list)
-            {
-                this.Output.WriteValueS32(item);
-            }
+            this.WriteNativeList<int>(
+                ref list,
+                (ICrypticFileStream a, ref int b) =>
+                    a.SerializeValueInt32(ref b));
         }
 
         public void SerializeValueInt64(ref long value)
@@ -173,15 +189,9 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void SerializeArrayFloat(ref float[] array, int count)
         {
-            if (array.Length != count)
-            {
-                throw new ArgumentException("array count mismatch", "array");
-            }
-
-            for (int i = 0; i < count; i++)
-            {
-                this.Output.WriteValueF32(array[i]);
-            }
+            this.WriteNativeArray<float>(
+                ref array, count,
+                (ICrypticFileStream a, ref float b) => a.SerializeValueFloat(ref b));
         }
 
         public void SerializeListFloat(ref List<float> list)
@@ -201,16 +211,10 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void SerializeListString(ref List<string> list)
         {
-            if (list.Count > 800000)
-            {
-                throw new ArgumentException("list has too many items", "list");
-            }
-
-            this.Output.WriteValueS32(list.Count);
-            foreach (var item in list)
-            {
-                this.Output.WriteStringPascalUncapped(item);
-            }
+            this.WriteNativeList<string>(
+                ref list,
+                (ICrypticFileStream a, ref string b) =>
+                    a.SerializeValueString(ref b));
         }
 
         public void SerializeValueCurrentFile(ref string value)
@@ -419,17 +423,11 @@ namespace Gibbed.Cryptic.FileFormats
         public void SerializeListStructure<TType>(ref List<TType> list)
             where TType : ICrypticStructure, new()
         {
-            if (list.Count > 800000)
-            {
-                throw new ArgumentException("list has too many items", "list");
-            }
+            this.WriteNativeList<TType>(
+                ref list,
+                (ICrypticFileStream a, ref TType b) =>
+                    a.SerializeValueStructure<TType>(ref b, false));
 
-            this.Output.WriteValueS32(list.Count);
-            for (int i = 0; i < list.Count; i++)
-            {
-                var item = list[i];
-                this.SerializeValueStructure<TType>(ref item, false);
-            }
         }
 
         public void SerializeValuePolymorph(ref object value, bool optional, Type[] validTypes)
@@ -502,7 +500,92 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void SerializeValueMultiValue(ref MultiValue value)
         {
-            throw new NotImplementedException();
+            this.Output.WriteString(value.OpName, 4, Encoding.ASCII);
+
+            switch (value.Op & MultiValueOpcode.TypeMask)
+            {
+                case MultiValueOpcode.NON:
+                {
+                    if (value.Arg != null)
+                    {
+                        throw new InvalidOperationException(
+                            string.Format(
+                                "multival {0} had a non-null argument",
+                                value.Op));
+                    }
+
+                    break;
+                }
+
+                case MultiValueOpcode.StaticVariable:
+                {
+                    if (value.Arg.GetType() == typeof(uint))
+                    {
+                        this.Output.WriteValueU32((uint)value.Arg);
+                    }
+                    else if (value.Arg.GetType() == typeof(StaticVariableType))
+                    {
+                        this.Output.WriteValueU32((uint)((StaticVariableType)value.Arg));
+                    }
+                    else
+                    {
+                        throw new InvalidOperationException(
+                            string.Format(
+                                "multival {0} had an unexpected data type (got {1}, should be uint or StaticVariable)",
+                                value.Op, value.Arg.GetType().Name));
+                    }
+
+                    break;
+                }
+
+                case MultiValueOpcode.INT:
+                {
+                    if (value.Arg.GetType() != typeof(long))
+                    {
+                        throw new InvalidOperationException(
+                            string.Format(
+                                "multival {0} had an unexpected data type (got {1}, should be long)",
+                                value.Op, value.Arg.GetType().Name));
+                    }
+
+                    this.Output.WriteValueS64((long)value.Arg);
+                    break;
+                }
+
+                case MultiValueOpcode.FLT:
+                {
+                    if (value.Arg.GetType() != typeof(double))
+                    {
+                        throw new InvalidOperationException(
+                            string.Format(
+                                "multival {0} had an unexpected data type (got {1}, should be double)",
+                                value.Op, value.Arg.GetType().Name));
+                    }
+
+                    this.Output.WriteValueF64((double)value.Arg);
+                    break;
+                }
+
+                case MultiValueOpcode.STR:
+                {
+                    if (value.Arg.GetType() != typeof(string))
+                    {
+                        throw new InvalidOperationException(
+                            string.Format(
+                                "multival {0} had an unexpected data type (got {1}, should be string)",
+                                value.Op, value.Arg.GetType()));
+                    }
+
+                    this.Output.WriteStringPascalUncapped((string)value.Arg);
+                    break;
+                }
+
+                default:
+                    throw new InvalidOperationException(
+                        string.Format(
+                            "multival {0} had an unsupported argument data type",
+                            value.Op));
+            }
         }
 
         public void SerializeArrayMultiValue(ref MultiValue[] array, int count)
@@ -510,159 +593,75 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        // todo: create real multival handling
         public void SerializeListMultiValue(ref List<MultiValue> list)
         {
-            if (list.Count > 800000)
-            {
-                throw new ArgumentException("list has too many items", "list");
-            }
-
-            this.Output.WriteValueS32(list.Count);
-            foreach (var item in list)
-            {
-                this.Output.WriteString(item.OpName, 4, Encoding.ASCII);
-
-                switch (item.Op)
-                {
-                    case MultiValueOpcode.NON:
-                    case MultiValueOpcode.O_P:
-                    case MultiValueOpcode.C_P:
-                    case MultiValueOpcode.STM:
-                    case MultiValueOpcode.LES:
-                    case MultiValueOpcode.ADD:
-                    case MultiValueOpcode.SUB:
-                    case MultiValueOpcode.MUL:
-                    case MultiValueOpcode.EQU:
-                    case MultiValueOpcode.NOT:
-                    case MultiValueOpcode.RET:
-                    case MultiValueOpcode.AND:
-                    case MultiValueOpcode.NEG:
-                    case MultiValueOpcode.ORR:
-                    case MultiValueOpcode.BAN:
-                    case MultiValueOpcode.RZ_:
-                    case MultiValueOpcode.NLE:
-                    case MultiValueOpcode.GRE:
-                    case MultiValueOpcode.DIV:
-                    case MultiValueOpcode.BOR:
-                    case MultiValueOpcode.NGR:
-                    case MultiValueOpcode.BNT:
-                    {
-                        break;
-                    }
-
-                    case MultiValueOpcode.S_V:
-                    {
-                        this.Output.WriteValueU32((uint)item.Arg);
-                        break;
-                    }
-
-                    case MultiValueOpcode.INT:
-                    case MultiValueOpcode.JZ_:
-                    case MultiValueOpcode.J__:
-                    {
-                        this.Output.WriteValueS64((long)item.Arg);
-                        break;
-                    }
-
-                    case MultiValueOpcode.FLT:
-                    {
-                        this.Output.WriteValueF64((double)item.Arg);
-                        break;
-                    }
-
-                    case MultiValueOpcode.STR:
-                    case MultiValueOpcode.FUN:
-                    case MultiValueOpcode.OBJ:
-                    case MultiValueOpcode.IDS:
-                    case MultiValueOpcode.RP_:
-                    {
-                        this.Output.WriteStringPascalUncapped((string)item.Arg);
-                        break;
-                    }
-
-                    default: throw new NotSupportedException("unhandled opcode in multival");
-                }
-            }
+            this.WriteNativeList<MultiValue>(
+                ref list,
+                (ICrypticFileStream a, ref MultiValue b) =>
+                    a.SerializeValueMultiValue(ref b));
         }
 
-        public void SerializeValueByteEnum<T>(ref T value)
+        public void SerializeValueByteEnum<TType>(ref TType value)
         {
             this.Output.WriteValueU8((byte)Convert.ChangeType(value, typeof(byte)));
         }
 
-        public void SerializeArrayByteEnum<T>(ref T[] array, int count)
+        public void SerializeArrayByteEnum<TType>(ref TType[] array, int count)
         {
             throw new NotImplementedException();
         }
 
-        public void SerializeListByteEnum<T>(ref List<T> list)
+        public void SerializeListByteEnum<TType>(ref List<TType> list)
         {
             throw new NotImplementedException();
         }
 
-        public void SerializeValueInt16Enum<T>(ref T value)
+        public void SerializeValueInt16Enum<TType>(ref TType value)
         {
             this.Output.WriteValueS32((int)((short)Convert.ChangeType(value, typeof(short))));
         }
 
-        public void SerializeArrayInt16Enum<T>(ref T[] array, int count)
+        public void SerializeArrayInt16Enum<TType>(ref TType[] array, int count)
         {
             throw new NotImplementedException();
         }
 
-        public void SerializeListInt16Enum<T>(ref List<T> list)
+        public void SerializeListInt16Enum<TType>(ref List<TType> list)
         {
             throw new NotImplementedException();
         }
 
-        public void SerializeValueInt32Enum<T>(ref T value)
+        public void SerializeValueInt32Enum<TType>(ref TType value)
         {
             this.Output.WriteValueS32((int)Convert.ChangeType(value, typeof(int)));
         }
 
-        public void SerializeArrayInt32Enum<T>(ref T[] array, int count)
+        public void SerializeArrayInt32Enum<TType>(ref TType[] array, int count)
         {
             throw new NotImplementedException();
         }
 
-        public void SerializeListInt32Enum<T>(ref List<T> list)
+        public void SerializeListInt32Enum<TType>(ref List<TType> list)
         {
-            if (list.Count > 800000)
-            {
-                throw new ArgumentException("list has too many items", "list");
-            }
-
-            this.Output.WriteValueS32(list.Count);
-            foreach (var item in list)
-            {
-                this.Output.WriteValueS32((int)Convert.ChangeType(item, typeof(int)));
-            }
+            this.WriteNativeList<TType>(
+                ref list,
+                (ICrypticFileStream a, ref TType b) =>
+                    a.SerializeValueInt32Enum<TType>(ref b));
         }
 
-        public void SerializeValueBitEnum<T>(ref T value)
+        public void SerializeValueBitEnum<TType>(ref TType value)
         {
             this.Output.WriteValueU32((uint)Convert.ChangeType(value, typeof(uint)));
         }
 
-        public void SerializeArrayBitEnum<T>(ref T[] array, int count)
+        public void SerializeArrayBitEnum<TType>(ref TType[] array, int count)
         {
             throw new NotImplementedException();
         }
 
-        public void SerializeListBitEnum<T>(ref List<T> list)
+        public void SerializeListBitEnum<TType>(ref List<TType> list)
         {
             throw new NotImplementedException();
         }
-
-        #region ICrypticFileStream Members
-
-
-        public void SerializeValueInt32Packed(ref int value)
-        {
-            throw new NotImplementedException();
-        }
-
-        #endregion
     }
 }

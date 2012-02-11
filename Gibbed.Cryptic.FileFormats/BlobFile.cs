@@ -64,9 +64,9 @@ namespace Gibbed.Cryptic.FileFormats
                 data.WriteValueS32(this.Dependencies.Count);
                 foreach (var entry in this.Dependencies)
                 {
-                    data.WriteValueU32(entry.Unknown0);
+                    data.WriteValueU32(entry.Type);
                     data.WriteStringPascal(entry.Name, 260);
-                    data.WriteValueU32(entry.Unknown1);
+                    data.WriteValueU32(entry.Hash);
                 }
 
                 data.Position = 0;
@@ -126,9 +126,9 @@ namespace Gibbed.Cryptic.FileFormats
                 for (uint i = 0; i < count; i++)
                 {
                     var entry = new Blob.DependencyEntry();
-                    entry.Unknown0 = data.ReadValueU32();
+                    entry.Type = data.ReadValueU32();
                     entry.Name = data.ReadStringPascal(260);
-                    entry.Unknown1 = data.ReadValueU32();
+                    entry.Hash = data.ReadValueU32();
                     this.Dependencies.Add(entry);
                 }
 

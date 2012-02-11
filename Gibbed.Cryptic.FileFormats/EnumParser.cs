@@ -61,9 +61,12 @@ namespace Gibbed.Cryptic.FileFormats
         public static List<string> ToStringList(List<T> list)
         {
             var items = new List<string>();
-            foreach (var item in list)
+            if (list != null)
             {
-                items.Add(Enum.Format(typeof(T), item, "g"));
+                foreach (var item in list)
+                {
+                    items.Add(Enum.Format(typeof(T), item, "g"));
+                }
             }
             return items;
         }

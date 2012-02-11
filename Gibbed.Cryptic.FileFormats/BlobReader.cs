@@ -66,6 +66,36 @@ namespace Gibbed.Cryptic.FileFormats
             return loader.List;
         }
 
+        delegate void ReadNativeValue<TType>(ICrypticFileStream stream, ref TType value);
+
+        private void ReadNativeArray<TType>(
+            ref TType[] array, int count, ReadNativeValue<TType> readValue)
+        {
+            array = new TType[count];
+            for (uint i = 0; i < count; i++)
+            {
+                readValue(this, ref array[i]);
+            }
+        }
+
+        private void ReadNativeList<TType>(
+            ref List<TType> list, ReadNativeValue<TType> readValue)
+        {
+            var count = this.Input.ReadValueU32();
+            if (count > 800000)
+            {
+                throw new FormatException();
+            }
+
+            list = new List<TType>();
+            for (uint i = 0; i < count; i++)
+            {
+                var item = default(TType);
+                readValue(this, ref item);
+                list.Add(item);
+            }
+        }
+
         public void SerializeValueByte(ref byte value)
         {
             value = this.Input.ReadValueU8();
@@ -89,11 +119,10 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void SerializeArrayInt16(ref short[] array, int count)
         {
-            array = new short[count];
-            for (int i = 0; i < count; i++)
-            {
-                array[i] = (short)this.Input.ReadValueS32();
-            }
+            this.ReadNativeArray<short>(
+                ref array, count,
+                (ICrypticFileStream a, ref short b) =>
+                    a.SerializeValueInt16(ref b));
         }
 
         public void SerializeListInt16(ref List<short> list)
@@ -108,26 +137,18 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void SerializeArrayInt32(ref int[] array, int count)
         {
-            array = new int[count];
-            for (int i = 0; i < count; i++)
-            {
-                array[i] = this.Input.ReadValueS32();
-            }
+            this.ReadNativeArray<int>(
+                ref array, count,
+                (ICrypticFileStream a, ref int b) =>
+                    a.SerializeValueInt32(ref b));
         }
 
         public void SerializeListInt32(ref List<int> list)
         {
-            var count = this.Input.ReadValueU32();
-            if (count > 800000)
-            {
-                throw new FormatException();
-            }
-
-            list = new List<int>();
-            for (uint i = 0; i < count; i++)
-            {
-                list.Add(this.Input.ReadValueS32());
-            }
+            this.ReadNativeList<int>(
+                ref list,
+                (ICrypticFileStream a, ref int b) =>
+                    a.SerializeValueInt32(ref b));
         }
 
         public void SerializeValueInt64(ref long value)
@@ -152,11 +173,10 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void SerializeArrayFloat(ref float[] array, int count)
         {
-            array = new float[count];
-            for (int i = 0; i < count; i++)
-            {
-                array[i] = this.Input.ReadValueF32();
-            }
+            this.ReadNativeArray<float>(
+                ref array, count,
+                (ICrypticFileStream a, ref float b) =>
+                    a.SerializeValueFloat(ref b));
         }
 
         public void SerializeListFloat(ref List<float> list)
@@ -176,17 +196,10 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void SerializeListString(ref List<string> list)
         {
-            var count = this.Input.ReadValueU32();
-            if (count > 800000)
-            {
-                throw new FormatException();
-            }
-
-            list = new List<string>();
-            for (uint i = 0; i < count; i++)
-            {
-                list.Add(this.Input.ReadStringPascalUncapped());
-            }
+            this.ReadNativeList<string>(
+                ref list,
+                (ICrypticFileStream a, ref string b) =>
+                    a.SerializeValueString(ref b));
         }
 
         public void SerializeValueCurrentFile(ref string value)
@@ -399,19 +412,10 @@ namespace Gibbed.Cryptic.FileFormats
         public void SerializeListStructure<TType>(ref List<TType> list)
             where TType : ICrypticStructure, new()
         {
-            var count = this.Input.ReadValueU32();
-            if (count > 800000)
-            {
-                throw new FormatException();
-            }
-
-            list = new List<TType>();
-            for (uint i = 0; i < count; i++)
-            {
-                TType instance = default(TType);
-                this.SerializeValueStructure<TType>(ref instance, false);
-                list.Add(instance);
-            }
+            this.ReadNativeList<TType>(
+                ref list,
+                (ICrypticFileStream a, ref TType b) =>
+                    a.SerializeValueStructure<TType>(ref b, false));
         }
 
         public void SerializeValuePolymorph(ref object value, bool optional, Type[] validTypes)
@@ -477,7 +481,67 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void SerializeValueMultiValue(ref MultiValue value)
         {
-            throw new NotImplementedException();
+            object arg;
+
+            var name = this.Input.ReadString(4, true, Encoding.ASCII);
+            MultiValueOpcode op;
+            if (MultiValue.TryParseOpcode(name, out op) == false)
+            {
+                throw new FormatException();
+            }
+
+            switch (op & MultiValueOpcode.TypeMask)
+            {
+                case MultiValueOpcode.NON:
+                {
+                    arg = null;
+                    break;
+                }
+
+                case MultiValueOpcode.StaticVariable:
+                {
+                    StaticVariableType sv;
+                    if (MultiValue.TryParseStaticVariable(this.Input.ReadValueU32(), out sv) == false)
+                    {
+                        throw new InvalidOperationException(
+                            string.Format(
+                                "multival {0} had an unexpected static variable index",
+                                op));
+                    }
+                    arg = sv;
+                    break;
+                }
+
+                case MultiValueOpcode.INT:
+                {
+                    arg = this.Input.ReadValueS64();
+                    break;
+                }
+
+                case MultiValueOpcode.FLT:
+                {
+                    arg = this.Input.ReadValueF64();
+                    break;
+                }
+
+                case MultiValueOpcode.STR:
+                {
+                    arg = this.Input.ReadStringPascalUncapped();
+                    break;
+                }
+
+                default:
+                throw new InvalidOperationException(
+                    string.Format(
+                        "multival {0} had an unsupported argument data type",
+                        op));
+            }
+
+            value = new MultiValue()
+            {
+                Op = op,
+                Arg = arg,
+            };
         }
 
         public void SerializeArrayMultiValue(ref MultiValue[] array, int count)
@@ -485,95 +549,12 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        // todo: create real multival handling
         public void SerializeListMultiValue(ref List<MultiValue> list)
         {
-            var count = this.Input.ReadValueU32();
-            if (count > 800000)
-            {
-                throw new FormatException();
-            }
-
-            list = new List<MultiValue>();
-            for (uint i = 0; i < count; i++)
-            {
-                object arg;
-
-                var name = this.Input.ReadString(4, true, Encoding.ASCII);
-                MultiValueOpcode op;
-                if (MultiValue.TryParseOpcode(name, out op) == false)
-                {
-                    throw new FormatException();
-                }
-                
-                switch (op)
-                {
-                    case MultiValueOpcode.NON:
-                    case MultiValueOpcode.O_P:
-                    case MultiValueOpcode.C_P:
-                    case MultiValueOpcode.STM:
-                    case MultiValueOpcode.LES:
-                    case MultiValueOpcode.ADD:
-                    case MultiValueOpcode.SUB:
-                    case MultiValueOpcode.MUL:
-                    case MultiValueOpcode.EQU:
-                    case MultiValueOpcode.NOT:
-                    case MultiValueOpcode.RET:
-                    case MultiValueOpcode.AND:
-                    case MultiValueOpcode.NEG:
-                    case MultiValueOpcode.ORR:
-                    case MultiValueOpcode.BAN:
-                    case MultiValueOpcode.RZ_:
-                    case MultiValueOpcode.NLE:
-                    case MultiValueOpcode.GRE:
-                    case MultiValueOpcode.DIV:
-                    case MultiValueOpcode.BOR:
-                    case MultiValueOpcode.NGR:
-                    case MultiValueOpcode.BNT:
-                    {
-                        arg = null;
-                        break;
-                    }
-
-                    case MultiValueOpcode.S_V:
-                    {
-                        arg = this.Input.ReadValueU32();
-                        break;
-                    }
-
-                    case MultiValueOpcode.INT:
-                    case MultiValueOpcode.JZ_:
-                    case MultiValueOpcode.J__:
-                    {
-                        arg = this.Input.ReadValueS64();
-                        break;
-                    }
-
-                    case MultiValueOpcode.FLT:
-                    {
-                        arg = this.Input.ReadValueF64();
-                        break;
-                    }
-
-                    case MultiValueOpcode.STR:
-                    case MultiValueOpcode.FUN:
-                    case MultiValueOpcode.OBJ:
-                    case MultiValueOpcode.IDS:
-                    case MultiValueOpcode.RP_:
-                    {
-                        arg = this.Input.ReadStringPascalUncapped();
-                        break;
-                    }
-
-                    default: throw new NotSupportedException("unhandled opcode in multival");
-                }
-
-                list.Add(new MultiValue()
-                {
-                    Op = op,
-                    Arg = arg,
-                });
-            }
+            this.ReadNativeList<MultiValue>(
+                ref list,
+                (ICrypticFileStream a, ref MultiValue b) =>
+                    a.SerializeValueMultiValue(ref b));
         }
 
         public void SerializeValueByteEnum<T>(ref T value)
@@ -616,19 +597,12 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public void SerializeListInt32Enum<T>(ref List<T> list)
+        public void SerializeListInt32Enum<TType>(ref List<TType> list)
         {
-            var count = this.Input.ReadValueU32();
-            if (count > 800000)
-            {
-                throw new FormatException();
-            }
-
-            list = new List<T>();
-            for (uint i = 0; i < count; i++)
-            {
-                list.Add((T)Enum.ToObject(typeof(T), this.Input.ReadValueS32()));
-            }
+            this.ReadNativeList<TType>(
+                ref list,
+                (ICrypticFileStream a, ref TType b) =>
+                    a.SerializeValueInt32Enum<TType>(ref b));
         }
 
         public void SerializeValueBitEnum<T>(ref T value)
