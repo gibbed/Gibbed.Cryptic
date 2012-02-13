@@ -21,20 +21,35 @@
  */
 
 using System;
+using System.Linq;
 using System.Reflection;
-using Gibbed.Cryptic.FileFormats;
 using Parser = Gibbed.Cryptic.FileFormats.Parser;
 using ParserSchema = Gibbed.Cryptic.FileFormats.ParserSchema;
+using Serialization = Gibbed.Cryptic.FileFormats.Serialization;
 
 namespace Gibbed.StarTrekOnline.GenerateSerializer
 {
     internal static class Helpers
     {
-        public static string GetColumnName(ParserSchema.Column column)
+        public static string GetColumnName(
+            ParserSchema.Table table, ParserSchema.Column column)
         {
             if (string.IsNullOrEmpty(column.Name) == true)
             {
+                if (table.Columns.Where(c => string.IsNullOrEmpty(c.Name)).Count() > 1)
+                {
+                    return "__unnamed_" + column.Offset.ToString("X");
+                }
+
                 return "_";
+            }
+
+            if (table.Columns
+                .Where(c => c != column)
+                .Where(c => c.Name.ToLowerInvariant() == column.Name.ToLowerInvariant())
+                .Count() > 1)
+            {
+                throw new InvalidOperationException();
             }
 
             return column.Name;
@@ -44,8 +59,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
         {
             if ((column.Flags & Parser.ColumnFlags.ALIAS) != 0 ||
                 (column.Flags & Parser.ColumnFlags.UNKNOWN_32) != 0 ||
-                (column.Flags & Parser.ColumnFlags.NO_WRITE) != 0 ||
-                (column.Flags & Parser.ColumnFlags.SERVER_ONLY) != 0)
+                (column.Flags & Parser.ColumnFlags.NO_WRITE) != 0)
             {
                 return false;
             }
@@ -60,24 +74,26 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             return true;
         }
 
-        public static MethodInfo GetFileSerializerMethod(ParserSchema.Column column)
+        public static MethodInfo GetReadMethod(ParserSchema.Column column)
         {
             var token = Parser.GlobalTokens.GetToken(column.Token);
 
-            string name = null;
+            string name = "Read";
 
             if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
             {
-                name = "SerializeValue" + token.GetType().Name;
+                name += "Value";
             }
             else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
             {
-                name = "SerializeArray" + token.GetType().Name;
+                name += "Array";
             }
             else
             {
-                name = "SerializeList" + token.GetType().Name;
+                name += "List";
             }
+
+            name += token.GetType().Name;
 
             if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
                 column.StaticDefineList != null)
@@ -85,9 +101,8 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 name += "Enum";
             }
 
-            var methodInfo = typeof(ICrypticFileStream).GetMethod(
-                name,
-                BindingFlags.Public | BindingFlags.Instance);
+            var methodInfo = typeof(Serialization.IBaseReader).GetMethod(
+                name, BindingFlags.Public | BindingFlags.Instance);
             if (methodInfo == null)
             {
                 throw new NotSupportedException(name + " is missing");
@@ -96,24 +111,26 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             return methodInfo;
         }
 
-        public static MethodInfo GetPacketSerializerMethod(ParserSchema.Column column)
+        public static MethodInfo GetWriteMethod(ParserSchema.Column column)
         {
             var token = Parser.GlobalTokens.GetToken(column.Token);
 
-            string name = null;
+            string name = "Write";
 
             if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
             {
-                name = "ReadValue" + token.GetType().Name;
+                name += "Value";
             }
             else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
             {
-                name = "ReadArray" + token.GetType().Name;
+                name += "Array";
             }
             else
             {
-                name = "ReadList" + token.GetType().Name;
+                name += "List";
             }
+
+            name += token.GetType().Name;
 
             if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
                 column.StaticDefineList != null)
@@ -121,9 +138,8 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 name += "Enum";
             }
 
-            var methodInfo = typeof(ICrypticPacketReader).GetMethod(
-                name,
-                BindingFlags.Public | BindingFlags.Instance);
+            var methodInfo = typeof(Serialization.IBaseWriter).GetMethod(
+                name, BindingFlags.Public | BindingFlags.Instance);
             if (methodInfo == null)
             {
                 throw new NotSupportedException(name + " is missing");

@@ -83,6 +83,8 @@ namespace Gibbed.Cryptic.FileFormats
                     column.Flags |= (Parser.ColumnFlags)Enum.Parse(typeof(Parser.ColumnFlags), _flag);
                 }
 
+                column.Offset = (uint)GetIntElement(_column, "offset", 0);
+
                 column.RedundantName = GetStringElement(_column, "redundant_name", null);
 
                 column.MinBits = (byte)GetIntElement(_column, "min_bits", 0);
