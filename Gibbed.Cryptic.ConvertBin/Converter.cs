@@ -28,11 +28,12 @@ using System.Xml;
 using System.Xml.XPath;
 using Gibbed.Cryptic.FileFormats;
 using NDesk.Options;
+using Serialization = Gibbed.Cryptic.FileFormats.Serialization;
 
 namespace Gibbed.Cryptic.ConvertBin
 {
     public abstract class Converter<TType>
-        where TType: ICrypticStructure, new()
+        where TType: Serialization.IStructure, new()
     {
         private static string GetExecutablePath()
         {
@@ -147,7 +148,7 @@ namespace Gibbed.Cryptic.ConvertBin
                         xml.WriteStartElement("entries");
                         {
                             Console.WriteLine("Loading entries...");
-                            var entries = BlobReader.LoadResource<TType>(input);
+                            var entries = BlobDataReader.LoadResource<TType>(input);
 
                             Console.WriteLine("Saving XML entries...");
                             foreach (var entry in entries)
@@ -255,7 +256,7 @@ namespace Gibbed.Cryptic.ConvertBin
                     blob.Serialize(output);
 
                     Console.WriteLine("Saving entries...");
-                    BlobWriter.SaveResource(entries, output);
+                    BlobDataWriter.SaveResource(entries, output);
                 }
             }
             else

@@ -87,7 +87,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 Path.Combine(GetExecutablePath(), "parsers", "Star Trek Online"));
 
             var outputPath = extras.Count > 0 ? extras[0] : "Gibbed.StarTrekOnline.Serialization.dll";
-            new Generator(parserLoader, enumLoader).Export(outputPath, version);
+            new Generator(parserLoader, enumLoader).ExportAssembly(outputPath, version);
         }
     }
 }
