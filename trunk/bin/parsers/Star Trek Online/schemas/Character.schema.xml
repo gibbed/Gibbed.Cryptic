@@ -452,128 +452,128 @@
       <subtable external="Item" />
     </column>
     <column name="bInvulnerable" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="bUnstoppable" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <bit_offset>65552</bit_offset>
     </column>
     <column name="bUnkillable" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <bit_offset>65553</bit_offset>
     </column>
     <column name="bLevelAdjusting" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <bit_offset>65554</bit_offset>
     </column>
     <column name="bSafe" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <bit_offset>65555</bit_offset>
     </column>
     <column name="bBattleForm" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65556</bit_offset>
     </column>
     <column name="bDisableFaceActivate" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <bit_offset>65558</bit_offset>
     </column>
     <column name="bDisableFaceTarget" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65559</bit_offset>
     </column>
     <column name="bRequireValidTarget" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65560</bit_offset>
     </column>
     <column name="bUseCameraTargeting" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65561</bit_offset>
     </column>
     <column name="bDisablePowerQueuing" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65562</bit_offset>
     </column>
     <column name="bShooterControls" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65563</bit_offset>
     </column>
     <column name="bIsAiming" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65564</bit_offset>
     </column>
     <column name="bIsCrouching" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65565</bit_offset>
     </column>
     <column name="bIsRolling" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65566</bit_offset>
     </column>
     <column name="bIsWaitingToRoll" type="BIT">
-      <offset>456</offset>
+      <offset>460</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65567</bit_offset>
     </column>
     <column name="bIsPrimaryPet" type="BIT">
-      <offset>460</offset>
+      <offset>464</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bModsOwnedByOwner" type="BIT">
-      <offset>460</offset>
+      <offset>464</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bBecomeCritter" type="BIT">
-      <offset>460</offset>
+      <offset>464</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="bIgnoreTargetForRunAndGun" type="BIT">
-      <offset>460</offset>
+      <offset>464</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="bTemporarilyIgnoreTargetForRunAndGun" type="BIT">
-      <offset>460</offset>
+      <offset>464</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="bHasAvailableResearch" type="BIT">
-      <offset>460</offset>
+      <offset>464</offset>
       <flags>
         <flag>CLIENT_ONLY</flag>
       </flags>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="ppActivationState" type="STRUCT">
-      <offset>464</offset>
+      <offset>468</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>SELF_ONLY</flag>
@@ -583,7 +583,7 @@
       <subtable external="PowerActivationState" />
     </column>
     <column name="puiPowerIDsSaved_Obsolete" type="INTARRAY">
-      <offset>516</offset>
+      <offset>520</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -591,7 +591,7 @@
       </flags>
     </column>
     <column name="eaSavedPowersIDs" type="INTARRAY">
-      <offset>516</offset>
+      <offset>520</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -601,7 +601,7 @@
       <redundant_name>puiPowerIDsSaved_Obsolete</redundant_name>
     </column>
     <column name="puiPowerIDsSaved" type="INTARRAY">
-      <offset>516</offset>
+      <offset>520</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -611,7 +611,7 @@
       <redundant_name>puiPowerIDsSaved_Obsolete</redundant_name>
     </column>
     <column name="dirtyBit" type="U8">
-      <offset>520</offset>
+      <offset>524</offset>
       <flags>
         <flag>NO_NETSEND</flag>
         <flag>DIRTY_BIT</flag>

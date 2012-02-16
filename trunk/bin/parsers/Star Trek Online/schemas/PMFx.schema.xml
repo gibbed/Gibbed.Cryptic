@@ -85,45 +85,45 @@
     <column name="Yaw" type="F32">
       <offset>116</offset>
     </column>
-    <column name="Start" type="BIT">
+    <column name="nodeSelectionType" type="INT">
       <offset>120</offset>
+      <static_define_list external="PowerAnimNodeSelectionType" />
+    </column>
+    <column name="Start" type="BIT">
+      <offset>124</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="stop" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="flash" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="Miss" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="Trigger" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="triggerIsEntityID" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="triggerMultiHit" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="useTargetNode" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65543</bit_offset>
     </column>
-    <column name="selectNodesInRangeAndArc" type="BIT">
-      <offset>120</offset>
-      <bit_offset>65544</bit_offset>
-    </column>
     <column name="alwaysSelectSameNode" type="BIT">
-      <offset>120</offset>
-      <bit_offset>65545</bit_offset>
+      <offset>124</offset>
+      <bit_offset>65544</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

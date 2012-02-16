@@ -1,30 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<parser name="ActivityDef">
+<parser name="EventEntry">
   <table>
-    <column name="ActivityDef" type="IGNORE">
+    <column name="EventEntry" type="IGNORE">
       <flags>
         <flag>PARSETABLE_INFO</flag>
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="ActivityName" type="STRING">
+    <column name="pchEventName" type="STRING">
       <offset>0</offset>
       <flags>
         <flag>POOL_STRING</flag>
-        <flag>STRUCTPARAM</flag>
+        <flag>SUBSCRIBE</flag>
         <flag>KEY</flag>
+        <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="ppchDependentMissionDefs" type="STRINGARRAY">
+    <column name="uLastTimeStarted" type="INT">
       <offset>4</offset>
       <flags>
-        <flag>POOL_STRING</flag>
-        <flag>NO_TEXT_SAVE</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="Variable" type="STRUCT">
+    <column name="iTimingIndex" type="INT">
       <offset>8</offset>
-      <subtable external="WorldVariableDef" />
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

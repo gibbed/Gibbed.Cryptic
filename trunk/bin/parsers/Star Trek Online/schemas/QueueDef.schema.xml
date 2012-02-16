@@ -92,15 +92,22 @@
       <default>1</default>
       <static_define_list external="BolsterType" />
     </column>
+    <column name="MissionReturnLogoutTime" type="INT">
+      <offset>84</offset>
+    </column>
     <column name="KickLogoutTime" type="INT">
       <offset>84</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MissionReturnLogoutTime</redundant_name>
     </column>
     <column name="QueueKickLogoutTime" type="INT">
       <offset>84</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
-      <redundant_name>KickLogoutTime</redundant_name>
+      <redundant_name>MissionReturnLogoutTime</redundant_name>
     </column>
     <column name="MaxLocalTeamsPerGroup" type="INT">
       <offset>88</offset>
