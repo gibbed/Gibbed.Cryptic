@@ -27,7 +27,20 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public class MultiValue
     {
+        private static Dictionary<string, StaticVariableType> NamesToStaticVariables;
         private static Dictionary<uint, StaticVariableType> ValuesToStaticVariables;
+
+        public static bool TryParseStaticVariable(string name, out StaticVariableType sv)
+        {
+            if (NamesToStaticVariables.ContainsKey(name) == false)
+            {
+                sv = StaticVariableType.Activation;
+                return false;
+            }
+
+            sv = NamesToStaticVariables[name];
+            return true;
+        }
 
         public static bool TryParseStaticVariable(uint value, out StaticVariableType sv)
         {
@@ -85,9 +98,12 @@ namespace Gibbed.Cryptic.FileFormats
                 ValuesToOpcodes.Add((uint)value, value);
             }
 
+            NamesToStaticVariables = new Dictionary<string, StaticVariableType>();
             ValuesToStaticVariables = new Dictionary<uint, StaticVariableType>();
             foreach (StaticVariableType value in Enum.GetValues(typeof(StaticVariableType)))
             {
+                var name = Enum.GetName(typeof(StaticVariableType), value);
+                NamesToStaticVariables.Add(name, value);
                 ValuesToStaticVariables.Add((uint)value, value);
             }
         }
