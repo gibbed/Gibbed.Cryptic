@@ -56,8 +56,8 @@ namespace Gibbed.Cryptic.FileFormats
         BXR = 0x0A00, // BXR
         O_P = 0x0B00, // (
         C_P = 0x0C00, // )
-        O_B = 0x0D00, // {
-        C_B = 0x0E00, // }
+        O_B = 0x0D00, // [
+        C_B = 0x0E00, // ]
         EQU = 0x0F00, // =
         LES = 0x1000, // <
         NGR = 0x1100, // <=

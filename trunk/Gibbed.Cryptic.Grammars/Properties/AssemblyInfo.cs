@@ -18,7 +18,6 @@
  * 
  * 3. This notice may not be removed or altered from any source
  *    distribution.
- *    
  */
 
 using System.Reflection;
@@ -27,11 +26,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Gibbed.StarTrekOnline.ConvertUITextureAssembly")]
+[assembly: AssemblyTitle("Gibbed.Cryptic.Grammars")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Gibbed.StarTrekOnline.ConvertUITextureAssembly")]
+[assembly: AssemblyProduct("Gibbed.Cryptic.Grammars")]
 [assembly: AssemblyCopyright("Copyright © Gibbed 2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -42,7 +41,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("b0baa1c5-e0ba-41cd-9712-99481d74a69b")]
+[assembly: Guid("47650f03-47cd-420f-b8ae-7e4e87927e21")]
 
 // Version information for an assembly consists of the following four values:
 //

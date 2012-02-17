@@ -499,7 +499,56 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 }
             }
 
-            if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
+            if (type == typeof(List<MultiValue>) &&
+                string.IsNullOrEmpty(column.Name) == true)
+            {
+                var wrapperName = "__wrapper_" + name;
+
+                var wrapperBuilder = structure.DefineProperty(
+                    wrapperName,
+                    PropertyAttributes.None,
+                    typeof(CDataWrapper),
+                    Type.EmptyTypes);
+
+                var getBuilder = structure.DefineMethod(
+                    "get_" + wrapperName,
+                    MethodAttributes.Public |
+                    MethodAttributes.SpecialName |
+                    MethodAttributes.HideBySig,
+                    typeof(CDataWrapper),
+                    Type.EmptyTypes);
+
+                var getIL = getBuilder.GetILGenerator();
+                getIL.Emit(OpCodes.Ldarg_0);
+                getIL.Emit(OpCodes.Ldfld, builder);
+                getIL.Emit(OpCodes.Call, typeof(PCodeParser).GetMethod("ToStringValue"));
+                getIL.Emit(OpCodes.Ret);
+
+                var setBuilder = structure.DefineMethod(
+                    "set_" + wrapperName,
+                    MethodAttributes.Public |
+                    MethodAttributes.SpecialName |
+                    MethodAttributes.HideBySig,
+                    null,
+                    new Type[] { typeof(CDataWrapper) });
+
+                var setIL = setBuilder.GetILGenerator();
+                setIL.Emit(OpCodes.Ldarg_0);
+                setIL.Emit(OpCodes.Ldarg_1);
+                setIL.Emit(OpCodes.Call, typeof(PCodeParser).GetMethod("FromStringValue"));
+                setIL.Emit(OpCodes.Stfld, builder);
+                setIL.Emit(OpCodes.Ret);
+
+                wrapperBuilder.SetGetMethod(getBuilder);
+                wrapperBuilder.SetSetMethod(setBuilder);
+
+                wrapperBuilder.SetCustomAttribute(
+                    new CustomAttributeBuilder(typeof(DataMemberAttribute)
+                        .GetConstructor(Type.EmptyTypes), new object[] { },
+                        new PropertyInfo[] { typeof(DataMemberAttribute).GetProperty("Name"), typeof(DataMemberAttribute).GetProperty("EmitDefaultValue") },
+                        new object[] { name, false }));
+            }
+            else if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
                 column.StaticDefineList != null)
             {
                 var wrapperName = "__wrapper_" + name;
