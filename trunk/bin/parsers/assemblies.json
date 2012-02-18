@@ -1,0 +1,41 @@
+{
+  schemas:
+  {
+  	UIGen:
+  	{
+  		mode: "entry",
+  		targets: [
+  			{
+  				parser_hash: 4272815825,
+  				class: "Gibbed.StarTrekOnline.Serialization.UIGen",
+  				key: "Name",
+  				versions: [
+  					"ST.17.20120210a.10",
+  					"ST.17.20120129b.22",
+  				],
+  			},
+  		],
+  	},
+  	
+  	ClientMessages:
+  	{
+  		mode: "single",
+  		targets: [
+  			{
+  				parser_hash: 1814205561,
+  				class: "Gibbed.StarTrekOnline.Serialization.Message",
+  				key: "MessageKey",
+  				versions: [
+  					"ST.17.20120210a.10",
+  					"ST.17.20120129b.22",
+  				],
+  			},
+  		],
+  	}
+  },
+  
+  "schema_aliases":
+  {
+  	"ClientMessagesEnglish": "ClientMessages",
+  }
+}
