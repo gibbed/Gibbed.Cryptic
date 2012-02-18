@@ -43,9 +43,16 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
         {
             var showHelp = false;
             string version = null;
+            string inputPath =
+                Path.Combine(GetExecutablePath(), "parsers", "Star Trek Online");
 
             var options = new OptionSet()
             {
+                {
+                    "p|path=",
+                    "set input path",
+                    v => inputPath = v
+                },
                 {
                     "v|version=",
                     "set version",
@@ -81,10 +88,10 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 return;
             }
 
-            var parserLoader = new ParserLoader(
-                Path.Combine(GetExecutablePath(), "parsers", "Star Trek Online"));
-            var enumLoader = new EnumLoader(
-                Path.Combine(GetExecutablePath(), "parsers", "Star Trek Online"));
+            Console.WriteLine("Base = {0}", inputPath);
+
+            var parserLoader = new ParserLoader(inputPath);
+            var enumLoader = new EnumLoader(inputPath);
 
             var outputPath = extras.Count > 0 ? extras[0] : "Gibbed.StarTrekOnline.Serialization.dll";
             new Generator(parserLoader, enumLoader).ExportAssembly(outputPath, version);

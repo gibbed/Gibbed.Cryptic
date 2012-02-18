@@ -82,7 +82,8 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
 
             queue.Clear();
             done.Clear();
-            
+
+            Console.WriteLine("Loading parsers...");
             foreach (var name in this.ParserLoader.ParserNames)
             {
                 queue.Enqueue(new QueuedType(
@@ -118,7 +119,9 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
 
                 typeBuilder.SetCustomAttribute(
                     new CustomAttributeBuilder(typeof(DataContractAttribute)
-                        .GetConstructor(Type.EmptyTypes), new object[] { }));
+                        .GetConstructor(Type.EmptyTypes),new object[] { },
+                        new PropertyInfo[] { typeof(DataContractAttribute).GetProperty("Namespace") },
+                        new object[] { "http://datacontract.gib.me/startrekonline" }));
 
                 this.TableTypes.Add(qt.Table, typeBuilder);
 
@@ -445,6 +448,31 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             }
         }
 
+        private Type ExportFieldEnum(
+            ParserSchema.Table table, TypeBuilder structure)
+        {
+            var builder = this.ModuleBuilder.DefineEnum(
+                "Gibbed.StarTrekOnline.Serialization.Fields." + structure.Name + "Field",
+                TypeAttributes.Public,
+                typeof(int));
+
+            int index = 0;
+            foreach (var column in table.Columns)
+            {
+                if (table.Columns.Where(c => c.Name == column.Name).Count() > 1)
+                {
+                    builder.DefineLiteral(column.Name + "_" + index.ToString(), index);
+                }
+                else
+                {
+                    builder.DefineLiteral(column.Name, index);
+                }
+
+                index++;
+            }
+            return builder.CreateType();
+        }
+
         private FieldBuilder ExportField(
             ParserSchema.Table table, ParserSchema.Column column, TypeBuilder structure)
         {
@@ -499,7 +527,75 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 }
             }
 
-            if (type == typeof(List<MultiValue>) &&
+            if (type == typeof(int[]) &&
+                column.Name == "bf")
+            {
+                var fieldEnum = ExportFieldEnum(table, structure);
+                var wrapperType = typeof(FieldList<>).MakeGenericType(fieldEnum);
+
+                var wrapperName = "__wrapper_" + name;
+
+                var wrapperBuilder = structure.DefineProperty(
+                    wrapperName,
+                    PropertyAttributes.None,
+                    wrapperType,
+                    Type.EmptyTypes);
+
+                var getBuilder = structure.DefineMethod(
+                    "get_" + wrapperName,
+                    MethodAttributes.Public |
+                    MethodAttributes.SpecialName |
+                    MethodAttributes.HideBySig,
+                    wrapperType,
+                    Type.EmptyTypes);
+
+                var getIL = getBuilder.GetILGenerator();
+                getIL.Emit(OpCodes.Ldarg_0);
+                getIL.Emit(OpCodes.Ldfld, builder);
+                getIL.EmitConstant(column.NumberOfElements);
+                getIL.Emit(OpCodes.Call, typeof(FieldListParser<>).MakeGenericType(fieldEnum).GetMethod("ToList"));
+                getIL.Emit(OpCodes.Ret);
+
+                var setBuilder = structure.DefineMethod(
+                    "set_" + wrapperName,
+                    MethodAttributes.Public |
+                    MethodAttributes.SpecialName |
+                    MethodAttributes.HideBySig,
+                    null,
+                    new Type[] { wrapperType });
+
+                var setIL = setBuilder.GetILGenerator();
+                setIL.Emit(OpCodes.Ldarg_0);
+                setIL.Emit(OpCodes.Ldarg_1);
+                setIL.EmitConstant(column.NumberOfElements);
+                setIL.Emit(OpCodes.Call, typeof(FieldListParser<>).MakeGenericType(fieldEnum).GetMethod("FromList"));
+                setIL.Emit(OpCodes.Stfld, builder);
+                setIL.Emit(OpCodes.Ret);
+
+                wrapperBuilder.SetGetMethod(getBuilder);
+                wrapperBuilder.SetSetMethod(setBuilder);
+
+                wrapperBuilder.SetCustomAttribute(
+                    new CustomAttributeBuilder(typeof(DataMemberAttribute)
+                        .GetConstructor(Type.EmptyTypes), new object[] { },
+                        new PropertyInfo[]
+                        {
+                            typeof(DataMemberAttribute).GetProperty("Name"),
+                            typeof(DataMemberAttribute).GetProperty("Order"),
+                        },
+                        new object[] { name, table.Columns.IndexOf(column) }));
+                
+                wrapperBuilder.SetCustomAttribute(
+                    new CustomAttributeBuilder(typeof(CollectionDataContractAttribute)
+                        .GetConstructor(Type.EmptyTypes), new object[] { },
+                        new PropertyInfo[]
+                        {
+                            typeof(CollectionDataContractAttribute).GetProperty("Name"),
+                            typeof(CollectionDataContractAttribute).GetProperty("ItemName"),
+                        },
+                        new object[] { structure.Name + "SetField", "Field" }));
+            }
+            else if (type == typeof(List<MultiValue>) &&
                 string.IsNullOrEmpty(column.Name) == true)
             {
                 var wrapperName = "__wrapper_" + name;
@@ -545,8 +641,13 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 wrapperBuilder.SetCustomAttribute(
                     new CustomAttributeBuilder(typeof(DataMemberAttribute)
                         .GetConstructor(Type.EmptyTypes), new object[] { },
-                        new PropertyInfo[] { typeof(DataMemberAttribute).GetProperty("Name"), typeof(DataMemberAttribute).GetProperty("EmitDefaultValue") },
-                        new object[] { name, false }));
+                        new PropertyInfo[]
+                        {
+                            typeof(DataMemberAttribute).GetProperty("Name"),
+                            typeof(DataMemberAttribute).GetProperty("Order"),
+                            typeof(DataMemberAttribute).GetProperty("EmitDefaultValue"),
+                        },
+                        new object[] { name, table.Columns.IndexOf(column), false }));
             }
             else if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
                 column.StaticDefineList != null)
@@ -596,8 +697,12 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                     wrapperBuilder.SetCustomAttribute(
                         new CustomAttributeBuilder(typeof(DataMemberAttribute)
                             .GetConstructor(Type.EmptyTypes), new object[] { },
-                            new PropertyInfo[] { typeof(DataMemberAttribute).GetProperty("Name") },
-                            new object[] { name }));
+                            new PropertyInfo[]
+                            {
+                                typeof(DataMemberAttribute).GetProperty("Name"),
+                                typeof(DataMemberAttribute).GetProperty("Order"),
+                            },
+                            new object[] { name, table.Columns.IndexOf(column) }));
                 }
                 else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
                 {
@@ -646,15 +751,24 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                     wrapperBuilder.SetCustomAttribute(
                         new CustomAttributeBuilder(typeof(DataMemberAttribute)
                             .GetConstructor(Type.EmptyTypes), new object[] { },
-                            new PropertyInfo[] { typeof(DataMemberAttribute).GetProperty("Name") },
-                            new object[] { name }));
+                            new PropertyInfo[]
+                            {
+                                typeof(DataMemberAttribute).GetProperty("Name"),
+                                typeof(DataMemberAttribute).GetProperty("Order"),
+                            },
+                            new object[] { name, table.Columns.IndexOf(column) }));
                 }
             }
             else
             {
                 builder.SetCustomAttribute(
                     new CustomAttributeBuilder(typeof(DataMemberAttribute)
-                        .GetConstructor(Type.EmptyTypes), new object[] { }));
+                        .GetConstructor(Type.EmptyTypes), new object[] { },
+                        new PropertyInfo[]
+                        {
+                            typeof(DataMemberAttribute).GetProperty("Order"),
+                        },
+                        new object[] { table.Columns.IndexOf(column) }));
             }
 
             return builder;
