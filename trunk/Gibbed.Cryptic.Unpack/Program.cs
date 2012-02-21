@@ -230,11 +230,6 @@ namespace Gibbed.Cryptic.Unpack
 
                     var entryPath = Path.Combine(outputPath, name);
 
-                    if (entryPath.Contains(@"\geobin\") == true)
-                    {
-                        continue;
-                    }
-
                     if (overwriteFiles == false &&
                         File.Exists(entryPath) == true)
                     {
