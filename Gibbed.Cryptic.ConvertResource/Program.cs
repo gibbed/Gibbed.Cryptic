@@ -58,7 +58,7 @@ namespace Gibbed.Cryptic.ConvertResource
             };
 
             var configPath = Path.Combine(
-                GetExecutablePath(), "parsers", "assemblies.json");
+                GetExecutablePath(), "parsers", "resources.json");
 
             Configuration config;
             if (File.Exists(configPath) == false)

@@ -25,6 +25,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using Gibbed.Cryptic.FileFormats;
 using Gibbed.IO;
 using ICSharpCode.SharpZipLib.Zip.Compression.Streams;
@@ -47,6 +48,7 @@ namespace Gibbed.Cryptic.Unpack
             bool? extractUnknowns = null;
             bool overwriteFiles = false;
             bool verbose = true;
+            string excludePattern = null;
 
             var options = new OptionSet()
             {
@@ -69,6 +71,11 @@ namespace Gibbed.Cryptic.Unpack
                     "v|verbose",
                     "be verbose",
                     v => verbose = v != null
+                },
+                {
+                    "x|exclude=",
+                    "exclude files using pattern",
+                    v => excludePattern = v
                 },
                 {
                     "h|help",
@@ -104,6 +111,12 @@ namespace Gibbed.Cryptic.Unpack
 
             string inputPath = extras[0];
             string outputPath = extras.Count > 1 ? extras[1] : Path.ChangeExtension(inputPath, null) + "_unpack";
+
+            Regex exclude = null;
+            if (string.IsNullOrEmpty(excludePattern) == false)
+            {
+                exclude = new Regex(excludePattern);
+            }
 
             using (var input = File.OpenRead(inputPath))
             {
@@ -226,6 +239,12 @@ namespace Gibbed.Cryptic.Unpack
                         {
                             name = name.Substring(1);
                         }
+                    }
+
+                    if (exclude != null &&
+                        exclude.IsMatch(name) == true)
+                    {
+                        continue;
                     }
 
                     var entryPath = Path.Combine(outputPath, name);

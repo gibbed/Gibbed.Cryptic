@@ -68,6 +68,13 @@ namespace Gibbed.Cryptic.FileFormats
             }
         }
 
+        public static TType LoadObject<TType>(Stream input)
+            where TType : Serialization.IStructure, new()
+        {
+            var reader = new BlobDataReader(input);
+            return reader.ReadValueStructure<TType>(false, null);
+        }
+
         public static List<TType> LoadResource<TType>(Stream input)
             where TType: Serialization.IStructure, new()
         {
