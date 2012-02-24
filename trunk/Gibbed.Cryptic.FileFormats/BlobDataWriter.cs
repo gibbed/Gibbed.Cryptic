@@ -68,6 +68,19 @@ namespace Gibbed.Cryptic.FileFormats
             }
         }
 
+        public static void SaveObject<TType>(TType instance, Stream output)
+            where TType : Serialization.IStructure, new()
+        {
+            using (var data = new MemoryStream())
+            {
+                var reader = new BlobDataWriter(data);
+                reader.WriteValueStructure(instance, false, null);
+
+                data.Position = 0;
+                output.WriteFromStream(data, data.Length);
+            }
+        }
+
         public static void SaveResource<TType>(List<TType> list, Stream output)
             where TType : Serialization.IStructure, new()
         {
