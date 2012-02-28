@@ -171,7 +171,7 @@ namespace Gibbed.Cryptic.ConvertResource
                     var target = schema.GetTarget(blob.ParserHash);
                     if (target == null)
                     {
-                        Console.WriteLine("Don't know how to handle '{0}' with a hash of {1:X8}.",
+                        Console.WriteLine("Don't know how to handle '{0}' with a hash of '{1}'.",
                             schemaName, blob.ParserHash);
                         return;
                     }
@@ -179,7 +179,7 @@ namespace Gibbed.Cryptic.ConvertResource
                     var version = target.FirstVersion();
                     if (version == null)
                     {
-                        Console.WriteLine("No support for '{0}' with a hash of {1:X8}.",
+                        Console.WriteLine("No support for '{0}' with a hash of '{1}'.",
                             schemaName, blob.ParserHash);
                         return;
                     }
