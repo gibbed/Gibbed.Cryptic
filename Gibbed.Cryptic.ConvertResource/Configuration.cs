@@ -20,6 +20,7 @@
  *    distribution.
  */
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json;
@@ -31,20 +32,15 @@ namespace Gibbed.Cryptic.ConvertResource
     {
         public Schema GetSchema(string name)
         {
-            if (this.Schemas.ContainsKey(name) == true)
+            if (name == null)
             {
-                return this.Schemas[name];
-            }
-            else if (this.SchemaAliases.ContainsKey(name) == true)
-            {
-                var alias = this.SchemaAliases[name];
-                if (alias != name)
-                {
-                    return this.GetSchema(alias);
-                }
+                throw new ArgumentNullException("name");
             }
 
-            return null;
+            name = name.ToLowerInvariant();
+            return this.Schemas
+                .FirstOrDefault(s => s.Key.ToLowerInvariant() == name)
+                .Value;
         }
 
         [JsonProperty(PropertyName = "schemas", Required = Required.Always)]

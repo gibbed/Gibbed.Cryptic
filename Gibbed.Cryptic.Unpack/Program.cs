@@ -115,7 +115,7 @@ namespace Gibbed.Cryptic.Unpack
             Regex exclude = null;
             if (string.IsNullOrEmpty(excludePattern) == false)
             {
-                exclude = new Regex(excludePattern);
+                exclude = new Regex(excludePattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
             }
 
             using (var input = File.OpenRead(inputPath))
