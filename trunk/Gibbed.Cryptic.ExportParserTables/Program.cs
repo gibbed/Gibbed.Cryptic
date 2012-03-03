@@ -800,9 +800,88 @@ namespace Gibbed.Cryptic.ExportParserTables
             }
         }
 
+        private static string TranslateArgumentType(
+            NativeExpressionArgument arg,
+            ProcessMemory memory)
+        {
+            switch (arg.Type)
+            {
+                case 0x0000: return "void";
+                case 0x0002: return "int";
+                case 0x0004: return "flt";
+                case 0x0005: return "intarray";
+                case 0x0006: return "floatarray";
+                case 0x0007: return "Vec3";
+                case 0x0008: return "Vec4";
+                case 0x0009: return "Mat4";
+                case 0x000A: return "Quat";
+                case 0x000B: return "str";
+                case 0x000C: return "multivalarray";
+                case 0x0080: return "entityarray";
+                case 0x0081: return memory.ReadStringZ(arg.ptrTypeNamePointer);
+                case 0x0082: return "MultiVal";
+                case 0x2809: return "loc";
+            }
+
+            return string.Format("*INV:{0:X8}*",
+                arg.Type);
+
+            throw new NotSupportedException();
+        }
+
+        private static void ExportExpressionFunction(
+            string itemName, uint pointer,
+            ProcessMemory memory,
+            TextWriter writer)
+        {
+            var sb = new StringBuilder();
+
+            var func = memory.ReadStructure<NativeExpressionFunction>(pointer);
+
+            sb.AppendFormat("[{0:X8}] ", func.handler);
+
+            var funcName = memory.ReadStringZ(func.FuncNamePointer);
+            var codeName = memory.ReadStringZ(func.ExprCodeNamePointer);
+
+            var tags = new string[12];
+            for (int i = 0; i < 12; i++)
+            {
+                tags[i] = memory.ReadStringZ(func.tags[i]);
+            }
+
+            var validTags = tags
+                .Where(t => string.IsNullOrWhiteSpace(t) == false)
+                .ToArray();
+            if (validTags.Length > 0)
+            {
+                sb.AppendFormat("{0} : ",
+                    string.Join(", ", validTags));
+            }
+
+            sb.AppendFormat("{0} {1}(",
+                TranslateArgumentType(func.ReturnType, memory),
+                funcName);
+            
+            for (int i = 0; i < func.argc; i++)
+            {
+                if (i > 0)
+                {
+                    sb.Append(", ");
+                }
+
+                sb.AppendFormat("{0} {1}",
+                    TranslateArgumentType(func.args[i], memory),
+                    memory.ReadStringZ(func.args[i].NamePointer));
+            }
+
+            sb.Append(")");
+
+            writer.WriteLine(sb.ToString());
+        }
+
         public static void Main(string[] args)
         {
-            var process = Process.GetProcessesByName("GameClient")
+            var process = Process.GetProcessesByName("DebugClient")
                 .Where(p =>
                     p.MainWindowTitle == "Champions Online" ||
                     p.MainWindowTitle == "Star Trek Online")
@@ -845,6 +924,40 @@ namespace Gibbed.Cryptic.ExportParserTables
                 if (memory.Open(process) == false)
                 {
                     return;
+                }
+
+                // expression functions
+                var exprFuncs = new List<KeyValuePair<string, uint>>();
+                {
+                    var stashPointer = Locator.FindExpressionFunctionTable(memory);
+                    var stashCount = memory.ReadS32(stashPointer + 0x08);
+                    var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
+                    var stashEntries = memory.ReadBytes(stashEntryPointer, stashCount * 8);
+
+                    for (int i = 0; i < stashCount; i++)
+                    {
+                        var namePointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 0);
+                        var dataPointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 4);
+
+                        if (namePointer == 0 &&
+                            dataPointer == 0)
+                        {
+                            continue;
+                        }
+
+                        var name = memory.ReadStringZ(namePointer);
+                        exprFuncs.Add(new KeyValuePair<string, uint>(name, dataPointer));
+                    }
+                }
+
+                using (var output = File.Create(Path.Combine(outputPath, "expression functions.txt")))
+                {
+                    var writer = new StreamWriter(output);
+                    foreach (var kv in exprFuncs.OrderBy(kv => kv.Key))
+                    {
+                        ExportExpressionFunction(kv.Key, kv.Value, memory, writer);
+                    }
+                    writer.Flush();
                 }
 
                 var tempEnums = new List<KeyValuePair<string, uint>>();
