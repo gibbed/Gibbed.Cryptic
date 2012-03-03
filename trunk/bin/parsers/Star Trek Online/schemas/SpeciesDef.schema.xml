@@ -267,11 +267,8 @@
       </flags>
       <subtable external="VoiceRef" />
     </column>
-    <column name="IsCustomSpecies" type="U8">
-      <offset>164</offset>
-    </column>
     <column name="IsGenSpecies" type="U8">
-      <offset>165</offset>
+      <offset>164</offset>
     </column>
     <column name="NameOrder" type="INT">
       <offset>168</offset>
@@ -349,6 +346,7 @@
       <redundant_name>PowerSuggestions</redundant_name>
       <subtable external="SpeciesPowerSuggestion" />
     </column>
+    <column name="IsCustomSpecies" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

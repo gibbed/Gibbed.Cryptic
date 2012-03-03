@@ -13,26 +13,47 @@
         <flag>KEY</flag>
       </flags>
     </column>
-    <column name="uStartTime" type="INT">
+    <column name="NodeCategory" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uStartTime" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="uUpdateTime" type="INT">
+      <offset>12</offset>
     </column>
     <column name="Current" type="INTFIXEDARRAY">
-      <offset>8</offset>
-      <num_elements>4</num_elements>
+      <offset>16</offset>
+      <num_elements>5</num_elements>
     </column>
     <column name="Target" type="INTFIXEDARRAY">
-      <offset>24</offset>
-      <num_elements>4</num_elements>
+      <offset>36</offset>
+      <num_elements>5</num_elements>
     </column>
     <column name="hRewardTable" type="REFERENCE">
-      <offset>40</offset>
+      <offset>56</offset>
       <dictionary_name>RewardTable</dictionary_name>
     </column>
     <column name="uRewardLevel" type="INT">
-      <offset>44</offset>
+      <offset>60</offset>
+    </column>
+    <column name="uCurrentRefresh" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="uScore" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="uScoreStartTime" type="INT">
+      <offset>72</offset>
     </column>
     <column name="Success" type="U8">
-      <offset>48</offset>
+      <offset>76</offset>
+    </column>
+    <column name="Finished" type="U8">
+      <offset>77</offset>
     </column>
     <column name="}" type="END" />
   </table>

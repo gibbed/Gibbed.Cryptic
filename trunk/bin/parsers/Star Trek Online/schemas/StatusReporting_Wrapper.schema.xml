@@ -17,17 +17,29 @@
     <column name="MyID" type="INT">
       <offset>8</offset>
     </column>
-    <column name="MyMainMonitoringPort" type="INT">
+    <column name="MyProduct" type="STRING">
       <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="MyGenericMonitoringPort" type="INT">
+    <column name="MyShortProduct" type="STRING">
       <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="Version" type="STRING">
+    <column name="MyMainMonitoringPort" type="INT">
       <offset>20</offset>
     </column>
-    <column name="Status" type="EMBEDDEDSTRUCT">
+    <column name="MyGenericMonitoringPort" type="INT">
       <offset>24</offset>
+    </column>
+    <column name="Version" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="Status" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
       <subtable external="StatusReporting_GenericServerStatus" />
     </column>
     <column name="}" type="END" />

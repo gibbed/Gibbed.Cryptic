@@ -92,8 +92,16 @@
       <offset>60</offset>
       <bit_offset>65537</bit_offset>
     </column>
+    <column name="OffsetUsesPitchAndRoll" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
     <column name="AdjustOffsetByPitch" type="BIT">
       <offset>60</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>OffsetUsesPitchAndRoll</redundant_name>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="UseFacingPitch" type="BIT">

@@ -19,80 +19,84 @@
     <column name="ScaleRewardOverTime" type="INT">
       <offset>12</offset>
     </column>
-    <column name="ActivityName" type="STRING">
+    <column name="PerNumericScale" type="STRUCT">
       <offset>16</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
+      <subtable external="MissionNumericScale" />
     </column>
-    <column name="OnstartRewardTableName" type="STRING">
+    <column name="ActivityName" type="STRING">
       <offset>20</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="OnfailureRewardTableName" type="STRING">
+    <column name="OnstartRewardTableName" type="STRING">
       <offset>24</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="OnsuccessRewardTableName" type="STRING">
+    <column name="OnfailureRewardTableName" type="STRING">
       <offset>28</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="OnreturnRewardTableName" type="STRING">
+    <column name="OnsuccessRewardTableName" type="STRING">
       <offset>32</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="OnReplayReturnRewardTableName" type="STRING">
+    <column name="OnreturnRewardTableName" type="STRING">
       <offset>36</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="ActivitySuccessRewardTableName" type="STRING">
+    <column name="OnReplayReturnRewardTableName" type="STRING">
       <offset>40</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="ActivityReturnRewardTableName" type="STRING">
+    <column name="ActivitySuccessRewardTableName" type="STRING">
       <offset>44</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="GoldRewardTable" type="STRING">
+    <column name="ActivityReturnRewardTableName" type="STRING">
       <offset>48</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="SilverRewardTable" type="STRING">
+    <column name="GoldRewardTable" type="STRING">
       <offset>52</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="BronzeRewardTable" type="STRING">
+    <column name="SilverRewardTable" type="STRING">
       <offset>56</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="DefaultRewardTable" type="STRING">
+    <column name="BronzeRewardTable" type="STRING">
       <offset>60</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="missionDrops" type="STRUCT">
+    <column name="DefaultRewardTable" type="STRING">
       <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="missionDrops" type="STRUCT">
+      <offset>68</offset>
       <subtable external="MissionDrop" />
     </column>
     <column name="}" type="END" />

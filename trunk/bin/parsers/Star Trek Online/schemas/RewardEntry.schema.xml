@@ -85,16 +85,22 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="Quality" type="INT">
+    <column name="RequiredActivity" type="STRING">
       <offset>72</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Quality" type="INT">
+      <offset>76</offset>
       <static_define_list external="ItemQuality" />
     </column>
     <column name="BroadcastChatMessage" type="EMBEDDEDSTRUCT">
-      <offset>80</offset>
+      <offset>84</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="RewardDiffPowerScaleMult" type="F32">
-      <offset>92</offset>
+      <offset>96</offset>
       <default>1</default>
     </column>
     <column name="DisableCostume" type="IGNORE" />

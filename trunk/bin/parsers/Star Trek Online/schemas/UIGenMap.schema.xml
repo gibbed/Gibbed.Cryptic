@@ -339,76 +339,80 @@
       <offset>252</offset>
       <subtable external="UIGenMapFakeZone" />
     </column>
-    <column name="ScaleDefault" type="F32">
+    <column name="ScaleMode" type="INT">
       <offset>256</offset>
+      <static_define_list external="UIGenMapScaleMode" />
+    </column>
+    <column name="ScaleDefault" type="F32">
+      <offset>260</offset>
     </column>
     <column name="ScaleMax" type="F32">
-      <offset>260</offset>
+      <offset>264</offset>
       <default>1069547520</default>
     </column>
     <column name="ScaleMin" type="F32">
-      <offset>264</offset>
-      <default>1036831949</default>
-    </column>
-    <column name="ScaleStep" type="F32">
       <offset>268</offset>
       <default>1036831949</default>
     </column>
-    <column name="ClampRadius" type="EMBEDDEDSTRUCT">
+    <column name="ScaleStep" type="F32">
       <offset>272</offset>
+      <default>1036831949</default>
+    </column>
+    <column name="ClampRadius" type="EMBEDDEDSTRUCT">
+      <offset>276</offset>
       <subtable external="UIGenMapRadius" />
     </column>
     <column name="LeftIconPadding" type="INT16">
-      <offset>284</offset>
-      <static_define_list external="UISize" />
-    </column>
-    <column name="TopIconPadding" type="INT16">
-      <offset>286</offset>
-      <static_define_list external="UISize" />
-    </column>
-    <column name="RightIconPadding" type="INT16">
       <offset>288</offset>
       <static_define_list external="UISize" />
     </column>
-    <column name="BottomIconPadding" type="INT16">
+    <column name="TopIconPadding" type="INT16">
       <offset>290</offset>
       <static_define_list external="UISize" />
     </column>
-    <column name="OutdoorFogColor" type="INT">
+    <column name="RightIconPadding" type="INT16">
       <offset>292</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
+      <static_define_list external="UISize" />
     </column>
-    <column name="RoomFogColor" type="INT">
+    <column name="BottomIconPadding" type="INT16">
+      <offset>294</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="OutdoorFogColor" type="INT">
       <offset>296</offset>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
     </column>
-    <column name="RoomInactiveColor" type="INT">
+    <column name="RoomFogColor" type="INT">
       <offset>300</offset>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
     </column>
-    <column name="RoomActiveColor" type="INT">
+    <column name="RoomInactiveColor" type="INT">
       <offset>304</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="RoomActiveColor" type="INT">
+      <offset>308</offset>
       <default>-1</default>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
     </column>
     <column name="LabelFont" type="REFERENCE">
-      <offset>308</offset>
-      <dictionary_name>UIStyleFont</dictionary_name>
-    </column>
-    <column name="HighlightFont" type="REFERENCE">
       <offset>312</offset>
       <dictionary_name>UIStyleFont</dictionary_name>
     </column>
-    <column name="BackgroundTexture" type="STRING">
+    <column name="HighlightFont" type="REFERENCE">
       <offset>316</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="BackgroundTexture" type="STRING">
+      <offset>320</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -416,14 +420,14 @@
       <dictionary_name>Texture</dictionary_name>
     </column>
     <column name="BackgroundColor" type="INT">
-      <offset>320</offset>
+      <offset>324</offset>
       <default>-1</default>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
     </column>
     <column name="Mask" type="STRING">
-      <offset>324</offset>
+      <offset>328</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -431,30 +435,22 @@
       <dictionary_name>Texture</dictionary_name>
     </column>
     <column name="OnLeftClick" type="OPTIONALSTRUCT">
-      <offset>328</offset>
-      <subtable external="UIGenAction" />
-    </column>
-    <column name="OnRightClick" type="OPTIONALSTRUCT">
       <offset>332</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="OnLeftDoubleClick" type="OPTIONALSTRUCT">
+    <column name="OnRightClick" type="OPTIONALSTRUCT">
       <offset>336</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="RangeY" type="F32">
+    <column name="OnLeftDoubleClick" type="OPTIONALSTRUCT">
       <offset>340</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="RangeY" type="F32">
+      <offset>344</offset>
       <default>10</default>
     </column>
     <column name="UpwardIcon" type="STRING">
-      <offset>344</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>GLOBAL_NAME</flag>
-      </flags>
-      <dictionary_name>Texture</dictionary_name>
-    </column>
-    <column name="DownwardIcon" type="STRING">
       <offset>348</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -462,33 +458,41 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="UpwardIconColor" type="INT">
+    <column name="DownwardIcon" type="STRING">
       <offset>352</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="DownwardIconColor" type="INT">
+    <column name="UpwardIconColor" type="INT">
       <offset>356</offset>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
       <format>COLOR</format>
     </column>
-    <column name="FollowPlayer" type="U8">
+    <column name="DownwardIconColor" type="INT">
       <offset>360</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
+    </column>
+    <column name="FollowPlayer" type="U8">
+      <offset>364</offset>
     </column>
     <column name="FollowSpeed" type="F32">
-      <offset>364</offset>
+      <offset>368</offset>
       <default>1056964608</default>
     </column>
     <column name="MapZoomMode" type="INT">
-      <offset>368</offset>
+      <offset>372</offset>
       <static_define_list external="UIGenMapZoomMode" />
     </column>
     <column name="RememberScales" type="U8">
-      <offset>372</offset>
+      <offset>376</offset>
     </column>
     <column name="}" type="END" />
   </table>

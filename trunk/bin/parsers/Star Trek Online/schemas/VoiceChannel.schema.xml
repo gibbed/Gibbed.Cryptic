@@ -49,28 +49,34 @@
       <offset>44</offset>
       <static_define_list external="RequestState" />
     </column>
-    <column name="transmitting" type="BIT">
+    <column name="timeToWait" type="INT64">
       <offset>48</offset>
+    </column>
+    <column name="connectFailures" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="transmitting" type="BIT">
+      <offset>60</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="destroyOnLeave" type="BIT">
-      <offset>48</offset>
+      <offset>60</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="transmitOnJoin" type="BIT">
-      <offset>48</offset>
+      <offset>60</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="adchannel" type="BIT">
-      <offset>48</offset>
+      <offset>60</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="has_spoken" type="BIT">
-      <offset>48</offset>
+      <offset>60</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="has_listened" type="BIT">
-      <offset>48</offset>
+      <offset>60</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="}" type="END" />

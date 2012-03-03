@@ -493,6 +493,12 @@
         <flag>DIRTY_BIT</flag>
       </flags>
     </column>
+    <column name="dbgLastSentPacketLevel" type="INT">
+      <offset>660</offset>
+    </column>
+    <column name="dbgLastSentFrameCount" type="INT">
+      <offset>664</offset>
+    </column>
     <column name="Dump Container on Clone" type="COMMAND">
       <offset>0</offset>
       <command_string>ServerMonDumpEntity $FIELD(myEntityType) $FIELD(myContainerID)</command_string>
