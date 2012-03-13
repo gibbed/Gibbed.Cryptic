@@ -19,41 +19,71 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="uStartTime" type="INT">
+    <column name="uGameSeed" type="INT">
       <offset>8</offset>
     </column>
-    <column name="uUpdateTime" type="INT">
+    <column name="uGameStartTime" type="INT">
       <offset>12</offset>
     </column>
-    <column name="Current" type="INTFIXEDARRAY">
+    <column name="uVersion" type="INT">
       <offset>16</offset>
+    </column>
+    <column name="uPhaseStartTime" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="uPhaseDuration" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Current" type="INTFIXEDARRAY">
+      <offset>28</offset>
       <num_elements>5</num_elements>
     </column>
     <column name="Target" type="INTFIXEDARRAY">
-      <offset>36</offset>
+      <offset>48</offset>
       <num_elements>5</num_elements>
     </column>
-    <column name="hRewardTable" type="REFERENCE">
-      <offset>56</offset>
-      <dictionary_name>RewardTable</dictionary_name>
-    </column>
-    <column name="uRewardLevel" type="INT">
-      <offset>60</offset>
-    </column>
-    <column name="uCurrentRefresh" type="INT">
-      <offset>64</offset>
-    </column>
-    <column name="uScore" type="INT">
+    <column name="uMatchStartTime" type="INT">
       <offset>68</offset>
     </column>
-    <column name="uScoreStartTime" type="INT">
+    <column name="uScore" type="INT">
       <offset>72</offset>
     </column>
     <column name="Success" type="U8">
       <offset>76</offset>
     </column>
-    <column name="Finished" type="U8">
-      <offset>77</offset>
+    <column name="uScoreCorrection" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="uClockCorrection" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="uReferenceClock" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="uMatchStartCorrection" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="hRewardTable" type="REFERENCE">
+      <offset>96</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="uRewardLevel" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="uLastClientTime" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="uLastClientScore" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="uLastClientMatch" type="INT">
+      <offset>112</offset>
+    </column>
+    <column name="RewindingClock" type="U8">
+      <offset>116</offset>
+    </column>
+    <column name="LastSuccess" type="U8">
+      <offset>117</offset>
     </column>
     <column name="}" type="END" />
   </table>

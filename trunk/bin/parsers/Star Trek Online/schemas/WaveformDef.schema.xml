@@ -27,21 +27,39 @@
       </flags>
       <default_string>WaveformModulationUI</default_string>
     </column>
-    <column name="SuccessTime" type="INT">
+    <column name="TimeScore" type="STRUCT">
       <offset>12</offset>
+      <subtable external="WaveformTimeScore" />
     </column>
-    <column name="TimeoutTime" type="INT">
+    <column name="TimeRate" type="F32">
       <offset>16</offset>
+      <default>1</default>
     </column>
-    <column name="RefreshTime" type="INT">
+    <column name="SuccessTime" type="INT">
       <offset>20</offset>
     </column>
-    <column name="MinNumberOfMoves" type="INT">
+    <column name="TimeoutTime" type="INT">
       <offset>24</offset>
+    </column>
+    <column name="RefreshTime" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="RefreshTimeMin" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RefreshTime</redundant_name>
+    </column>
+    <column name="RefreshTimeMax" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="MinNumberOfMoves" type="INT">
+      <offset>36</offset>
       <default>3</default>
     </column>
     <column name="MaxNumberOfMoves" type="INT">
-      <offset>28</offset>
+      <offset>40</offset>
     </column>
     <column name="ModRanges" type="IGNORE">
       <flags>
@@ -49,36 +67,36 @@
       </flags>
     </column>
     <column name="MaxAmplitude" type="INT">
-      <offset>32</offset>
+      <offset>44</offset>
       <default>1</default>
     </column>
     <column name="MaxPeriod" type="INT">
-      <offset>36</offset>
+      <offset>48</offset>
       <default>1</default>
     </column>
     <column name="MaxPhaseShift" type="INT">
-      <offset>40</offset>
-    </column>
-    <column name="MaxVerticalShift" type="INT">
-      <offset>44</offset>
-    </column>
-    <column name="MaxAlignmentShift" type="INT">
-      <offset>48</offset>
-    </column>
-    <column name="AmplitudeMultiplier" type="F32">
       <offset>52</offset>
     </column>
-    <column name="PeriodMultiplier" type="F32">
+    <column name="MaxVerticalShift" type="INT">
       <offset>56</offset>
     </column>
-    <column name="PhaseShiftMultiplier" type="F32">
+    <column name="MaxAlignmentShift" type="INT">
       <offset>60</offset>
     </column>
-    <column name="VerticalShiftMultiplier" type="F32">
+    <column name="AmplitudeMultiplier" type="F32">
       <offset>64</offset>
     </column>
-    <column name="AlignmentPoints" type="INT">
+    <column name="PeriodMultiplier" type="F32">
       <offset>68</offset>
+    </column>
+    <column name="PhaseShiftMultiplier" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="VerticalShiftMultiplier" type="F32">
+      <offset>76</offset>
+    </column>
+    <column name="AlignmentPoints" type="INT">
+      <offset>80</offset>
     </column>
     <column name="}" type="END" />
   </table>

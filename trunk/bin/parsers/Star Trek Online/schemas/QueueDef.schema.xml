@@ -202,55 +202,63 @@
       <static_define_list external="QueueMissionReq" />
       <format>FLAGS</format>
     </column>
-    <column name="NeutralFaction" type="REFERENCE">
+    <column name="ClassRequired" type="STRUCT">
       <offset>140</offset>
+      <subtable external="CharacterClassRef" />
+    </column>
+    <column name="ClassCategoryRequired" type="INTARRAY">
+      <offset>144</offset>
+      <static_define_list external="CharClassCategory" />
+    </column>
+    <column name="NeutralFaction" type="REFERENCE">
+      <offset>148</offset>
       <dictionary_name>CritterFaction</dictionary_name>
     </column>
     <column name="RandomMap" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Public" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="AlwaysCreate" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="Debug" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="SplitTeams" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="MissionReqNoAccess" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="CheckOffersBeforeMapLaunch" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="EnableAutoTeam" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="DisableAutoBalance" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="ChallengeMatch" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="PrivateMatch" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -258,45 +266,45 @@
       <bit_offset>65545</bit_offset>
     </column>
     <column name="IgnoresPVPAttribMods" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="AllowConcede" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="EnableReplay" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="BolsterToMapLevel" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="IgnoreLevelBandsForTeams" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65550</bit_offset>
     </column>
     <column name="EnableLeaverPenalty" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="DestroyEmptyMaps" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65552</bit_offset>
     </column>
     <column name="StayInQueueOnMapLeave" type="BIT">
-      <offset>144</offset>
+      <offset>152</offset>
       <bit_offset>65553</bit_offset>
     </column>
     <column name="EditorData" type="STRUCT">
-      <offset>148</offset>
+      <offset>156</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
