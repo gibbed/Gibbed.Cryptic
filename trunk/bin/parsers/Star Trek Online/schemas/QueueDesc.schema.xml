@@ -32,56 +32,62 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="CategoryDisplayName" type="STRING">
+    <column name="RequiredActivity" type="STRING">
       <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="PrivateName" type="STRING">
+    <column name="CategoryDisplayName" type="STRING">
       <offset>20</offset>
     </column>
-    <column name="displayNameMesg" type="EMBEDDEDSTRUCT">
+    <column name="PrivateName" type="STRING">
       <offset>24</offset>
+    </column>
+    <column name="displayNameMesg" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="descriptionMesg" type="EMBEDDEDSTRUCT">
-      <offset>36</offset>
+      <offset>40</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="cooldownDisplayNameMesg" type="EMBEDDEDSTRUCT">
-      <offset>48</offset>
+      <offset>52</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="cooldownDescriptionMesg" type="EMBEDDEDSTRUCT">
-      <offset>60</offset>
+      <offset>64</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="Category" type="INT">
-      <offset>72</offset>
+      <offset>76</offset>
       <static_define_list external="QueueCategory" />
     </column>
     <column name="Params" type="OPTIONALSTRUCT">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="QueueInstanceParams" />
     </column>
     <column name="CannotUseReason" type="INT">
-      <offset>80</offset>
+      <offset>84</offset>
       <static_define_list external="QueueCannotUseReason" />
     </column>
     <column name="QueueState" type="INT">
-      <offset>84</offset>
+      <offset>88</offset>
       <static_define_list external="PlayerQueueState" />
     </column>
     <column name="RegionFlags" type="INT">
-      <offset>88</offset>
+      <offset>92</offset>
       <static_define_list external="ControlSchemeRegionType" />
     </column>
     <column name="uCooldownTime" type="INT">
-      <offset>92</offset>
+      <offset>96</offset>
     </column>
     <column name="uiInstanceID" type="INT">
-      <offset>96</offset>
+      <offset>100</offset>
     </column>
     <column name="MapKey" type="INT64">
       <offset>104</offset>

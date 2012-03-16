@@ -39,16 +39,36 @@
     <column name="OffsetUp" type="F32">
       <offset>24</offset>
     </column>
-    <column name="FacingYawOffset" type="F32">
+    <column name="ExprBlockDistanceFront" type="OPTIONALSTRUCT">
       <offset>28</offset>
+      <subtable external="Expression" />
     </column>
-    <column name="ClientViewTeleport" type="BIT">
+    <column name="ExprBlockDistanceRight" type="OPTIONALSTRUCT">
       <offset>32</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprBlockDistanceAbove" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="FacingYawOffset" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="OffsetUsesPitch" type="BIT">
+      <offset>44</offset>
       <bit_offset>65536</bit_offset>
     </column>
-    <column name="FacingUsePitch" type="BIT">
-      <offset>32</offset>
+    <column name="OffsetUsesRoll" type="BIT">
+      <offset>44</offset>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="ClientViewTeleport" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="FacingUsePitch" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

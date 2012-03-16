@@ -179,220 +179,231 @@
       <offset>208</offset>
       <default>1</default>
     </column>
-    <column name="MouseSensitivityDefault" type="F32">
+    <column name="ZoomMultiplierWeight" type="F32">
       <offset>212</offset>
+      <default>1</default>
+    </column>
+    <column name="ZoomMultiplierWeightLargeEntity" type="F32">
+      <offset>216</offset>
+    </column>
+    <column name="MouseSensitivityDefault" type="F32">
+      <offset>220</offset>
       <default>1075838976</default>
     </column>
     <column name="MouseSensitivityMin" type="F32">
-      <offset>216</offset>
+      <offset>224</offset>
       <default>1048576000</default>
     </column>
     <column name="MouseSensitivityMax" type="F32">
-      <offset>220</offset>
+      <offset>228</offset>
       <default>7</default>
     </column>
     <column name="MouseFilter" type="F32">
-      <offset>224</offset>
+      <offset>232</offset>
     </column>
     <column name="MaxDistanceMinimumValue" type="F32">
-      <offset>228</offset>
+      <offset>236</offset>
       <default>30</default>
     </column>
     <column name="MaxDistanceMaximumValue" type="F32">
-      <offset>232</offset>
+      <offset>240</offset>
       <default>70</default>
     </column>
     <column name="ControllerSensitivityDefault" type="F32">
-      <offset>236</offset>
+      <offset>244</offset>
       <default>2</default>
     </column>
     <column name="ControllerSensitivityMin" type="F32">
-      <offset>240</offset>
+      <offset>248</offset>
       <default>1048576000</default>
     </column>
     <column name="ControllerSensitivityMax" type="F32">
-      <offset>244</offset>
+      <offset>252</offset>
       <default>5</default>
     </column>
     <column name="RotInterpSpeed" type="STRUCT">
-      <offset>248</offset>
+      <offset>256</offset>
       <subtable external="CameraInterpSpeed" />
     </column>
     <column name="DefaultRotInterpSpeed" type="INT">
-      <offset>252</offset>
+      <offset>260</offset>
       <default>1</default>
       <static_define_list external="ECameraInterpSpeed" />
     </column>
     <column name="DistancePresets" type="F32FIXEDARRAY">
-      <offset>256</offset>
+      <offset>264</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="AutoLevelSpeed" type="F32">
-      <offset>268</offset>
+      <offset>276</offset>
     </column>
     <column name="AutoLevelPitch" type="F32">
-      <offset>272</offset>
+      <offset>280</offset>
     </column>
     <column name="AutoLevelPitchPresets" type="F32FIXEDARRAY">
-      <offset>276</offset>
+      <offset>284</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="AutoLevelThreshold" type="F32">
-      <offset>288</offset>
-    </column>
-    <column name="AutoLevelThresholdSpeedReduction" type="F32">
-      <offset>292</offset>
-    </column>
-    <column name="AutoLevelMinSpeed" type="F32">
       <offset>296</offset>
     </column>
-    <column name="AutoLevelMaxSpeed" type="F32">
+    <column name="AutoLevelThresholdSpeedReduction" type="F32">
       <offset>300</offset>
     </column>
-    <column name="AutoLevelPitchSpeedReduction" type="F32">
+    <column name="AutoLevelMinSpeed" type="F32">
       <offset>304</offset>
     </column>
-    <column name="AutoLevelSpeedIncrease" type="F32">
+    <column name="AutoLevelMaxSpeed" type="F32">
       <offset>308</offset>
     </column>
-    <column name="PYRKeyboardSpeed" type="F32FIXEDARRAY">
+    <column name="AutoLevelPitchSpeedReduction" type="F32">
       <offset>312</offset>
+    </column>
+    <column name="AutoLevelSpeedIncrease" type="F32">
+      <offset>316</offset>
+    </column>
+    <column name="PYRKeyboardSpeed" type="F32FIXEDARRAY">
+      <offset>320</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="PYRJoypadSpeed" type="F32FIXEDARRAY">
-      <offset>324</offset>
+      <offset>332</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="PYRMouseSpeed" type="F32FIXEDARRAY">
-      <offset>336</offset>
+      <offset>344</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="PYRDefaultMouseSpeed" type="F32FIXEDARRAY">
-      <offset>348</offset>
+      <offset>356</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="MinPitch" type="F32">
-      <offset>360</offset>
+      <offset>368</offset>
     </column>
     <column name="InterpSpeedPYR" type="F32FIXEDARRAY">
-      <offset>364</offset>
+      <offset>372</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="RotInterpBasis" type="F32">
-      <offset>376</offset>
-    </column>
-    <column name="RotInterpNormMin" type="F32">
-      <offset>380</offset>
-    </column>
-    <column name="RotInterpNormMax" type="F32">
       <offset>384</offset>
     </column>
-    <column name="DefaultRotInterpBasis" type="F32FIXEDARRAY">
+    <column name="RotInterpNormMin" type="F32">
       <offset>388</offset>
-      <num_elements>2</num_elements>
     </column>
-    <column name="DefaultRotInterpNormMin" type="F32FIXEDARRAY">
+    <column name="RotInterpNormMax" type="F32">
+      <offset>392</offset>
+    </column>
+    <column name="DefaultRotInterpBasis" type="F32FIXEDARRAY">
       <offset>396</offset>
       <num_elements>2</num_elements>
     </column>
-    <column name="DefaultRotInterpNormMax" type="F32FIXEDARRAY">
+    <column name="DefaultRotInterpNormMin" type="F32FIXEDARRAY">
       <offset>404</offset>
       <num_elements>2</num_elements>
     </column>
-    <column name="DistanceInterpSpeed" type="F32">
+    <column name="DefaultRotInterpNormMax" type="F32FIXEDARRAY">
       <offset>412</offset>
+      <num_elements>2</num_elements>
     </column>
-    <column name="AutoLevelInterpSpeed" type="F32">
-      <offset>416</offset>
-    </column>
-    <column name="MaxShake" type="F32">
+    <column name="DistanceInterpSpeed" type="F32">
       <offset>420</offset>
     </column>
-    <column name="PlayerFadeDistance" type="F32">
+    <column name="AutoLevelInterpSpeed" type="F32">
       <offset>424</offset>
     </column>
-    <column name="PlayerInvisibleFadeDistance" type="F32">
+    <column name="MaxShake" type="F32">
       <offset>428</offset>
     </column>
-    <column name="NearOffsetRanges" type="F32FIXEDARRAY">
+    <column name="PlayerFadeDistance" type="F32">
       <offset>432</offset>
+    </column>
+    <column name="PlayerInvisibleFadeDistance" type="F32">
+      <offset>436</offset>
+    </column>
+    <column name="FadeScale" type="F32">
+      <offset>440</offset>
+      <default>1</default>
+    </column>
+    <column name="NearOffsetRanges" type="F32FIXEDARRAY">
+      <offset>444</offset>
       <num_elements>2</num_elements>
     </column>
     <column name="ShooterOffsetRanges" type="F32FIXEDARRAY">
-      <offset>440</offset>
+      <offset>452</offset>
       <num_elements>2</num_elements>
     </column>
     <column name="NearOffsetScreenSpace" type="F32">
-      <offset>448</offset>
+      <offset>460</offset>
     </column>
     <column name="CurrentOffset" type="F32FIXEDARRAY">
-      <offset>452</offset>
+      <offset>464</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="ClosestDistance" type="F32">
-      <offset>464</offset>
+      <offset>476</offset>
     </column>
     <column name="ZoomMult" type="F32">
-      <offset>468</offset>
+      <offset>480</offset>
     </column>
     <column name="AimHeightMultiplier" type="F32">
-      <offset>472</offset>
+      <offset>484</offset>
     </column>
     <column name="CrouchHeightMultiplier" type="F32">
-      <offset>476</offset>
+      <offset>488</offset>
       <default>1059481190</default>
     </column>
     <column name="SitHeightMultiplier" type="F32">
-      <offset>480</offset>
+      <offset>492</offset>
       <default>1056964608</default>
     </column>
     <column name="HeightMultiplier" type="F32">
-      <offset>484</offset>
+      <offset>496</offset>
     </column>
     <column name="CrouchHeightInterp" type="F32">
-      <offset>484</offset>
+      <offset>496</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>HeightMultiplier</redundant_name>
     </column>
     <column name="HeightAdjustRate" type="F32">
-      <offset>488</offset>
+      <offset>500</offset>
     </column>
     <column name="CrouchHeightInterpRate" type="F32">
-      <offset>488</offset>
+      <offset>500</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>HeightAdjustRate</redundant_name>
     </column>
     <column name="GiganticPlayerHeight" type="F32">
-      <offset>492</offset>
+      <offset>504</offset>
     </column>
     <column name="CrouchAction" type="STRINGARRAY">
-      <offset>496</offset>
+      <offset>508</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="CurrentPreset" type="INT">
-      <offset>500</offset>
+      <offset>512</offset>
     </column>
     <column name="LastCameraMode" type="INT">
-      <offset>504</offset>
+      <offset>516</offset>
       <default>-1</default>
       <static_define_list external="CameraMode" />
     </column>
     <column name="CameraMode" type="INT">
-      <offset>508</offset>
+      <offset>520</offset>
       <static_define_list external="CameraMode" />
     </column>
     <column name="CameraModeSettings" type="STRUCT">
-      <offset>516</offset>
+      <offset>528</offset>
       <subtable external="CameraModeSettings" />
     </column>
     <column name="FocusSmoothing" type="OPTIONALSTRUCT">
-      <offset>520</offset>
+      <offset>532</offset>
       <subtable external="CameraFocusSmoothingData" />
     </column>
     <column name="EndCameraSettings" type="END" />

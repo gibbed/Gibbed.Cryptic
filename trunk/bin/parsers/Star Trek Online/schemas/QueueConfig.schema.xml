@@ -108,35 +108,39 @@
       <offset>92</offset>
       <static_define_list external="QueueCannotUseReason" />
     </column>
-    <column name="ProvideIndividualMapInfo" type="BIT">
+    <column name="AllowQueuingOnQueueMap" type="INTARRAY">
       <offset>96</offset>
+      <static_define_list external="ZoneMapType" />
+    </column>
+    <column name="ProvideIndividualMapInfo" type="BIT">
+      <offset>100</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="EnableMissionReturnAtEnd" type="BIT">
-      <offset>96</offset>
+      <offset>100</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="EnableInMapPlayerChatUpdates" type="BIT">
-      <offset>96</offset>
+      <offset>100</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="EnableStrictTeamRules" type="BIT">
-      <offset>96</offset>
+      <offset>100</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="DisbandAutoTeamsWhenMatchEnds" type="BIT">
-      <offset>96</offset>
+      <offset>100</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="DisableJoinOrCreateOnAllQueueMaps" type="BIT">
-      <offset>96</offset>
+      <offset>100</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="RemainInPrivateQueuesAfterMapFinishes" type="BIT">
-      <offset>96</offset>
+      <offset>100</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="}" type="END" />
