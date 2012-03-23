@@ -346,64 +346,72 @@
     <column name="ZoomMult" type="F32">
       <offset>480</offset>
     </column>
-    <column name="AimHeightMultiplier" type="F32">
+    <column name="CloseAdjustDistance" type="F32">
       <offset>484</offset>
+      <default>5</default>
+    </column>
+    <column name="DefaultAdjustDistance" type="F32">
+      <offset>488</offset>
+      <default>5</default>
+    </column>
+    <column name="AimHeightMultiplier" type="F32">
+      <offset>492</offset>
     </column>
     <column name="CrouchHeightMultiplier" type="F32">
-      <offset>488</offset>
+      <offset>496</offset>
       <default>1059481190</default>
     </column>
     <column name="SitHeightMultiplier" type="F32">
-      <offset>492</offset>
+      <offset>500</offset>
       <default>1056964608</default>
     </column>
     <column name="HeightMultiplier" type="F32">
-      <offset>496</offset>
+      <offset>504</offset>
     </column>
     <column name="CrouchHeightInterp" type="F32">
-      <offset>496</offset>
+      <offset>504</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>HeightMultiplier</redundant_name>
     </column>
     <column name="HeightAdjustRate" type="F32">
-      <offset>500</offset>
+      <offset>508</offset>
     </column>
     <column name="CrouchHeightInterpRate" type="F32">
-      <offset>500</offset>
+      <offset>508</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>HeightAdjustRate</redundant_name>
     </column>
     <column name="GiganticPlayerHeight" type="F32">
-      <offset>504</offset>
+      <offset>512</offset>
     </column>
     <column name="CrouchAction" type="STRINGARRAY">
-      <offset>508</offset>
+      <offset>516</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="CurrentPreset" type="INT">
-      <offset>512</offset>
+      <offset>520</offset>
     </column>
     <column name="LastCameraMode" type="INT">
-      <offset>516</offset>
+      <offset>524</offset>
       <default>-1</default>
       <static_define_list external="CameraMode" />
     </column>
     <column name="CameraMode" type="INT">
-      <offset>520</offset>
+      <offset>528</offset>
       <static_define_list external="CameraMode" />
     </column>
     <column name="CameraModeSettings" type="STRUCT">
-      <offset>528</offset>
+      <offset>536</offset>
       <subtable external="CameraModeSettings" />
     </column>
     <column name="FocusSmoothing" type="OPTIONALSTRUCT">
-      <offset>532</offset>
+      <offset>540</offset>
       <subtable external="CameraFocusSmoothingData" />
     </column>
     <column name="EndCameraSettings" type="END" />

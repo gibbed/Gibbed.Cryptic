@@ -67,23 +67,26 @@
       <offset>96</offset>
       <dictionary_name>RewardTable</dictionary_name>
     </column>
-    <column name="uRewardLevel" type="INT">
+    <column name="Interactable" type="STRING">
       <offset>100</offset>
     </column>
-    <column name="uLastClientTime" type="INT">
+    <column name="uRewardLevel" type="INT">
       <offset>104</offset>
     </column>
-    <column name="uLastClientScore" type="INT">
+    <column name="uLastClientTime" type="INT">
       <offset>108</offset>
     </column>
-    <column name="uLastClientMatch" type="INT">
+    <column name="uLastClientScore" type="INT">
       <offset>112</offset>
     </column>
-    <column name="RewindingClock" type="U8">
+    <column name="uLastClientMatch" type="INT">
       <offset>116</offset>
     </column>
+    <column name="RewindingClock" type="U8">
+      <offset>120</offset>
+    </column>
     <column name="LastSuccess" type="U8">
-      <offset>117</offset>
+      <offset>121</offset>
     </column>
     <column name="}" type="END" />
   </table>

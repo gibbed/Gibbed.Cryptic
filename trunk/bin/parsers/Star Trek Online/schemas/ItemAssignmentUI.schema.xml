@@ -119,114 +119,124 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="FailsRequirementsReason" type="STRING">
+    <column name="FeaturedActivity" type="STRING">
       <offset>84</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FailsRequirementsReason" type="STRING">
+      <offset>88</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="Category" type="INT">
-      <offset>88</offset>
+      <offset>92</offset>
       <static_define_list external="ItemAssignmentCategory" />
     </column>
     <column name="CategoryNumericXP1" type="STRING">
-      <offset>92</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
-    </column>
-    <column name="CategoryNumericXP2" type="STRING">
       <offset>96</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="CategoryNumericRank1" type="STRING">
+    <column name="CategoryNumericXP2" type="STRING">
       <offset>100</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="CategoryNumericRank2" type="STRING">
+    <column name="CategoryNumericRank1" type="STRING">
       <offset>104</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="uAssignmentID" type="INT">
+    <column name="CategoryNumericRank2" type="STRING">
       <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="uTimeStarted" type="INT">
+    <column name="uAssignmentID" type="INT">
       <offset>112</offset>
     </column>
-    <column name="uTimeRemaining" type="INT">
+    <column name="uTimeStarted" type="INT">
       <offset>116</offset>
     </column>
-    <column name="uNextRequirementsUpdateTime" type="INT">
+    <column name="uTimeRemaining" type="INT">
       <offset>120</offset>
     </column>
-    <column name="uCompletedTime" type="INT">
+    <column name="uNextRequirementsUpdateTime" type="INT">
       <offset>124</offset>
     </column>
-    <column name="RequiredMinimumLevel" type="INT">
+    <column name="uCompletedTime" type="INT">
       <offset>128</offset>
     </column>
-    <column name="RequiredMission" type="REFERENCE">
+    <column name="RequiredMinimumLevel" type="INT">
       <offset>132</offset>
+    </column>
+    <column name="RequiredMission" type="REFERENCE">
+      <offset>136</offset>
       <dictionary_name>MissionDef</dictionary_name>
     </column>
     <column name="RequiredItemAssignment" type="REFERENCE">
-      <offset>136</offset>
+      <offset>140</offset>
       <dictionary_name>ItemAssignmentDef</dictionary_name>
     </column>
     <column name="SlotRequirement" type="INTFIXEDARRAY">
-      <offset>140</offset>
+      <offset>144</offset>
       <num_elements>1</num_elements>
     </column>
     <column name="FailsRequiresReasons" type="INT">
-      <offset>144</offset>
+      <offset>148</offset>
       <static_define_list external="ItemAssignmentFailsRequiresReason" />
     </column>
     <column name="CompletedAssignmentIndex" type="INT">
-      <offset>148</offset>
-    </column>
-    <column name="uSortCategory" type="U8">
       <offset>152</offset>
     </column>
-    <column name="QualityRewardBonus" type="F32">
+    <column name="uSortCategory" type="U8">
       <offset>156</offset>
     </column>
-    <column name="IsHeader" type="BIT">
+    <column name="QualityRewardBonus" type="F32">
       <offset>160</offset>
+    </column>
+    <column name="IsHeader" type="BIT">
+      <offset>164</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="IsPersonalAssignment" type="BIT">
-      <offset>160</offset>
+      <offset>164</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="IsAbortable" type="BIT">
-      <offset>160</offset>
+      <offset>164</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="HasRewards" type="BIT">
-      <offset>160</offset>
+      <offset>164</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="FailsRequirements" type="BIT">
-      <offset>160</offset>
+      <offset>164</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="HasCompleteDetails" type="BIT">
-      <offset>160</offset>
+      <offset>164</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="New" type="BIT">
-      <offset>160</offset>
+      <offset>164</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="Repeatable" type="BIT">
-      <offset>160</offset>
+      <offset>164</offset>
       <bit_offset>65543</bit_offset>
+    </column>
+    <column name="IsFeatured" type="BIT">
+      <offset>164</offset>
+      <bit_offset>65544</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

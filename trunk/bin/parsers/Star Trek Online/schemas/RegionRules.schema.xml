@@ -290,80 +290,84 @@
     <column name="SocialAggroSecondaryDist" type="F32">
       <offset>220</offset>
     </column>
-    <column name="IgnoreNoDraw" type="BIT">
+    <column name="FormationSlotScale" type="F32">
       <offset>224</offset>
+      <default>10</default>
+    </column>
+    <column name="IgnoreNoDraw" type="BIT">
+      <offset>228</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="SpawnBox" type="OPTIONALSTRUCT">
-      <offset>228</offset>
+      <offset>232</offset>
       <subtable external="SpawnBoxes" />
     </column>
     <column name="SpawnRadius" type="F32">
-      <offset>232</offset>
+      <offset>236</offset>
     </column>
     <column name="XRelocation" type="OPTIONALSTRUCT">
-      <offset>236</offset>
-      <subtable external="Expression" />
-    </column>
-    <column name="YRelocation" type="OPTIONALSTRUCT">
       <offset>240</offset>
       <subtable external="Expression" />
     </column>
-    <column name="ZRelocation" type="OPTIONALSTRUCT">
+    <column name="YRelocation" type="OPTIONALSTRUCT">
       <offset>244</offset>
       <subtable external="Expression" />
     </column>
-    <column name="LeashSettings" type="OPTIONALSTRUCT">
+    <column name="ZRelocation" type="OPTIONALSTRUCT">
       <offset>248</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="LeashSettings" type="OPTIONALSTRUCT">
+      <offset>252</offset>
       <subtable external="RegionLeashSettings" />
     </column>
     <column name="ArriveSequence" type="STRUCT">
-      <offset>252</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-      <subtable external="DoorTransitionSequenceRef" />
-    </column>
-    <column name="DepartSequence" type="STRUCT">
       <offset>256</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="DoorTransitionSequenceRef" />
     </column>
-    <column name="PetRequestDepart" type="REFERENCE">
+    <column name="DepartSequence" type="STRUCT">
       <offset>260</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+      <subtable external="DoorTransitionSequenceRef" />
     </column>
-    <column name="PetRequestArrive" type="REFERENCE">
+    <column name="PetRequestDepart" type="REFERENCE">
       <offset>264</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
     </column>
-    <column name="AIAmbientDefaults" type="STRING">
+    <column name="PetRequestArrive" type="REFERENCE">
       <offset>268</offset>
-      <default_string>Default</default_string>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
     </column>
-    <column name="AICombatJobDefaults" type="STRING">
+    <column name="AIAmbientDefaults" type="STRING">
       <offset>272</offset>
       <default_string>Default</default_string>
     </column>
-    <column name="AIGroupCombatSettings" type="STRING">
+    <column name="AICombatJobDefaults" type="STRING">
       <offset>276</offset>
+      <default_string>Default</default_string>
+    </column>
+    <column name="AIGroupCombatSettings" type="STRING">
+      <offset>280</offset>
     </column>
     <column name="GlobalCritterDropRewardTable" type="STRING">
-      <offset>280</offset>
+      <offset>284</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="KillCreditLimit" type="OPTIONALSTRUCT">
-      <offset>284</offset>
+      <offset>288</offset>
       <subtable external="KillCreditLimits" />
     </column>
     <column name="uiMissionSharingDist" type="IGNORE" />

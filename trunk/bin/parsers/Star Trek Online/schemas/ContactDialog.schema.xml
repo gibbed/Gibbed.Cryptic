@@ -406,21 +406,28 @@
       <offset>312</offset>
       <dictionary_name>CutScene</dictionary_name>
     </column>
-    <column name="ResearchTimerStoreName" type="STRING">
+    <column name="AllItemAssignments" type="STRUCT">
       <offset>316</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="ItemAssignmentDefRef" />
+    </column>
+    <column name="ResearchTimerStoreName" type="STRING">
+      <offset>320</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="uResearchTimerStoreItemIndex" type="INT">
-      <offset>320</offset>
+      <offset>324</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="uStoreResearchTimeExpire" type="INT">
-      <offset>324</offset>
+      <offset>328</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>

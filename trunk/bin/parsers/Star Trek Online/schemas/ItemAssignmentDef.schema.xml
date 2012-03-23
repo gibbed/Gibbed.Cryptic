@@ -39,89 +39,95 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+    <column name="FeaturedActivity" type="STRING">
       <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="Description" type="EMBEDDEDSTRUCT">
-      <offset>32</offset>
+      <offset>36</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="AssignmentChainDisplayName" type="EMBEDDEDSTRUCT">
-      <offset>44</offset>
+      <offset>48</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="AssignmentChainDescription" type="EMBEDDEDSTRUCT">
-      <offset>56</offset>
+      <offset>60</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="Category" type="INT">
-      <offset>68</offset>
+      <offset>72</offset>
       <static_define_list external="ItemAssignmentCategory" />
     </column>
     <column name="Duration" type="INT">
-      <offset>72</offset>
+      <offset>76</offset>
     </column>
     <column name="MinimumSlottedItems" type="INT">
-      <offset>76</offset>
-      <default>1</default>
-    </column>
-    <column name="AssignmentPointCost" type="INT">
       <offset>80</offset>
       <default>1</default>
     </column>
-    <column name="CooldownAfterCompletion" type="INT">
+    <column name="AssignmentPointCost" type="INT">
       <offset>84</offset>
+      <default>1</default>
+    </column>
+    <column name="CooldownAfterCompletion" type="INT">
+      <offset>88</offset>
     </column>
     <column name="Weight" type="INT">
-      <offset>88</offset>
+      <offset>92</offset>
       <static_define_list external="ItemAssignmentWeightType" />
     </column>
     <column name="Requirements" type="OPTIONALSTRUCT">
-      <offset>92</offset>
+      <offset>96</offset>
       <subtable external="ItemAssignmentRequirements" />
     </column>
     <column name="Outcome" type="STRUCT">
-      <offset>96</offset>
+      <offset>100</offset>
       <subtable external="ItemAssignmentOutcome" />
     </column>
     <column name="Slot" type="STRUCT">
-      <offset>100</offset>
+      <offset>104</offset>
       <subtable external="ItemAssignmentSlot" />
     </column>
     <column name="OutcomeModifier" type="STRUCT">
-      <offset>104</offset>
+      <offset>108</offset>
       <subtable external="ItemAssignmentOutcomeModifier" />
     </column>
     <column name="NumericDurationScaleCategory" type="INT">
-      <offset>108</offset>
+      <offset>112</offset>
       <static_define_list external="ItemAssignmentDurationScaleCategory" />
     </column>
     <column name="IsAbortable" type="BIT">
-      <offset>112</offset>
+      <offset>116</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Disabled" type="BIT">
-      <offset>112</offset>
+      <offset>116</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="AllowItemUnslotting" type="BIT">
-      <offset>112</offset>
+      <offset>116</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="Repeatable" type="BIT">
-      <offset>112</offset>
+      <offset>116</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="CanStartRemotely" type="BIT">
-      <offset>112</offset>
+      <offset>116</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="Dependencies" type="STRUCT">
-      <offset>116</offset>
+      <offset>120</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>

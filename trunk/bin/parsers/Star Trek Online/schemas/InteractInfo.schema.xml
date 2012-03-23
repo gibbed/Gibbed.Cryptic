@@ -70,8 +70,11 @@
       </flags>
       <subtable external="ContactDialogInfo" />
     </column>
-    <column name="recentlyClickedObjects" type="STRUCT">
+    <column name="recentlyCompletedInteracts" type="STRUCT">
       <offset>48</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
       <subtable external="InteractionInfo" />
     </column>
     <column name="QueuedContactDialog" type="OPTIONALSTRUCT">
