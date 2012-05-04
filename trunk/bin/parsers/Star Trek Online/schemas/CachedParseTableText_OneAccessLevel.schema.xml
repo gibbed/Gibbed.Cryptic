@@ -1,20 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<parser name="NotifyAudioEventList">
+<parser name="CachedParseTableText_OneAccessLevel">
   <table>
-    <column name="NotifyAudioEventList" type="IGNORE">
+    <column name="CachedParseTableText_OneAccessLevel" type="IGNORE">
       <flags>
         <flag>PARSETABLE_INFO</flag>
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="NotifyAudioEventGroup" type="STRUCT">
+    <column name="AccessLevel" type="INT">
       <offset>0</offset>
-      <subtable external="NotifyAudioEventGroup" />
+      <flags>
+        <flag>KEY</flag>
+      </flags>
     </column>
-    <column name="FileName" type="CURRENTFILE">
+    <column name="OutString" type="STRING">
       <offset>4</offset>
       <flags>
-        <flag>POOL_STRING</flag>
+        <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="}" type="END" />

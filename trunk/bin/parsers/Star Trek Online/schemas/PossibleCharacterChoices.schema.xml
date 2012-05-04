@@ -7,16 +7,16 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Choices" type="STRUCT">
+    <column name="Retry" type="U8">
       <offset>0</offset>
-      <subtable external="PossibleCharacterChoice" />
     </column>
-    <column name="Deleted" type="STRUCT">
+    <column name="Choices" type="STRUCT">
       <offset>4</offset>
       <subtable external="PossibleCharacterChoice" />
     </column>
-    <column name="OfflineCharacters" type="INTARRAY">
+    <column name="Deleted" type="STRUCT">
       <offset>8</offset>
+      <subtable external="PossibleCharacterChoice" />
     </column>
     <column name="GameAccount" type="OPTIONALSTRUCT">
       <offset>12</offset>

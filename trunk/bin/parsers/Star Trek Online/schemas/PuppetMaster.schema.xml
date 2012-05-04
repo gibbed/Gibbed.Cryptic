@@ -100,6 +100,15 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
+    <column name="bPuppetTransformFailed" type="BIT">
+      <offset>52</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

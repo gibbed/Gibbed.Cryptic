@@ -1,17 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<parser name="NotifyAudioEventList">
+<parser name="AllegianceDefaultMap">
   <table>
-    <column name="NotifyAudioEventList" type="IGNORE">
+    <column name="AllegianceDefaultMap" type="IGNORE">
       <flags>
         <flag>PARSETABLE_INFO</flag>
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="NotifyAudioEventGroup" type="STRUCT">
+    <column name="MapName" type="STRING">
       <offset>0</offset>
-      <subtable external="NotifyAudioEventGroup" />
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
     </column>
-    <column name="FileName" type="CURRENTFILE">
+    <column name="Spawn" type="STRING">
       <offset>4</offset>
       <flags>
         <flag>POOL_STRING</flag>

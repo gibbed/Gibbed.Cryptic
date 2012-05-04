@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CachedParseTableText_AllAccessLevels">
+  <table>
+    <column name="CachedParseTableText_AllAccessLevels" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CRC" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="StringsByAccessLevel" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CachedParseTableText_OneAccessLevel" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

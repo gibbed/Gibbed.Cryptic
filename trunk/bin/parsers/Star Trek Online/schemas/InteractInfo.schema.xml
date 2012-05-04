@@ -49,8 +49,9 @@
         <flag>CLIENT_ONLY</flag>
       </flags>
     </column>
-    <column name="nearbyInteractCritterEnts" type="INTARRAY">
+    <column name="nearbyInteractCritterEnts" type="STRUCT">
       <offset>32</offset>
+      <subtable external="CritterInteractInfo" />
     </column>
     <column name="ContactDialog" type="OPTIONALSTRUCT">
       <offset>36</offset>
@@ -124,30 +125,36 @@
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="RemoteInteract" type="U8">
+    <column name="PartialPermissions" type="U8">
       <offset>85</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="AwaitingMapTransfer" type="U8">
+    <column name="RemotelyAccessing" type="U8">
       <offset>86</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="PurchaseInProgress" type="U8">
+    <column name="AwaitingMapTransfer" type="U8">
       <offset>87</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="BuyBackList" type="STRUCT">
+    <column name="PurchaseInProgress" type="U8">
       <offset>88</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="BuyBackList" type="STRUCT">
+      <offset>92</offset>
       <subtable external="StoreItemInfo" />
     </column>
     <column name="ppchVisitedSpecialDialogs" type="STRINGARRAY">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>

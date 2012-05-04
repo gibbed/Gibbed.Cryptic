@@ -11,8 +11,11 @@
       <offset>0</offset>
       <subtable external="ContactDialogInfo" />
     </column>
-    <column name="RemoteContact" type="U8">
+    <column name="PartialPermissions" type="U8">
       <offset>4</offset>
+    </column>
+    <column name="RemotelyAccessing" type="U8">
+      <offset>5</offset>
     </column>
     <column name="CostumeFallback" type="OPTIONALSTRUCT">
       <offset>8</offset>

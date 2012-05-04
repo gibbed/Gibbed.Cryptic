@@ -18,20 +18,27 @@
       </flags>
       <subtable external="EntityBindCommand" />
     </column>
-    <column name="Primary" type="EMBEDDEDSTRUCT">
+    <column name="CategoryDef" type="OPTIONALSTRUCT">
       <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="EntityBindCommands" />
+    </column>
+    <column name="Primary" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
       <subtable external="EntityBindCommandKey" />
     </column>
     <column name="Secondary" type="EMBEDDEDSTRUCT">
-      <offset>20</offset>
+      <offset>24</offset>
       <subtable external="EntityBindCommandKey" />
     </column>
     <column name="Gamepad" type="EMBEDDEDSTRUCT">
-      <offset>32</offset>
+      <offset>36</offset>
       <subtable external="EntityBindCommandKey" />
     </column>
     <column name="IsCategory" type="U8">
-      <offset>44</offset>
+      <offset>48</offset>
     </column>
     <column name="}" type="END" />
   </table>

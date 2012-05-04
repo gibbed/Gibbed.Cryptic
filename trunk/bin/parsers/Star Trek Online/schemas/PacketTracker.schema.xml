@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PacketTracker">
+  <table>
+    <column name="PacketTracker" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+      <format_string>HTML_DEF_FIELDS_TO_SHOW = "TotalCreated, TotalBytesSent"</format_string>
+    </column>
+    <column name="{" type="START" />
+    <column name="DescriptiveName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="TotalCreated" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="TotalSent" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="TotalFreed" type="INT64">
+      <offset>24</offset>
+    </column>
+    <column name="TotalBytesSent" type="INT64">
+      <offset>32</offset>
+    </column>
+    <column name="le512bytes" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le1K" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le2K" type="EMBEDDEDSTRUCT">
+      <offset>72</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le4K" type="EMBEDDEDSTRUCT">
+      <offset>88</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le8K" type="EMBEDDEDSTRUCT">
+      <offset>104</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le16K" type="EMBEDDEDSTRUCT">
+      <offset>120</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le32K" type="EMBEDDEDSTRUCT">
+      <offset>136</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le64K" type="EMBEDDEDSTRUCT">
+      <offset>152</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le128K" type="EMBEDDEDSTRUCT">
+      <offset>168</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le256K" type="EMBEDDEDSTRUCT">
+      <offset>184</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le512K" type="EMBEDDEDSTRUCT">
+      <offset>200</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le1M" type="EMBEDDEDSTRUCT">
+      <offset>216</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le2M" type="EMBEDDEDSTRUCT">
+      <offset>232</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le4M" type="EMBEDDEDSTRUCT">
+      <offset>248</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="le8M" type="EMBEDDEDSTRUCT">
+      <offset>264</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="gt8M" type="EMBEDDEDSTRUCT">
+      <offset>280</offset>
+      <subtable external="PacketTrackerBucket" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

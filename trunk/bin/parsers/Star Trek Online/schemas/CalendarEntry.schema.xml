@@ -80,26 +80,30 @@
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
-    <column name="DisplayTag" type="INTARRAY">
+    <column name="Queue" type="REFERENCE">
       <offset>72</offset>
+      <dictionary_name>QueueDef</dictionary_name>
+    </column>
+    <column name="DisplayTag" type="INTARRAY">
+      <offset>76</offset>
       <static_define_list external="ActivityDisplayTags" />
     </column>
     <column name="EventActive" type="BIT">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="EventMapMove" type="BIT">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="EventContact" type="BIT">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>

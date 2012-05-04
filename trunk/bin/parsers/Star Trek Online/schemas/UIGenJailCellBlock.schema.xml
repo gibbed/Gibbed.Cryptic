@@ -78,16 +78,23 @@
       </flags>
       <subtable external="UIPosition" />
     </column>
-    <column name="Resizable" type="INT">
+    <column name="DefaultGen" type="STRUCT">
       <offset>56</offset>
+      <subtable external="UIGenJailDefault" />
+    </column>
+    <column name="Resizable" type="INT">
+      <offset>60</offset>
       <static_define_list external="UIDirection" />
     </column>
     <column name="AspectRatio" type="EMBEDDEDSTRUCT">
-      <offset>60</offset>
+      <offset>64</offset>
       <subtable external="UIAspectRatio" />
     </column>
+    <column name="KeepDefaultCells" type="U8">
+      <offset>72</offset>
+    </column>
     <column name="RememberContents" type="U8">
-      <offset>68</offset>
+      <offset>73</offset>
     </column>
     <column name="}" type="END" />
   </table>

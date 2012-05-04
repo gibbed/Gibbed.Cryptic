@@ -30,6 +30,35 @@
     <column name="Profile" type="STRINGARRAY">
       <offset>16</offset>
     </column>
+    <column name="Visible" type="INT">
+      <offset>20</offset>
+      <static_define_list external="EntityBindVisibility" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Hidden" type="U8">
+      <offset>24</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="PrimaryBinds" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="SecondaryBinds" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="GamepadBinds" type="INT">
+      <offset>36</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

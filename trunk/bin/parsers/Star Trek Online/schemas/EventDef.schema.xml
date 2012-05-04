@@ -84,15 +84,19 @@
       <offset>88</offset>
       <subtable external="EventContactDef" />
     </column>
-    <column name="ParentEvent" type="STRING">
+    <column name="Queue" type="REFERENCE">
       <offset>92</offset>
+      <dictionary_name>QueueDef</dictionary_name>
+    </column>
+    <column name="ParentEvent" type="STRING">
+      <offset>96</offset>
     </column>
     <column name="uHideEventFromClient" type="BIT">
-      <offset>96</offset>
+      <offset>100</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="EventRunMode" type="INT">
-      <offset>100</offset>
+      <offset>104</offset>
     </column>
     <column name="}" type="END" />
   </table>

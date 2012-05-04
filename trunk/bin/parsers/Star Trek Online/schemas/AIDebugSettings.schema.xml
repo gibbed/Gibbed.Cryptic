@@ -13,25 +13,25 @@
     </column>
     <column name="logSettings" type="INTFIXEDARRAY">
       <offset>4</offset>
-      <num_elements>4</num_elements>
+      <num_elements>5</num_elements>
     </column>
     <column name="debugEntRef" type="INT">
-      <offset>20</offset>
+      <offset>24</offset>
     </column>
     <column name="layerFSMName" type="STRING">
-      <offset>24</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
-    </column>
-    <column name="pfsmName" type="STRING">
       <offset>28</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="updateSelected" type="BIT">
+    <column name="pfsmName" type="STRING">
       <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="updateSelected" type="BIT">
+      <offset>36</offset>
       <bit_offset>131072</bit_offset>
     </column>
     <column name="}" type="END" />
