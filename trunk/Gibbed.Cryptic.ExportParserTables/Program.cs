@@ -881,7 +881,7 @@ namespace Gibbed.Cryptic.ExportParserTables
 
         public static void Main(string[] args)
         {
-            var process = Process.GetProcessesByName("DebugClient")
+            var process = Process.GetProcessesByName("GameClient")
                 .Where(p =>
                     p.MainWindowTitle == "Champions Online" ||
                     p.MainWindowTitle == "Star Trek Online")
