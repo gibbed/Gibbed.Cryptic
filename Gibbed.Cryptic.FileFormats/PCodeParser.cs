@@ -227,6 +227,7 @@ namespace Gibbed.Cryptic.FileFormats
             {"OP_NEG", MultiValueOpcode.NEG},
             {"OP_MUL", MultiValueOpcode.MUL},
             {"OP_DIV", MultiValueOpcode.DIV},
+            {"OP_EXP", MultiValueOpcode.EXP},
 
             {"OP_BAN", MultiValueOpcode.BAN},
             {"OP_BOR", MultiValueOpcode.BOR},
