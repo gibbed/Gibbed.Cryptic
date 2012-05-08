@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Grammar = Irony.Parsing.Grammar;
 
 namespace Gibbed.Cryptic.FileFormats
 {
@@ -11,21 +10,21 @@ namespace Gibbed.Cryptic.FileFormats
         private static string Escape(string input)
         {
             var sb = new StringBuilder();
-            for (int i = 0; i < input.Length; i++)
+            foreach (char t in input)
             {
-                switch (input[i])
+                switch (t)
                 {
                     case '"': sb.Append("\\\""); break;
                     case '\t': sb.Append("\\t"); break;
                     case '\r': sb.Append("\\r"); break;
                     case '\n': sb.Append("\\n"); break;
-                    default: sb.Append(input[i]); break;
+                    default: sb.Append(t); break;
                 }
             }
             return sb.ToString();
         }
 
-        private static Dictionary<MultiValueOpcode, string> SimpleStatements = new Dictionary<MultiValueOpcode, string>()
+        private static readonly Dictionary<MultiValueOpcode, string> _SimpleStatements = new Dictionary<MultiValueOpcode, string>()
         {
             {MultiValueOpcode.ADD, "add"},
             {MultiValueOpcode.SUB, "sub"},
@@ -74,12 +73,12 @@ namespace Gibbed.Cryptic.FileFormats
             var sb = new StringBuilder();
 
             var labels = new string[list.Count];
-            for (int i = 0; i < list.Count; i++)
+            foreach (MultiValue t in list)
             {
-                if (list[i].Op == MultiValueOpcode.J__ ||
-                    list[i].Op == MultiValueOpcode.JZ_)
+                if (t.Op == MultiValueOpcode.J__ ||
+                    t.Op == MultiValueOpcode.JZ_)
                 {
-                    var arg = (long)list[i].Arg;
+                    var arg = (long)t.Arg;
                     if (arg < 0 || arg > list.Count)
                     {
                         throw new InvalidOperationException();
@@ -121,9 +120,9 @@ namespace Gibbed.Cryptic.FileFormats
                     level++;
                 }
 
-                if (SimpleStatements.ContainsKey(item.Op) == true)
+                if (_SimpleStatements.ContainsKey(item.Op) == true)
                 {
-                    sb.AppendFormat("{0}", SimpleStatements[item.Op]);
+                    sb.AppendFormat("{0}", _SimpleStatements[item.Op]);
                 }
                 else
                 {
@@ -182,7 +181,7 @@ namespace Gibbed.Cryptic.FileFormats
                         {
                             StaticVariableType arg;
 
-                            if (item.Arg.GetType() == typeof(uint))
+                            if (item.Arg is uint)
                             {
                                 arg = (StaticVariableType)((uint)item.Arg);
                             }
@@ -220,7 +219,7 @@ namespace Gibbed.Cryptic.FileFormats
             return sb.ToString();
         }
 
-        private static Dictionary<string, MultiValueOpcode> SimpleOps = new Dictionary<string, MultiValueOpcode>()
+        private static readonly Dictionary<string, MultiValueOpcode> _SimpleOps = new Dictionary<string, MultiValueOpcode>()
         {
             {"OP_ADD", MultiValueOpcode.ADD},
             {"OP_SUB", MultiValueOpcode.SUB},
@@ -281,9 +280,9 @@ namespace Gibbed.Cryptic.FileFormats
                     MultiValueOpcode op;
                     object arg = null;
 
-                    if (SimpleOps.ContainsKey(code.Term.Name) == true)
+                    if (_SimpleOps.ContainsKey(code.Term.Name) == true)
                     {
-                        op = SimpleOps[code.Term.Name];
+                        op = _SimpleOps[code.Term.Name];
                     }
                     else
                     {

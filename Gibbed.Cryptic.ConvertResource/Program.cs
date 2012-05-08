@@ -86,22 +86,22 @@ namespace Gibbed.Cryptic.ConvertResource
                     "b|xml2bin",
                     "convert xml to bin",
                     v => mode = v != null ? Mode.Import : mode
-                },
+                    },
                 {
                     "x|bin2xml",
                     "convert bin to xml",
                     v => mode = v != null ? Mode.Export : mode
-                },
+                    },
                 {
                     "s|schema=",
                     "override schema name",
                     v => schemaName = v
-                },
+                    },
                 {
                     "h|help",
-                    "show this message and exit", 
+                    "show this message and exit",
                     v => showHelp = v != null
-                },
+                    },
             };
 
             List<string> extras;
@@ -134,7 +134,8 @@ namespace Gibbed.Cryptic.ConvertResource
                 }
             }
 
-            if (extras.Count < 1 || extras.Count > 2 || showHelp == true || mode == Mode.Unknown)
+            if (extras.Count < 1 || extras.Count > 2 ||
+                showHelp == true || mode == Mode.Unknown)
             {
                 Console.WriteLine("Usage: {0} [OPTIONS]+ -x input_bin [output_dir]", GetExecutableName());
                 Console.WriteLine("       {0} [OPTIONS]+ -b input_dir [output_bin]", GetExecutableName());
@@ -147,8 +148,9 @@ namespace Gibbed.Cryptic.ConvertResource
             if (mode == Mode.Export)
             {
                 var inputPath = extras[0];
-                var outputPath = extras.Count > 1 ?
-                    extras[1] : Path.ChangeExtension(inputPath, null);
+                var outputPath = extras.Count > 1
+                                     ? extras[1]
+                                     : Path.ChangeExtension(inputPath, null);
 
                 using (var input = File.OpenRead(inputPath))
                 {
@@ -172,7 +174,8 @@ namespace Gibbed.Cryptic.ConvertResource
                     if (target == null)
                     {
                         Console.WriteLine("Don't know how to handle '{0}' with a hash of '{1}'.",
-                            schemaName, blob.ParserHash);
+                                          schemaName,
+                                          blob.ParserHash);
                         return;
                     }
 
@@ -180,17 +183,20 @@ namespace Gibbed.Cryptic.ConvertResource
                     if (version == null)
                     {
                         Console.WriteLine("No support for '{0}' with a hash of '{1}'.",
-                            schemaName, blob.ParserHash);
+                                          schemaName,
+                                          blob.ParserHash);
                         return;
                     }
 
                     var assemblyPath = Path.Combine(
-                        GetExecutablePath(), "parsers", "assemblies",
+                        GetExecutablePath(),
+                        "parsers",
+                        "assemblies",
                         version + ".dll");
                     if (File.Exists(assemblyPath) == false)
                     {
                         Console.WriteLine("Assembly '{0}' appears to be missing!",
-                            Path.GetFileName(assemblyPath));
+                                          Path.GetFileName(assemblyPath));
                         return;
                     }
 
@@ -199,7 +205,8 @@ namespace Gibbed.Cryptic.ConvertResource
                     if (type == null)
                     {
                         Console.WriteLine("Assembly '{0}' does not expose '{1}'!",
-                            Path.GetFileName(assemblyPath), target.Class);
+                                          Path.GetFileName(assemblyPath),
+                                          target.Class);
                         return;
                     }
 
@@ -210,20 +217,20 @@ namespace Gibbed.Cryptic.ConvertResource
                     foreach (var file in blob.Files)
                     {
                         resource.Files.Add(new Resource.FileEntry()
-                            {
-                                Name = file.Name,
-                                Timestamp = file.Timestamp,
-                            });
+                        {
+                            Name = file.Name,
+                            Timestamp = file.Timestamp,
+                        });
                     }
 
                     foreach (var dependency in blob.Dependencies)
                     {
                         resource.Dependencies.Add(new Resource.DependencyEntry()
-                            {
-                                Type = dependency.Type,
-                                Name = dependency.Name,
-                                Hash = dependency.Hash,
-                            });
+                        {
+                            Type = dependency.Type,
+                            Name = dependency.Name,
+                            Hash = dependency.Hash,
+                        });
                     }
 
                     var loadResource = typeof(BlobDataReader)
@@ -231,7 +238,12 @@ namespace Gibbed.Cryptic.ConvertResource
                         .MakeGenericMethod(type);
 
                     Console.WriteLine("Loading entries...");
-                    var list = (IList)loadResource.Invoke(null, new object[] { input });
+
+                    var list = (IList)loadResource.Invoke(null,
+                                                          new object[]
+                                                          {
+                                                              input, schema.IsClient, schema.IsServer
+                                                          });
 
                     var entries = list.Cast<object>();
                     var listType = typeof(List<>).MakeGenericType(type);
@@ -266,7 +278,10 @@ namespace Gibbed.Cryptic.ConvertResource
                                 serializer.WriteStartObject(writer, listType);
                                 writer.WriteAttributeString("xmlns", "c", null, "http://datacontract.gib.me/cryptic");
                                 //writer.WriteAttributeString("xmlns", "i", null, "http://www.w3.org/2001/XMLSchema-instance");
-                                writer.WriteAttributeString("xmlns", "a", null, "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
+                                writer.WriteAttributeString("xmlns",
+                                                            "a",
+                                                            null,
+                                                            "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
                                 //writer.WriteAttributeString("xmlns", "s", null, "http://datacontract.gib.me/startrekonline");
                                 serializer.WriteObjectContent(writer, localList);
                                 serializer.WriteEndObject(writer);
@@ -281,11 +296,12 @@ namespace Gibbed.Cryptic.ConvertResource
                             var serializer = new DataContractSerializer(listType);
 
                             var fileNameField = type.GetField("FileName",
-                                BindingFlags.Public | BindingFlags.Instance);
+                                                              BindingFlags.Public | BindingFlags.Instance);
                             if (fileNameField == null)
                             {
                                 Console.WriteLine("Class '{0}' does not expose '{1}'!",
-                                    target.Class, "FileName");
+                                                  target.Class,
+                                                  "FileName");
                                 return;
                             }
 
@@ -320,9 +336,68 @@ namespace Gibbed.Cryptic.ConvertResource
                                     serializer.WriteStartObject(writer, listType);
                                     writer.WriteAttributeString("xmlns", "c", null, "http://datacontract.gib.me/cryptic");
                                     //writer.WriteAttributeString("xmlns", "i", null, "http://www.w3.org/2001/XMLSchema-instance");
-                                    writer.WriteAttributeString("xmlns", "a", null, "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
+                                    writer.WriteAttributeString("xmlns",
+                                                                "a",
+                                                                null,
+                                                                "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
                                     //writer.WriteAttributeString("xmlns", "s", null, "http://datacontract.gib.me/startrekonline");
                                     serializer.WriteObjectContent(writer, localEntries);
+                                    serializer.WriteEndObject(writer);
+                                    writer.Flush();
+                                }
+                            }
+
+                            break;
+                        }
+
+                        case "name":
+                        {
+                            var serializer = new DataContractSerializer(type);
+
+                            if (string.IsNullOrEmpty(target.Key) == true)
+                            {
+                                Console.WriteLine("No key set for '{0}'!",
+                                                  schemaName);
+                                return;
+                            }
+
+                            var keyField = type.GetField(target.Key,
+                                                         BindingFlags.Public | BindingFlags.Instance);
+                            if (keyField == null)
+                            {
+                                Console.WriteLine("Class '{0}' does not expose '{1}'!",
+                                                  target.Class,
+                                                  target.Key);
+                                return;
+                            }
+
+                            foreach (var entry in entries)
+                            {
+                                var entryName = Path.ChangeExtension((string)keyField.GetValue(entry),
+                                                                     ".xml");
+
+                                resource.Entries.Add(entryName);
+
+                                var entryPath = Path.Combine(outputPath, entryName);
+                                Directory.CreateDirectory(Path.GetDirectoryName(entryPath));
+
+                                if (File.Exists(entryPath) == true)
+                                {
+                                    throw new InvalidOperationException();
+                                }
+
+                                using (var output = File.Create(entryPath))
+                                {
+                                    var writer = XmlDictionaryWriter.Create(output, xmlSettings);
+                                    serializer.WriteStartObject(writer, entry);
+                                    writer.WriteAttributeString("xmlns", "c", null, "http://datacontract.gib.me/cryptic");
+                                    //writer.WriteAttributeString("xmlns", "i", null, "http://www.w3.org/2001/XMLSchema-instance");
+                                    writer.WriteAttributeString("xmlns",
+                                                                "a",
+                                                                null,
+                                                                "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
+                                    //writer.WriteAttributeString("xmlns", "s", null, "http://datacontract.gib.me/startrekonline");
+                                    serializer.WriteObjectContent(writer, entry);
                                     serializer.WriteEndObject(writer);
                                     writer.Flush();
                                 }
@@ -336,27 +411,29 @@ namespace Gibbed.Cryptic.ConvertResource
                             var serializer = new DataContractSerializer(type);
 
                             var fileNameField = type.GetField("FileName",
-                                BindingFlags.Public | BindingFlags.Instance);
+                                                              BindingFlags.Public | BindingFlags.Instance);
                             if (fileNameField == null)
                             {
                                 Console.WriteLine("Class '{0}' does not expose '{1}'!",
-                                    target.Class, "FileName");
+                                                  target.Class,
+                                                  "FileName");
                                 return;
                             }
 
                             if (string.IsNullOrEmpty(target.Key) == true)
                             {
                                 Console.WriteLine("No key set for '{0}'!",
-                                    schemaName);
+                                                  schemaName);
                                 return;
                             }
 
                             var keyField = type.GetField(target.Key,
-                                BindingFlags.Public | BindingFlags.Instance);
+                                                         BindingFlags.Public | BindingFlags.Instance);
                             if (keyField == null)
                             {
                                 Console.WriteLine("Class '{0}' does not expose '{1}'!",
-                                    target.Class, target.Key);
+                                                  target.Class,
+                                                  target.Key);
                                 return;
                             }
 
@@ -384,7 +461,10 @@ namespace Gibbed.Cryptic.ConvertResource
                                     serializer.WriteStartObject(writer, entry);
                                     writer.WriteAttributeString("xmlns", "c", null, "http://datacontract.gib.me/cryptic");
                                     //writer.WriteAttributeString("xmlns", "i", null, "http://www.w3.org/2001/XMLSchema-instance");
-                                    writer.WriteAttributeString("xmlns", "a", null, "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
+                                    writer.WriteAttributeString("xmlns",
+                                                                "a",
+                                                                null,
+                                                                "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
                                     //writer.WriteAttributeString("xmlns", "s", null, "http://datacontract.gib.me/startrekonline");
                                     serializer.WriteObjectContent(writer, entry);
                                     serializer.WriteEndObject(writer);
@@ -436,7 +516,8 @@ namespace Gibbed.Cryptic.ConvertResource
                 if (target == null)
                 {
                     Console.WriteLine("Don't know how to handle '{0}' with a hash of {1:X8}.",
-                        resource.Schema, resource.ParserHash);
+                                      resource.Schema,
+                                      resource.ParserHash);
                     return;
                 }
 
@@ -444,17 +525,20 @@ namespace Gibbed.Cryptic.ConvertResource
                 if (version == null)
                 {
                     Console.WriteLine("No support for '{0}' with a hash of {1:X8}.",
-                        resource.Schema, resource.ParserHash);
+                                      resource.Schema,
+                                      resource.ParserHash);
                     return;
                 }
 
                 var assemblyPath = Path.Combine(
-                    GetExecutablePath(), "parsers", "assemblies",
+                    GetExecutablePath(),
+                    "parsers",
+                    "assemblies",
                     version + ".dll");
                 if (File.Exists(assemblyPath) == false)
                 {
                     Console.WriteLine("Assembly '{0}' appears to be missing!",
-                        Path.GetFileName(assemblyPath));
+                                      Path.GetFileName(assemblyPath));
                     return;
                 }
 
@@ -463,7 +547,8 @@ namespace Gibbed.Cryptic.ConvertResource
                 if (type == null)
                 {
                     Console.WriteLine("Assembly '{0}' does not expose '{1}'!",
-                        Path.GetFileName(assemblyPath), target.Class);
+                                      Path.GetFileName(assemblyPath),
+                                      target.Class);
                     return;
                 }
 
@@ -502,8 +587,9 @@ namespace Gibbed.Cryptic.ConvertResource
 
                         foreach (var entryName in resource.Entries)
                         {
-                            var entryPath = Path.IsPathRooted(entryName) == true ?
-                                entryName : Path.Combine(inputPath, entryName);
+                            var entryPath = Path.IsPathRooted(entryName) == true
+                                                ? entryName
+                                                : Path.Combine(inputPath, entryName);
 
                             using (var input = File.OpenRead(entryPath))
                             {
@@ -519,14 +605,16 @@ namespace Gibbed.Cryptic.ConvertResource
                         break;
                     }
 
+                    case "name":
                     case "entry":
                     {
                         var serializer = new DataContractSerializer(type);
 
                         foreach (var entryName in resource.Entries)
                         {
-                            var entryPath = Path.IsPathRooted(entryName) == true ?
-                                entryName : Path.Combine(inputPath, entryName);
+                            var entryPath = Path.IsPathRooted(entryName) == true
+                                                ? entryName
+                                                : Path.Combine(inputPath, entryName);
 
                             using (var input = File.OpenRead(entryPath))
                             {
@@ -548,11 +636,12 @@ namespace Gibbed.Cryptic.ConvertResource
                 if (string.IsNullOrEmpty(target.Key) == false)
                 {
                     var keyField = type.GetField(target.Key,
-                        BindingFlags.Public | BindingFlags.Instance);
+                                                 BindingFlags.Public | BindingFlags.Instance);
                     if (keyField == null)
                     {
                         Console.WriteLine("Class '{0}' does not expose '{1}'!",
-                            target.Class, target.Key);
+                                          target.Class,
+                                          target.Key);
                         return;
                     }
 
@@ -566,16 +655,21 @@ namespace Gibbed.Cryptic.ConvertResource
                     {
                         entries.Add(entry);
                     }
-                }
 
-                Console.WriteLine("Saving entries...");
-                var saveResource = typeof(BlobDataWriter)
-                    .GetMethod("SaveResource", BindingFlags.Public | BindingFlags.Static)
-                    .MakeGenericMethod(type);
-                using (var output = File.Create(outputPath))
-                {
-                    blob.Serialize(output);
-                    saveResource.Invoke(null, new object[] { entries, output });
+                    Console.WriteLine("Saving entries...");
+                    var saveResource = typeof(BlobDataWriter)
+                        .GetMethod("SaveResource", BindingFlags.Public | BindingFlags.Static)
+                        .MakeGenericMethod(type);
+                    using (var output = File.Create(outputPath))
+                    {
+                        blob.Serialize(output);
+
+                        saveResource.Invoke(null,
+                                            new object[]
+                                            {
+                                                entries, output, schema.IsClient, schema.IsServer,
+                                            });
+                    }
                 }
             }
             else

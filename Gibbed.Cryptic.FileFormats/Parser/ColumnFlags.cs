@@ -27,6 +27,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
     [Flags]
     public enum ColumnFlags : ulong
     {
+        // ReSharper disable InconsistentNaming
         None = 0ul,
 
         TokenMask          = 0x00FFul,
@@ -80,5 +81,6 @@ namespace Gibbed.Cryptic.FileFormats.Parser
         CASE_SENSITIVE     = 1ul << 61,
         EDIT_ONLY          = 1ul << 62,
         NO_INDEX           = 1ul << 63,
+        // ReSharper restore InconsistentNaming
     }
 }

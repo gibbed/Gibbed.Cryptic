@@ -27,64 +27,64 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public class MultiValue
     {
-        private static Dictionary<string, StaticVariableType> NamesToStaticVariables;
-        private static Dictionary<uint, StaticVariableType> ValuesToStaticVariables;
+        private static readonly Dictionary<string, StaticVariableType> _NamesToStaticVariables;
+        private static readonly Dictionary<uint, StaticVariableType> _ValuesToStaticVariables;
 
         public static bool TryParseStaticVariable(string name, out StaticVariableType sv)
         {
-            if (NamesToStaticVariables.ContainsKey(name) == false)
+            if (_NamesToStaticVariables.ContainsKey(name) == false)
             {
                 sv = StaticVariableType.Activation;
                 return false;
             }
 
-            sv = NamesToStaticVariables[name];
+            sv = _NamesToStaticVariables[name];
             return true;
         }
 
         public static bool TryParseStaticVariable(uint value, out StaticVariableType sv)
         {
-            if (ValuesToStaticVariables.ContainsKey(value) == false)
+            if (_ValuesToStaticVariables.ContainsKey(value) == false)
             {
                 sv = StaticVariableType.Activation;
                 return false;
             }
 
-            sv = ValuesToStaticVariables[value];
+            sv = _ValuesToStaticVariables[value];
             return true;
         }
 
-        private static Dictionary<string, MultiValueOpcode> NamesToOpcodes;
-        private static Dictionary<uint, MultiValueOpcode> ValuesToOpcodes;
+        private static readonly Dictionary<string, MultiValueOpcode> _NamesToOpcodes;
+        private static readonly Dictionary<uint, MultiValueOpcode> _ValuesToOpcodes;
 
         public static bool TryParseOpcode(string name, out MultiValueOpcode op)
         {
-            if (NamesToOpcodes.ContainsKey(name) == false)
+            if (_NamesToOpcodes.ContainsKey(name) == false)
             {
                 op = MultiValueOpcode.INV;
                 return false;
             }
 
-            op = NamesToOpcodes[name];
+            op = _NamesToOpcodes[name];
             return true;
         }
 
         public static bool TryParseOpcode(uint value, out MultiValueOpcode op)
         {
-            if (ValuesToOpcodes.ContainsKey(value) == false)
+            if (_ValuesToOpcodes.ContainsKey(value) == false)
             {
                 op = MultiValueOpcode.INV;
                 return false;
             }
 
-            op = ValuesToOpcodes[value];
+            op = _ValuesToOpcodes[value];
             return true;
         }
 
         static MultiValue()
         {
-            NamesToOpcodes = new Dictionary<string, MultiValueOpcode>();
-            ValuesToOpcodes = new Dictionary<uint, MultiValueOpcode>();
+            _NamesToOpcodes = new Dictionary<string, MultiValueOpcode>();
+            _ValuesToOpcodes = new Dictionary<uint, MultiValueOpcode>();
             foreach (MultiValueOpcode value in Enum.GetValues(typeof(MultiValueOpcode)))
             {
                 var name = Enum.GetName(typeof(MultiValueOpcode), value);
@@ -94,17 +94,17 @@ namespace Gibbed.Cryptic.FileFormats
                     continue;
                 }
 
-                NamesToOpcodes.Add(name, value);
-                ValuesToOpcodes.Add((uint)value, value);
+                _NamesToOpcodes.Add(name, value);
+                _ValuesToOpcodes.Add((uint)value, value);
             }
 
-            NamesToStaticVariables = new Dictionary<string, StaticVariableType>();
-            ValuesToStaticVariables = new Dictionary<uint, StaticVariableType>();
+            _NamesToStaticVariables = new Dictionary<string, StaticVariableType>();
+            _ValuesToStaticVariables = new Dictionary<uint, StaticVariableType>();
             foreach (StaticVariableType value in Enum.GetValues(typeof(StaticVariableType)))
             {
                 var name = Enum.GetName(typeof(StaticVariableType), value);
-                NamesToStaticVariables.Add(name, value);
-                ValuesToStaticVariables.Add((uint)value, value);
+                _NamesToStaticVariables.Add(name, value);
+                _ValuesToStaticVariables.Add((uint)value, value);
             }
         }
 

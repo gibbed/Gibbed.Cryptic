@@ -29,8 +29,8 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public class ParserEnumFile
     {
-        public string Name = null;
-        public ParserSchema.Enumeration Enum = null;
+        public string Name;
+        public ParserSchema.Enumeration Enum;
 
         private ParserEnumFile()
         {
@@ -50,13 +50,17 @@ namespace Gibbed.Cryptic.FileFormats
             }
 
             int duplicate = 0;
-            var _elements = nav.Select("element");
-            while (_elements.MoveNext() == true)
+            var elementIterator = nav.Select("element");
+            while (elementIterator.MoveNext() == true)
             {
-                var _element = _elements.Current;
+                var element = elementIterator.Current;
+                if (element == null)
+                {
+                    throw new InvalidOperationException();
+                }
 
-                var name = _element.GetAttribute("name", "");
-                var value = _element.Value;
+                var name = element.GetAttribute("name", "");
+                var value = element.Value;
 
                 if (elements.Elements.ContainsKey(name) &&
                     elements.Elements[name] == value)
@@ -66,7 +70,7 @@ namespace Gibbed.Cryptic.FileFormats
 
                 if (elements.Elements.ContainsKey(name) == true)
                 {
-                    name = name + "__" + duplicate.ToString();
+                    name = name + "__" + duplicate.ToString(CultureInfo.InvariantCulture);
                 }
 
                 elements.Elements.Add(name, value);
@@ -85,6 +89,11 @@ namespace Gibbed.Cryptic.FileFormats
                 var schema = new ParserEnumFile();
 
                 var root = nav.SelectSingleNode("/enum");
+                if (root == null)
+                {
+                    throw new InvalidOperationException();
+                }
+
                 schema.Name = root.GetAttribute("name", "");
 
                 var table = root.SelectSingleNode("elements");
@@ -102,9 +111,14 @@ namespace Gibbed.Cryptic.FileFormats
                 var nav = doc.CreateNavigator();
 
                 var root = nav.SelectSingleNode("/enum");
+                if (root == null)
+                {
+                    throw new InvalidOperationException();
+                }
+
                 var name = root.GetAttribute("name", "");
 
-                if (name == null)
+                if (string.IsNullOrEmpty(name) == true)
                 {
                     throw new InvalidOperationException();
                 }

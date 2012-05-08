@@ -31,20 +31,30 @@ namespace Gibbed.Cryptic.Grammars
         public PCodeGrammar()
             : base(false)
         {
+            // ReSharper disable InconsistentNaming
             this.LanguageFlags = LanguageFlags.NewLineBeforeEOF;
 
             var integerLiteral = new NumberLiteral("INTEGER");
             integerLiteral.Options |= NumberOptions.IntOnly;
-            integerLiteral.DefaultIntTypes = new TypeCode[] { TypeCode.Int64 };
+            integerLiteral.DefaultIntTypes = new[]
+            {
+                TypeCode.Int64
+            };
             integerLiteral.AddPrefix("0x", NumberOptions.Hex);
 
-            var floatLiteral = new NumberLiteral("FLOAT");
-            floatLiteral.DefaultIntTypes = new TypeCode[] { TypeCode.Double };
+            var floatLiteral = new NumberLiteral("FLOAT")
+            {
+                DefaultIntTypes = new[]
+                {
+                    TypeCode.Double
+                },
+            };
 
-            var stringLiteral = new StringLiteral("STRING", "\"",
-                StringOptions.AllowsLineBreak |
-                StringOptions.AllowsOctalEscapes |
-                StringOptions.AllowsXEscapes);
+            var stringLiteral = new StringLiteral("STRING",
+                                                  "\"",
+                                                  StringOptions.AllowsLineBreak |
+                                                  StringOptions.AllowsOctalEscapes |
+                                                  StringOptions.AllowsXEscapes);
 
             var name = new IdentifierTerminal("NAME", IdOptions.IsNotKeyword);
 
@@ -53,22 +63,24 @@ namespace Gibbed.Cryptic.Grammars
             var comma = ToTerm(",", "comma");
             var colon = ToTerm(":", "colon");
 
-            var staticLiteral = new NonTerminal("STATIC");
-            staticLiteral.Rule =
-                ToTerm("Activation") | "AdjustLevel" | "Application" | "ClickableTracker" |
-                "Contact" | "Context" | "CurNode" | "CurrentState" | "curStateTracker" |
-                "dependencyVal" | "Encounter" | "Encounter2" | "EncounterDef" |
-                "EncounterTemplate" | "Entity" | "Forever" | "GenData" |
-                "GenInstanceColumn" | "GenInstanceColumnCount" | "GenInstanceCount" |
-                "GenInstanceData" | "GenInstanceNumber" | "GenInstanceRow" |
-                "GenInstanceRowCount" | "HP" | "HPMax" | "iLevelINTERNAL_LayerFSM" |
-                "IsDisabled" | "IsSelectable" | "IsVisible" | "me" | "Mission" |
-                "MissionClickable" | "MissionDef" | "Mod" | "ModDef" | "MouseX" |
-                "MouseY" | "MouseZ" | "NewTreeLevel" | "NumTeamMembers" | "ParentValue" |
-                "pathOldValue" | "Player" | "Power" | "PowerDef" | "PowerMax" |
-                "PowerVolumeData" | "Prediction" | "RowData" | "Self" | "Source" |
-                "SpawnLocation" | "TableValue" | "Target" | "TargetEnt" | "TeamHP" |
-                "TeamHPMax" | "Volume";
+            var staticLiteral = new NonTerminal("STATIC")
+            {
+                Rule = this.ToTerm("Activation") | "AdjustLevel" | "Application" |
+                       "ClickableTracker" | "Contact" | "Context" | "CurNode" |
+                       "CurrentState" | "curStateTracker" | "dependencyVal" |
+                       "Encounter" | "Encounter2" | "EncounterDef" | "EncounterTemplate" |
+                       "Entity" | "Forever" | "GenData" | "GenInstanceColumn" |
+                       "GenInstanceColumnCount" | "GenInstanceCount" | "GenInstanceData" |
+                       "GenInstanceNumber" | "GenInstanceRow" | "GenInstanceRowCount" |
+                       "HP" | "HPMax" | "iLevelINTERNAL_LayerFSM" | "IsDisabled" |
+                       "IsSelectable" | "IsVisible" | "me" | "Mission" |
+                       "MissionClickable" | "MissionDef" | "Mod" | "ModDef" | "MouseX" |
+                       "MouseY" | "MouseZ" | "NewTreeLevel" | "NumTeamMembers" |
+                       "ParentValue" | "pathOldValue" | "Player" | "Power" | "PowerDef" |
+                       "PowerMax" | "PowerVolumeData" | "Prediction" | "RowData" |
+                       "Self" | "Source" | "SpawnLocation" | "TableValue" | "Target" |
+                       "TargetEnt" | "TeamHP" | "TeamHPMax" | "Volume",
+            };
 
             var PROGRAM = new NonTerminal("PROGRAM");
             var LINE = new NonTerminal("LINE");
@@ -155,7 +167,6 @@ namespace Gibbed.Cryptic.Grammars
                 /*OP_MAT | OP_QAT |*/
                 OP_STR | /*OP_FIL |*/
                 /*OP_ENT | OP_PTR |*/
-
                 OP_ADD | OP_SUB | OP_NEG | OP_MUL | OP_DIV | OP_EXP |
                 OP_BAN | OP_BOR | OP_BNT | OP_BXR |
                 OP_O_P | OP_C_P |
@@ -231,8 +242,11 @@ namespace Gibbed.Cryptic.Grammars
             this.MarkPunctuation(",", ":");
             this.MarkTransient(
                 VALUE,
-                LABEL_OPT, STATEMENT_OPT, COMMENT_OPT,
+                LABEL_OPT,
+                STATEMENT_OPT,
+                COMMENT_OPT,
                 staticLiteral);
+            // ReSharper restore InconsistentNaming
         }
     }
 }

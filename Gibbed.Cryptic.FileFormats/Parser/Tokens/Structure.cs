@@ -20,7 +20,6 @@
  *    distribution.
  */
 
-using System;
 using System.IO;
 using System.Xml;
 using Gibbed.IO;
@@ -33,34 +32,55 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
         {
             get
             {
-                return
-                    StorageCompatability.DirectValue |
-                    StorageCompatability.DirectArray |
-                    StorageCompatability.IndirectValue |
-                    StorageCompatability.IndirectArray;
+                return StorageCompatability.DirectValue |
+                       StorageCompatability.DirectArray |
+                       StorageCompatability.IndirectValue |
+                       StorageCompatability.IndirectArray;
             }
         }
-        
-        public override string NameDirectValue { get { return "EMBEDDEDSTRUCT"; } }
-        public override string NameIndirectValue { get { return "OPTIONALSTRUCT"; } }
-        public override string NameIndirectArray { get { return "STRUCT"; } }
+
+        public override string NameDirectValue
+        {
+            get { return "EMBEDDEDSTRUCT"; }
+        }
+
+        public override string NameIndirectValue
+        {
+            get { return "OPTIONALSTRUCT"; }
+        }
+
+        public override string NameIndirectArray
+        {
+            get { return "STRUCT"; }
+        }
 
         public override ColumnParameter GetParameter(ColumnFlags flags, int index)
         {
             switch (index)
             {
-                case 0: return ColumnParameter.Unknown1;
-                case 1: return ColumnParameter.Subtable;
-                default: return ColumnParameter.None;
+                case 0:
+                {
+                    return ColumnParameter.Unknown1;
+                }
+
+                case 1:
+                {
+                    return ColumnParameter.Subtable;
+                }
+
+                default:
+                {
+                    return ColumnParameter.None;
+                }
             }
         }
 
         public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
         {
-            var flags = Parser.ColumnFlags.None;
-            flags |= column.Flags & Parser.ColumnFlags.FIXED_ARRAY;
-            flags |= column.Flags & Parser.ColumnFlags.EARRAY;
-            flags |= column.Flags & Parser.ColumnFlags.INDIRECT;
+            var flags = ColumnFlags.None;
+            flags |= column.Flags & ColumnFlags.FIXED_ARRAY;
+            flags |= column.Flags & ColumnFlags.EARRAY;
+            flags |= column.Flags & ColumnFlags.INDIRECT;
 
             if (flags == ColumnFlags.INDIRECT)
             {

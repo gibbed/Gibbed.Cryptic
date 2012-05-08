@@ -24,6 +24,7 @@ namespace Gibbed.Cryptic.FileFormats.ParserSchema
 {
     public enum ColumnFormat
     {
+        // ReSharper disable InconsistentNaming
         None,
         IP,
         Unsigned,
@@ -37,5 +38,6 @@ namespace Gibbed.Cryptic.FileFormats.ParserSchema
         FriendlySS2000,
         KBytes,
         Flags,
+        // ReSharper restore InconsistentNaming
     }
 }

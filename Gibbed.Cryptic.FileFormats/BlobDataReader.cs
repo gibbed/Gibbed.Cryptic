@@ -32,14 +32,27 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public class BlobDataReader : Serialization.IFileReader
     {
-        private Stream Input;
+        private readonly Stream _Input;
 
-        public bool IsClient { get { return false; } }
-        public bool IsServer { get { return false; } }
+        private readonly bool _IsClient;
 
-        public BlobDataReader(Stream input)
+        public bool IsClient
         {
-            this.Input = input;
+            get { return this._IsClient; }
+        }
+
+        private readonly bool _IsServer;
+
+        public bool IsServer
+        {
+            get { return this._IsServer; }
+        }
+
+        public BlobDataReader(Stream input, bool isClient, bool isServer)
+        {
+            this._Input = input;
+            this._IsClient = isClient;
+            this._IsServer = isServer;
         }
 
         private class ResourceLoader<TType> : Serialization.IStructure
@@ -68,17 +81,17 @@ namespace Gibbed.Cryptic.FileFormats
             }
         }
 
-        public static TType LoadObject<TType>(Stream input)
+        public static TType LoadObject<TType>(Stream input, bool isClient, bool isServer)
             where TType : Serialization.IStructure, new()
         {
-            var reader = new BlobDataReader(input);
+            var reader = new BlobDataReader(input, isClient, isServer);
             return reader.ReadValueStructure<TType>(false, null);
         }
 
-        public static List<TType> LoadResource<TType>(Stream input)
-            where TType: Serialization.IStructure, new()
+        public static List<TType> LoadResource<TType>(Stream input, bool isClient, bool isServer)
+            where TType : Serialization.IStructure, new()
         {
-            var reader = new BlobDataReader(input);
+            var reader = new BlobDataReader(input, isClient, isServer);
             var loader = reader.ReadValueStructure<ResourceLoader<TType>>(false, null);
             return loader.List;
         }
@@ -100,7 +113,7 @@ namespace Gibbed.Cryptic.FileFormats
             object state,
             Func<BlobDataReader, object, TType> readValue)
         {
-            var count = this.Input.ReadValueU32();
+            var count = this._Input.ReadValueU32();
             if (count > 800000)
             {
                 throw new FormatException();
@@ -116,13 +129,13 @@ namespace Gibbed.Cryptic.FileFormats
 
         public byte ReadValueByte(object state)
         {
-            return this.Input.ReadValueU8();
+            return this._Input.ReadValueU8();
         }
 
         public byte[] ReadArrayByte(int count, object state)
         {
             var array = new byte[count];
-            this.Input.Read(array, 0, count);
+            this._Input.Read(array, 0, count);
             return array;
         }
 
@@ -133,35 +146,35 @@ namespace Gibbed.Cryptic.FileFormats
 
         public short ReadValueInt16(object state)
         {
-            return (short)this.Input.ReadValueS32();
+            return (short)this._Input.ReadValueS32();
         }
 
         public short[] ReadArrayInt16(int count, object state)
         {
-            return this.ReadNativeArray<short>(
+            return this.ReadNativeArray(
                 count, state, (a, b) => a.ReadValueInt16(b));
         }
 
         public List<short> ReadListInt16(object state)
         {
-            return this.ReadNativeList<short>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueInt16(b));
         }
 
         public int ReadValueInt32(object state)
         {
-            return this.Input.ReadValueS32();
+            return this._Input.ReadValueS32();
         }
 
         public int[] ReadArrayInt32(int count, object state)
         {
-            return this.ReadNativeArray<int>(
+            return this.ReadNativeArray(
                 count, state, (a, b) => a.ReadValueInt32(b));
         }
 
         public List<int> ReadListInt32(object state)
         {
-            return this.ReadNativeList<int>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueInt32(b));
         }
 
@@ -172,7 +185,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public long[] ReadArrayInt64(int count, object state)
         {
-            return this.ReadNativeArray<long>(
+            return this.ReadNativeArray(
                 count, state, (a, b) => a.ReadValueInt64(b));
         }
 
@@ -183,52 +196,52 @@ namespace Gibbed.Cryptic.FileFormats
 
         public float ReadValueFloat(object state)
         {
-            return this.Input.ReadValueF32();
+            return this._Input.ReadValueF32();
         }
 
         public float[] ReadArrayFloat(int count, object state)
         {
-            return this.ReadNativeArray<float>(
+            return this.ReadNativeArray(
                 count, state, (a, b) => a.ReadValueFloat(b));
         }
 
         public List<float> ReadListFloat(object state)
         {
-            return this.ReadNativeList<float>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueFloat(b));
         }
 
         public string ReadValueString(object state)
         {
-            return this.Input.ReadStringPascalUncapped();
+            return this._Input.ReadStringPascalUncapped();
         }
 
         public string[] ReadArrayString(int count, object state)
         {
-            return this.ReadNativeArray<string>(
+            return this.ReadNativeArray(
                 count, state, (a, b) => a.ReadValueString(b));
         }
 
         public List<string> ReadListString(object state)
         {
-            return this.ReadNativeList<string>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueString(b));
         }
 
         public string ReadValueCurrentFile(object state)
         {
-            return this.Input.ReadStringPascalUncapped();
+            return this._Input.ReadStringPascalUncapped();
         }
 
         public string[] ReadArrayCurrentFile(int count, object state)
         {
-            return this.ReadNativeArray<string>(
+            return this.ReadNativeArray(
                 count, state, (a, b) => a.ReadValueCurrentFile(b));
         }
 
         public List<string> ReadListCurrentFile(object state)
         {
-            return this.ReadNativeList<string>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueCurrentFile(b));
         }
 
@@ -249,7 +262,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public int ReadValueLineNumber(object state)
         {
-            throw new NotImplementedException();
+            return this._Input.ReadValueS32();
         }
 
         public int[] ReadArrayLineNumber(int count, object state)
@@ -279,7 +292,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public bool ReadValueBooleanFlag(object state)
         {
-            throw new NotImplementedException();
+            return this._Input.ReadValueB8();
         }
 
         public bool[] ReadArrayBooleanFlag(int count, object state)
@@ -339,7 +352,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public string ReadValueReference(object state)
         {
-            return this.Input.ReadStringPascalUncapped();
+            return this._Input.ReadStringPascalUncapped();
         }
 
         public string[] ReadArrayReference(int count, object state)
@@ -372,26 +385,27 @@ namespace Gibbed.Cryptic.FileFormats
         {
             if (optional == true)
             {
-                var hasValue = this.Input.ReadValueU32();
+                var hasValue = this._Input.ReadValueU32();
                 if (hasValue == 0)
                 {
                     return null;
                 }
-                else if (hasValue != 1)
+
+                if (hasValue != 1)
                 {
                     throw new FormatException();
                 }
             }
 
-            var dataSize = this.Input.ReadValueU32();
+            var dataSize = this._Input.ReadValueU32();
 
 #if ALLINMEMORY
-            var end = this.Input.Position + dataSize;
+            var end = this._Input.Position + dataSize;
 
             var instance = (Serialization.IStructure)Activator.CreateInstance(type);
             instance.Deserialize(this, state);
 
-            if (this.Input.Position != end)
+            if (this._Input.Position != end)
             {
                 throw new FormatException();
             }
@@ -401,7 +415,7 @@ namespace Gibbed.Cryptic.FileFormats
             using (var data = this.Input.ReadToMemoryStream(dataSize))
             {
                 var instance = (ICrypticStructure)Activator.CreateInstance(type);
-                instance.Serialize(new BlobReader(data));
+                instance.Serialize(new BlobReader(data, isCLient, isServer));
 
                 if (data.Position != data.Length)
                 {
@@ -428,7 +442,7 @@ namespace Gibbed.Cryptic.FileFormats
         public List<TType> ReadListStructure<TType>(object state)
             where TType : Serialization.IStructure, new()
         {
-            return this.ReadNativeList<TType>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueStructure<TType>(false, state));
         }
 
@@ -436,18 +450,19 @@ namespace Gibbed.Cryptic.FileFormats
         {
             if (optional == true)
             {
-                var hasValue = this.Input.ReadValueU32();
+                var hasValue = this._Input.ReadValueU32();
                 if (hasValue == 0)
                 {
                     return null;
                 }
-                else if (hasValue != 1)
+
+                if (hasValue != 1)
                 {
                     throw new FormatException();
                 }
             }
 
-            var index = this.Input.ReadValueS32();
+            var index = this._Input.ReadValueS32();
             var type = validTypes[index];
             return ReadValueStructure(type, false, state);
         }
@@ -479,7 +494,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public uint ReadValueBit(int bitOffset, object state)
         {
-            return this.Input.ReadValueU32();
+            return this._Input.ReadValueU32();
         }
 
         public uint[] ReadArrayBit(int bitOffset, int count, object state)
@@ -496,14 +511,15 @@ namespace Gibbed.Cryptic.FileFormats
         {
             object arg;
 
-            var name = this.Input.ReadString(4, true, Encoding.ASCII);
+            var name = this._Input.ReadString(4, true, Encoding.ASCII);
             MultiValueOpcode op;
             if (MultiValue.TryParseOpcode(name, out op) == false)
             {
                 throw new FormatException();
             }
 
-            switch (op & MultiValueOpcode.TypeMask)
+            // ReSharper disable BitwiseOperatorOnEnumWihtoutFlags
+            switch (op & MultiValueOpcode.TypeMask) // ReSharper restore BitwiseOperatorOnEnumWihtoutFlags
             {
                 case MultiValueOpcode.NON:
                 {
@@ -514,7 +530,7 @@ namespace Gibbed.Cryptic.FileFormats
                 case MultiValueOpcode.StaticVariable:
                 {
                     StaticVariableType sv;
-                    if (MultiValue.TryParseStaticVariable(this.Input.ReadValueU32(), out sv) == false)
+                    if (MultiValue.TryParseStaticVariable(this._Input.ReadValueU32(), out sv) == false)
                     {
                         throw new InvalidOperationException(
                             string.Format(
@@ -527,27 +543,27 @@ namespace Gibbed.Cryptic.FileFormats
 
                 case MultiValueOpcode.INT:
                 {
-                    arg = this.Input.ReadValueS64();
+                    arg = this._Input.ReadValueS64();
                     break;
                 }
 
                 case MultiValueOpcode.FLT:
                 {
-                    arg = this.Input.ReadValueF64();
+                    arg = this._Input.ReadValueF64();
                     break;
                 }
 
                 case MultiValueOpcode.STR:
                 {
-                    arg = this.Input.ReadStringPascalUncapped();
+                    arg = this._Input.ReadStringPascalUncapped();
                     break;
                 }
 
                 default:
-                throw new InvalidOperationException(
-                    string.Format(
-                        "multival {0} had an unsupported argument data type",
-                        op));
+                    throw new InvalidOperationException(
+                        string.Format(
+                            "multival {0} had an unsupported argument data type",
+                            op));
             }
 
             return new MultiValue()
@@ -564,13 +580,13 @@ namespace Gibbed.Cryptic.FileFormats
 
         public List<MultiValue> ReadListMultiValue(object state)
         {
-            return this.ReadNativeList<MultiValue>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueMultiValue(state));
         }
 
         public TType ReadValueByteEnum<TType>(object state)
         {
-            return (TType)Enum.ToObject(typeof(TType), this.Input.ReadValueU8());
+            return (TType)Enum.ToObject(typeof(TType), this._Input.ReadValueU8());
         }
 
         public TType[] ReadArrayByteEnum<TType>(int count, object state)
@@ -585,7 +601,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public TType ReadValueInt16Enum<TType>(object state)
         {
-            return (TType)Enum.ToObject(typeof(TType), (short)this.Input.ReadValueS32());
+            return (TType)Enum.ToObject(typeof(TType), (short)this._Input.ReadValueS32());
         }
 
         public TType[] ReadArrayInt16Enum<TType>(int count, object state)
@@ -600,7 +616,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public TType ReadValueInt32Enum<TType>(object state)
         {
-            return (TType)Enum.ToObject(typeof(TType), this.Input.ReadValueS32());
+            return (TType)Enum.ToObject(typeof(TType), this._Input.ReadValueS32());
         }
 
         public TType[] ReadArrayInt32Enum<TType>(int count, object state)
@@ -610,13 +626,13 @@ namespace Gibbed.Cryptic.FileFormats
 
         public List<TType> ReadListInt32Enum<TType>(object state)
         {
-            return this.ReadNativeList<TType>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueInt32Enum<TType>(b));
         }
 
         public TType ReadValueBitEnum<TType>(int bitOffset, object state)
         {
-            return (TType)Enum.ToObject(typeof(TType), this.Input.ReadValueU32());
+            return (TType)Enum.ToObject(typeof(TType), this._Input.ReadValueU32());
         }
 
         public TType[] ReadArrayBitEnum<TType>(int bitOffset, int count, object state)

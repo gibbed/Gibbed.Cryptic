@@ -23,14 +23,23 @@
 using System;
 using System.IO;
 using System.Xml;
-using Gibbed.IO;
 
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
+    // ReSharper disable InconsistentNaming
     internal class MATPYR : BasicValueToken
+        // ReSharper restore InconsistentNaming
     {
-        public override string NameDirectValue { get { return "MATPYR_X"; } }
-        public override string NameDirectFixedArray { get { return "MATPYR"; } }
+        public override string NameDirectValue
+        {
+            get { return "MATPYR_X"; }
+        }
+
+        public override string NameDirectFixedArray
+        {
+            get { return "MATPYR"; }
+        }
+
         public override StorageCompatability Storage
         {
             get { return StorageCompatability.DirectFixedArray; }

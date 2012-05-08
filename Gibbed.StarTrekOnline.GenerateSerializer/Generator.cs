@@ -920,8 +920,8 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                             endLabel = msil.DefineLabel();
                             checkScope = CheckScope.Client;
 
-                            msil.Emit(OpCodes.Ldarg_1); // reader
-                            msil.EmitCall(OpCodes.Callvirt, typeof(Serialization.IBaseReader).GetProperty("IsClient").GetGetMethod(), Type.EmptyTypes);
+                            msil.Emit(OpCodes.Ldarg_1); // writer
+                            msil.EmitCall(OpCodes.Callvirt, typeof(Serialization.IBaseWriter).GetProperty("IsClient").GetGetMethod(), Type.EmptyTypes);
                             msil.Emit(OpCodes.Brfalse, endLabel);
                         }
                     }
@@ -937,8 +937,8 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                             endLabel = msil.DefineLabel();
                             checkScope = CheckScope.Server;
 
-                            msil.Emit(OpCodes.Ldarg_1); // reader
-                            msil.EmitCall(OpCodes.Callvirt, typeof(Serialization.IBaseReader).GetProperty("IsServer").GetGetMethod(), Type.EmptyTypes);
+                            msil.Emit(OpCodes.Ldarg_1); // writer
+                            msil.EmitCall(OpCodes.Callvirt, typeof(Serialization.IBaseWriter).GetProperty("IsServer").GetGetMethod(), Type.EmptyTypes);
                             msil.Emit(OpCodes.Brfalse, endLabel);
                         }
                     }
@@ -966,7 +966,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                     {
                         if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
                         {
-                            msil.Emit(OpCodes.Ldarg_1); // reader
+                            msil.Emit(OpCodes.Ldarg_1); // writer
                             msil.Emit(OpCodes.Ldarg_0); // this
                             msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
                             if (column.Token == 23) msil.EmitConstant(column.BitOffset);
@@ -976,7 +976,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                         }
                         else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
                         {
-                            msil.Emit(OpCodes.Ldarg_1); // reader
+                            msil.Emit(OpCodes.Ldarg_1); // writer
                             msil.Emit(OpCodes.Ldarg_0); // this
                             msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
                             if (column.Token == 23) msil.EmitConstant(column.BitOffset);
@@ -986,7 +986,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                         }
                         else
                         {
-                            msil.Emit(OpCodes.Ldarg_1); // reader
+                            msil.Emit(OpCodes.Ldarg_1); // writer
                             msil.Emit(OpCodes.Ldarg_0); // this
                             msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
                             if (column.Token == 23)

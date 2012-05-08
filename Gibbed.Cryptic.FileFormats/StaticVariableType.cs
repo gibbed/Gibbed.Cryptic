@@ -24,6 +24,7 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public enum StaticVariableType : uint
     {
+        // ReSharper disable InconsistentNaming
         Activation = 0,
         AdjustLevel = 1,
         Application = 2,
@@ -83,5 +84,6 @@ namespace Gibbed.Cryptic.FileFormats
         TeamHP = 56,
         TeamHPMax = 57,
         Volume = 58,
+        // ReSharper restore InconsistentNaming
     }
 }

@@ -38,8 +38,8 @@ namespace Gibbed.Cryptic.FileFormats
         public List<Hog.AttributeEntry> Attributes
             = new List<Hog.AttributeEntry>();
 
-        public byte[] OperationJournal = null;
-        public byte[] DataListJournal = null;
+        public byte[] OperationJournal;
+        public byte[] DataListJournal;
 
         public void Serialize(Stream output)
         {
@@ -81,7 +81,9 @@ namespace Gibbed.Cryptic.FileFormats
             {
                 while (data.Position < data.Length)
                 {
+                    // ReSharper disable UseObjectOrCollectionInitializer
                     var entry = new Hog.FileEntry();
+                    // ReSharper restore UseObjectOrCollectionInitializer
                     entry.Offset = data.ReadValueS64(endian);
                     entry.Size = data.ReadValueS32(endian);
                     entry.Timestamp = data.ReadValueU32(endian);
@@ -99,7 +101,9 @@ namespace Gibbed.Cryptic.FileFormats
             {
                 while (data.Position < data.Length)
                 {
+                    // ReSharper disable UseObjectOrCollectionInitializer
                     var entry = new Hog.AttributeEntry();
+                    // ReSharper restore UseObjectOrCollectionInitializer
                     entry.NameId = data.ReadValueS32(endian);
                     entry.HeaderDataId = data.ReadValueS32(endian);
                     entry.UncompressedSize = data.ReadValueU32(endian);

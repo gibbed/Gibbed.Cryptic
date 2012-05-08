@@ -20,7 +20,6 @@
  *    distribution.
  */
 
-using System;
 using System.IO;
 using System.Xml;
 using Gibbed.IO;
@@ -65,10 +64,10 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 
         public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
         {
-            var flags = Parser.ColumnFlags.None;
-            flags |= column.Flags & Parser.ColumnFlags.FIXED_ARRAY;
-            flags |= column.Flags & Parser.ColumnFlags.EARRAY;
-            flags |= column.Flags & Parser.ColumnFlags.INDIRECT;
+            var flags = ColumnFlags.None;
+            flags |= column.Flags & ColumnFlags.FIXED_ARRAY;
+            flags |= column.Flags & ColumnFlags.EARRAY;
+            flags |= column.Flags & ColumnFlags.INDIRECT;
 
             if (flags == ColumnFlags.INDIRECT)
             {

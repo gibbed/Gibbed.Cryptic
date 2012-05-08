@@ -47,24 +47,24 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
         public override string NameDirectFixedArray { get { return "MULTIARRAY"; } }
         public override string NameIndirectArray { get { return "MULTIEARRAY"; } }
 
-        private static Dictionary<string, MultiValueOpcode> NamesToOpcodes;
+        private static readonly Dictionary<string, MultiValueOpcode> _NamesToOpcodes;
         static MultiValue()
         {
-            NamesToOpcodes = new Dictionary<string, MultiValueOpcode>();
+            _NamesToOpcodes = new Dictionary<string, MultiValueOpcode>();
             foreach (var name in Enum.GetNames(typeof(MultiValueOpcode)))
             {
-                NamesToOpcodes.Add(name, (MultiValueOpcode)Enum.Parse(typeof(MultiValueOpcode), name));
+                _NamesToOpcodes.Add(name, (MultiValueOpcode)Enum.Parse(typeof(MultiValueOpcode), name));
             }
         }
 
         public override void Deserialize(Stream input, ParserSchema.Column column, XmlWriter output)
         {
             var name = input.ReadString(4, true, Encoding.ASCII);
-            if (NamesToOpcodes.ContainsKey(name) == false)
+            if (_NamesToOpcodes.ContainsKey(name) == false)
             {
                 throw new FormatException("invalid opcode in multival");
             }
-            var op = NamesToOpcodes[name];
+            var op = _NamesToOpcodes[name];
 
             output.WriteStartElement("opcode");
             output.WriteAttributeString("type", name);

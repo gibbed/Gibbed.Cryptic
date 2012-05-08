@@ -23,14 +23,21 @@
 using System;
 using System.IO;
 using System.Xml;
-using Gibbed.IO;
 
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {
     internal class QUATPYR : BasicValueToken
     {
-        public override string NameDirectValue { get { return "QUATPYR_X"; } }
-        public override string NameDirectFixedArray { get { return "QUATPYR"; } }
+        public override string NameDirectValue
+        {
+            get { return "QUATPYR_X"; }
+        }
+
+        public override string NameDirectFixedArray
+        {
+            get { return "QUATPYR"; }
+        }
+
         public override StorageCompatability Storage
         {
             get { return StorageCompatability.DirectFixedArray; }

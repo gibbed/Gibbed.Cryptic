@@ -29,8 +29,8 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public class ParserSchemaFile
     {
-        public string Name = null;
-        public ParserSchema.Table Table = null;
+        public string Name;
+        public ParserSchema.Table Table;
 
         private ParserSchemaFile()
         {
@@ -59,78 +59,89 @@ namespace Gibbed.Cryptic.FileFormats
         private static ParserSchema.Table LoadTable(XPathNavigator nav)
         {
             var table = new ParserSchema.Table();
-            
-            var _columns = nav.Select("column");
-            while (_columns.MoveNext() == true)
+
+            var columnIterator = nav.Select("column");
+            while (columnIterator.MoveNext() == true)
             {
-                var _column = _columns.Current;
-
-                var column = new ParserSchema.Column();
-                column.Name = _column.GetAttribute("name", "");
-
-                var _type = _column.GetAttribute("type", "");
-                var token = Parser.GlobalTokens.MatchToken(_type, out column.Token, out column.Flags);
-
-                var _flags = _column.Select("flags/flag");
-                while (_flags.MoveNext() == true)
+                var columnNode = columnIterator.Current;
+                if (columnNode == null)
                 {
-                    var _flag = _flags.Current.Value;
-                    if (Enum.IsDefined(typeof(Parser.ColumnFlags), _flag) == false)
+                    throw new InvalidOperationException();
+                }
+
+                // ReSharper disable UseObjectOrCollectionInitializer
+                var column = new ParserSchema.Column();
+                // ReSharper restore UseObjectOrCollectionInitializer
+                column.Name = columnNode.GetAttribute("name", "");
+
+                var type = columnNode.GetAttribute("type", "");
+                var token = Parser.GlobalTokens.MatchToken(type, out column.Token, out column.Flags);
+
+                var flagIterator = columnNode.Select("flags/flag");
+                while (flagIterator.MoveNext() == true)
+                {
+                    if (flagIterator.Current == null)
+                    {
+                        throw new InvalidOperationException();
+                    }
+
+                    var flag = flagIterator.Current.Value;
+                    if (Enum.IsDefined(typeof(Parser.ColumnFlags), flag) == false)
                     {
                         throw new FormatException();
                     }
 
-                    column.Flags |= (Parser.ColumnFlags)Enum.Parse(typeof(Parser.ColumnFlags), _flag);
+                    column.Flags |= (Parser.ColumnFlags)Enum.Parse(typeof(Parser.ColumnFlags), flag);
                 }
 
-                column.Offset = (uint)GetIntElement(_column, "offset", 0);
+                column.Offset = (uint)GetIntElement(columnNode, "offset", 0);
 
-                column.RedundantName = GetStringElement(_column, "redundant_name", null);
+                column.RedundantName = GetStringElement(columnNode, "redundant_name", null);
 
-                column.MinBits = (byte)GetIntElement(_column, "min_bits", 0);
-                column.FloatRounding = GetStringElement(_column, "float_rounding", null);
+                column.MinBits = (byte)GetIntElement(columnNode, "min_bits", 0);
+                column.FloatRounding = GetStringElement(columnNode, "float_rounding", null);
 
-                column.NumberOfElements = GetIntElement(_column, "num_elements", 0);
-                column.Default = GetIntElement(_column, "default", 0);
-                column.StringLength = GetIntElement(_column, "string_length", 0);
-                column.DefaultString = GetStringElement(_column, "default_string", null);
-                column.CommandString = GetStringElement(_column, "command_string", null);
-                column.Size = GetIntElement(_column, "size", 0);
-                column.BitOffset = GetIntElement(_column, "bit_offset", 0);
+                column.NumberOfElements = GetIntElement(columnNode, "num_elements", 0);
+                column.Default = GetIntElement(columnNode, "default", 0);
+                column.StringLength = GetIntElement(columnNode, "string_length", 0);
+                column.DefaultString = GetStringElement(columnNode, "default_string", null);
+                column.CommandString = GetStringElement(columnNode, "command_string", null);
+                column.Size = GetIntElement(columnNode, "size", 0);
+                column.BitOffset = GetIntElement(columnNode, "bit_offset", 0);
 
-                var _subtable = _column.SelectSingleNode("subtable");
-                if (_subtable != null)
+                var subtable = columnNode.SelectSingleNode("subtable");
+                if (subtable != null)
                 {
-                    column.SubtableExternalName = _subtable.GetAttribute("external", "");
+                    column.SubtableExternalName = subtable.GetAttribute("external", "");
                     column.SubtableIsExternal = true;
 
-                    var _subtable_table = _subtable.SelectSingleNode("table");
-                    if (_subtable_table != null)
+                    var subtableTable = subtable.SelectSingleNode("table");
+                    if (subtableTable != null)
                     {
                         column.SubtableIsExternal = false;
-                        column.Subtable = LoadTable(_subtable_table);
+                        column.Subtable = LoadTable(subtableTable);
                     }
                 }
 
-                var _sdl = _column.SelectSingleNode("static_define_list");
-                if (_sdl != null)
+                var staticDefineList = columnNode.SelectSingleNode("static_define_list");
+                if (staticDefineList != null)
                 {
-                    column.StaticDefineListExternalName = _sdl.GetAttribute("external", "");
+                    column.StaticDefineListExternalName = staticDefineList.GetAttribute("external", "");
                     column.StaticDefineListIsExternal = true;
 
-                    var _sdl_elements = _sdl.SelectSingleNode("elements");
-                    if (_sdl_elements != null)
+                    var staticDefineListElements = staticDefineList.SelectSingleNode("elements");
+                    if (staticDefineListElements != null)
                     {
                         column.StaticDefineListIsExternal = false;
-                        column.StaticDefineList = ParserEnumFile.LoadEnumeration(_sdl_elements);
+                        column.StaticDefineList = ParserEnumFile.LoadEnumeration(staticDefineListElements);
                     }
                 }
 
-                var _format = GetStringElement(_column, "format", null);
-                if (string.IsNullOrEmpty(_format) == false)
+                var formatName = GetStringElement(columnNode, "format", null);
+                if (string.IsNullOrEmpty(formatName) == false)
                 {
                     ParserSchema.ColumnFormat format;
-                    if (Enum.TryParse<ParserSchema.ColumnFormat>(_format, true, out format) == false)
+                    if (Enum.TryParse(formatName, true, out format) == false)
                     {
                         throw new FormatException();
                     }
@@ -153,6 +164,11 @@ namespace Gibbed.Cryptic.FileFormats
                 var schema = new ParserSchemaFile();
 
                 var root = nav.SelectSingleNode("/parser");
+                if (root == null)
+                {
+                    throw new InvalidOperationException();
+                }
+
                 schema.Name = root.GetAttribute("name", "");
 
                 var table = root.SelectSingleNode("table");
@@ -170,9 +186,13 @@ namespace Gibbed.Cryptic.FileFormats
                 var nav = doc.CreateNavigator();
 
                 var root = nav.SelectSingleNode("/parser");
-                var name = root.GetAttribute("name", "");
+                if (root == null)
+                {
+                    throw new InvalidOperationException();
+                }
 
-                if (name == null)
+                var name = root.GetAttribute("name", "");
+                if (string.IsNullOrEmpty(name) == true)
                 {
                     throw new InvalidOperationException();
                 }
@@ -189,22 +209,20 @@ namespace Gibbed.Cryptic.FileFormats
                 var nav = doc.CreateNavigator();
 
                 var root = nav.SelectSingleNode("/parser");
-                var _hash = root.GetAttribute("hash", "");
-
-                if (_hash == null)
+                if (root == null)
                 {
                     throw new InvalidOperationException();
                 }
 
-                uint hash;
-                if (_hash.StartsWith("0x") == true)
+                var hashText = root.GetAttribute("hash", "");
+                if (string.IsNullOrEmpty(hashText) == true)
                 {
-                    hash = uint.Parse(_hash, NumberStyles.AllowHexSpecifier);
+                    throw new InvalidOperationException();
                 }
-                else
-                {
-                    hash = uint.Parse(_hash);
-                }
+
+                var hash = hashText.StartsWith("0x") == true
+                           ? uint.Parse(hashText, NumberStyles.AllowHexSpecifier)
+                           : uint.Parse(hashText);
 
                 return hash;
             }

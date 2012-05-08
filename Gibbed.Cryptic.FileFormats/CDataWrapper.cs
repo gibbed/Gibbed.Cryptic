@@ -40,7 +40,7 @@ namespace Gibbed.Cryptic.FileFormats
             return value == null ? null : new CDataWrapper { Value = value };
         }
 
-        public System.Xml.Schema.XmlSchema GetSchema()
+        public XmlSchema GetSchema()
         {
             return null;
         }

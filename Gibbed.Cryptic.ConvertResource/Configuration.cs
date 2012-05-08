@@ -38,6 +38,15 @@ namespace Gibbed.Cryptic.ConvertResource
             }
 
             name = name.ToLowerInvariant();
+
+            var alias = this.SchemaAliases
+                .FirstOrDefault(s => s.Key.ToLowerInvariant() == name)
+                .Value;
+            if (string.IsNullOrEmpty(alias) == false)
+            {
+                name = alias.ToLowerInvariant();
+            }
+
             return this.Schemas
                 .FirstOrDefault(s => s.Key.ToLowerInvariant() == name)
                 .Value;
@@ -56,6 +65,12 @@ namespace Gibbed.Cryptic.ConvertResource
         {
             [JsonProperty(PropertyName = "mode", Required = Required.Always)]
             public string Mode;
+
+            [JsonProperty(PropertyName = "is_client", Required = Required.Default)]
+            public bool IsClient;
+
+            [JsonProperty(PropertyName = "is_server", Required = Required.Default)]
+            public bool IsServer;
 
             [JsonProperty(PropertyName = "targets", Required = Required.Always)]
             public List<AssemblyTarget> Targets = new List<AssemblyTarget>();

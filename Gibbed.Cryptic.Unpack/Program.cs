@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -195,15 +196,18 @@ namespace Gibbed.Cryptic.Unpack
                     {
                         throw new InvalidOperationException();
                     }
-                    else if (entry.AttributeId < 0 || entry.AttributeId >= hog.Attributes.Count)
+
+                    if (entry.AttributeId < 0 || entry.AttributeId >= hog.Attributes.Count)
                     {
                         throw new InvalidOperationException();
                     }
-                    else if ((hog.Attributes[entry.AttributeId].Flags & 1) == 1) // entry is unused
+
+                    if ((hog.Attributes[entry.AttributeId].Flags & 1) == 1) // entry is unused
                     {
                         throw new InvalidOperationException();
                     }
-                    else if (consumedAttributes.Contains(entry.AttributeId) == true)
+
+                    if (consumedAttributes.Contains(entry.AttributeId) == true)
                     {
                         throw new InvalidOperationException();
                     }
@@ -216,7 +220,7 @@ namespace Gibbed.Cryptic.Unpack
 
                     if (dataList.ContainsKey(attribute.NameId) == false)
                     {
-                        name = Path.Combine("__UNKNOWN", attribute.NameId.ToString());
+                        name = Path.Combine("__UNKNOWN", attribute.NameId.ToString(CultureInfo.InvariantCulture));
                     }
                     else
                     {
@@ -255,7 +259,11 @@ namespace Gibbed.Cryptic.Unpack
                         continue;
                     }
 
-                    Directory.CreateDirectory(Path.GetDirectoryName(entryPath));
+                    var entryDirectory = Path.GetDirectoryName(entryPath);
+                    if (entryDirectory != null)
+                    {
+                        Directory.CreateDirectory(entryDirectory);
+                    }
 
                     if (verbose == true)
                     {
@@ -294,15 +302,18 @@ namespace Gibbed.Cryptic.Unpack
             {
                 throw new ArgumentException("cannot read file with size of -1", "entry");
             }
-            else if (entry.Unknown5 != -2 || entry.AttributeId == -1)
+
+            if (entry.Unknown5 != -2 || entry.AttributeId == -1)
             {
                 throw new ArgumentException("strange entry");
             }
-            else if (entry.AttributeId < 0 || entry.AttributeId >= hog.Attributes.Count)
+
+            if (entry.AttributeId < 0 || entry.AttributeId >= hog.Attributes.Count)
             {
                 throw new ArgumentException("entry pointing to invalid metadata", "entry");
             }
-            else if ((hog.Attributes[entry.AttributeId].Flags & 1) == 1) // entry is unused
+
+            if ((hog.Attributes[entry.AttributeId].Flags & 1) == 1) // entry is unused
             {
                 throw new ArgumentException("entry referencing unused attribute", "entry");
             }

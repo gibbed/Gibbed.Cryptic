@@ -58,6 +58,12 @@ namespace Gibbed.Cryptic.ConvertObject
         [JsonObject(MemberSerialization.OptIn)]
         public class Schema
         {
+            [JsonProperty(PropertyName = "is_client", Required = Required.Default)]
+            public bool IsClient;
+
+            [JsonProperty(PropertyName = "is_server", Required = Required.Default)]
+            public bool IsServer;
+
             [JsonProperty(PropertyName = "targets", Required = Required.Always)]
             public List<AssemblyTarget> Targets = new List<AssemblyTarget>();
 
