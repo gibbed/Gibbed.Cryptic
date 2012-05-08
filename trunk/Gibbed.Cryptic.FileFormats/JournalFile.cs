@@ -58,7 +58,9 @@ namespace Gibbed.Cryptic.FileFormats
             {
                 while (data.Position < data.Length)
                 {
+                    // ReSharper disable UseObjectOrCollectionInitializer
                     var entry = new Journal.Entry();
+                    // ReSharper restore UseObjectOrCollectionInitializer
                     entry.Action = data.ReadValueEnum<Journal.Action>();
                     entry.TargetId = data.ReadValueS32(endian);
 

@@ -20,11 +20,6 @@
  *    distribution.
  */
 
-using System;
-using System.IO;
-using System.Text;
-using Gibbed.IO;
-
 namespace Gibbed.Cryptic.FileFormats
 {
     public static class StringHelpers
@@ -37,14 +32,17 @@ namespace Gibbed.Cryptic.FileFormats
         public static uint HashCRC32(this string input, uint hash)
         {
             input = input.ToLowerInvariant();
-            for (int i = 0; i < input.Length; i++)
+            // ReSharper disable LoopCanBeConvertedToQuery
+            // ReSharper disable ForCanBeConvertedToForeach
+            for (int i = 0; i < input.Length; i++) // ReSharper restore LoopCanBeConvertedToQuery
+                // ReSharper restore ForCanBeConvertedToForeach
             {
-                hash = CRC32Table[(byte)hash ^ (byte)input[i]] ^ (hash >> 8);
+                hash = _CRC32Table[(byte)hash ^ (byte)input[i]] ^ (hash >> 8);
             }
             return hash;
         }
 
-        private static uint[] CRC32Table =
+        private static readonly uint[] _CRC32Table =
         {
             0x00000000, 0x77073096, 0xEE0E612C, 0x990951BA, 0x076DC419, 0x706AF48F, 0xE963A535, 0x9E6495A3,
             0x0EDB8832, 0x79DCB8A4, 0xE0D5E91E, 0x97D2D988, 0x09B64C2B, 0x7EB17CBD, 0xE7B82D07, 0x90BF1D91,

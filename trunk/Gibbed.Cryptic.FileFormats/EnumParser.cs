@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using Enumerable = System.Linq.Enumerable;
 
 namespace Gibbed.Cryptic.FileFormats
 {
@@ -36,7 +37,7 @@ namespace Gibbed.Cryptic.FileFormats
         public static T FromStringValue(string value)
         {
             T parsed;
-            if (Enum.TryParse<T>(value, out parsed) == false)
+            if (Enum.TryParse(value, out parsed) == false)
             {
                 throw new FormatException();
             }
@@ -49,7 +50,7 @@ namespace Gibbed.Cryptic.FileFormats
             foreach (var item in list)
             {
                 T value;
-                if (Enum.TryParse<T>(item, out value) == false)
+                if (Enum.TryParse(item, out value) == false)
                 {
                     throw new FormatException();
                 }
@@ -63,10 +64,7 @@ namespace Gibbed.Cryptic.FileFormats
             var items = new List<string>();
             if (list != null)
             {
-                foreach (var item in list)
-                {
-                    items.Add(Enum.Format(typeof(T), item, "g"));
-                }
+                items.AddRange(Enumerable.Select(list, item => Enum.Format(typeof(T), item, "g")));
             }
             return items;
         }

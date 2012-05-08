@@ -23,7 +23,6 @@
 using System;
 using System.IO;
 using System.Xml;
-using Gibbed.IO;
 
 namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
 {

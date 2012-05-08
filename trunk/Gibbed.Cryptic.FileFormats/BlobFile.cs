@@ -32,17 +32,19 @@ namespace Gibbed.Cryptic.FileFormats
     public class BlobFile
     {
         public uint ParserHash;
+
         public List<Blob.FileEntry> Files
             = new List<Blob.FileEntry>();
+
         public List<Blob.DependencyEntry> Dependencies
-           = new List<Blob.DependencyEntry>();
+            = new List<Blob.DependencyEntry>();
 
         public void Serialize(Stream output)
         {
             output.WriteString("CrypticS", Encoding.ASCII);
             output.WriteValueU32(this.ParserHash);
             output.WriteStringPascal("ParseJ", 4096);
-            
+
             output.WriteStringPascal("Files1", 20);
             using (var data = new MemoryStream())
             {
@@ -101,7 +103,9 @@ namespace Gibbed.Cryptic.FileFormats
                 var count = data.ReadValueU32();
                 for (uint i = 0; i < count; i++)
                 {
+                    // ReSharper disable UseObjectOrCollectionInitializer
                     var entry = new Blob.FileEntry();
+                    // ReSharper restore UseObjectOrCollectionInitializer
                     entry.Name = data.ReadStringPascal(260);
                     entry.Timestamp = data.ReadValueU32();
                     this.Files.Add(entry);
@@ -125,7 +129,9 @@ namespace Gibbed.Cryptic.FileFormats
                 var count = data.ReadValueU32();
                 for (uint i = 0; i < count; i++)
                 {
+                    // ReSharper disable UseObjectOrCollectionInitializer
                     var entry = new Blob.DependencyEntry();
+                    // ReSharper restore UseObjectOrCollectionInitializer
                     entry.Type = data.ReadValueU32();
                     entry.Name = data.ReadStringPascal(260);
                     entry.Hash = data.ReadValueU32();

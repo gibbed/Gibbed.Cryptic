@@ -24,6 +24,7 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public enum MultiValueOpcode : ushort
     {
+        // ReSharper disable InconsistentNaming
         InstructionMask = 0xFF00,
         TypeMask = 0x00FF,
 
@@ -84,5 +85,6 @@ namespace Gibbed.Cryptic.FileFormats
         OBJ = 0x270B, // objpath
         L_M = 0x2809, // loc (mat4)
         L_S = 0x280B, // loc (str)
+        // ReSharper restore InconsistentNaming
     }
 }

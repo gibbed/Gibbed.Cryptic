@@ -32,9 +32,5 @@ namespace Gibbed.Cryptic.FileFormats
         Namespace = "http://datacontract.gib.me/cryptic")]
     public class FieldList<T> : List<T>
     {
-        public FieldList()
-        : base()
-        {
-        }
     }
 }

@@ -30,19 +30,26 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public class PacketReader : Serialization.IPacketReader
     {
-        private Stream Input;
+        private readonly Stream _Input;
 
-        public bool IsClient { get { return false; } }
-        public bool IsServer { get { return false; } }
+        public bool IsClient
+        {
+            get { return false; }
+        }
+
+        public bool IsServer
+        {
+            get { return false; }
+        }
 
         public PacketReader(Stream input)
         {
-            this.Input = input;
+            this._Input = input;
         }
 
         public bool ReadNativeBoolean()
         {
-            var value = this.Input.ReadValueU8();
+            var value = this._Input.ReadValueU8();
             if (value != 0 && value != 1)
             {
                 throw new FormatException();
@@ -57,7 +64,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public uint ReadNativeUInt32Packed()
         {
-            var first = this.Input.ReadValueU8();
+            var first = this._Input.ReadValueU8();
             uint value = 0;
 
             var size = (byte)(first & 3);
@@ -65,15 +72,15 @@ namespace Gibbed.Cryptic.FileFormats
 
             if (size == 1)
             {
-                value |= (uint)this.Input.ReadValueU8() << 6;
+                value |= (uint)this._Input.ReadValueU8() << 6;
             }
             else if (size == 2)
             {
-                value |= (uint)this.Input.ReadValueU16() << 6;
+                value |= (uint)this._Input.ReadValueU16() << 6;
             }
             else if (size == 3)
             {
-                value |= (uint)this.Input.ReadValueU32() << 6;
+                value |= this._Input.ReadValueU32() << 6;
             }
 
             return value;
@@ -98,6 +105,7 @@ namespace Gibbed.Cryptic.FileFormats
             return array;
         }
 
+        // ReSharper disable RedundantIfElseBlock
         private List<TType> ReadNativeList<TType>(
             object state, Func<PacketReader, object, TType> readValue)
         {
@@ -110,7 +118,7 @@ namespace Gibbed.Cryptic.FileFormats
             }
             else
             {
-                var count = this.Input.ReadValueS32();
+                var count = this._Input.ReadValueS32();
                 if (count < 0 || count > 8192)
                 {
                     throw new FormatException();
@@ -126,7 +134,9 @@ namespace Gibbed.Cryptic.FileFormats
                 return list;
             }
         }
+        // ReSharper restore RedundantIfElseBlock
 
+        // ReSharper disable RedundantIfElseBlock
         public byte ReadValueByte(object state)
         {
             var unknownFlag = (bool)state;
@@ -154,10 +164,11 @@ namespace Gibbed.Cryptic.FileFormats
                 }
             }
         }
+        // ReSharper restore RedundantIfElseBlock
 
         public byte[] ReadArrayByte(int count, object state)
         {
-            return this.ReadNativeArray<byte>(
+            return this.ReadNativeArray(
                 count, state, (a, b) => a.ReadValueByte(b));
         }
 
@@ -166,6 +177,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
+        // ReSharper disable RedundantIfElseBlock
         public short ReadValueInt16(object state)
         {
             var unknownFlag = (bool)state;
@@ -193,6 +205,7 @@ namespace Gibbed.Cryptic.FileFormats
                 }
             }
         }
+        // ReSharper restore RedundantIfElseBlock
 
         public short[] ReadArrayInt16(int count, object state)
         {
@@ -204,6 +217,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
+        // ReSharper disable RedundantIfElseBlock
         public int ReadValueInt32(object state)
         {
             var unknownFlag = (bool)state;
@@ -218,11 +232,11 @@ namespace Gibbed.Cryptic.FileFormats
                 {
                     if (this.ReadNativeBoolean() == true)
                     {
-                        return (int)this.ReadNativeInt32Packed();
+                        return this.ReadNativeInt32Packed();
                     }
                     else
                     {
-                        return -((int)this.ReadNativeInt32Packed());
+                        return -this.ReadNativeInt32Packed();
                     }
                 }
                 else
@@ -231,19 +245,21 @@ namespace Gibbed.Cryptic.FileFormats
                 }
             }
         }
+        // ReSharper restore RedundantIfElseBlock
 
         public int[] ReadArrayInt32(int count, object state)
         {
-            return this.ReadNativeArray<int>(
+            return this.ReadNativeArray(
                 count, state, (a, b) => a.ReadValueInt32(b));
         }
 
         public List<int> ReadListInt32(object state)
         {
-            return this.ReadNativeList<int>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueInt32(b));
         }
 
+        // ReSharper disable RedundantIfElseBlock
         public long ReadValueInt64(object state)
         {
             var unknownFlag = (bool)state;
@@ -253,13 +269,14 @@ namespace Gibbed.Cryptic.FileFormats
                 var lo = this.ReadNativeUInt32Packed();
                 var hi = this.ReadNativeUInt32Packed();
 
-                return (long)(((ulong)hi << 32) | (ulong)lo);
+                return (long)(((ulong)hi << 32) | lo);
             }
             else
             {
                 throw new NotImplementedException();
             }
         }
+        // ReSharper restore RedundantIfElseBlock
 
         public long[] ReadArrayInt64(int count, object state)
         {
@@ -273,24 +290,24 @@ namespace Gibbed.Cryptic.FileFormats
 
         public float ReadValueFloat(object state)
         {
-            return this.Input.ReadValueF32();
+            return this._Input.ReadValueF32();
         }
 
         public float[] ReadArrayFloat(int count, object state)
         {
-            return this.ReadNativeArray<float>(
+            return this.ReadNativeArray(
                 count, state, (a, b) => a.ReadValueFloat(b));
         }
 
         public List<float> ReadListFloat(object state)
         {
-            return this.ReadNativeList<float>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueFloat(b));
         }
 
         public string ReadValueString(object state)
         {
-            return this.Input.ReadStringZ(Encoding.UTF8);
+            return this._Input.ReadStringZ(Encoding.UTF8);
         }
 
         public string[] ReadArrayString(int count, object state)
@@ -300,7 +317,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public List<string> ReadListString(object state)
         {
-            return this.ReadNativeList<string>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueString(b));
         }
 
@@ -431,7 +448,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public string ReadValueReference(object state)
         {
-            return this.Input.ReadStringZ(Encoding.UTF8);
+            return this._Input.ReadStringZ(Encoding.UTF8);
         }
 
         public string[] ReadArrayReference(int count, object state)
@@ -459,6 +476,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
+        // ReSharper disable RedundantIfElseBlock
         public TType ReadValueStructure<TType>(bool optional, object state)
             where TType : Serialization.IStructure, new()
         {
@@ -478,6 +496,7 @@ namespace Gibbed.Cryptic.FileFormats
                 return default(TType);
             }
         }
+        // ReSharper restore RedundantIfElseBlock
 
         public TType[] ReadArrayStructure<TType>(int count, object state)
             where TType : Serialization.IStructure, new()
@@ -488,10 +507,11 @@ namespace Gibbed.Cryptic.FileFormats
         public List<TType> ReadListStructure<TType>(object state)
             where TType : Serialization.IStructure, new()
         {
-            return this.ReadNativeList<TType>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueStructure<TType>(false, b));
         }
 
+        // ReSharper disable RedundantIfElseBlock
         public object ReadValuePolymorph(Type[] validTypes, bool optional, object state)
         {
             if (this.ReadNativeBoolean() == true)
@@ -514,6 +534,7 @@ namespace Gibbed.Cryptic.FileFormats
                 return null;
             }
         }
+        // ReSharper restore RedundantIfElseBlock
 
         public object[] ReadArrayPolymorph(Type[] validTypes, int count, object state)
         {
@@ -522,7 +543,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public List<object> ReadListPolymorph(Type[] validTypes, object state)
         {
-            return this.ReadNativeList<object>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValuePolymorph(validTypes, false, b));
         }
 
@@ -552,7 +573,7 @@ namespace Gibbed.Cryptic.FileFormats
             uint value = 0;
             for (int i = 0; i < bits; i += 8)
             {
-                value |= (uint)this.Input.ReadValueU8() << i;
+                value |= (uint)this._Input.ReadValueU8() << i;
             }
             return value;
         }
@@ -570,14 +591,15 @@ namespace Gibbed.Cryptic.FileFormats
         public MultiValue ReadValueMultiValue(object state)
         {
             MultiValueOpcode op;
-            var _ = this.Input.ReadValueU32();
+            var _ = this._Input.ReadValueU32();
             if (MultiValue.TryParseOpcode(_, out op) == false)
             {
                 throw new FormatException();
             }
 
             object arg;
-            switch (op & MultiValueOpcode.TypeMask)
+            // ReSharper disable BitwiseOperatorOnEnumWihtoutFlags
+            switch (op & MultiValueOpcode.TypeMask) // ReSharper restore BitwiseOperatorOnEnumWihtoutFlags
             {
                 case MultiValueOpcode.NON:
                 {
@@ -603,7 +625,7 @@ namespace Gibbed.Cryptic.FileFormats
                 {
                     var lo = this.ReadNativeUInt32Packed();
                     var hi = this.ReadNativeUInt32Packed();
-                    arg = (long)(((ulong)hi << 32) | (ulong)lo);
+                    arg = (long)(((ulong)hi << 32) | lo);
                     break;
                 }
 
@@ -611,13 +633,13 @@ namespace Gibbed.Cryptic.FileFormats
                 {
                     var lo = this.ReadNativeUInt32Packed();
                     var hi = this.ReadNativeUInt32Packed();
-                    arg = BitConverter.Int64BitsToDouble(((long)hi << 32) | (long)lo);
+                    arg = BitConverter.Int64BitsToDouble(((long)hi << 32) | lo);
                     break;
                 }
 
                 case MultiValueOpcode.STR:
                 {
-                    arg = this.Input.ReadStringZ(Encoding.UTF8);
+                    arg = this._Input.ReadStringZ(Encoding.UTF8);
                     break;
                 }
 
@@ -641,7 +663,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public List<MultiValue> ReadListMultiValue(object state)
         {
-            return this.ReadNativeList<MultiValue>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueMultiValue(b));
         }
 
@@ -687,7 +709,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public List<TType> ReadListInt32Enum<TType>(object state)
         {
-            return this.ReadNativeList<TType>(
+            return this.ReadNativeList(
                 state, (a, b) => a.ReadValueInt32Enum<TType>(b));
         }
 

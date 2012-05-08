@@ -26,6 +26,6 @@ namespace Gibbed.Cryptic.FileFormats.Journal
     {
         public Action Action;
         public int TargetId;
-        public byte[] Data = null;
+        public byte[] Data;
     }
 }

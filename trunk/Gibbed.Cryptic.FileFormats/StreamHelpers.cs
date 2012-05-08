@@ -51,7 +51,7 @@ namespace Gibbed.Cryptic.FileFormats
             return text;
         }
 
-        private static byte[] Padding = new byte[4];
+        private static readonly byte[] _Padding = new byte[4];
 
         public static void WriteStringPascal(this Stream stream, string value, int maxLength)
         {
@@ -69,7 +69,7 @@ namespace Gibbed.Cryptic.FileFormats
 
             stream.WriteValueU16(length);
             stream.WriteBytes(bytes);
-            stream.Write(Padding, 0, (-(length - 2)) & 3);
+            stream.Write(_Padding, 0, (-(length - 2)) & 3);
         }
 
         public static void WriteStringPascalUncapped(this Stream stream, string value)
@@ -83,7 +83,7 @@ namespace Gibbed.Cryptic.FileFormats
 
             stream.WriteValueU16(length);
             stream.WriteBytes(bytes);
-            stream.Write(Padding, 0, (-(length - 2)) & 3);
+            stream.Write(_Padding, 0, (-(length - 2)) & 3);
         }
     }
 }
