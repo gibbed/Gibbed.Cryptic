@@ -74,9 +74,9 @@ namespace Gibbed.Cryptic.FileFormats.Serialization
         void WriteArrayBooleanFlag(bool[] array, int count, object state);
         void WriteListBooleanFlag(List<bool> list, object state);
 
-        void WriteValueQUATPYR(QUATPYR value, object state);
-        void WriteArrayQUATPYR(QUATPYR[] array, int count, object state);
-        void WriteListQUATPYR(List<QUATPYR> list, object state);
+        void WriteValueQUATPYR(float value, object state);
+        void WriteArrayQUATPYR(float[] array, int count, object state);
+        void WriteListQUATPYR(List<float> list, object state);
 
         void WriteValueMATPYR(MATPYR value, object state);
         void WriteArrayMATPYR(MATPYR[] array, int count, object state);

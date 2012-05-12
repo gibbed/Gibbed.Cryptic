@@ -62,7 +62,7 @@ namespace Gibbed.Cryptic.FileFormats
 
             public void Deserialize(Serialization.IFileReader reader, object state)
             {
-                throw new NotImplementedException();
+                throw new NotSupportedException();
             }
 
             public void Serialize(Serialization.IFileWriter writer, object state)
@@ -269,7 +269,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void WriteValueTimestamp(int value, object state)
         {
-            throw new NotImplementedException();
+            this._Output.WriteValueS32(value);
         }
 
         public void WriteArrayTimestamp(int[] array, int count, object state)
@@ -335,18 +335,18 @@ namespace Gibbed.Cryptic.FileFormats
                 list, state, (a, b, c) => a.WriteValueBooleanFlag(b, c));
         }
 
-        public void WriteValueQUATPYR(QUATPYR value, object state)
+        public void WriteValueQUATPYR(float value, object state)
         {
-            throw new NotImplementedException();
+            this._Output.WriteValueF32(value);
         }
 
-        public void WriteArrayQUATPYR(QUATPYR[] array, int count, object state)
+        public void WriteArrayQUATPYR(float[] array, int count, object state)
         {
             this.WriteNativeArray(
                 array, count, state, (a, b, c) => a.WriteValueQUATPYR(b, c));
         }
 
-        public void WriteListQUATPYR(List<QUATPYR> list, object state)
+        public void WriteListQUATPYR(List<float> list, object state)
         {
             this.WriteNativeList(
                 list, state, (a, b, c) => a.WriteValueQUATPYR(b, c));
@@ -471,7 +471,8 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayStructure<TType>(TType[] array, int count, object state)
             where TType : Serialization.IStructure, new()
         {
-            throw new NotImplementedException();
+            this.WriteNativeArray(
+                array, count, state, (a, b, c) => a.WriteValueStructure(b, false, c));
         }
 
         public void WriteListStructure<TType>(List<TType> list, object state)
@@ -511,12 +512,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void WriteArrayPolymorph(object[] array, Type[] validTypes, int count, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeArray(
+                array, count, state, (a, b, c) => a.WriteValuePolymorph(b, validTypes, false, c));
         }
 
         public void WriteListPolymorph(List<object> list, Type[] validTypes, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeList(
+                list, state, (a, b, c) => a.WriteValuePolymorph(b, validTypes, false, c));
         }
 
         public void WriteValueStashTable(StashTable value, object state)
@@ -526,12 +529,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void WriteArrayStashTable(StashTable[] array, int count, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeArray(
+                array, count, state, (a, b, c) => a.WriteValueStashTable(b, c));
         }
 
         public void WriteListStashTable(List<StashTable> list, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeList(
+                list, state, (a, b, c) => a.WriteValueStashTable(b, c));
         }
 
         public void WriteValueBit(uint value, int bitOffset, object state)
@@ -541,12 +546,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void WriteArrayBit(uint[] array, int bitOffset, int count, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeArray(
+                array, count, state, (a, b, c) => a.WriteValueBit(b, bitOffset, c));
         }
 
         public void WriteListBit(List<uint> list, int bitOffset, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeList(
+                list, state, (a, b, c) => a.WriteValueBit(b, bitOffset, c));
         }
 
         public void WriteValueMultiValue(MultiValue value, object state)
@@ -646,7 +653,8 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void WriteArrayMultiValue(MultiValue[] array, int count, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeArray(
+                array, count, state, (a, b, c) => a.WriteValueMultiValue(b, c));
         }
 
         public void WriteListMultiValue(List<MultiValue> list, object state)
@@ -662,12 +670,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void WriteArrayByteEnum<TType>(TType[] array, int count, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeArray(
+                array, count, state, (a, b, c) => a.WriteValueByteEnum(b, c));
         }
 
         public void WriteListByteEnum<TType>(List<TType> list, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeList(
+                list, state, (a, b, c) => a.WriteValueByteEnum(b, c));
         }
 
         public void WriteValueInt16Enum<TType>(TType value, object state)
@@ -677,12 +687,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void WriteArrayInt16Enum<TType>(TType[] array, int count, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeArray(
+                array, count, state, (a, b, c) => a.WriteValueInt16Enum(b, c));
         }
 
         public void WriteListInt16Enum<TType>(List<TType> list, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeList(
+                list, state, (a, b, c) => a.WriteValueInt16Enum(b, c));
         }
 
         public void WriteValueInt32Enum<TType>(TType value, object state)
@@ -692,7 +704,8 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void WriteArrayInt32Enum<TType>(TType[] array, int count, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeArray(
+                array, count, state, (a, b, c) => a.WriteValueInt32Enum(b, c));
         }
 
         public void WriteListInt32Enum<TType>(List<TType> list, object state)
@@ -708,12 +721,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void WriteArrayBitEnum<TType>(TType[] array, int bitOffset, int count, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeArray(
+                array, count, state, (a, b, c) => a.WriteValueBitEnum(b, bitOffset, c));
         }
 
         public void WriteListBitEnum<TType>(List<TType> list, int bitOffset, object state)
         {
-            throw new NotImplementedException();
+            this.WriteNativeList(
+                list, state, (a, b, c) => a.WriteValueBitEnum(b, bitOffset, c));
         }
     }
 }

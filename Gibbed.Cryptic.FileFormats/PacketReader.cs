@@ -401,17 +401,17 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public QUATPYR ReadValueQUATPYR(object state)
+        public float ReadValueQUATPYR(object state)
         {
             throw new NotImplementedException();
         }
 
-        public QUATPYR[] ReadArrayQUATPYR(int count, object state)
+        public float[] ReadArrayQUATPYR(int count, object state)
         {
             throw new NotImplementedException();
         }
 
-        public List<QUATPYR> ReadListQUATPYR(object state)
+        public List<float> ReadListQUATPYR(object state)
         {
             throw new NotImplementedException();
         }

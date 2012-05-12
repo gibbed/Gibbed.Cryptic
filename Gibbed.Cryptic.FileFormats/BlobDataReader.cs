@@ -141,7 +141,8 @@ namespace Gibbed.Cryptic.FileFormats
 
         public List<byte> ReadListByte(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+                state, (a, b) => a.ReadValueByte(b));
         }
 
         public short ReadValueInt16(object state)
@@ -191,7 +192,8 @@ namespace Gibbed.Cryptic.FileFormats
 
         public List<long> ReadListInt64(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+                state, (a, b) => a.ReadValueInt64(b));
         }
 
         public float ReadValueFloat(object state)
@@ -247,17 +249,19 @@ namespace Gibbed.Cryptic.FileFormats
 
         public int ReadValueTimestamp(object state)
         {
-            throw new NotImplementedException();
+            return this._Input.ReadValueS32();
         }
 
         public int[] ReadArrayTimestamp(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueTimestamp(b));
         }
 
         public List<int> ReadListTimestamp(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+                state, (a, b) => a.ReadValueTimestamp(b));
         }
 
         public int ReadValueLineNumber(object state)
@@ -267,12 +271,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public int[] ReadArrayLineNumber(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueLineNumber(b));
         }
 
         public List<int> ReadListLineNumber(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+                state, (a, b) => a.ReadValueLineNumber(b));
         }
 
         public bool ReadValueBoolean(object state)
@@ -282,12 +288,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public bool[] ReadArrayBoolean(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueBoolean(b));
         }
 
         public List<bool> ReadListBoolean(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+                state, (a, b) => a.ReadValueBoolean(b));
         }
 
         public bool ReadValueBooleanFlag(object state)
@@ -297,27 +305,31 @@ namespace Gibbed.Cryptic.FileFormats
 
         public bool[] ReadArrayBooleanFlag(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueBooleanFlag(b));
         }
 
         public List<bool> ReadListBooleanFlag(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+                state, (a, b) => a.ReadValueBooleanFlag(b));
         }
 
-        public QUATPYR ReadValueQUATPYR(object state)
+        public float ReadValueQUATPYR(object state)
         {
-            throw new NotImplementedException();
+            return this._Input.ReadValueF32();
         }
 
-        public QUATPYR[] ReadArrayQUATPYR(int count, object state)
+        public float[] ReadArrayQUATPYR(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueQUATPYR(b));
         }
 
-        public List<QUATPYR> ReadListQUATPYR(object state)
+        public List<float> ReadListQUATPYR(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+               state, (a, b) => a.ReadValueQUATPYR(b));
         }
 
         public MATPYR ReadValueMATPYR(object state)
@@ -327,12 +339,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public MATPYR[] ReadArrayMATPYR(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueMATPYR(b));
         }
 
         public List<MATPYR> ReadListMATPYR(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+               state, (a, b) => a.ReadValueMATPYR(b));
         }
 
         public string ReadValueFilename(object state)
@@ -342,12 +356,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public string[] ReadArrayFilename(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueFilename(b));
         }
 
         public List<string> ReadListFilename(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+               state, (a, b) => a.ReadValueFilename(b));
         }
 
         public string ReadValueReference(object state)
@@ -357,12 +373,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public string[] ReadArrayReference(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueReference(b));
         }
 
         public List<string> ReadListReference(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+               state, (a, b) => a.ReadValueReference(b));
         }
 
         public FunctionCall ReadValueFunctionCall(object state)
@@ -372,12 +390,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public FunctionCall[] ReadArrayFunctionCall(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueFunctionCall(b));
         }
 
         public List<FunctionCall> ReadListFunctionCall(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+               state, (a, b) => a.ReadValueFunctionCall(b));
         }
 
         private Serialization.IStructure ReadValueStructure(
@@ -436,14 +456,15 @@ namespace Gibbed.Cryptic.FileFormats
         public TType[] ReadArrayStructure<TType>(int count, object state)
             where TType : Serialization.IStructure, new()
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueStructure<TType>(false, b));
         }
 
         public List<TType> ReadListStructure<TType>(object state)
             where TType : Serialization.IStructure, new()
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueStructure<TType>(false, state));
+                state, (a, b) => a.ReadValueStructure<TType>(false, b));
         }
 
         public object ReadValuePolymorph(Type[] validTypes, bool optional, object state)
@@ -469,12 +490,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public object[] ReadArrayPolymorph(Type[] validTypes, int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValuePolymorph(validTypes, false, b));
         }
 
         public List<object> ReadListPolymorph(Type[] validTypes, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+               state, (a, b) => a.ReadValuePolymorph(validTypes, false, b));
         }
 
         public StashTable ReadValueStashTable(object state)
@@ -484,12 +507,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public StashTable[] ReadArrayStashTable(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueStashTable(b));
         }
 
         public List<StashTable> ReadListStashTable(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+               state, (a, b) => a.ReadValueStashTable(b));
         }
 
         public uint ReadValueBit(int bitOffset, object state)
@@ -499,12 +524,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public uint[] ReadArrayBit(int bitOffset, int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueBit(bitOffset, b));
         }
 
         public List<uint> ReadListBit(int bitOffset, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+               state, (a, b) => a.ReadValueBit(bitOffset, b));
         }
 
         public MultiValue ReadValueMultiValue(object state)
@@ -575,7 +602,8 @@ namespace Gibbed.Cryptic.FileFormats
 
         public MultiValue[] ReadArrayMultiValue(int count, object state)
         {
-            throw new NotSupportedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueMultiValue(b));
         }
 
         public List<MultiValue> ReadListMultiValue(object state)
@@ -591,12 +619,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public TType[] ReadArrayByteEnum<TType>(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueByteEnum<TType>(b));
         }
 
         public List<TType> ReadListByteEnum<TType>(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+                state, (a, b) => a.ReadValueByteEnum<TType>(state));
         }
 
         public TType ReadValueInt16Enum<TType>(object state)
@@ -606,12 +636,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public TType[] ReadArrayInt16Enum<TType>(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueInt16Enum<TType>(b));
         }
 
         public List<TType> ReadListInt16Enum<TType>(object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+                state, (a, b) => a.ReadValueInt16Enum<TType>(state));
         }
 
         public TType ReadValueInt32Enum<TType>(object state)
@@ -621,7 +653,8 @@ namespace Gibbed.Cryptic.FileFormats
 
         public TType[] ReadArrayInt32Enum<TType>(int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueInt32Enum<TType>(b));
         }
 
         public List<TType> ReadListInt32Enum<TType>(object state)
@@ -637,12 +670,14 @@ namespace Gibbed.Cryptic.FileFormats
 
         public TType[] ReadArrayBitEnum<TType>(int bitOffset, int count, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeArray(
+                count, state, (a, b) => a.ReadValueBitEnum<TType>(bitOffset, b));
         }
 
         public List<TType> ReadListBitEnum<TType>(int bitOffset, object state)
         {
-            throw new NotImplementedException();
+            return this.ReadNativeList(
+                state, (a, b) => a.ReadValueBitEnum<TType>(bitOffset, b));
         }
     }
 }
