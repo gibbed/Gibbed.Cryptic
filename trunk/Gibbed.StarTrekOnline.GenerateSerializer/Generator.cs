@@ -313,7 +313,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                     case 7: return typeof(float[]);
                     case 8: return typeof(string[]);
                     case 9: return typeof(string[]);
-                    case 15: return typeof(QUATPYR[]);
+                    case 15: return typeof(float[]);
                     case 16: return typeof(MATPYR[]);
                     default: throw new NotImplementedException();
                 }

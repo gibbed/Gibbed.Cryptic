@@ -74,9 +74,9 @@ namespace Gibbed.Cryptic.FileFormats.Serialization
         bool[] ReadArrayBooleanFlag(int count, object state);
         List<bool> ReadListBooleanFlag(object state);
 
-        QUATPYR ReadValueQUATPYR(object state);
-        QUATPYR[] ReadArrayQUATPYR(int count, object state);
-        List<QUATPYR> ReadListQUATPYR(object state);
+        float ReadValueQUATPYR(object state);
+        float[] ReadArrayQUATPYR(int count, object state);
+        List<float> ReadListQUATPYR(object state);
 
         MATPYR ReadValueMATPYR(object state);
         MATPYR[] ReadArrayMATPYR(int count, object state);
