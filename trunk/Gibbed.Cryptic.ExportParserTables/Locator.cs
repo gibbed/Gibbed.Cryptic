@@ -34,7 +34,8 @@ namespace Gibbed.Cryptic.ExportParserTables
             var messageOffset = memory.Search(new ByteSearch("00 53 74 61 74 69 63 44 65 66 69 6E 65 20 64 6F 65 73 20 6E 6F 74 20 68 61 76 65 20 61 20 6E 61 6D 65 2E 00"));
             if (messageOffset == uint.MaxValue)
             {
-                throw new InvalidOperationException();
+                //throw new InvalidOperationException();
+                return 0;
             }
             messageOffset = messageOffset + 1;
 
@@ -93,7 +94,8 @@ namespace Gibbed.Cryptic.ExportParserTables
             var nameOffset = memory.Search(new ByteSearch("00 66 66 5F 50 61 72 73 65 54 61 62 6C 65 49 6E 66 6F 73 00"));
             if (nameOffset == uint.MaxValue)
             {
-                throw new InvalidOperationException();
+                //throw new InvalidOperationException();
+                return 0;
             }
             nameOffset = nameOffset + 1;
 
@@ -112,7 +114,8 @@ namespace Gibbed.Cryptic.ExportParserTables
             var codeOffset = memory.Search(new ByteSearch(sb.ToString()));
             if (codeOffset == uint.MaxValue)
             {
-                throw new InvalidOperationException();
+                //throw new InvalidOperationException();
+                return 0;
             }
 
             var pointer = memory.ReadU32(codeOffset + 28);
@@ -151,7 +154,8 @@ namespace Gibbed.Cryptic.ExportParserTables
             var codeOffset = memory.Search(new ByteSearch(sb.ToString()));
             if (codeOffset == uint.MaxValue)
             {
-                throw new InvalidOperationException();
+                //throw new InvalidOperationException();
+                return 0;
             }
 
             var pointer = memory.ReadU32(codeOffset + 56);
