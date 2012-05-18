@@ -286,7 +286,7 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void WriteValueLineNumber(int value, object state)
         {
-            throw new NotImplementedException();
+            this._Output.WriteValueS32(value);
         }
 
         public void WriteArrayLineNumber(int[] array, int count, object state)
