@@ -121,6 +121,22 @@
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
+    <column name="bLinkedAccount" type="BIT">
+      <offset>52</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="bShadowAccount" type="BIT">
+      <offset>52</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
+    </column>
     <column name="ChatConfig" type="EMBEDDEDSTRUCT">
       <offset>56</offset>
       <flags>

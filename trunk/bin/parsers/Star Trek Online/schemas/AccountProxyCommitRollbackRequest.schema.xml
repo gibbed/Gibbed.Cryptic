@@ -29,12 +29,16 @@
       <offset>16</offset>
       <static_define_list external="AccountProxyActivityType" />
     </column>
-    <column name="Activation" type="OPTIONALSTRUCT">
+    <column name="TransactionType" type="INT">
       <offset>20</offset>
+      <static_define_list external="TransactionLogType" />
+    </column>
+    <column name="Activation" type="OPTIONALSTRUCT">
+      <offset>24</offset>
       <subtable external="AccountProxyProductActivationContainer" />
     </column>
     <column name="ContainerID" type="INT">
-      <offset>24</offset>
+      <offset>28</offset>
     </column>
     <column name="}" type="END" />
   </table>
