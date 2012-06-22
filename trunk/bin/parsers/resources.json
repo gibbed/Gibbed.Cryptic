@@ -1,131 +1,780 @@
 {
   schemas:
   {
-  	UIGen:
-  	{
-  		mode: "entry",
-  		targets:
-  		[
-  			{
-  				parser_hash: 4272815825,
-  				class: "Gibbed.StarTrekOnline.Serialization.UIGen",
-  				key: "Name",
-  				versions:
-  				[
-  					"ST.17.20120210a.10",
-  					"ST.17.20120129b.22",
-  				],
-  			},
-  			{
-  				parser_hash: 414437605,
-  				class: "Gibbed.StarTrekOnline.Serialization.UIGen",
-  				key: "Name",
-  				versions: [ "ST.17.20120216a.9", ],
-  			},
-  			{
-  				parser_hash: 1796396173,
-  				class: "Gibbed.StarTrekOnline.Serialization.UIGen",
-  				key: "Name",
-  				versions: [ "ST.17.20120226a.10", ],
-  			},
-  			{
-  				parser_hash: 2936437851,
-  				class: "Gibbed.StarTrekOnline.Serialization.UIGen",
-  				key: "Name",
-  				versions: [ "ST.17.20120312a.8", ],
-  			},
-  			{
-  				parser_hash: 3274383345,
-  				class: "Gibbed.StarTrekOnline.Serialization.UIGen",
-  				key: "Name",
-  				versions: [ "ST.17.20120318a.9", ],
-  			},
-  			{
-  				parser_hash: 614801499,
-  				class: "Gibbed.StarTrekOnline.Serialization.UIGen",
-  				key: "Name",
-  				versions: [ "ST.17.20120423a.14", ],
-  			},
-  		],
-  	},
-  	
-  	UIFonts:
-  	{
-  		mode: "entry",
-  		targets:
-  		[
-  			{
-  				parser_hash: 2608958289,
-  				class: "Gibbed.StarTrekOnline.Serialization.UIStyleFont",
-  				key: "Name",
-  				versions:
-  				[
-  					"ST.17.20120210a.10",
-  					"ST.17.20120129b.22",
-  				],
-  			}
-  		],
-  	},
-  	
-  	ClientMessages:
-  	{
-  		mode: "single",
-  		targets:
-  		[
-  			{
-  				parser_hash: 1814205561,
-  				class: "Gibbed.StarTrekOnline.Serialization.Message",
-  				key: "MessageKey",
-  				versions:
-  				[
-  					"ST.17.20120210a.10",
-  					"ST.17.20120129b.22",
-  				],
-  			},
-  			{
-  				parser_hash: 2418337800,
-  				class: "Gibbed.StarTrekOnline.Serialization.Message",
-  				key: "MessageKey",
-  				versions: [ "ST.17.20120423a.14", ],
-  			},
-  		],
-  	},
-  	
-  	PlayerCostume:
-  	{
-  		mode: "name",
-  		is_client: true,
-  		
-  		targets:
-  		[
-				{
-  				parser_hash: 983205811,
-  				class: "Gibbed.StarTrekOnline.Serialization.PlayerCostume",
-  				key: "Name",
-  				versions: [ "ST.17.20120423a.14", ],
-  			},
-  		],
-  	},
-  	
-  	DynBouncer:
-  	{
-  		mode: "entry",
-  		
-  		targets:
-  		[
-  			{
-  				parser_hash: 2200937627,
-  				class: "Gibbed.StarTrekOnline.Serialization.DynBouncerGroupInfo",
-  				key: "InfoName",
-  				versions: [ "ST.17.20120423a.14", ],
-  			},
-  		],
-  	},
+    UIGen:
+    {
+      mode: "entry",
+      targets:
+      [
+        {
+          parser_hash: 4272815825,
+          class: "Gibbed.StarTrekOnline.Serialization.UIGen",
+          key: "Name",
+          versions:
+          [
+            "ST.17.20120210a.10",
+            "ST.17.20120129b.22",
+          ],
+        },
+        {
+          parser_hash: 414437605,
+          class: "Gibbed.StarTrekOnline.Serialization.UIGen",
+          key: "Name",
+          versions: [ "ST.17.20120216a.9", ],
+        },
+        {
+          parser_hash: 1796396173,
+          class: "Gibbed.StarTrekOnline.Serialization.UIGen",
+          key: "Name",
+          versions: [ "ST.17.20120226a.10", ],
+        },
+        {
+          parser_hash: 2936437851,
+          class: "Gibbed.StarTrekOnline.Serialization.UIGen",
+          key: "Name",
+          versions: [ "ST.17.20120312a.8", ],
+        },
+        {
+          parser_hash: 3274383345,
+          class: "Gibbed.StarTrekOnline.Serialization.UIGen",
+          key: "Name",
+          versions: [ "ST.17.20120318a.9", ],
+        },
+        {
+          parser_hash: 614801499,
+          class: "Gibbed.StarTrekOnline.Serialization.UIGen",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+        {
+          parser_hash: 1319911475,
+          class: "Gibbed.StarTrekOnline.Serialization.UIGen",
+          key: "Name",
+          versions: [ "ST.17.20120423a.51", ],
+        },
+      ],
+    },
+
+    UIFonts:
+    {
+      mode: "entry",
+      targets:
+      [
+        {
+          parser_hash: 2608958289,
+          class: "Gibbed.StarTrekOnline.Serialization.UIStyleFont",
+          key: "Name",
+          versions:
+          [
+            "ST.17.20120210a.10",
+            "ST.17.20120129b.22",
+          ],
+        }
+      ],
+    },
+
+    ClientMessages:
+    {
+      mode: "single",
+      targets:
+      [
+        {
+          parser_hash: 1814205561,
+          class: "Gibbed.StarTrekOnline.Serialization.Message",
+          key: "MessageKey",
+          versions:
+          [
+            "ST.17.20120210a.10",
+            "ST.17.20120129b.22",
+          ],
+        },
+        {
+          parser_hash: 2418337800,
+          class: "Gibbed.StarTrekOnline.Serialization.Message",
+          key: "MessageKey",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    PlayerCostume:
+    {
+      mode: "name",
+      is_client: true,
+
+      targets:
+      [
+        {
+          parser_hash: 983205811,
+          class: "Gibbed.StarTrekOnline.Serialization.PlayerCostume",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    DynBouncer:
+    {
+      mode: "entry",
+
+      targets:
+      [
+        {
+          parser_hash: 2200937627,
+          class: "Gibbed.StarTrekOnline.Serialization.DynBouncerGroupInfo",
+          key: "InfoName",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    DynMoves:
+    {
+      mode: "name",
+      targets:
+      [
+        {
+          parser_hash: 2377805658,
+          class: "Gibbed.StarTrekOnline.Serialization.DynMove",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    BlendInfos:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 1296308567,
+          class: "Gibbed.StarTrekOnline.Serialization.SkelBlendInfo",
+          key: "BlendInfoName",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    TexOpts:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 3397596619,
+          class: "Gibbed.StarTrekOnline.Serialization.TexOpt",
+          key: "TextureName",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CharLodScale:
+    {
+      mode: "single",
+
+      targets:
+      [
+        {
+          parser_hash: 3691933183,
+          class: "Gibbed.StarTrekOnline.Serialization.LodScale",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    DynRagdollData:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 1201238388,
+          class: "Gibbed.StarTrekOnline.Serialization.DynRagdollData",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeCategory:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 761829786,
+          class: "Gibbed.StarTrekOnline.Serialization.CostumeCategory",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeGeometry:
+    {
+      mode: "entry",
+
+      targets:
+      [
+        {
+          parser_hash: 1786192992,
+          class: "Gibbed.StarTrekOnline.Serialization.PCGeometryDef",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeGeometryClient:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 1786192992,
+          class: "Gibbed.StarTrekOnline.Serialization.PCGeometryDef",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeGeometryAdd:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 4044830142,
+          class: "Gibbed.StarTrekOnline.Serialization.PCGeometryAdd",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeGeometryAddClient:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 4044830142,
+          class: "Gibbed.StarTrekOnline.Serialization.PCGeometryAdd",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeLayer:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 105996902,
+          class: "Gibbed.StarTrekOnline.Serialization.PCLayer",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeMaterial:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 3444889132,
+          class: "Gibbed.StarTrekOnline.Serialization.PCMaterialDef",
+          key: "FileName",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeMaterialClient:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 3444889132,
+          class: "Gibbed.StarTrekOnline.Serialization.PCMaterialDef",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeRegion:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 1028909362,
+          class: "Gibbed.StarTrekOnline.Serialization.PCRegion",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeSkeleton:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 582121356,
+          class: "Gibbed.StarTrekOnline.Serialization.PCSkeletonDef",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeTexture:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 2312752669,
+          class: "Gibbed.StarTrekOnline.Serialization.PCTextureDef",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeTextureClient:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 2312752669,
+          class: "Gibbed.StarTrekOnline.Serialization.PCTextureDef",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    DynSequences:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 1466837390,
+          class: "Gibbed.StarTrekOnline.Serialization.DynSeqData",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    InteriorOptionChoices:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 2184576108,
+          class: "Gibbed.StarTrekOnline.Serialization.InteriorOptionChoice",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    InteriorOptions:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 4030027554,
+          class: "Gibbed.StarTrekOnline.Serialization.InteriorOptionDef",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    Interiors:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 156962626,
+          class: "Gibbed.StarTrekOnline.Serialization.InteriorDef",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    InvBagSlotTables:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 606120619,
+          class: "Gibbed.StarTrekOnline.Serialization.InvBagSlotTable",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    InventorySetsClient:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 305477609,
+          class: "Gibbed.StarTrekOnline.Serialization.InventorySlot",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    ItemAssignmentCategories:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 2153630738,
+          class: "Gibbed.StarTrekOnline.Serialization.ItemAssignmentCategorySettings",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    ItemAssignmentModifierTypes:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 2084606066,
+          class: "Gibbed.StarTrekOnline.Serialization.ItemAssignmentOutcomeModifierTypeData",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    ItemAssignmentRarityCounts:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 4233233269,
+          class: "Gibbed.StarTrekOnline.Serialization.ItemAssignmentRarityCount",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    ItemAssignmentWeights:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 1779632744,
+          class: "Gibbed.StarTrekOnline.Serialization.ItemAssignmentWeight",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    ItemCategories:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 3071965361,
+          class: "Gibbed.StarTrekOnline.Serialization.ItemCategoryInfo",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    ItemEquipLimitCategories:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 776761749,
+          class: "Gibbed.StarTrekOnline.Serialization.ItemEquipLimitCategoryData",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    RewardValTable:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 4113225232,
+          class: "Gibbed.StarTrekOnline.Serialization.RewardValTable",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    ScaleInfos:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 2455257264,
+          class: "Gibbed.StarTrekOnline.Serialization.SkelScaleInfo",
+          key: "ScaleInfoName",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    SkelInfos:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 3158191381,
+          class: "Gibbed.StarTrekOnline.Serialization.SkelInfo",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    Species:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 2858274171,
+          class: "Gibbed.StarTrekOnline.Serialization.SpeciesDef",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    SpeciesFeature:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 1544727935,
+          class: "Gibbed.StarTrekOnline.Serialization.SpeciesDefiningFeature",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    SpeciesGenData:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 3565120952,
+          class: "Gibbed.StarTrekOnline.Serialization.SpeciesGenData",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CameraModeSettings:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 2624779034,
+          class: "Gibbed.StarTrekOnline.Serialization.CameraSettings",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    RegionRules:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 1932771445,
+          class: "Gibbed.StarTrekOnline.Serialization.RegionRules",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    ZoneMapExternalMapSnap:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 2962574094,
+          class: "Gibbed.StarTrekOnline.Serialization.ZoneMapExternalMapSnap",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    ZoneMaps_Client:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 1122205748,
+          class: "Gibbed.StarTrekOnline.Serialization.ZoneMapInfo",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    ModelHeaders:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 1799438521,
+          class: "Gibbed.StarTrekOnline.Serialization.ModelHeader",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeSlotDef:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 1570121157,
+          class: "Gibbed.StarTrekOnline.Serialization.PCSlotSet",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    CostumeSlotType:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 201803681,
+          class: "Gibbed.StarTrekOnline.Serialization.PCSlotType",
+          key: "Name",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
+
+    WaveformModulation:
+    {
+      mode: "name",
+
+      targets:
+      [
+        {
+          parser_hash: 2458396604,
+          class: "Gibbed.StarTrekOnline.Serialization.WaveformDef",
+          key: "NodeCategory",
+          versions: [ "ST.17.20120423a.14", ],
+        },
+      ],
+    },
   },
-  
+
   schema_aliases:
   {
-  	"ClientMessagesEnglish": "ClientMessages",
-  	"UIFonts#Klingon": "UIFonts",
+    "ClientMessagesEnglish": "ClientMessages",
+    "UIFonts#Klingon": "UIFonts",
   }
 }
