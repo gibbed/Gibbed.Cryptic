@@ -106,7 +106,7 @@
       <subtable external="UGCProjectReviews" />
     </column>
     <column name="ugcStats" type="EMBEDDEDSTRUCT">
-      <offset>76</offset>
+      <offset>72</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -114,7 +114,7 @@
       <subtable external="UGCProjectStats" />
     </column>
     <column name="ugcTags" type="EMBEDDEDSTRUCT">
-      <offset>100</offset>
+      <offset>96</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -122,7 +122,7 @@
       <subtable external="UGCProjectTags" />
     </column>
     <column name="ugcReporting" type="EMBEDDEDSTRUCT">
-      <offset>112</offset>
+      <offset>108</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -130,28 +130,28 @@
       <subtable external="UGCProjectReporting" />
     </column>
     <column name="ugcLifetimeTips" type="INT">
-      <offset>136</offset>
+      <offset>132</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="iIdOnPreviousShard" type="INT">
-      <offset>140</offset>
+      <offset>136</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bBanned" type="U8">
-      <offset>144</offset>
+      <offset>140</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="CSRBanned" type="U8">
-      <offset>144</offset>
+      <offset>140</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -160,7 +160,7 @@
       <redundant_name>bBanned</redundant_name>
     </column>
     <column name="bCSRBanned" type="U8">
-      <offset>144</offset>
+      <offset>140</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -169,28 +169,28 @@
       <redundant_name>bBanned</redundant_name>
     </column>
     <column name="iDeletionTime" type="INT">
-      <offset>148</offset>
+      <offset>144</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="pIDString" type="STRING">
-      <offset>152</offset>
+      <offset>148</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bTestOnly" type="U8">
-      <offset>156</offset>
+      <offset>152</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="iMostRecentPlayedTime" type="INT">
-      <offset>160</offset>
+      <offset>156</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -201,7 +201,7 @@
       <command_string>DebugCheckContainerLoc UGCProject $FIELD(id)</command_string>
     </column>
     <column name="pExtraDetailData" type="OPTIONALSTRUCT">
-      <offset>168</offset>
+      <offset>164</offset>
       <subtable external="UGCExtraDetailData" />
     </column>
     <column name="}" type="END" />

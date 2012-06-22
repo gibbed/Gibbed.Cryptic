@@ -51,19 +51,11 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iNumPagesCached" type="INT">
-      <offset>20</offset>
-    </column>
-    <column name="iNumPages" type="INT">
-      <offset>20</offset>
-      <flags>
-        <flag>ALIAS</flag>
-      </flags>
-      <redundant_name>iNumPagesCached</redundant_name>
-    </column>
     <column name="iNumRatingsCached" type="INT">
-      <offset>24</offset>
+      <offset>20</offset>
     </column>
+    <column name="iNumPagesCached" type="IGNORE" />
+    <column name="iNumPages" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>
