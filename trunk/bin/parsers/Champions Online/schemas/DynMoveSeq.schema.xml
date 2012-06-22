@@ -18,42 +18,80 @@
       <subtable external="DynMoveAnimTrack" />
     </column>
     <column name="DynFxEvent" type="STRUCT">
-      <offset>64</offset>
+      <offset>80</offset>
       <subtable external="DynMoveFxEvent" />
     </column>
     <column name="Speed" type="F32">
-      <offset>68</offset>
+      <offset>84</offset>
       <default>1</default>
     </column>
+    <column name="SpeedLow" type="F32">
+      <offset>84</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Speed</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="SpeedHigh" type="F32">
+      <offset>88</offset>
+    </column>
     <column name="IKTarget" type="STRING">
-      <offset>72</offset>
+      <offset>92</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="BankMaxAngle" type="F32">
+      <offset>96</offset>
+    </column>
+    <column name="BankScale" type="F32">
+      <offset>100</offset>
+    </column>
     <column name="Distance" type="F32">
-      <offset>76</offset>
+      <offset>104</offset>
     </column>
     <column name="MinRate" type="F32">
-      <offset>80</offset>
+      <offset>108</offset>
     </column>
     <column name="MaxRate" type="F32">
-      <offset>84</offset>
+      <offset>112</offset>
     </column>
     <column name="Length" type="F32">
-      <offset>88</offset>
+      <offset>116</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="RandSpeed" type="U8">
+      <offset>120</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
     </column>
     <column name="Verified" type="U8">
-      <offset>92</offset>
+      <offset>121</offset>
       <flags>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
     <column name="Ragdoll" type="BOOLFLAG">
-      <offset>93</offset>
+      <offset>122</offset>
     </column>
     <column name="RegisterWep" type="BOOLFLAG">
-      <offset>94</offset>
+      <offset>123</offset>
+    </column>
+    <column name="IKMeleeMode" type="BOOLFLAG">
+      <offset>124</offset>
+    </column>
+    <column name="EnableIKSliding" type="BOOLFLAG">
+      <offset>125</offset>
+    </column>
+    <column name="DisableIKLeftWrist" type="BOOLFLAG">
+      <offset>126</offset>
+    </column>
+    <column name="DisableIKRightArm" type="BOOLFLAG">
+      <offset>127</offset>
     </column>
     <column name="End" type="END" />
   </table>

@@ -22,15 +22,15 @@
       <offset>28</offset>
     </column>
     <column name="speedPenaltiesQueued" type="STRUCT">
-      <offset>64</offset>
-      <subtable external="SurfaceSpeedPenalty" />
-    </column>
-    <column name="speedPenaltiesActive" type="STRUCT">
       <offset>68</offset>
       <subtable external="SurfaceSpeedPenalty" />
     </column>
-    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+    <column name="speedPenaltiesActive" type="STRUCT">
       <offset>72</offset>
+      <subtable external="SurfaceSpeedPenalty" />
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>76</offset>
       <subtable external="SurfaceLocalBGFlags" />
     </column>
     <column name="}" type="END" />

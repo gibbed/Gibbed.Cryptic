@@ -20,14 +20,15 @@
     </column>
     <column name="Flags" type="INT">
       <offset>8</offset>
-      <static_define_list />
+      <static_define_list external="ContactFlags" />
+      <format>FLAGS</format>
     </column>
     <column name="Priority" type="INT">
       <offset>12</offset>
     </column>
     <column name="Headshot" type="OPTIONALSTRUCT">
       <offset>20</offset>
-      <subtable external="NotifyHeadshotData" />
+      <subtable external="ContactHeadshotData" />
     </column>
     <column name="HeadshotRequested" type="U8">
       <offset>24</offset>

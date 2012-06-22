@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCFreezeProjectMapInfo">
+  <table>
+    <column name="UGCFreezeProjectMapInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OutMapName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="MapDirectory" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="MapFile" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="MapLayerFile" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="MapMissionFile1" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="MapMissionFile2" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

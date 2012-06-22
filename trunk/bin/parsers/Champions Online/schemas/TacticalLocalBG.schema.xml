@@ -22,15 +22,17 @@
       <offset>28</offset>
       <subtable external="TacticalOverrides" />
     </column>
-    <column name="overridesActive" type="STRUCT">
+    <column name="CurrentRollSpeed" type="F32">
       <offset>32</offset>
-      <subtable external="TacticalOverrides" />
     </column>
     <column name="stanceAiming" type="INT">
       <offset>36</offset>
     </column>
-    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+    <column name="spcClearAllOverrides" type="INT">
       <offset>40</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
       <subtable external="TacticalLocalBGFlags" />
     </column>
     <column name="}" type="END" />

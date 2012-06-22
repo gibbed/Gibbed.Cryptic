@@ -31,7 +31,7 @@
       <flags>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="AccountProxyResult" />
     </column>
     <column name="uProductID" type="INT">
       <offset>16</offset>
@@ -44,42 +44,49 @@
       <flags>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="AccountProxyActivityType" />
+    </column>
+    <column name="eTransactionType" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="TransactionLogType" />
     </column>
     <column name="pActivation" type="OPTIONALSTRUCT">
-      <offset>24</offset>
+      <offset>28</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
       <subtable external="AccountProxyProductActivationContainer" />
     </column>
     <column name="RequestID" type="INT">
-      <offset>28</offset>
+      <offset>32</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="pLock" type="STRING">
-      <offset>32</offset>
+      <offset>36</offset>
       <flags>
         <flag>ESTRING</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="uPurchaseID" type="INT">
-      <offset>36</offset>
-      <flags>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="pOrderID" type="STRING">
       <offset>40</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iCmdID" type="INT">
+    <column name="pOrderID" type="STRING">
       <offset>44</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iCmdID" type="INT">
+      <offset>48</offset>
     </column>
     <column name="ID" type="IGNORE" />
     <column name="}" type="END" />

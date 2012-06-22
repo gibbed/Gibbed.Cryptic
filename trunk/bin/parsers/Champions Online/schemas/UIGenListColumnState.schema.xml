@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>14</default>
-      <static_define_list />
+      <static_define_list external="UIGenType" />
     </column>
     <column name="List" type="OPTIONALSTRUCT">
       <offset>4</offset>
@@ -45,6 +45,16 @@
     <column name="TPICol" type="INT">
       <offset>20</offset>
       <default>-1</default>
+    </column>
+    <column name="PlainString" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Truncate" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="UIGenBundleTruncateState" />
     </column>
     <column name="}" type="END" />
   </table>

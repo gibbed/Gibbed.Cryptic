@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClientTargetingReticule">
+  <table>
+    <column name="ClientTargetingReticule" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ReticuleShape" type="INT">
+      <offset>0</offset>
+      <static_define_list external="EClientReticuleShape" />
+    </column>
+    <column name="ReticuleScreenNormOffsetX" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="ReticuleScreenNormOffsetY" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="ReticuleScreenNormRadius" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="ReticuleRectWidthNorm" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="ReticuleRectHeightNorm" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="ReticuleRectHeightOffsetNorm" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="TargetHoriztontalBiasMag" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="TargetVerticalBiasMag" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

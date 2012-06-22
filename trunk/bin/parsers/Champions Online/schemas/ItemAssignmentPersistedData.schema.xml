@@ -18,10 +18,10 @@
     <column name="eaCompletedAssignments" type="STRUCT">
       <offset>4</offset>
       <flags>
-        <flag>SERVER_ONLY</flag>
+        <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <subtable external="ItemAssignmentDefRefCont" />
+      <subtable external="ItemAssignmentCompleted" />
     </column>
     <column name="eaRecentlyCompletedAssignments" type="STRUCT">
       <offset>8</offset>
@@ -29,10 +29,25 @@
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <subtable external="ItemAssignmentCompleted" />
+      <subtable external="ItemAssignmentCompletedDetails" />
+    </column>
+    <column name="eaPersonalAssignments" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ItemAssignmentDefRefCont" />
     </column>
     <column name="uLastPersonalUpdateTime" type="INT">
-      <offset>12</offset>
+      <offset>16</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uMaxAssignmentID" type="INT">
+      <offset>20</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>

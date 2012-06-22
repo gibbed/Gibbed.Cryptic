@@ -7,8 +7,24 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="KeyBind" type="STRUCT">
+    <column name="Profile" type="STRING">
       <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchProfile" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>Profile</redundant_name>
+    </column>
+    <column name="KeyBind" type="STRUCT">
+      <offset>4</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -16,7 +32,7 @@
       <subtable external="EntityKeyBind" />
     </column>
     <column name="eaBinds" type="STRUCT">
-      <offset>0</offset>
+      <offset>4</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>PERSIST</flag>

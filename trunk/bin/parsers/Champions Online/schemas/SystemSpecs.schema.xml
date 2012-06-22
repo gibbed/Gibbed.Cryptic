@@ -113,7 +113,7 @@
     </column>
     <column name="RenderingHacks" type="INT">
       <offset>2168</offset>
-      <static_define_list />
+      <static_define_list external="RenderingHacks" />
     </column>
     <column name="isRunningNortonAV" type="U8">
       <offset>2173</offset>
@@ -132,11 +132,13 @@
     </column>
     <column name="material_hardware_supported_features" type="INT">
       <offset>2180</offset>
-      <static_define_list />
+      <static_define_list external="ShaderGraphFeatures" />
+      <format>FLAGS</format>
     </column>
     <column name="material_supported_features" type="INT">
       <offset>2184</offset>
-      <static_define_list />
+      <static_define_list external="ShaderGraphFeatures" />
+      <format>FLAGS</format>
     </column>
     <column name="isDx11Enabled" type="U8">
       <offset>2188</offset>
@@ -156,6 +158,9 @@
     <column name="wineVersion" type="FIXEDSTRING">
       <offset>2217</offset>
       <string_length>1024</string_length>
+    </column>
+    <column name="isUnsupportedSpecs" type="U8">
+      <offset>3241</offset>
     </column>
     <column name="Trivia" type="OPTIONALSTRUCT">
       <offset>3244</offset>

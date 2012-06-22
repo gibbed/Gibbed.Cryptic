@@ -9,7 +9,7 @@
     <column name="{" type="START" />
     <column name="ObjType" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="GlobalType" />
     </column>
     <column name="ObjID" type="INT">
       <offset>4</offset>
@@ -108,8 +108,12 @@
       <offset>92</offset>
       <subtable external="PatchMsgPerfInfos" />
     </column>
-    <column name="GenericArray" type="EMBEDDEDSTRUCT">
+    <column name="MemTrackOps" type="OPTIONALSTRUCT">
       <offset>96</offset>
+      <subtable external="MemTrackOpsInfo" />
+    </column>
+    <column name="GenericArray" type="EMBEDDEDSTRUCT">
+      <offset>100</offset>
       <subtable external="GenericArray" />
     </column>
     <column name="}" type="END" />

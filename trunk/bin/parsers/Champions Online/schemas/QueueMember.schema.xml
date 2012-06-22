@@ -21,7 +21,7 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="PlayerQueueState" />
     </column>
     <column name="iStateEnteredTime" type="INT">
       <offset>8</offset>
@@ -103,7 +103,15 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="QueueJoinFlags" />
+    </column>
+    <column name="pJoinPrefs" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="QueueMemberPrefs" />
     </column>
     <column name="hAllegiance" type="IGNORE" />
     <column name="iMapID" type="IGNORE" />

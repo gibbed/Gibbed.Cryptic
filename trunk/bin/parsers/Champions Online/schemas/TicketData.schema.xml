@@ -97,7 +97,7 @@
     </column>
     <column name="Language" type="INT">
       <offset>80</offset>
-      <static_define_list />
+      <static_define_list external="Language" />
     </column>
     <column name="ShardInfoString" type="STRING">
       <offset>84</offset>
@@ -111,7 +111,7 @@
     <column name="Visibility" type="INT">
       <offset>96</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="TicketVisibility" />
     </column>
     <column name="uIsInternal" type="BIT">
       <offset>100</offset>

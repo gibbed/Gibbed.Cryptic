@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<enum name="GfxStages">
+  <elements type="int">
+    <element name="ZPREPASS_EARLY">0</element>
+    <element name="OPAQUE_ONEPASS">1</element>
+    <element name="OUTLINING_EARLY">2</element>
+    <element name="ZPREPASS_LATE">3</element>
+    <element name="AUX_VISUAL_PASS">4</element>
+    <element name="SHADOW_BUFFER">5</element>
+    <element name="CALCULATE_SCATTERING">6</element>
+    <element name="OPAQUE_AFTER_ZPRE">7</element>
+    <element name="LENSFLARE_ZO">8</element>
+    <element name="APPLY_SCATTERING">9</element>
+    <element name="SKY">10</element>
+    <element name="OUTLINING_LATE">11</element>
+    <element name="DEPTH_OF_FIELD">12</element>
+    <element name="NONDEFERRED_POST_OUTLINING">13</element>
+    <element name="ALPHA_PREDOF">14</element>
+    <element name="ALPHA">15</element>
+    <element name="ALPHA_LOW_RES">16</element>
+    <element name="SEPARATE_HDR_PASS">17</element>
+    <element name="SHRINK_HDR">18</element>
+    <element name="BLOOM">19</element>
+    <element name="TONEMAP">20</element>
+    <element name="WATER_DOF">21</element>
+    <element name="WATER">22</element>
+    <element name="RENDERSCALE">23</element>
+    <element name="UI">24</element>
+    <element name="UI_POSTPROCESS">25</element>
+    <element name="NUM_STAGES">26</element>
+  </elements>
+</enum>

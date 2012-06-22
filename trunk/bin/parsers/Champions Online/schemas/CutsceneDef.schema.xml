@@ -119,28 +119,31 @@
     <column name="MinCutSceneSendRange" type="F32">
       <offset>108</offset>
     </column>
-    <column name="CamPositions" type="STRUCT">
+    <column name="TimeToFadePlayers" type="F32">
       <offset>112</offset>
-      <subtable external="CutscenePos" />
     </column>
-    <column name="CamTargets" type="STRUCT">
+    <column name="CamPositions" type="STRUCT">
       <offset>116</offset>
       <subtable external="CutscenePos" />
     </column>
-    <column name="Interpolate" type="INT">
+    <column name="CamTargets" type="STRUCT">
       <offset>120</offset>
-      <static_define_list />
+      <subtable external="CutscenePos" />
+    </column>
+    <column name="Interpolate" type="INT">
+      <offset>124</offset>
+      <static_define_list external="InterpolationType" />
     </column>
     <column name="CutsceneDepthOfField" type="OPTIONALSTRUCT">
-      <offset>124</offset>
+      <offset>128</offset>
       <subtable external="CutsceneDOF" />
     </column>
     <column name="UGCProperties" type="OPTIONALSTRUCT">
-      <offset>128</offset>
+      <offset>132</offset>
       <subtable external="WorldUGCProperties" />
     </column>
     <column name="PlayOnceOnly" type="U8">
-      <offset>132</offset>
+      <offset>136</offset>
     </column>
     <column name="}" type="END" />
   </table>

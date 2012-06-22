@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMapKeyIcon">
+  <table>
+    <column name="UIGenMapKeyIcon" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContactIndicator" type="INT">
+      <offset>0</offset>
+      <static_define_list external="ContactIndicator" />
+    </column>
+    <column name="WaypointType" type="INT">
+      <offset>4</offset>
+      <default>-1</default>
+      <static_define_list external="MinimapWaypointType" />
+    </column>
+    <column name="Label" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="KeyIndex" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="IsHeader" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Texture" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Icon</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -14,98 +14,138 @@
         <flag>KEY</flag>
       </flags>
     </column>
-    <column name="Icon" type="STRING">
+    <column name="Def" type="OPTIONALSTRUCT">
       <offset>4</offset>
       <flags>
-        <flag>POOL_STRING</flag>
+        <flag>UNKNOWN_32</flag>
       </flags>
+      <subtable external="QueueDef" />
     </column>
-    <column name="CategoryIcon" type="STRING">
+    <column name="Icon" type="STRING">
       <offset>8</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="CategoryDisplayName" type="STRING">
+    <column name="CategoryIcon" type="STRING">
       <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RequiredMission" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RequiredActivity" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CategoryDisplayName" type="STRING">
+      <offset>24</offset>
     </column>
     <column name="PrivateName" type="STRING">
-      <offset>16</offset>
+      <offset>28</offset>
     </column>
     <column name="displayNameMesg" type="EMBEDDEDSTRUCT">
-      <offset>20</offset>
-      <subtable external="DisplayMessage" />
-    </column>
-    <column name="descriptionMesg" type="EMBEDDEDSTRUCT">
       <offset>32</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="Category" type="INT">
+    <column name="descriptionMesg" type="EMBEDDEDSTRUCT">
       <offset>44</offset>
-      <static_define_list />
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="cooldownDisplayNameMesg" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="cooldownDescriptionMesg" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Category" type="INT">
+      <offset>80</offset>
+      <static_define_list external="QueueCategory" />
     </column>
     <column name="Params" type="OPTIONALSTRUCT">
-      <offset>48</offset>
+      <offset>84</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="QueueInstanceParams" />
     </column>
+    <column name="CannotUseReason" type="INT">
+      <offset>88</offset>
+      <static_define_list external="QueueCannotUseReason" />
+    </column>
     <column name="QueueState" type="INT">
-      <offset>52</offset>
-      <static_define_list />
+      <offset>92</offset>
+      <static_define_list external="PlayerQueueState" />
     </column>
     <column name="RegionFlags" type="INT">
-      <offset>56</offset>
-      <static_define_list />
+      <offset>96</offset>
+      <static_define_list external="ControlSchemeRegionType" />
+    </column>
+    <column name="uCooldownTime" type="INT">
+      <offset>100</offset>
     </column>
     <column name="uiInstanceID" type="INT">
-      <offset>60</offset>
+      <offset>104</offset>
     </column>
     <column name="MapKey" type="INT64">
-      <offset>64</offset>
+      <offset>112</offset>
     </column>
     <column name="uiMapID" type="INT64">
-      <offset>64</offset>
+      <offset>112</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MapKey</redundant_name>
     </column>
     <column name="uiOwnerID" type="INT">
-      <offset>72</offset>
+      <offset>120</offset>
     </column>
     <column name="uAvgWaitTime" type="INT">
-      <offset>76</offset>
+      <offset>124</offset>
+    </column>
+    <column name="ElapsedMapTime" type="INT">
+      <offset>128</offset>
     </column>
     <column name="PlayerCountMax" type="INT">
-      <offset>80</offset>
+      <offset>132</offset>
     </column>
     <column name="PlayerCountMin" type="INT">
-      <offset>84</offset>
+      <offset>136</offset>
     </column>
     <column name="GroupPlayerCount" type="INTARRAY">
-      <offset>88</offset>
+      <offset>140</offset>
+    </column>
+    <column name="TotalPlayerCount" type="INT">
+      <offset>144</offset>
     </column>
     <column name="hGroup1Allegiance" type="REFERENCE">
-      <offset>92</offset>
+      <offset>148</offset>
       <dictionary_name>AllegianceDef</dictionary_name>
     </column>
     <column name="hGroup2Allegiance" type="REFERENCE">
-      <offset>96</offset>
+      <offset>152</offset>
       <dictionary_name>AllegianceDef</dictionary_name>
     </column>
     <column name="Bolster" type="U8">
-      <offset>100</offset>
+      <offset>156</offset>
     </column>
     <column name="AllGroupsSameAllegiance" type="U8">
-      <offset>101</offset>
+      <offset>157</offset>
     </column>
     <column name="Overtime" type="U8">
-      <offset>102</offset>
+      <offset>158</offset>
     </column>
     <column name="HasPassword" type="U8">
-      <offset>103</offset>
+      <offset>159</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -15,28 +15,12 @@
       </flags>
       <dictionary_name>ItemAssignmentDef</dictionary_name>
     </column>
-    <column name="pchOutcome" type="STRING">
+    <column name="uCompleteTime" type="INT">
       <offset>4</offset>
       <flags>
-        <flag>POOL_STRING</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-    </column>
-    <column name="uTimeStarted" type="INT">
-      <offset>8</offset>
-      <flags>
-        <flag>SELF_ONLY</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="eaSlottedItemRefs" type="STRUCT">
-      <offset>12</offset>
-      <flags>
-        <flag>SELF_ONLY</flag>
-        <flag>PERSIST</flag>
-      </flags>
-      <subtable external="ItemDefRefCont" />
     </column>
     <column name="}" type="END" />
   </table>

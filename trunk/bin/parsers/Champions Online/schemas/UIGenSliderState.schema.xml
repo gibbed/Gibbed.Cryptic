@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>5</default>
-      <static_define_list />
+      <static_define_list external="UIGenType" />
     </column>
     <column name="Value" type="F32">
       <offset>4</offset>
@@ -35,11 +35,14 @@
       <offset>24</offset>
       <default>1</default>
     </column>
-    <column name="LastMousePosition" type="INT">
+    <column name="TickCount" type="INT">
       <offset>28</offset>
     </column>
-    <column name="HandledMouseDown" type="BIT">
+    <column name="LastMousePosition" type="INT">
       <offset>32</offset>
+    </column>
+    <column name="HandledMouseDown" type="BIT">
+      <offset>36</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />

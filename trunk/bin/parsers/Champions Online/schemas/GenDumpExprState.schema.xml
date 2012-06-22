@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenDumpExprState">
+  <table>
+    <column name="GenDumpExprState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UsedFunc" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <subtable external="GenDumpExprRef" />
+    </column>
+    <column name="UnusedFunc" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <subtable external="GenDumpExprRef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

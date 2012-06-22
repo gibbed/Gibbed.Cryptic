@@ -10,17 +10,21 @@
     <column name="Attrib" type="INT">
       <offset>0</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="AttribType" />
     </column>
     <column name="Aspect" type="INT">
       <offset>4</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="AttribAspect" />
     </column>
     <column name="Params" type="OPTIONALPOLYMORPH">
       <offset>8</offset>
       <subtable>
         <table>
+          <column name="AIAggroTotalScaleParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AIAggroTotalScaleParams" />
+          </column>
           <column name="AIAvoidParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
             <subtable external="AIAvoidParams" />
@@ -69,9 +73,21 @@
             <offset>0</offset>
             <subtable external="BecomeCritterParams" />
           </column>
+          <column name="CombatAdvantageParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="CombatAdvantageParams" />
+          </column>
           <column name="DamageTriggerParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
             <subtable external="DamageTriggerParams" />
+          </column>
+          <column name="DisableTacticalMovementParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="DisableTacticalMovementParams" />
+          </column>
+          <column name="DynamicAttribParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="DynamicAttribParams" />
           </column>
           <column name="EntAttachParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
@@ -105,6 +121,10 @@
             <offset>0</offset>
             <subtable external="IncludeEnhancementParams" />
           </column>
+          <column name="InterruptParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="InterruptParams" />
+          </column>
           <column name="ItemDurabilityParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
             <subtable external="ItemDurabilityParams" />
@@ -137,6 +157,10 @@
             <offset>0</offset>
             <subtable external="PVPFlagParams" />
           </column>
+          <column name="PVPSpecialActionParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="PVPSpecialActionParams" />
+          </column>
           <column name="PlacateParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
             <subtable external="PlacateParams" />
@@ -152,6 +176,10 @@
           <column name="PowerShieldParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
             <subtable external="PowerShieldParams" />
+          </column>
+          <column name="ProjectileCreateParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="ProjectileCreateParams" />
           </column>
           <column name="RemovePowerParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
@@ -169,13 +197,25 @@
             <offset>0</offset>
             <subtable external="ShieldParams" />
           </column>
+          <column name="SpeedCooldownParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="SpeedCooldownParams" />
+          </column>
           <column name="SubtargetSetParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
             <subtable external="SubtargetSetParams" />
           </column>
+          <column name="SwingingParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="SwingingParams" />
+          </column>
           <column name="TeleThrowParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
             <subtable external="TeleThrowParams" />
+          </column>
+          <column name="TeleportParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="TeleportParams" />
           </column>
           <column name="TriggerComplexParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
@@ -270,7 +310,9 @@
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="SensitivityStrength" type="F32">
       <offset>56</offset>
@@ -344,7 +386,7 @@
     </column>
     <column name="CombatEvents" type="INTARRAY">
       <offset>92</offset>
-      <static_define_list />
+      <static_define_list external="CombatEvent" />
     </column>
     <column name="CombatEventTime" type="F32">
       <offset>96</offset>
@@ -451,22 +493,23 @@
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>524294</bit_offset>
-      <static_define_list />
+      <static_define_list external="ModTarget" />
     </column>
     <column name="Type" type="BIT">
       <offset>156</offset>
       <bit_offset>524302</bit_offset>
-      <static_define_list />
+      <static_define_list external="ModType" />
     </column>
     <column name="HitTest" type="BIT">
       <offset>156</offset>
       <bit_offset>196630</bit_offset>
-      <static_define_list />
+      <static_define_list external="ModHitTest" />
     </column>
     <column name="Flags" type="BIT">
       <offset>160</offset>
       <bit_offset>1048576</bit_offset>
-      <static_define_list />
+      <static_define_list external="CombatTrackerFlag" />
+      <format>FLAGS</format>
     </column>
     <column name="Error" type="BIT">
       <offset>160</offset>
@@ -474,40 +517,49 @@
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>1048592</bit_offset>
-      <static_define_list />
+      <static_define_list external="PowerError" />
     </column>
     <column name="CombatEventResponse" type="BIT">
       <offset>164</offset>
       <bit_offset>524288</bit_offset>
-      <static_define_list />
+      <static_define_list external="CombatEventResponse" />
     </column>
     <column name="StackEntity" type="BIT">
       <offset>164</offset>
       <bit_offset>196616</bit_offset>
-      <static_define_list />
+      <static_define_list external="StackEntity" />
     </column>
     <column name="Stack" type="BIT">
       <offset>164</offset>
       <bit_offset>524299</bit_offset>
-      <static_define_list />
+      <static_define_list external="StackType" />
     </column>
     <column name="StackGroup" type="BIT">
       <offset>164</offset>
       <bit_offset>524307</bit_offset>
-      <static_define_list />
+      <static_define_list external="ModStackGroup" />
     </column>
     <column name="StackGroupPending" type="BIT">
       <offset>168</offset>
       <bit_offset>524288</bit_offset>
-      <static_define_list />
+      <static_define_list external="ModStackGroup" />
+    </column>
+    <column name="SpecialNotifySource" type="BIT">
+      <offset>168</offset>
+      <bit_offset>196616</bit_offset>
+      <static_define_list external="ModSpecialSourceEntity" />
+    </column>
+    <column name="ContinuingFXAsLocation" type="BIT">
+      <offset>168</offset>
+      <bit_offset>65547</bit_offset>
     </column>
     <column name="Personal" type="BIT">
       <offset>168</offset>
-      <bit_offset>65544</bit_offset>
+      <bit_offset>65548</bit_offset>
     </column>
     <column name="EnhancementExtension" type="BIT">
       <offset>168</offset>
-      <bit_offset>65545</bit_offset>
+      <bit_offset>65549</bit_offset>
     </column>
     <column name="EnhancementExtendDef" type="BIT">
       <offset>168</offset>
@@ -515,58 +567,66 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>EnhancementExtension</redundant_name>
-      <bit_offset>65545</bit_offset>
+      <bit_offset>65549</bit_offset>
     </column>
     <column name="IgnoreFirstTick" type="BIT">
       <offset>168</offset>
-      <bit_offset>65546</bit_offset>
+      <bit_offset>65550</bit_offset>
     </column>
     <column name="ReplaceKeepsTimer" type="BIT">
       <offset>168</offset>
-      <bit_offset>65547</bit_offset>
+      <bit_offset>65551</bit_offset>
     </column>
     <column name="ChanceNormalized" type="BIT">
       <offset>168</offset>
-      <bit_offset>65548</bit_offset>
+      <bit_offset>65552</bit_offset>
     </column>
     <column name="CancelOnChance" type="BIT">
       <offset>168</offset>
-      <bit_offset>65549</bit_offset>
+      <bit_offset>65553</bit_offset>
     </column>
     <column name="SurviveTargetDeath" type="BIT">
       <offset>168</offset>
-      <bit_offset>65550</bit_offset>
+      <bit_offset>65554</bit_offset>
     </column>
     <column name="KeepWhenImmune" type="BIT">
       <offset>168</offset>
-      <bit_offset>65551</bit_offset>
+      <bit_offset>65555</bit_offset>
     </column>
     <column name="IgnoreAttribModExpire" type="BIT">
       <offset>168</offset>
-      <bit_offset>65552</bit_offset>
+      <bit_offset>65556</bit_offset>
     </column>
     <column name="AutoDescDisabled" type="BIT">
       <offset>168</offset>
-      <bit_offset>65553</bit_offset>
+      <bit_offset>65557</bit_offset>
     </column>
     <column name="DerivedInternally" type="BIT">
       <offset>168</offset>
-      <bit_offset>65554</bit_offset>
+      <bit_offset>65558</bit_offset>
     </column>
     <column name="IgnoredDuringPVP" type="BIT">
       <offset>168</offset>
-      <bit_offset>65555</bit_offset>
+      <bit_offset>65559</bit_offset>
+    </column>
+    <column name="PowerInstanceStacking" type="BIT">
+      <offset>168</offset>
+      <bit_offset>65560</bit_offset>
     </column>
     <column name="UIShowSpecial" type="BIT">
       <offset>168</offset>
-      <bit_offset>65556</bit_offset>
+      <bit_offset>65561</bit_offset>
+    </column>
+    <column name="NotifyGameEventOnApplication" type="BIT">
+      <offset>168</offset>
+      <bit_offset>65562</bit_offset>
     </column>
     <column name="Forever" type="BIT">
       <offset>168</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
-      <bit_offset>65557</bit_offset>
+      <bit_offset>65563</bit_offset>
     </column>
     <column name="HasAnimFX" type="BIT">
       <offset>168</offset>
@@ -574,7 +634,7 @@
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <bit_offset>65558</bit_offset>
+      <bit_offset>65564</bit_offset>
     </column>
     <column name="SaveApplyStrengths" type="BIT">
       <offset>168</offset>
@@ -582,7 +642,7 @@
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <bit_offset>65559</bit_offset>
+      <bit_offset>65565</bit_offset>
     </column>
     <column name="SaveSourceDetails" type="BIT">
       <offset>168</offset>
@@ -590,7 +650,7 @@
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <bit_offset>65560</bit_offset>
+      <bit_offset>65566</bit_offset>
     </column>
     <column name="SaveHue" type="BIT">
       <offset>168</offset>
@@ -598,15 +658,15 @@
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <bit_offset>65561</bit_offset>
+      <bit_offset>65567</bit_offset>
     </column>
     <column name="PowerIconCFX" type="BIT">
-      <offset>168</offset>
+      <offset>172</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <bit_offset>65562</bit_offset>
+      <bit_offset>65536</bit_offset>
     </column>
     <column name="Resist" type="IGNORE" />
     <column name="Strength" type="IGNORE" />

@@ -16,6 +16,10 @@
     <column name="Size" type="F32">
       <offset>4</offset>
     </column>
+    <column name="VolumeProperties" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="GroupVolumeProperties" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

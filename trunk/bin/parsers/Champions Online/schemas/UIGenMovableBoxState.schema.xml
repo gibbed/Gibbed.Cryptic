@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>13</default>
-      <static_define_list />
+      <static_define_list external="UIGenType" />
     </column>
     <column name="Original" type="EMBEDDEDSTRUCT">
       <offset>4</offset>
@@ -28,7 +28,7 @@
     </column>
     <column name="Resizing" type="INT">
       <offset>92</offset>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="GrabbedX" type="INT">
       <offset>96</offset>

@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>2</default>
-      <static_define_list />
+      <static_define_list external="PVPGameType" />
     </column>
     <column name="Scoreboard" type="STRING">
       <offset>4</offset>
@@ -36,32 +36,35 @@
     <column name="PointMax" type="INT">
       <offset>24</offset>
     </column>
-    <column name="CaptureTime" type="F32">
+    <column name="DisableNaturalRespawn" type="U8">
       <offset>28</offset>
     </column>
-    <column name="RecycleTime" type="F32">
+    <column name="CaptureTime" type="F32">
       <offset>32</offset>
     </column>
-    <column name="FriendlyBonus" type="F32">
+    <column name="RecycleTime" type="F32">
       <offset>36</offset>
     </column>
-    <column name="PointTime" type="F32">
+    <column name="FriendlyBonus" type="F32">
       <offset>40</offset>
     </column>
-    <column name="CaptureDistance" type="F32">
+    <column name="PointTime" type="F32">
       <offset>44</offset>
     </column>
-    <column name="CapturePointName" type="STRING">
+    <column name="CaptureDistance" type="F32">
       <offset>48</offset>
     </column>
-    <column name="PointStatusFX" type="STRINGARRAY">
+    <column name="CapturePointName" type="STRING">
       <offset>52</offset>
     </column>
-    <column name="CapturePointFX" type="STRINGARRAY">
+    <column name="PointStatusFX" type="STRINGARRAY">
       <offset>56</offset>
     </column>
-    <column name="ContestedPointFX" type="STRINGARRAY">
+    <column name="CapturePointFX" type="STRINGARRAY">
       <offset>60</offset>
+    </column>
+    <column name="ContestedPointFX" type="STRINGARRAY">
+      <offset>64</offset>
     </column>
     <column name="}" type="END" />
   </table>

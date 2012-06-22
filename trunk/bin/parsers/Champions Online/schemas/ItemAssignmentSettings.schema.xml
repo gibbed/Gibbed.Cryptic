@@ -11,43 +11,71 @@
       <offset>0</offset>
       <default>14400</default>
     </column>
-    <column name="Volume" type="STRINGARRAY">
+    <column name="PersonalAssignmentRefreshTime" type="INT">
       <offset>4</offset>
+      <default>14400</default>
+    </column>
+    <column name="Volume" type="STRINGARRAY">
+      <offset>8</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Map" type="STRUCT">
-      <offset>8</offset>
+      <offset>12</offset>
       <subtable external="ItemAssignmentMapSettings" />
     </column>
+    <column name="GlobalMapRarityCount" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="ItemAssignmentRarityCount" />
+    </column>
     <column name="PersonalRarityCount" type="STRUCT">
-      <offset>12</offset>
+      <offset>20</offset>
       <subtable external="ItemAssignmentRarityCount" />
     </column>
     <column name="QualityWeight" type="STRUCT">
-      <offset>16</offset>
+      <offset>24</offset>
       <subtable external="ItemAssignmentQualityWeight" />
     </column>
     <column name="DurationScaleCategory" type="STRUCT">
-      <offset>20</offset>
+      <offset>28</offset>
       <subtable external="ItemAssignmentDurationScaleCategoryData" />
     </column>
+    <column name="NumericQualityScale" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="ItemAssignmentQualityNumericScale" />
+    </column>
+    <column name="QualityScale" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>NumericQualityScale</redundant_name>
+      <subtable external="ItemAssignmentQualityNumericScale" />
+    </column>
     <column name="ActiveAssignmentPointsPerPlayer" type="INT">
-      <offset>24</offset>
+      <offset>36</offset>
       <default>5</default>
     </column>
     <column name="MaxAssignmentHistoryCount" type="INT">
-      <offset>28</offset>
+      <offset>40</offset>
       <default>10</default>
     </column>
     <column name="InteriorsUseLastStaticMap" type="BIT">
-      <offset>32</offset>
+      <offset>44</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="RequirePlayerInValidVolume" type="BIT">
-      <offset>32</offset>
+      <offset>44</offset>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="DisableRewardModifiers" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="DebugOnly" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

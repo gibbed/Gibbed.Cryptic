@@ -12,8 +12,8 @@
       <flags>
         <flag>OBJECTTYPE</flag>
       </flags>
-      <default>5</default>
-      <static_define_list />
+      <default>6</default>
+      <static_define_list external="PVPGameType" />
     </column>
     <column name="Scoreboard" type="STRING">
       <offset>4</offset>
@@ -35,6 +35,9 @@
     </column>
     <column name="PointMax" type="INT">
       <offset>24</offset>
+    </column>
+    <column name="DisableNaturalRespawn" type="U8">
+      <offset>28</offset>
     </column>
     <column name="}" type="END" />
   </table>

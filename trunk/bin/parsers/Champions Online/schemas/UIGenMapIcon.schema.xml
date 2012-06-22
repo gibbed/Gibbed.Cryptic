@@ -49,9 +49,6 @@
     <column name="MouseOver" type="U8">
       <offset>56</offset>
     </column>
-    <column name="Clamped" type="U8">
-      <offset>57</offset>
-    </column>
     <column name="PushX" type="F32">
       <offset>60</offset>
     </column>
@@ -67,7 +64,7 @@
     <column name="LabelAlignment" type="INT">
       <offset>72</offset>
       <default>4</default>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="Def" type="OPTIONALSTRUCT">
       <offset>76</offset>
@@ -81,6 +78,9 @@
     </column>
     <column name="HideUnlessRevealed" type="U8">
       <offset>116</offset>
+    </column>
+    <column name="KeyIndex" type="INT">
+      <offset>124</offset>
     </column>
     <column name="}" type="END" />
   </table>

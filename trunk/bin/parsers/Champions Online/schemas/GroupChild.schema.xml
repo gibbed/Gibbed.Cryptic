@@ -47,22 +47,26 @@
     <column name="Weight" type="F32">
       <offset>52</offset>
     </column>
-    <column name="rot_mat" type="MATPYR">
+    <column name="Param" type="STRUCT">
       <offset>56</offset>
+      <subtable external="GroupChildParameter" />
+    </column>
+    <column name="rot_mat" type="MATPYR">
+      <offset>60</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <num_elements>9</num_elements>
     </column>
     <column name="pos_mat" type="F32FIXEDARRAY">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <num_elements>3</num_elements>
     </column>
     <column name="childmodtime" type="INT">
-      <offset>104</offset>
+      <offset>108</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>

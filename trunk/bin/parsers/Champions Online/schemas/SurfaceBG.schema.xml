@@ -15,7 +15,7 @@
       <offset>12</offset>
       <num_elements>3</num_elements>
     </column>
-    <column name="surfaceNormal" type="F32FIXEDARRAY">
+    <column name="surfaceNormalMutable" type="F32FIXEDARRAY">
       <offset>24</offset>
       <num_elements>3</num_elements>
     </column>
@@ -63,8 +63,11 @@
     <column name="spcLastOnGroundUpdate" type="INT">
       <offset>108</offset>
     </column>
-    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+    <column name="pitchDiffInterpScale" type="F32">
       <offset>112</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>116</offset>
       <subtable external="SurfaceBGFlags" />
     </column>
     <column name="}" type="END" />

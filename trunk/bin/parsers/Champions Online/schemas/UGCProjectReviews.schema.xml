@@ -44,25 +44,33 @@
       </flags>
       <redundant_name>piNumRatings</redundant_name>
     </column>
-    <column name="iTimeBecameReviewed" type="INT">
+    <column name="iNumPagesCached" type="INT">
       <offset>16</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-    </column>
-    <column name="iNumPagesCached" type="INT">
-      <offset>20</offset>
+      <default>-1</default>
     </column>
     <column name="iNumPages" type="INT">
-      <offset>20</offset>
+      <offset>16</offset>
       <flags>
         <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
       </flags>
       <redundant_name>iNumPagesCached</redundant_name>
+      <default>-1</default>
     </column>
     <column name="iNumRatingsCached" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="iTimeBecameReviewed" type="INT">
       <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

@@ -56,27 +56,23 @@
       <offset>36</offset>
       <subtable external="EncounterAIProperties" />
     </column>
-    <column name="JobProperties" type="STRUCT">
+    <column name="RewardProperties" type="OPTIONALSTRUCT">
       <offset>40</offset>
+      <subtable external="EncounterRewardProperties" />
+    </column>
+    <column name="JobProperties" type="STRUCT">
+      <offset>44</offset>
       <subtable external="AIJobDesc" />
     </column>
     <column name="Actor" type="STRUCT">
-      <offset>44</offset>
+      <offset>48</offset>
       <subtable external="EncounterActorProperties" />
     </column>
     <column name="Point" type="STRUCT">
-      <offset>48</offset>
+      <offset>52</offset>
       <subtable external="EncounterPointProperties" />
     </column>
     <column name="TrackedEvents" type="STRUCT">
-      <offset>52</offset>
-      <flags>
-        <flag>NO_TEXT_SAVE</flag>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-      <subtable external="GameEvent" />
-    </column>
-    <column name="TrackedEventsSinceSpawn" type="STRUCT">
       <offset>56</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
@@ -84,7 +80,7 @@
       </flags>
       <subtable external="GameEvent" />
     </column>
-    <column name="TrackedEventsSinceComplete" type="STRUCT">
+    <column name="TrackedEventsSinceSpawn" type="STRUCT">
       <offset>60</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
@@ -92,8 +88,16 @@
       </flags>
       <subtable external="GameEvent" />
     </column>
-    <column name="OneOff" type="U8">
+    <column name="TrackedEventsSinceComplete" type="STRUCT">
       <offset>64</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="GameEvent" />
+    </column>
+    <column name="OneOff" type="U8">
+      <offset>68</offset>
     </column>
     <column name="}" type="END" />
   </table>

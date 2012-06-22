@@ -93,46 +93,55 @@
         <flag>SOMETIMES_TRANSACT</flag>
       </flags>
     </column>
+    <column name="fTimeChargeRefill" type="F32">
+      <offset>44</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
+      </flags>
+    </column>
     <column name="ppSubPowers" type="STRUCT">
-      <offset>48</offset>
+      <offset>52</offset>
       <flags>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="Power" />
     </column>
     <column name="iLevelAdjustment" type="INT">
-      <offset>52</offset>
-      <flags>
-        <flag>NO_NETSEND</flag>
-      </flags>
-    </column>
-    <column name="fYaw" type="F32">
       <offset>56</offset>
       <flags>
         <flag>NO_NETSEND</flag>
       </flags>
     </column>
-    <column name="uiReplacementID" type="INT">
+    <column name="fYaw" type="F32">
       <offset>60</offset>
       <flags>
         <flag>NO_NETSEND</flag>
       </flags>
     </column>
-    <column name="uiPowerSlotReplacementID" type="INT">
+    <column name="uiReplacementID" type="INT">
       <offset>64</offset>
       <flags>
         <flag>NO_NETSEND</flag>
       </flags>
     </column>
-    <column name="fTableScale" type="F32">
+    <column name="uiPowerSlotReplacementID" type="INT">
       <offset>68</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="fTableScale" type="F32">
+      <offset>72</offset>
       <default>1</default>
     </column>
     <column name="puiEnhancementIDs" type="INTARRAY">
-      <offset>84</offset>
+      <offset>88</offset>
     </column>
     <column name="bHideInUI" type="BIT">
-      <offset>88</offset>
+      <offset>96</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -140,7 +149,7 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bActive" type="BIT">
-      <offset>88</offset>
+      <offset>96</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>

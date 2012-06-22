@@ -24,16 +24,12 @@
       <offset>12</offset>
       <subtable external="GenesisMissionChallengeRequirements" />
     </column>
-    <column name="VolumeRequirement" type="STRUCT">
-      <offset>16</offset>
-      <subtable external="GenesisMissionVolumeRequirements" />
-    </column>
     <column name="ExtraVolume" type="STRUCT">
-      <offset>20</offset>
+      <offset>16</offset>
       <subtable external="GenesisMissionExtraVolume" />
     </column>
     <column name="Params" type="OPTIONALSTRUCT">
-      <offset>24</offset>
+      <offset>20</offset>
       <subtable external="GenesisProceduralObjectParams" />
     </column>
     <column name="}" type="END" />

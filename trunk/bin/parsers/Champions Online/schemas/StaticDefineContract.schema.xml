@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StaticDefineContract">
+  <table>
+    <column name="StaticDefineContract" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LineNum" type="LINENUM">
+      <offset>0</offset>
+    </column>
+    <column name="StaticDefineName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Field" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="StaticDefineField" />
+    </column>
+    <column name="Errors" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -12,7 +12,7 @@
       <flags>
         <flag>KEY</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="ItemType" />
     </column>
     <column name="fromMail" type="BOOLFLAG">
       <offset>4</offset>
@@ -32,8 +32,12 @@
     <column name="fromMissionReward" type="BOOLFLAG">
       <offset>9</offset>
     </column>
-    <column name="BagFullError" type="REFERENCE">
+    <column name="PreferredRestrictBag" type="INT">
       <offset>12</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="BagFullError" type="REFERENCE">
+      <offset>16</offset>
       <dictionary_name>Message</dictionary_name>
     </column>
     <column name="}" type="END" />

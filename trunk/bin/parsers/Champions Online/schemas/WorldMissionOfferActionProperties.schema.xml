@@ -8,7 +8,7 @@
     </column>
     <column name="MissionFrom" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="WorldMissionActionType" />
     </column>
     <column name="MissionDef" type="REFERENCE">
       <offset>4</offset>
@@ -16,6 +16,14 @@
     </column>
     <column name="VariableName" type="STRING">
       <offset>8</offset>
+    </column>
+    <column name="HeadshotProps" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="WorldGameActionHeadshotProperties" />
+    </column>
+    <column name="headshotNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="DisplayMessage" />
     </column>
     <column name="End" type="END" />
   </table>

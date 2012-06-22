@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCFreezeProjectInfo">
+  <table>
+    <column name="UGCFreezeProjectInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ProjectPrefix" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Map" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UGCFreezeProjectMapInfo" />
+    </column>
+    <column name="Costume" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UGCFreezeProjectCostumeInfo" />
+    </column>
+    <column name="ProjectDirectory" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="MissionFile" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

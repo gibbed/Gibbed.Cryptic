@@ -33,7 +33,7 @@
     </column>
     <column name="MapType" type="INT">
       <offset>28</offset>
-      <static_define_list />
+      <static_define_list external="ZoneMapType" />
     </column>
     <column name="DefaultQueue" type="STRING">
       <offset>32</offset>
@@ -107,7 +107,7 @@
     </column>
     <column name="RespawnType" type="INT">
       <offset>116</offset>
-      <static_define_list />
+      <static_define_list external="ZoneRespawnType" />
     </column>
     <column name="RespawnWaveTime" type="INT">
       <offset>120</offset>
@@ -190,33 +190,42 @@
       <offset>176</offset>
       <subtable external="WorldVariableDef" />
     </column>
-    <column name="ConfirmPurchasesOnExit" type="U8">
+    <column name="IgnoreTeamSizeBonusXP" type="U8">
       <offset>180</offset>
     </column>
-    <column name="CollectDoorDestStatus" type="U8">
+    <column name="ConfirmPurchasesOnExit" type="U8">
       <offset>181</offset>
     </column>
-    <column name="DisableDuels" type="U8">
+    <column name="CollectDoorDestStatus" type="U8">
       <offset>182</offset>
     </column>
-    <column name="TeamNotRequired" type="U8">
+    <column name="DisableDuels" type="U8">
       <offset>183</offset>
     </column>
-    <column name="TerrainStaticLighting" type="U8">
+    <column name="TeamNotRequired" type="U8">
       <offset>184</offset>
     </column>
-    <column name="ShardVariables" type="U8">
+    <column name="TerrainStaticLighting" type="U8">
       <offset>185</offset>
     </column>
-    <column name="DisableVisitedTracking" type="U8">
+    <column name="ShardVariables" type="U8">
       <offset>186</offset>
     </column>
-    <column name="ParentMap" type="OPTIONALSTRUCT">
+    <column name="DisableVisitedTracking" type="U8">
+      <offset>187</offset>
+    </column>
+    <column name="PowersRequireValidTarget" type="U8">
       <offset>188</offset>
+    </column>
+    <column name="EnableUpsellFeatures" type="U8">
+      <offset>189</offset>
+    </column>
+    <column name="ParentMap" type="OPTIONALSTRUCT">
+      <offset>192</offset>
       <subtable external="ParentZoneMap" />
     </column>
     <column name="MastermindDef" type="STRING">
-      <offset>192</offset>
+      <offset>196</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -224,7 +233,7 @@
       <dictionary_name>AIMastermindDef</dictionary_name>
     </column>
     <column name="CivilianMapDef" type="STRING">
-      <offset>196</offset>
+      <offset>200</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -232,7 +241,7 @@
       <dictionary_name>AICivilianMapDef</dictionary_name>
     </column>
     <column name="PlayerFSM" type="STRINGARRAY">
-      <offset>200</offset>
+      <offset>204</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -240,22 +249,22 @@
       <dictionary_name>FSM</dictionary_name>
     </column>
     <column name="LightOverride" type="INT">
-      <offset>204</offset>
-      <static_define_list />
+      <offset>208</offset>
+      <static_define_list external="ZoneMapLightOverrideType" />
     </column>
     <column name="RecordPlayerMatchStats" type="U8">
-      <offset>208</offset>
+      <offset>212</offset>
     </column>
     <column name="bfParamsSpecified" type="INTFIXEDARRAY">
-      <offset>212</offset>
+      <offset>216</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>USEDFIELD</flag>
       </flags>
-      <num_elements>2</num_elements>
+      <num_elements>3</num_elements>
     </column>
     <column name="saving" type="U8">
-      <offset>224</offset>
+      <offset>232</offset>
       <flags>
         <flag>NO_WRITE</flag>
       </flags>

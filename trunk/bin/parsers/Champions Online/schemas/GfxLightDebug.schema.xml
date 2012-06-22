@@ -36,14 +36,17 @@
     <column name="AmbientColor" type="F32FIXEDARRAY">
       <offset>48</offset>
       <num_elements>3</num_elements>
+      <format>HSV</format>
     </column>
     <column name="DiffuseColor" type="F32FIXEDARRAY">
       <offset>60</offset>
       <num_elements>3</num_elements>
+      <format>HSV</format>
     </column>
     <column name="SpecularColor" type="F32FIXEDARRAY">
       <offset>72</offset>
       <num_elements>3</num_elements>
+      <format>HSV</format>
     </column>
     <column name="projected_texture" type="STRING">
       <offset>84</offset>
@@ -63,18 +66,21 @@
     <column name="occluded" type="U8">
       <offset>91</offset>
     </column>
-    <column name="shadowed" type="OPTIONALSTRUCT">
+    <column name="indoors" type="U8">
       <offset>92</offset>
+    </column>
+    <column name="shadowed" type="OPTIONALSTRUCT">
+      <offset>96</offset>
       <subtable external="GfxShadowLightDebug" />
     </column>
     <column name="Room" type="STRING">
-      <offset>96</offset>
-    </column>
-    <column name="RoomLimitsLight" type="U8">
       <offset>100</offset>
     </column>
-    <column name="shadow_sort_val" type="F32">
+    <column name="RoomLimitsLight" type="U8">
       <offset>104</offset>
+    </column>
+    <column name="shadow_sort_val" type="F32">
+      <offset>108</offset>
     </column>
     <column name="}" type="END" />
   </table>

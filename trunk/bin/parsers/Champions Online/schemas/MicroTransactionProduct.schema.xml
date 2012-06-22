@@ -34,9 +34,21 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="FreeForPremiumMembers" type="BIT">
+    <column name="uAPPrerequisitesMetUpdateTime" type="INT">
       <offset>20</offset>
-      <bit_offset>65536</bit_offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="APPrerequisitesMet" type="U8">
+      <offset>24</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="FreeForPremiumMembers" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65544</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

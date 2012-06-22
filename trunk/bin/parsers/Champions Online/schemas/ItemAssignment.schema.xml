@@ -65,8 +65,26 @@
       </flags>
       <redundant_name>RewardOutcome</redundant_name>
     </column>
-    <column name="SlottedItems" type="STRUCT">
+    <column name="MapMessageKey" type="STRING">
       <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pchMapMsgKey" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MapMessageKey</redundant_name>
+    </column>
+    <column name="SlottedItems" type="STRUCT">
+      <offset>20</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -74,7 +92,7 @@
       <subtable external="ItemAssignmentSlottedItem" />
     </column>
     <column name="eaSlottedItems" type="STRUCT">
-      <offset>16</offset>
+      <offset>20</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SELF_ONLY</flag>

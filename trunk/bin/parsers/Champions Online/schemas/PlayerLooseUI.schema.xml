@@ -29,7 +29,7 @@
     <column name="eNotifyAudioMode" type="INT">
       <offset>20</offset>
       <default>1</default>
-      <static_define_list />
+      <static_define_list external="PlayerNotifyAudioMode" />
     </column>
     <column name="ShowOverhead" type="OPTIONALSTRUCT">
       <offset>24</offset>
@@ -49,44 +49,40 @@
       <offset>32</offset>
       <bit_offset>65537</bit_offset>
     </column>
-    <column name="DisableAutoBulletinPopup" type="BIT">
-      <offset>32</offset>
-      <bit_offset>65538</bit_offset>
-    </column>
     <column name="AutoSideKick" type="BIT">
       <offset>32</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65539</bit_offset>
+      <bit_offset>65538</bit_offset>
     </column>
     <column name="ShowAstrometrics" type="BIT">
       <offset>32</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65540</bit_offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="ShowDistantSystems" type="BIT">
       <offset>32</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65541</bit_offset>
+      <bit_offset>65540</bit_offset>
     </column>
     <column name="ShowNearSystems" type="BIT">
       <offset>32</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65542</bit_offset>
+      <bit_offset>65541</bit_offset>
     </column>
     <column name="ShowNearSystemTooltips" type="BIT">
       <offset>32</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65543</bit_offset>
+      <bit_offset>65542</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

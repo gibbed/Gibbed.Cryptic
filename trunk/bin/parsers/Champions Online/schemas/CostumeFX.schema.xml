@@ -18,6 +18,10 @@
     <column name="Hue" type="F32">
       <offset>4</offset>
     </column>
+    <column name="Params" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="DynParamBlock" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

@@ -18,6 +18,22 @@
       <offset>4</offset>
       <subtable external="DisplayMessage" />
     </column>
+    <column name="UnpackFailedMessage" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RequiredItem" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="RequiredItemCount" type="INT">
+      <offset>32</offset>
+      <default>1</default>
+    </column>
+    <column name="ConsumeRequiredItems" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

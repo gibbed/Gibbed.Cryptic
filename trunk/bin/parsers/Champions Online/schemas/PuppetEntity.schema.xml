@@ -14,7 +14,7 @@
         <flag>SELF_AND_TEAM_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="PuppetContainerState" />
     </column>
     <column name="eType" type="INT">
       <offset>4</offset>
@@ -99,16 +99,24 @@
       </flags>
       <subtable external="AttribMod" />
     </column>
-    <column name="curType" type="INT">
+    <column name="ppSavedPropSlots" type="STRUCT">
       <offset>36</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="AlwaysPropSlot" />
+    </column>
+    <column name="curType" type="INT">
+      <offset>40</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="GlobalType" />
     </column>
     <column name="curID" type="INT">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>

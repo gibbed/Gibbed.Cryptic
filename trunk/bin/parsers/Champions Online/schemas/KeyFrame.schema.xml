@@ -7,7 +7,9 @@
     <column name="Type" type="INT">
       <offset>8</offset>
       <default>3</default>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Count" type="INT">
       <offset>12</offset>
@@ -17,19 +19,19 @@
       <subtable external="Value" />
     </column>
     <column name="Rate" type="EMBEDDEDSTRUCT">
-      <offset>712</offset>
+      <offset>760</offset>
       <subtable external="Value" />
     </column>
     <column name="Amp" type="EMBEDDEDSTRUCT">
-      <offset>1408</offset>
+      <offset>1504</offset>
       <subtable external="Value" />
     </column>
     <column name="Freq" type="EMBEDDEDSTRUCT">
-      <offset>2104</offset>
+      <offset>2248</offset>
       <subtable external="Value" />
     </column>
     <column name="CycleOffset" type="EMBEDDEDSTRUCT">
-      <offset>2800</offset>
+      <offset>2992</offset>
       <subtable external="Value" />
     </column>
     <column name="childCallCollection" type="IGNORE">
@@ -38,11 +40,11 @@
       </flags>
     </column>
     <column name="CallParam" type="STRUCT">
-      <offset>3496</offset>
+      <offset>3736</offset>
       <subtable external="DynChildCall" />
     </column>
     <column name="Call" type="STRUCT">
-      <offset>3496</offset>
+      <offset>3736</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -50,19 +52,19 @@
       <subtable external="Call" />
     </column>
     <column name="CallList" type="STRUCT">
-      <offset>3500</offset>
+      <offset>3740</offset>
       <subtable external="DynChildCallList" />
     </column>
     <column name="LoopStart" type="STRUCT">
-      <offset>3528</offset>
+      <offset>3768</offset>
       <subtable external="DynLoopRef" />
     </column>
     <column name="LoopStop" type="STRUCT">
-      <offset>3532</offset>
+      <offset>3772</offset>
       <subtable external="DynLoopRef" />
     </column>
     <column name="LoopEnd" type="STRUCT">
-      <offset>3532</offset>
+      <offset>3772</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -70,39 +72,39 @@
       <subtable external="DynLoopRef" />
     </column>
     <column name="EmitterStart" type="STRUCT">
-      <offset>3536</offset>
+      <offset>3776</offset>
       <subtable external="DynParticleEmitterRef" />
     </column>
     <column name="EmitterStop" type="STRUCT">
-      <offset>3540</offset>
+      <offset>3780</offset>
       <subtable external="DynParticleEmitterRef" />
     </column>
     <column name="RaycastStart" type="STRUCT">
-      <offset>3544</offset>
+      <offset>3784</offset>
       <subtable external="DynRaycastRef" />
     </column>
     <column name="RaycastStop" type="STRUCT">
-      <offset>3548</offset>
+      <offset>3788</offset>
       <subtable external="DynRaycastRef" />
     </column>
     <column name="ForceStart" type="STRUCT">
-      <offset>3552</offset>
+      <offset>3792</offset>
       <subtable external="DynForceRef" />
     </column>
     <column name="ForceStop" type="STRUCT">
-      <offset>3556</offset>
+      <offset>3796</offset>
       <subtable external="DynForceRef" />
     </column>
     <column name="Costume" type="STRUCT">
-      <offset>3560</offset>
+      <offset>3800</offset>
       <subtable external="DynFxCostume" />
     </column>
     <column name="SendMessage" type="STRUCT">
-      <offset>3504</offset>
+      <offset>3744</offset>
       <subtable external="DynFxMessage" />
     </column>
     <column name="Message" type="STRUCT">
-      <offset>3504</offset>
+      <offset>3744</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -110,7 +112,7 @@
       <subtable external="SelfMessage" />
     </column>
     <column name="SelfMessage" type="STRUCT">
-      <offset>3504</offset>
+      <offset>3744</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -118,63 +120,63 @@
       <subtable external="SelfMessage" />
     </column>
     <column name="Parent" type="OPTIONALSTRUCT">
-      <offset>3564</offset>
+      <offset>3804</offset>
       <subtable external="DynParentBhvr" />
     </column>
     <column name="Physics" type="OPTIONALSTRUCT">
-      <offset>3568</offset>
+      <offset>3808</offset>
       <subtable external="DynFxPhysicsInfo" />
     </column>
     <column name="SkinToChildren" type="BOOLFLAG">
-      <offset>3681</offset>
+      <offset>3945</offset>
     </column>
     <column name="InheritVelocity" type="F32">
-      <offset>3676</offset>
+      <offset>3940</offset>
     </column>
     <column name="SoundStart" type="STRINGARRAY">
-      <offset>3508</offset>
+      <offset>3748</offset>
     </column>
     <column name="SoundEnd" type="STRINGARRAY">
-      <offset>3512</offset>
+      <offset>3752</offset>
     </column>
     <column name="FadeOutTime" type="F32">
-      <offset>3668</offset>
+      <offset>3932</offset>
     </column>
     <column name="FadeInTime" type="F32">
-      <offset>3672</offset>
+      <offset>3936</offset>
     </column>
     <column name="SystemFadeOut" type="BOOLFLAG">
-      <offset>3680</offset>
+      <offset>3944</offset>
     </column>
     <column name="SystemFade" type="BOOLFLAG">
-      <offset>3680</offset>
+      <offset>3944</offset>
     </column>
     <column name="EntCostumeParts" type="STRINGARRAY">
-      <offset>3516</offset>
+      <offset>3756</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="EntMaterialExcludeOptionalParts" type="BOOL">
-      <offset>3684</offset>
+      <offset>3948</offset>
     </column>
     <column name="SeverBones" type="STRINGARRAY">
-      <offset>3520</offset>
+      <offset>3760</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="RestoreSeveredBones" type="STRINGARRAY">
-      <offset>3524</offset>
+      <offset>3764</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Hide" type="BOOLFLAG">
-      <offset>3682</offset>
+      <offset>3946</offset>
     </column>
     <column name="Unhide" type="BOOLFLAG">
-      <offset>3683</offset>
+      <offset>3947</offset>
     </column>
     <column name="End" type="END" />
   </table>

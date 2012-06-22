@@ -10,11 +10,11 @@
     <column name="{" type="START" />
     <column name="ServerType" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="GameServerExeType" />
     </column>
     <column name="MapType" type="INT">
       <offset>4</offset>
-      <static_define_list />
+      <static_define_list external="ZoneMapType" />
     </column>
     <column name="MapDescription" type="STRING">
       <offset>8</offset>

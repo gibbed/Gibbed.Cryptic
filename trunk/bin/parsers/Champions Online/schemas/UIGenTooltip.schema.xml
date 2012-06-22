@@ -59,30 +59,30 @@
     <column name="Orientation" type="INT">
       <offset>24</offset>
       <default>6</default>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="StackDirection" type="INT">
       <offset>28</offset>
       <default>9</default>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="Alignment" type="INT">
       <offset>32</offset>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="StackAlignment" type="INT">
       <offset>36</offset>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="PrimarySpacing" type="INT16">
       <offset>40</offset>
       <default>4</default>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="SecondarySpacing" type="INT16">
       <offset>42</offset>
       <default>4</default>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="MaxWidth" type="INT16">
       <offset>44</offset>
@@ -90,7 +90,7 @@
         <flag>STRUCTPARAM</flag>
       </flags>
       <default>350</default>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="MaximumWidth" type="INT16">
       <offset>44</offset>
@@ -100,7 +100,7 @@
       </flags>
       <redundant_name>MaxWidth</redundant_name>
       <default>350</default>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="InheritAlpha" type="BIT">
       <offset>44</offset>
@@ -121,6 +121,10 @@
     <column name="FilterProfanity" type="BIT">
       <offset>44</offset>
       <bit_offset>65556</bit_offset>
+    </column>
+    <column name="ForceTooltipOwnership" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65557</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

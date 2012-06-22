@@ -30,7 +30,7 @@
         <flag>SELF_AND_TEAM_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="GlobalType" />
     </column>
     <column name="curTempID" type="INT">
       <offset>12</offset>
@@ -52,7 +52,7 @@
     </column>
     <column name="expectedType" type="INT">
       <offset>24</offset>
-      <static_define_list />
+      <static_define_list external="GlobalType" />
     </column>
     <column name="curPuppetName" type="STRING">
       <offset>28</offset>

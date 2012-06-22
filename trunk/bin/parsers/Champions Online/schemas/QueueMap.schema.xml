@@ -46,7 +46,7 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="QueueMapState" />
     </column>
     <column name="iStateEnteredTime" type="INT">
       <offset>28</offset>
@@ -69,7 +69,7 @@
     </column>
     <column name="ePendingState" type="INT">
       <offset>40</offset>
-      <static_define_list />
+      <static_define_list external="QueueMapState" />
     </column>
     <column name="uOfferValidationStartTime" type="INT">
       <offset>44</offset>

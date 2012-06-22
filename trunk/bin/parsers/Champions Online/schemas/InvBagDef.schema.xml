@@ -13,7 +13,7 @@
         <flag>STRUCTPARAM</flag>
         <flag>KEY</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="InvBagIDs" />
     </column>
     <column name="fname" type="CURRENTFILE">
       <offset>4</offset>
@@ -31,7 +31,8 @@
     </column>
     <column name="Flags" type="INT">
       <offset>16</offset>
-      <static_define_list />
+      <static_define_list external="InvBagFlag" />
+      <format>FLAGS</format>
     </column>
     <column name="power_yaw" type="F32">
       <offset>20</offset>
@@ -39,16 +40,34 @@
     <column name="not_in_default_inventory" type="INT">
       <offset>24</offset>
     </column>
-    <column name="maxActiveSlots" type="INT">
+    <column name="MaxSlotTable" type="STRING">
       <offset>28</offset>
+    </column>
+    <column name="MaxSlotTableNumericStandard" type="REFERENCE">
+      <offset>32</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="MaxSlotTableNumericPremium" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="BagFullMessage" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="maxActiveSlots" type="INT">
+      <offset>52</offset>
       <default>1</default>
     </column>
+    <column name="DefaultActiveSlot" type="INTARRAY">
+      <offset>56</offset>
+    </column>
     <column name="ItemArtActive" type="OPTIONALSTRUCT">
-      <offset>32</offset>
+      <offset>60</offset>
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="FXItemArtActive" type="OPTIONALSTRUCT">
-      <offset>32</offset>
+      <offset>60</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -56,11 +75,11 @@
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="ItemArtInactive" type="OPTIONALSTRUCT">
-      <offset>36</offset>
+      <offset>64</offset>
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="FXItemArtInactive" type="OPTIONALSTRUCT">
-      <offset>36</offset>
+      <offset>64</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -68,11 +87,11 @@
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="ItemArtActiveSecondary" type="OPTIONALSTRUCT">
-      <offset>40</offset>
+      <offset>68</offset>
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="SecondaryFXItemArtActive" type="OPTIONALSTRUCT">
-      <offset>40</offset>
+      <offset>68</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -80,11 +99,11 @@
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="ItemArtInactiveSecondary" type="OPTIONALSTRUCT">
-      <offset>44</offset>
+      <offset>72</offset>
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="SecondaryFXItemArtInactive" type="OPTIONALSTRUCT">
-      <offset>44</offset>
+      <offset>72</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -92,25 +111,25 @@
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="FXNodeName" type="STRING">
-      <offset>48</offset>
+      <offset>76</offset>
     </column>
     <column name="ItemMoveEvent" type="STRUCT">
-      <offset>52</offset>
+      <offset>80</offset>
       <subtable external="InvBagItemMoveEvent" />
     </column>
     <column name="PrimaryOnlyCategories" type="INTARRAY">
-      <offset>56</offset>
-      <static_define_list />
+      <offset>84</offset>
+      <static_define_list external="ItemCategory" />
     </column>
     <column name="ChangeActiveSlotDelay" type="F32">
-      <offset>60</offset>
+      <offset>88</offset>
     </column>
     <column name="AutoAttack" type="BIT">
-      <offset>64</offset>
+      <offset>92</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="UseItemsInInventoryFirst" type="BIT">
-      <offset>64</offset>
+      <offset>92</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />

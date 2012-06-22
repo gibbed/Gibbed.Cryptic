@@ -10,8 +10,11 @@
     <column name="stanceBits" type="INTARRAY">
       <offset>0</offset>
     </column>
-    <column name="Flags" type="EMBEDDEDSTRUCT">
+    <column name="directionBit" type="INT">
       <offset>4</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
       <subtable external="MRDeadSyncFlags" />
     </column>
     <column name="}" type="END" />

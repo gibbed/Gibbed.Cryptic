@@ -17,35 +17,54 @@
     <column name="spcRollingStart" type="INT">
       <offset>16</offset>
     </column>
-    <column name="spcRunningStart" type="INT">
+    <column name="spcRollStateStart" type="INT">
       <offset>20</offset>
     </column>
-    <column name="runFuel" type="F32">
+    <column name="RollingState" type="INT">
       <offset>24</offset>
     </column>
-    <column name="spcCooldownStart" type="INT">
+    <column name="RollAcceleration" type="F32">
       <offset>28</offset>
     </column>
-    <column name="yawFaceTarget" type="F32">
+    <column name="RollDeceleration" type="F32">
       <offset>32</offset>
     </column>
-    <column name="yawRollToBGOverride" type="F32">
+    <column name="spcRunningStart" type="INT">
       <offset>36</offset>
     </column>
-    <column name="distRolledSQR" type="F32">
+    <column name="runFuel" type="F32">
       <offset>40</offset>
     </column>
-    <column name="spcDisableRollEnd" type="INT">
+    <column name="spcCooldownStart" type="INT">
       <offset>44</offset>
     </column>
-    <column name="spcDisableAimEnd" type="INT">
+    <column name="yawFaceTarget" type="F32">
       <offset>48</offset>
     </column>
-    <column name="spcDisableSprintEnd" type="INT">
+    <column name="yawRollToBGOverride" type="F32">
       <offset>52</offset>
     </column>
-    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+    <column name="distRolledSQR" type="F32">
       <offset>56</offset>
+    </column>
+    <column name="overridesActive" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="TacticalOverrides" />
+    </column>
+    <column name="spcDisableRollEnd" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="spcDisableAimEnd" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="spcDisableCrouchEnd" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="spcDisableSprintEnd" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
       <subtable external="TacticalBGFlags" />
     </column>
     <column name="}" type="END" />

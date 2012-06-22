@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueVoteDataUI">
+  <table>
+    <column name="QueueVoteDataUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="QueueVoteType" />
+    </column>
+    <column name="InitiatorName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="TargetPlayerName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="uInitiatorID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="uTargetPlayerID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="VoteCount" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="VotesRequired" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="GroupSize" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="AlreadyVoted" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

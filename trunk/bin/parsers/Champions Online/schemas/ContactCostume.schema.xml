@@ -9,7 +9,7 @@
     <column name="{" type="START" />
     <column name="CostumeType" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="ContactCostumeType" />
     </column>
     <column name="CostumeOverride" type="REFERENCE">
       <offset>4</offset>
@@ -21,7 +21,7 @@
     </column>
     <column name="CostumeCritterGroupType" type="INT">
       <offset>12</offset>
-      <static_define_list />
+      <static_define_list external="ContactMapVarOverrideType" />
     </column>
     <column name="CostumeCritterGroup" type="REFERENCE">
       <offset>16</offset>

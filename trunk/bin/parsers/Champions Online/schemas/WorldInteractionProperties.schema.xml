@@ -50,8 +50,14 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="Entry" type="STRUCT">
+    <column name="OverrideFX" type="STRING">
       <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Entry" type="STRUCT">
+      <offset>48</offset>
       <subtable external="WorldInteractionPropertyEntry" />
     </column>
     <column name="End" type="END" />

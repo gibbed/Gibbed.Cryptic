@@ -16,48 +16,55 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="Type" type="INT">
+    <column name="DialogFormatter" type="REFERENCE">
       <offset>8</offset>
-      <static_define_list />
+      <dictionary_name>ContactDialogFormatterDef</dictionary_name>
+    </column>
+    <column name="Type" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ContactIndicator" />
     </column>
     <column name="NeedsConfirm" type="U8">
-      <offset>12</offset>
+      <offset>16</offset>
     </column>
     <column name="ConfirmHeader" type="STRING">
-      <offset>16</offset>
-      <flags>
-        <flag>ESTRING</flag>
-      </flags>
-    </column>
-    <column name="ConfirmText" type="STRING">
       <offset>20</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="ShowRewardChooser" type="U8">
+    <column name="ConfirmText" type="STRING">
       <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
     </column>
-    <column name="uCooldownExpireTime" type="INT">
+    <column name="ShowRewardChooser" type="U8">
       <offset>28</offset>
     </column>
-    <column name="IsDefaultBackOption" type="U8">
+    <column name="uCooldownExpireTime" type="INT">
       <offset>32</offset>
     </column>
-    <column name="Visited" type="U8">
-      <offset>33</offset>
-    </column>
-    <column name="CannotChoose" type="U8">
-      <offset>34</offset>
-    </column>
-    <column name="TeamMembersEligibleToSee" type="INTARRAY">
+    <column name="IsDefaultBackOption" type="U8">
       <offset>36</offset>
     </column>
-    <column name="TeamMembersEligibleToInteract" type="INTARRAY">
+    <column name="Visited" type="U8">
+      <offset>37</offset>
+    </column>
+    <column name="CannotChoose" type="U8">
+      <offset>38</offset>
+    </column>
+    <column name="WasAppended" type="U8">
+      <offset>39</offset>
+    </column>
+    <column name="TeamMembersEligibleToSee" type="INTARRAY">
       <offset>40</offset>
     </column>
-    <column name="data" type="OPTIONALSTRUCT">
+    <column name="TeamMembersEligibleToInteract" type="INTARRAY">
       <offset>44</offset>
+    </column>
+    <column name="data" type="OPTIONALSTRUCT">
+      <offset>48</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>

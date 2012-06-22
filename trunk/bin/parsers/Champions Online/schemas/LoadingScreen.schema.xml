@@ -26,7 +26,9 @@
     <column name="Color" type="INT">
       <offset>8</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="Gen" type="REFERENCE">
       <offset>12</offset>
@@ -34,6 +36,11 @@
         <flag>NON_NULL_REF</flag>
       </flags>
       <dictionary_name>UIGen</dictionary_name>
+    </column>
+    <column name="SmartAd" type="INT">
+      <offset>16</offset>
+      <default>-1</default>
+      <static_define_list external="SmartAdAutoTag" />
     </column>
     <column name="}" type="END" />
   </table>

@@ -14,8 +14,17 @@
     <column name="Count" type="INT">
       <offset>4</offset>
     </column>
-    <column name="TooExpensive" type="U8">
+    <column name="OriginalCount" type="INT">
       <offset>8</offset>
+    </column>
+    <column name="ppchDiscounts" type="STRINGARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TooExpensive" type="U8">
+      <offset>16</offset>
     </column>
     <column name="}" type="END" />
   </table>

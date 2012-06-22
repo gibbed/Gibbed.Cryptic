@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="KeyCommandEntry">
+  <table>
+    <column name="KeyCommandEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Key1" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="Key2" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="Def" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="KeyboardLayoutKey" />
+    </column>
+    <column name="Command" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="EntityBindCommand" />
+    </column>
+    <column name="BindCommand" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="Used" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

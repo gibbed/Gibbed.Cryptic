@@ -7,8 +7,9 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="ItemCategory" type="STRINGARRAY">
+    <column name="ItemCategory" type="STRUCT">
       <offset>0</offset>
+      <subtable external="ItemCategoryInfo" />
     </column>
     <column name="}" type="END" />
   </table>

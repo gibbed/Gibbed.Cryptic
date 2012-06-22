@@ -18,7 +18,7 @@
     <column name="Respec" type="INT">
       <offset>4</offset>
       <default>1</default>
-      <static_define_list />
+      <static_define_list external="PowerTreeRespec" />
     </column>
     <column name="DisplayMessage" type="EMBEDDEDSTRUCT">
       <offset>8</offset>
@@ -94,7 +94,7 @@
     </column>
     <column name="UICategory" type="INT">
       <offset>60</offset>
-      <static_define_list />
+      <static_define_list external="PowerTreeUICategory" />
     </column>
     <column name="DefaultPlayingStyle" type="STRING">
       <offset>64</offset>
@@ -102,21 +102,33 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="AutoBuy" type="U8">
+    <column name="MaxSpendablePointsCostTable" type="STRING">
       <offset>68</offset>
     </column>
-    <column name="Temporary" type="U8">
-      <offset>69</offset>
-    </column>
-    <column name="IsTalentTree" type="INT">
+    <column name="MaxSpendablePoints" type="F32">
       <offset>72</offset>
     </column>
-    <column name="AnimListToPlayOnGrant" type="REFERENCE">
+    <column name="MinCost" type="INT">
       <offset>76</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="AutoBuy" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="Temporary" type="U8">
+      <offset>81</offset>
+    </column>
+    <column name="IsTalentTree" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="AnimListToPlayOnGrant" type="REFERENCE">
+      <offset>88</offset>
       <dictionary_name>AIAnimList</dictionary_name>
     </column>
     <column name="GrantMessage" type="EMBEDDEDSTRUCT">
-      <offset>80</offset>
+      <offset>92</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="}" type="END" />

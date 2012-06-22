@@ -7,28 +7,23 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="ErrorEString" type="STRING">
+    <column name="Type" type="INT">
       <offset>0</offset>
-      <flags>
-        <flag>ESTRING</flag>
-      </flags>
+      <static_define_list external="UGCProjectSearchSpecialType" />
     </column>
-    <column name="Project" type="STRUCT">
+    <column name="ErrorMessage" type="REFERENCE">
       <offset>4</offset>
-      <flags>
-        <flag>NO_INDEX</flag>
-      </flags>
-      <subtable external="UGCProject" />
+      <dictionary_name>Message</dictionary_name>
     </column>
-    <column name="ProjectSeries" type="STRUCT">
+    <column name="Result" type="STRUCT">
       <offset>8</offset>
-      <flags>
-        <flag>NO_INDEX</flag>
-      </flags>
-      <subtable external="UGCProjectSeries" />
+      <subtable external="ContentInfo" />
+    </column>
+    <column name="ProjectSeriesProject" type="INTARRAY">
+      <offset>12</offset>
     </column>
     <column name="Capped" type="U8">
-      <offset>12</offset>
+      <offset>16</offset>
     </column>
     <column name="}" type="END" />
   </table>

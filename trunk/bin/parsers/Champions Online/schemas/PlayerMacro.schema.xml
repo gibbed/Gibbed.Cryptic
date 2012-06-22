@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerMacro">
+  <table>
+    <column name="PlayerMacro" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MacroID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="uMacroID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>MacroID</redundant_name>
+    </column>
+    <column name="Macro" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchMacro" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>Macro</redundant_name>
+    </column>
+    <column name="Desc" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchDescription" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>Desc</redundant_name>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchIcon" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>Icon</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

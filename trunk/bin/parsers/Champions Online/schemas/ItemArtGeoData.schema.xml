@@ -10,14 +10,16 @@
       <offset>0</offset>
       <flags>
         <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="ItemPowerArtCategory" />
     </column>
     <column name="Name" type="STRING">
       <offset>4</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
       </flags>
     </column>
     <column name="FXAdd" type="STRING">
@@ -25,6 +27,7 @@
       <flags>
         <flag>POOL_STRING</flag>
         <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
       </flags>
     </column>
     <column name="&#xA;" type="END" />

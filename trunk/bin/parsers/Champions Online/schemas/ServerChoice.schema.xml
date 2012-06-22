@@ -34,7 +34,7 @@
     </column>
     <column name="ChoiceType" type="INT">
       <offset>16</offset>
-      <static_define_list />
+      <static_define_list external="MapChoiceType" />
     </column>
     <column name="NumPlayers" type="INT">
       <offset>20</offset>
@@ -42,20 +42,20 @@
     <column name="FolderName" type="STRING">
       <offset>24</offset>
       <flags>
-        <flag>UNKNOWN_32</flag>
+        <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="DisplayName" type="STRING">
       <offset>28</offset>
       <flags>
-        <flag>UNKNOWN_32</flag>
+        <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="MapDescription" type="STRING">
       <offset>28</offset>
       <flags>
+        <flag>ESTRING</flag>
         <flag>ALIAS</flag>
-        <flag>UNKNOWN_32</flag>
       </flags>
       <redundant_name>DisplayName</redundant_name>
     </column>

@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>16</default>
-      <static_define_list />
+      <static_define_list external="UIGenType" />
     </column>
     <column name="bf" type="INTFIXEDARRAY">
       <offset>4</offset>
@@ -29,11 +29,11 @@
     </column>
     <column name="X" type="INT16">
       <offset>24</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="Y" type="INT16">
       <offset>26</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="PercentX" type="F32">
       <offset>28</offset>
@@ -67,19 +67,19 @@
     </column>
     <column name="LeftMargin" type="INT16">
       <offset>84</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="RightMargin" type="INT16">
       <offset>86</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="TopMargin" type="INT16">
       <offset>88</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="BottomMargin" type="INT16">
       <offset>90</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="Scale" type="F32">
       <offset>92</offset>
@@ -88,7 +88,7 @@
     <column name="OffsetFrom" type="U8">
       <offset>96</offset>
       <default>10</default>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="ScaleNoGrow" type="BIT">
       <offset>96</offset>
@@ -338,7 +338,10 @@
     </column>
     <column name="TileTopLeftColor" type="INT">
       <offset>240</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="TileColor" type="INT">
       <offset>240</offset>
@@ -346,19 +349,31 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>TileTopLeftColor</redundant_name>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="TileTopRightColor" type="INT">
       <offset>244</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="TileBottomLeftColor" type="INT">
       <offset>248</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="TileBottomRightColor" type="INT">
       <offset>252</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="TileRotation" type="EMBEDDEDSTRUCT">
       <offset>256</offset>
@@ -398,17 +413,17 @@
     <column name="TileMode" type="BIT">
       <offset>292</offset>
       <bit_offset>262144</bit_offset>
-      <static_define_list />
+      <static_define_list external="UITextureMode" />
     </column>
     <column name="TileEffect" type="BIT">
       <offset>292</offset>
       <bit_offset>262148</bit_offset>
-      <static_define_list />
+      <static_define_list external="RdrSpriteEffect" />
     </column>
     <column name="TileAlignment" type="BIT">
       <offset>292</offset>
       <bit_offset>327688</bit_offset>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="TileAdditive" type="BIT">
       <offset>296</offset>
@@ -441,7 +456,10 @@
     </column>
     <column name="HoveredOverlayTopLeftColor" type="INT">
       <offset>308</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="HoveredOverlayColor" type="INT">
       <offset>308</offset>
@@ -449,19 +467,31 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>HoveredOverlayTopLeftColor</redundant_name>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="HoveredOverlayTopRightColor" type="INT">
       <offset>312</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="HoveredOverlayBottomLeftColor" type="INT">
       <offset>316</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="HoveredOverlayBottomRightColor" type="INT">
       <offset>320</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="HoveredOverlayRotation" type="EMBEDDEDSTRUCT">
       <offset>324</offset>
@@ -501,17 +531,17 @@
     <column name="HoveredOverlayMode" type="BIT">
       <offset>360</offset>
       <bit_offset>262144</bit_offset>
-      <static_define_list />
+      <static_define_list external="UITextureMode" />
     </column>
     <column name="HoveredOverlayEffect" type="BIT">
       <offset>360</offset>
       <bit_offset>262148</bit_offset>
-      <static_define_list />
+      <static_define_list external="RdrSpriteEffect" />
     </column>
     <column name="HoveredOverlayAlignment" type="BIT">
       <offset>360</offset>
       <bit_offset>327688</bit_offset>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="HoveredOverlayAdditive" type="BIT">
       <offset>364</offset>
@@ -523,18 +553,18 @@
     </column>
     <column name="HoveredOverlayWidth" type="INT16">
       <offset>368</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="HoveredOverlayHeight" type="INT16">
       <offset>370</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="RecentColors" type="INT16">
       <offset>372</offset>
     </column>
     <column name="RecentColorsBottomMargin" type="INT16">
       <offset>374</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="Columns" type="INT16">
       <offset>376</offset>
@@ -545,28 +575,28 @@
     <column name="TileWidth" type="INT16">
       <offset>380</offset>
       <default>16</default>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="TileHeight" type="INT16">
       <offset>382</offset>
       <default>16</default>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="TileLeftMargin" type="INT16">
       <offset>384</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="TileRightMargin" type="INT16">
       <offset>386</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="TileTopMargin" type="INT16">
       <offset>388</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="TileBottomMargin" type="INT16">
       <offset>390</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="HoveredAssembly" type="OPTIONALSTRUCT">
       <offset>392</offset>

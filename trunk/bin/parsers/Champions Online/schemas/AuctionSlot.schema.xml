@@ -30,7 +30,7 @@
         <flag>LOGIN_SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="InventorySlotType" />
     </column>
     <column name="Count" type="INT">
       <offset>8</offset>
@@ -82,15 +82,22 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="eUICategory" type="INT">
+    <column name="pchItemSortTypeCategoryName" type="STRING">
       <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eUICategory" type="INT">
+      <offset>36</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="UsageRestrictionCategory" />
     </column>
     <column name="ppTranslatedNames" type="STRINGARRAY">
-      <offset>36</offset>
+      <offset>40</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>PERSIST</flag>

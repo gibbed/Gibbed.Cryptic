@@ -13,32 +13,35 @@
         <flag>STRUCTPARAM</flag>
       </flags>
     </column>
-    <column name="ParentID" type="INT">
-      <offset>4</offset>
-    </column>
     <column name="Type" type="INT">
-      <offset>8</offset>
-      <static_define_list />
+      <offset>4</offset>
+      <static_define_list external="UGCMissionObjectiveType" />
     </column>
     <column name="UIString" type="STRING">
-      <offset>12</offset>
+      <offset>8</offset>
     </column>
     <column name="WaypointMode" type="INT">
-      <offset>16</offset>
-      <static_define_list />
+      <offset>12</offset>
+      <static_define_list external="UGCWaypointMode" />
     </column>
-    <column name="ComponentID" type="INT">
+    <column name="ComponentMapName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ComponentIsExternal" type="U8">
       <offset>20</offset>
     </column>
-    <column name="ExtraComponentID" type="INTARRAY">
+    <column name="ComponentID" type="INT">
       <offset>24</offset>
     </column>
-    <column name="Children" type="STRUCT">
+    <column name="ExtraComponentID" type="INTARRAY">
       <offset>28</offset>
+    </column>
+    <column name="Children" type="STRUCT">
+      <offset>32</offset>
       <subtable external="UGCMissionObjective" />
     </column>
     <column name="SuccessFloaterText" type="STRING">
-      <offset>32</offset>
+      <offset>36</offset>
     </column>
     <column name="sInteractProps" type="IGNORE">
       <flags>
@@ -46,21 +49,31 @@
       </flags>
     </column>
     <column name="InteractText" type="STRING">
-      <offset>36</offset>
+      <offset>40</offset>
+    </column>
+    <column name="InteractFailureText" type="STRING">
+      <offset>44</offset>
     </column>
     <column name="InteractAnim" type="REFERENCE">
-      <offset>40</offset>
+      <offset>48</offset>
       <dictionary_name>AIAnimList</dictionary_name>
     </column>
     <column name="InteractDuration" type="INT">
-      <offset>44</offset>
-      <default>1</default>
-      <static_define_list />
+      <offset>52</offset>
+      <default>2</default>
+      <static_define_list external="UGCInteractDuration" />
     </column>
     <column name="SucceedCheckedAttrib" type="OPTIONALSTRUCT">
-      <offset>48</offset>
+      <offset>56</offset>
       <subtable external="GenesisCheckedAttrib" />
     </column>
+    <column name="InteractTakesItem" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="DropItem" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="ParentID" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

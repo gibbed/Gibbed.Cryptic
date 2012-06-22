@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BeaconServerMapStatus">
+  <table>
+    <column name="BeaconServerMapStatus" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="FileData" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="BeaconMapMetaData" />
+    </column>
+    <column name="mapData" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="BeaconMapMetaData" />
+    </column>
+    <column name="needsProcess" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="forceProcess" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="failedToLoad" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

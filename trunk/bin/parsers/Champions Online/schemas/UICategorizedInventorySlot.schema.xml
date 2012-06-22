@@ -38,10 +38,20 @@
     </column>
     <column name="Category" type="INT">
       <offset>16</offset>
-      <static_define_list />
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="CategoryData" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ItemCategoryInfo" />
+    </column>
+    <column name="SlotKey" type="STRING">
+      <offset>24</offset>
     </column>
     <column name="Slot" type="OPTIONALSTRUCT">
-      <offset>20</offset>
+      <offset>28</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>

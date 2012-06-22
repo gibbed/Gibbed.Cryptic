@@ -7,15 +7,16 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="LastGameSessionIndex" type="INT">
+    <column name="nodeRef" type="EMBEDDEDSTRUCT">
       <offset>0</offset>
+      <subtable external="GameContentNodeRef" />
+    </column>
+    <column name="Version" type="INT">
+      <offset>32</offset>
     </column>
     <column name="GameSessions" type="STRUCT">
-      <offset>4</offset>
+      <offset>36</offset>
       <subtable external="GameSession" />
-    </column>
-    <column name="ListVersion" type="INT">
-      <offset>8</offset>
     </column>
     <column name="}" type="END" />
   </table>

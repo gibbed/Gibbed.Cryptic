@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>2</default>
-      <static_define_list />
+      <static_define_list external="UIGenType" />
     </column>
     <column name="String" type="STRING">
       <offset>4</offset>
@@ -21,14 +21,15 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="Truncatestring" type="STRING">
+    <column name="StaticString" type="STRING">
       <offset>8</offset>
       <flags>
-        <flag>UNKNOWN_32</flag>
+        <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="TruncateWidth" type="F32">
+    <column name="Truncate" type="EMBEDDEDSTRUCT">
       <offset>12</offset>
+      <subtable external="UIGenBundleTruncateState" />
     </column>
     <column name="}" type="END" />
   </table>

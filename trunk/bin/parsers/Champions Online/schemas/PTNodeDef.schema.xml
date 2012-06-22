@@ -93,7 +93,7 @@
     <column name="Attrib" type="INT">
       <offset>72</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="AttribType" />
     </column>
     <column name="AttribPowerTable" type="STRING">
       <offset>76</offset>
@@ -103,11 +103,12 @@
     </column>
     <column name="Flags" type="INT">
       <offset>80</offset>
-      <static_define_list />
+      <static_define_list external="PTNodeFlag" />
+      <format>FLAGS</format>
     </column>
     <column name="Purpose" type="INT">
       <offset>84</offset>
-      <static_define_list />
+      <static_define_list external="PowerPurpose" />
     </column>
     <column name="IconName" type="STRING">
       <offset>88</offset>
@@ -145,7 +146,7 @@
     </column>
     <column name="UICategory" type="INT">
       <offset>96</offset>
-      <static_define_list />
+      <static_define_list external="PTNodeUICategory" />
     </column>
     <column name="UIGridRow" type="U8">
       <offset>100</offset>

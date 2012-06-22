@@ -10,36 +10,23 @@
     <column name="ID" type="INT">
       <offset>0</offset>
     </column>
-    <column name="Spans" type="STRUCT">
-      <offset>4</offset>
-      <subtable external="UIGenChatLogSpanLayout" />
-    </column>
     <column name="siMaxLineWidth" type="INT16">
-      <offset>8</offset>
-    </column>
-    <column name="siIndent" type="INT16">
-      <offset>10</offset>
-    </column>
-    <column name="RelY" type="INT">
-      <offset>12</offset>
+      <offset>4</offset>
     </column>
     <column name="siHeight" type="INT16">
+      <offset>6</offset>
+    </column>
+    <column name="LineBreaks" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="uFadeTime" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="LayoutVersion" type="INT">
       <offset>16</offset>
     </column>
-    <column name="chAlpha" type="U8">
-      <offset>18</offset>
-    </column>
-    <column name="NeedRelayout" type="BIT">
-      <offset>16</offset>
-      <bit_offset>65560</bit_offset>
-    </column>
-    <column name="NeedVisibleUpdate" type="BIT">
-      <offset>16</offset>
-      <bit_offset>65561</bit_offset>
-    </column>
-    <column name="Visible" type="BIT">
-      <offset>16</offset>
-      <bit_offset>65562</bit_offset>
+    <column name="Scale" type="F32">
+      <offset>20</offset>
     </column>
     <column name="}" type="END" />
   </table>

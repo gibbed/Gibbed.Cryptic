@@ -58,7 +58,7 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="PCCostumeType" />
     </column>
     <column name="Gender" type="U8">
       <offset>29</offset>
@@ -66,7 +66,7 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="Gender" />
     </column>
     <column name="DefaultColorLinkAll" type="U8">
       <offset>30</offset>
@@ -180,6 +180,13 @@
     </column>
     <column name="LoadedOnClient" type="U8">
       <offset>78</offset>
+    </column>
+    <column name="CapsuleCollisionsUseMovementOrientation" type="U8">
+      <offset>79</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
     </column>
     <column name="UGCProperties" type="OPTIONALSTRUCT">
       <offset>80</offset>

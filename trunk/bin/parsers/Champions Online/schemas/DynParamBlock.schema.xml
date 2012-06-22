@@ -17,6 +17,13 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="PassThroughAlias" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <subtable external="DynParamRedirect" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

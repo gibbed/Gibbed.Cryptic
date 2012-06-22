@@ -19,20 +19,23 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="AuthString" type="STRING">
+    <column name="AuthUserName" type="STRING">
       <offset>8</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="WaitingForPostData" type="U8">
+    <column name="AuthStringCRC" type="INT">
       <offset>12</offset>
     </column>
-    <column name="requestTime" type="INT64">
+    <column name="WaitingForPostData" type="U8">
       <offset>16</offset>
     </column>
-    <column name="req" type="OPTIONALSTRUCT">
+    <column name="requestTime" type="INT64">
       <offset>24</offset>
+    </column>
+    <column name="req" type="OPTIONALSTRUCT">
+      <offset>32</offset>
       <subtable external="PendingXMLRPCRequest" />
     </column>
     <column name="}" type="END" />

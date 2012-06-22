@@ -7,7 +7,7 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="runPlusAimDoesRoll" type="BIT">
+    <column name="runPlusCrouchDoesRoll" type="BIT">
       <offset>0</offset>
       <bit_offset>65536</bit_offset>
     </column>
@@ -22,6 +22,18 @@
     <column name="rollWhileAiming" type="BIT">
       <offset>0</offset>
       <bit_offset>65539</bit_offset>
+    </column>
+    <column name="RollIgnoresGlobalCooldown" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="AimDisabled" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="SprintDisabled" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65542</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

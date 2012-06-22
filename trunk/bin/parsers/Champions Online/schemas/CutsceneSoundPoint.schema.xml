@@ -27,14 +27,20 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="UseCamPos" type="U8">
+    <column name="SoundVariable" type="STRING">
       <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="CutsceneEntName" type="STRING">
+    <column name="UseCamPos" type="U8">
       <offset>20</offset>
     </column>
-    <column name="Position" type="F32FIXEDARRAY">
+    <column name="CutsceneEntName" type="STRING">
       <offset>24</offset>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>28</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="}" type="END" />

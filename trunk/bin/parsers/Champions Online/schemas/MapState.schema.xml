@@ -43,7 +43,7 @@
     </column>
     <column name="BolsterType" type="INT">
       <offset>28</offset>
-      <static_define_list />
+      <static_define_list external="BolsterType" />
     </column>
     <column name="BolsterLevel" type="INT">
       <offset>32</offset>
@@ -88,7 +88,7 @@
     </column>
     <column name="State" type="INT">
       <offset>68</offset>
-      <static_define_list />
+      <static_define_list external="ScoreboardState" />
     </column>
     <column name="uCounterTime" type="INT">
       <offset>72</offset>
@@ -114,13 +114,17 @@
             <offset>0</offset>
             <subtable external="CUSGroupParams" />
           </column>
-          <column name="DMAGroupParams" type="EMBEDDEDSTRUCT">
+          <column name="DMGroupParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
-            <subtable external="DMAGroupParams" />
+            <subtable external="DMGroupParams" />
           </column>
           <column name="DOMGroupParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
             <subtable external="DOMGroupParams" />
+          </column>
+          <column name="LMSGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="LMSGroupParams" />
           </column>
           <column name="TDEGroupParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
@@ -159,8 +163,11 @@
     <column name="LeaderNoNemesis" type="U8">
       <offset>109</offset>
     </column>
-    <column name="CutscenesPlayed" type="STRINGARRAY">
+    <column name="uTimeFirstChecked" type="INT">
       <offset>112</offset>
+    </column>
+    <column name="CutscenesPlayed" type="STRINGARRAY">
+      <offset>116</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>

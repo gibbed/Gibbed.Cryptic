@@ -50,45 +50,59 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="State" type="INT">
+    <column name="pOptionalData" type="OPTIONALSTRUCT">
       <offset>28</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <subtable external="AuctionLotOptionalData" />
     </column>
-    <column name="creationTime" type="INT">
+    <column name="pBiddingInfo" type="OPTIONALSTRUCT">
       <offset>32</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
+      <subtable external="AuctionBiddingInfo" />
     </column>
-    <column name="modifiedTime" type="INT">
+    <column name="State" type="INT">
       <offset>36</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
+      <static_define_list external="AuctionLotState" />
     </column>
-    <column name="uExpireTime" type="INT">
+    <column name="creationTime" type="INT">
       <offset>40</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="uPostingFee" type="INT">
+    <column name="modifiedTime" type="INT">
       <offset>44</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="uSoldFee" type="INT">
+    <column name="uExpireTime" type="INT">
       <offset>48</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="ppItems" type="STRUCT">
+    <column name="uPostingFee" type="INT">
       <offset>52</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uSoldFee" type="INT">
+      <offset>56</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ppItems" type="STRUCT">
+      <offset>60</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_INDEX</flag>
@@ -96,7 +110,7 @@
       <subtable external="AuctionSlot" />
     </column>
     <column name="auctionPetContainerIDs" type="INTARRAY">
-      <offset>56</offset>
+      <offset>64</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>

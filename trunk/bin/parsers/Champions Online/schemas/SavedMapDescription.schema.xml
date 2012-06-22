@@ -12,14 +12,20 @@
       <flags>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="ZoneMapType" />
     </column>
     <column name="OwnerType" type="U8">
       <offset>1</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="bSpawnPosSkipBeaconCheck" type="U8">
+      <offset>2</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
     </column>
     <column name="MapDescription" type="STRING">
       <offset>4</offset>

@@ -19,15 +19,15 @@
         <flag>STRUCTPARAM</flag>
         <flag>KEY</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="WorldRegionType" />
     </column>
     <column name="CharClassType" type="INTARRAY">
       <offset>8</offset>
-      <static_define_list />
+      <static_define_list external="CharClassTypes" />
     </column>
     <column name="SchemeRegionType" type="INT">
       <offset>12</offset>
-      <static_define_list />
+      <static_define_list external="ControlSchemeRegionType" />
     </column>
     <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
       <offset>16</offset>
@@ -97,15 +97,15 @@
     </column>
     <column name="CategoryDoNotAdd" type="INTARRAY">
       <offset>60</offset>
-      <static_define_list />
+      <static_define_list external="PowerCategory" />
     </column>
     <column name="CategoryExclude" type="INTARRAY">
       <offset>64</offset>
-      <static_define_list />
+      <static_define_list external="PowerCategory" />
     </column>
     <column name="CategoryRequire" type="INTARRAY">
       <offset>68</offset>
-      <static_define_list />
+      <static_define_list external="PowerCategory" />
     </column>
     <column name="NoPrediction" type="BIT">
       <offset>72</offset>
@@ -156,12 +156,11 @@
     </column>
     <column name="PetType" type="INTARRAY">
       <offset>88</offset>
-      <static_define_list />
+      <static_define_list external="CharClassTypes" />
     </column>
     <column name="AllowedPetsPerPlayer" type="INT">
       <offset>92</offset>
       <flags>
-        <flag>SERVER_ONLY</flag>
         <flag>NO_INDEX</flag>
       </flags>
       <default>-1</default>
@@ -247,11 +246,11 @@
     </column>
     <column name="DefaultMeasurement" type="INT">
       <offset>168</offset>
-      <static_define_list />
+      <static_define_list external="MeasurementType" />
     </column>
     <column name="MeasurementSize" type="INT">
       <offset>172</offset>
-      <static_define_list />
+      <static_define_list external="MeasurementSize" />
     </column>
     <column name="DisplayDistanceScale" type="F32">
       <offset>176</offset>
@@ -314,14 +313,14 @@
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <subtable external="DoorTransitionSequence" />
+      <subtable external="DoorTransitionSequenceRef" />
     </column>
     <column name="DepartSequence" type="STRUCT">
       <offset>256</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <subtable external="DoorTransitionSequence" />
+      <subtable external="DoorTransitionSequenceRef" />
     </column>
     <column name="PetRequestDepart" type="REFERENCE">
       <offset>260</offset>
@@ -347,6 +346,10 @@
     </column>
     <column name="AIGroupCombatSettings" type="STRING">
       <offset>276</offset>
+    </column>
+    <column name="KillCreditLimit" type="OPTIONALSTRUCT">
+      <offset>280</offset>
+      <subtable external="KillCreditLimits" />
     </column>
     <column name="uiMissionSharingDist" type="IGNORE" />
     <column name="}" type="END" />

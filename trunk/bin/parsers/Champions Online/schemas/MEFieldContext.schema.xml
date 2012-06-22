@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MEFieldContext">
+  <table>
+    <column name="MEFieldContext" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="XPos" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="YPos" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="XDataStart" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="XIndentStep" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="WidgetHeight" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="YStep" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="YSpacer" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="ActionButtonPad" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="RightPad" type="INT">
+      <offset>112</offset>
+    </column>
+    <column name="LeftPad" type="INT">
+      <offset>116</offset>
+    </column>
+    <column name="TopPad" type="INT">
+      <offset>120</offset>
+    </column>
+    <column name="BottomPad" type="INT">
+      <offset>124</offset>
+    </column>
+    <column name="Disabled" type="U8">
+      <offset>128</offset>
+    </column>
+    <column name="LabelsDisabled" type="U8">
+      <offset>129</offset>
+    </column>
+    <column name="EditableMaxLength" type="INT">
+      <offset>132</offset>
+    </column>
+    <column name="TextAreaHeight" type="INT">
+      <offset>136</offset>
+    </column>
+    <column name="TextEntryTrimWhitespace" type="U8">
+      <offset>140</offset>
+    </column>
+    <column name="DontSortComboEnums" type="U8">
+      <offset>141</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

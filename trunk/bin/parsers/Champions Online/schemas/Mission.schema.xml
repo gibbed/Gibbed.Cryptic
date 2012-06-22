@@ -72,7 +72,7 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="MissionState" />
     </column>
     <column name="StartTime" type="INT">
       <offset>32</offset>
@@ -114,7 +114,7 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="MissionCreditType" />
     </column>
     <column name="eCreditType" type="INT">
       <offset>44</offset>
@@ -124,7 +124,7 @@
         <flag>PERSIST</flag>
       </flags>
       <redundant_name>CreditType</redundant_name>
-      <static_define_list />
+      <static_define_list external="MissionCreditType" />
     </column>
     <column name="permaComplete" type="U8">
       <offset>48</offset>

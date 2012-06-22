@@ -16,7 +16,7 @@
     </column>
     <column name="Type" type="INT">
       <offset>4</offset>
-      <static_define_list />
+      <static_define_list external="GlobalType" />
     </column>
     <column name="ID" type="INT">
       <offset>8</offset>
@@ -45,17 +45,20 @@
     <column name="CritterID" type="INT">
       <offset>36</offset>
     </column>
-    <column name="CritterName" type="STRING">
+    <column name="MinActivePuppetLevel" type="INT">
       <offset>40</offset>
     </column>
-    <column name="IsExtraPetSlot" type="U8">
+    <column name="CritterName" type="STRING">
       <offset>44</offset>
     </column>
+    <column name="IsExtraPetSlot" type="U8">
+      <offset>48</offset>
+    </column>
     <column name="IsExtraPuppetSlot" type="U8">
-      <offset>45</offset>
+      <offset>49</offset>
     </column>
     <column name="IsCritterPet" type="U8">
-      <offset>46</offset>
+      <offset>50</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -9,11 +9,11 @@
     <column name="{" type="START" />
     <column name="TypeFilter" type="INTARRAY">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="ChatLogEntryType" />
     </column>
     <column name="TypeInclusion" type="INT">
       <offset>4</offset>
-      <static_define_list />
+      <static_define_list external="ChatLogFilterEnum" />
     </column>
     <column name="NameFilter" type="STRUCT">
       <offset>8</offset>
@@ -21,7 +21,7 @@
     </column>
     <column name="NameInclusion" type="INT">
       <offset>12</offset>
-      <static_define_list />
+      <static_define_list external="ChatLogFilterEnum" />
     </column>
     <column name="uStartTime" type="INT">
       <offset>16</offset>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectList">
+  <table>
+    <column name="UGCProjectList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Project" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="UGCProject" />
+    </column>
+    <column name="ProjectSeries" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UGCProjectSeries" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

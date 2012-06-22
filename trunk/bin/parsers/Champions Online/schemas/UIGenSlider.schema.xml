@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>5</default>
-      <static_define_list />
+      <static_define_list external="UIGenType" />
     </column>
     <column name="bf" type="INTFIXEDARRAY">
       <offset>4</offset>
@@ -29,11 +29,11 @@
     </column>
     <column name="X" type="INT16">
       <offset>24</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="Y" type="INT16">
       <offset>26</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="PercentX" type="F32">
       <offset>28</offset>
@@ -67,19 +67,19 @@
     </column>
     <column name="LeftMargin" type="INT16">
       <offset>84</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="RightMargin" type="INT16">
       <offset>86</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="TopMargin" type="INT16">
       <offset>88</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="BottomMargin" type="INT16">
       <offset>90</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="Scale" type="F32">
       <offset>92</offset>
@@ -88,7 +88,7 @@
     <column name="OffsetFrom" type="U8">
       <offset>96</offset>
       <default>10</default>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="ScaleNoGrow" type="BIT">
       <offset>96</offset>
@@ -395,24 +395,36 @@
       <offset>272</offset>
       <default>-1</default>
     </column>
-    <column name="Rows" type="U8">
+    <column name="TickCountBlock" type="OPTIONALSTRUCT">
       <offset>276</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="TickCountExpr" type="OPTIONALSTRUCT">
+      <offset>276</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TickCountBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Rows" type="U8">
+      <offset>280</offset>
       <default>1</default>
     </column>
     <column name="ValueInteractive" type="BIT">
-      <offset>276</offset>
+      <offset>280</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="NotchInteractive" type="BIT">
-      <offset>276</offset>
+      <offset>280</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="Snap" type="BIT">
-      <offset>276</offset>
+      <offset>280</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="DragMoveMode" type="BIT">
-      <offset>276</offset>
+      <offset>280</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="}" type="END" />

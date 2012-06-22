@@ -11,56 +11,26 @@
       <offset>0</offset>
       <num_elements>3</num_elements>
     </column>
-    <column name="SpawnWhen" type="OPTIONALSTRUCT">
+    <column name="EncounterSpawnWhen" type="OPTIONALSTRUCT">
       <offset>12</offset>
       <subtable external="Expression" />
     </column>
-    <column name="ClickieVisibleWhen" type="OPTIONALSTRUCT">
-      <offset>16</offset>
-      <subtable external="Expression" />
-    </column>
-    <column name="ClickieVisibleWhenPerEnt" type="U8">
-      <offset>20</offset>
-    </column>
-    <column name="SucceedWhen" type="OPTIONALSTRUCT">
-      <offset>24</offset>
-      <subtable external="Expression" />
-    </column>
-    <column name="InteractionEntry" type="STRUCT">
-      <offset>28</offset>
-      <subtable external="WorldInteractionPropertyEntry" />
-    </column>
     <column name="HasPatrol" type="U8">
-      <offset>32</offset>
+      <offset>16</offset>
     </column>
     <column name="FSMName" type="STRING">
-      <offset>36</offset>
-    </column>
-    <column name="msgVars" type="STRUCT">
-      <offset>40</offset>
-      <flags>
-        <flag>NO_WRITE</flag>
-        <flag>UNKNOWN_32</flag>
-      </flags>
-      <subtable external="WorldVariableDef" />
+      <offset>20</offset>
     </column>
     <column name="ActorData" type="STRUCT">
-      <offset>44</offset>
+      <offset>24</offset>
       <subtable external="GenesisInstancedActorData" />
     </column>
     <column name="MissionName" type="STRING">
-      <offset>48</offset>
+      <offset>28</offset>
     </column>
     <column name="Contact" type="OPTIONALSTRUCT">
-      <offset>52</offset>
+      <offset>32</offset>
       <subtable external="GenesisMissionContactRequirements" />
-    </column>
-    <column name="InteractCondOverride" type="OPTIONALSTRUCT">
-      <offset>56</offset>
-      <subtable external="Expression" />
-    </column>
-    <column name="DisallowVolume" type="U8">
-      <offset>60</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -9,7 +9,7 @@
     <column name="{" type="START" />
     <column name="CostumeType" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="GenesisMissionCostumeType" />
     </column>
     <column name="UsePetCostume" type="INT">
       <offset>0</offset>
@@ -17,7 +17,7 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>CostumeType</redundant_name>
-      <static_define_list />
+      <static_define_list external="GenesisMissionCostumeType" />
     </column>
     <column name="Costume" type="REFERENCE">
       <offset>4</offset>
@@ -29,7 +29,7 @@
     </column>
     <column name="CostumeCritterGroupType" type="INT">
       <offset>12</offset>
-      <static_define_list />
+      <static_define_list external="ContactMapVarOverrideType" />
     </column>
     <column name="CostumeCritterGroup" type="REFERENCE">
       <offset>16</offset>

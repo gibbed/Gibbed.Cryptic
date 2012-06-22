@@ -20,8 +20,11 @@
     <column name="spcEnableRunning" type="INT">
       <offset>12</offset>
     </column>
-    <column name="Overrides" type="STRUCT">
+    <column name="spcClearAllOverrides" type="INT">
       <offset>16</offset>
+    </column>
+    <column name="Overrides" type="STRUCT">
+      <offset>20</offset>
       <subtable external="TacticalOverrides" />
     </column>
     <column name="}" type="END" />

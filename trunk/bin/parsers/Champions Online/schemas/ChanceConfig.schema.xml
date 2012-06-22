@@ -9,7 +9,7 @@
     <column name="{" type="START" />
     <column name="AttribChancePos" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="AttribType" />
     </column>
     <column name="AttribHit" type="INT">
       <offset>0</offset>
@@ -17,11 +17,11 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>AttribChancePos</redundant_name>
-      <static_define_list />
+      <static_define_list external="AttribType" />
     </column>
     <column name="AttribChanceNeg" type="INT">
       <offset>4</offset>
-      <static_define_list />
+      <static_define_list external="AttribType" />
     </column>
     <column name="AttribMiss" type="INT">
       <offset>4</offset>
@@ -29,11 +29,11 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>AttribChanceNeg</redundant_name>
-      <static_define_list />
+      <static_define_list external="AttribType" />
     </column>
     <column name="AttribMag" type="INT">
       <offset>8</offset>
-      <static_define_list />
+      <static_define_list external="AttribType" />
     </column>
     <column name="ChanceNeutral" type="F32">
       <offset>12</offset>
@@ -46,11 +46,11 @@
     </column>
     <column name="Flag" type="INT">
       <offset>24</offset>
-      <static_define_list />
+      <static_define_list external="CombatTrackerFlag" />
     </column>
     <column name="PowerCategory" type="INT">
       <offset>28</offset>
-      <static_define_list />
+      <static_define_list external="PowerCategory" />
     </column>
     <column name="CritChanceOverflowMulti" type="F32">
       <offset>32</offset>

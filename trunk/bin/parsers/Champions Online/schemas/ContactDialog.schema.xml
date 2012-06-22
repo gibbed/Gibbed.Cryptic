@@ -9,7 +9,7 @@
     <column name="{" type="START" />
     <column name="screenType" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="ContactScreenType" />
     </column>
     <column name="ContactDispName" type="STRING">
       <offset>4</offset>
@@ -29,48 +29,52 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="DialogHeader2" type="STRING">
+    <column name="DialogText1Formatter" type="REFERENCE">
       <offset>16</offset>
-      <flags>
-        <flag>ESTRING</flag>
-      </flags>
+      <dictionary_name>ContactDialogFormatterDef</dictionary_name>
     </column>
-    <column name="DialogText2" type="STRING">
+    <column name="DialogHeader2" type="STRING">
       <offset>20</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="ListHeader" type="STRING">
+    <column name="DialogText2" type="STRING">
       <offset>24</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="VoicePath" type="STRING">
+    <column name="ListHeader" type="STRING">
       <offset>28</offset>
       <flags>
-        <flag>POOL_STRING</flag>
+        <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="PhrasePath" type="STRING">
+    <column name="VoicePath" type="STRING">
       <offset>32</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="SoundToPlay" type="STRING">
+    <column name="PhrasePath" type="STRING">
       <offset>36</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="AnimListToPlayForActiveEntity" type="REFERENCE">
+    <column name="SoundToPlay" type="STRING">
       <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AnimListToPlayForActiveEntity" type="REFERENCE">
+      <offset>44</offset>
       <dictionary_name>AIAnimList</dictionary_name>
     </column>
     <column name="AnimListToPlay" type="REFERENCE">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -78,284 +82,301 @@
       <dictionary_name>AIAnimList</dictionary_name>
     </column>
     <column name="AnimListToPlayForPassiveEntity" type="REFERENCE">
-      <offset>44</offset>
+      <offset>48</offset>
       <dictionary_name>AIAnimList</dictionary_name>
     </column>
     <column name="vecCameraSourcePos" type="F32FIXEDARRAY">
-      <offset>48</offset>
+      <offset>52</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="quatCameraSourceRot" type="QUATPYR">
-      <offset>60</offset>
+      <offset>64</offset>
       <num_elements>4</num_elements>
     </column>
     <column name="cameraSourceEnt" type="INT">
-      <offset>76</offset>
-    </column>
-    <column name="headshotEnt" type="INT">
       <offset>80</offset>
     </column>
-    <column name="hHeadshotOverride" type="REFERENCE">
+    <column name="headshotEnt" type="INT">
       <offset>84</offset>
+    </column>
+    <column name="hHeadshotOverride" type="REFERENCE">
+      <offset>88</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
     <column name="HeadshotOverride" type="OPTIONALSTRUCT">
-      <offset>88</offset>
+      <offset>92</offset>
       <subtable external="PlayerCostume" />
     </column>
     <column name="HeadshotStyleDef" type="STRING">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="HeadshotOverridePetID" type="INT">
-      <offset>96</offset>
+      <offset>100</offset>
     </column>
     <column name="Options" type="STRUCT">
-      <offset>100</offset>
+      <offset>104</offset>
       <subtable external="ContactDialogOption" />
     </column>
     <column name="ViewOnlyDialog" type="U8">
-      <offset>104</offset>
-    </column>
-    <column name="IsTeamSpokesman" type="U8">
-      <offset>105</offset>
-    </column>
-    <column name="HasVoted" type="U8">
-      <offset>106</offset>
-    </column>
-    <column name="SellInfoUpdated" type="U8">
-      <offset>107</offset>
-    </column>
-    <column name="SellEnabled" type="U8">
       <offset>108</offset>
     </column>
-    <column name="DisplayStoreCPoints" type="U8">
+    <column name="IsTeamSpokesman" type="U8">
       <offset>109</offset>
     </column>
-    <column name="IsResearching" type="U8">
+    <column name="HasVoted" type="U8">
       <offset>110</offset>
     </column>
-    <column name="IsOfficerTrainer" type="U8">
+    <column name="SellInfoUpdated" type="U8">
       <offset>111</offset>
     </column>
-    <column name="TeamSpokesmanID" type="INT">
+    <column name="SellEnabled" type="U8">
       <offset>112</offset>
     </column>
-    <column name="ParticipatingTeamMemberCount" type="INT">
+    <column name="DisplayStoreCPoints" type="U8">
+      <offset>113</offset>
+    </column>
+    <column name="IsResearching" type="U8">
+      <offset>114</offset>
+    </column>
+    <column name="IsOfficerTrainer" type="U8">
+      <offset>115</offset>
+    </column>
+    <column name="LastCompletedDialogIsInteractable" type="U8">
       <offset>116</offset>
     </column>
-    <column name="uTeamDialogStartTime" type="INT">
+    <column name="Indicator" type="INT">
       <offset>120</offset>
+      <static_define_list external="ContactIndicator" />
+    </column>
+    <column name="TeamSpokesmanID" type="INT">
+      <offset>124</offset>
+    </column>
+    <column name="ParticipatingTeamMemberCount" type="INT">
+      <offset>128</offset>
+    </column>
+    <column name="uTeamDialogStartTime" type="INT">
+      <offset>132</offset>
     </column>
     <column name="TeamDialogVotes" type="STRUCT">
-      <offset>124</offset>
+      <offset>136</offset>
       <subtable external="TeamDialogVote" />
     </column>
     <column name="RewardsHeader" type="STRING">
-      <offset>128</offset>
+      <offset>140</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="OptionalRewardsHeader" type="STRING">
-      <offset>132</offset>
+      <offset>144</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="RewardBags" type="STRUCT">
-      <offset>136</offset>
+      <offset>148</offset>
       <flags>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="InventoryBag" />
     </column>
     <column name="StoreItems" type="STRUCT">
-      <offset>140</offset>
+      <offset>152</offset>
       <subtable external="StoreItemInfo" />
     </column>
+    <column name="StoreDiscounts" type="STRUCT">
+      <offset>156</offset>
+      <subtable external="StoreDiscountInfo" />
+    </column>
     <column name="StorePowers" type="STRUCT">
-      <offset>144</offset>
+      <offset>160</offset>
       <subtable external="PowerStorePowerInfo" />
     </column>
     <column name="SellableItemInfo" type="STRUCT">
-      <offset>148</offset>
+      <offset>164</offset>
       <subtable external="StoreSellableItemInfo" />
     </column>
     <column name="hStoreCurrency" type="REFERENCE">
-      <offset>152</offset>
+      <offset>168</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="StoreRegion" type="INT">
-      <offset>156</offset>
+      <offset>172</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="WorldRegionType" />
     </column>
     <column name="CurrentStoreCollection" type="INT">
-      <offset>160</offset>
+      <offset>176</offset>
     </column>
     <column name="BuyOptionText" type="STRING">
-      <offset>164</offset>
+      <offset>180</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="SellOptionText" type="STRING">
-      <offset>168</offset>
+      <offset>184</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="BuyBackOptionText" type="STRING">
-      <offset>172</offset>
+      <offset>188</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="SkillType" type="INT">
-      <offset>176</offset>
-      <static_define_list />
+      <offset>192</offset>
+      <static_define_list external="SkillType" />
     </column>
     <column name="MinigameType" type="INT">
-      <offset>180</offset>
-      <static_define_list />
+      <offset>196</offset>
+      <static_define_list external="MinigameType" />
     </column>
     <column name="peAllowedClassCategories" type="INTARRAY">
-      <offset>184</offset>
-      <static_define_list />
+      <offset>200</offset>
+      <static_define_list external="CharClassCategory" />
     </column>
     <column name="MissionTimeLimit" type="INT">
-      <offset>188</offset>
-    </column>
-    <column name="MissionExpiredTime" type="INT">
-      <offset>192</offset>
-    </column>
-    <column name="MissionLockoutType" type="INT">
-      <offset>196</offset>
-      <static_define_list />
-    </column>
-    <column name="MissionCreditType" type="INT">
-      <offset>200</offset>
-      <static_define_list />
-    </column>
-    <column name="TeamSize" type="INT">
       <offset>204</offset>
     </column>
-    <column name="ScalesForTeam" type="U8">
+    <column name="MissionExpiredTime" type="INT">
       <offset>208</offset>
     </column>
-    <column name="ContactType" type="INT">
+    <column name="MissionLockoutType" type="INT">
       <offset>212</offset>
-      <static_define_list />
+      <static_define_list external="MissionLockoutType" />
+    </column>
+    <column name="MissionCreditType" type="INT">
+      <offset>216</offset>
+      <static_define_list external="MissionCreditType" />
+    </column>
+    <column name="TeamSize" type="INT">
+      <offset>220</offset>
+    </column>
+    <column name="ScalesForTeam" type="U8">
+      <offset>224</offset>
+    </column>
+    <column name="ContactType" type="INT">
+      <offset>228</offset>
+      <static_define_list external="ContactType" />
+    </column>
+    <column name="LastResponseDisplayString" type="STRING">
+      <offset>232</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
     </column>
     <column name="uiVersion" type="INT">
-      <offset>216</offset>
+      <offset>236</offset>
     </column>
     <column name="State" type="INT">
-      <offset>220</offset>
+      <offset>240</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="ContactDialogState" />
     </column>
     <column name="contactEnt" type="INT">
-      <offset>224</offset>
+      <offset>244</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="hContactDef" type="REFERENCE">
-      <offset>228</offset>
+      <offset>248</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <dictionary_name>ContactDef</dictionary_name>
     </column>
     <column name="SpecialDialogName" type="STRING">
-      <offset>232</offset>
+      <offset>252</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="SpecialDialogSubIndex" type="INT">
-      <offset>236</offset>
+      <offset>256</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="hRootMissionDef" type="REFERENCE">
-      <offset>240</offset>
+      <offset>260</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <dictionary_name>MissionDef</dictionary_name>
     </column>
     <column name="SubMissionName" type="STRING">
-      <offset>244</offset>
+      <offset>264</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="EntType" type="INT">
-      <offset>248</offset>
+      <offset>268</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="EntID" type="INT">
-      <offset>252</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-    </column>
-    <column name="ItemBagID" type="INT">
-      <offset>256</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-    </column>
-    <column name="ItemSlot" type="INT">
-      <offset>260</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-    </column>
-    <column name="ItemID" type="INT64">
-      <offset>264</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-    </column>
-    <column name="RemoteInteraction" type="U8">
       <offset>272</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="ForceOnTeamDone" type="U8">
-      <offset>273</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-    </column>
-    <column name="TeamDialogChoiceMade" type="U8">
-      <offset>274</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-    </column>
-    <column name="uLastPersistedStoreVersion" type="INT">
+    <column name="ItemBagID" type="INT">
       <offset>276</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="hPersistStoreDef" type="REFERENCE">
+    <column name="ItemSlot" type="INT">
       <offset>280</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ItemID" type="INT64">
+      <offset>288</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="RemoteInteraction" type="U8">
+      <offset>296</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ForceOnTeamDone" type="U8">
+      <offset>297</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="TeamDialogChoiceMade" type="U8">
+      <offset>298</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="uLastPersistedStoreVersion" type="INT">
+      <offset>300</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="hPersistStoreDef" type="REFERENCE">
+      <offset>304</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
         <flag>SERVER_ONLY</flag>
@@ -363,7 +384,7 @@
       <dictionary_name>StoreDef</dictionary_name>
     </column>
     <column name="hPersistedStore" type="REFERENCE">
-      <offset>284</offset>
+      <offset>308</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
         <flag>SERVER_ONLY</flag>
@@ -371,31 +392,31 @@
       <dictionary_name>CopyDict_PersistedStore</dictionary_name>
     </column>
     <column name="hSellStore" type="REFERENCE">
-      <offset>288</offset>
+      <offset>312</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <dictionary_name>Store</dictionary_name>
     </column>
     <column name="CutsceneDef" type="REFERENCE">
-      <offset>292</offset>
+      <offset>316</offset>
       <dictionary_name>CutScene</dictionary_name>
     </column>
     <column name="ResearchTimerStoreName" type="STRING">
-      <offset>296</offset>
+      <offset>320</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="uResearchTimerStoreItemIndex" type="INT">
-      <offset>300</offset>
+      <offset>324</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="uStoreResearchTimeExpire" type="INT">
-      <offset>304</offset>
+      <offset>328</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>

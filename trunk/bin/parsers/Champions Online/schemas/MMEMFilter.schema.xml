@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MMEMFilter">
+  <table>
+    <column name="MMEMFilter" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MoveFilterType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="MMEMFilterType" />
+    </column>
+    <column name="MoveFilterText" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="MoveFilterValue" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="MoveFilterBit" type="INT">
+      <offset>12</offset>
+      <static_define_list external="MMEMBits" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

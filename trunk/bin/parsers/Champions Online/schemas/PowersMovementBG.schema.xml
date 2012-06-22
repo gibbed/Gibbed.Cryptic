@@ -28,8 +28,9 @@
       <offset>20</offset>
       <subtable external="PMBits" />
     </column>
-    <column name="ReleaseAnimSPCMutable" type="INTARRAY">
+    <column name="ReleaseAnimMutable" type="STRUCT">
       <offset>24</offset>
+      <subtable external="PMReleaseAnim" />
     </column>
     <column name="FxPendingMutable" type="STRUCT">
       <offset>28</offset>
@@ -47,42 +48,41 @@
       <offset>40</offset>
       <subtable external="PMIgnore" />
     </column>
-    <column name="vecPush" type="F32FIXEDARRAY">
+    <column name="animStartID" type="INT">
       <offset>44</offset>
+    </column>
+    <column name="vecPush" type="F32FIXEDARRAY">
+      <offset>48</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="uiTimePush" type="INT">
-      <offset>56</offset>
-    </column>
-    <column name="erTarget" type="INT">
       <offset>60</offset>
     </column>
-    <column name="vecTarget" type="F32FIXEDARRAY">
+    <column name="erSelectedTarget" type="INT">
       <offset>64</offset>
-      <num_elements>3</num_elements>
-    </column>
-    <column name="UseTargetPosition" type="BIT">
-      <offset>76</offset>
-      <bit_offset>65536</bit_offset>
     </column>
     <column name="knockDown" type="BIT">
-      <offset>76</offset>
-      <bit_offset>65537</bit_offset>
+      <offset>68</offset>
+      <bit_offset>65536</bit_offset>
     </column>
     <column name="ignoringInput" type="BIT">
-      <offset>76</offset>
-      <bit_offset>65538</bit_offset>
+      <offset>68</offset>
+      <bit_offset>65537</bit_offset>
     </column>
     <column name="rooted" type="BIT">
-      <offset>76</offset>
-      <bit_offset>65539</bit_offset>
+      <offset>68</offset>
+      <bit_offset>65538</bit_offset>
     </column>
     <column name="Moving" type="BIT">
-      <offset>76</offset>
-      <bit_offset>65540</bit_offset>
+      <offset>68</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="stoppingMove" type="BIT">
-      <offset>76</offset>
+      <offset>68</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="assumedOwnership" type="BIT">
+      <offset>68</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="}" type="END" />

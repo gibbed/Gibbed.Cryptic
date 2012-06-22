@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="wleAEBuildingUIData">
+  <table>
+    <column name="wleAEBuildingUIData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LayerCount" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Layers_0" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="wleAEBuildingLayerUIData" />
+    </column>
+    <column name="Layers_1" type="EMBEDDEDSTRUCT">
+      <offset>5</offset>
+      <subtable external="wleAEBuildingLayerUIData" />
+    </column>
+    <column name="Layers_2" type="EMBEDDEDSTRUCT">
+      <offset>6</offset>
+      <subtable external="wleAEBuildingLayerUIData" />
+    </column>
+    <column name="Layers_3" type="EMBEDDEDSTRUCT">
+      <offset>7</offset>
+      <subtable external="wleAEBuildingLayerUIData" />
+    </column>
+    <column name="Layers_4" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="wleAEBuildingLayerUIData" />
+    </column>
+    <column name="Layers_5" type="EMBEDDEDSTRUCT">
+      <offset>9</offset>
+      <subtable external="wleAEBuildingLayerUIData" />
+    </column>
+    <column name="Layers_6" type="EMBEDDEDSTRUCT">
+      <offset>10</offset>
+      <subtable external="wleAEBuildingLayerUIData" />
+    </column>
+    <column name="Layers_7" type="EMBEDDEDSTRUCT">
+      <offset>11</offset>
+      <subtable external="wleAEBuildingLayerUIData" />
+    </column>
+    <column name="Layers_8" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="wleAEBuildingLayerUIData" />
+    </column>
+    <column name="Layers_9" type="EMBEDDEDSTRUCT">
+      <offset>13</offset>
+      <subtable external="wleAEBuildingLayerUIData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

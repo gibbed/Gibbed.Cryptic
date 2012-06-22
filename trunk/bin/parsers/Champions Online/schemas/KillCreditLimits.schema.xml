@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="KillCreditLimits">
+  <table>
+    <column name="KillCreditLimits" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MaxKills" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="TimePeriod" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="UpdateRate" type="F32">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

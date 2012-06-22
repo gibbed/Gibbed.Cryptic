@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SwingingParams">
+  <table>
+    <column name="SwingingParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>220</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="SwingingFx" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>DynFxInfo</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

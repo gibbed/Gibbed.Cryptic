@@ -46,7 +46,7 @@
       <flags>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="ChatTabFilterMode" />
     </column>
     <column name="eChannelFilterMode" type="INT">
       <offset>8</offset>
@@ -55,14 +55,14 @@
         <flag>PERSIST</flag>
       </flags>
       <redundant_name>ChannelFilterMode</redundant_name>
-      <static_define_list />
+      <static_define_list external="ChatTabFilterMode" />
     </column>
     <column name="MessageTypeFilterMode" type="INT">
       <offset>12</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="ChatTabFilterMode" />
     </column>
     <column name="eMessageTypeFilterMode" type="INT">
       <offset>12</offset>
@@ -71,7 +71,7 @@
         <flag>PERSIST</flag>
       </flags>
       <redundant_name>MessageTypeFilterMode</redundant_name>
-      <static_define_list />
+      <static_define_list external="ChatTabFilterMode" />
     </column>
     <column name="Channel" type="STRINGARRAY">
       <offset>16</offset>

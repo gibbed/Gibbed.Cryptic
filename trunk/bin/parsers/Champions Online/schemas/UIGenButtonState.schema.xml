@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>4</default>
-      <static_define_list />
+      <static_define_list external="UIGenType" />
     </column>
     <column name="String" type="STRING">
       <offset>4</offset>
@@ -23,6 +23,10 @@
     </column>
     <column name="Pressed" type="U8">
       <offset>12</offset>
+    </column>
+    <column name="Truncate" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="UIGenBundleTruncateState" />
     </column>
     <column name="}" type="END" />
   </table>

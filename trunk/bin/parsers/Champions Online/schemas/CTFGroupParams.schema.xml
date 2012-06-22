@@ -13,14 +13,14 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>3</default>
-      <static_define_list />
+      <static_define_list external="PVPGameType" />
     </column>
     <column name="CTFScore" type="INT">
       <offset>4</offset>
     </column>
     <column name="FlagStatus" type="INT">
       <offset>8</offset>
-      <static_define_list />
+      <static_define_list external="CTFFlagStatus" />
     </column>
     <column name="TimeDropped" type="F32">
       <offset>12</offset>
@@ -35,8 +35,12 @@
       </flags>
       <num_elements>3</num_elements>
     </column>
-    <column name="FlagHolder" type="INT">
+    <column name="vecCapLocation" type="F32FIXEDARRAY">
       <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="FlagHolder" type="INT">
+      <offset>40</offset>
     </column>
     <column name="}" type="END" />
   </table>

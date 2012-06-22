@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PetPowerData">
+  <table>
+    <column name="PetPowerData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="OwnerType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="OwnerID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Ent" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Entity" />
+    </column>
+    <column name="hDef" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="OwnerName" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

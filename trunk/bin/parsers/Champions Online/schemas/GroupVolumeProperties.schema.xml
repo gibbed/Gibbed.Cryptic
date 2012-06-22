@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GroupVolumeProperties">
+  <table>
+    <column name="GroupVolumeProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Shape" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GroupDefVolumeShape" />
+    </column>
+    <column name="BoxMin" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="BoxMax" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="SphereRadius" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="SubVolume" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="VolumeType" type="STRINGARRAY">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

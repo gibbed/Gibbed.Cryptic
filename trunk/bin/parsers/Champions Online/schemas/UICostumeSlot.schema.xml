@@ -27,8 +27,15 @@
       </flags>
       <subtable external="PCSlotDef" />
     </column>
-    <column name="IsUnlocked" type="U8">
+    <column name="SlotType" type="OPTIONALSTRUCT">
       <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCSlotType" />
+    </column>
+    <column name="IsUnlocked" type="U8">
+      <offset>20</offset>
     </column>
     <column name="}" type="END" />
   </table>

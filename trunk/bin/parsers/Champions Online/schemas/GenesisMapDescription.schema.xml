@@ -71,11 +71,11 @@
     </column>
     <column name="Type" type="INT">
       <offset>48</offset>
-      <static_define_list />
+      <static_define_list external="GenesisMapType" />
     </column>
     <column name="LayoutInfoSpecifier" type="INT">
       <offset>52</offset>
-      <static_define_list />
+      <static_define_list external="GenesisTemplateOrCustom" />
     </column>
     <column name="ExteriorLayoutInfoTemplate" type="REFERENCE">
       <offset>56</offset>
@@ -92,7 +92,7 @@
     </column>
     <column name="BackdropSpecifier" type="INT">
       <offset>64</offset>
-      <static_define_list />
+      <static_define_list external="GenesisTagOrName" />
     </column>
     <column name="BackdropTags2" type="STRINGARRAY">
       <offset>68</offset>

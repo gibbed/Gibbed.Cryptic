@@ -9,11 +9,11 @@
     <column name="{" type="START" />
     <column name="ContainerState" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="ContainerState" />
     </column>
     <column name="containerOwnerType" type="INT">
       <offset>4</offset>
-      <static_define_list />
+      <static_define_list external="GlobalType" />
     </column>
     <column name="containerOwnerID" type="INT">
       <offset>8</offset>

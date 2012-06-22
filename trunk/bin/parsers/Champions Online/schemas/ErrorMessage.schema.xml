@@ -9,7 +9,7 @@
     <column name="{" type="START" />
     <column name="errorType" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="ErrorMessageType" />
     </column>
     <column name="estrFormattedMsg" type="STRING">
       <offset>4</offset>
@@ -88,6 +88,9 @@
     </column>
     <column name="errorCount" type="INT">
       <offset>60</offset>
+    </column>
+    <column name="sent" type="U8">
+      <offset>64</offset>
     </column>
     <column name="}" type="END" />
   </table>

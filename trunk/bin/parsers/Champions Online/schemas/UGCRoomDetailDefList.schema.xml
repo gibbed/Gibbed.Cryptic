@@ -11,6 +11,19 @@
       <offset>0</offset>
       <subtable external="UGCRoomDetailDef" />
     </column>
+    <column name="PopulateDef" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UGCRoomPopulateDef" />
+    </column>
+    <column name="LevelParameter" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="NumLevels" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="LevelGroup" type="INTARRAY">
+      <offset>16</offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

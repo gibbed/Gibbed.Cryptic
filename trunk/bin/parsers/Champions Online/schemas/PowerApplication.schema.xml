@@ -47,30 +47,30 @@
       <offset>220</offset>
     </column>
     <column name="Period" type="INT">
-      <offset>248</offset>
+      <offset>252</offset>
     </column>
     <column name="AngleToTarget" type="F32">
-      <offset>264</offset>
-    </column>
-    <column name="AngleToSource" type="F32">
       <offset>268</offset>
     </column>
-    <column name="AngleToTargetVertical" type="F32">
+    <column name="AngleToSource" type="F32">
       <offset>272</offset>
     </column>
-    <column name="AngleToSourceVertical" type="F32">
+    <column name="AngleToTargetVertical" type="F32">
       <offset>276</offset>
     </column>
-    <column name="PrimaryTarget" type="BIT">
+    <column name="AngleToSourceVertical" type="F32">
       <offset>280</offset>
+    </column>
+    <column name="PrimaryTarget" type="BIT">
+      <offset>284</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Glancing" type="BIT">
-      <offset>280</offset>
+      <offset>284</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="MissMods" type="BIT">
-      <offset>280</offset>
+      <offset>284</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="}" type="END" />

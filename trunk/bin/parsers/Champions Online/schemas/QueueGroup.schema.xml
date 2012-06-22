@@ -24,9 +24,15 @@
     <column name="GroupSize" type="INT">
       <offset>12</offset>
     </column>
-    <column name="GroupDef" type="OPTIONALSTRUCT">
+    <column name="LimboCount" type="INT">
       <offset>16</offset>
+    </column>
+    <column name="GroupDef" type="OPTIONALSTRUCT">
+      <offset>20</offset>
       <subtable external="QueueGroupDef" />
+    </column>
+    <column name="uiTeamUpID" type="INT">
+      <offset>24</offset>
     </column>
     <column name="}" type="END" />
   </table>

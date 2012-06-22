@@ -53,7 +53,7 @@
     <column name="Category" type="STRING">
       <offset>60</offset>
     </column>
-    <column name="OrderID" type="STRING">
+    <column name="Orderid" type="STRING">
       <offset>64</offset>
     </column>
     <column name="TransactionID" type="STRING">
@@ -61,7 +61,7 @@
     </column>
     <column name="Provider" type="INT">
       <offset>72</offset>
-      <static_define_list />
+      <static_define_list external="TransactionProvider" />
     </column>
     <column name="}" type="END" />
   </table>

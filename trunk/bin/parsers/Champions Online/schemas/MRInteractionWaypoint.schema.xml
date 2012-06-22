@@ -21,8 +21,14 @@
     <column name="animBitHandles" type="INTARRAY">
       <offset>32</offset>
     </column>
-    <column name="Flags" type="EMBEDDEDSTRUCT">
+    <column name="animToStart" type="INT">
       <offset>36</offset>
+    </column>
+    <column name="Stances" type="INTARRAY">
+      <offset>40</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
       <subtable external="MRInteractionWaypointFlags" />
     </column>
     <column name="}" type="END" />

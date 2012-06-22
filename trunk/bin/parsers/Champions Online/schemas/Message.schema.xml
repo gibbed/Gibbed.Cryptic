@@ -51,22 +51,25 @@
         <flag>CASE_SENSITIVE</flag>
       </flags>
     </column>
-    <column name="Final" type="U8">
+    <column name="LineNum" type="LINENUM">
       <offset>20</offset>
+    </column>
+    <column name="Final" type="U8">
+      <offset>24</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="DoNotTranslate" type="U8">
-      <offset>21</offset>
+      <offset>25</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="LocallyTranslated" type="U8">
-      <offset>22</offset>
+      <offset>26</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>USEROPTIONBIT_1</flag>

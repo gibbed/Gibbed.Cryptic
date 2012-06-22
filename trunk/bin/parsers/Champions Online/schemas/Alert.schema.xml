@@ -25,11 +25,11 @@
     </column>
     <column name="Level" type="INT">
       <offset>12</offset>
-      <static_define_list />
+      <static_define_list external="enumAlertLevel" />
     </column>
     <column name="Category" type="INT">
       <offset>16</offset>
-      <static_define_list />
+      <static_define_list external="enumAlertCategory" />
     </column>
     <column name="MostRecentHappenedTime" type="INT">
       <offset>20</offset>
@@ -39,14 +39,14 @@
     </column>
     <column name="ContainerTypeOfObject" type="INT">
       <offset>28</offset>
-      <static_define_list />
+      <static_define_list external="GlobalType" />
     </column>
     <column name="IDOfObject" type="INT">
       <offset>32</offset>
     </column>
     <column name="ContainerTypeOfServer" type="INT">
       <offset>36</offset>
-      <static_define_list />
+      <static_define_list external="GlobalType" />
     </column>
     <column name="IDOfServer" type="INT">
       <offset>40</offset>
@@ -105,6 +105,9 @@
     </column>
     <column name="PatchVersion" type="STRING">
       <offset>104</offset>
+    </column>
+    <column name="WasSentByCriticalSystems" type="U8">
+      <offset>108</offset>
     </column>
     <column name="}" type="END" />
   </table>

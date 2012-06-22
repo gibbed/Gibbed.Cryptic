@@ -24,9 +24,13 @@
       <offset>8</offset>
       <subtable external="GameTokenText" />
     </column>
-    <column name="Type" type="INT">
+    <column name="NotPresentToken" type="STRUCT">
       <offset>12</offset>
-      <static_define_list />
+      <subtable external="GameTokenText" />
+    </column>
+    <column name="Type" type="INT">
+      <offset>16</offset>
+      <static_define_list external="GamePermissionType" />
     </column>
     <column name="}" type="END" />
   </table>

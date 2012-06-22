@@ -12,13 +12,20 @@
       <flags>
         <flag>STRUCTPARAM</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="UGCWhenType" />
     </column>
     <column name="ComponentID" type="INTARRAY">
       <offset>4</offset>
     </column>
     <column name="ObjectiveID" type="INTARRAY">
       <offset>8</offset>
+    </column>
+    <column name="ItemName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="DialogPrompt" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="UGCWhenDialogPrompt" />
     </column>
     <column name="}" type="END" />
   </table>

@@ -16,6 +16,12 @@
     <column name="Not" type="U8">
       <offset>4</offset>
     </column>
+    <column name="ItemName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

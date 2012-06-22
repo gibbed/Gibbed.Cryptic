@@ -13,7 +13,7 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="PetRelationshipType" />
     </column>
     <column name="eState" type="INT">
       <offset>4</offset>
@@ -21,7 +21,7 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="OwnedContainerState" />
     </column>
     <column name="eStatus" type="INT">
       <offset>8</offset>
@@ -29,7 +29,8 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="PetRelationshipStatus" />
+      <format>FLAGS</format>
     </column>
     <column name="conID" type="INT">
       <offset>12</offset>

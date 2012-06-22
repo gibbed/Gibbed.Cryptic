@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>3</default>
-      <static_define_list />
+      <static_define_list external="PVPGameType" />
     </column>
     <column name="Scoreboard" type="STRING">
       <offset>4</offset>
@@ -36,27 +36,41 @@
     <column name="PointMax" type="INT">
       <offset>24</offset>
     </column>
-    <column name="MaxGameTime" type="F32">
+    <column name="DisableNaturalRespawn" type="U8">
       <offset>28</offset>
     </column>
-    <column name="MaxOvertime" type="F32">
+    <column name="MaxGameTime" type="F32">
       <offset>32</offset>
     </column>
-    <column name="MaxDropTime" type="F32">
+    <column name="MaxOvertime" type="F32">
       <offset>36</offset>
     </column>
-    <column name="FlagName" type="STRING">
+    <column name="MaxDropTime" type="F32">
       <offset>40</offset>
     </column>
-    <column name="FlagCritter" type="STRING">
+    <column name="FlagName" type="STRING">
       <offset>44</offset>
     </column>
-    <column name="FlagPower" type="STRINGARRAY">
+    <column name="FlagCritter" type="STRING">
       <offset>48</offset>
     </column>
-    <column name="FlagCarrierClass" type="REFERENCE">
+    <column name="FlagPower" type="STRINGARRAY">
       <offset>52</offset>
+    </column>
+    <column name="FlagStackPowers" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="CTF_FlagPowerStack" />
+    </column>
+    <column name="FlagCarrierClass" type="REFERENCE">
+      <offset>60</offset>
       <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="RechargePowerCategories" type="STRINGARRAY">
+      <offset>64</offset>
+    </column>
+    <column name="RequireOwnFlagToScore" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

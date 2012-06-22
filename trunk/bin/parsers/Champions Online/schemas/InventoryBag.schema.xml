@@ -16,7 +16,7 @@
         <flag>KEY</flag>
         <flag>PERSIST</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="InvBagIDs" />
     </column>
     <column name="inv_def" type="REFERENCE">
       <offset>4</offset>
@@ -86,10 +86,10 @@
       </flags>
       <redundant_name>iActiveSlot</redundant_name>
     </column>
-    <column name="uLastChangeActiveSlotTime" type="INT">
+    <column name="eaiPredictedActiveSlots" type="INTARRAY">
       <offset>28</offset>
       <flags>
-        <flag>SERVER_ONLY</flag>
+        <flag>CLIENT_ONLY</flag>
       </flags>
     </column>
     <column name="uiTeamOwner" type="INT">

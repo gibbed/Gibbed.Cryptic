@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="KeyboardLayout">
+  <table>
+    <column name="KeyboardLayout" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Texture" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="DisplayName" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Key" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="KeyboardLayoutKey" />
+    </column>
+    <column name="Layout" type="STRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="KeyboardLayoutSublayout" />
+    </column>
+    <column name="Width" type="INT16">
+      <offset>20</offset>
+    </column>
+    <column name="Height" type="INT16">
+      <offset>22</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

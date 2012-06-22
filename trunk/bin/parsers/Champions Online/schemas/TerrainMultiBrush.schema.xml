@@ -7,15 +7,21 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="FileName" type="CURRENTFILE">
+    <column name="Name" type="STRING">
       <offset>0</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>KEY</flag>
       </flags>
     </column>
-    <column name="Brush" type="STRUCT">
+    <column name="FileName" type="CURRENTFILE">
       <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Brush" type="STRUCT">
+      <offset>8</offset>
       <subtable external="TerrainBrush" />
     </column>
     <column name="}" type="END" />

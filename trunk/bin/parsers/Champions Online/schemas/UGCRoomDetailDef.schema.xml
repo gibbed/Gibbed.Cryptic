@@ -10,17 +10,14 @@
     <column name="ChildCount" type="INT">
       <offset>0</offset>
     </column>
-    <column name="eaiChildPath" type="INTARRAY">
+    <column name="astrParameter" type="STRING">
       <offset>4</offset>
-    </column>
-    <column name="astrScopePath" type="STRING">
-      <offset>8</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Names" type="STRINGARRAY">
-      <offset>12</offset>
+      <offset>8</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

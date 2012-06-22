@@ -9,11 +9,11 @@
     <column name="{" type="START" />
     <column name="light_type" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="LightType" />
     </column>
     <column name="light_affect_type" type="INT">
       <offset>4</offset>
-      <static_define_list />
+      <static_define_list external="LightAffectType" />
     </column>
     <column name="rot_world_mat" type="MATPYR">
       <offset>8</offset>
@@ -26,18 +26,22 @@
     <column name="ambient_hsv" type="F32FIXEDARRAY">
       <offset>56</offset>
       <num_elements>3</num_elements>
+      <format>HSV</format>
     </column>
     <column name="diffuse_hsv" type="F32FIXEDARRAY">
       <offset>68</offset>
       <num_elements>3</num_elements>
+      <format>HSV</format>
     </column>
     <column name="specular_hsv" type="F32FIXEDARRAY">
       <offset>80</offset>
       <num_elements>3</num_elements>
+      <format>HSV</format>
     </column>
     <column name="secondary_diffuse_hsv" type="F32FIXEDARRAY">
       <offset>92</offset>
       <num_elements>3</num_elements>
+      <format>HSV</format>
     </column>
     <column name="inner_radius" type="F32">
       <offset>116</offset>

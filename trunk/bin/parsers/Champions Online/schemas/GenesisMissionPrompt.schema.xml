@@ -32,7 +32,7 @@
     </column>
     <column name="whenType" type="INT">
       <offset>20</offset>
-      <static_define_list />
+      <static_define_list external="GenesisWhenType" />
     </column>
     <column name="ShowWhen" type="INT">
       <offset>20</offset>
@@ -40,7 +40,7 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>whenType</redundant_name>
-      <static_define_list />
+      <static_define_list external="GenesisWhenType" />
     </column>
     <column name="SpawnWhen" type="INT">
       <offset>20</offset>
@@ -48,7 +48,7 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>whenType</redundant_name>
-      <static_define_list />
+      <static_define_list external="GenesisWhenType" />
     </column>
     <column name="Not" type="U8">
       <offset>24</offset>
@@ -138,66 +138,73 @@
       </flags>
       <redundant_name>WhenPromptName</redundant_name>
     </column>
-    <column name="WhenPromptChallengeName" type="STRING">
+    <column name="WhenPromptBlock" type="STRUCT">
       <offset>52</offset>
+      <subtable external="GenesisWhenPromptBlock" />
     </column>
-    <column name="WhenContactName" type="STRINGARRAY">
+    <column name="WhenPromptChallengeName" type="STRING">
       <offset>56</offset>
     </column>
-    <column name="WhenCritterDefName" type="STRINGARRAY">
+    <column name="WhenContactName" type="STRINGARRAY">
       <offset>60</offset>
     </column>
-    <column name="WhenCritterGroupName" type="STRINGARRAY">
+    <column name="WhenCritterDefName" type="STRINGARRAY">
       <offset>64</offset>
     </column>
-    <column name="WhenCritterNumToComplete" type="INT">
+    <column name="WhenCritterGroupName" type="STRINGARRAY">
       <offset>68</offset>
     </column>
-    <column name="WhenExternalMission" type="STRINGARRAY">
+    <column name="WhenCritterNumToComplete" type="INT">
       <offset>72</offset>
+    </column>
+    <column name="WhenExternalMission" type="STRINGARRAY">
+      <offset>76</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="WhenExternalMap" type="STRINGARRAY">
+      <offset>80</offset>
+    </column>
     <column name="WhenExternalChallenge" type="STRUCT">
-      <offset>76</offset>
+      <offset>84</offset>
       <subtable external="GenesisWhenExternalChallenge" />
     </column>
     <column name="WhenExternalRoom" type="STRUCT">
-      <offset>80</offset>
+      <offset>88</offset>
       <subtable external="GenesisWhenExternalRoom" />
     </column>
     <column name="WhenExternalPrompt" type="STRUCT">
-      <offset>84</offset>
+      <offset>92</offset>
       <subtable external="GenesisWhenExternalPrompt" />
     </column>
     <column name="WhenItemDefName" type="STRINGARRAY">
-      <offset>88</offset>
-    </column>
-    <column name="WhenItemCount" type="INT">
-      <offset>92</offset>
-    </column>
-    <column name="OptionalPrompt" type="U8">
       <offset>96</offset>
     </column>
-    <column name="OptionalButtonText" type="STRING">
+    <column name="WhenItemCount" type="INT">
       <offset>100</offset>
     </column>
-    <column name="OptionalCategoryName" type="STRING">
+    <column name="OptionalPrompt" type="U8">
       <offset>104</offset>
     </column>
-    <column name="OptionalPriority" type="INT">
+    <column name="OptionalButtonText" type="STRING">
       <offset>108</offset>
-      <static_define_list />
     </column>
-    <column name="OptionalAutoExecute" type="U8">
+    <column name="OptionalCategoryName" type="STRING">
       <offset>112</offset>
     </column>
+    <column name="OptionalPriority" type="INT">
+      <offset>116</offset>
+      <static_define_list external="WorldOptionalActionPriority" />
+    </column>
+    <column name="OptionalAutoExecute" type="U8">
+      <offset>120</offset>
+    </column>
     <column name="OptionalHideOnComplete" type="U8">
-      <offset>113</offset>
+      <offset>121</offset>
     </column>
     <column name="OptionalHideOnCompletePrompt" type="STRING">
-      <offset>116</offset>
+      <offset>124</offset>
     </column>
     <column name="sPrimaryBlock" type="IGNORE">
       <flags>
@@ -205,7 +212,7 @@
       </flags>
     </column>
     <column name="BlockName" type="STRING">
-      <offset>120</offset>
+      <offset>128</offset>
     </column>
     <column name="Costume2" type="IGNORE">
       <flags>
@@ -213,69 +220,70 @@
       </flags>
     </column>
     <column name="CostumeType" type="INT">
-      <offset>124</offset>
-      <static_define_list />
+      <offset>132</offset>
+      <static_define_list external="GenesisMissionCostumeType" />
     </column>
     <column name="UsePetCostume" type="INT">
-      <offset>124</offset>
+      <offset>132</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>CostumeType</redundant_name>
-      <static_define_list />
+      <static_define_list external="GenesisMissionCostumeType" />
     </column>
     <column name="Costume" type="REFERENCE">
-      <offset>128</offset>
+      <offset>136</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
     <column name="PetCostume" type="REFERENCE">
-      <offset>132</offset>
+      <offset>140</offset>
       <dictionary_name>PetContactList</dictionary_name>
     </column>
     <column name="CostumeCritterGroupType" type="INT">
-      <offset>136</offset>
-      <static_define_list />
+      <offset>144</offset>
+      <static_define_list external="ContactMapVarOverrideType" />
     </column>
     <column name="CostumeCritterGroup" type="REFERENCE">
-      <offset>140</offset>
+      <offset>148</offset>
       <dictionary_name>CritterGroup</dictionary_name>
     </column>
     <column name="CostumeMapVar" type="STRING">
-      <offset>144</offset>
-    </column>
-    <column name="CostumeIdentifier" type="STRING">
-      <offset>148</offset>
-    </column>
-    <column name="HeadshotStyle" type="STRING">
       <offset>152</offset>
     </column>
-    <column name="CutsceneDef" type="REFERENCE">
+    <column name="CostumeIdentifier" type="STRING">
       <offset>156</offset>
+    </column>
+    <column name="HeadshotStyle" type="STRING">
+      <offset>160</offset>
+    </column>
+    <column name="CutsceneDef" type="REFERENCE">
+      <offset>164</offset>
       <dictionary_name>CutsceneDef</dictionary_name>
     </column>
     <column name="AnimList" type="REFERENCE">
-      <offset>160</offset>
+      <offset>168</offset>
       <dictionary_name>AIAnimList</dictionary_name>
     </column>
     <column name="TitleText" type="STRING">
-      <offset>164</offset>
-    </column>
-    <column name="BodyText" type="STRINGARRAY">
-      <offset>168</offset>
-    </column>
-    <column name="Phrase" type="STRING">
       <offset>172</offset>
     </column>
-    <column name="DialogFlags" type="INT">
+    <column name="BodyText" type="STRINGARRAY">
       <offset>176</offset>
-      <static_define_list />
+    </column>
+    <column name="Phrase" type="STRING">
+      <offset>180</offset>
+    </column>
+    <column name="DialogFlags" type="INT">
+      <offset>184</offset>
+      <static_define_list external="SpecialDialogFlags" />
+      <format>FLAGS</format>
     </column>
     <column name="Action" type="STRUCT">
-      <offset>180</offset>
+      <offset>188</offset>
       <subtable external="GenesisMissionPromptAction" />
     </column>
     <column name="Block" type="STRUCT">
-      <offset>184</offset>
+      <offset>192</offset>
       <subtable external="GenesisMissionPromptBlock" />
     </column>
     <column name="}" type="END" />

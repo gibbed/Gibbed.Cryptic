@@ -29,28 +29,41 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
+    <column name="NoDescription" type="BOOLFLAG">
+      <offset>28</offset>
+    </column>
     <column name="restrictionProps" type="IGNORE">
       <flags>
         <flag>FLATEMBED</flag>
       </flags>
     </column>
     <column name="MinLevel" type="INT">
-      <offset>28</offset>
-    </column>
-    <column name="MaxLevel" type="INT">
       <offset>32</offset>
     </column>
-    <column name="Faction" type="STRUCT">
+    <column name="MaxLevel" type="INT">
       <offset>36</offset>
+    </column>
+    <column name="Faction" type="STRUCT">
+      <offset>40</offset>
       <subtable external="WorldUGCFactionRestrictionProperties" />
     </column>
     <column name="RestrictAllegiance" type="STRUCT">
-      <offset>36</offset>
+      <offset>40</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>Faction</redundant_name>
       <subtable external="WorldUGCFactionRestrictionProperties" />
+    </column>
+    <column name="DefaultHeight" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="ActorProperties" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="WorldUGCActorProperties" />
+    </column>
+    <column name="ClickableName" type="STRING">
+      <offset>52</offset>
     </column>
     <column name="}" type="END" />
   </table>

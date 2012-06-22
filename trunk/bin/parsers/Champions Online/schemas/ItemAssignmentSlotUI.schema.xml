@@ -15,8 +15,11 @@
       <offset>4</offset>
       <dictionary_name>ItemAssignmentDef</dictionary_name>
     </column>
-    <column name="hItemDef" type="REFERENCE">
+    <column name="uNewAssignmentID" type="INT">
       <offset>8</offset>
+    </column>
+    <column name="hItemDef" type="REFERENCE">
+      <offset>12</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="uItemID" type="INT64">
@@ -24,7 +27,7 @@
     </column>
     <column name="BagID" type="INT">
       <offset>24</offset>
-      <static_define_list />
+      <static_define_list external="InvBagIDs" />
     </column>
     <column name="BagSlot" type="INT">
       <offset>28</offset>
@@ -38,19 +41,73 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="AffectedCategories" type="STRING">
+    <column name="RawRequiredCategories" type="STRING">
       <offset>40</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="Destroyed" type="BIT">
+    <column name="RestrictCategories" type="STRING">
       <offset>44</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="RawRestrictCategories" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="AffectedCategories" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="RawAffectedCategories" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DestroyDescription" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="NewAssignmentDescription" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="FailsReason" type="INT">
+      <offset>72</offset>
+      <static_define_list external="ItemAssignmentFailsRequiresReason" />
+    </column>
+    <column name="Destroyed" type="BIT">
+      <offset>76</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="NewAssignment" type="BIT">
-      <offset>44</offset>
+      <offset>76</offset>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Unslottable" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="Updated" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

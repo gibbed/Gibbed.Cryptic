@@ -59,12 +59,14 @@
     </column>
     <column name="RestrictedTo" type="U8">
       <offset>48</offset>
-      <static_define_list />
+      <static_define_list external="PCRestriction" />
+      <format>FLAGS</format>
     </column>
     <column name="ColorChoices" type="U8">
       <offset>49</offset>
       <default>15</default>
-      <static_define_list />
+      <static_define_list external="PCColorFlags" />
+      <format>FLAGS</format>
     </column>
     <column name="HasSkin" type="BIT">
       <offset>48</offset>

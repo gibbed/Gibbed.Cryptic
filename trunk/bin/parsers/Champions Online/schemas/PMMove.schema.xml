@@ -42,32 +42,39 @@
     <column name="distStop" type="F32">
       <offset>56</offset>
     </column>
-    <column name="lurchTraveled" type="F32">
+    <column name="entCollisionCapsuleBuffer" type="F32">
       <offset>60</offset>
     </column>
-    <column name="DefaultDir" type="BIT">
+    <column name="lurchTraveled" type="F32">
       <offset>64</offset>
+    </column>
+    <column name="DefaultDir" type="BIT">
+      <offset>68</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="started" type="BIT">
-      <offset>64</offset>
+      <offset>68</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="firstTickProcessed" type="BIT">
-      <offset>64</offset>
+      <offset>68</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="faceAway" type="BIT">
-      <offset>64</offset>
+      <offset>68</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="stopLurching" type="BIT">
-      <offset>64</offset>
+      <offset>68</offset>
       <bit_offset>65540</bit_offset>
     </column>
-    <column name="FaceDuringPowerActivation" type="BIT">
-      <offset>64</offset>
+    <column name="FaceActivateSticky" type="BIT">
+      <offset>68</offset>
       <bit_offset>65541</bit_offset>
+    </column>
+    <column name="UseVecAsDirection" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65542</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

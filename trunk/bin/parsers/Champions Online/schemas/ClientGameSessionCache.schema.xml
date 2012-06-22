@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClientGameSessionCache">
+  <table>
+    <column name="ClientGameSessionCache" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="GroupName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Version" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Sessions" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="TimeLastUpdated" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="FriendsOnly" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Loading" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Refreshing" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="NumRecordsRequested" type="BIT">
+      <offset>16</offset>
+      <bit_offset>524291</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -18,11 +18,11 @@
     </column>
     <column name="minUsageRestrictionCategory" type="INT">
       <offset>12</offset>
-      <static_define_list />
+      <static_define_list external="UsageRestrictionCategory" />
     </column>
     <column name="maxUsageRestrictionCategory" type="INT">
       <offset>16</offset>
-      <static_define_list />
+      <static_define_list external="UsageRestrictionCategory" />
     </column>
     <column name="OwnerID" type="INT">
       <offset>20</offset>
@@ -33,18 +33,27 @@
     <column name="sortType" type="INT">
       <offset>28</offset>
     </column>
-    <column name="SortColumn" type="INT">
+    <column name="ItemSortTypeCategoryName" type="STRING">
       <offset>32</offset>
-      <static_define_list />
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="stringSearch" type="STRING">
+    <column name="eaiAuctionLotContainerIDs" type="INTARRAY">
       <offset>36</offset>
     </column>
-    <column name="stringLanguage" type="INT">
+    <column name="SortColumn" type="INT">
       <offset>40</offset>
+      <static_define_list external="AuctionSortColumn" />
+    </column>
+    <column name="stringSearch" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="stringLanguage" type="INT">
+      <offset>48</offset>
     </column>
     <column name="numResults" type="INT">
-      <offset>44</offset>
+      <offset>52</offset>
     </column>
     <column name="}" type="END" />
   </table>

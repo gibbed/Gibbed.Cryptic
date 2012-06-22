@@ -13,36 +13,56 @@
     <column name="erSource" type="INT">
       <offset>4</offset>
     </column>
-    <column name="Magnitude" type="F32">
+    <column name="erSpecialNotifySource" type="INT">
       <offset>8</offset>
     </column>
-    <column name="MagnitudeBase" type="F32">
+    <column name="Magnitude" type="F32">
       <offset>12</offset>
     </column>
-    <column name="Type" type="INT">
+    <column name="MagnitudeBase" type="F32">
       <offset>16</offset>
-      <static_define_list />
+    </column>
+    <column name="Type" type="INT">
+      <offset>20</offset>
+      <static_define_list external="AttribType" />
     </column>
     <column name="hDisplayName" type="REFERENCE">
-      <offset>20</offset>
+      <offset>24</offset>
       <dictionary_name>Message</dictionary_name>
     </column>
     <column name="Flags" type="INT">
-      <offset>24</offset>
-      <static_define_list />
+      <offset>28</offset>
+      <static_define_list external="CombatTrackerFlag" />
+      <format>FLAGS</format>
     </column>
     <column name="Delay" type="F32">
-      <offset>28</offset>
+      <offset>32</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="PowerDef" type="OPTIONALSTRUCT">
-      <offset>32</offset>
+      <offset>36</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="PowerDef" />
+    </column>
+    <column name="AINotifyMiss" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="eaiAdditionalHitFrameDelays" type="INTARRAY">
+      <offset>44</offset>
+    </column>
+    <column name="MagPercentPerFloater" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="MagPercentFinisher" type="F32">
+      <offset>52</offset>
     </column>
     <column name="}" type="END" />
   </table>

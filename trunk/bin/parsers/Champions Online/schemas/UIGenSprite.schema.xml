@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>3</default>
-      <static_define_list />
+      <static_define_list external="UIGenType" />
     </column>
     <column name="bf" type="INTFIXEDARRAY">
       <offset>4</offset>
@@ -29,11 +29,11 @@
     </column>
     <column name="X" type="INT16">
       <offset>24</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="Y" type="INT16">
       <offset>26</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="PercentX" type="F32">
       <offset>28</offset>
@@ -67,19 +67,19 @@
     </column>
     <column name="LeftMargin" type="INT16">
       <offset>84</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="RightMargin" type="INT16">
       <offset>86</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="TopMargin" type="INT16">
       <offset>88</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="BottomMargin" type="INT16">
       <offset>90</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="Scale" type="F32">
       <offset>92</offset>
@@ -88,7 +88,7 @@
     <column name="OffsetFrom" type="U8">
       <offset>96</offset>
       <default>10</default>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="ScaleNoGrow" type="BIT">
       <offset>96</offset>
@@ -338,7 +338,10 @@
     </column>
     <column name="TopLeftColor" type="INT">
       <offset>240</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="Color" type="INT">
       <offset>240</offset>
@@ -346,19 +349,31 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>TopLeftColor</redundant_name>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="TopRightColor" type="INT">
       <offset>244</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="BottomLeftColor" type="INT">
       <offset>248</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="BottomRightColor" type="INT">
       <offset>252</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="Rotation" type="EMBEDDEDSTRUCT">
       <offset>256</offset>
@@ -398,17 +413,17 @@
     <column name="Mode" type="BIT">
       <offset>292</offset>
       <bit_offset>262144</bit_offset>
-      <static_define_list />
+      <static_define_list external="UITextureMode" />
     </column>
     <column name="Effect" type="BIT">
       <offset>292</offset>
       <bit_offset>262148</bit_offset>
-      <static_define_list />
+      <static_define_list external="RdrSpriteEffect" />
     </column>
     <column name="Alignment" type="BIT">
       <offset>292</offset>
       <bit_offset>327688</bit_offset>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="Additive" type="BIT">
       <offset>296</offset>

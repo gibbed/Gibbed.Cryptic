@@ -14,6 +14,14 @@
       <offset>4</offset>
       <subtable external="GenesisInstancedObjectParams" />
     </column>
+    <column name="InteractParams" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="GenesisInteractObjectParams" />
+    </column>
+    <column name="VolumeParams" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisProceduralObjectParams" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

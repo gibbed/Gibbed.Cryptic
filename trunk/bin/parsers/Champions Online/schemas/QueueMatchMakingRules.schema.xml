@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueMatchMakingRules">
+  <table>
+    <column name="QueueMatchMakingRules" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DefaultLevelRange" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="RankRange" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="RankTimeOut" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="LevelTimeOut" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="MapTimeOut" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="RankMax" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="LevelMax" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="MatchMakingLeaderboard" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

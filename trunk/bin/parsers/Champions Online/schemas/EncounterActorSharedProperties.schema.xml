@@ -8,7 +8,7 @@
     </column>
     <column name="CritterGroupType" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="EncounterSharedCritterGroupSource" />
     </column>
     <column name="CritterGroup" type="REFERENCE">
       <offset>4</offset>
@@ -19,17 +19,20 @@
     </column>
     <column name="CritterFactionType" type="INT">
       <offset>12</offset>
-      <static_define_list />
+      <static_define_list external="EncounterCritterOverrideType" />
     </column>
     <column name="CritterFaction" type="REFERENCE">
       <offset>16</offset>
       <dictionary_name>CritterFaction</dictionary_name>
     </column>
-    <column name="Gang" type="INT">
+    <column name="OverrideSendDistance" type="F32">
       <offset>20</offset>
     </column>
-    <column name="OverrideParentValues" type="U8">
+    <column name="Gang" type="INT">
       <offset>24</offset>
+    </column>
+    <column name="OverrideParentValues" type="U8">
+      <offset>28</offset>
     </column>
     <column name="End" type="END" />
   </table>

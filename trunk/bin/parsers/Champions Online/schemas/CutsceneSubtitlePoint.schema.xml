@@ -25,8 +25,14 @@
       <offset>12</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="CutsceneEntName" type="STRING">
+    <column name="SubtitleVariable" type="STRING">
       <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CutsceneEntName" type="STRING">
+      <offset>28</offset>
     </column>
     <column name="}" type="END" />
   </table>

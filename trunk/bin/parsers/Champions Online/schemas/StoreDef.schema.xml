@@ -42,28 +42,32 @@
       <offset>20</offset>
       <subtable external="StoreRestockDef" />
     </column>
-    <column name="hCurrency" type="REFERENCE">
+    <column name="DiscountDef" type="STRUCT">
       <offset>24</offset>
+      <subtable external="StoreDiscountDef" />
+    </column>
+    <column name="hCurrency" type="REFERENCE">
+      <offset>28</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="BuyMultiplier" type="F32">
-      <offset>28</offset>
-      <default>1</default>
-    </column>
-    <column name="SellMultiplier" type="F32">
       <offset>32</offset>
       <default>1</default>
     </column>
-    <column name="ExprEPConversion" type="OPTIONALSTRUCT">
+    <column name="SellMultiplier" type="F32">
       <offset>36</offset>
+      <default>1</default>
+    </column>
+    <column name="ExprEPConversion" type="OPTIONALSTRUCT">
+      <offset>40</offset>
       <subtable external="Expression" />
     </column>
     <column name="ExprBlockRequires" type="OPTIONALSTRUCT">
-      <offset>40</offset>
+      <offset>44</offset>
       <subtable external="Expression" />
     </column>
     <column name="ExprRequiresBlock" type="OPTIONALSTRUCT">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -71,7 +75,7 @@
       <subtable external="Expression" />
     </column>
     <column name="ExprRequires" type="OPTIONALSTRUCT">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -79,31 +83,31 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="Contents" type="INT">
-      <offset>44</offset>
-      <static_define_list />
+      <offset>48</offset>
+      <static_define_list external="StoreContents" />
     </column>
     <column name="Region" type="INT">
-      <offset>48</offset>
+      <offset>52</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="WorldRegionType" />
     </column>
     <column name="ItemLevel" type="INT">
-      <offset>52</offset>
+      <offset>56</offset>
     </column>
     <column name="SellEnabled" type="BIT">
-      <offset>56</offset>
+      <offset>60</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="IsPersisted" type="BIT">
-      <offset>56</offset>
+      <offset>60</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="IsResearchStore" type="BIT">
-      <offset>56</offset>
+      <offset>60</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="DisplayStoreCPoints" type="BIT">
-      <offset>56</offset>
+      <offset>60</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="AutoLearn" type="IGNORE" />

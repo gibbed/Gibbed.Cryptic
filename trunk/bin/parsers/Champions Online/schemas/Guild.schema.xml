@@ -61,12 +61,22 @@
       </flags>
       <subtable external="GuildCustomRank" />
     </column>
-    <column name="pInventory" type="OPTIONALSTRUCT">
+    <column name="pInventoryDeprecated" type="OPTIONALSTRUCT">
       <offset>28</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
+      <subtable external="Inventory" />
+    </column>
+    <column name="pInventory" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>pInventoryDeprecated</redundant_name>
       <subtable external="Inventory" />
     </column>
     <column name="eaBankLog" type="STRUCT">
@@ -341,23 +351,8 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="bRecruitSilenced" type="U8">
-      <offset>174</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="eaiReporterAccountIDs" type="INTARRAY">
-      <offset>176</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>SERVER_ONLY</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
     <column name="pGuildStatsInfo" type="OPTIONALSTRUCT">
-      <offset>180</offset>
+      <offset>176</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -365,7 +360,7 @@
       <subtable external="GuildStatsInfo" />
     </column>
     <column name="hTheme" type="REFERENCE">
-      <offset>184</offset>
+      <offset>180</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -373,13 +368,15 @@
       <dictionary_name>GuildThemeDef</dictionary_name>
     </column>
     <column name="bIsOwnedBySystem" type="U8">
-      <offset>188</offset>
+      <offset>184</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
+    <column name="bRecruitSilenced" type="IGNORE" />
+    <column name="eaiReporterAccountIDs" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

@@ -92,11 +92,11 @@
     </column>
     <column name="CritterTags" type="INTARRAY">
       <offset>84</offset>
-      <static_define_list />
+      <static_define_list external="CritterTag" />
     </column>
     <column name="SpawnLimit" type="INT">
       <offset>88</offset>
-      <static_define_list />
+      <static_define_list external="CritterSpawnLimit" />
     </column>
     <column name="Rank" type="STRING">
       <offset>92</offset>
@@ -124,7 +124,7 @@
     </column>
     <column name="SkillType" type="INT">
       <offset>104</offset>
-      <static_define_list />
+      <static_define_list external="SkillType" />
     </column>
     <column name="refCount" type="INT">
       <offset>108</offset>
@@ -342,9 +342,13 @@
       <offset>228</offset>
       <bit_offset>65550</bit_offset>
     </column>
-    <column name="IgnoreExternalAnimBits" type="BIT">
+    <column name="UseCapsuleForPowerArcChecks" type="BIT">
       <offset>228</offset>
       <bit_offset>65551</bit_offset>
+    </column>
+    <column name="IgnoreExternalAnimBits" type="BIT">
+      <offset>228</offset>
+      <bit_offset>65552</bit_offset>
     </column>
     <column name="Interaction" type="EMBEDDEDSTRUCT">
       <offset>232</offset>
@@ -362,7 +366,8 @@
     </column>
     <column name="InteractionFlags" type="INT">
       <offset>304</offset>
-      <static_define_list />
+      <static_define_list external="kCritterOverrideFlag" />
+      <format>FLAGS</format>
     </column>
     <column name="Underlings" type="STRINGARRAY">
       <offset>308</offset>
@@ -420,12 +425,16 @@
       <offset>340</offset>
       <subtable external="CritterLore" />
     </column>
-    <column name="Deprecated" type="U8">
+    <column name="OverrideMovementRequesterDef" type="REFERENCE">
       <offset>344</offset>
+      <dictionary_name>DragonMovementDef</dictionary_name>
+    </column>
+    <column name="Deprecated" type="U8">
+      <offset>348</offset>
     </column>
     <column name="Gender" type="INT">
-      <offset>348</offset>
-      <static_define_list />
+      <offset>352</offset>
+      <static_define_list external="Gender" />
     </column>
     <column name="Latebind" type="IGNORE">
       <flags>

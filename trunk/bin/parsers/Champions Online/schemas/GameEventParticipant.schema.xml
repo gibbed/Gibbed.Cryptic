@@ -46,7 +46,7 @@
     <column name="RegionType" type="INT">
       <offset>32</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="WorldRegionType" />
     </column>
     <column name="NemesisType" type="STRING">
       <offset>36</offset>
@@ -89,7 +89,7 @@
     </column>
     <column name="ContainerType" type="INT">
       <offset>72</offset>
-      <static_define_list />
+      <static_define_list external="GlobalType" />
     </column>
     <column name="ContainerID" type="INT">
       <offset>76</offset>

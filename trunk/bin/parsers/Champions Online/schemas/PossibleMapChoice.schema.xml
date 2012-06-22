@@ -9,7 +9,7 @@
     <column name="{" type="START" />
     <column name="ChoiceType" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="MapChoiceType" />
     </column>
     <column name="NumPlayers" type="INT">
       <offset>4</offset>
@@ -17,7 +17,7 @@
     <column name="saturation" type="BIT">
       <offset>8</offset>
       <bit_offset>524288</bit_offset>
-      <static_define_list />
+      <static_define_list external="enumMapSaturation" />
     </column>
     <column name="LastMap" type="BIT">
       <offset>8</offset>
@@ -87,11 +87,14 @@
     </column>
     <column name="MapType" type="U8">
       <offset>24</offset>
-      <static_define_list />
+      <static_define_list external="ZoneMapType" />
     </column>
     <column name="OwnerType" type="U8">
       <offset>25</offset>
-      <static_define_list />
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="SpawnPosSkipBeaconCheck" type="U8">
+      <offset>26</offset>
     </column>
     <column name="MapDescription" type="STRING">
       <offset>28</offset>

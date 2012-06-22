@@ -13,6 +13,10 @@
     <column name="Path" type="STRING">
       <offset>4</offset>
     </column>
+    <column name="Texture" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="BasicTexture" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

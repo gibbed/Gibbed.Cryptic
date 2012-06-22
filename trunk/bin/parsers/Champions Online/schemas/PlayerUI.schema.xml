@@ -37,7 +37,7 @@
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="AutoDescDetail" />
     </column>
     <column name="ePowerInspectDetail" type="INT">
       <offset>16</offset>
@@ -45,7 +45,7 @@
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="AutoDescDetail" />
     </column>
     <column name="pSchemes" type="OPTIONALSTRUCT">
       <offset>20</offset>
@@ -60,7 +60,7 @@
     <column name="MapRevealInfo" type="STRUCT">
       <offset>24</offset>
       <flags>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>USEROPTIONBIT_2</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
@@ -70,30 +70,45 @@
       <offset>24</offset>
       <flags>
         <flag>ALIAS</flag>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>USEROPTIONBIT_2</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
       <redundant_name>MapRevealInfo</redundant_name>
       <subtable external="MapRevealInfo" />
     </column>
-    <column name="pMailList" type="OPTIONALSTRUCT">
+    <column name="eaMacros" type="STRUCT">
       <offset>40</offset>
       <flags>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="PlayerMacro" />
+    </column>
+    <column name="uMacroIDMax" type="INT">
+      <offset>44</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pMailList" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>USEROPTIONBIT_2</flag>
         <flag>CLIENT_ONLY</flag>
       </flags>
       <subtable external="ChatMailList" />
     </column>
     <column name="bUnreadMail" type="U8">
-      <offset>44</offset>
+      <offset>52</offset>
       <flags>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>USEROPTIONBIT_2</flag>
         <flag>CLIENT_ONLY</flag>
       </flags>
     </column>
     <column name="pChatConfig" type="OPTIONALSTRUCT">
-      <offset>48</offset>
+      <offset>56</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -101,84 +116,94 @@
       <subtable external="ChatConfig" />
     </column>
     <column name="pChatState" type="OPTIONALSTRUCT">
-      <offset>52</offset>
+      <offset>60</offset>
       <flags>
         <flag>ALWAYS_ALLOC</flag>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>USEROPTIONBIT_2</flag>
       </flags>
       <subtable external="ChatState" />
     </column>
-    <column name="Binds" type="EMBEDDEDSTRUCT">
-      <offset>56</offset>
+    <column name="Binds" type="STRUCT">
+      <offset>64</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
       <subtable external="EntityKeyBinds" />
     </column>
-    <column name="uiLastClientPoke" type="INT">
-      <offset>60</offset>
+    <column name="eaBindProfiles" type="STRUCT">
+      <offset>64</offset>
       <flags>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>Binds</redundant_name>
+      <subtable external="EntityKeyBinds" />
+    </column>
+    <column name="uiLastClientPoke" type="INT">
+      <offset>68</offset>
+      <flags>
+        <flag>USEROPTIONBIT_2</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="bIdleKickWarned" type="U8">
-      <offset>64</offset>
+      <offset>72</offset>
       <flags>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>USEROPTIONBIT_2</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="pLooseUI" type="OPTIONALSTRUCT">
-      <offset>68</offset>
+      <offset>76</offset>
       <flags>
         <flag>ALWAYS_ALLOC</flag>
       </flags>
       <subtable external="PlayerLooseUI" />
     </column>
     <column name="pchLooseUI" type="STRING">
-      <offset>72</offset>
+      <offset>80</offset>
       <flags>
         <flag>ESTRING</flag>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>USEROPTIONBIT_2</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
     <column name="pchLastEmote" type="STRING">
-      <offset>76</offset>
+      <offset>84</offset>
       <flags>
         <flag>POOL_STRING</flag>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>USEROPTIONBIT_2</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="uiLastEmoteTime" type="INT">
-      <offset>80</offset>
+      <offset>88</offset>
       <flags>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>USEROPTIONBIT_2</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="hLastEmoteTarget" type="INT">
-      <offset>84</offset>
+      <offset>92</offset>
       <flags>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>USEROPTIONBIT_2</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="eLastRegion" type="INT">
-      <offset>88</offset>
+      <offset>96</offset>
       <flags>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>USEROPTIONBIT_2</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="WorldRegionType" />
     </column>
     <column name="eaRegionScales" type="STRUCT">
-      <offset>92</offset>
+      <offset>100</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -186,7 +211,7 @@
       <subtable external="PlayerUIMapRegionScale" />
     </column>
     <column name="dirtyBit" type="U8">
-      <offset>96</offset>
+      <offset>104</offset>
       <flags>
         <flag>NO_NETSEND</flag>
         <flag>USEROPTIONBIT_2</flag>

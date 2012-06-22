@@ -109,41 +109,34 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="ppchCompletedNodes" type="STRINGARRAY">
-      <offset>56</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
     <column name="iExpLevel" type="INT">
-      <offset>60</offset>
+      <offset>56</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="iOfficerRank" type="INT">
-      <offset>64</offset>
+      <offset>60</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bJoinedVoiceChat" type="U8">
-      <offset>68</offset>
+      <offset>64</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="iLastVoicePacketRcvTime" type="INT">
-      <offset>72</offset>
+      <offset>68</offset>
       <flags>
         <flag>CLIENT_ONLY</flag>
       </flags>
     </column>
+    <column name="ppchCompletedNodes" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

@@ -32,23 +32,26 @@
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
-    <column name="CostTable" type="STRING">
+    <column name="CostVar" type="STRING">
       <offset>20</offset>
+    </column>
+    <column name="CostTable" type="STRING">
+      <offset>24</offset>
       <default_string>TreePoints</default_string>
     </column>
     <column name="Empty" type="BIT">
-      <offset>24</offset>
+      <offset>28</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="IgnoreRequires" type="BIT">
-      <offset>24</offset>
+      <offset>28</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="VariableCost" type="BIT">
-      <offset>24</offset>
+      <offset>28</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>

@@ -61,14 +61,18 @@
       <offset>72</offset>
       <subtable external="CharacterClassRef" />
     </column>
-    <column name="NewCharacterMap" type="STRINGARRAY">
+    <column name="WarpRestrictions" type="OPTIONALSTRUCT">
       <offset>76</offset>
+      <subtable external="AllegianceWarpRestrict" />
     </column>
-    <column name="SkipTutorialMap" type="STRINGARRAY">
+    <column name="NewCharacterMap" type="STRINGARRAY">
       <offset>80</offset>
     </column>
-    <column name="FallbackStaticMap" type="STRING">
+    <column name="SkipTutorialMap" type="STRINGARRAY">
       <offset>84</offset>
+    </column>
+    <column name="FallbackStaticMap" type="STRING">
+      <offset>88</offset>
     </column>
     <column name="}" type="END" />
   </table>

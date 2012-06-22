@@ -13,10 +13,19 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>324</default>
-      <static_define_list />
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="InstantFacePlant" type="U8">
+      <offset>4</offset>
     </column>
     <column name="OmitProne" type="U8">
-      <offset>4</offset>
+      <offset>5</offset>
+    </column>
+    <column name="Timer" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="IgnoreTravelTime" type="U8">
+      <offset>12</offset>
     </column>
     <column name="}" type="END" />
   </table>

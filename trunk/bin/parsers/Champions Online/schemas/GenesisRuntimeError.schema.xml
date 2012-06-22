@@ -9,7 +9,7 @@
     <column name="{" type="START" />
     <column name="Type" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="GenesisRuntimeErrorType" />
     </column>
     <column name="Entry" type="OPTIONALSTRUCT">
       <offset>4</offset>
@@ -29,6 +29,9 @@
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
+    </column>
+    <column name="ExtraText" type="STRING">
+      <offset>24</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -49,7 +49,7 @@
     <column name="Priority" type="INT">
       <offset>52</offset>
       <default>2</default>
-      <static_define_list />
+      <static_define_list external="eDynPriority" />
     </column>
     <column name="MinDrawDistance" type="F32">
       <offset>68</offset>
@@ -114,7 +114,7 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="IKTargetBone" type="STRING">
+    <column name="IKTargetBone" type="STRINGARRAY">
       <offset>100</offset>
       <flags>
         <flag>POOL_STRING</flag>

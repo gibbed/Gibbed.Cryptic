@@ -34,6 +34,16 @@
     <column name="ChatNameOffsetY" type="F32">
       <offset>28</offset>
     </column>
+    <column name="MapMaxShowY" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="UseObjectCenterAsBoundingBoxForObjectGens" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="UseMapMaxShowY" type="INT">
+      <offset>40</offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

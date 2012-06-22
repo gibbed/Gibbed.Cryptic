@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="KeyboardLayoutKey">
+  <table>
+    <column name="KeyboardLayoutKey" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="KeyCode" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="X" type="INT16">
+      <offset>8</offset>
+    </column>
+    <column name="Y" type="INT16">
+      <offset>10</offset>
+    </column>
+    <column name="Width" type="INT16">
+      <offset>12</offset>
+    </column>
+    <column name="Height" type="INT16">
+      <offset>14</offset>
+    </column>
+    <column name="Char" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Texture" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

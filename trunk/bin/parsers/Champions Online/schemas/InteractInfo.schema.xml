@@ -30,98 +30,123 @@
       <offset>16</offset>
       <subtable external="ContactInfo" />
     </column>
-    <column name="nearbyInteractCritterEnts" type="INTARRAY">
+    <column name="InteractableContacts" type="STRUCT">
       <offset>20</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <subtable external="ContactInfo" />
+    </column>
+    <column name="uLastVerifyInteractFrame" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="uLastVerifyContactFlags" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="nearbyInteractCritterEnts" type="INTARRAY">
+      <offset>32</offset>
     </column>
     <column name="ContactDialog" type="OPTIONALSTRUCT">
-      <offset>24</offset>
+      <offset>36</offset>
       <subtable external="ContactDialog" />
     </column>
     <column name="recentlyCompletedDialogs" type="STRUCT">
-      <offset>28</offset>
+      <offset>40</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="ContactDialogInfo" />
     </column>
     <column name="recentlyViewedForceOnTeamDialogs" type="STRUCT">
-      <offset>32</offset>
+      <offset>44</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="ContactDialogInfo" />
     </column>
     <column name="QueuedContactDialog" type="OPTIONALSTRUCT">
-      <offset>36</offset>
+      <offset>48</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="QueuedContactDialog" />
     </column>
     <column name="QueuedNotInCombatDialog" type="OPTIONALSTRUCT">
-      <offset>40</offset>
+      <offset>52</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="QueuedContactDialog" />
     </column>
     <column name="CostumeFallback" type="OPTIONALSTRUCT">
-      <offset>44</offset>
+      <offset>56</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="ContactCostumeFallback" />
     </column>
     <column name="Crafting" type="U8">
-      <offset>48</offset>
+      <offset>60</offset>
     </column>
     <column name="CraftingTable" type="INT">
-      <offset>52</offset>
-      <static_define_list />
+      <offset>64</offset>
+      <static_define_list external="SkillType" />
     </column>
     <column name="CraftingMaxLevel" type="INT">
-      <offset>56</offset>
+      <offset>68</offset>
     </column>
     <column name="RemoteContacts" type="STRUCT">
-      <offset>60</offset>
+      <offset>72</offset>
       <subtable external="RemoteContact" />
     </column>
     <column name="uNextRemoteContactUpdateTime" type="INT">
-      <offset>64</offset>
+      <offset>76</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="UpdateRemoteContactsNextTick" type="U8">
-      <offset>68</offset>
+      <offset>80</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="uNextContactDialogOptionsUpdateTime" type="INT">
+      <offset>84</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="RemoteInteract" type="U8">
-      <offset>69</offset>
+      <offset>88</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="AwaitingMapTransfer" type="U8">
-      <offset>70</offset>
+      <offset>89</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="PurchaseInProgress" type="U8">
-      <offset>71</offset>
+      <offset>90</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="BuyBackList" type="STRUCT">
-      <offset>72</offset>
+      <offset>92</offset>
       <subtable external="StoreItemInfo" />
     </column>
     <column name="ppchVisitedSpecialDialogs" type="STRINGARRAY">
-      <offset>76</offset>
+      <offset>96</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>

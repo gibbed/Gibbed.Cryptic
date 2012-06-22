@@ -13,11 +13,15 @@
         <flag>KEY</flag>
       </flags>
     </column>
-    <column name="uMapLaunchTime" type="INT">
+    <column name="MapState" type="INT">
       <offset>8</offset>
+      <static_define_list external="QueueMapState" />
+    </column>
+    <column name="uMapLaunchTime" type="INT">
+      <offset>12</offset>
     </column>
     <column name="GroupPlayerCounts" type="INTARRAY">
-      <offset>12</offset>
+      <offset>16</offset>
     </column>
     <column name="}" type="END" />
   </table>

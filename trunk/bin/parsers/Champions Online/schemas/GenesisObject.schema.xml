@@ -24,7 +24,7 @@
     </column>
     <column name="ChallengeType" type="INT">
       <offset>12</offset>
-      <static_define_list />
+      <static_define_list external="GenesisChallengeType" />
     </column>
     <column name="ExternalName" type="STRING">
       <offset>16</offset>
@@ -42,11 +42,11 @@
     </column>
     <column name="Facing" type="INT">
       <offset>28</offset>
-      <static_define_list />
+      <static_define_list external="GenesisChallengeFacing" />
     </column>
     <column name="Placement" type="INT">
       <offset>32</offset>
-      <static_define_list />
+      <static_define_list external="GenesisChallengePlacement" />
     </column>
     <column name="RefPrefabLocation" type="STRING">
       <offset>36</offset>
@@ -151,42 +151,58 @@
     <column name="OverrideRot" type="F32">
       <offset>120</offset>
     </column>
-    <column name="ChildPlacement" type="STRUCT">
+    <column name="AbsolutePosition" type="U8">
       <offset>124</offset>
+    </column>
+    <column name="SnapToGeo" type="U8">
+      <offset>125</offset>
+    </column>
+    <column name="ChildPlacement" type="STRUCT">
+      <offset>128</offset>
       <subtable external="GenesisPlacementChildParams" />
     </column>
     <column name="has_patrol" type="U8">
-      <offset>128</offset>
+      <offset>132</offset>
     </column>
     <column name="SpecifiedPatrol" type="OPTIONALSTRUCT">
-      <offset>132</offset>
+      <offset>136</offset>
       <subtable external="WorldPatrolProperties" />
     </column>
     <column name="ChallengeIsUnique" type="U8">
-      <offset>136</offset>
-    </column>
-    <column name="ForceNamedObject" type="U8">
-      <offset>137</offset>
-    </column>
-    <column name="ChallengeSpawnName" type="STRING">
       <offset>140</offset>
     </column>
-    <column name="PlatformGroup" type="INT">
+    <column name="ForceNamedObject" type="U8">
+      <offset>141</offset>
+    </column>
+    <column name="ChallengeSpawnName" type="STRING">
       <offset>144</offset>
     </column>
-    <column name="PlatformParentGroup" type="INT">
+    <column name="IsTrap" type="U8">
       <offset>148</offset>
     </column>
-    <column name="RoomDetail" type="STRUCT">
+    <column name="PlatformGroup" type="INT">
       <offset>152</offset>
+    </column>
+    <column name="PlatformParentGroup" type="INT">
+      <offset>156</offset>
+    </column>
+    <column name="PlatformParentLevel" type="INT">
+      <offset>160</offset>
+    </column>
+    <column name="RoomDetail" type="STRUCT">
+      <offset>164</offset>
       <subtable external="GenesisRoomDetail" />
     </column>
+    <column name="RoomDoor" type="STRUCT">
+      <offset>168</offset>
+      <subtable external="GenesisRoomDoorSwitch" />
+    </column>
     <column name="Volume" type="OPTIONALSTRUCT">
-      <offset>156</offset>
+      <offset>172</offset>
       <subtable external="GenesisObjectVolume" />
     </column>
     <column name="SourceContext" type="OPTIONALSTRUCT">
-      <offset>160</offset>
+      <offset>176</offset>
       <subtable external="GenesisRuntimeErrorContext" />
     </column>
     <column name="}" type="END" />

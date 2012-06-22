@@ -7,20 +7,12 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Node" type="REFERENCE">
-      <offset>0</offset>
-      <dictionary_name>GameProgressionNode</dictionary_name>
-    </column>
-    <column name="DestinationNode" type="REFERENCE">
+    <column name="NodeDef" type="REFERENCE">
       <offset>0</offset>
       <flags>
-        <flag>ALIAS</flag>
+        <flag>KEY</flag>
       </flags>
-      <redundant_name>Node</redundant_name>
-      <dictionary_name>GameProgressionNode</dictionary_name>
-    </column>
-    <column name="UGCProjectID" type="INT">
-      <offset>4</offset>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
     </column>
     <column name="}" type="END" />
   </table>

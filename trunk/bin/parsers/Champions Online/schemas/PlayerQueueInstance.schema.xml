@@ -19,53 +19,56 @@
     <column name="uiOrigOwnerID" type="INT">
       <offset>16</offset>
     </column>
-    <column name="SecondsRemaining" type="INT">
+    <column name="uSecondsRemaining" type="INT">
       <offset>20</offset>
     </column>
-    <column name="uAverageWaitTime" type="INT">
+    <column name="uTimelimit" type="INT">
       <offset>24</offset>
     </column>
-    <column name="GroupIndex" type="INT">
+    <column name="uAverageWaitTime" type="INT">
       <offset>28</offset>
+    </column>
+    <column name="GroupIndex" type="INT">
+      <offset>32</offset>
       <default>-1</default>
     </column>
     <column name="GroupPlayerCounts" type="INTARRAY">
-      <offset>32</offset>
+      <offset>36</offset>
     </column>
     <column name="QueueState" type="INT">
-      <offset>36</offset>
-      <static_define_list />
+      <offset>40</offset>
+      <static_define_list external="PlayerQueueState" />
     </column>
     <column name="Settings" type="STRUCT">
-      <offset>40</offset>
+      <offset>44</offset>
       <subtable external="QueueGameSetting" />
     </column>
     <column name="Params" type="OPTIONALSTRUCT">
-      <offset>44</offset>
+      <offset>48</offset>
       <subtable external="QueueInstanceParams" />
     </column>
     <column name="Maps" type="STRUCT">
-      <offset>48</offset>
+      <offset>52</offset>
       <subtable external="PlayerQueueMap" />
     </column>
     <column name="Members" type="STRUCT">
-      <offset>52</offset>
+      <offset>56</offset>
       <subtable external="PlayerQueueMember" />
     </column>
     <column name="Overtime" type="BIT">
-      <offset>56</offset>
+      <offset>60</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="NewMapLoading" type="BIT">
-      <offset>56</offset>
+      <offset>60</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="HasPassword" type="BIT">
-      <offset>56</offset>
+      <offset>60</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="IgnoreLevelRestrictions" type="BIT">
-      <offset>56</offset>
+      <offset>60</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>

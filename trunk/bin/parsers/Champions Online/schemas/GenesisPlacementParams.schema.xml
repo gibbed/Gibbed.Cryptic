@@ -9,11 +9,11 @@
     <column name="{" type="START" />
     <column name="Facing" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="GenesisChallengeFacing" />
     </column>
     <column name="Placement" type="INT">
       <offset>4</offset>
-      <static_define_list />
+      <static_define_list external="GenesisChallengePlacement" />
     </column>
     <column name="RefPrefabLocation" type="STRING">
       <offset>8</offset>
@@ -118,8 +118,14 @@
     <column name="OverrideRot" type="F32">
       <offset>92</offset>
     </column>
-    <column name="ChildPlacement" type="STRUCT">
+    <column name="AbsolutePosition" type="U8">
       <offset>96</offset>
+    </column>
+    <column name="SnapToGeo" type="U8">
+      <offset>97</offset>
+    </column>
+    <column name="ChildPlacement" type="STRUCT">
+      <offset>100</offset>
       <subtable external="GenesisPlacementChildParams" />
     </column>
     <column name="}" type="END" />

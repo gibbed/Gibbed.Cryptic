@@ -13,20 +13,9 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="NumericRewards" type="STRUCT">
+    <column name="data" type="OPTIONALSTRUCT">
       <offset>4</offset>
-      <subtable external="ItemNumericData" />
-    </column>
-    <column name="ItemRewards" type="STRUCT">
-      <offset>8</offset>
-      <subtable external="Item" />
-    </column>
-    <column name="Rewards" type="STRUCT">
-      <offset>12</offset>
-      <flags>
-        <flag>CLIENT_ONLY</flag>
-      </flags>
-      <subtable external="InventorySlot" />
+      <subtable external="InvRewardRequest" />
     </column>
     <column name="}" type="END" />
   </table>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ProgressionUpdateParams">
+  <table>
+    <column name="ProgressionUpdateParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hOverrideNode" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="OverrideTime" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="DestroyTeamData" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ppchMissionsToUncomplete" type="STRINGARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

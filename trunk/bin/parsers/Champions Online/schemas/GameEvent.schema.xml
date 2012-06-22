@@ -13,7 +13,7 @@
         <flag>STRUCTPARAM</flag>
         <flag>REQUIRED</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="EventType" />
     </column>
     <column name="EventName" type="STRING">
       <offset>4</offset>
@@ -105,19 +105,19 @@
     <column name="SourceRegionType" type="INT">
       <offset>72</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="WorldRegionType" />
     </column>
     <column name="MatchSource" type="INT">
       <offset>76</offset>
-      <static_define_list />
+      <static_define_list external="TriState" />
     </column>
     <column name="MatchSourceTeam" type="INT">
       <offset>80</offset>
-      <static_define_list />
+      <static_define_list external="TriState" />
     </column>
     <column name="SourceIsPlayer" type="INT">
       <offset>84</offset>
-      <static_define_list />
+      <static_define_list external="TriState" />
     </column>
     <column name="Sources" type="STRUCT">
       <offset>92</offset>
@@ -207,19 +207,19 @@
     <column name="TargetRegionType" type="INT">
       <offset>148</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="WorldRegionType" />
     </column>
     <column name="MatchTarget" type="INT">
       <offset>152</offset>
-      <static_define_list />
+      <static_define_list external="TriState" />
     </column>
     <column name="MatchTargetTeam" type="INT">
       <offset>156</offset>
-      <static_define_list />
+      <static_define_list external="TriState" />
     </column>
     <column name="TargetIsPlayer" type="INT">
       <offset>160</offset>
-      <static_define_list />
+      <static_define_list external="TriState" />
     </column>
     <column name="NemesisType" type="STRING">
       <offset>168</offset>
@@ -273,153 +273,174 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="CutsceneName" type="STRING">
+    <column name="GemName" type="STRING">
       <offset>220</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CutsceneName" type="STRING">
+      <offset>224</offset>
+    </column>
+    <column name="VideoName" type="STRING">
+      <offset>228</offset>
     </column>
     <column name="FSMName" type="STRING">
-      <offset>224</offset>
+      <offset>232</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="FsmStateName" type="STRING">
-      <offset>228</offset>
+      <offset>236</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ItemAssignmentName" type="STRING">
+      <offset>240</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ItemAssignmentOutcome" type="STRING">
+      <offset>244</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="PowerName" type="STRING">
-      <offset>232</offset>
-    </column>
-    <column name="PowerEventName" type="STRING">
-      <offset>236</offset>
-    </column>
-    <column name="DamageType" type="STRING">
-      <offset>240</offset>
-    </column>
-    <column name="DialogName" type="STRING">
-      <offset>244</offset>
-    </column>
-    <column name="NemesisName" type="STRING">
       <offset>248</offset>
     </column>
-    <column name="EmoteName" type="STRING">
+    <column name="PowerEventName" type="STRING">
       <offset>252</offset>
+    </column>
+    <column name="DamageType" type="STRING">
+      <offset>256</offset>
+    </column>
+    <column name="DialogName" type="STRING">
+      <offset>260</offset>
+    </column>
+    <column name="NemesisName" type="STRING">
+      <offset>264</offset>
+    </column>
+    <column name="EmoteName" type="STRING">
+      <offset>268</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Message" type="STRING">
-      <offset>256</offset>
+      <offset>272</offset>
     </column>
     <column name="ItemCategories" type="INTARRAY">
-      <offset>260</offset>
-      <static_define_list />
+      <offset>276</offset>
+      <static_define_list external="ItemCategory" />
     </column>
     <column name="bagType" type="INT">
-      <offset>264</offset>
-      <static_define_list />
+      <offset>280</offset>
+      <static_define_list external="InvBagIDs" />
     </column>
     <column name="Pos" type="F32FIXEDARRAY">
-      <offset>268</offset>
+      <offset>284</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="NemesisID" type="INT">
-      <offset>280</offset>
+      <offset>296</offset>
     </column>
     <column name="IsRootMission" type="U8">
-      <offset>284</offset>
+      <offset>300</offset>
     </column>
     <column name="encState" type="INT">
-      <offset>288</offset>
-      <default>-1</default>
-      <static_define_list />
-    </column>
-    <column name="Missionstate" type="INT">
-      <offset>292</offset>
-      <default>-1</default>
-      <static_define_list />
-    </column>
-    <column name="missionType" type="INT">
-      <offset>296</offset>
-      <default>-1</default>
-      <static_define_list />
-    </column>
-    <column name="missionLockoutState" type="INT">
-      <offset>300</offset>
-      <default>-1</default>
-      <static_define_list />
-    </column>
-    <column name="Nemesisstate" type="INT">
       <offset>304</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="EncounterState" />
     </column>
-    <column name="HealthState" type="INT">
+    <column name="Missionstate" type="INT">
       <offset>308</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="MissionState" />
     </column>
-    <column name="victoryType" type="INT">
+    <column name="missionType" type="INT">
       <offset>312</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="MissionType" />
     </column>
-    <column name="MinigameType" type="INT">
+    <column name="missionLockoutState" type="INT">
       <offset>316</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="MissionLockoutState" />
     </column>
-    <column name="PvPQueueMatchResult" type="INT">
+    <column name="Nemesisstate" type="INT">
       <offset>320</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="NemesisState" />
     </column>
-    <column name="PvPEvent" type="INT">
+    <column name="HealthState" type="INT">
       <offset>324</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="HealthState" />
+    </column>
+    <column name="victoryType" type="INT">
+      <offset>328</offset>
+      <default>-1</default>
+      <static_define_list external="PVPDuelVictoryType" />
+    </column>
+    <column name="MinigameType" type="INT">
+      <offset>332</offset>
+      <default>-1</default>
+      <static_define_list external="MinigameType" />
+    </column>
+    <column name="PvPQueueMatchResult" type="INT">
+      <offset>336</offset>
+      <default>-1</default>
+      <static_define_list external="PvPQueueMatchResult" />
+    </column>
+    <column name="PvPEvent" type="INT">
+      <offset>340</offset>
+      <default>-1</default>
+      <static_define_list external="PvPEvent" />
     </column>
     <column name="MapName" type="STRING">
-      <offset>328</offset>
+      <offset>344</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="DoorKey" type="STRING">
-      <offset>332</offset>
-    </column>
-    <column name="MatchMapOwner" type="INT">
-      <offset>336</offset>
-      <static_define_list />
-    </column>
-    <column name="Count" type="INT">
-      <offset>344</offset>
-    </column>
-    <column name="Unique" type="U8">
       <offset>348</offset>
     </column>
-    <column name="PartOfUGCProject" type="INT">
+    <column name="MatchMapOwner" type="INT">
       <offset>352</offset>
-      <static_define_list />
+      <static_define_list external="TriState" />
+    </column>
+    <column name="Count" type="INT">
+      <offset>360</offset>
+    </column>
+    <column name="Unique" type="U8">
+      <offset>364</offset>
+    </column>
+    <column name="PartOfUGCProject" type="INT">
+      <offset>368</offset>
+      <static_define_list external="TriState" />
     </column>
     <column name="ChainEventDef" type="OPTIONALSTRUCT">
-      <offset>360</offset>
+      <offset>376</offset>
       <subtable external="GameEvent" />
     </column>
     <column name="ChainEvent" type="OPTIONALSTRUCT">
-      <offset>364</offset>
+      <offset>380</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="GameEvent" />
     </column>
     <column name="chainTime" type="F32">
-      <offset>368</offset>
+      <offset>388</offset>
       <default>1</default>
     </column>
     <column name="IsChainedEvent" type="BIT">
-      <offset>372</offset>
+      <offset>392</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ZoneEventName" type="IGNORE" />

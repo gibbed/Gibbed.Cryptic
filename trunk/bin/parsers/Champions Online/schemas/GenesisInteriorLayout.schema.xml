@@ -17,7 +17,7 @@
     </column>
     <column name="InteriorKitSpecifier" type="INT">
       <offset>4</offset>
-      <static_define_list />
+      <static_define_list external="GenesisTagOrName" />
     </column>
     <column name="InteriorKitTags2" type="STRINGARRAY">
       <offset>8</offset>
@@ -31,7 +31,7 @@
     </column>
     <column name="LightKitSpecifier" type="INT">
       <offset>20</offset>
-      <static_define_list />
+      <static_define_list external="GenesisTagOrName" />
     </column>
     <column name="LightKitTags2" type="STRINGARRAY">
       <offset>24</offset>
@@ -45,7 +45,7 @@
     </column>
     <column name="LayoutInfoSpecifier" type="INT">
       <offset>36</offset>
-      <static_define_list />
+      <static_define_list external="GenesisTemplateOrCustom" />
     </column>
     <column name="InteriorLayoutInfoTemplate" type="REFERENCE">
       <offset>40</offset>
@@ -66,7 +66,7 @@
     </column>
     <column name="DetailSpecifier" type="INT">
       <offset>52</offset>
-      <static_define_list />
+      <static_define_list external="GenesisTagOrName" />
     </column>
     <column name="DetailTags2" type="STRINGARRAY">
       <offset>56</offset>
@@ -91,7 +91,7 @@
     </column>
     <column name="VertDir" type="INT">
       <offset>108</offset>
-      <static_define_list />
+      <static_define_list external="GenesisVertDir" />
     </column>
     <column name="CommonData" type="EMBEDDEDSTRUCT">
       <offset>112</offset>

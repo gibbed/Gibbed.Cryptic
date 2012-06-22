@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>15</default>
-      <static_define_list />
+      <static_define_list external="UIGenType" />
     </column>
     <column name="TabTemplate" type="OPTIONALSTRUCT">
       <offset>4</offset>
@@ -54,7 +54,7 @@
     </column>
     <column name="LastScrollState" type="INT">
       <offset>32</offset>
-      <static_define_list />
+      <static_define_list external="UIGenState" />
     </column>
     <column name="ForceShowSelectedTab" type="BIT">
       <offset>36</offset>

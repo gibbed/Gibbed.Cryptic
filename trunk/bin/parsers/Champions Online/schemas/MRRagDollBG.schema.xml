@@ -53,49 +53,60 @@
     <column name="mmrSkeletonHandle" type="INT">
       <offset>88</offset>
     </column>
-    <column name="setOffsetToAnimRoot" type="BIT">
+    <column name="deathDirectionBit" type="INT">
       <offset>92</offset>
+    </column>
+    <column name="setOffsetToAnimRoot" type="BIT">
+      <offset>96</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="addVel" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="ragdollOver" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="skippedGetupOneStep" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="snappedToGround" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="getupOnBack" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="flashedGetupBits" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="setGetupRotation" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="didNoInterp" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="Dead" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="endRequestApproved" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <bit_offset>65546</bit_offset>
+    </column>
+    <column name="playAnimDeath" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="playAnimRevive" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65548</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

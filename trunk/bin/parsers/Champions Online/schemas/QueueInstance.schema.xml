@@ -46,7 +46,7 @@
       </flags>
       <subtable external="QueueMap" />
     </column>
-    <column name="pNewMap" type="OPTIONALSTRUCT">
+    <column name="eaNewMaps" type="STRUCT">
       <offset>20</offset>
       <subtable external="QueueMap" />
     </column>
@@ -88,8 +88,11 @@
     <column name="uiNextMapLaunchTime" type="INT">
       <offset>56</offset>
     </column>
-    <column name="bNewMap" type="BIT">
+    <column name="uSucceedAt" type="INT">
       <offset>60</offset>
+    </column>
+    <column name="bNewMap" type="BIT">
+      <offset>64</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -97,7 +100,7 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bOvertime" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -105,7 +108,7 @@
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bEnableLeaverPenalty" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -113,27 +116,27 @@
       <bit_offset>65538</bit_offset>
     </column>
     <column name="bOpenMap" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="bAutoFill" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="bPreventMapLaunch" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="bReplay" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="eaTeams" type="STRUCT">
-      <offset>64</offset>
+      <offset>68</offset>
       <subtable external="QueueMemberTeam" />
     </column>
     <column name="eaForceLeaves" type="STRUCT">
-      <offset>68</offset>
+      <offset>72</offset>
       <subtable external="QueueMemberForceLeave" />
     </column>
     <column name="}" type="END" />

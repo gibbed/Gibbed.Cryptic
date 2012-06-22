@@ -138,7 +138,8 @@
     <column name="ColorChoices" type="INT">
       <offset>180</offset>
       <default>15</default>
-      <static_define_list />
+      <static_define_list external="PCColorFlags" />
+      <format>FLAGS</format>
     </column>
     <column name="DefaultBoneColorQuad" type="OPTIONALSTRUCT">
       <offset>184</offset>
@@ -157,11 +158,12 @@
     <column name="LOD" type="INT">
       <offset>200</offset>
       <default>10</default>
-      <static_define_list />
+      <static_define_list external="CostumeLODLevel" />
     </column>
     <column name="RestrictedTo" type="INT">
       <offset>204</offset>
-      <static_define_list />
+      <static_define_list external="PCRestriction" />
+      <format>FLAGS</format>
     </column>
     <column name="PowerFX" type="U8">
       <offset>208</offset>

@@ -21,7 +21,7 @@
     </column>
     <column name="Shape" type="INT">
       <offset>8</offset>
-      <static_define_list />
+      <static_define_list external="eRagdollShape" />
     </column>
     <column name="Offset" type="F32FIXEDARRAY">
       <offset>12</offset>
@@ -58,11 +58,11 @@
     </column>
     <column name="jointType" type="INT">
       <offset>80</offset>
-      <static_define_list />
+      <static_define_list external="eJointType" />
     </column>
     <column name="axis" type="INT">
       <offset>84</offset>
-      <static_define_list />
+      <static_define_list external="eJointAxis" />
     </column>
     <column name="spring" type="EMBEDDEDSTRUCT">
       <offset>88</offset>

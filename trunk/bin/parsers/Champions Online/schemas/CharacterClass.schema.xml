@@ -193,9 +193,6 @@
     </column>
     <column name="NearDeathConfig" type="OPTIONALSTRUCT">
       <offset>140</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
       <subtable external="NearDeathConfig" />
     </column>
     <column name="Art" type="REFERENCE">
@@ -220,11 +217,11 @@
     </column>
     <column name="Type" type="INT">
       <offset>164</offset>
-      <static_define_list />
+      <static_define_list external="CharClassTypes" />
     </column>
     <column name="Category" type="INT">
       <offset>168</offset>
-      <static_define_list />
+      <static_define_list external="CharClassCategory" />
     </column>
     <column name="DefaultPlayingStyle" type="STRING">
       <offset>172</offset>
@@ -236,8 +233,20 @@
       <offset>176</offset>
       <subtable external="SpeciesDefRef" />
     </column>
-    <column name="File" type="CURRENTFILE">
+    <column name="TacticalRollDef" type="OPTIONALSTRUCT">
       <offset>180</offset>
+      <subtable external="TacticalRequesterRollDef" />
+    </column>
+    <column name="TacticalSprintDef" type="OPTIONALSTRUCT">
+      <offset>184</offset>
+      <subtable external="TacticalRequesterSprintDef" />
+    </column>
+    <column name="TacticalAimDef" type="OPTIONALSTRUCT">
+      <offset>188</offset>
+      <subtable external="TacticalRequesterAimDef" />
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>192</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

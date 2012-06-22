@@ -13,13 +13,19 @@
     </column>
     <column name="Sort" type="INT">
       <offset>20</offset>
-      <static_define_list />
+      <static_define_list external="UISortType" />
     </column>
-    <column name="ManagedStructures" type="U8">
+    <column name="uiFrameLastUpdate" type="INT">
       <offset>24</offset>
     </column>
+    <column name="uiFrameLastBadMemoryError" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="ManagedStructures" type="U8">
+      <offset>32</offset>
+    </column>
     <column name="ManagedPointer" type="U8">
-      <offset>25</offset>
+      <offset>33</offset>
     </column>
     <column name="}" type="END" />
   </table>

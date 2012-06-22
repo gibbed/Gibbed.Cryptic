@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>7</default>
-      <static_define_list />
+      <static_define_list external="UIGenType" />
     </column>
     <column name="bf" type="INTFIXEDARRAY">
       <offset>4</offset>
@@ -29,11 +29,11 @@
     </column>
     <column name="X" type="INT16">
       <offset>24</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="Y" type="INT16">
       <offset>26</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="PercentX" type="F32">
       <offset>28</offset>
@@ -67,19 +67,19 @@
     </column>
     <column name="LeftMargin" type="INT16">
       <offset>84</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="RightMargin" type="INT16">
       <offset>86</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="TopMargin" type="INT16">
       <offset>88</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="BottomMargin" type="INT16">
       <offset>90</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="Scale" type="F32">
       <offset>92</offset>
@@ -88,7 +88,7 @@
     <column name="OffsetFrom" type="U8">
       <offset>96</offset>
       <default>10</default>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="ScaleNoGrow" type="BIT">
       <offset>96</offset>
@@ -366,7 +366,7 @@
     <column name="Alignment" type="BIT">
       <offset>244</offset>
       <bit_offset>327680</bit_offset>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="FilterProfanity" type="BIT">
       <offset>248</offset>
@@ -384,16 +384,23 @@
       <offset>248</offset>
       <bit_offset>65539</bit_offset>
     </column>
-    <column name="OnChanged" type="OPTIONALSTRUCT">
+    <column name="Truncate" type="REFERENCE">
       <offset>252</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="OnChanged" type="OPTIONALSTRUCT">
+      <offset>256</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="CursorBlinkInterval" type="F32">
-      <offset>256</offset>
+      <offset>260</offset>
       <default>1056964608</default>
     </column>
     <column name="SelectionColor" type="INT">
-      <offset>260</offset>
+      <offset>264</offset>
       <default>1721342412</default>
     </column>
     <column name="CursorBundle" type="IGNORE">
@@ -402,14 +409,6 @@
       </flags>
     </column>
     <column name="CursorTexture" type="STRING">
-      <offset>264</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>GLOBAL_NAME</flag>
-      </flags>
-      <dictionary_name>Texture</dictionary_name>
-    </column>
-    <column name="CursorMask" type="STRING">
       <offset>268</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -417,44 +416,67 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="CursorTopLeftColor" type="INT">
+    <column name="CursorMask" type="STRING">
       <offset>272</offset>
-      <static_define_list />
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="CursorTopLeftColor" type="INT">
+      <offset>276</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="CursorColor" type="INT">
-      <offset>272</offset>
+      <offset>276</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>CursorTopLeftColor</redundant_name>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="CursorTopRightColor" type="INT">
-      <offset>276</offset>
-      <static_define_list />
+      <offset>280</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="CursorBottomLeftColor" type="INT">
-      <offset>280</offset>
-      <static_define_list />
+      <offset>284</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="CursorBottomRightColor" type="INT">
-      <offset>284</offset>
-      <static_define_list />
+      <offset>288</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
     <column name="CursorRotation" type="EMBEDDEDSTRUCT">
-      <offset>288</offset>
+      <offset>292</offset>
       <subtable external="UIAngle" />
     </column>
     <column name="CursorLowerLayer" type="STRUCT">
-      <offset>296</offset>
-      <subtable external="UIGenBundleTexture" />
-    </column>
-    <column name="CursorLayer" type="STRUCT">
       <offset>300</offset>
       <subtable external="UIGenBundleTexture" />
     </column>
-    <column name="CursorAnimation" type="OPTIONALSTRUCT">
+    <column name="CursorLayer" type="STRUCT">
       <offset>304</offset>
+      <subtable external="UIGenBundleTexture" />
+    </column>
+    <column name="CursorAnimation" type="OPTIONALSTRUCT">
+      <offset>308</offset>
       <subtable external="UIGenBundleTextureAnimation" />
     </column>
     <column name="TextureCoordinateData" type="IGNORE">
@@ -463,58 +485,67 @@
       </flags>
     </column>
     <column name="CursorOffsetU" type="F32">
-      <offset>308</offset>
-    </column>
-    <column name="CursorOffsetV" type="F32">
       <offset>312</offset>
     </column>
-    <column name="CursorScaleU" type="F32">
+    <column name="CursorOffsetV" type="F32">
       <offset>316</offset>
-      <default>1</default>
     </column>
-    <column name="CursorScaleV" type="F32">
+    <column name="CursorScaleU" type="F32">
       <offset>320</offset>
       <default>1</default>
     </column>
-    <column name="CursorMode" type="BIT">
+    <column name="CursorScaleV" type="F32">
       <offset>324</offset>
+      <default>1</default>
+    </column>
+    <column name="CursorMode" type="BIT">
+      <offset>328</offset>
       <bit_offset>262144</bit_offset>
-      <static_define_list />
+      <static_define_list external="UITextureMode" />
     </column>
     <column name="CursorEffect" type="BIT">
-      <offset>324</offset>
+      <offset>328</offset>
       <bit_offset>262148</bit_offset>
-      <static_define_list />
+      <static_define_list external="RdrSpriteEffect" />
     </column>
     <column name="CursorAlignment" type="BIT">
-      <offset>324</offset>
+      <offset>328</offset>
       <bit_offset>327688</bit_offset>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="CursorAdditive" type="BIT">
-      <offset>328</offset>
+      <offset>332</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="CursorForceBottomLayer" type="BIT">
-      <offset>328</offset>
+      <offset>332</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="Password" type="STRING">
-      <offset>332</offset>
+      <offset>336</offset>
     </column>
     <column name="Validate" type="INT">
-      <offset>336</offset>
-      <static_define_list />
+      <offset>340</offset>
+      <static_define_list external="TextBufferValidation" />
     </column>
     <column name="MaxLength" type="INT">
-      <offset>340</offset>
+      <offset>344</offset>
       <default>-1</default>
     </column>
-    <column name="ShowCursorWhenUnfocused" type="U8">
-      <offset>344</offset>
+    <column name="ShowCursorWhenUnfocused" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65536</bit_offset>
     </column>
-    <column name="TintCursorFromFont" type="U8">
-      <offset>345</offset>
+    <column name="TintCursorFromFont" type="BIT">
+      <offset>348</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Editable" type="BIT">
+      <offset>348</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

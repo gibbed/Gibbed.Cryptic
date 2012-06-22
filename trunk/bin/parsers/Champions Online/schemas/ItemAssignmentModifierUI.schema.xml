@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentModifierUI">
+  <table>
+    <column name="ItemAssignmentModifierUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UICategory" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="CategoryName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="CategoryNameWithoutPrefix" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="CategoryNamePrefix" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Category" type="INT">
+      <offset>16</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="CategoryData" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ItemCategoryInfo" />
+    </column>
+    <column name="ModifierName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ModifierPrefix" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Modifier" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="ModifiedOutcomes" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="OutcomeDisplayName" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="OutcomeDisplayName1" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <redundant_name>OutcomeDisplayName</redundant_name>
+    </column>
+    <column name="Outcome" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Outcome1" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Outcome</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

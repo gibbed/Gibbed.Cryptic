@@ -9,7 +9,7 @@
     <column name="{" type="START" />
     <column name="GeotypeSpecifier" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list external="GenesisTagOrName" />
     </column>
     <column name="GeotypeTags2" type="STRINGARRAY">
       <offset>4</offset>
@@ -23,7 +23,7 @@
     </column>
     <column name="EcosystemSpecifier" type="INT">
       <offset>16</offset>
-      <static_define_list />
+      <static_define_list external="GenesisTagOrName" />
     </column>
     <column name="EcosystemTags2" type="STRINGARRAY">
       <offset>20</offset>

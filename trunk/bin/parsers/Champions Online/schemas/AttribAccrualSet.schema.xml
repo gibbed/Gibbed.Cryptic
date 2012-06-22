@@ -7,64 +7,16 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="attrBasicAbs" type="EMBEDDEDSTRUCT">
+    <column name="CharacterAttribs" type="EMBEDDEDSTRUCT">
       <offset>0</offset>
-      <subtable external="CharacterAttribs" />
+      <subtable external="AttribAccrualSetBasic" />
     </column>
-    <column name="attrBasicFactPos" type="EMBEDDEDSTRUCT">
-      <offset>1008</offset>
-      <subtable external="CharacterAttribs" />
-    </column>
-    <column name="attrBasicFactNeg" type="EMBEDDEDSTRUCT">
-      <offset>2016</offset>
-      <subtable external="CharacterAttribs" />
-    </column>
-    <column name="attrStrAbs" type="EMBEDDEDSTRUCT">
-      <offset>3024</offset>
-      <subtable external="CharacterAttribs" />
-    </column>
-    <column name="attrStrBase" type="EMBEDDEDSTRUCT">
-      <offset>4032</offset>
-      <subtable external="CharacterAttribs" />
-    </column>
-    <column name="attrStrFactPos" type="EMBEDDEDSTRUCT">
-      <offset>5040</offset>
-      <subtable external="CharacterAttribs" />
-    </column>
-    <column name="attrStrFactNeg" type="EMBEDDEDSTRUCT">
-      <offset>6048</offset>
-      <subtable external="CharacterAttribs" />
-    </column>
-    <column name="attrStrFactBonus" type="EMBEDDEDSTRUCT">
-      <offset>7056</offset>
-      <subtable external="CharacterAttribs" />
-    </column>
-    <column name="attrResAbs" type="EMBEDDEDSTRUCT">
-      <offset>8064</offset>
-      <subtable external="CharacterAttribs" />
-    </column>
-    <column name="attrResBase" type="EMBEDDEDSTRUCT">
-      <offset>9072</offset>
-      <subtable external="CharacterAttribs" />
-    </column>
-    <column name="attrResFactPos" type="EMBEDDEDSTRUCT">
-      <offset>10080</offset>
-      <subtable external="CharacterAttribs" />
-    </column>
-    <column name="attrResFactNeg" type="EMBEDDEDSTRUCT">
-      <offset>11088</offset>
-      <subtable external="CharacterAttribs" />
-    </column>
-    <column name="attrResFactBonus" type="EMBEDDEDSTRUCT">
-      <offset>12096</offset>
-      <subtable external="CharacterAttribs" />
-    </column>
-    <column name="attrImmunity" type="EMBEDDEDSTRUCT">
-      <offset>13104</offset>
-      <subtable external="CharacterAttribs" />
+    <column name="SpeedCooldown" type="STRUCT">
+      <offset>16016</offset>
+      <subtable external="CooldownRateModifier" />
     </column>
     <column name="dirtyBit" type="U8">
-      <offset>14112</offset>
+      <offset>16020</offset>
       <flags>
         <flag>NO_NETSEND</flag>
         <flag>DIRTY_BIT</flag>

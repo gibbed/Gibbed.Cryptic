@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxyLinkingStatusResponse">
+  <table>
+    <column name="AccountProxyLinkingStatusResponse" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uAccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Linked" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="Shadow" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

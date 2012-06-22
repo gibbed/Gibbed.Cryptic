@@ -31,80 +31,93 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="Category" type="STRING">
+    <column name="Category" type="REFERENCE">
       <offset>16</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
+      <dictionary_name>MicroTransactionCategory</dictionary_name>
+    </column>
+    <column name="Allegiance" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>AllegianceDef</dictionary_name>
     </column>
     <column name="Price" type="INT64">
       <offset>24</offset>
     </column>
-    <column name="Icon" type="STRING">
+    <column name="DefPrice" type="INT64">
       <offset>32</offset>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>40</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Icons" type="STRINGARRAY">
-      <offset>36</offset>
+      <offset>44</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="CannotPurchaseReason" type="STRING">
-      <offset>40</offset>
+      <offset>48</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="CannotPurchaseType" type="INT">
-      <offset>44</offset>
-      <static_define_list />
+      <offset>52</offset>
+      <static_define_list external="MicroPurchaseErrorType" />
     </column>
     <column name="PrerequisitesMet" type="BIT">
-      <offset>48</offset>
+      <offset>56</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="CannotPurchaseAgain" type="BIT">
-      <offset>48</offset>
+      <offset>56</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="OneTimePurchase" type="BIT">
-      <offset>48</offset>
+      <offset>56</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="UniqueInInv" type="BIT">
-      <offset>48</offset>
+      <offset>56</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="Updated" type="BIT">
-      <offset>48</offset>
+      <offset>56</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="ItemRestrictions" type="BIT">
-      <offset>48</offset>
+      <offset>56</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="NewProduct" type="BIT">
-      <offset>48</offset>
+      <offset>56</offset>
       <bit_offset>65542</bit_offset>
     </column>
-    <column name="FailsExpression" type="BIT">
-      <offset>48</offset>
+    <column name="FeaturedProduct" type="BIT">
+      <offset>56</offset>
       <bit_offset>65543</bit_offset>
     </column>
-    <column name="NotEnoughCurrency" type="BIT">
-      <offset>48</offset>
+    <column name="OwnedProduct" type="BIT">
+      <offset>56</offset>
       <bit_offset>65544</bit_offset>
     </column>
-    <column name="AlreadyEntitled" type="BIT">
-      <offset>48</offset>
+    <column name="FailsExpression" type="BIT">
+      <offset>56</offset>
       <bit_offset>65545</bit_offset>
     </column>
-    <column name="PremiumEntitlement" type="BIT">
-      <offset>48</offset>
+    <column name="NotEnoughCurrency" type="BIT">
+      <offset>56</offset>
       <bit_offset>65546</bit_offset>
+    </column>
+    <column name="AlreadyEntitled" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="PremiumEntitlement" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65548</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

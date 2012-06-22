@@ -21,11 +21,11 @@
     </column>
     <column name="offAttrib" type="INT">
       <offset>8</offset>
-      <static_define_list />
+      <static_define_list external="AttribType" />
     </column>
     <column name="offAspect" type="INT">
       <offset>12</offset>
-      <static_define_list />
+      <static_define_list external="AttribAspect" />
     </column>
     <column name="DefaultMessage" type="STRING">
       <offset>16</offset>
@@ -35,6 +35,30 @@
     </column>
     <column name="AttribName" type="STRING">
       <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Desc" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="DescLong" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="PowerDef" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RequiredGemSlot" type="STRING">
+      <offset>36</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>

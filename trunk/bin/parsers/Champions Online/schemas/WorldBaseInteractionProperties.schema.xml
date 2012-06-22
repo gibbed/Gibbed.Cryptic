@@ -13,23 +13,29 @@
       <offset>4</offset>
       <dictionary_name>Message</dictionary_name>
     </column>
-    <column name="StartsHidden" type="BIT">
+    <column name="OverrideFX" type="STRING">
       <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StartsHidden" type="BIT">
+      <offset>12</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="VisiblePerEnt" type="BIT">
-      <offset>8</offset>
+      <offset>12</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="TabSelect" type="BIT">
-      <offset>8</offset>
+      <offset>12</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="uInteractDist" type="INT">
-      <offset>12</offset>
+      <offset>16</offset>
     </column>
     <column name="uTargetDist" type="INT">
-      <offset>16</offset>
+      <offset>20</offset>
     </column>
     <column name="End" type="END" />
   </table>

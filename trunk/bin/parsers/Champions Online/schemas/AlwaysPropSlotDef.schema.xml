@@ -14,40 +14,49 @@
         <flag>KEY</flag>
       </flags>
     </column>
-    <column name="DisplayName" type="OPTIONALSTRUCT">
+    <column name="FileName" type="CURRENTFILE">
       <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="OPTIONALSTRUCT">
+      <offset>8</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="Type" type="INTARRAY">
-      <offset>8</offset>
-      <static_define_list />
+    <column name="ClassRestrictType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="AlwaysPropSlotClassRestrictType" />
     </column>
     <column name="AllowPowerCategory" type="INT">
-      <offset>12</offset>
+      <offset>16</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="PowerCategory" />
     </column>
     <column name="MaxPropPowers" type="INT">
-      <offset>16</offset>
+      <offset>20</offset>
     </column>
     <column name="PowerMax" type="INT">
-      <offset>16</offset>
+      <offset>20</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MaxPropPowers</redundant_name>
     </column>
     <column name="MinPropPowers" type="INT">
-      <offset>20</offset>
+      <offset>24</offset>
     </column>
     <column name="IgnorePurposeForMax" type="INT">
-      <offset>24</offset>
+      <offset>28</offset>
       <default>-1</default>
-      <static_define_list />
+      <static_define_list external="PowerPurpose" />
     </column>
     <column name="Category" type="INT">
-      <offset>28</offset>
-      <static_define_list />
+      <offset>32</offset>
+      <static_define_list external="AlwaysPropSlotCategory" />
+    </column>
+    <column name="ImportanceRank" type="INT">
+      <offset>36</offset>
     </column>
     <column name="}" type="END" />
   </table>

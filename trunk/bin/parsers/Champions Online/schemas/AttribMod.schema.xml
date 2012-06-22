@@ -8,7 +8,7 @@
     </column>
     <column name="{" type="START" />
     <column name="hPowerDef" type="REFERENCE">
-      <offset>24</offset>
+      <offset>28</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -17,7 +17,7 @@
       <dictionary_name>PowerDef</dictionary_name>
     </column>
     <column name="uiVersion" type="INT">
-      <offset>28</offset>
+      <offset>32</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -26,7 +26,7 @@
       </flags>
     </column>
     <column name="uiDefIdx" type="INT">
-      <offset>32</offset>
+      <offset>36</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -34,7 +34,7 @@
       </flags>
     </column>
     <column name="uiApplyID" type="INT">
-      <offset>36</offset>
+      <offset>40</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -42,7 +42,7 @@
       </flags>
     </column>
     <column name="uiPowerID" type="INT">
-      <offset>44</offset>
+      <offset>48</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -51,10 +51,10 @@
       </flags>
     </column>
     <column name="erPersonal" type="INT">
-      <offset>48</offset>
+      <offset>52</offset>
     </column>
     <column name="pParams" type="OPTIONALSTRUCT">
-      <offset>56</offset>
+      <offset>60</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -63,7 +63,7 @@
       <subtable external="AttribModParams" />
     </column>
     <column name="fHue" type="F32">
-      <offset>64</offset>
+      <offset>68</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -71,7 +71,7 @@
       </flags>
     </column>
     <column name="bActive" type="BIT">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -81,7 +81,7 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bDisabled" type="BIT">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -90,15 +90,6 @@
       <bit_offset>65538</bit_offset>
     </column>
     <column name="fDuration" type="F32">
-      <offset>80</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>SERVER_ONLY</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="fDurationOriginal" type="F32">
       <offset>84</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
@@ -107,15 +98,16 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fMagnitude" type="F32">
+    <column name="fDurationOriginal" type="F32">
       <offset>88</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fMagnitudeOriginal" type="F32">
+    <column name="fMagnitude" type="F32">
       <offset>92</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
@@ -123,8 +115,16 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="pFragility" type="OPTIONALSTRUCT">
+    <column name="fMagnitudeOriginal" type="F32">
       <offset>96</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pFragility" type="OPTIONALSTRUCT">
+      <offset>100</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -134,15 +134,6 @@
       <subtable external="ModFragility" />
     </column>
     <column name="fAvoidance" type="F32">
-      <offset>100</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>SERVER_ONLY</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="fTimer" type="F32">
       <offset>104</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
@@ -151,11 +142,20 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
+    <column name="fTimer" type="F32">
+      <offset>108</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
     <column name="erCreated" type="INT">
-      <offset>116</offset>
+      <offset>120</offset>
     </column>
     <column name="ppPowersCreated" type="STRUCT">
-      <offset>120</offset>
+      <offset>124</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -165,7 +165,7 @@
       <subtable external="Power" />
     </column>
     <column name="pSubtarget" type="OPTIONALSTRUCT">
-      <offset>124</offset>
+      <offset>128</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -175,7 +175,7 @@
       <subtable external="PowerSubtargetChoice" />
     </column>
     <column name="ppApplyStrengths" type="STRUCT">
-      <offset>128</offset>
+      <offset>132</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -185,7 +185,7 @@
       <subtable external="PowerApplyStrength" />
     </column>
     <column name="pSourceDetails" type="OPTIONALSTRUCT">
-      <offset>132</offset>
+      <offset>136</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -195,13 +195,14 @@
       <subtable external="AttribModSourceDetails" />
     </column>
     <column name="eFlags" type="INT">
-      <offset>136</offset>
+      <offset>140</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="CombatTrackerFlag" />
+      <format>FLAGS</format>
     </column>
     <column name="eModPowerSource" type="IGNORE" />
     <column name="fCheckTimer" type="IGNORE" />

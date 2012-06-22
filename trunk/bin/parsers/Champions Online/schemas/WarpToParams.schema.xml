@@ -12,8 +12,8 @@
       <flags>
         <flag>OBJECTTYPE</flag>
       </flags>
-      <default>1063</default>
-      <static_define_list />
+      <default>1204</default>
+      <static_define_list external="AttribType" />
     </column>
     <column name="Map" type="STRING">
       <offset>4</offset>
@@ -30,6 +30,10 @@
     <column name="TransitionOverride" type="REFERENCE">
       <offset>12</offset>
       <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="DisallowSameMapTransfer" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

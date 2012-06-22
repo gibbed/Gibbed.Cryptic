@@ -13,15 +13,22 @@
         <flag>STRUCTPARAM</flag>
       </flags>
     </column>
-    <column name="PromptBody" type="STRING">
+    <column name="PromptTitle" type="STRING">
       <offset>4</offset>
     </column>
-    <column name="Action" type="STRUCT">
+    <column name="PromptBody" type="STRING">
       <offset>8</offset>
+    </column>
+    <column name="PromptType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="UGCDialogTreePromptType" />
+    </column>
+    <column name="Action" type="STRUCT">
+      <offset>16</offset>
       <subtable external="UGCDialogTreePromptAction" />
     </column>
     <column name="PromptButton" type="STRUCT">
-      <offset>8</offset>
+      <offset>16</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -29,18 +36,16 @@
       <subtable external="UGCDialogTreePromptAction" />
     </column>
     <column name="PromptCostume" type="STRING">
-      <offset>12</offset>
-    </column>
-    <column name="PromptPetCostume" type="REFERENCE">
-      <offset>16</offset>
-      <dictionary_name>PetContactList</dictionary_name>
-    </column>
-    <column name="CameraPos" type="STRING">
       <offset>20</offset>
     </column>
-    <column name="PromptStyle" type="STRING">
+    <column name="PromptPetCostume" type="REFERENCE">
       <offset>24</offset>
+      <dictionary_name>PetContactList</dictionary_name>
     </column>
+    <column name="PromptStyle" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="CameraPos" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

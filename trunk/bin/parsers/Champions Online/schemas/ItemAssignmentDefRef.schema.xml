@@ -6,11 +6,14 @@
         <flag>PARSETABLE_INFO</flag>
       </flags>
     </column>
-    <column name="{" type="START" />
     <column name="hDef" type="REFERENCE">
       <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
       <dictionary_name>ItemAssignmentDef</dictionary_name>
     </column>
-    <column name="}" type="END" />
+    <column name="&#xA;" type="END" />
   </table>
 </parser>

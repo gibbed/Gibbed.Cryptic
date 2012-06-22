@@ -16,12 +16,6 @@
     <column name="MapNames" type="STRINGARRAY">
       <offset>8</offset>
     </column>
-    <column name="sAction" type="STASHTABLE">
-      <offset>12</offset>
-    </column>
-    <column name="sFileGroups" type="STASHTABLE">
-      <offset>16</offset>
-    </column>
     <column name="Actions" type="STRINGARRAY">
       <offset>20</offset>
     </column>
@@ -31,23 +25,35 @@
     <column name="OwnerNames" type="STRINGARRAY">
       <offset>28</offset>
     </column>
-    <column name="Regex" type="STRING">
+    <column name="substring" type="STRINGARRAY">
       <offset>32</offset>
     </column>
-    <column name="RegexInverse" type="STRING">
+    <column name="SubstringInverse" type="STRINGARRAY">
       <offset>36</offset>
     </column>
-    <column name="Expression" type="STRING">
+    <column name="SubstringCaseSensitive" type="STRINGARRAY">
       <offset>40</offset>
     </column>
-    <column name="uObjID" type="INT">
+    <column name="SubstringCaseSensitiveInverse" type="STRINGARRAY">
       <offset>44</offset>
     </column>
-    <column name="uPlayerID" type="INT">
+    <column name="Regex" type="STRING">
       <offset>48</offset>
     </column>
-    <column name="uAccountID" type="INT">
+    <column name="RegexInverse" type="STRING">
       <offset>52</offset>
+    </column>
+    <column name="Expression" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="uObjID" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="uPlayerID" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="uAccountID" type="INT">
+      <offset>68</offset>
     </column>
     <column name="}" type="END" />
   </table>

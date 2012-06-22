@@ -45,9 +45,15 @@
     <column name="SlotType" type="STRING">
       <offset>36</offset>
     </column>
-    <column name="CreateCharacter" type="INT">
+    <column name="OptionalSlotType" type="STRINGARRAY">
       <offset>44</offset>
-      <static_define_list />
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CreateCharacter" type="INT">
+      <offset>48</offset>
+      <static_define_list external="PCCharacterCreateSlot" />
     </column>
     <column name="}" type="END" />
   </table>

@@ -13,7 +13,7 @@
         <flag>OBJECTTYPE</flag>
       </flags>
       <default>10</default>
-      <static_define_list />
+      <static_define_list external="UIGenType" />
     </column>
     <column name="bf" type="INTFIXEDARRAY">
       <offset>4</offset>
@@ -29,11 +29,11 @@
     </column>
     <column name="X" type="INT16">
       <offset>24</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="Y" type="INT16">
       <offset>26</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="PercentX" type="F32">
       <offset>28</offset>
@@ -67,19 +67,19 @@
     </column>
     <column name="LeftMargin" type="INT16">
       <offset>84</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="RightMargin" type="INT16">
       <offset>86</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="TopMargin" type="INT16">
       <offset>88</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="BottomMargin" type="INT16">
       <offset>90</offset>
-      <static_define_list />
+      <static_define_list external="UISize" />
     </column>
     <column name="Scale" type="F32">
       <offset>92</offset>
@@ -88,7 +88,7 @@
     <column name="OffsetFrom" type="U8">
       <offset>96</offset>
       <default>10</default>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="ScaleNoGrow" type="BIT">
       <offset>96</offset>
@@ -343,34 +343,60 @@
       <redundant_name>SMFExpr</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
-    <column name="Font" type="REFERENCE">
+    <column name="Truncate" type="REFERENCE">
       <offset>240</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Font" type="REFERENCE">
+      <offset>244</offset>
       <dictionary_name>UIStyleFont</dictionary_name>
     </column>
     <column name="OnActivated" type="OPTIONALSTRUCT">
-      <offset>244</offset>
-      <subtable external="UIGenAction" />
-    </column>
-    <column name="OnSelected" type="OPTIONALSTRUCT">
       <offset>248</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="Alignment" type="U8">
+    <column name="OnSelected" type="OPTIONALSTRUCT">
       <offset>252</offset>
-      <default>10</default>
-      <static_define_list />
+      <subtable external="UIGenAction" />
     </column>
-    <column name="ShrinkToFit" type="BIT">
-      <offset>252</offset>
+    <column name="Alignment" type="U8">
+      <offset>256</offset>
+      <default>10</default>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="AllowSelect" type="BIT">
+      <offset>256</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
       <bit_offset>65544</bit_offset>
     </column>
-    <column name="ScaleToFit" type="BIT">
-      <offset>252</offset>
+    <column name="ShrinkToFit" type="BIT">
+      <offset>256</offset>
       <bit_offset>65545</bit_offset>
     </column>
-    <column name="NoWrap" type="BIT">
-      <offset>252</offset>
+    <column name="ScaleToFit" type="BIT">
+      <offset>256</offset>
       <bit_offset>65546</bit_offset>
+    </column>
+    <column name="NoWrap" type="BIT">
+      <offset>256</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="PlainText" type="BIT">
+      <offset>256</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="SafeMode" type="BIT">
+      <offset>256</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="FilterProfanity" type="BIT">
+      <offset>256</offset>
+      <bit_offset>65550</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

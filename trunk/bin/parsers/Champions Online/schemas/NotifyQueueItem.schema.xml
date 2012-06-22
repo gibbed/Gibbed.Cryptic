@@ -12,7 +12,7 @@
       <flags>
         <flag>STRUCTPARAM</flag>
       </flags>
-      <static_define_list />
+      <static_define_list external="NotifyType" />
     </column>
     <column name="DisplayString" type="STRING">
       <offset>4</offset>
@@ -41,33 +41,57 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="HeadshotData" type="OPTIONALSTRUCT">
+    <column name="Queue" type="STRING">
       <offset>24</offset>
-      <subtable external="NotifyHeadshotData" />
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="HeadshotData" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="ContactHeadshotData" />
     </column>
     <column name="Font" type="REFERENCE">
-      <offset>28</offset>
+      <offset>32</offset>
       <dictionary_name>UIStyleFont</dictionary_name>
     </column>
     <column name="Color" type="INT">
-      <offset>32</offset>
-      <static_define_list />
+      <offset>36</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
     <column name="ColorString" type="FIXEDSTRING">
-      <offset>36</offset>
+      <offset>40</offset>
       <string_length>10</string_length>
     </column>
     <column name="Lifetime" type="F32">
-      <offset>48</offset>
-    </column>
-    <column name="LifetimeMax" type="F32">
       <offset>52</offset>
     </column>
-    <column name="Delay" type="F32">
+    <column name="LifetimeMax" type="F32">
       <offset>56</offset>
     </column>
-    <column name="Infinite" type="U8">
+    <column name="Delay" type="F32">
       <offset>60</offset>
+    </column>
+    <column name="ItemID" type="INT64">
+      <offset>64</offset>
+    </column>
+    <column name="Value" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="Origin" type="F32FIXEDARRAY">
+      <offset>76</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="erEntity" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="Infinite" type="U8">
+      <offset>92</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>96</offset>
     </column>
     <column name="}" type="END" />
   </table>

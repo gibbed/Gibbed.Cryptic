@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCTrapProperties">
+  <table>
+    <column name="UGCTrapProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SelfContained" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="UGCTrapSelfContained" />
+    </column>
+    <column name="Emitters" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UGCTrapPointData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

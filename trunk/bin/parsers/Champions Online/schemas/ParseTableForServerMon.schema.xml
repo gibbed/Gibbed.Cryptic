@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ParseTableForServerMon">
+  <table>
+    <column name="ParseTableForServerMon" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TableName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Fields" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ParseTableFieldForServerMon" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

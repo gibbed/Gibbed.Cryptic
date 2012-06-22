@@ -17,11 +17,13 @@
     </column>
     <column name="Require" type="INT">
       <offset>4</offset>
-      <static_define_list />
+      <static_define_list external="TargetType" />
+      <format>FLAGS</format>
     </column>
     <column name="Exclude" type="INT">
       <offset>8</offset>
-      <static_define_list />
+      <static_define_list external="TargetType" />
+      <format>FLAGS</format>
     </column>
     <column name="Or" type="STRUCT">
       <offset>12</offset>
@@ -53,8 +55,16 @@
       <offset>24</offset>
       <bit_offset>65537</bit_offset>
     </column>
+    <column name="FaceActivateSticky" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
     <column name="FaceDuringPowerActivation" type="BIT">
       <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FaceActivateSticky</redundant_name>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="RequireSelf" type="BIT">

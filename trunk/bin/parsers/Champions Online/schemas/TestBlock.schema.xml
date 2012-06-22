@@ -4,7 +4,10 @@
     <column name="{" type="START" />
     <column name="maskfield" type="INT">
       <offset>0</offset>
-      <static_define_list />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>FLAGS</format>
     </column>
     <column name="floatarray" type="F32ARRAY">
       <offset>8</offset>

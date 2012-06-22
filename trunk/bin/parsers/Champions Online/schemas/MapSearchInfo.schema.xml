@@ -13,7 +13,7 @@
     </column>
     <column name="PlayerType" type="INT">
       <offset>76</offset>
-      <static_define_list />
+      <static_define_list external="GlobalType" />
     </column>
     <column name="playerID" type="INT">
       <offset>80</offset>
@@ -36,41 +36,33 @@
       <offset>92</offset>
       <bit_offset>65538</bit_offset>
     </column>
-    <column name="requestSpecificStaticOrSharedMap" type="BIT">
+    <column name="ExpectedTrasferFromShardNS" type="BIT">
       <offset>92</offset>
       <bit_offset>65539</bit_offset>
     </column>
-    <column name="requestSpecificMapInstanceIndex" type="BIT">
+    <column name="noClientChoice" type="BIT">
       <offset>92</offset>
       <bit_offset>65540</bit_offset>
     </column>
-    <column name="noClientChoice" type="BIT">
+    <column name="requestFallback" type="BIT">
       <offset>92</offset>
       <bit_offset>65541</bit_offset>
     </column>
-    <column name="requestFallback" type="BIT">
+    <column name="overSoftCapOK" type="BIT">
       <offset>92</offset>
       <bit_offset>65542</bit_offset>
     </column>
-    <column name="overSoftCapOK" type="BIT">
+    <column name="safeLogin" type="BIT">
       <offset>92</offset>
       <bit_offset>65543</bit_offset>
     </column>
-    <column name="teamTransfer" type="BIT">
+    <column name="NoNewOwned" type="BIT">
       <offset>92</offset>
       <bit_offset>65544</bit_offset>
     </column>
-    <column name="safeLogin" type="BIT">
-      <offset>92</offset>
-      <bit_offset>65545</bit_offset>
-    </column>
-    <column name="NoNewOwned" type="BIT">
-      <offset>92</offset>
-      <bit_offset>65546</bit_offset>
-    </column>
     <column name="Flags" type="INT">
       <offset>96</offset>
-      <static_define_list />
+      <static_define_list external="enumMapSearchAndPossibilitiesFlags" />
     </column>
     <column name="gameServerIDToExclude" type="INT">
       <offset>100</offset>
@@ -79,14 +71,8 @@
       <offset>104</offset>
       <subtable external="AccountProxyKeyValueInfoList" />
     </column>
-    <column name="DoNotCreateNewMap" type="U8">
-      <offset>108</offset>
-    </column>
     <column name="SkipTutorial" type="U8">
-      <offset>109</offset>
-    </column>
-    <column name="EditMode" type="U8">
-      <offset>110</offset>
+      <offset>108</offset>
     </column>
     <column name="AccessLevel" type="INT">
       <offset>112</offset>
@@ -102,7 +88,7 @@
     </column>
     <column name="SearchType" type="INT">
       <offset>128</offset>
-      <static_define_list />
+      <static_define_list external="MapSearchType" />
     </column>
     <column name="AccountName" type="STRING">
       <offset>132</offset>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameContentNodePartyCountResultCache">
+  <table>
+    <column name="GameContentNodePartyCountResultCache" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LastUpdateTime" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="LastResult" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="GameContentNodePartyCountResult" />
+    </column>
+    <column name="QueryInProgress" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -16,25 +16,33 @@
     <column name="seriesID" type="INT">
       <offset>8</offset>
     </column>
-    <column name="PublicName" type="STRING">
-      <offset>12</offset>
-    </column>
     <column name="PatchInfo" type="OPTIONALSTRUCT">
-      <offset>16</offset>
+      <offset>12</offset>
       <subtable external="DynamicPatchInfo" />
     </column>
     <column name="PossibleUGCProjectFlags" type="INT">
-      <offset>20</offset>
+      <offset>16</offset>
     </column>
     <column name="VirtualShardID" type="INT">
-      <offset>24</offset>
+      <offset>20</offset>
     </column>
-    <column name="Info" type="OPTIONALSTRUCT">
+    <column name="ProjectInfo" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="UGCProjectInfo" />
+    </column>
+    <column name="ProjectReviews" type="OPTIONALSTRUCT">
       <offset>28</offset>
-      <subtable external="PossibleUGCProjectInfo" />
+      <subtable external="UGCProjectReviews" />
+    </column>
+    <column name="ProjectReviewsPageNumber" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="Status" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="UGCProjectStatusQueryInfo" />
     </column>
     <column name="EditQueueCookie" type="INT">
-      <offset>32</offset>
+      <offset>40</offset>
     </column>
     <column name="}" type="END" />
   </table>

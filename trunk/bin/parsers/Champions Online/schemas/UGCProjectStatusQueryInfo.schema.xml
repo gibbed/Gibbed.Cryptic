@@ -7,29 +7,32 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="LastPublishTime" type="INT">
+    <column name="strPublishedName" type="STRING">
       <offset>0</offset>
     </column>
-    <column name="LastSaveTime" type="INT">
+    <column name="LastPublishTime" type="INT">
       <offset>4</offset>
     </column>
-    <column name="LastPublishSucceeded" type="U8">
+    <column name="LastSaveTime" type="INT">
       <offset>8</offset>
     </column>
-    <column name="CurrentlyPublishing" type="U8">
-      <offset>9</offset>
-    </column>
-    <column name="CurPlaceInQueue" type="INT">
+    <column name="LastPublishSucceeded" type="U8">
       <offset>12</offset>
     </column>
-    <column name="PublishPercentage" type="F32">
+    <column name="CurrentlyPublishing" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="CurPlaceInQueue" type="INT">
       <offset>16</offset>
     </column>
-    <column name="EntityRef" type="INT">
+    <column name="PublishPercentage" type="F32">
       <offset>20</offset>
     </column>
-    <column name="CanBeWithdrawn" type="U8">
+    <column name="EntityRef" type="INT">
       <offset>24</offset>
+    </column>
+    <column name="CanBeWithdrawn" type="U8">
+      <offset>28</offset>
     </column>
     <column name="}" type="END" />
   </table>

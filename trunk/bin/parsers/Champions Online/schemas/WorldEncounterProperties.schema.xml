@@ -18,23 +18,30 @@
       <offset>8</offset>
       <subtable external="WorldEncounterEventProperties" />
     </column>
-    <column name="PatrolRoute" type="STRING">
+    <column name="RewardProperties" type="OPTIONALSTRUCT">
       <offset>12</offset>
+      <subtable external="WorldEncounterRewardProperties" />
+    </column>
+    <column name="PatrolRoute" type="STRING">
+      <offset>16</offset>
     </column>
     <column name="Actor" type="STRUCT">
-      <offset>16</offset>
+      <offset>20</offset>
       <subtable external="WorldActorProperties" />
     </column>
     <column name="FillActorsInOrder" type="U8">
-      <offset>20</offset>
+      <offset>24</offset>
     </column>
     <column name="Point" type="STRUCT">
-      <offset>24</offset>
+      <offset>28</offset>
       <subtable external="WorldEncounterPointProperties" />
     </column>
     <column name="PresenceCondition" type="OPTIONALSTRUCT">
-      <offset>28</offset>
+      <offset>32</offset>
       <subtable external="Expression" />
+    </column>
+    <column name="OverrideSendDistance" type="F32">
+      <offset>36</offset>
     </column>
     <column name="End" type="END" />
   </table>

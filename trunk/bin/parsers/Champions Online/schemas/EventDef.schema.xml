@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EventDef">
+  <table>
+    <column name="EventDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EventName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Activity" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ActivityDefRef" />
+    </column>
+    <column name="EventTime" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="EventTimingDef" />
+    </column>
+    <column name="msgDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="msgDisplayShortDesc" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="msgDisplayLongDesc" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Background" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayTag" type="INTARRAY">
+      <offset>60</offset>
+      <static_define_list external="ActivityDisplayTags" />
+    </column>
+    <column name="IncludeMap" type="STRINGARRAY">
+      <offset>64</offset>
+    </column>
+    <column name="ExcludeMap" type="STRINGARRAY">
+      <offset>68</offset>
+    </column>
+    <column name="SpawnMap" type="STRING">
+      <offset>72</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SpawnPoint" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="WarpRequiredLevel" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="TransitionOverride" type="REFERENCE">
+      <offset>84</offset>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="Warp" type="STRUCT">
+      <offset>88</offset>
+      <subtable external="EventWarpDef" />
+    </column>
+    <column name="Contact" type="STRUCT">
+      <offset>92</offset>
+      <subtable external="EventContactDef" />
+    </column>
+    <column name="Queue" type="REFERENCE">
+      <offset>96</offset>
+      <dictionary_name>QueueDef</dictionary_name>
+    </column>
+    <column name="ParentEvent" type="STRING">
+      <offset>100</offset>
+    </column>
+    <column name="uHideEventFromClient" type="BIT">
+      <offset>104</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="uHideFromExcludedMaps" type="BIT">
+      <offset>104</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="EventRunMode" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

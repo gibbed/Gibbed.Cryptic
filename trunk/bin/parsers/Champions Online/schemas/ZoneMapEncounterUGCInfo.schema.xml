@@ -20,8 +20,11 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="VolumeLogicalName" type="STRINGARRAY">
+    <column name="DeprecatedMapNewMapName" type="STRING">
       <offset>8</offset>
+    </column>
+    <column name="VolumeLogicalName" type="STRINGARRAY">
+      <offset>12</offset>
     </column>
     <column name="default_group" type="IGNORE">
       <flags>
@@ -34,17 +37,17 @@
       </flags>
     </column>
     <column name="MinLevel" type="INT">
-      <offset>12</offset>
-    </column>
-    <column name="MaxLevel" type="INT">
       <offset>16</offset>
     </column>
-    <column name="Faction" type="STRUCT">
+    <column name="MaxLevel" type="INT">
       <offset>20</offset>
+    </column>
+    <column name="Faction" type="STRUCT">
+      <offset>24</offset>
       <subtable external="WorldUGCFactionRestrictionProperties" />
     </column>
     <column name="RestrictAllegiance" type="STRUCT">
-      <offset>20</offset>
+      <offset>24</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -52,11 +55,11 @@
       <subtable external="WorldUGCFactionRestrictionProperties" />
     </column>
     <column name="UGCObject" type="STRUCT">
-      <offset>24</offset>
+      <offset>28</offset>
       <subtable external="ZoneMapEncounterObjectUGCInfo" />
     </column>
     <column name="Group" type="STRUCT">
-      <offset>28</offset>
+      <offset>32</offset>
       <subtable external="ZoneMapEncounterObjectUGCGroup" />
     </column>
     <column name="}" type="END" />

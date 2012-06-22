@@ -32,7 +32,7 @@
     </column>
     <column name="whenType" type="INT">
       <offset>16</offset>
-      <static_define_list />
+      <static_define_list external="GenesisWhenType" />
     </column>
     <column name="ShowWhen" type="INT">
       <offset>16</offset>
@@ -40,7 +40,7 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>whenType</redundant_name>
-      <static_define_list />
+      <static_define_list external="GenesisWhenType" />
     </column>
     <column name="SpawnWhen" type="INT">
       <offset>16</offset>
@@ -48,7 +48,7 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>whenType</redundant_name>
-      <static_define_list />
+      <static_define_list external="GenesisWhenType" />
     </column>
     <column name="Not" type="U8">
       <offset>20</offset>
@@ -138,51 +138,58 @@
       </flags>
       <redundant_name>WhenPromptName</redundant_name>
     </column>
-    <column name="WhenPromptChallengeName" type="STRING">
+    <column name="WhenPromptBlock" type="STRUCT">
       <offset>48</offset>
+      <subtable external="GenesisWhenPromptBlock" />
     </column>
-    <column name="WhenContactName" type="STRINGARRAY">
+    <column name="WhenPromptChallengeName" type="STRING">
       <offset>52</offset>
     </column>
-    <column name="WhenCritterDefName" type="STRINGARRAY">
+    <column name="WhenContactName" type="STRINGARRAY">
       <offset>56</offset>
     </column>
-    <column name="WhenCritterGroupName" type="STRINGARRAY">
+    <column name="WhenCritterDefName" type="STRINGARRAY">
       <offset>60</offset>
     </column>
-    <column name="WhenCritterNumToComplete" type="INT">
+    <column name="WhenCritterGroupName" type="STRINGARRAY">
       <offset>64</offset>
     </column>
-    <column name="WhenExternalMission" type="STRINGARRAY">
+    <column name="WhenCritterNumToComplete" type="INT">
       <offset>68</offset>
+    </column>
+    <column name="WhenExternalMission" type="STRINGARRAY">
+      <offset>72</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="WhenExternalMap" type="STRINGARRAY">
+      <offset>76</offset>
+    </column>
     <column name="WhenExternalChallenge" type="STRUCT">
-      <offset>72</offset>
+      <offset>80</offset>
       <subtable external="GenesisWhenExternalChallenge" />
     </column>
     <column name="WhenExternalRoom" type="STRUCT">
-      <offset>76</offset>
+      <offset>84</offset>
       <subtable external="GenesisWhenExternalRoom" />
     </column>
     <column name="WhenExternalPrompt" type="STRUCT">
-      <offset>80</offset>
+      <offset>88</offset>
       <subtable external="GenesisWhenExternalPrompt" />
     </column>
     <column name="WhenItemDefName" type="STRINGARRAY">
-      <offset>84</offset>
+      <offset>92</offset>
     </column>
     <column name="WhenItemCount" type="INT">
-      <offset>88</offset>
+      <offset>96</offset>
     </column>
     <column name="SpawnWhenChallenge" type="STRUCT">
-      <offset>92</offset>
+      <offset>100</offset>
       <subtable external="GenesisMissionZoneChallenge" />
     </column>
     <column name="SpawnWhenPrompt" type="STRUCT">
-      <offset>96</offset>
+      <offset>104</offset>
       <subtable external="GenesisProceduralPromptInfo" />
     </column>
     <column name="}" type="END" />

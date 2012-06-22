@@ -23,11 +23,18 @@
     <column name="Rotation" type="F32">
       <offset>24</offset>
     </column>
-    <column name="ExternalMap" type="STRING">
+    <column name="Snap" type="INT">
       <offset>28</offset>
+      <static_define_list external="UGCComponentHeightSnap" />
+    </column>
+    <column name="RoomLevel" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="ExternalMap" type="STRING">
+      <offset>36</offset>
     </column>
     <column name="ExternalObject" type="STRING">
-      <offset>32</offset>
+      <offset>40</offset>
     </column>
     <column name="}" type="END" />
   </table>

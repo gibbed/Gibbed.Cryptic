@@ -7,11 +7,20 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Index" type="INT">
+    <column name="GroupName" type="STRING">
       <offset>0</offset>
     </column>
-    <column name="NumRecords" type="INT">
+    <column name="Version" type="INT">
       <offset>4</offset>
+    </column>
+    <column name="NumRecords" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="TeamIDs" type="INTARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="FriendsOnly" type="U8">
+      <offset>16</offset>
     </column>
     <column name="}" type="END" />
   </table>

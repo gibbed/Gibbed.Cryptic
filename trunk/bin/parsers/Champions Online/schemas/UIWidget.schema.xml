@@ -15,7 +15,7 @@
     </column>
     <column name="OffsetFrom" type="INT">
       <offset>8</offset>
-      <static_define_list />
+      <static_define_list external="UIDirection" />
     </column>
     <column name="X" type="F32">
       <offset>12</offset>
@@ -37,16 +37,16 @@
     </column>
     <column name="widthUnit" type="INT">
       <offset>36</offset>
-      <static_define_list />
+      <static_define_list external="UIUnitType" />
     </column>
     <column name="heightUnit" type="INT">
       <offset>40</offset>
-      <static_define_list />
+      <static_define_list external="UIUnitType" />
     </column>
-    <column name="topPad" type="F32">
+    <column name="TopPad" type="F32">
       <offset>44</offset>
     </column>
-    <column name="bottomPad" type="F32">
+    <column name="BottomPad" type="F32">
       <offset>48</offset>
     </column>
     <column name="LeftPad" type="F32">
@@ -92,6 +92,10 @@
     <column name="uUIGenWidget" type="BIT">
       <offset>252</offset>
       <bit_offset>65538</bit_offset>
+    </column>
+    <column name="ConsumesEscape" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="create_filename" type="STRING">
       <offset>256</offset>

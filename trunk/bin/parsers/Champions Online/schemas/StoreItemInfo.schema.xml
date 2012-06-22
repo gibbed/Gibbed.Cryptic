@@ -24,7 +24,7 @@
     </column>
     <column name="CanBuyError" type="INT">
       <offset>12</offset>
-      <static_define_list />
+      <static_define_list external="StoreCanBuyError" />
     </column>
     <column name="FailsRequirements" type="INT">
       <offset>12</offset>
@@ -32,7 +32,7 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>CanBuyError</redundant_name>
-      <static_define_list />
+      <static_define_list external="StoreCanBuyError" />
     </column>
     <column name="RequirementsText" type="STRING">
       <offset>16</offset>
@@ -89,7 +89,7 @@
     </column>
     <column name="StoreCategory" type="INT">
       <offset>64</offset>
-      <static_define_list />
+      <static_define_list external="StoreCategory" />
     </column>
     <column name="StoreItemIndex" type="INT">
       <offset>68</offset>

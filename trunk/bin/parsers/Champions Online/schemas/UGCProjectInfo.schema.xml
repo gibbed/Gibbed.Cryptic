@@ -27,10 +27,10 @@
     <column name="creationTime" type="INT">
       <offset>12</offset>
     </column>
-    <column name="PublicName" type="STRING">
+    <column name="FromContainer" type="U8">
       <offset>16</offset>
     </column>
-    <column name="FromContainer" type="U8">
+    <column name="PublicName" type="STRING">
       <offset>20</offset>
     </column>
     <column name="Description" type="STRING">
@@ -41,11 +41,11 @@
     </column>
     <column name="Permission" type="STRUCT">
       <offset>32</offset>
-      <subtable external="UGCProjectInfoPermission" />
+      <subtable external="UGCProjectPermission" />
     </column>
     <column name="Language" type="INT">
       <offset>36</offset>
-      <static_define_list />
+      <static_define_list external="Language" />
     </column>
     <column name="RestrictionProperties" type="OPTIONALSTRUCT">
       <offset>40</offset>

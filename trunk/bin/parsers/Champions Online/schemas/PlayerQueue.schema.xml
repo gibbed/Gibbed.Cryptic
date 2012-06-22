@@ -18,8 +18,12 @@
       <offset>4</offset>
       <dictionary_name>QueueDef</dictionary_name>
     </column>
-    <column name="Instances" type="STRUCT">
+    <column name="CannotUseReason" type="INT">
       <offset>8</offset>
+      <static_define_list external="QueueCannotUseReason" />
+    </column>
+    <column name="Instances" type="STRUCT">
+      <offset>12</offset>
       <subtable external="PlayerQueueInstance" />
     </column>
     <column name="}" type="END" />

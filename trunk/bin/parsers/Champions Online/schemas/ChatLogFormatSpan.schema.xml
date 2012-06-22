@@ -7,8 +7,22 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Length" type="INT">
+    <column name="Link" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ChatLink" />
+    </column>
+    <column name="Start" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Length" type="INT16">
       <offset>8</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ChatLogSpanType" />
     </column>
     <column name="}" type="END" />
   </table>

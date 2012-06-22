@@ -29,6 +29,62 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="NumericXP1" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NumericXP" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>NumericXP1</redundant_name>
+    </column>
+    <column name="NumericXP2" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NumericXP2" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>NumericXP2</redundant_name>
+    </column>
+    <column name="NumericRank1" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NumericRank" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>NumericRank1</redundant_name>
+    </column>
+    <column name="NumericRank2" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NumericRank2" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>NumericRank2</redundant_name>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

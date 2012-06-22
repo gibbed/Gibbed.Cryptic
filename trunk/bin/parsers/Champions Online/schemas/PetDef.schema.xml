@@ -48,37 +48,44 @@
       <offset>40</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
-    <column name="CanBePuppet" type="BIT">
+    <column name="MinActivePuppetLevel" type="INT">
       <offset>44</offset>
+    </column>
+    <column name="CanBePuppet" type="BIT">
+      <offset>48</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="CanRemove" type="BIT">
-      <offset>44</offset>
+      <offset>48</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="CritterPet" type="BIT">
-      <offset>44</offset>
+      <offset>48</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="ChooseRandomName" type="BIT">
-      <offset>44</offset>
+      <offset>48</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="IsUnique" type="BIT">
-      <offset>44</offset>
+      <offset>48</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="AutoGrant" type="BIT">
-      <offset>44</offset>
+      <offset>48</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="PetDiag" type="REFERENCE">
-      <offset>48</offset>
+      <offset>52</offset>
       <dictionary_name>PetDiag</dictionary_name>
     </column>
     <column name="CharacterClass" type="REFERENCE">
-      <offset>52</offset>
+      <offset>56</offset>
       <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="AcquireLimit" type="INT">
+      <offset>60</offset>
+      <static_define_list external="PetAcquireLimit" />
     </column>
     <column name="Type" type="IGNORE" />
     <column name="}" type="END" />
