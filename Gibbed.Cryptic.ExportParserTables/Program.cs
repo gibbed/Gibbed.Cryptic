@@ -917,7 +917,8 @@ namespace Gibbed.Cryptic.ExportParserTables
 
             process = Process.GetProcessesByName("GameClient")
                 .FirstOrDefault(p => p.MainWindowTitle == "Champions Online" ||
-                                     p.MainWindowTitle == "Star Trek Online");
+                                     p.MainWindowTitle == "Star Trek Online" ||
+                                     p.MainWindowTitle == "Neverwinter");
             if (process != null)
             {
                 projectName = process.MainWindowTitle;
