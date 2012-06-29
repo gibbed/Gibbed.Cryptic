@@ -11,7 +11,8 @@
     <RootNamespace>Gibbed.Cryptic.ExportParserTables</RootNamespace>
     <AssemblyName>Gibbed.Cryptic.ExportParserTables</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
@@ -67,6 +68,9 @@
       <Project>{2FDF8D04-3F8C-4A62-B13B-348E7A7F61CA}</Project>
       <Name>Gibbed.PortableExecutable</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
