@@ -921,7 +921,10 @@ namespace Gibbed.Cryptic.ExportParserTables
                                      p.MainWindowTitle == "Neverwinter");
             if (process != null)
             {
-                projectName = process.MainWindowTitle;
+                var path = process.MainModule.FileName;
+                path = Path.GetDirectoryName(path);
+                path = Path.GetFileName(path);
+                projectName = Path.Combine(process.MainWindowTitle, path);
                 return process;
             }
 
@@ -929,7 +932,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                 .FirstOrDefault();
             if (process != null)
             {
-                projectName = "Launcher";
+                projectName = Path.Combine("Champions Online", "Launcher");
                 return process;
             }
 
@@ -937,7 +940,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                 .FirstOrDefault();
             if (process != null)
             {
-                projectName = "Launcher";
+                projectName = Path.Combine("Star Trek Online", "Launcher");
                 return process;
             }
 
