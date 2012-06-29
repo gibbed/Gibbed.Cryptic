@@ -340,6 +340,34 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             }
         }
 
+        private object ChangeEnumType(int value, Type type)
+        {
+            switch (Type.GetTypeCode(type))
+            {
+                case TypeCode.Byte:
+                {
+                    return (byte)value;
+                }
+
+                case TypeCode.Int16:
+                {
+                    return (short)value;
+                }
+
+                case TypeCode.Int32:
+                {
+                    return value;
+                }
+
+                case TypeCode.UInt32:
+                {
+                    return (uint)value;
+                }
+            }
+
+            throw new NotSupportedException();
+        }
+
         private Type GenerateEnum(
             TypeBuilder parent,
             ParserSchema.Column column,
@@ -400,7 +428,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
 
                 foreach (var kv in e.Elements)
                 {
-                    var value = Convert.ChangeType(int.Parse(kv.Value), underlyingType);
+                    var value = ChangeEnumType(int.Parse(kv.Value), underlyingType);
                     var fb = builder.DefineLiteral(
                         kv.Key,
                         value);
@@ -433,7 +461,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
 
                 foreach (var kv in e.Elements)
                 {
-                    var value = Convert.ChangeType(int.Parse(kv.Value), underlyingType);
+                    var value = ChangeEnumType(int.Parse(kv.Value), underlyingType);
 
                     var fb = builder.DefineField(
                         kv.Key,
