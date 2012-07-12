@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InventoryBagLite">
+  <table>
+    <column name="InventoryBagLite" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="BagID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="inv_def" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>DefaultInventory</dictionary_name>
+    </column>
+    <column name="ppIndexedLiteSlots" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="InventorySlotLite" />
+    </column>
+    <column name="pGuildBankInfo" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="GuildBankTabInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

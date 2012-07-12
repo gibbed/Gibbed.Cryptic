@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCFreezeProjectCostumeInfo">
+  <table>
+    <column name="UGCFreezeProjectCostumeInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CostumeName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CostumeNamePart" type="STRINGARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="CostumeFile" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="OutCostumeName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -10,27 +10,35 @@
     <column name="movhMaxSpeed" type="INT">
       <offset>0</offset>
     </column>
-    <column name="surfaceNormal" type="F32FIXEDARRAY">
+    <column name="hAutoSprint" type="INT">
       <offset>4</offset>
+    </column>
+    <column name="surfaceNormal" type="F32FIXEDARRAY">
+      <offset>8</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="dirRelativeForDoubleTap" type="F32FIXEDARRAY">
-      <offset>16</offset>
+      <offset>20</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="overridesQueued" type="STRUCT">
-      <offset>28</offset>
-      <subtable external="TacticalOverrides" />
-    </column>
-    <column name="overridesActive" type="STRUCT">
       <offset>32</offset>
       <subtable external="TacticalOverrides" />
     </column>
-    <column name="stanceAiming" type="INT">
+    <column name="CurrentRollSpeed" type="F32">
       <offset>36</offset>
     </column>
-    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+    <column name="stanceAiming" type="INT">
       <offset>40</offset>
+    </column>
+    <column name="stanceSprint" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="spcClearAllOverrides" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>52</offset>
       <subtable external="TacticalLocalBGFlags" />
     </column>
     <column name="}" type="END" />

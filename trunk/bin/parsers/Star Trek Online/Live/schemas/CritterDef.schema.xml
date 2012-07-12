@@ -346,9 +346,17 @@
       <offset>228</offset>
       <bit_offset>65551</bit_offset>
     </column>
-    <column name="IgnoreExternalAnimBits" type="BIT">
+    <column name="UseClosestPowerAnimNode" type="BIT">
       <offset>228</offset>
       <bit_offset>65552</bit_offset>
+    </column>
+    <column name="IgnoreExternalAnimBits" type="BIT">
+      <offset>228</offset>
+      <bit_offset>65553</bit_offset>
+    </column>
+    <column name="AlwaysHaveWeaponsReady" type="BIT">
+      <offset>228</offset>
+      <bit_offset>65554</bit_offset>
     </column>
     <column name="Interaction" type="EMBEDDEDSTRUCT">
       <offset>232</offset>
@@ -376,12 +384,15 @@
       </flags>
       <dictionary_name>CritterDef</dictionary_name>
     </column>
-    <column name="RidableBlock" type="OPTIONALSTRUCT">
+    <column name="EntityMinSeeAtDistance" type="F32">
       <offset>312</offset>
+    </column>
+    <column name="RidableBlock" type="OPTIONALSTRUCT">
+      <offset>316</offset>
       <subtable external="Expression" />
     </column>
     <column name="Ridable" type="OPTIONALSTRUCT">
-      <offset>312</offset>
+      <offset>316</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -389,7 +400,7 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="RidingPower" type="STRING">
-      <offset>316</offset>
+      <offset>320</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -397,7 +408,7 @@
       <dictionary_name>PowerDef</dictionary_name>
     </column>
     <column name="RidingItem" type="STRING">
-      <offset>320</offset>
+      <offset>324</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -405,28 +416,32 @@
       <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="RidingBit" type="STRING">
-      <offset>324</offset>
+      <offset>328</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="CritterVars" type="STRUCT">
-      <offset>328</offset>
+      <offset>332</offset>
       <subtable external="CritterVar" />
     </column>
     <column name="CritterItems" type="STRUCT">
-      <offset>332</offset>
+      <offset>336</offset>
       <subtable external="DefaultItemDef" />
     </column>
     <column name="CritterLoreEntries" type="STRUCT">
-      <offset>336</offset>
+      <offset>340</offset>
       <subtable external="CritterLore" />
     </column>
+    <column name="OverrideMovementRequesterDef" type="REFERENCE">
+      <offset>344</offset>
+      <dictionary_name>DragonMovementDef</dictionary_name>
+    </column>
     <column name="Deprecated" type="U8">
-      <offset>340</offset>
+      <offset>348</offset>
     </column>
     <column name="Gender" type="INT">
-      <offset>344</offset>
+      <offset>352</offset>
       <static_define_list external="Gender" />
     </column>
     <column name="Latebind" type="IGNORE">

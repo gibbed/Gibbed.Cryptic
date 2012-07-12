@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldRoomProperties">
+  <table>
+    <column name="WorldRoomProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="WorldRoomType" />
+    </column>
+    <column name="LimitLights" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="occluder" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="UseModels" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="RoomInstanceData" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="RoomInstanceData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

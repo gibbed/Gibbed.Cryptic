@@ -59,12 +59,18 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="XAlign" type="INT">
+    <column name="TextureVariable" type="STRING">
       <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="XAlign" type="INT">
+      <offset>72</offset>
       <static_define_list external="CutsceneXScreenAlignment" />
     </column>
     <column name="YAlign" type="INT">
-      <offset>72</offset>
+      <offset>76</offset>
       <static_define_list external="CutsceneYScreenAlignment" />
     </column>
     <column name="}" type="END" />

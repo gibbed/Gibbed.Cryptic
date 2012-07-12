@@ -19,17 +19,29 @@
         <flag>STRUCTPARAM</flag>
       </flags>
     </column>
-    <column name="HasPlayerArgument" type="U8">
+    <column name="HasPlayerArgument" type="BIT">
       <offset>8</offset>
       <flags>
         <flag>STRUCTPARAM</flag>
+        <flag>SPECIAL_DEFAULT</flag>
       </flags>
+      <bit_offset>65536</bit_offset>
     </column>
-    <column name="UseCommaForPlayerName" type="U8">
-      <offset>9</offset>
+    <column name="UseCommaForPlayerName" type="BIT">
+      <offset>8</offset>
       <flags>
         <flag>STRUCTPARAM</flag>
+        <flag>SPECIAL_DEFAULT</flag>
       </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="HasNoArguments" type="BIT">
+      <offset>8</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
     </column>
     <column name="&#xA;" type="END" />
   </table>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CalendarEventDebug">
+  <table>
+    <column name="CalendarEventDebug" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EventName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StartDate" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="EndDate" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="uStartDate" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="uEndDate" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

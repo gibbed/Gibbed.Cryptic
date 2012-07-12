@@ -97,8 +97,12 @@
       <static_define_list external="ItemPowerCategory" />
       <format>FLAGS</format>
     </column>
-    <column name="FactorValue" type="INT">
+    <column name="ArtCategory" type="INT">
       <offset>96</offset>
+      <static_define_list external="ItemPowerArtCategory" />
+    </column>
+    <column name="FactorValue" type="INT">
+      <offset>100</offset>
     </column>
     <column name="Group" type="IGNORE" />
     <column name="EconomyPoints" type="IGNORE" />

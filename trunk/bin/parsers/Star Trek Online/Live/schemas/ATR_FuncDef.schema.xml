@@ -20,6 +20,12 @@
       <offset>40</offset>
       <subtable external="ATRContainerArgDef" />
     </column>
+    <column name="HelperFuncWhichReturnsLogging" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
     <column name="Get ATR_LOCKS string" type="COMMAND">
       <offset>0</offset>
       <command_string>GetATRLocksString $FIELD(FuncName)</command_string>

@@ -40,16 +40,41 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="CastAtMaxDistance" type="U8">
-      <offset>24</offset>
-    </column>
     <column name="OutOfRangeColor" type="F32FIXEDARRAY">
-      <offset>28</offset>
+      <offset>24</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="InRangeColor" type="F32FIXEDARRAY">
-      <offset>40</offset>
+      <offset>36</offset>
       <num_elements>3</num_elements>
+    </column>
+    <column name="cursorX" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="cursorY" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="CursorTexture2" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ClampToMaxDistance" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="TestPowerRequirementsOnUpdate" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="ShowOnCursor" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="ActivatePowerOnPowerExecRelease" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

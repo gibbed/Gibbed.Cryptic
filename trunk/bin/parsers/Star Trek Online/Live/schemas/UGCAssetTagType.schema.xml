@@ -27,10 +27,23 @@
     <column name="FilterByTypeName" type="U8">
       <offset>12</offset>
     </column>
-    <column name="TagCategory" type="STRUCT">
+    <column name="DrawEditorOnly" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="EnableIconGridView" type="U8">
+      <offset>14</offset>
+    </column>
+    <column name="PreferIconGridView" type="U8">
+      <offset>15</offset>
+    </column>
+    <column name="IsYTranslate" type="U8">
       <offset>16</offset>
+    </column>
+    <column name="TagCategory" type="STRUCT">
+      <offset>20</offset>
       <subtable external="UGCAssetTagCategory" />
     </column>
+    <column name="SpaceModePreview" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

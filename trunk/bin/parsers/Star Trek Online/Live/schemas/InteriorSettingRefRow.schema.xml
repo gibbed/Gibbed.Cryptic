@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InteriorSettingRefRow">
+  <table>
+    <column name="InteriorSettingRefRow" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="MicroTransactionID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Product" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="MicroTransactionUIProduct" />
+    </column>
+    <column name="IsOwned" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

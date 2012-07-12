@@ -105,6 +105,14 @@
       </flags>
       <static_define_list external="QueueJoinFlags" />
     </column>
+    <column name="pJoinPrefs" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="QueueMemberPrefs" />
+    </column>
     <column name="hAllegiance" type="IGNORE" />
     <column name="iMapID" type="IGNORE" />
     <column name="iJoinMapID" type="IGNORE" />

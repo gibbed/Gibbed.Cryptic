@@ -43,8 +43,15 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fTimeActivating" type="F32">
+    <column name="fTimeChargedTotal" type="F32">
       <offset>28</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="fTimeActivating" type="F32">
+      <offset>32</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>

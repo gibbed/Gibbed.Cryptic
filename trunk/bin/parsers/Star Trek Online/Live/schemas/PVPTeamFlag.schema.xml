@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PVPTeamFlag">
+  <table>
+    <column name="PVPTeamFlag" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="team_duel" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PVPTeamDuel" />
+    </column>
+    <column name="Group" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Team" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="requester_name" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="failed_reason" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="State" type="INT">
+      <offset>20</offset>
+      <static_define_list external="PVPDuelEntityState" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

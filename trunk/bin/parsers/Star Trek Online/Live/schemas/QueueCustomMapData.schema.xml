@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueCustomMapData">
+  <table>
+    <column name="QueueCustomMapData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="MapName" type="STRINGARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="GameMode" type="INTARRAY">
+      <offset>8</offset>
+      <static_define_list external="PVPGameType" />
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

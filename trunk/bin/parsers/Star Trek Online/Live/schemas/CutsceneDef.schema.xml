@@ -15,127 +15,130 @@
         <flag>KEY</flag>
       </flags>
     </column>
-    <column name="Tags" type="STRING">
-      <offset>4</offset>
-    </column>
     <column name="FileName" type="CURRENTFILE">
-      <offset>8</offset>
+      <offset>4</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Version" type="INT">
-      <offset>12</offset>
+      <offset>8</offset>
     </column>
     <column name="PathList" type="OPTIONALSTRUCT">
-      <offset>16</offset>
+      <offset>12</offset>
       <subtable external="CutscenePathList" />
     </column>
     <column name="FadeList" type="OPTIONALSTRUCT">
-      <offset>20</offset>
+      <offset>16</offset>
       <subtable external="CutsceneFadeList" />
     </column>
     <column name="DOFList" type="OPTIONALSTRUCT">
-      <offset>24</offset>
+      <offset>20</offset>
       <subtable external="CutsceneDOFList" />
     </column>
     <column name="FOVList" type="OPTIONALSTRUCT">
-      <offset>28</offset>
+      <offset>24</offset>
       <subtable external="CutsceneFOVList" />
     </column>
     <column name="ShakeList" type="OPTIONALSTRUCT">
-      <offset>32</offset>
+      <offset>28</offset>
       <subtable external="CutsceneShakeList" />
     </column>
     <column name="ObjectList" type="STRUCT">
-      <offset>36</offset>
+      <offset>32</offset>
       <subtable external="CutsceneObjectList" />
     </column>
     <column name="EntityList" type="STRUCT">
-      <offset>40</offset>
+      <offset>36</offset>
       <subtable external="CutsceneEntityList" />
     </column>
     <column name="TextureList" type="STRUCT">
-      <offset>44</offset>
+      <offset>40</offset>
       <subtable external="CutsceneTextureList" />
     </column>
     <column name="FXLists" type="STRUCT">
-      <offset>48</offset>
+      <offset>44</offset>
       <subtable external="CutsceneFXList" />
     </column>
     <column name="SoundList" type="STRUCT">
-      <offset>52</offset>
+      <offset>48</offset>
       <subtable external="CutsceneSoundList" />
     </column>
     <column name="SubtitleList" type="STRUCT">
-      <offset>56</offset>
+      <offset>52</offset>
       <subtable external="CutsceneSubtitleList" />
     </column>
     <column name="MapName" type="STRING">
-      <offset>60</offset>
+      <offset>56</offset>
     </column>
     <column name="BlendRate" type="F32">
-      <offset>64</offset>
+      <offset>60</offset>
     </column>
     <column name="CutsceneEnts" type="STRUCT">
-      <offset>68</offset>
+      <offset>64</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="CutsceneEnt" />
     </column>
     <column name="CutsceneSound" type="STRING">
-      <offset>72</offset>
+      <offset>68</offset>
     </column>
     <column name="Subtitles" type="EMBEDDEDSTRUCT">
-      <offset>76</offset>
+      <offset>72</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="SinglePlayer" type="U8">
-      <offset>88</offset>
+      <offset>84</offset>
     </column>
     <column name="Unskippable" type="U8">
-      <offset>89</offset>
+      <offset>85</offset>
     </column>
     <column name="HideAllPlayers" type="U8">
-      <offset>90</offset>
+      <offset>86</offset>
     </column>
     <column name="AutoAdjustCameraDistance" type="U8">
-      <offset>91</offset>
+      <offset>87</offset>
     </column>
     <column name="CameraClippingAvoidance" type="U8">
-      <offset>92</offset>
+      <offset>88</offset>
     </column>
     <column name="AutoAdjustMinEntityRadius" type="F32">
-      <offset>96</offset>
+      <offset>92</offset>
     </column>
     <column name="GameCameraTweenTime" type="F32">
-      <offset>100</offset>
+      <offset>96</offset>
     </column>
     <column name="SoundCropDistanceScalar" type="F32">
-      <offset>104</offset>
+      <offset>100</offset>
       <default>1</default>
     </column>
-    <column name="CamPositions" type="STRUCT">
-      <offset>108</offset>
-      <subtable external="CutscenePos" />
+    <column name="MinCutSceneSendRange" type="F32">
+      <offset>104</offset>
     </column>
-    <column name="CamTargets" type="STRUCT">
+    <column name="TimeToFadePlayers" type="F32">
+      <offset>108</offset>
+    </column>
+    <column name="CamPositions" type="STRUCT">
       <offset>112</offset>
       <subtable external="CutscenePos" />
     </column>
-    <column name="Interpolate" type="INT">
+    <column name="CamTargets" type="STRUCT">
       <offset>116</offset>
+      <subtable external="CutscenePos" />
+    </column>
+    <column name="Interpolate" type="INT">
+      <offset>120</offset>
       <static_define_list external="InterpolationType" />
     </column>
     <column name="CutsceneDepthOfField" type="OPTIONALSTRUCT">
-      <offset>120</offset>
+      <offset>124</offset>
       <subtable external="CutsceneDOF" />
     </column>
-    <column name="UGCProperties" type="OPTIONALSTRUCT">
-      <offset>124</offset>
-      <subtable external="WorldUGCProperties" />
+    <column name="PlayOnceOnly" type="U8">
+      <offset>128</offset>
     </column>
+    <column name="Tags" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

@@ -62,6 +62,7 @@
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
         <flag>PERSIST</flag>
         <flag>CASE_SENSITIVE</flag>
       </flags>
@@ -417,8 +418,16 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="bLastMapStatic" type="U8">
+    <column name="bSpawnPosSkipBeaconCheck" type="U8">
       <offset>309</offset>
+      <flags>
+        <flag>DEMO_IGNORE</flag>
+        <flag>PUPPET_NO_COPY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bLastMapStatic" type="U8">
+      <offset>310</offset>
       <flags>
         <flag>DEMO_IGNORE</flag>
         <flag>PUPPET_NO_COPY</flag>
@@ -627,8 +636,16 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="uNewPetID" type="INT">
+    <column name="bDisablePersistStanceInactive" type="U8">
       <offset>368</offset>
+      <flags>
+        <flag>DEMO_IGNORE</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uNewPetID" type="INT">
+      <offset>372</offset>
       <flags>
         <flag>DEMO_IGNORE</flag>
         <flag>SELF_ONLY</flag>

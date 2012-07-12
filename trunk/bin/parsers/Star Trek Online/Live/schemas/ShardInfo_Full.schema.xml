@@ -56,7 +56,7 @@
     <column name="AvgPhysAvail" type="INT64">
       <offset>120</offset>
     </column>
-    <column name="dbUpdPerSec" type="F32">
+    <column name="dbUpdPerSec" type="INT">
       <offset>128</offset>
     </column>
     <column name="creationTime" type="INT">
@@ -81,15 +81,13 @@
       <offset>160</offset>
       <subtable external="AllLastMinuteFilesInfo" />
     </column>
-    <column name="SetPrepatchVersion" type="STRING">
-      <offset>168</offset>
-      <flags>
-        <flag>ESTRING</flag>
-      </flags>
-    </column>
     <column name="MakePermanent" type="COMMAND">
       <offset>0</offset>
       <command_string>MakeShardPermanent $FIELD(basicInfo.ShardName) $NORETURN</command_string>
+    </column>
+    <column name="SetPrepatchVersion" type="COMMAND">
+      <offset>0</offset>
+      <command_string>SetPrePatchVersion $FIELD(basicInfo.ShardName) $STRING(Version name) $CONFIRM(Set version for prepatching? Current: $FIELD(basicInfo.PrePatchCommandLine))</command_string>
     </column>
     <column name="}" type="END" />
   </table>

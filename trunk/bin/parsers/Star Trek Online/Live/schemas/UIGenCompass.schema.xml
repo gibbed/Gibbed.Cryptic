@@ -315,6 +315,10 @@
       <offset>228</offset>
       <bit_offset>65556</bit_offset>
     </column>
+    <column name="ClipToPadding" type="BIT">
+      <offset>228</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
     <column name="TooltipFont" type="REFERENCE">
       <offset>232</offset>
       <dictionary_name>UIStyleFont</dictionary_name>
@@ -478,6 +482,12 @@
         <flag>GLOBAL_NAME</flag>
       </flags>
       <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ShowClosestMissionIconOnly" type="U8">
+      <offset>316</offset>
+    </column>
+    <column name="ClampIcons" type="U8">
+      <offset>317</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -12,8 +12,12 @@
       <subtable external="TacticalToBG" />
     </column>
     <column name="fromBG" type="EMBEDDEDSTRUCT">
-      <offset>20</offset>
+      <offset>24</offset>
       <subtable external="TacticalFGFromBG" />
+    </column>
+    <column name="Overrides" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="TacticalOverrides" />
     </column>
     <column name="}" type="END" />
   </table>

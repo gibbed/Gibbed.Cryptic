@@ -13,12 +13,21 @@
     <column name="SpawnComponent" type="INT">
       <offset>4</offset>
     </column>
-    <column name="DialogBlock" type="OPTIONALSTRUCT">
+    <column name="SpawnInternalMapName" type="STRING">
       <offset>8</offset>
+    </column>
+    <column name="DialogBlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
       <subtable external="UGCDialogTreePrompt" />
     </column>
+    <column name="InteractText" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ReturnText" type="STRING">
+      <offset>20</offset>
+    </column>
     <column name="OpenMissionName" type="STRING">
-      <offset>12</offset>
+      <offset>24</offset>
     </column>
     <column name="}" type="END" />
   </table>

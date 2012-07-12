@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InteriorSettingMTRef">
+  <table>
+    <column name="InteriorSettingMTRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hSetting" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+      <dictionary_name>InteriorSetting</dictionary_name>
+    </column>
+    <column name="MicroTransaction" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>MicroTransactionDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

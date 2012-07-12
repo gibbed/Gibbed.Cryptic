@@ -48,11 +48,15 @@
     <column name="Group" type="INT">
       <offset>36</offset>
     </column>
-    <column name="Weight" type="F32">
+    <column name="Slot" type="INT">
       <offset>40</offset>
+      <default>-1</default>
+    </column>
+    <column name="Weight" type="F32">
+      <offset>44</offset>
     </column>
     <column name="Disabled" type="U8">
-      <offset>44</offset>
+      <offset>48</offset>
     </column>
     <column name="}" type="END" />
   </table>

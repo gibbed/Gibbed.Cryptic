@@ -31,6 +31,14 @@
       <offset>20</offset>
       <subtable external="PMBitsStances" />
     </column>
+    <column name="ConstantForcesQueued" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="PMConstantForce" />
+    </column>
+    <column name="ConstantForcesActive" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="PMConstantForce" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

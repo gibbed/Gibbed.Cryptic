@@ -20,6 +20,13 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
+    <column name="bPetIsDeceased" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

@@ -131,8 +131,12 @@
       <offset>84</offset>
       <subtable external="PlayerGuildOfficerComments" />
     </column>
-    <column name="dirtyBit" type="U8">
+    <column name="hGroupProjectContainer" type="REFERENCE">
       <offset>88</offset>
+      <dictionary_name>CopyDict_GroupProjectContainerGuild</dictionary_name>
+    </column>
+    <column name="dirtyBit" type="U8">
+      <offset>92</offset>
       <flags>
         <flag>NO_NETSEND</flag>
         <flag>DIRTY_BIT</flag>

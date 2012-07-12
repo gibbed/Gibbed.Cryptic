@@ -49,8 +49,18 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="File" type="CURRENTFILE">
+    <column name="PowerDefRequired" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ClassCategoryRequired" type="INT">
       <offset>32</offset>
+      <static_define_list external="CharClassCategory" />
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>40</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

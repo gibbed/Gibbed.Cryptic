@@ -94,17 +94,41 @@
     <column name="ItemLevel" type="INT">
       <offset>56</offset>
     </column>
-    <column name="SellEnabled" type="BIT">
+    <column name="GroupProjectType" type="INT">
       <offset>60</offset>
+      <static_define_list external="GroupProjectType" />
+    </column>
+    <column name="provisioningProjectDef" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>GroupProjectDef</dictionary_name>
+    </column>
+    <column name="provisioningNumericDef" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>GroupProjectNumericDef</dictionary_name>
+    </column>
+    <column name="SellEnabled" type="BIT">
+      <offset>72</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="IsPersisted" type="BIT">
-      <offset>60</offset>
+      <offset>72</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="IsResearchStore" type="BIT">
-      <offset>60</offset>
+      <offset>72</offset>
       <bit_offset>65538</bit_offset>
+    </column>
+    <column name="DisplayStoreCPoints" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="ProvisionFromGroupProject" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="GuildMapOwnerMembersOnly" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65541</bit_offset>
     </column>
     <column name="AutoLearn" type="IGNORE" />
     <column name="TempData" type="IGNORE" />

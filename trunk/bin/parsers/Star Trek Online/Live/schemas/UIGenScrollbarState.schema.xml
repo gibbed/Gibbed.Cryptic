@@ -40,12 +40,19 @@
     <column name="Hysteresis" type="U8">
       <offset>22</offset>
     </column>
-    <column name="Unneeded" type="BIT">
+    <column name="HideHandle" type="BIT">
       <offset>20</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65560</bit_offset>
+    </column>
+    <column name="Unneeded" type="BIT">
+      <offset>20</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65561</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

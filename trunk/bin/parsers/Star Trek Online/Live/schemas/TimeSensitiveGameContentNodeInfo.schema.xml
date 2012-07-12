@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TimeSensitiveGameContentNodeInfo">
+  <table>
+    <column name="TimeSensitiveGameContentNodeInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uStartDate" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="uEndDate" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="SpawnMap" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Active" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="hQueue" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>QueueDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

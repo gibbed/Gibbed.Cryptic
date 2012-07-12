@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynSkeletonRunAndGunBone">
+  <table>
+    <column name="DynSkeletonRunAndGunBone" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RGBoneName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="RGParentBoneName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Secondary" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="EnableAngle" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="LimitAngle" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="qPostRoot" type="QUATPYR">
+      <offset>20</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

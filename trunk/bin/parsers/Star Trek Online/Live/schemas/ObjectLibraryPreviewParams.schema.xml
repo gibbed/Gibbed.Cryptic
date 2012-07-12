@@ -13,24 +13,20 @@
     <column name="camType" type="INT">
       <offset>4</offset>
     </column>
-    <column name="childSelects" type="STRUCT">
-      <offset>8</offset>
-      <subtable external="GroupTrackerChildSelect" />
-    </column>
     <column name="useNearPlane" type="U8">
-      <offset>12</offset>
+      <offset>8</offset>
     </column>
     <column name="NearPlaneOverride" type="F32">
-      <offset>16</offset>
+      <offset>12</offset>
     </column>
     <column name="SkyOverride" type="STRING">
-      <offset>20</offset>
+      <offset>16</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="enableShadows" type="U8">
-      <offset>24</offset>
+      <offset>20</offset>
     </column>
     <column name="}" type="END" />
   </table>

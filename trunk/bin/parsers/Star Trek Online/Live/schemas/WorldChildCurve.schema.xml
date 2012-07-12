@@ -11,15 +11,19 @@
     </column>
     <column name="NormalizeGeometry" type="U8">
       <offset>1</offset>
+      <default>1</default>
     </column>
     <column name="RepeatLength" type="F32">
       <offset>4</offset>
+      <default>1176256512</default>
     </column>
     <column name="CurveFactor" type="F32">
       <offset>8</offset>
+      <default>1</default>
     </column>
     <column name="StretchFactor" type="F32">
       <offset>12</offset>
+      <default>1</default>
     </column>
     <column name="Attachable" type="U8">
       <offset>16</offset>
@@ -29,46 +33,52 @@
     </column>
     <column name="MaxPointCount" type="INT">
       <offset>20</offset>
+      <default>250</default>
+    </column>
+    <column name="GeometryLength" type="F32">
+      <offset>24</offset>
     </column>
     <column name="ChildType" type="INT">
-      <offset>24</offset>
+      <offset>28</offset>
       <static_define_list external="CurveChildType" />
     </column>
     <column name="AvoidGaps" type="U8">
-      <offset>28</offset>
+      <offset>32</offset>
+      <default>1</default>
     </column>
     <column name="Reverse" type="U8">
-      <offset>29</offset>
+      <offset>33</offset>
     </column>
     <column name="BeginOffset" type="F32">
-      <offset>32</offset>
-    </column>
-    <column name="EndOffset" type="F32">
       <offset>36</offset>
     </column>
-    <column name="BeginPad" type="F32">
+    <column name="EndOffset" type="F32">
       <offset>40</offset>
     </column>
-    <column name="EndPad" type="F32">
+    <column name="BeginPad" type="F32">
       <offset>44</offset>
     </column>
-    <column name="ResetUp" type="U8">
+    <column name="EndPad" type="F32">
       <offset>48</offset>
     </column>
-    <column name="XScale" type="F32">
+    <column name="ResetUp" type="U8">
       <offset>52</offset>
     </column>
-    <column name="UVRotation" type="F32">
+    <column name="XScale" type="F32">
       <offset>56</offset>
+      <default>1</default>
     </column>
-    <column name="UVScale" type="F32">
+    <column name="UVRotation" type="F32">
       <offset>60</offset>
     </column>
-    <column name="NoBoundsOffset" type="U8">
+    <column name="UVScale" type="F32">
       <offset>64</offset>
     </column>
+    <column name="NoBoundsOffset" type="U8">
+      <offset>68</offset>
+    </column>
     <column name="ExtraPoint" type="U8">
-      <offset>65</offset>
+      <offset>69</offset>
     </column>
     <column name="End" type="END" />
   </table>

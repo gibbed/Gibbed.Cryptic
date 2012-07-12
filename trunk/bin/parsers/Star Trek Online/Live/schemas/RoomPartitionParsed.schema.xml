@@ -26,28 +26,12 @@
       <offset>32</offset>
       <num_elements>3</num_elements>
     </column>
-    <column name="image_name_list" type="FIXEDFILENAME">
+    <column name="mapSnapData" type="EMBEDDEDSTRUCT">
       <offset>44</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>EARRAY</flag>
-        <flag>INDIRECT</flag>
-      </flags>
-    </column>
-    <column name="overview_image_name" type="FILENAME">
-      <offset>48</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
-    </column>
-    <column name="image_width" type="INT">
-      <offset>52</offset>
-    </column>
-    <column name="image_height" type="INT">
-      <offset>56</offset>
+      <subtable external="MapSnapRoomPartitionData" />
     </column>
     <column name="partition_data" type="OPTIONALSTRUCT">
-      <offset>60</offset>
+      <offset>76</offset>
       <subtable external="RoomInstanceData" />
     </column>
     <column name="}" type="END" />

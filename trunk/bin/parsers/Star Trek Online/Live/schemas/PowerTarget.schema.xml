@@ -55,8 +55,16 @@
       <offset>24</offset>
       <bit_offset>65537</bit_offset>
     </column>
+    <column name="FaceActivateSticky" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
     <column name="FaceDuringPowerActivation" type="BIT">
       <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FaceActivateSticky</redundant_name>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="RequireSelf" type="BIT">

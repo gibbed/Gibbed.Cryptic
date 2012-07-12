@@ -11,35 +11,35 @@
       <subtable external="WorldVariableDef" />
     </column>
     <column name="WarpCondition" type="OPTIONALSTRUCT">
-      <offset>48</offset>
+      <offset>60</offset>
       <subtable external="Expression" />
     </column>
     <column name="UseChoiceTable" type="U8">
-      <offset>52</offset>
+      <offset>64</offset>
     </column>
     <column name="MapName" type="STRING">
-      <offset>56</offset>
+      <offset>68</offset>
     </column>
     <column name="SpawnTargetName" type="STRING">
-      <offset>60</offset>
+      <offset>72</offset>
     </column>
     <column name="ChoiceTable" type="REFERENCE">
-      <offset>64</offset>
+      <offset>76</offset>
       <dictionary_name>ChoiceTable</dictionary_name>
     </column>
     <column name="ChoiceName" type="STRING">
-      <offset>68</offset>
+      <offset>80</offset>
     </column>
     <column name="TransitionOverride" type="REFERENCE">
-      <offset>72</offset>
+      <offset>84</offset>
       <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
     </column>
     <column name="Variable" type="STRUCT">
-      <offset>76</offset>
+      <offset>88</offset>
       <subtable external="WorldVariable" />
     </column>
     <column name="VariableDef" type="STRUCT">
-      <offset>80</offset>
+      <offset>92</offset>
       <subtable external="WorldVariableDef" />
     </column>
     <column name="End" type="END" />

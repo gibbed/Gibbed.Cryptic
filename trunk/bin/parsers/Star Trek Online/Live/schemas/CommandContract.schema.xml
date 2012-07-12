@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CommandContract">
+  <table>
+    <column name="CommandContract" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LineNum" type="LINENUM">
+      <offset>0</offset>
+    </column>
+    <column name="CommandName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Arg" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="CommandContractArg" />
+    </column>
+    <column name="RetVal" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="CommandContractRetVal" />
+    </column>
+    <column name="DependentStructs_Unprocessed" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="CommandContractDependency" />
+    </column>
+    <column name="DependentStructs_Processed" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="CommandContractDependency" />
+    </column>
+    <column name="DependentStaticDefines" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="CommandContractDependency" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

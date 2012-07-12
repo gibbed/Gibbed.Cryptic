@@ -186,16 +186,23 @@
     <column name="PlatformParentGroup" type="INT">
       <offset>156</offset>
     </column>
-    <column name="RoomDetail" type="STRUCT">
+    <column name="PlatformParentLevel" type="INT">
       <offset>160</offset>
+    </column>
+    <column name="RoomDetail" type="STRUCT">
+      <offset>164</offset>
       <subtable external="GenesisRoomDetail" />
     </column>
+    <column name="RoomDoor" type="STRUCT">
+      <offset>168</offset>
+      <subtable external="GenesisRoomDoorSwitch" />
+    </column>
     <column name="Volume" type="OPTIONALSTRUCT">
-      <offset>164</offset>
+      <offset>172</offset>
       <subtable external="GenesisObjectVolume" />
     </column>
     <column name="SourceContext" type="OPTIONALSTRUCT">
-      <offset>168</offset>
+      <offset>176</offset>
       <subtable external="GenesisRuntimeErrorContext" />
     </column>
     <column name="}" type="END" />

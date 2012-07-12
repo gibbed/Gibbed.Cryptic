@@ -7,21 +7,49 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Mag" type="INT">
-      <offset>0</offset>
-    </column>
     <column name="Name" type="STRING">
-      <offset>4</offset>
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="String" type="STRING">
-      <offset>8</offset>
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
-    <column name="AttribName" type="STRING">
-      <offset>12</offset>
+    <column name="RequirementString" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="Valid" type="INT">
-      <offset>16</offset>
+      <offset>12</offset>
       <static_define_list external="InteractValidity" />
+    </column>
+    <column name="Type" type="INT">
+      <offset>16</offset>
+      <static_define_list external="UIInteractType" />
+    </column>
+    <column name="CursorTexture" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CursorName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CursorHotSpotX" type="INT16">
+      <offset>28</offset>
+    </column>
+    <column name="CursorHotSpotY" type="INT16">
+      <offset>30</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -94,6 +94,16 @@
       <offset>76</offset>
       <static_define_list external="RewardTag" />
     </column>
+    <column name="RewardGatedType" type="INT">
+      <offset>80</offset>
+      <static_define_list external="RewardGatedType" />
+    </column>
+    <column name="Tags" type="IGNORE" />
+    <column name="UGCProperties" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

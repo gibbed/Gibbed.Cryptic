@@ -30,36 +30,29 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="Tags" type="STRING">
-      <offset>8</offset>
-    </column>
-    <column name="UGCProperties" type="OPTIONALSTRUCT">
-      <offset>12</offset>
-      <subtable external="WorldUGCProperties" />
-    </column>
     <column name="Group" type="STRING">
-      <offset>16</offset>
+      <offset>8</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Scope" type="STRING">
-      <offset>20</offset>
+      <offset>12</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Comment" type="STRING">
-      <offset>24</offset>
+      <offset>16</offset>
     </column>
     <column name="OnLoadStartState" type="STRING">
-      <offset>28</offset>
+      <offset>20</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="OnLoadStartState:" type="STRING">
-      <offset>28</offset>
+      <offset>20</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>ALIAS</flag>
@@ -67,17 +60,17 @@
       <redundant_name>OnLoadStartState</redundant_name>
     </column>
     <column type="STRING">
-      <offset>32</offset>
+      <offset>24</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="State" type="STRUCT">
-      <offset>36</offset>
+      <offset>28</offset>
       <subtable external="FSMState" />
     </column>
     <column name="State:" type="STRUCT">
-      <offset>36</offset>
+      <offset>28</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -85,11 +78,11 @@
       <subtable external="FSMState" />
     </column>
     <column name="Override" type="STRUCT">
-      <offset>40</offset>
+      <offset>32</offset>
       <subtable external="FSMOverrideMapping" />
     </column>
     <column name="Override:" type="STRUCT">
-      <offset>40</offset>
+      <offset>32</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -97,27 +90,33 @@
       <subtable external="FSMOverrideMapping" />
     </column>
     <column name="ExternVar" type="STRUCT">
-      <offset>44</offset>
+      <offset>36</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="FSMExternVar" />
     </column>
     <column name="Dependencies" type="STRUCT">
-      <offset>48</offset>
+      <offset>40</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="FSMDependency" />
     </column>
     <column name="Cost" type="F32">
-      <offset>52</offset>
+      <offset>44</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
     <column name="flavorCost" type="IGNORE" />
+    <column name="Tags" type="IGNORE" />
     <column name="externVarList" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="UGCProperties" type="IGNORE">
       <flags>
         <flag>IGNORE_STRUCT</flag>
       </flags>

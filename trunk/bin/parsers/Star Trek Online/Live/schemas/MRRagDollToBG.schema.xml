@@ -25,21 +25,28 @@
     <column name="material_index" type="INT">
       <offset>32</offset>
     </column>
-    <column name="addVel" type="BIT">
+    <column name="deathDirectionBit" type="INT">
       <offset>36</offset>
+    </column>
+    <column name="addVel" type="BIT">
+      <offset>40</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Dead" type="BIT">
-      <offset>36</offset>
+      <offset>40</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="update_dead_state" type="BIT">
-      <offset>36</offset>
+      <offset>40</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="endRequestApproved" type="BIT">
-      <offset>36</offset>
+      <offset>40</offset>
       <bit_offset>65539</bit_offset>
+    </column>
+    <column name="update_deathDirectionBit" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65540</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

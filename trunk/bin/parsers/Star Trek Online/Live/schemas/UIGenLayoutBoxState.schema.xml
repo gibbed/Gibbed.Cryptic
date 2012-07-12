@@ -21,38 +21,30 @@
         <flag>STRUCT_NORECURSE</flag>
         <flag>NO_INDEX</flag>
       </flags>
-      <subtable external="UIGen" />
+      <subtable external="UIGenLayoutBoxInstance" />
     </column>
-    <column name="Internal" type="OPTIONALSTRUCT">
-      <offset>8</offset>
-      <subtable external="UIGenInternal" />
-    </column>
-    <column name="Template" type="OPTIONALSTRUCT">
+    <column name="Internals" type="STRUCT">
       <offset>12</offset>
-      <flags>
-        <flag>UNKNOWN_32</flag>
-        <flag>STRUCT_NORECURSE</flag>
-      </flags>
-      <subtable external="UIGen" />
+      <subtable external="UIGenNamedInternal" />
     </column>
     <column name="LayoutDirection" type="U8">
-      <offset>16</offset>
+      <offset>20</offset>
     </column>
     <column name="Selected" type="INT">
-      <offset>20</offset>
+      <offset>24</offset>
       <default>-9999</default>
     </column>
     <column name="Rows" type="INT16">
-      <offset>24</offset>
-    </column>
-    <column name="Columns" type="INT16">
-      <offset>26</offset>
-    </column>
-    <column name="BoundWidth" type="F32">
       <offset>28</offset>
     </column>
-    <column name="BoundHeight" type="F32">
+    <column name="Columns" type="INT16">
+      <offset>30</offset>
+    </column>
+    <column name="BoundWidth" type="F32">
       <offset>32</offset>
+    </column>
+    <column name="BoundHeight" type="F32">
+      <offset>36</offset>
     </column>
     <column name="}" type="END" />
   </table>

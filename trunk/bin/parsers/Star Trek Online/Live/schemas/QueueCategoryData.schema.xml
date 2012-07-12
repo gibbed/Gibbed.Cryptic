@@ -23,8 +23,17 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="PenaltyDuration" type="INT">
+    <column name="RandomActiveCount" type="INT">
       <offset>20</offset>
+    </column>
+    <column name="RandomActiveTime" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="RandomActiveInstanceMax" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="PenaltyDuration" type="INT">
+      <offset>32</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -16,46 +16,63 @@
     <column name="Lifetime" type="F32">
       <offset>8</offset>
     </column>
-    <column name="v2Pos" type="F32FIXEDARRAY">
+    <column name="Delay" type="F32">
       <offset>12</offset>
+    </column>
+    <column name="v2Pos" type="F32FIXEDARRAY">
+      <offset>16</offset>
       <num_elements>2</num_elements>
     </column>
     <column name="v2Velocity" type="F32FIXEDARRAY">
-      <offset>20</offset>
+      <offset>24</offset>
       <num_elements>2</num_elements>
     </column>
     <column name="Color" type="INT">
-      <offset>28</offset>
-    </column>
-    <column name="Color2" type="INT">
       <offset>32</offset>
     </column>
-    <column name="Scale" type="F32">
+    <column name="Color2" type="INT">
       <offset>36</offset>
     </column>
-    <column name="MaxPopout" type="F32">
+    <column name="Scale" type="F32">
       <offset>40</offset>
     </column>
-    <column name="Priority" type="F32">
+    <column name="MaxPopout" type="F32">
       <offset>44</offset>
     </column>
-    <column name="Message" type="STRING">
+    <column name="Priority" type="F32">
       <offset>48</offset>
     </column>
-    <column name="hFont" type="REFERENCE">
+    <column name="Message" type="STRING">
       <offset>52</offset>
-      <dictionary_name>UIStyleFont</dictionary_name>
     </column>
-    <column name="v2PosOffset" type="F32FIXEDARRAY">
-      <offset>56</offset>
-      <num_elements>2</num_elements>
+    <column name="IconOffsetFrom" type="INT">
+      <offset>60</offset>
     </column>
-    <column name="v2VelocityBase" type="F32FIXEDARRAY">
+    <column name="v2IconPos" type="F32FIXEDARRAY">
       <offset>64</offset>
       <num_elements>2</num_elements>
     </column>
-    <column name="v2Size" type="F32FIXEDARRAY">
+    <column name="v2IconPosOffset" type="F32FIXEDARRAY">
       <offset>72</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="IconScale" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="hFont" type="REFERENCE">
+      <offset>84</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="v2PosOffset" type="F32FIXEDARRAY">
+      <offset>88</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="v2VelocityBase" type="F32FIXEDARRAY">
+      <offset>96</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="v2Size" type="F32FIXEDARRAY">
+      <offset>104</offset>
       <num_elements>2</num_elements>
     </column>
     <column name="}" type="END" />

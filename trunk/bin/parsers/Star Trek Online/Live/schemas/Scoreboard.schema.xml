@@ -41,13 +41,17 @@
             <offset>0</offset>
             <subtable external="CUSGroupParams" />
           </column>
-          <column name="DMAGroupParams" type="EMBEDDEDSTRUCT">
+          <column name="DMGroupParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
-            <subtable external="DMAGroupParams" />
+            <subtable external="DMGroupParams" />
           </column>
           <column name="DOMGroupParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
             <subtable external="DOMGroupParams" />
+          </column>
+          <column name="LMSGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="LMSGroupParams" />
           </column>
           <column name="TDEGroupParams" type="EMBEDDEDSTRUCT">
             <offset>0</offset>

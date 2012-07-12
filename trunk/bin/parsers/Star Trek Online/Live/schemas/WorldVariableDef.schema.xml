@@ -50,8 +50,18 @@
       <offset>40</offset>
       <subtable external="Expression" />
     </column>
-    <column name="IsPublic" type="U8">
+    <column name="ActivityName" type="STRING">
       <offset>44</offset>
+    </column>
+    <column name="ActivityVariable" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="ActivityDefaultValue" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="WorldVariable" />
+    </column>
+    <column name="IsPublic" type="U8">
+      <offset>56</offset>
     </column>
     <column name="End" type="END" />
   </table>

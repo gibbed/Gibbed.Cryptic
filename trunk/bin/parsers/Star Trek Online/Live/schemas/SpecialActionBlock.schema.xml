@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SpecialActionBlock">
+  <table>
+    <column name="SpecialActionBlock" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="dialogActions" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="SpecialDialogAction" />
+    </column>
+    <column name="overridingMissionDef" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

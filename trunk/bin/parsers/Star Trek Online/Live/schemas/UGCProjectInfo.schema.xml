@@ -27,10 +27,10 @@
     <column name="creationTime" type="INT">
       <offset>12</offset>
     </column>
-    <column name="PublicName" type="STRING">
+    <column name="FromContainer" type="U8">
       <offset>16</offset>
     </column>
-    <column name="FromContainer" type="U8">
+    <column name="PublicName" type="STRING">
       <offset>20</offset>
     </column>
     <column name="Description" type="STRING">
@@ -39,20 +39,29 @@
     <column name="Notes" type="STRING">
       <offset>28</offset>
     </column>
-    <column name="Permission" type="STRUCT">
+    <column name="Image" type="STRING">
       <offset>32</offset>
-      <subtable external="UGCProjectInfoPermission" />
+    </column>
+    <column name="Permission" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="UGCProjectPermission" />
     </column>
     <column name="Language" type="INT">
-      <offset>36</offset>
+      <offset>40</offset>
       <static_define_list external="Language" />
     </column>
     <column name="RestrictionProperties" type="OPTIONALSTRUCT">
-      <offset>40</offset>
+      <offset>44</offset>
       <subtable external="WorldUGCRestrictionProperties" />
     </column>
+    <column name="uLifetimeTipsReceived" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="AverageRating" type="F32">
+      <offset>52</offset>
+    </column>
     <column name="NumReviewPages" type="INT">
-      <offset>44</offset>
+      <offset>56</offset>
     </column>
     <column name="ID" type="IGNORE" />
     <column name="IDString" type="IGNORE" />

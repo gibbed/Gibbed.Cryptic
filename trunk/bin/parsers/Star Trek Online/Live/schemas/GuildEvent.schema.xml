@@ -7,79 +7,166 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="iEventOwnerID" type="INT">
+    <column name="uiID" type="INT">
       <offset>0</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
+        <flag>KEY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iAccountID" type="INT">
+    <column name="pcTitle" type="STRING">
       <offset>4</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pcTitle" type="STRING">
+    <column name="pcDescription" type="STRING">
       <offset>8</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pcDescription" type="STRING">
+    <column name="iStartTimeTime" type="INT">
       <offset>12</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iStartTimeTime" type="INT">
+    <column name="iDuration" type="INT">
       <offset>16</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iEndTimeTime" type="INT">
+    <column name="eRecurType" type="INT">
       <offset>20</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
+      <static_define_list external="GuildEventRecurType" />
     </column>
-    <column name="iDaysRecurring" type="INT">
+    <column name="iRecurrenceCount" type="INT">
       <offset>24</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iRemoveTime" type="INT">
+    <column name="bCanceled" type="U8">
       <offset>28</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iRemoved" type="INT">
+    <column name="iMinGuildRank" type="INT">
       <offset>32</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bCanceled" type="U8">
+    <column name="iMinGuildEditRank" type="INT">
       <offset>36</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iCleanedCanceledTime" type="INT">
+    <column name="iMinLevel" type="INT">
       <offset>40</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iMaxLevel" type="INT">
+      <offset>44</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iMinAccepts" type="INT">
+      <offset>48</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iMaxAccepts" type="INT">
+      <offset>52</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iEventUpdated" type="INT">
+      <offset>56</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eaReplies" type="STRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="GuildEventReply" />
+    </column>
+    <column name="iEventOwnerID" type="INT">
+      <offset>64</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iAccountID" type="INT">
+      <offset>68</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iEndTimeTime" type="INT">
+      <offset>72</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iRemoved" type="INT">
+      <offset>76</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="iDaysRecurring" type="INT">
+      <offset>80</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iRemoveTime" type="INT">
+      <offset>84</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iCleanedCanceledTime" type="INT">
+      <offset>88</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -87,63 +174,20 @@
       </flags>
     </column>
     <column name="eaCanceledStartTime" type="STRUCT">
-      <offset>44</offset>
+      <offset>92</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
       <subtable external="GuildEventCanceledInfo" />
     </column>
-    <column name="iMinGuildRank" type="INT">
-      <offset>48</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="iMinLevel" type="INT">
-      <offset>52</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="iMaxLevel" type="INT">
-      <offset>56</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="iMinAccepts" type="INT">
-      <offset>60</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="iMaxAccepts" type="INT">
-      <offset>64</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
     <column name="eaIDsOfPlayersNotified" type="INTARRAY">
-      <offset>68</offset>
+      <offset>96</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
-    </column>
-    <column name="eaReplies" type="STRUCT">
-      <offset>72</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-      <subtable external="GuildEventReply" />
     </column>
     <column name="}" type="END" />
   </table>

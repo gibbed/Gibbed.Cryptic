@@ -13,24 +13,49 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="CommandComment" type="STRING">
+    <column name="NotesLink" type="STRING">
       <offset>4</offset>
-      <flags>
-        <flag>ESTRING</flag>
-      </flags>
     </column>
-    <column name="Execute" type="STRING">
+    <column name="CommandComment" type="STRING">
       <offset>8</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="AccessLevel" type="INT">
+    <column name="Execute" type="STRING">
       <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="AccessLevel" type="INT">
+      <offset>16</offset>
     </column>
     <column name="Privacy" type="INT">
-      <offset>16</offset>
+      <offset>20</offset>
       <static_define_list external="enumCommandPrivacy" />
+    </column>
+    <column name="ReturnTypeName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ReturnTypeStructName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Categories" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Args" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="CommandArgOverview" />
     </column>
     <column name="}" type="END" />
   </table>

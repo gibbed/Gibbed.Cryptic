@@ -5,6 +5,7 @@
       <flags>
         <flag>PARSETABLE_INFO</flag>
       </flags>
+      <format_string>HTML_DEF_FIELDS_TO_SHOW = "internalStatus.State, internalStatus.UpdateString, MostRecentUpdateTime"</format_string>
     </column>
     <column name="{" type="START" />
     <column name="internalStatus" type="EMBEDDEDSTRUCT">
@@ -28,6 +29,9 @@
     </column>
     <column name="TimeoutIndex" type="INT">
       <offset>52</offset>
+    </column>
+    <column name="DestroyRequested" type="U8">
+      <offset>56</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -20,8 +20,11 @@
     <column name="ObjectiveID" type="INTARRAY">
       <offset>8</offset>
     </column>
-    <column name="DialogPrompt" type="STRUCT">
+    <column name="ItemName" type="STRING">
       <offset>12</offset>
+    </column>
+    <column name="DialogPrompt" type="STRUCT">
+      <offset>16</offset>
       <subtable external="UGCWhenDialogPrompt" />
     </column>
     <column name="}" type="END" />

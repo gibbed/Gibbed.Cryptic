@@ -315,6 +315,10 @@
       <offset>228</offset>
       <bit_offset>65556</bit_offset>
     </column>
+    <column name="ClipToPadding" type="BIT">
+      <offset>228</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
     <column name="ValueBlock" type="OPTIONALSTRUCT">
       <offset>232</offset>
       <subtable external="Expression" />
@@ -359,46 +363,72 @@
       <redundant_name>MaxBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
+    <column name="StyleBarBundle" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
     <column name="Bar" type="REFERENCE">
       <offset>252</offset>
-      <flags>
-        <flag>NON_NULL_REF</flag>
-      </flags>
       <dictionary_name>UIStyleBar</dictionary_name>
     </column>
-    <column name="InlineBar" type="OPTIONALSTRUCT">
+    <column name="BarBlock" type="OPTIONALSTRUCT">
       <offset>256</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="BarExpr" type="OPTIONALSTRUCT">
+      <offset>256</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>BarBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="InlineBar" type="OPTIONALSTRUCT">
+      <offset>260</offset>
       <subtable external="UIStyleBar" />
     </column>
     <column name="SliderTween" type="OPTIONALSTRUCT">
-      <offset>260</offset>
+      <offset>264</offset>
       <subtable external="UIGenSliderTweenInfo" />
     </column>
     <column name="RowHorizontalOffset" type="F32">
-      <offset>264</offset>
+      <offset>268</offset>
     </column>
     <column name="TickCount" type="INT">
-      <offset>268</offset>
+      <offset>272</offset>
       <default>-1</default>
     </column>
+    <column name="TickCountBlock" type="OPTIONALSTRUCT">
+      <offset>276</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="TickCountExpr" type="OPTIONALSTRUCT">
+      <offset>276</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TickCountBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
     <column name="Rows" type="U8">
-      <offset>272</offset>
+      <offset>280</offset>
       <default>1</default>
     </column>
     <column name="ValueInteractive" type="BIT">
-      <offset>272</offset>
+      <offset>280</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="NotchInteractive" type="BIT">
-      <offset>272</offset>
+      <offset>280</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="Snap" type="BIT">
-      <offset>272</offset>
+      <offset>280</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="DragMoveMode" type="BIT">
-      <offset>272</offset>
+      <offset>280</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="}" type="END" />

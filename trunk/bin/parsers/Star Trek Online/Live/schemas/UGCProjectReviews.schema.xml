@@ -44,15 +44,15 @@
       </flags>
       <redundant_name>piNumRatings</redundant_name>
     </column>
-    <column name="iTimeBecameReviewed" type="INT">
+    <column name="iNumRatingsCached" type="INT">
       <offset>16</offset>
+    </column>
+    <column name="iTimeBecameReviewed" type="INT">
+      <offset>20</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-    </column>
-    <column name="iNumRatingsCached" type="INT">
-      <offset>20</offset>
     </column>
     <column name="iNumPagesCached" type="IGNORE" />
     <column name="iNumPages" type="IGNORE" />

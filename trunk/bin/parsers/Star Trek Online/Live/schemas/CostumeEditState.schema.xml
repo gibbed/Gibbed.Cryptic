@@ -440,121 +440,125 @@
       <subtable external="PlayerCostume" />
     </column>
     <column name="UnlockedCostumeParts" type="STRUCT">
-      <offset>540</offset>
+      <offset>532</offset>
       <subtable external="UnlockedCostumePart" />
     </column>
     <column name="FilteredUnlockedCostumeParts" type="STRUCT">
-      <offset>544</offset>
+      <offset>536</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="UnlockedCostumePart" />
     </column>
     <column name="UnlockedCostumeFilter" type="STRING">
-      <offset>548</offset>
+      <offset>540</offset>
     </column>
     <column name="UnlockMetaIncomplete" type="U8">
-      <offset>552</offset>
+      <offset>544</offset>
     </column>
     <column name="OwnedCostumeValid" type="U8">
-      <offset>568</offset>
+      <offset>560</offset>
     </column>
     <column name="PowerFXBones" type="STRINGARRAY">
-      <offset>572</offset>
+      <offset>564</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
     </column>
     <column name="MinionCostumes" type="STRUCT">
-      <offset>576</offset>
+      <offset>568</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="CostumeCreatorCostumeRef" />
     </column>
     <column name="MinionCostume" type="REFERENCE">
-      <offset>580</offset>
+      <offset>572</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
     <column name="DefaultCostumes" type="STRUCT">
-      <offset>584</offset>
+      <offset>576</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="CostumeCreatorCostumeRef" />
     </column>
     <column name="LockedRegions" type="STRUCT">
-      <offset>592</offset>
+      <offset>584</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="PCRegion" />
     </column>
     <column name="SharedColorLocks" type="INT">
-      <offset>596</offset>
+      <offset>588</offset>
       <static_define_list external="PCControlledRandomLock" />
     </column>
     <column name="SelectedBone" type="OPTIONALSTRUCT">
-      <offset>600</offset>
+      <offset>592</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="PCBoneDef" />
     </column>
     <column name="ValidSelectedBone" type="U8">
-      <offset>604</offset>
+      <offset>596</offset>
     </column>
     <column name="AutoEditIndex" type="INT">
-      <offset>608</offset>
+      <offset>600</offset>
       <default>-1</default>
     </column>
     <column name="ShowItems" type="STRUCT">
-      <offset>612</offset>
+      <offset>604</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="ItemDefRef" />
     </column>
     <column name="EditType" type="INT">
-      <offset>616</offset>
+      <offset>608</offset>
       <static_define_list external="PCCostumeStorageType" />
     </column>
     <column name="EditPet" type="INT">
-      <offset>620</offset>
+      <offset>612</offset>
     </column>
     <column name="EditIndex" type="INT">
-      <offset>624</offset>
+      <offset>616</offset>
     </column>
     <column name="RefreshType" type="INT">
-      <offset>628</offset>
+      <offset>620</offset>
     </column>
     <column name="RefreshIndex" type="INT">
-      <offset>632</offset>
+      <offset>624</offset>
     </column>
     <column name="RefreshPetNum" type="INT">
-      <offset>636</offset>
+      <offset>628</offset>
     </column>
     <column name="Refresh" type="U8">
-      <offset>640</offset>
+      <offset>632</offset>
       <default>1</default>
     </column>
     <column name="LineListHideMirrorBones" type="U8">
-      <offset>641</offset>
+      <offset>633</offset>
     </column>
     <column name="TextureLinesForCurrentPartValuesOnly" type="U8">
-      <offset>642</offset>
+      <offset>634</offset>
     </column>
     <column name="CombineLines" type="U8">
-      <offset>643</offset>
+      <offset>635</offset>
     </column>
     <column name="AllowSelectFromAllBones" type="U8">
-      <offset>644</offset>
+      <offset>636</offset>
     </column>
     <column name="CostumeChangeIsFree" type="U8">
-      <offset>648</offset>
+      <offset>640</offset>
     </column>
     <column name="CostumeChanged" type="U8">
-      <offset>649</offset>
+      <offset>641</offset>
+    </column>
+    <column name="FXArray" type="STRUCT">
+      <offset>644</offset>
+      <subtable external="PCFXTemp" />
     </column>
     <column name="}" type="END" />
   </table>

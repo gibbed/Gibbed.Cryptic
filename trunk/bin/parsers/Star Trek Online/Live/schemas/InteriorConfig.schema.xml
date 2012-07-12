@@ -31,9 +31,20 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="PersistAlternates" type="BIT">
+    <column name="FreePurchaseKey" type="STRING">
       <offset>20</offset>
+    </column>
+    <column name="FreeSetting" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="InteriorSettingMTRef" />
+    </column>
+    <column name="PersistAlternates" type="BIT">
+      <offset>28</offset>
       <bit_offset>65536</bit_offset>
+    </column>
+    <column name="SettingChosenAutomatically" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

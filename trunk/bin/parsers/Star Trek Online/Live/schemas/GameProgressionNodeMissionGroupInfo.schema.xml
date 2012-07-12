@@ -13,24 +13,27 @@
     <column name="TimeToComplete" type="INT">
       <offset>4</offset>
     </column>
-    <column name="MapName" type="STRING">
+    <column name="RequiredPlayerLevel" type="INT">
       <offset>8</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
     </column>
-    <column name="SpawnPoint" type="STRING">
+    <column name="MapName" type="STRING">
       <offset>12</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="Mission" type="STRUCT">
+    <column name="SpawnPoint" type="STRING">
       <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Mission" type="STRUCT">
+      <offset>20</offset>
       <subtable external="GameProgressionMission" />
     </column>
     <column name="MissionRequired" type="STRUCT">
-      <offset>16</offset>
+      <offset>20</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -38,7 +41,7 @@
       <subtable external="GameProgressionMission" />
     </column>
     <column name="RequiredMission" type="STRUCT">
-      <offset>16</offset>
+      <offset>20</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -46,10 +49,21 @@
       <subtable external="GameProgressionMission" />
     </column>
     <column name="AllowedMissionMap" type="STRINGARRAY">
-      <offset>20</offset>
+      <offset>24</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
+    </column>
+    <column name="DontAutoGrantMissionOnSetProgression" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ShowRewardsInUI" type="BIT">
+      <offset>28</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

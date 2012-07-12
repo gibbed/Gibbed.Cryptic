@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldGenesisProperties">
+  <table>
+    <column name="WorldGenesisProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="GenesisCompleteName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="NodeType" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="IsDetail" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="IsNode" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

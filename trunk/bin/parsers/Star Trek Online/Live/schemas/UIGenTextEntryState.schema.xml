@@ -61,6 +61,17 @@
       <offset>68</offset>
       <subtable external="UIGenBundleTruncateState" />
     </column>
+    <column name="v2TextSize" type="F32FIXEDARRAY">
+      <offset>80</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="TextFont" type="OPTIONALSTRUCT">
+      <offset>88</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UIStyleFont" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

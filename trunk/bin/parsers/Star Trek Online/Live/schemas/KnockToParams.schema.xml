@@ -12,7 +12,7 @@
       <flags>
         <flag>OBJECTTYPE</flag>
       </flags>
-      <default>1175</default>
+      <default>1181</default>
       <static_define_list external="AttribType" />
     </column>
     <column name="DistanceFront" type="F32">
@@ -23,6 +23,18 @@
     </column>
     <column name="DistanceAbove" type="F32">
       <offset>12</offset>
+    </column>
+    <column name="InstantFacePlant" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="OmitProne" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="Timer" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="IgnoreTravelTime" type="U8">
+      <offset>24</offset>
     </column>
     <column name="}" type="END" />
   </table>

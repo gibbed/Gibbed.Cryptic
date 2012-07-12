@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalRequesterAimDef">
+  <table>
+    <column name="TacticalRequesterAimDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SpeedScaleCrouch" type="F32">
+      <offset>0</offset>
+      <default>1</default>
+    </column>
+    <column name="Speed" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="AimMinDurationSeconds" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="AimCooldown" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="AimDisabled" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

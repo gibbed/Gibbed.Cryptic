@@ -79,70 +79,122 @@
       <offset>60</offset>
       <default>60</default>
     </column>
-    <column name="ConcedeVotePercent" type="F32">
+    <column name="ConcedeVoteRatio" type="F32">
       <offset>64</offset>
-      <default>1056964608</default>
+      <default>1</default>
     </column>
     <column name="MaxPasswordLength" type="INT">
       <offset>68</offset>
       <default>16</default>
     </column>
-    <column name="MinGameInitTime" type="INT">
+    <column name="AutoAcceptTime" type="INT">
       <offset>72</offset>
+    </column>
+    <column name="MinGameInitTime" type="INT">
+      <offset>76</offset>
       <default>8</default>
     </column>
+    <column name="AllowConcedeStartTime" type="INT">
+      <offset>80</offset>
+      <default>120</default>
+    </column>
+    <column name="AllowVoteKickStartTime" type="INT">
+      <offset>84</offset>
+      <default>60</default>
+    </column>
+    <column name="VoteKickTimeout" type="INT">
+      <offset>88</offset>
+      <default>30</default>
+    </column>
+    <column name="VoteKickRetry" type="INT">
+      <offset>92</offset>
+      <default>30</default>
+    </column>
+    <column name="KickVoteRatio" type="F32">
+      <offset>96</offset>
+      <default>1</default>
+    </column>
     <column name="QueueGenName" type="STRING">
-      <offset>76</offset>
+      <offset>100</offset>
       <default_string>QueueUI</default_string>
     </column>
     <column name="PvEQueueGenName" type="STRING">
-      <offset>80</offset>
+      <offset>104</offset>
     </column>
     <column name="FriendlyFX" type="STRING">
-      <offset>84</offset>
+      <offset>108</offset>
     </column>
     <column name="EnemyFX" type="STRING">
-      <offset>88</offset>
-    </column>
-    <column name="ShowClientsInvalidQueuesWithReason" type="INTARRAY">
-      <offset>92</offset>
-      <static_define_list external="QueueCannotUseReason" />
+      <offset>112</offset>
     </column>
     <column name="AllowQueuingOnQueueMap" type="INTARRAY">
-      <offset>96</offset>
+      <offset>116</offset>
       <static_define_list external="ZoneMapType" />
     </column>
     <column name="ProvideIndividualMapInfo" type="BIT">
-      <offset>100</offset>
+      <offset>120</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="EnableMissionReturnAtEnd" type="BIT">
-      <offset>100</offset>
+      <offset>120</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="EnableInMapPlayerChatUpdates" type="BIT">
-      <offset>100</offset>
+      <offset>120</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="EnableStrictTeamRules" type="BIT">
-      <offset>100</offset>
+      <offset>120</offset>
       <bit_offset>65539</bit_offset>
     </column>
+    <column name="QueueJoinTimeIsExact" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="ScoreboardRemovesInactivePlayerScores" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
     <column name="DisbandAutoTeamsWhenMatchEnds" type="BIT">
-      <offset>100</offset>
+      <offset>120</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65540</bit_offset>
-    </column>
-    <column name="DisableJoinOrCreateOnAllQueueMaps" type="BIT">
-      <offset>100</offset>
-      <bit_offset>65541</bit_offset>
-    </column>
-    <column name="RemainInPrivateQueuesAfterMapFinishes" type="BIT">
-      <offset>100</offset>
       <bit_offset>65542</bit_offset>
     </column>
+    <column name="DisableJoinOrCreateOnAllQueueMaps" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="RemainInPrivateQueuesAfterMapFinishes" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="AlwaysSendPlayerMemberInfo" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="AlwaysSendMessageAsNotification" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="StayInQueueOnMapLeave" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="CanLeaveTeam" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="AutoJoinQueueRequiresPlayerAccept" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="ServerCreatesNormalTeams" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="ShowClientsInvalidQueuesWithReason" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

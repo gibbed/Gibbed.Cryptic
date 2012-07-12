@@ -22,66 +22,60 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="TagStringFilter" type="STRINGARRAY">
+    <column name="Command" type="STRINGARRAY">
       <offset>8</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="Command" type="STRINGARRAY">
-      <offset>12</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
-    </column>
     <column name="GenEnterGlobalState" type="INTARRAY">
-      <offset>16</offset>
+      <offset>12</offset>
       <static_define_list external="UIGenState" />
     </column>
     <column name="GenExitGlobalState" type="INTARRAY">
-      <offset>20</offset>
+      <offset>16</offset>
       <static_define_list external="UIGenState" />
     </column>
     <column name="GenEnterState" type="STRUCT">
-      <offset>24</offset>
+      <offset>20</offset>
       <subtable external="NotifyActionGenState" />
     </column>
     <column name="GenExitState" type="STRUCT">
-      <offset>28</offset>
+      <offset>24</offset>
       <subtable external="NotifyActionGenState" />
     </column>
     <column name="GenMessage" type="STRUCT">
-      <offset>32</offset>
+      <offset>28</offset>
       <subtable external="NotifyActionGenMessage" />
     </column>
     <column name="Queue" type="STRUCT">
-      <offset>36</offset>
+      <offset>32</offset>
       <subtable external="NotifyActionEnqueue" />
     </column>
     <column name="Sound" type="STRINGARRAY">
-      <offset>40</offset>
+      <offset>36</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="FloatTo" type="OPTIONALSTRUCT">
-      <offset>44</offset>
+      <offset>40</offset>
       <subtable external="NotifyActionFloatToGen" />
     </column>
     <column name="PopUpDialog" type="OPTIONALSTRUCT">
-      <offset>48</offset>
+      <offset>44</offset>
       <subtable external="NotifyActionDialog" />
     </column>
     <column name="Chat" type="OPTIONALSTRUCT">
-      <offset>52</offset>
+      <offset>48</offset>
       <subtable external="NotifyActionChat" />
     </column>
     <column name="ChainNotify" type="INTARRAY">
-      <offset>56</offset>
+      <offset>52</offset>
       <static_define_list external="NotifyType" />
     </column>
     <column name="FileName" type="CURRENTFILE">
-      <offset>60</offset>
+      <offset>56</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

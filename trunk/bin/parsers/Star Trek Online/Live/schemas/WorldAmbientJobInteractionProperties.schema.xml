@@ -23,6 +23,22 @@
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
+    <column name="initialJob" type="BIT">
+      <offset>4</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="initialJob" type="BIT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <redundant_name>initialJob</redundant_name>
+      <bit_offset>65538</bit_offset>
+    </column>
     <column name="End" type="END" />
   </table>
 </parser>

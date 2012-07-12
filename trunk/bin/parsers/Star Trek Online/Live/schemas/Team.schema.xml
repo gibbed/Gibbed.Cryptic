@@ -130,8 +130,14 @@
     <column name="iCachedMembers" type="INT">
       <offset>80</offset>
     </column>
-    <column name="pchPrimaryMission" type="STRING">
+    <column name="pchCachedStatusMessage" type="STRING">
       <offset>84</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="pchPrimaryMission" type="STRING">
+      <offset>88</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -139,7 +145,7 @@
       </flags>
     </column>
     <column name="Esprimarymission" type="STRING">
-      <offset>84</offset>
+      <offset>88</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>ALIAS</flag>
@@ -149,7 +155,7 @@
       <redundant_name>pchPrimaryMission</redundant_name>
     </column>
     <column name="pcAllegiance" type="STRING">
-      <offset>88</offset>
+      <offset>92</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -157,7 +163,7 @@
       </flags>
     </column>
     <column name="pXSessionInfo" type="OPTIONALSTRUCT">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -165,29 +171,30 @@
       <subtable external="CrypticXSessionInfo" />
     </column>
     <column name="iTeamSpokesmanEntID" type="INT">
-      <offset>96</offset>
+      <offset>100</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bInLobby" type="U8">
-      <offset>104</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="bAllGameProgressionNodesUnlocked" type="U8">
-      <offset>105</offset>
+      <offset>108</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="iCurrentUGCProjectID" type="INT">
-      <offset>108</offset>
+      <offset>112</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pchStatusMessage" type="STRING">
+      <offset>116</offset>
+      <flags>
+        <flag>ESTRING</flag>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
@@ -197,6 +204,7 @@
     <column name="iCompletedMissionsVersion" type="IGNORE" />
     <column name="ppchCompletedMissions" type="IGNORE" />
     <column name="hCurrentProgressionNode" type="IGNORE" />
+    <column name="bAllGameProgressionNodesUnlocked" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

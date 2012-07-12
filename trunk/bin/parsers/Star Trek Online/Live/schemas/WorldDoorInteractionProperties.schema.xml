@@ -20,64 +20,67 @@
       <subtable external="WorldVariableDef" />
     </column>
     <column name="Variable" type="STRUCT">
-      <offset>56</offset>
+      <offset>68</offset>
       <subtable external="WorldVariable" />
     </column>
     <column name="VariableDef" type="STRUCT">
-      <offset>60</offset>
+      <offset>72</offset>
       <subtable external="WorldVariableDef" />
     </column>
     <column name="PerPlayer" type="U8">
-      <offset>64</offset>
+      <offset>76</offset>
     </column>
     <column name="IncludeTeammates" type="U8">
-      <offset>65</offset>
+      <offset>77</offset>
     </column>
     <column name="CollectDestinationStatus" type="U8">
-      <offset>66</offset>
+      <offset>78</offset>
+    </column>
+    <column name="DestinationSameOwner" type="U8">
+      <offset>79</offset>
     </column>
     <column name="UseChoiceTable" type="U8">
-      <offset>67</offset>
+      <offset>80</offset>
     </column>
     <column name="MapName" type="STRING">
-      <offset>68</offset>
+      <offset>84</offset>
     </column>
     <column name="SpawnTargetName" type="STRING">
-      <offset>72</offset>
+      <offset>88</offset>
     </column>
     <column name="ChoiceTable" type="REFERENCE">
-      <offset>76</offset>
+      <offset>92</offset>
       <dictionary_name>ChoiceTable</dictionary_name>
     </column>
     <column name="ChoiceName" type="STRING">
-      <offset>80</offset>
+      <offset>96</offset>
     </column>
     <column name="TransitionOverride" type="REFERENCE">
-      <offset>84</offset>
+      <offset>100</offset>
       <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
     </column>
     <column name="DoorIdentifier" type="STRING">
-      <offset>88</offset>
+      <offset>104</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="DoorKey" type="STRING">
-      <offset>92</offset>
+      <offset>108</offset>
     </column>
     <column name="CustomMotion" type="U8">
-      <offset>96</offset>
+      <offset>112</offset>
     </column>
     <column name="Rotation" type="F32FIXEDARRAY">
-      <offset>100</offset>
+      <offset>116</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="Postion" type="F32FIXEDARRAY">
-      <offset>112</offset>
+      <offset>128</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="TranslationTime" type="F32">
-      <offset>124</offset>
+      <offset>140</offset>
     </column>
     <column name="End" type="END" />
   </table>

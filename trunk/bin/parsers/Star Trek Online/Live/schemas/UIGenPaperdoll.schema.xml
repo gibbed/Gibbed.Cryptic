@@ -315,6 +315,10 @@
       <offset>228</offset>
       <bit_offset>65556</bit_offset>
     </column>
+    <column name="ClipToPadding" type="BIT">
+      <offset>228</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
     <column name="Headshot" type="OPTIONALSTRUCT">
       <offset>232</offset>
       <subtable external="Expression" />
@@ -411,6 +415,14 @@
     <column name="AutoCenter" type="BIT">
       <offset>288</offset>
       <bit_offset>65536</bit_offset>
+    </column>
+    <column name="UpdateExtentsOnce" type="BIT">
+      <offset>288</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="HeadshotFocus" type="BIT">
+      <offset>288</offset>
+      <bit_offset>65538</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

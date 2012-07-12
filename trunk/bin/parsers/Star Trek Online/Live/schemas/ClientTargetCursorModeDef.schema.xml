@@ -26,20 +26,28 @@
       <offset>12</offset>
       <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="CursorDestructible" type="REFERENCE">
+    <column name="CursorLoot" type="REFERENCE">
       <offset>16</offset>
       <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="CursorPlayerGroup" type="REFERENCE">
+    <column name="CursorLootDisabled" type="REFERENCE">
       <offset>20</offset>
       <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="CursorPlayerSolo" type="REFERENCE">
+    <column name="CursorDestructible" type="REFERENCE">
       <offset>24</offset>
       <dictionary_name>UICursor</dictionary_name>
     </column>
+    <column name="CursorPlayerGroup" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="CursorPlayerSolo" type="REFERENCE">
+      <offset>32</offset>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
     <column name="hCursorPlayerSolo" type="REFERENCE">
-      <offset>24</offset>
+      <offset>32</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -47,20 +55,37 @@
       <dictionary_name>UICursor</dictionary_name>
     </column>
     <column name="CursorInteractEntity" type="REFERENCE">
-      <offset>28</offset>
-      <dictionary_name>UICursor</dictionary_name>
-    </column>
-    <column name="CursorInteractEntityDisabled" type="REFERENCE">
-      <offset>32</offset>
-      <dictionary_name>UICursor</dictionary_name>
-    </column>
-    <column name="CursorInteractObject" type="REFERENCE">
       <offset>36</offset>
       <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="CursorInteractObjectDisabled" type="REFERENCE">
+    <column name="CursorInteractEntityDisabled" type="REFERENCE">
       <offset>40</offset>
       <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="CursorInteractObject" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="CursorInteractObjectDisabled" type="REFERENCE">
+      <offset>48</offset>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="CustomContactCursor" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="ClientInteractContactCursorDef" />
+    </column>
+    <column name="CustomObjectCursor" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="ClientInteractObjectCursorDef" />
+    </column>
+    <column name="AllowUntargetableEnts" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="InteractMouseOverFX" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

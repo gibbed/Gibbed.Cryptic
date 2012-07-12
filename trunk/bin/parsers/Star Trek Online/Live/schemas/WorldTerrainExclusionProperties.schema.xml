@@ -14,11 +14,20 @@
       <offset>4</offset>
       <static_define_list external="WorldTerrainCollisionType" />
     </column>
-    <column name="IsPlatform" type="U8">
+    <column name="PlatformType" type="INT">
       <offset>8</offset>
+      <static_define_list external="WorldPlatformType" />
+    </column>
+    <column name="IsPlatform" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PlatformType</redundant_name>
+      <static_define_list external="WorldPlatformType" />
     </column>
     <column name="ChallengesOnly" type="U8">
-      <offset>9</offset>
+      <offset>12</offset>
     </column>
     <column name="End" type="END" />
   </table>

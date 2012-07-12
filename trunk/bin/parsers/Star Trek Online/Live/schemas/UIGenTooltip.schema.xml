@@ -92,25 +92,43 @@
       <default>350</default>
       <static_define_list external="UISize" />
     </column>
+    <column name="MaximumWidth" type="INT16">
+      <offset>44</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <redundant_name>MaxWidth</redundant_name>
+      <default>350</default>
+      <static_define_list external="UISize" />
+    </column>
     <column name="InheritAlpha" type="BIT">
       <offset>44</offset>
       <bit_offset>65552</bit_offset>
     </column>
-    <column name="IgnoreParent" type="BIT">
+    <column name="InheritScale" type="BIT">
       <offset>44</offset>
       <bit_offset>65553</bit_offset>
     </column>
-    <column name="MouseAnchor" type="BIT">
+    <column name="IgnoreParent" type="BIT">
       <offset>44</offset>
       <bit_offset>65554</bit_offset>
     </column>
-    <column name="SafeMode" type="BIT">
+    <column name="MouseAnchor" type="BIT">
       <offset>44</offset>
       <bit_offset>65555</bit_offset>
     </column>
-    <column name="FilterProfanity" type="BIT">
+    <column name="SafeMode" type="BIT">
       <offset>44</offset>
       <bit_offset>65556</bit_offset>
+    </column>
+    <column name="FilterProfanity" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
+    <column name="ForceTooltipOwnership" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65558</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

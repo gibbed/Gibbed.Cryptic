@@ -39,36 +39,40 @@
       <offset>32</offset>
       <default>100</default>
     </column>
-    <column name="WaveProperites" type="OPTIONALSTRUCT">
+    <column name="DespawnCondition" type="OPTIONALSTRUCT">
       <offset>36</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="WaveProperites" type="OPTIONALSTRUCT">
+      <offset>40</offset>
       <subtable external="EncounterWaveProperties" />
     </column>
     <column name="LockoutRadius" type="F32">
-      <offset>40</offset>
+      <offset>44</offset>
     </column>
     <column name="ForceTeamSize" type="INT">
-      <offset>44</offset>
+      <offset>48</offset>
       <static_define_list external="WorldEncounterSpawnTeamSize" />
     </column>
     <column name="MastermindSpawnType" type="INT">
-      <offset>48</offset>
+      <offset>52</offset>
       <static_define_list external="WorldEncounterMastermindSpawnType" />
     </column>
     <column name="SpawnTag" type="STRING">
-      <offset>52</offset>
+      <offset>56</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="NoDespawn" type="U8">
-      <offset>56</offset>
+      <offset>60</offset>
     </column>
     <column name="SnapToGround" type="U8">
-      <offset>57</offset>
+      <offset>61</offset>
       <default>1</default>
     </column>
     <column name="DifficultyOffset" type="INT">
-      <offset>60</offset>
+      <offset>64</offset>
     </column>
     <column name="End" type="END" />
   </table>

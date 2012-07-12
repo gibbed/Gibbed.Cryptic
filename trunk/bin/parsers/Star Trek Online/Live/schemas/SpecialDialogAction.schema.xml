@@ -11,36 +11,40 @@
       <offset>0</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="TargetContact" type="REFERENCE">
+    <column name="DisplayNameFormatter" type="REFERENCE">
       <offset>12</offset>
+      <dictionary_name>ContactDialogFormatterDef</dictionary_name>
+    </column>
+    <column name="TargetContact" type="REFERENCE">
+      <offset>16</offset>
       <dictionary_name>ContactDef</dictionary_name>
     </column>
     <column name="TargetDialog" type="STRING">
-      <offset>16</offset>
+      <offset>20</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="ActionBlock" type="EMBEDDEDSTRUCT">
-      <offset>20</offset>
+      <offset>24</offset>
       <subtable external="WorldGameActionBlock" />
     </column>
     <column name="SendComplete" type="U8">
-      <offset>24</offset>
+      <offset>28</offset>
       <default>1</default>
     </column>
     <column name="EndDialog" type="U8">
-      <offset>25</offset>
+      <offset>29</offset>
     </column>
     <column name="Condition" type="OPTIONALSTRUCT">
-      <offset>28</offset>
+      <offset>32</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="Expression" />
     </column>
     <column name="Condition:" type="OPTIONALSTRUCT">
-      <offset>28</offset>
+      <offset>32</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -49,14 +53,14 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="CanChooseCondition" type="OPTIONALSTRUCT">
-      <offset>32</offset>
+      <offset>36</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="Expression" />
     </column>
     <column name="CanChooseCondition:" type="OPTIONALSTRUCT">
-      <offset>32</offset>
+      <offset>36</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>

@@ -13,18 +13,36 @@
         <flag>STRUCTPARAM</flag>
       </flags>
     </column>
-    <column name="Type" type="INT">
+    <column name="MessageKey" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DescriptionMessageKey" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>12</offset>
       <static_define_list external="UGCComponentType" />
     </column>
     <column name="ObjectName" type="STRING">
-      <offset>8</offset>
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TextureOverride" type="STRING">
+      <offset>20</offset>
     </column>
     <column name="SpaceOnly" type="U8">
-      <offset>12</offset>
+      <offset>24</offset>
     </column>
     <column name="GroundOnly" type="U8">
-      <offset>13</offset>
+      <offset>25</offset>
     </column>
     <column name="}" type="END" />
   </table>

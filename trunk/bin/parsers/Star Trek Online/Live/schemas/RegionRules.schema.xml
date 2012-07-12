@@ -190,180 +190,184 @@
     <column name="SendDistanceBaseHeight" type="F32">
       <offset>116</offset>
     </column>
-    <column name="DefaultInteractDist" type="F32">
+    <column name="WorldCellDistanceScale" type="F32">
       <offset>120</offset>
+      <default>1</default>
+    </column>
+    <column name="DefaultInteractDist" type="F32">
+      <offset>124</offset>
       <default>10</default>
     </column>
     <column name="DefaultInteractTargetDist" type="F32">
-      <offset>124</offset>
+      <offset>128</offset>
       <default>50</default>
     </column>
     <column name="DefaultInteractDistForEnts" type="F32">
-      <offset>128</offset>
+      <offset>132</offset>
       <default>40</default>
     </column>
     <column name="InteractDistCutoff" type="F32">
-      <offset>132</offset>
+      <offset>136</offset>
       <default>100</default>
     </column>
     <column name="DisableTargetableFX" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ClickablesTargetable" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="UseRoomMapReveal" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="UseGridMapReveal" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="SpawnUnlockRadius" type="F32">
-      <offset>140</offset>
+      <offset>144</offset>
       <default>150</default>
     </column>
     <column name="TeamKillCreditDistance" type="INT">
-      <offset>144</offset>
+      <offset>148</offset>
     </column>
     <column name="EncounterSpawnTeamDistance" type="INT">
-      <offset>148</offset>
+      <offset>152</offset>
       <default>500</default>
     </column>
     <column name="EncounterDistance" type="STRUCT">
-      <offset>152</offset>
+      <offset>156</offset>
       <subtable external="RegionEncounterRadius" />
     </column>
     <column name="EncounterTime" type="STRUCT">
-      <offset>156</offset>
+      <offset>160</offset>
       <subtable external="RegionEncounterTimer" />
     </column>
     <column name="EncounterWaveTime" type="STRUCT">
-      <offset>160</offset>
+      <offset>164</offset>
       <subtable external="RegionEncounterWaveTimer" />
     </column>
     <column name="EncounterWaveDelayTime" type="STRUCT">
-      <offset>164</offset>
+      <offset>168</offset>
       <subtable external="RegionEncounterWaveDelayTimer" />
     </column>
     <column name="DefaultMeasurement" type="INT">
-      <offset>168</offset>
+      <offset>172</offset>
       <static_define_list external="MeasurementType" />
     </column>
     <column name="MeasurementSize" type="INT">
-      <offset>172</offset>
+      <offset>176</offset>
       <static_define_list external="MeasurementSize" />
     </column>
     <column name="DisplayDistanceScale" type="F32">
-      <offset>176</offset>
-      <default>1</default>
-    </column>
-    <column name="DefaultDistanceScale" type="F32">
       <offset>180</offset>
       <default>1</default>
     </column>
-    <column name="DisplayDistanceUnits" type="EMBEDDEDSTRUCT">
+    <column name="DefaultDistanceScale" type="F32">
       <offset>184</offset>
+      <default>1</default>
+    </column>
+    <column name="DisplayDistanceUnits" type="EMBEDDEDSTRUCT">
+      <offset>188</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="DisplayDistanceUnitsShort" type="EMBEDDEDSTRUCT">
-      <offset>196</offset>
+      <offset>200</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="EncounterFarDistance" type="F32">
-      <offset>208</offset>
+      <offset>212</offset>
     </column>
     <column name="EncounterMaxSeparation" type="F32">
-      <offset>212</offset>
+      <offset>216</offset>
       <default>50</default>
     </column>
     <column name="SocialAggroPrimaryDist" type="F32">
-      <offset>216</offset>
-    </column>
-    <column name="SocialAggroSecondaryDist" type="F32">
       <offset>220</offset>
     </column>
-    <column name="FormationSlotScale" type="F32">
+    <column name="SocialAggroSecondaryDist" type="F32">
       <offset>224</offset>
+    </column>
+    <column name="FormationSlotScale" type="F32">
+      <offset>228</offset>
       <default>10</default>
     </column>
     <column name="IgnoreNoDraw" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="SpawnBox" type="OPTIONALSTRUCT">
-      <offset>232</offset>
+      <offset>236</offset>
       <subtable external="SpawnBoxes" />
     </column>
     <column name="SpawnRadius" type="F32">
-      <offset>236</offset>
+      <offset>240</offset>
     </column>
     <column name="XRelocation" type="OPTIONALSTRUCT">
-      <offset>240</offset>
-      <subtable external="Expression" />
-    </column>
-    <column name="YRelocation" type="OPTIONALSTRUCT">
       <offset>244</offset>
       <subtable external="Expression" />
     </column>
-    <column name="ZRelocation" type="OPTIONALSTRUCT">
+    <column name="YRelocation" type="OPTIONALSTRUCT">
       <offset>248</offset>
       <subtable external="Expression" />
     </column>
-    <column name="LeashSettings" type="OPTIONALSTRUCT">
+    <column name="ZRelocation" type="OPTIONALSTRUCT">
       <offset>252</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="LeashSettings" type="OPTIONALSTRUCT">
+      <offset>256</offset>
       <subtable external="RegionLeashSettings" />
     </column>
     <column name="ArriveSequence" type="STRUCT">
-      <offset>256</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-      <subtable external="DoorTransitionSequenceRef" />
-    </column>
-    <column name="DepartSequence" type="STRUCT">
       <offset>260</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="DoorTransitionSequenceRef" />
     </column>
-    <column name="PetRequestDepart" type="REFERENCE">
+    <column name="DepartSequence" type="STRUCT">
       <offset>264</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
-      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+      <subtable external="DoorTransitionSequenceRef" />
     </column>
-    <column name="PetRequestArrive" type="REFERENCE">
+    <column name="PetRequestDepart" type="REFERENCE">
       <offset>268</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
     </column>
-    <column name="AIAmbientDefaults" type="STRING">
+    <column name="PetRequestArrive" type="REFERENCE">
       <offset>272</offset>
-      <default_string>Default</default_string>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
     </column>
-    <column name="AICombatJobDefaults" type="STRING">
+    <column name="AIAmbientDefaults" type="STRING">
       <offset>276</offset>
       <default_string>Default</default_string>
     </column>
-    <column name="AIGroupCombatSettings" type="STRING">
+    <column name="AICombatJobDefaults" type="STRING">
       <offset>280</offset>
+      <default_string>Default</default_string>
+    </column>
+    <column name="AIGroupCombatSettings" type="STRING">
+      <offset>284</offset>
     </column>
     <column name="GlobalCritterDropRewardTable" type="STRING">
-      <offset>284</offset>
+      <offset>288</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="KillCreditLimit" type="OPTIONALSTRUCT">
-      <offset>288</offset>
+      <offset>292</offset>
       <subtable external="KillCreditLimits" />
     </column>
     <column name="uiMissionSharingDist" type="IGNORE" />

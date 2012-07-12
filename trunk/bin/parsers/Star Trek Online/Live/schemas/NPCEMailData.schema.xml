@@ -48,6 +48,12 @@
       </flags>
       <subtable external="InventorySlot" />
     </column>
+    <column name="bRead" type="U8">
+      <offset>24</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

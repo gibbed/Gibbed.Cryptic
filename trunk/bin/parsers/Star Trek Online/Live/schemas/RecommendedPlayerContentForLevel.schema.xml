@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RecommendedPlayerContentForLevel">
+  <table>
+    <column name="RecommendedPlayerContentForLevel" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Level" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="ContentInfo" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="GameContentNodeRef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

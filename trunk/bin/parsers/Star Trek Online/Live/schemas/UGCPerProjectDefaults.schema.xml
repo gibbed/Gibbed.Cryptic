@@ -25,143 +25,166 @@
       <offset>12</offset>
       <static_define_list external="MissionPlayType" />
     </column>
-    <column name="Allegiance" type="STRUCT">
+    <column name="OverrideCategoryName" type="STRING">
       <offset>16</offset>
+    </column>
+    <column name="Allegiance" type="STRUCT">
+      <offset>20</offset>
       <subtable external="UGCPerAllegianceDefaults" />
     </column>
     <column name="Rank" type="STRUCT">
-      <offset>20</offset>
+      <offset>24</offset>
       <subtable external="UGCPerProjectEncounterRank" />
     </column>
     <column name="KillCreditLimit" type="OPTIONALSTRUCT">
-      <offset>24</offset>
+      <offset>28</offset>
       <subtable external="UGCKillCreditLimit" />
     </column>
     <column name="MaxActorsInAggroDist" type="INT">
-      <offset>28</offset>
+      <offset>32</offset>
+    </column>
+    <column name="MaxEnemyActorsInAggroDist" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="MaxFriendlyActorsInAggroDist" type="INT">
+      <offset>40</offset>
     </column>
     <column name="VariableDef" type="STRUCT">
-      <offset>32</offset>
+      <offset>44</offset>
       <subtable external="WorldVariableDef" />
     </column>
     <column name="Behavior" type="STRING">
-      <offset>36</offset>
-    </column>
-    <column name="NoCombatBehavior" type="STRING">
-      <offset>40</offset>
-    </column>
-    <column name="TrapObject" type="STRING">
-      <offset>44</offset>
-    </column>
-    <column name="CustomInteriorMap" type="STRING">
       <offset>48</offset>
     </column>
-    <column name="hInteriorKit" type="REFERENCE">
+    <column name="NoCombatBehavior" type="STRING">
       <offset>52</offset>
+    </column>
+    <column name="TrapObject" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="CustomInteriorMap" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="hInteriorKit" type="REFERENCE">
+      <offset>64</offset>
       <dictionary_name>GenesisInteriorKit</dictionary_name>
     </column>
     <column name="hInteriorSky" type="REFERENCE">
-      <offset>56</offset>
+      <offset>68</offset>
       <dictionary_name>SkyInfo</dictionary_name>
     </column>
     <column name="hInteriorBackdrop" type="REFERENCE">
-      <offset>60</offset>
+      <offset>72</offset>
       <dictionary_name>GenesisBackdrop</dictionary_name>
     </column>
     <column name="hInteriorClickyInteractionDef" type="REFERENCE">
-      <offset>64</offset>
+      <offset>76</offset>
       <dictionary_name>InteractionDef</dictionary_name>
     </column>
     <column name="InteriorKillObject" type="STRING">
-      <offset>68</offset>
-    </column>
-    <column name="InteriorDetailObject" type="STRING">
-      <offset>72</offset>
-    </column>
-    <column name="InteriorDestructibleObject" type="STRING">
-      <offset>76</offset>
-    </column>
-    <column name="InteriorContactCostume" type="STRING">
       <offset>80</offset>
     </column>
-    <column name="MaxRoomSize" type="INT">
+    <column name="InteriorDetailObject" type="STRING">
       <offset>84</offset>
     </column>
-    <column name="hSpaceBackdrop" type="REFERENCE">
+    <column name="InteriorDestructibleObject" type="STRING">
       <offset>88</offset>
+    </column>
+    <column name="MaxRoomSize" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="hSpaceBackdrop" type="REFERENCE">
+      <offset>96</offset>
       <dictionary_name>GenesisBackdrop</dictionary_name>
     </column>
     <column name="hSpaceSky" type="REFERENCE">
-      <offset>92</offset>
+      <offset>100</offset>
       <dictionary_name>SkyInfo</dictionary_name>
     </column>
     <column name="hSpaceClickyInteractionDef" type="REFERENCE">
-      <offset>96</offset>
+      <offset>104</offset>
       <dictionary_name>InteractionDef</dictionary_name>
     </column>
     <column name="SpaceKillObject" type="STRING">
-      <offset>100</offset>
-    </column>
-    <column name="SpaceDetailObject" type="STRING">
-      <offset>104</offset>
-    </column>
-    <column name="SpaceDestructibleObject" type="STRING">
       <offset>108</offset>
     </column>
-    <column name="SpacePlanetObject" type="STRING">
+    <column name="SpaceDetailObject" type="STRING">
       <offset>112</offset>
     </column>
-    <column name="SpaceRingObject" type="STRING">
+    <column name="SpaceDestructibleObject" type="STRING">
       <offset>116</offset>
     </column>
-    <column name="SpaceContactCostume" type="STRING">
+    <column name="SpacePlanetObject" type="STRING">
       <offset>120</offset>
     </column>
-    <column name="SpaceSunObject" type="STRING">
+    <column name="SpaceRingObject" type="STRING">
       <offset>124</offset>
     </column>
-    <column name="SpaceAggroDistance" type="F32">
+    <column name="SpaceSunObject" type="STRING">
       <offset>128</offset>
     </column>
-    <column name="SpaceMaxActorDistance" type="F32">
+    <column name="SpaceAggroDistance" type="F32">
       <offset>132</offset>
     </column>
-    <column name="hGroundBackdrop" type="REFERENCE">
+    <column name="SpaceMaxActorDistance" type="F32">
       <offset>136</offset>
+    </column>
+    <column name="hGroundBackdrop" type="REFERENCE">
+      <offset>140</offset>
       <dictionary_name>GenesisBackdrop</dictionary_name>
     </column>
     <column name="hGroundSky" type="REFERENCE">
-      <offset>140</offset>
+      <offset>144</offset>
       <dictionary_name>SkyInfo</dictionary_name>
     </column>
     <column name="GroundBuildingObject" type="STRING">
-      <offset>144</offset>
-    </column>
-    <column name="GroundAggroDistance" type="F32">
       <offset>148</offset>
     </column>
-    <column name="GroundMaxActorDistance" type="F32">
+    <column name="GroundAggroDistance" type="F32">
       <offset>152</offset>
     </column>
-    <column name="CostumeRegionScale" type="STRUCT">
+    <column name="GroundMaxActorDistance" type="F32">
       <offset>156</offset>
-      <subtable external="UGCCostumeRegionScales" />
+    </column>
+    <column name="CostumeSkeletonDef" type="STRUCT">
+      <offset>160</offset>
+      <subtable external="UGCCostumeSkeletonSlotDef" />
+    </column>
+    <column name="CostumeRegionDef" type="STRUCT">
+      <offset>164</offset>
+      <subtable external="UGCCostumeRegionDef" />
+    </column>
+    <column name="CostumeRegionScale" type="STRUCT">
+      <offset>164</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CostumeRegionDef</redundant_name>
+      <subtable external="UGCCostumeRegionDef" />
+    </column>
+    <column name="ProgressionNodeTypeProject" type="INT">
+      <offset>168</offset>
+      <static_define_list external="GameProgressionNodeType" />
     </column>
     <column name="ProgressionNodeType1" type="INT">
-      <offset>160</offset>
+      <offset>172</offset>
       <static_define_list external="GameProgressionNodeType" />
     </column>
     <column name="ProgressionNodeType2" type="INT">
-      <offset>164</offset>
+      <offset>176</offset>
       <static_define_list external="GameProgressionNodeType" />
     </column>
     <column name="SpecialComponent" type="STRUCT">
-      <offset>168</offset>
+      <offset>180</offset>
       <subtable external="UGCSpecialComponentDef" />
     </column>
     <column name="Budget" type="STRUCT">
-      <offset>172</offset>
+      <offset>184</offset>
       <subtable external="UGCProjectBudget" />
+    </column>
+    <column name="CostumeNameField" type="STRUCT">
+      <offset>188</offset>
+      <subtable external="UGCCostumeNamingConventionField" />
     </column>
     <column name="DefaultDoorMap" type="IGNORE" />
     <column name="}" type="END" />

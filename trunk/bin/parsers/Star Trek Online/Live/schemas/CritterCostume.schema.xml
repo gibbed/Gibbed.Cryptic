@@ -56,22 +56,36 @@
       </flags>
       <default>-1</default>
     </column>
-    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+    <column name="MinTeamSize" type="INT">
       <offset>24</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default>-1</default>
+    </column>
+    <column name="MaxTeamSize" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default>-1</default>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="displaySubNameMsg" type="EMBEDDEDSTRUCT">
-      <offset>36</offset>
+      <offset>44</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="voiceSet" type="STRING">
-      <offset>48</offset>
+      <offset>56</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="CreateIgnoresDisplayName" type="BIT">
-      <offset>52</offset>
+      <offset>60</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />

@@ -47,18 +47,21 @@
       <default>2</default>
       <static_define_list external="UIDirection" />
     </column>
-    <column name="MovingOverlayDirection" type="INT">
+    <column name="NotchForceInside" type="U8">
       <offset>28</offset>
+    </column>
+    <column name="MovingOverlayDirection" type="INT">
+      <offset>32</offset>
       <static_define_list external="UIStyleBarDirection" />
     </column>
     <column name="MovingOverlayFadeIn" type="F32">
-      <offset>32</offset>
-    </column>
-    <column name="MovingOverlayFadeOut" type="F32">
       <offset>36</offset>
     </column>
-    <column name="Tick" type="STRING">
+    <column name="MovingOverlayFadeOut" type="F32">
       <offset>40</offset>
+    </column>
+    <column name="Tick" type="STRING">
+      <offset>44</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -66,7 +69,7 @@
       <dictionary_name>Texture</dictionary_name>
     </column>
     <column name="TickColor" type="INT">
-      <offset>44</offset>
+      <offset>48</offset>
       <default>-1</default>
       <static_define_list>
         <!-- dynamic enum? -->
@@ -74,25 +77,25 @@
       <format>COLOR</format>
     </column>
     <column name="TickCount" type="INT">
-      <offset>52</offset>
+      <offset>56</offset>
     </column>
     <column name="Font" type="REFERENCE">
-      <offset>56</offset>
+      <offset>60</offset>
       <dictionary_name>UIStyleFont</dictionary_name>
     </column>
     <column name="ClipFilledArea" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ScaleTick" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="FileName" type="CURRENTFILE">
-      <offset>64</offset>
+      <offset>68</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

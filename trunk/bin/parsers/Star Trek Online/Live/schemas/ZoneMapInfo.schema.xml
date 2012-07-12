@@ -173,63 +173,62 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="UGCProperties" type="OPTIONALSTRUCT">
-      <offset>160</offset>
-      <subtable external="WorldUGCProperties" />
-    </column>
     <column name="RespawnData" type="OPTIONALSTRUCT">
-      <offset>164</offset>
+      <offset>160</offset>
       <subtable external="WorldRespawnData" />
     </column>
     <column name="Level" type="INT">
-      <offset>168</offset>
+      <offset>164</offset>
     </column>
     <column name="ForceTeamSize" type="INT">
-      <offset>172</offset>
+      <offset>168</offset>
     </column>
     <column name="Difficulty" type="INT">
-      <offset>176</offset>
+      <offset>172</offset>
     </column>
     <column name="Variable" type="STRUCT">
-      <offset>180</offset>
+      <offset>176</offset>
       <subtable external="WorldVariableDef" />
     </column>
+    <column name="IgnoreTeamSizeBonusXP" type="U8">
+      <offset>180</offset>
+    </column>
     <column name="ConfirmPurchasesOnExit" type="U8">
-      <offset>184</offset>
+      <offset>181</offset>
     </column>
     <column name="CollectDoorDestStatus" type="U8">
-      <offset>185</offset>
+      <offset>182</offset>
     </column>
     <column name="DisableDuels" type="U8">
-      <offset>186</offset>
+      <offset>183</offset>
     </column>
     <column name="DisableInstanceChanging" type="U8">
-      <offset>187</offset>
+      <offset>184</offset>
     </column>
     <column name="TeamNotRequired" type="U8">
-      <offset>188</offset>
+      <offset>185</offset>
     </column>
     <column name="TerrainStaticLighting" type="U8">
-      <offset>189</offset>
+      <offset>186</offset>
     </column>
     <column name="ShardVariables" type="U8">
-      <offset>190</offset>
+      <offset>187</offset>
     </column>
     <column name="DisableVisitedTracking" type="U8">
-      <offset>191</offset>
+      <offset>188</offset>
     </column>
     <column name="PowersRequireValidTarget" type="U8">
-      <offset>192</offset>
+      <offset>189</offset>
     </column>
     <column name="EnableUpsellFeatures" type="U8">
-      <offset>193</offset>
+      <offset>190</offset>
     </column>
     <column name="ParentMap" type="OPTIONALSTRUCT">
-      <offset>196</offset>
+      <offset>192</offset>
       <subtable external="ParentZoneMap" />
     </column>
     <column name="MastermindDef" type="STRING">
-      <offset>200</offset>
+      <offset>196</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -237,7 +236,7 @@
       <dictionary_name>AIMastermindDef</dictionary_name>
     </column>
     <column name="CivilianMapDef" type="STRING">
-      <offset>204</offset>
+      <offset>200</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -245,7 +244,7 @@
       <dictionary_name>AICivilianMapDef</dictionary_name>
     </column>
     <column name="PlayerFSM" type="STRINGARRAY">
-      <offset>208</offset>
+      <offset>204</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -253,14 +252,23 @@
       <dictionary_name>FSM</dictionary_name>
     </column>
     <column name="LightOverride" type="INT">
-      <offset>212</offset>
+      <offset>208</offset>
       <static_define_list external="ZoneMapLightOverrideType" />
     </column>
     <column name="RecordPlayerMatchStats" type="U8">
-      <offset>216</offset>
+      <offset>212</offset>
+    </column>
+    <column name="GuildOwned" type="U8">
+      <offset>213</offset>
+    </column>
+    <column name="GuildNotRequired" type="U8">
+      <offset>214</offset>
+    </column>
+    <column name="GenerateMapSnapMini" type="U8">
+      <offset>215</offset>
     </column>
     <column name="bfParamsSpecified" type="INTFIXEDARRAY">
-      <offset>220</offset>
+      <offset>216</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>USEDFIELD</flag>
@@ -268,9 +276,14 @@
       <num_elements>3</num_elements>
     </column>
     <column name="saving" type="U8">
-      <offset>236</offset>
+      <offset>232</offset>
       <flags>
         <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="UGCProperties" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
       </flags>
     </column>
     <column name="}" type="END" />

@@ -140,23 +140,26 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="WhenExternalChallenge" type="STRUCT">
+    <column name="WhenExternalMap" type="STRINGARRAY">
       <offset>60</offset>
+    </column>
+    <column name="WhenExternalChallenge" type="STRUCT">
+      <offset>64</offset>
       <subtable external="GenesisWhenExternalChallenge" />
     </column>
     <column name="WhenExternalRoom" type="STRUCT">
-      <offset>64</offset>
+      <offset>68</offset>
       <subtable external="GenesisWhenExternalRoom" />
     </column>
     <column name="WhenExternalPrompt" type="STRUCT">
-      <offset>68</offset>
+      <offset>72</offset>
       <subtable external="GenesisWhenExternalPrompt" />
     </column>
     <column name="WhenItemDefName" type="STRINGARRAY">
-      <offset>72</offset>
+      <offset>76</offset>
     </column>
     <column name="WhenItemCount" type="INT">
-      <offset>76</offset>
+      <offset>80</offset>
     </column>
     <column name="}" type="END" />
   </table>

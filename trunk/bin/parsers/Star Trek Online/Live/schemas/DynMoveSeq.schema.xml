@@ -18,42 +18,96 @@
       <subtable external="DynMoveAnimTrack" />
     </column>
     <column name="DynFxEvent" type="STRUCT">
-      <offset>64</offset>
+      <offset>80</offset>
       <subtable external="DynMoveFxEvent" />
     </column>
+    <column name="MatchBaseSkelAnim" type="STRUCT">
+      <offset>84</offset>
+      <subtable external="DynMoveMatchBaseSkelAnim" />
+    </column>
+    <column name="RagdollFrame" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="RagdollStartTime" type="F32">
+      <offset>92</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="RagdollAdditionalGravity" type="F32">
+      <offset>96</offset>
+    </column>
     <column name="Speed" type="F32">
-      <offset>68</offset>
+      <offset>100</offset>
       <default>1</default>
     </column>
+    <column name="SpeedLow" type="F32">
+      <offset>100</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Speed</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="SpeedHigh" type="F32">
+      <offset>104</offset>
+    </column>
     <column name="IKTarget" type="STRING">
-      <offset>72</offset>
+      <offset>108</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="BankMaxAngle" type="F32">
+      <offset>112</offset>
+    </column>
+    <column name="BankScale" type="F32">
+      <offset>116</offset>
+    </column>
     <column name="Distance" type="F32">
-      <offset>76</offset>
+      <offset>120</offset>
     </column>
     <column name="MinRate" type="F32">
-      <offset>80</offset>
+      <offset>124</offset>
     </column>
     <column name="MaxRate" type="F32">
-      <offset>84</offset>
+      <offset>128</offset>
     </column>
     <column name="Length" type="F32">
-      <offset>88</offset>
+      <offset>132</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="RandSpeed" type="U8">
+      <offset>136</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
     </column>
     <column name="Verified" type="U8">
-      <offset>92</offset>
+      <offset>137</offset>
       <flags>
-        <flag>USEROPTIONBIT_1</flag>
+        <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
     <column name="Ragdoll" type="BOOLFLAG">
-      <offset>93</offset>
+      <offset>138</offset>
     </column>
     <column name="RegisterWep" type="BOOLFLAG">
-      <offset>94</offset>
+      <offset>139</offset>
+    </column>
+    <column name="IKMeleeMode" type="BOOLFLAG">
+      <offset>140</offset>
+    </column>
+    <column name="EnableIKSliding" type="BOOLFLAG">
+      <offset>141</offset>
+    </column>
+    <column name="DisableIKLeftWrist" type="BOOLFLAG">
+      <offset>142</offset>
+    </column>
+    <column name="DisableIKRightArm" type="BOOLFLAG">
+      <offset>143</offset>
     </column>
     <column name="End" type="END" />
   </table>

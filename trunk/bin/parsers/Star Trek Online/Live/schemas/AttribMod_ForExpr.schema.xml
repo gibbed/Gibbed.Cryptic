@@ -8,7 +8,7 @@
     </column>
     <column name="{" type="START" />
     <column name="ApplyID" type="INT">
-      <offset>36</offset>
+      <offset>40</offset>
     </column>
     <column name="Active" type="BIT">
       <offset>0</offset>
@@ -19,16 +19,16 @@
       <bit_offset>8</bit_offset>
     </column>
     <column name="Duration" type="F32">
-      <offset>80</offset>
-    </column>
-    <column name="DurationOriginal" type="F32">
       <offset>84</offset>
     </column>
-    <column name="Magnitude" type="F32">
+    <column name="DurationOriginal" type="F32">
       <offset>88</offset>
     </column>
-    <column name="MagnitudeOriginal" type="F32">
+    <column name="Magnitude" type="F32">
       <offset>92</offset>
+    </column>
+    <column name="MagnitudeOriginal" type="F32">
+      <offset>96</offset>
     </column>
     <column name="}" type="END" />
   </table>

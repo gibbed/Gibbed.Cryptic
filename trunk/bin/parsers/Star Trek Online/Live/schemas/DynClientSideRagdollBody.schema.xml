@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynClientSideRagdollBody">
+  <table>
+    <column name="DynClientSideRagdollBody" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Bone" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ParentBone" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="tuning" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="DynJointTuning" />
+    </column>
+    <column name="Shape" type="INT">
+      <offset>16</offset>
+      <static_define_list external="eRagdollShape" />
+    </column>
+    <column name="SelfAnchor" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ParentAnchor" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ParentIndex" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="rot_mEntityWS" type="MATPYR">
+      <offset>48</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_mEntityWS" type="F32FIXEDARRAY">
+      <offset>84</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="BasePos" type="F32FIXEDARRAY">
+      <offset>96</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="PosePos" type="F32FIXEDARRAY">
+      <offset>108</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="WorldSpace" type="F32FIXEDARRAY">
+      <offset>120</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="qBaseRot" type="QUATPYR">
+      <offset>132</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="qPoseRot" type="QUATPYR">
+      <offset>148</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="qWorldSpace" type="QUATPYR">
+      <offset>164</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="qLocalSpace" type="QUATPYR">
+      <offset>180</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="VolumeMassScale" type="F32">
+      <offset>196</offset>
+    </column>
+    <column name="SkinWidth" type="F32">
+      <offset>200</offset>
+    </column>
+    <column name="Density" type="F32">
+      <offset>204</offset>
+    </column>
+    <column name="AdditionalGravity" type="F32FIXEDARRAY">
+      <offset>208</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CenterOfGravity" type="F32FIXEDARRAY">
+      <offset>220</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="InitVel" type="F32FIXEDARRAY">
+      <offset>232</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="InitAngVel" type="F32FIXEDARRAY">
+      <offset>244</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="BoxDimensions" type="F32FIXEDARRAY">
+      <offset>256</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="rot_mBox" type="MATPYR">
+      <offset>268</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_mBox" type="F32FIXEDARRAY">
+      <offset>304</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CapsuleStart" type="F32FIXEDARRAY">
+      <offset>316</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CapsuleDir" type="F32FIXEDARRAY">
+      <offset>328</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CapsuleLength" type="F32">
+      <offset>340</offset>
+    </column>
+    <column name="CapsuleRadius" type="F32">
+      <offset>344</offset>
+    </column>
+    <column name="pyrOffsetToAnimRoot" type="F32FIXEDARRAY">
+      <offset>348</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="posOffsetToAnimRoot" type="F32FIXEDARRAY">
+      <offset>360</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="uiSleeping" type="BIT">
+      <offset>372</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

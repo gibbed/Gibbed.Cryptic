@@ -32,21 +32,21 @@
       <subtable external="UGCComponentPlacement" />
     </column>
     <column name="MapType" type="INT">
-      <offset>60</offset>
+      <offset>64</offset>
       <static_define_list external="UGCMapType" />
     </column>
     <column name="ObjectName" type="STRING">
-      <offset>64</offset>
-    </column>
-    <column name="ObjectID" type="INT">
       <offset>68</offset>
     </column>
-    <column name="When" type="OPTIONALSTRUCT">
+    <column name="ObjectID" type="INT">
       <offset>72</offset>
+    </column>
+    <column name="When" type="OPTIONALSTRUCT">
+      <offset>76</offset>
       <subtable external="UGCWhen" />
     </column>
     <column name="PromptWhen" type="OPTIONALSTRUCT">
-      <offset>72</offset>
+      <offset>76</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -54,7 +54,7 @@
       <subtable external="UGCWhen" />
     </column>
     <column name="PromptIsPopup" type="OPTIONALSTRUCT">
-      <offset>72</offset>
+      <offset>76</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -62,43 +62,40 @@
       <subtable external="UGCWhen" />
     </column>
     <column name="HideWhen" type="OPTIONALSTRUCT">
-      <offset>76</offset>
+      <offset>80</offset>
       <subtable external="UGCWhen" />
     </column>
     <column name="VisibleCheckedAttrib" type="OPTIONALSTRUCT">
-      <offset>80</offset>
+      <offset>84</offset>
       <subtable external="GenesisCheckedAttrib" />
     </column>
     <column name="IsRoomVolume" type="U8">
-      <offset>84</offset>
-    </column>
-    <column name="VolumeRadius" type="F32">
       <offset>88</offset>
     </column>
-    <column name="Ring" type="STRING">
+    <column name="VolumeRadius" type="F32">
       <offset>92</offset>
     </column>
-    <column name="RingID" type="INT">
+    <column name="Ring" type="STRING">
       <offset>96</offset>
     </column>
-    <column name="InteractText" type="STRING">
+    <column name="RingID" type="INT">
       <offset>100</offset>
     </column>
-    <column name="InteractAnim" type="REFERENCE">
+    <column name="InteractText" type="STRING">
       <offset>104</offset>
+    </column>
+    <column name="InteractAnim" type="REFERENCE">
+      <offset>108</offset>
       <dictionary_name>AIAnimList</dictionary_name>
     </column>
     <column name="InteractDuration" type="INT">
-      <offset>108</offset>
-      <default>1</default>
+      <offset>112</offset>
+      <default>2</default>
       <static_define_list external="UGCInteractDuration" />
     </column>
     <column name="InteractTriggerGroup" type="STRUCT">
-      <offset>112</offset>
-      <subtable external="UGCInteractProperties" />
-    </column>
-    <column name="ContactName" type="STRING">
       <offset>116</offset>
+      <subtable external="UGCInteractProperties" />
     </column>
     <column name="PromptCostumeName" type="STRING">
       <offset>120</offset>
@@ -122,15 +119,18 @@
         <flag>STRUCTPARAM</flag>
       </flags>
     </column>
-    <column name="PromptBody" type="STRING">
+    <column name="PromptTitle" type="STRING">
       <offset>132</offset>
     </column>
-    <column name="Action" type="STRUCT">
+    <column name="PromptBody" type="STRING">
       <offset>136</offset>
+    </column>
+    <column name="Action" type="STRUCT">
+      <offset>140</offset>
       <subtable external="UGCDialogTreePromptAction" />
     </column>
     <column name="PromptButton" type="STRUCT">
-      <offset>136</offset>
+      <offset>140</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -138,14 +138,11 @@
       <subtable external="UGCDialogTreePromptAction" />
     </column>
     <column name="PromptCostume" type="STRING">
-      <offset>140</offset>
+      <offset>144</offset>
     </column>
     <column name="PromptPetCostume" type="REFERENCE">
-      <offset>144</offset>
-      <dictionary_name>PetContactList</dictionary_name>
-    </column>
-    <column name="CameraPos" type="STRING">
       <offset>148</offset>
+      <dictionary_name>PetContactList</dictionary_name>
     </column>
     <column name="PromptStyle" type="STRING">
       <offset>152</offset>
@@ -189,6 +186,9 @@
     <column name="IsDefault" type="U8">
       <offset>188</offset>
     </column>
+    <column name="DisplayNameWasFixed" type="U8">
+      <offset>189</offset>
+    </column>
     <column name="DisplayName" type="STRING">
       <offset>192</offset>
     </column>
@@ -227,14 +227,17 @@
     <column name="RoomDoor" type="INT">
       <offset>216</offset>
     </column>
-    <column name="TrapPower" type="STRING">
+    <column name="IsDoorExplicitDefault" type="U8">
       <offset>220</offset>
     </column>
-    <column name="EmitterIndex" type="INT">
+    <column name="TrapPower" type="STRING">
       <offset>224</offset>
     </column>
-    <column name="TrapTargetDisabled" type="U8">
+    <column name="EmitterIndex" type="INT">
       <offset>228</offset>
+    </column>
+    <column name="PatrolParentID" type="INT">
+      <offset>232</offset>
     </column>
     <column name="Count" type="IGNORE" />
     <column name="InteractDef" type="IGNORE" />

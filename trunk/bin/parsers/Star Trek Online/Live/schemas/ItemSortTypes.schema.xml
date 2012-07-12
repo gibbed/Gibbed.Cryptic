@@ -7,12 +7,30 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="ItemSortType" type="STRUCT">
+    <column name="ItemSortTypeCategory" type="STRUCT">
       <offset>0</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="ItemSortTypeCategory" />
+    </column>
+    <column name="ItemSortType" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="ItemSortType" />
+    </column>
+    <column name="IndexedItemSortTypes" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="ItemSortType" />
     </column>
     <column name="FileName" type="CURRENTFILE">
-      <offset>4</offset>
+      <offset>12</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

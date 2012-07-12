@@ -18,8 +18,12 @@
       <offset>4</offset>
       <subtable external="SpecialDialogOverrideData" />
     </column>
-    <column name="MissionOfferOverrides" type="STRUCT">
+    <column name="SpecialActionBlockOverrides" type="STRUCT">
       <offset>8</offset>
+      <subtable external="SpecialActionBlockOverrideData" />
+    </column>
+    <column name="MissionOfferOverrides" type="STRUCT">
+      <offset>12</offset>
       <subtable external="MissionOfferOverrideData" />
     </column>
     <column name="}" type="END" />

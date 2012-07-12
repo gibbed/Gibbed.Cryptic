@@ -67,7 +67,7 @@
       <offset>127</offset>
     </column>
     <column name="SortAsBlock" type="BOOLFLAG">
-      <offset>137</offset>
+      <offset>138</offset>
     </column>
     <column name="ForwardMessages" type="BOOLFLAG">
       <offset>117</offset>
@@ -114,7 +114,7 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="IKTargetBone" type="STRING">
+    <column name="IKTargetBone" type="STRINGARRAY">
       <offset>100</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -148,10 +148,10 @@
       <offset>126</offset>
     </column>
     <column name="KillOnEmpty" type="BOOLFLAG">
-      <offset>136</offset>
+      <offset>137</offset>
     </column>
     <column name="DontAutoKill" type="BOOLFLAG">
-      <offset>135</offset>
+      <offset>136</offset>
     </column>
     <column name="Hibernate" type="BOOLFLAG">
       <offset>128</offset>
@@ -209,6 +209,9 @@
     </column>
     <column name="AllowWorldModelSwitch" type="BOOLFLAG">
       <offset>134</offset>
+    </column>
+    <column name="LateUpdateFastParticles" type="BOOLFLAG">
+      <offset>135</offset>
     </column>
     <column name="End" type="END" />
   </table>

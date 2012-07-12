@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NemesisMinionCostume">
+  <table>
+    <column name="NemesisMinionCostume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ClassName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="CostumeName" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

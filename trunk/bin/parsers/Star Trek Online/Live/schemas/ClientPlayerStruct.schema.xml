@@ -105,43 +105,52 @@
     <column name="DifficultyIdx" type="INT">
       <offset>80</offset>
     </column>
-    <column name="SameInstance" type="U8">
+    <column name="TeamStatusMessage" type="STRING">
       <offset>84</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="SameInstance" type="U8">
+      <offset>88</offset>
     </column>
     <column name="OnlineStatus" type="INT">
-      <offset>88</offset>
+      <offset>92</offset>
       <static_define_list external="UserStatus" />
     </column>
     <column name="PlayingStyles" type="STRING">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="TeamMembers" type="INT">
-      <offset>96</offset>
+      <offset>100</offset>
     </column>
     <column name="ExtraMembers" type="STRUCT">
-      <offset>100</offset>
+      <offset>104</offset>
       <subtable external="ClientTeamMemberStruct" />
     </column>
     <column name="Ignored" type="U8">
-      <offset>104</offset>
-    </column>
-    <column name="Friend" type="U8">
-      <offset>105</offset>
-    </column>
-    <column name="Guildmate" type="U8">
-      <offset>106</offset>
-    </column>
-    <column name="Buddy" type="U8">
-      <offset>107</offset>
-    </column>
-    <column name="Afk" type="U8">
       <offset>108</offset>
     </column>
-    <column name="Dnd" type="U8">
+    <column name="Friend" type="U8">
       <offset>109</offset>
+    </column>
+    <column name="Guildmate" type="U8">
+      <offset>110</offset>
+    </column>
+    <column name="Buddy" type="U8">
+      <offset>111</offset>
+    </column>
+    <column name="Afk" type="U8">
+      <offset>112</offset>
+    </column>
+    <column name="Dnd" type="U8">
+      <offset>113</offset>
+    </column>
+    <column name="DifferentGame" type="U8">
+      <offset>114</offset>
     </column>
     <column name="}" type="END" />
   </table>

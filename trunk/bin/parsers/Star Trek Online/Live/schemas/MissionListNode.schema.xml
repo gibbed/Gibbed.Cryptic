@@ -38,6 +38,31 @@
     <column name="ShadowMission" type="U8">
       <offset>20</offset>
     </column>
+    <column name="MissionNumber" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Level" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="LevelDelta" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="UIType" type="INT">
+      <offset>36</offset>
+      <static_define_list external="MissionUIType" />
+    </column>
+    <column name="TranslatedUITypeName" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="IconName" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

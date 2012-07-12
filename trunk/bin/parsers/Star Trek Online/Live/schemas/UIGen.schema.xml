@@ -721,19 +721,19 @@
       <offset>104</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="BeforeUpdate" type="OPTIONALSTRUCT">
+    <column name="PointerUpdate" type="OPTIONALSTRUCT">
       <offset>108</offset>
-      <subtable external="UIGenAction" />
+      <subtable external="UIGenPointerUpdate" />
     </column>
-    <column name="BeforeResult" type="OPTIONALSTRUCT">
+    <column name="BeforeUpdate" type="OPTIONALSTRUCT">
       <offset>112</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="BeforeHide" type="OPTIONALSTRUCT">
+    <column name="BeforeResult" type="OPTIONALSTRUCT">
       <offset>116</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="QueuedActions" type="STRUCT">
+    <column name="BeforeHide" type="OPTIONALSTRUCT">
       <offset>120</offset>
       <subtable external="UIGenAction" />
     </column>

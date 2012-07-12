@@ -193,31 +193,47 @@
       </flags>
       <redundant_name>ShellColl</redundant_name>
     </column>
-    <column name="UnlockAll" type="U8">
+    <column name="hasOneWayCollision" type="U8">
       <offset>32</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bHasOneWayCollision" type="U8">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>hasOneWayCollision</redundant_name>
+    </column>
+    <column name="UnlockAll" type="U8">
+      <offset>33</offset>
     </column>
     <column name="bUnlockAll" type="U8">
-      <offset>32</offset>
+      <offset>33</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>UnlockAll</redundant_name>
     </column>
     <column name="UnlockAllCmat" type="U8">
-      <offset>33</offset>
+      <offset>34</offset>
     </column>
     <column name="bUnlockAllCMat" type="U8">
-      <offset>33</offset>
+      <offset>34</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>UnlockAllCmat</redundant_name>
     </column>
     <column name="UnlockAllCTex" type="U8">
-      <offset>34</offset>
+      <offset>35</offset>
     </column>
     <column name="bUnlockAllCTex" type="U8">
-      <offset>34</offset>
+      <offset>35</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>

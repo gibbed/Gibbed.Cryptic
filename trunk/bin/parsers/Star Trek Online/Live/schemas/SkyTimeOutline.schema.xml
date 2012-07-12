@@ -32,8 +32,15 @@
       <num_elements>3</num_elements>
       <format>HSV</format>
     </column>
-    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+    <column name="OutlineThickness" type="F32">
       <offset>56</offset>
+      <default>1</default>
+    </column>
+    <column name="UseZ" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>64</offset>
       <flags>
         <flag>USEDFIELD</flag>
         <flag>USEROPTIONBIT_1</flag>

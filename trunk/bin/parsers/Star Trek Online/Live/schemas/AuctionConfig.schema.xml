@@ -10,8 +10,9 @@
     <column name="DefaultExpireTimeDays" type="INT">
       <offset>0</offset>
     </column>
-    <column name="AuctionsUsePostingFee" type="U8">
+    <column name="DurationOption" type="STRUCT">
       <offset>4</offset>
+      <subtable external="AuctionDurationOption" />
     </column>
     <column name="AuctionDefaultPostingFee" type="F32">
       <offset>8</offset>
@@ -19,17 +20,42 @@
     <column name="AuctionMinimumPostingFee" type="F32">
       <offset>12</offset>
     </column>
-    <column name="AuctionsUseSoldFee" type="U8">
+    <column name="AuctionDefaultSoldFee" type="F32">
       <offset>16</offset>
     </column>
-    <column name="AuctionDefaultSoldFee" type="F32">
+    <column name="DefaultAuctionPostsMaximum" type="INT">
       <offset>20</offset>
     </column>
-    <column name="DefaultAuctionPostsMaximum" type="INT">
+    <column name="BidExpirationExtensionInSeconds" type="INT">
       <offset>24</offset>
     </column>
-    <column name="uMaximumAuctionPrice" type="INT">
+    <column name="BiddingIncrementalMultiplier" type="F32">
       <offset>28</offset>
+      <default>1008981770</default>
+    </column>
+    <column name="AuctionsUsePostingFee" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="AllowCustomAuctionDurations" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="AuctionsUseSoldFee" type="U8">
+      <offset>34</offset>
+    </column>
+    <column name="BiddingEnabled" type="U8">
+      <offset>35</offset>
+    </column>
+    <column name="PurchasedItemsAreMailed" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="PersistOwnerNameAndHandleWithAuction" type="U8">
+      <offset>37</offset>
+    </column>
+    <column name="HideOwnAuctionsInSearch" type="U8">
+      <offset>38</offset>
+    </column>
+    <column name="uMaximumAuctionPrice" type="INT">
+      <offset>40</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -19,6 +19,7 @@
       <offset>4</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>USEROPTIONBIT_1</flag>
       </flags>
     </column>
     <column name="Scope" type="STRING">
@@ -29,26 +30,44 @@
     </column>
     <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
       <offset>12</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
       <subtable external="DisplayMessage" />
     </column>
     <column name="descriptionMsg" type="EMBEDDEDSTRUCT">
       <offset>24</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
       <subtable external="DisplayMessage" />
     </column>
     <column name="descShortMsg" type="EMBEDDEDSTRUCT">
       <offset>36</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
       <subtable external="DisplayMessage" />
     </column>
     <column name="displayNameMsgUnidentified" type="EMBEDDEDSTRUCT">
       <offset>48</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
       <subtable external="DisplayMessage" />
     </column>
     <column name="descriptionMsgUnidentified" type="EMBEDDEDSTRUCT">
       <offset>60</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
       <subtable external="DisplayMessage" />
     </column>
     <column name="msgAutoDesc" type="EMBEDDEDSTRUCT">
       <offset>72</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
       <subtable external="DisplayMessage" />
     </column>
     <column name="IdentifyRequiresExpr" type="OPTIONALSTRUCT">
@@ -101,44 +120,42 @@
       <offset>120</offset>
       <default>1</default>
     </column>
-    <column name="DurabilityTable" type="STRING">
-      <offset>124</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
-    </column>
-    <column name="Durability" type="F32">
-      <offset>128</offset>
-    </column>
     <column name="ExprEconomyPoints" type="OPTIONALSTRUCT">
-      <offset>132</offset>
+      <offset>124</offset>
       <subtable external="Expression" />
     </column>
     <column name="MinNumericValue" type="INT">
-      <offset>136</offset>
+      <offset>128</offset>
       <default>-2147483647</default>
     </column>
     <column name="MaxNumericValue" type="INT">
-      <offset>140</offset>
+      <offset>132</offset>
       <default>2147483647</default>
     </column>
     <column name="NumericOverflow" type="REFERENCE">
-      <offset>144</offset>
+      <offset>136</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="NumericOverflowMulti" type="F32">
-      <offset>148</offset>
+      <offset>140</offset>
+    </column>
+    <column name="SpendingNumeric" type="REFERENCE">
+      <offset>144</offset>
+      <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="MayBuyInBulk" type="INT">
-      <offset>152</offset>
+      <offset>148</offset>
     </column>
     <column name="Level" type="INT">
-      <offset>156</offset>
+      <offset>152</offset>
       <default>1</default>
     </column>
     <column name="Quality" type="INT">
-      <offset>160</offset>
+      <offset>156</offset>
       <static_define_list external="ItemQuality" />
+    </column>
+    <column name="PowerFactor" type="INT">
+      <offset>160</offset>
     </column>
     <column name="NumBagSlots" type="INT">
       <offset>164</offset>
@@ -222,27 +239,47 @@
       <static_define_list external="ItemPowerGroup" />
       <format>FLAGS</format>
     </column>
-    <column name="CostumeMode" type="INT">
+    <column name="DyeColor0" type="F32FIXEDARRAY">
       <offset>236</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="DyeColor1" type="F32FIXEDARRAY">
+      <offset>248</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="DyeColor2" type="F32FIXEDARRAY">
+      <offset>260</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="DyeColor3" type="F32FIXEDARRAY">
+      <offset>272</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="hDyeMat" type="REFERENCE">
+      <offset>284</offset>
+      <dictionary_name>PCMaterialAdd</dictionary_name>
+    </column>
+    <column name="CostumeMode" type="INT">
+      <offset>288</offset>
       <static_define_list external="kCostumeDisplayMode" />
     </column>
     <column name="CostumePriority" type="INT">
-      <offset>240</offset>
+      <offset>292</offset>
     </column>
     <column name="Costumes" type="STRUCT">
-      <offset>244</offset>
+      <offset>296</offset>
       <subtable external="ItemCostume" />
     </column>
     <column name="Species" type="REFERENCE">
-      <offset>248</offset>
+      <offset>300</offset>
       <dictionary_name>SpeciesDef</dictionary_name>
     </column>
     <column name="CraftRecipe" type="REFERENCE">
-      <offset>252</offset>
+      <offset>304</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="Recipe" type="REFERENCE">
-      <offset>252</offset>
+      <offset>304</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -250,72 +287,72 @@
       <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="ValueRecipe" type="STRUCT">
-      <offset>256</offset>
+      <offset>308</offset>
       <subtable external="ItemDefRef" />
     </column>
     <column name="calloutMsg" type="EMBEDDEDSTRUCT">
-      <offset>260</offset>
+      <offset>312</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="calloutFSM" type="STRING">
-      <offset>272</offset>
+      <offset>324</offset>
     </column>
     <column name="ImportantCallout" type="U8">
-      <offset>276</offset>
+      <offset>328</offset>
     </column>
     <column name="LoreCategory" type="INT">
-      <offset>280</offset>
+      <offset>332</offset>
       <static_define_list external="LoreCategory" />
     </column>
     <column name="JournalData" type="OPTIONALSTRUCT">
-      <offset>284</offset>
+      <offset>336</offset>
       <subtable external="LoreJournalData" />
     </column>
     <column name="Tag" type="INT">
-      <offset>288</offset>
+      <offset>340</offset>
       <static_define_list external="ItemTag" />
     </column>
     <column name="Categories" type="INTARRAY">
-      <offset>292</offset>
+      <offset>344</offset>
       <static_define_list external="ItemCategory" />
     </column>
     <column name="PetGrant" type="REFERENCE">
-      <offset>296</offset>
+      <offset>348</offset>
       <dictionary_name>PetDef</dictionary_name>
     </column>
     <column name="AlgoPet" type="REFERENCE">
-      <offset>300</offset>
+      <offset>352</offset>
       <dictionary_name>AlgoPetDef</dictionary_name>
     </column>
     <column name="Warp" type="OPTIONALSTRUCT">
-      <offset>304</offset>
+      <offset>356</offset>
       <subtable external="ItemDefWarp" />
     </column>
     <column name="MakeAsPuppet" type="BIT">
-      <offset>308</offset>
+      <offset>360</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="DeleteAfterUnlock" type="BIT">
-      <offset>308</offset>
+      <offset>360</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="AutoDescDisabled" type="BIT">
-      <offset>308</offset>
+      <offset>360</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="LogForEconomy" type="BIT">
-      <offset>308</offset>
+      <offset>360</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="ItemSetMembersUnique" type="BIT">
-      <offset>308</offset>
+      <offset>360</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="UniqueItemSet" type="BIT">
-      <offset>308</offset>
+      <offset>360</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SPECIAL_DEFAULT</flag>
@@ -324,30 +361,73 @@
       <bit_offset>65540</bit_offset>
     </column>
     <column name="CostumeIgnoreSkeletonMatching" type="BIT">
-      <offset>308</offset>
+      <offset>360</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="TrainingDestroysItem" type="BIT">
-      <offset>308</offset>
+      <offset>360</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65542</bit_offset>
     </column>
+    <column name="CouponUsesItemLevel" type="BIT">
+      <offset>360</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
     <column name="AttribModifyValues" type="OPTIONALSTRUCT">
-      <offset>312</offset>
+      <offset>364</offset>
       <subtable external="ItemAttribModifyValues" />
     </column>
     <column name="Weapon" type="OPTIONALSTRUCT">
-      <offset>316</offset>
+      <offset>368</offset>
       <subtable external="ItemWeaponDef" />
     </column>
+    <column name="Damage" type="OPTIONALSTRUCT">
+      <offset>372</offset>
+      <subtable external="ItemDamageDef" />
+    </column>
+    <column name="SpecialPartType" type="INT">
+      <offset>376</offset>
+      <static_define_list external="SpecialPartType" />
+    </column>
+    <column name="SpecialPartCount" type="INT">
+      <offset>380</offset>
+    </column>
+    <column name="GamePermission" type="STRING">
+      <offset>384</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uExperienceGift" type="INT">
+      <offset>388</offset>
+    </column>
+    <column name="uCouponDiscount" type="INT">
+      <offset>392</offset>
+    </column>
+    <column name="MTCategories" type="STRINGARRAY">
+      <offset>396</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>MicroTransactionCategory</dictionary_name>
+    </column>
+    <column name="MTItem" type="STRINGARRAY">
+      <offset>400</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>MicroTransaction</dictionary_name>
+    </column>
     <column name="BonusNumerics" type="STRUCT">
-      <offset>320</offset>
+      <offset>404</offset>
       <subtable external="ItemDefBonus" />
     </column>
     <column name="BonusPercent" type="INT">
-      <offset>324</offset>
+      <offset>408</offset>
     </column>
     <column name="Slot" type="IGNORE" />
     <column name="SubType" type="IGNORE" />

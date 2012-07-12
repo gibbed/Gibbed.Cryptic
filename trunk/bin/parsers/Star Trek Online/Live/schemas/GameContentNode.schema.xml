@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameContentNode">
+  <table>
+    <column name="GameContentNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="contentRef" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="GameContentNodeRef" />
+    </column>
+    <column name="ProgressionNodeType" type="INT">
+      <offset>32</offset>
+      <static_define_list external="GameProgressionNodeType" />
+    </column>
+    <column name="Depth" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="Summary" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="Teaser" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="Rating" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="ArtFileName" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NumChild" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="NumChildUnlocked" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="NumChildUnlockedForTeam" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="NumChildCompleted" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="NumChildCompletedForTeam" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="SuggestedPlayerLevel" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="Major" type="U8">
+      <offset>88</offset>
+    </column>
+    <column name="uiTimeToComplete" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="TimeSensitiveContentInfo" type="OPTIONALSTRUCT">
+      <offset>96</offset>
+      <subtable external="TimeSensitiveGameContentNodeInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

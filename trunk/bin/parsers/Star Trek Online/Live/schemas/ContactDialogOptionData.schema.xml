@@ -65,52 +65,56 @@
       <offset>44</offset>
       <subtable external="NamespacedMissionContactData" />
     </column>
-    <column name="hContactDef" type="REFERENCE">
+    <column name="hMissionListContactDef" type="REFERENCE">
       <offset>48</offset>
       <dictionary_name>ContactDef</dictionary_name>
     </column>
-    <column name="TargetDialogName" type="STRING">
+    <column name="hTargetContactDef" type="REFERENCE">
       <offset>52</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
+      <dictionary_name>ContactDef</dictionary_name>
     </column>
-    <column name="CompletedDialogName" type="STRING">
+    <column name="TargetDialogName" type="STRING">
       <offset>56</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="DialogActionIndex" type="INT">
+    <column name="CompletedDialogName" type="STRING">
       <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="VolumeName" type="STRING">
+    <column name="DialogActionIndex" type="INT">
       <offset>64</offset>
     </column>
-    <column name="OptionalActionIndex" type="INT">
+    <column name="VolumeName" type="STRING">
       <offset>68</offset>
     </column>
-    <column name="hItemDef" type="REFERENCE">
+    <column name="OptionalActionIndex" type="INT">
       <offset>72</offset>
+    </column>
+    <column name="hItemDef" type="REFERENCE">
+      <offset>76</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="EntType" type="INT">
-      <offset>76</offset>
-    </column>
-    <column name="EntID" type="INT">
       <offset>80</offset>
     </column>
-    <column name="ItemBagID" type="INT">
+    <column name="EntID" type="INT">
       <offset>84</offset>
     </column>
-    <column name="ItemSlot" type="INT">
+    <column name="ItemBagID" type="INT">
       <offset>88</offset>
     </column>
-    <column name="SpecialDialogSubIndex" type="INT">
+    <column name="ItemSlot" type="INT">
       <offset>92</offset>
     </column>
-    <column name="StoreCollection" type="INT">
+    <column name="SpecialDialogSubIndex" type="INT">
       <offset>96</offset>
+    </column>
+    <column name="StoreCollection" type="INT">
+      <offset>100</offset>
     </column>
     <column name="}" type="END" />
   </table>

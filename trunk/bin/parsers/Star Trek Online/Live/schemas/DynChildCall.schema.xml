@@ -42,32 +42,39 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="PassThroughAlias" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <subtable external="DynParamRedirect" />
+    </column>
     <column name="GroupTag" type="STRING">
-      <offset>24</offset>
+      <offset>28</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="ParentToLastChild" type="BOOLFLAG">
-      <offset>28</offset>
+      <offset>32</offset>
     </column>
     <column name="GroupTextures" type="BOOLFLAG">
-      <offset>29</offset>
+      <offset>33</offset>
     </column>
     <column name="Priority" type="INT">
-      <offset>32</offset>
+      <offset>36</offset>
       <default>4</default>
       <static_define_list external="eDynPriority" />
     </column>
     <column name="SortAsBlock" type="BOOLFLAG">
-      <offset>36</offset>
+      <offset>40</offset>
     </column>
     <column name="CallIf" type="OPTIONALSTRUCT">
-      <offset>40</offset>
+      <offset>44</offset>
       <subtable external="DynParamConditional" />
     </column>
     <column name="Chance" type="F32">
-      <offset>44</offset>
+      <offset>48</offset>
       <default>1</default>
     </column>
     <column name="End" type="END" />

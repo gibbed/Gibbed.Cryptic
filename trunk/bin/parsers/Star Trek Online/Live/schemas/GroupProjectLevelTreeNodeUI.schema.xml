@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GroupProjectLevelTreeNodeUI">
+  <table>
+    <column name="GroupProjectLevelTreeNodeUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="UnlockNumeric" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="GroupProjectNumericUI" />
+    </column>
+    <column name="NumericUnlock" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="GroupProjectUnlockUI" />
+    </column>
+    <column name="ManualUnlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="GroupProjectUnlockUI" />
+    </column>
+    <column name="NumericProgress" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="RequiredProgress" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="StatusNumber" type="INT">
+      <offset>24</offset>
+      <static_define_list external="GroupProjectLevelTreeNodeStatus" />
+    </column>
+    <column name="StatusName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Style" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Image" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LevelMessage" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="XPMessage" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="XPUnlockMessage" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NumericStarted" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="NumericUnlocked" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="ManualUnlocked" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

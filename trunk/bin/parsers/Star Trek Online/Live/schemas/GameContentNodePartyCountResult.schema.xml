@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameContentNodePartyCountResult">
+  <table>
+    <column name="GameContentNodePartyCountResult" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="nodeRef" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="GameContentNodeRef" />
+    </column>
+    <column name="NumSessions" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

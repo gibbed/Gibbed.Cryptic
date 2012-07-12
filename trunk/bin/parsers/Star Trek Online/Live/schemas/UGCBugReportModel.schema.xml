@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCBugReportModel">
+  <table>
+    <column name="UGCBugReportModel" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SearchText" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="IssueSummary" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="IssueDetails" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ticketToAddDetails" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="TicketRequestResponse" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -180,6 +180,14 @@
       <offset>128</offset>
       <bit_offset>65538</bit_offset>
     </column>
+    <column name="Strafing" type="BIT">
+      <offset>128</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="UseProximityTargetingAssistEnt" type="BIT">
+      <offset>128</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
     <column name="InventorySet" type="REFERENCE">
       <offset>132</offset>
       <dictionary_name>DefaultInventory</dictionary_name>
@@ -193,9 +201,6 @@
     </column>
     <column name="NearDeathConfig" type="OPTIONALSTRUCT">
       <offset>140</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
       <subtable external="NearDeathConfig" />
     </column>
     <column name="Art" type="REFERENCE">
@@ -236,8 +241,20 @@
       <offset>176</offset>
       <subtable external="SpeciesDefRef" />
     </column>
-    <column name="File" type="CURRENTFILE">
+    <column name="TacticalRollDef" type="OPTIONALSTRUCT">
       <offset>180</offset>
+      <subtable external="TacticalRequesterRollDef" />
+    </column>
+    <column name="TacticalSprintDef" type="OPTIONALSTRUCT">
+      <offset>184</offset>
+      <subtable external="TacticalRequesterSprintDef" />
+    </column>
+    <column name="TacticalAimDef" type="OPTIONALSTRUCT">
+      <offset>188</offset>
+      <subtable external="TacticalRequesterAimDef" />
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>192</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

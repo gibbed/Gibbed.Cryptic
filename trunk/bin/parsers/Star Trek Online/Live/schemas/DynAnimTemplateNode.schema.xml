@@ -21,18 +21,22 @@
       <offset>12</offset>
       <subtable external="DynAnimTemplateSwitch" />
     </column>
-    <column name="Type" type="INT">
+    <column name="Path" type="STRUCT">
       <offset>16</offset>
+      <subtable external="DynAnimTemplatePath" />
+    </column>
+    <column name="Type" type="INT">
+      <offset>20</offset>
       <static_define_list external="eAnimTemplateNodeType" />
     </column>
     <column name="Interruptible" type="U8">
-      <offset>20</offset>
-    </column>
-    <column name="X" type="F32">
       <offset>24</offset>
     </column>
-    <column name="Y" type="F32">
+    <column name="X" type="F32">
       <offset>28</offset>
+    </column>
+    <column name="Y" type="F32">
+      <offset>32</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -158,59 +158,65 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="WhenExternalChallenge" type="STRUCT">
+    <column name="WhenExternalMap" type="STRINGARRAY">
       <offset>76</offset>
+    </column>
+    <column name="WhenExternalChallenge" type="STRUCT">
+      <offset>80</offset>
       <subtable external="GenesisWhenExternalChallenge" />
     </column>
     <column name="WhenExternalRoom" type="STRUCT">
-      <offset>80</offset>
+      <offset>84</offset>
       <subtable external="GenesisWhenExternalRoom" />
     </column>
     <column name="WhenExternalPrompt" type="STRUCT">
-      <offset>84</offset>
+      <offset>88</offset>
       <subtable external="GenesisWhenExternalPrompt" />
     </column>
     <column name="WhenItemDefName" type="STRINGARRAY">
-      <offset>88</offset>
-    </column>
-    <column name="WhenItemCount" type="INT">
       <offset>92</offset>
     </column>
-    <column name="ClickieVisibleWhen" type="EMBEDDEDSTRUCT">
+    <column name="WhenItemCount" type="INT">
       <offset>96</offset>
+    </column>
+    <column name="ClickieVisibleWhen" type="EMBEDDEDSTRUCT">
+      <offset>100</offset>
       <subtable external="GenesisWhen" />
     </column>
     <column name="SucceedCheckedAttrib" type="OPTIONALSTRUCT">
-      <offset>176</offset>
+      <offset>184</offset>
       <subtable external="GenesisCheckedAttrib" />
     </column>
     <column name="Clickie" type="OPTIONALSTRUCT">
-      <offset>180</offset>
+      <offset>188</offset>
       <subtable external="GenesisMissionChallengeClickie" />
     </column>
     <column name="Contact" type="OPTIONALSTRUCT">
-      <offset>184</offset>
+      <offset>192</offset>
       <subtable external="GenesisContactParams" />
     </column>
     <column name="ForceNamedObject" type="U8">
-      <offset>188</offset>
-    </column>
-    <column name="Child" type="STRUCT">
-      <offset>192</offset>
-      <subtable external="GenesisPlacementChildParams" />
-    </column>
-    <column name="IsVolume" type="U8">
       <offset>196</offset>
     </column>
-    <column name="Trap" type="STRUCT">
+    <column name="Child" type="STRUCT">
       <offset>200</offset>
+      <subtable external="GenesisPlacementChildParams" />
+    </column>
+    <column name="ChildrenAreGroupDefs" type="U8">
+      <offset>204</offset>
+    </column>
+    <column name="IsVolume" type="U8">
+      <offset>205</offset>
+    </column>
+    <column name="Trap" type="STRUCT">
+      <offset>208</offset>
       <subtable external="GenesisMissionTrap" />
     </column>
     <column name="TrapObjective" type="STRING">
-      <offset>204</offset>
+      <offset>212</offset>
     </column>
     <column name="SourceContext" type="OPTIONALSTRUCT">
-      <offset>208</offset>
+      <offset>216</offset>
       <subtable external="GenesisRuntimeErrorContext" />
     </column>
     <column name="}" type="END" />

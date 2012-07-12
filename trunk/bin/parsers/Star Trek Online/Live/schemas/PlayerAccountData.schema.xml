@@ -61,6 +61,13 @@
       </flags>
       <subtable external="GameAccountDataExtract" />
     </column>
+    <column name="bSteamLogin" type="BIT">
+      <offset>32</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

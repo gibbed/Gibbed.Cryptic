@@ -29,12 +29,27 @@
       <offset>16</offset>
       <dictionary_name>AIAnimList</dictionary_name>
     </column>
-    <column name="Position" type="F32FIXEDARRAY">
+    <column name="StanceWord" type="STRING">
       <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FxName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FlashFX" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>32</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="Rotation" type="F32FIXEDARRAY">
-      <offset>32</offset>
+      <offset>44</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="}" type="END" />

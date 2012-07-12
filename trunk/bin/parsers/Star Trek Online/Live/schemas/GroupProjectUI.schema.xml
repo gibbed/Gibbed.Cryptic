@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GroupProjectUI">
+  <table>
+    <column name="GroupProjectUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Image" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GroupName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

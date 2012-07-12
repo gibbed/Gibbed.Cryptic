@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MoveMultiDoc">
+  <table>
+    <column name="MoveMultiDoc" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="OneTimeSortWindow" type="U8">
+      <offset>1120</offset>
+    </column>
+    <column name="MoveFilterPresentOp" type="INT">
+      <offset>1124</offset>
+      <static_define_list external="MMEMFilterOp" />
+    </column>
+    <column name="MoveFilterAbsentOp" type="INT">
+      <offset>1128</offset>
+      <static_define_list external="MMEMFilterOp" />
+    </column>
+    <column name="filters" type="STRUCT">
+      <offset>1132</offset>
+      <subtable external="MMEMFilter" />
+    </column>
+    <column name="VisualizeMove" type="STRING">
+      <offset>1180</offset>
+    </column>
+    <column name="VisualizeMoveSeq" type="STRING">
+      <offset>1184</offset>
+    </column>
+    <column name="VisualizeFrame" type="F32">
+      <offset>1188</offset>
+    </column>
+    <column name="VisualizeFirstFrame" type="F32">
+      <offset>1192</offset>
+    </column>
+    <column name="VisualizeLastFrame" type="F32">
+      <offset>1196</offset>
+    </column>
+    <column name="VisualizeCostumePicked" type="U8">
+      <offset>1200</offset>
+    </column>
+    <column name="VisualizePlaying" type="U8">
+      <offset>1201</offset>
+    </column>
+    <column name="VisualizeLoop" type="U8">
+      <offset>1202</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

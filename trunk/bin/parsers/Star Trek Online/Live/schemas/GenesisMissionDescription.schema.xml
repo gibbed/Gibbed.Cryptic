@@ -34,20 +34,23 @@
     <column name="Summary" type="STRING">
       <offset>16</offset>
     </column>
-    <column name="Category" type="REFERENCE">
+    <column name="ReturnText" type="STRING">
       <offset>20</offset>
+    </column>
+    <column name="Category" type="REFERENCE">
+      <offset>24</offset>
       <dictionary_name>MissionCategory</dictionary_name>
     </column>
     <column name="PlayType" type="INT">
-      <offset>24</offset>
+      <offset>28</offset>
       <static_define_list external="MissionPlayType" />
     </column>
     <column name="AuthorSource" type="INT">
-      <offset>28</offset>
+      <offset>32</offset>
       <static_define_list external="ContentAuthorSource" />
     </column>
     <column name="UGCProjectID" type="INT">
-      <offset>32</offset>
+      <offset>36</offset>
     </column>
     <column name="levelDef" type="IGNORE">
       <flags>
@@ -55,11 +58,11 @@
       </flags>
     </column>
     <column name="LevelType" type="INT">
-      <offset>36</offset>
+      <offset>40</offset>
       <static_define_list external="MissionLevelType" />
     </column>
     <column name="UsePlayerLevel" type="INT">
-      <offset>36</offset>
+      <offset>40</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -67,11 +70,11 @@
       <static_define_list external="MissionLevelType" />
     </column>
     <column name="Level" type="INT">
-      <offset>40</offset>
+      <offset>44</offset>
       <default>1</default>
     </column>
     <column name="Level:" type="INT">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -79,33 +82,33 @@
       <default>1</default>
     </column>
     <column name="MapVariableForLevel" type="STRING">
-      <offset>44</offset>
+      <offset>48</offset>
     </column>
     <column name="LevelClamp" type="OPTIONALSTRUCT">
-      <offset>48</offset>
+      <offset>52</offset>
       <subtable external="MissionLevelClamp" />
     </column>
     <column name="Shareable" type="INT">
-      <offset>52</offset>
+      <offset>56</offset>
       <static_define_list external="MissionShareableType" />
     </column>
     <column name="Reward" type="REFERENCE">
-      <offset>56</offset>
+      <offset>60</offset>
       <dictionary_name>RewardTable</dictionary_name>
     </column>
     <column name="RewardScale" type="F32">
-      <offset>60</offset>
+      <offset>64</offset>
     </column>
     <column name="Grant" type="EMBEDDEDSTRUCT">
-      <offset>64</offset>
+      <offset>68</offset>
       <subtable external="GenesisMissionGrantDescription" />
     </column>
     <column name="GenerationType" type="INT">
-      <offset>112</offset>
+      <offset>116</offset>
       <static_define_list external="GenesisMissionGenerationType" />
     </column>
     <column name="IsOpenMission" type="INT">
-      <offset>112</offset>
+      <offset>116</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -113,38 +116,38 @@
       <static_define_list external="GenesisMissionGenerationType" />
     </column>
     <column name="OpenMission" type="OPTIONALSTRUCT">
-      <offset>116</offset>
+      <offset>120</offset>
       <subtable external="GenesisMissionOpenMissionDescription" />
     </column>
     <column name="Start" type="EMBEDDEDSTRUCT">
-      <offset>120</offset>
+      <offset>124</offset>
       <subtable external="GenesisMissionStartDescription" />
     </column>
     <column name="Prompt" type="STRUCT">
-      <offset>276</offset>
+      <offset>280</offset>
       <subtable external="GenesisMissionPrompt" />
     </column>
     <column name="FSMs" type="STRUCT">
-      <offset>280</offset>
+      <offset>284</offset>
       <subtable external="GenesisFSM" />
     </column>
     <column name="Portal" type="STRUCT">
-      <offset>284</offset>
+      <offset>288</offset>
       <subtable external="GenesisMissionPortal" />
     </column>
     <column name="DropRewardTable" type="REFERENCE">
-      <offset>288</offset>
+      <offset>292</offset>
       <dictionary_name>RewardTable</dictionary_name>
     </column>
     <column name="DropChallengeName" type="STRINGARRAY">
-      <offset>292</offset>
+      <offset>296</offset>
     </column>
     <column name="Objective" type="STRUCT">
-      <offset>296</offset>
+      <offset>300</offset>
       <subtable external="GenesisMissionObjective" />
     </column>
     <column name="Challenge" type="STRUCT">
-      <offset>300</offset>
+      <offset>304</offset>
       <subtable external="GenesisMissionChallenge" />
     </column>
     <column name="}" type="END" />

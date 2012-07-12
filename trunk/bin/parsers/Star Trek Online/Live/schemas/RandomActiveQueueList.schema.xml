@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RandomActiveQueueList">
+  <table>
+    <column name="RandomActiveQueueList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Category" type="INT">
+      <offset>0</offset>
+      <static_define_list external="QueueCategory" />
+    </column>
+    <column name="ActiveDefs" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ActiveRandomQueueDef" />
+    </column>
+    <column name="ChoiceDefs" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="QueueDefRef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

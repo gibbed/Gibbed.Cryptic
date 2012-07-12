@@ -33,18 +33,27 @@
     <column name="sortType" type="INT">
       <offset>28</offset>
     </column>
-    <column name="SortColumn" type="INT">
+    <column name="ItemSortTypeCategoryName" type="STRING">
       <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="eaiAuctionLotContainerIDs" type="INTARRAY">
+      <offset>36</offset>
+    </column>
+    <column name="SortColumn" type="INT">
+      <offset>40</offset>
       <static_define_list external="AuctionSortColumn" />
     </column>
     <column name="stringSearch" type="STRING">
-      <offset>36</offset>
+      <offset>44</offset>
     </column>
     <column name="stringLanguage" type="INT">
-      <offset>40</offset>
+      <offset>48</offset>
     </column>
     <column name="numResults" type="INT">
-      <offset>44</offset>
+      <offset>52</offset>
     </column>
     <column name="}" type="END" />
   </table>

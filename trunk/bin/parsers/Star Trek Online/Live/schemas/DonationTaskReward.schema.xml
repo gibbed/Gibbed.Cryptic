@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DonationTaskReward">
+  <table>
+    <column name="DonationTaskReward" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="DonationTaskRewardType" />
+    </column>
+    <column name="Unlock" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>GroupProjectUnlockDef</dictionary_name>
+    </column>
+    <column name="Numeric" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>GroupProjectNumericDef</dictionary_name>
+    </column>
+    <column name="rewardConstant" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

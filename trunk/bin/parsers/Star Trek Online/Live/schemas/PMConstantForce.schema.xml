@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PMConstantForce">
+  <table>
+    <column name="PMConstantForce" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="spcStart" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="spcStop" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Vec" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Speed" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="YawOffset" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="erRepeler" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

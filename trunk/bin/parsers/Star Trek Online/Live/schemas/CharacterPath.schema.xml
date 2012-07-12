@@ -119,6 +119,25 @@
     <column name="Hue" type="F32">
       <offset>140</offset>
     </column>
+    <column name="GamePermissionValue" type="STRING">
+      <offset>144</offset>
+    </column>
+    <column name="FreeRetrainItems" type="STRUCT">
+      <offset>148</offset>
+      <subtable external="DefaultItemDef" />
+    </column>
+    <column name="Costume" type="STRUCT">
+      <offset>152</offset>
+      <subtable external="PlayerDefaultCostumeRef" />
+    </column>
+    <column name="PlayerPathDevRestricted" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="HideIfCantUse" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

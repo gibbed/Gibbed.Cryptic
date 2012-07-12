@@ -267,11 +267,17 @@
       </flags>
       <subtable external="VoiceRef" />
     </column>
-    <column name="IsGenSpecies" type="U8">
+    <column name="UIPowerTree" type="STRING">
       <offset>164</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="IsGenSpecies" type="U8">
+      <offset>168</offset>
     </column>
     <column name="NameOrder" type="INT">
-      <offset>168</offset>
+      <offset>172</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -279,14 +285,14 @@
       <static_define_list external="NameOrder" />
     </column>
     <column name="DefaultNamePrefix" type="STRING">
-      <offset>172</offset>
+      <offset>176</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="RandomNameRule" type="STRUCT">
-      <offset>176</offset>
+      <offset>180</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -294,7 +300,7 @@
       <subtable external="NameTemplateListRef" />
     </column>
     <column name="FirstNameRule" type="STRUCT">
-      <offset>176</offset>
+      <offset>180</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -304,7 +310,7 @@
       <subtable external="NameTemplateListRef" />
     </column>
     <column name="NickNameRule" type="STRUCT">
-      <offset>176</offset>
+      <offset>180</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -314,7 +320,7 @@
       <subtable external="NameTemplateListRef" />
     </column>
     <column name="LastNameRule" type="STRUCT">
-      <offset>176</offset>
+      <offset>180</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -323,23 +329,30 @@
       <redundant_name>RandomNameRule</redundant_name>
       <subtable external="NameTemplateListRef" />
     </column>
+    <column name="FXSwap" type="STRUCT">
+      <offset>184</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCFXSwap" />
+    </column>
     <column name="Order" type="F32">
-      <offset>180</offset>
+      <offset>188</offset>
     </column>
     <column name="RestrictedTo" type="INT">
-      <offset>184</offset>
+      <offset>192</offset>
       <static_define_list external="PCRestriction" />
       <format>FLAGS</format>
     </column>
     <column name="UnlockCode" type="STRING">
-      <offset>188</offset>
+      <offset>196</offset>
     </column>
     <column name="PowerSuggestions" type="STRUCT">
-      <offset>192</offset>
+      <offset>200</offset>
       <subtable external="SpeciesPowerSuggestion" />
     </column>
     <column name="PowerSuggestion" type="STRUCT">
-      <offset>192</offset>
+      <offset>200</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>

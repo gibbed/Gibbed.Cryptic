@@ -36,34 +36,40 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="strName" type="STRING">
+    <column name="iDeletionTime" type="INT">
       <offset>16</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="strDescription" type="STRING">
+    <column name="eaVersions" type="STRUCT">
       <offset>20</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
+      <subtable external="UGCProjectSeriesVersion" />
     </column>
-    <column name="eaChildNodes" type="STRUCT">
+    <column name="ugcReviews" type="EMBEDDEDSTRUCT">
       <offset>24</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <subtable external="UGCProjectSeriesNode" />
+      <subtable external="UGCProjectReviews" />
     </column>
-    <column name="eaProjects" type="INTARRAY">
-      <offset>28</offset>
+    <column name="ugcSearchCache" type="EMBEDDEDSTRUCT">
+      <offset>48</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
+      <subtable external="UGCSeriesSearchCache" />
+    </column>
+    <column name="pExtraDetailData" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="UGCExtraDetailData" />
     </column>
     <column name="}" type="END" />
   </table>

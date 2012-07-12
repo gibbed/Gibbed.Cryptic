@@ -66,6 +66,15 @@
       </flags>
       <subtable external="ProgressionTrackingData" />
     </column>
+    <column name="hMostRecentlyPlayedNode" type="REFERENCE">
+      <offset>28</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
     <column name="ppchUnlockedNodes" type="IGNORE" />
     <column name="hCurrentProgressionNode" type="IGNORE" />
     <column name="ppStoryTrackingData" type="IGNORE" />

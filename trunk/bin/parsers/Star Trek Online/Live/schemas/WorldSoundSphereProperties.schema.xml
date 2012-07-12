@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldSoundSphereProperties">
+  <table>
+    <column name="WorldSoundSphereProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="EventName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DSPName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Multiplier" type="F32">
+      <offset>8</offset>
+      <default>1</default>
+    </column>
+    <column name="Priority" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="SoundGroup" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="SoundGroupOrd" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Exclude" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

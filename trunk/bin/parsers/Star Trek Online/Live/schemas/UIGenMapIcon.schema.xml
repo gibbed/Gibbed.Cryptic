@@ -76,6 +76,24 @@
     <column name="MouseDistanceSqd" type="F32">
       <offset>112</offset>
     </column>
+    <column name="HideUnlessRevealed" type="U8">
+      <offset>116</offset>
+    </column>
+    <column name="KeyIndex" type="INT">
+      <offset>124</offset>
+    </column>
+    <column name="IndexLabel" type="STRING">
+      <offset>128</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Indices" type="INTARRAY">
+      <offset>132</offset>
+    </column>
+    <column name="Visited" type="U8">
+      <offset>136</offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

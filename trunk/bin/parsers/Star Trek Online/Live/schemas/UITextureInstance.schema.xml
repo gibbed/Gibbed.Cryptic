@@ -166,7 +166,7 @@
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>262144</bit_offset>
+      <bit_offset>327680</bit_offset>
       <static_define_list external="UITextureMode" />
     </column>
     <column name="ModeVertical" type="BIT">
@@ -176,7 +176,7 @@
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <redundant_name>VerticalMode</redundant_name>
-      <bit_offset>262144</bit_offset>
+      <bit_offset>327680</bit_offset>
       <static_define_list external="UITextureMode" />
     </column>
     <column name="HorizontalMode" type="BIT">
@@ -184,7 +184,7 @@
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>262148</bit_offset>
+      <bit_offset>327685</bit_offset>
       <static_define_list external="UITextureMode" />
     </column>
     <column name="ModeHorizontal" type="BIT">
@@ -194,12 +194,12 @@
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <redundant_name>HorizontalMode</redundant_name>
-      <bit_offset>262148</bit_offset>
+      <bit_offset>327685</bit_offset>
       <static_define_list external="UITextureMode" />
     </column>
     <column name="Alignment" type="BIT">
       <offset>148</offset>
-      <bit_offset>327688</bit_offset>
+      <bit_offset>327690</bit_offset>
       <static_define_list external="UIDirection" />
     </column>
     <column name="MouseRegion" type="U8">
@@ -237,17 +237,29 @@
       <offset>152</offset>
       <bit_offset>65547</bit_offset>
     </column>
-    <column name="FlipX" type="BIT">
+    <column name="AdditiveReset" type="BIT">
       <offset>152</offset>
-      <bit_offset>65549</bit_offset>
+      <bit_offset>65548</bit_offset>
     </column>
-    <column name="FlipY" type="BIT">
+    <column name="ResetAdditive" type="BIT">
+      <offset>152</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AdditiveReset</redundant_name>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="FlipX" type="BIT">
       <offset>152</offset>
       <bit_offset>65550</bit_offset>
     </column>
-    <column name="Clip" type="BIT">
+    <column name="FlipY" type="BIT">
       <offset>152</offset>
       <bit_offset>65551</bit_offset>
+    </column>
+    <column name="Clip" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65552</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

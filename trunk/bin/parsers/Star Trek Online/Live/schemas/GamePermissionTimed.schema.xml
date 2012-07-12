@@ -20,6 +20,10 @@
     <column name="GamePermissionStartSeconds" type="INT">
       <offset>12</offset>
     </column>
+    <column name="FromToDates" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="FromToDate" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

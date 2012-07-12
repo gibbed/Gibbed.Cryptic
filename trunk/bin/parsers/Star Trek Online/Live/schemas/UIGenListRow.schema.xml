@@ -315,6 +315,10 @@
       <offset>228</offset>
       <bit_offset>65556</bit_offset>
     </column>
+    <column name="ClipToPadding" type="BIT">
+      <offset>228</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
     <column name="SMF" type="REFERENCE">
       <offset>232</offset>
       <flags>
@@ -367,29 +371,36 @@
       <default>10</default>
       <static_define_list external="UIDirection" />
     </column>
-    <column name="ShrinkToFit" type="BIT">
+    <column name="AllowSelect" type="BIT">
       <offset>256</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
       <bit_offset>65544</bit_offset>
     </column>
-    <column name="ScaleToFit" type="BIT">
+    <column name="ShrinkToFit" type="BIT">
       <offset>256</offset>
       <bit_offset>65545</bit_offset>
     </column>
-    <column name="NoWrap" type="BIT">
+    <column name="ScaleToFit" type="BIT">
       <offset>256</offset>
       <bit_offset>65546</bit_offset>
     </column>
-    <column name="PlainText" type="BIT">
+    <column name="NoWrap" type="BIT">
       <offset>256</offset>
       <bit_offset>65547</bit_offset>
     </column>
-    <column name="SafeMode" type="BIT">
+    <column name="PlainText" type="BIT">
       <offset>256</offset>
       <bit_offset>65548</bit_offset>
     </column>
-    <column name="FilterProfanity" type="BIT">
+    <column name="SafeMode" type="BIT">
       <offset>256</offset>
       <bit_offset>65549</bit_offset>
+    </column>
+    <column name="FilterProfanity" type="BIT">
+      <offset>256</offset>
+      <bit_offset>65550</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

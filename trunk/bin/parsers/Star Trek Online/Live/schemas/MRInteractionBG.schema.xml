@@ -17,7 +17,7 @@
     <column name="pathVersionStarted" type="INT">
       <offset>8</offset>
     </column>
-    <column name="targetWaypointIndex" type="INT">
+    <column name="targetWaypointIndexMutable" type="INT">
       <offset>12</offset>
     </column>
     <column name="triggeredWaypointIndex" type="INT">
@@ -53,7 +53,7 @@
       <offset>72</offset>
       <num_elements>2</num_elements>
     </column>
-    <column name="Flags" type="EMBEDDEDSTRUCT">
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
       <offset>80</offset>
       <subtable external="MRInteractionBGFlags" />
     </column>

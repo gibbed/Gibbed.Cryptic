@@ -21,8 +21,11 @@
     <column name="TeamID" type="INT">
       <offset>12</offset>
     </column>
-    <column name="VirtualShardID" type="INT">
+    <column name="GuildID" type="INT">
       <offset>16</offset>
+    </column>
+    <column name="VirtualShardID" type="INT">
+      <offset>20</offset>
     </column>
     <column name="xuid" type="INT64">
       <offset>24</offset>
@@ -249,19 +252,22 @@
     <column name="PowerNodes" type="STRINGARRAY">
       <offset>2464</offset>
     </column>
-    <column name="PetInfo" type="STRUCT">
+    <column name="GameSpecificChoice" type="STRING">
       <offset>2468</offset>
+    </column>
+    <column name="PetInfo" type="STRUCT">
+      <offset>2472</offset>
       <subtable external="LoginPetInfo" />
     </column>
     <column name="PuppetInfo" type="STRUCT">
-      <offset>2472</offset>
+      <offset>2476</offset>
       <subtable external="LoginPuppetInfo" />
     </column>
     <column name="StringCostume" type="STRING">
-      <offset>2476</offset>
+      <offset>2480</offset>
     </column>
     <column name="PortraitTexture" type="OPTIONALSTRUCT">
-      <offset>2480</offset>
+      <offset>2484</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
         <flag>CLIENT_ONLY</flag>
@@ -269,14 +275,14 @@
       <subtable external="BasicTexture" />
     </column>
     <column name="OwnerType" type="INT">
-      <offset>2484</offset>
+      <offset>2488</offset>
       <static_define_list external="GlobalType" />
     </column>
     <column name="OwnerID" type="INT">
-      <offset>2488</offset>
+      <offset>2492</offset>
     </column>
     <column name="AssignedStat" type="STRUCT">
-      <offset>2492</offset>
+      <offset>2496</offset>
       <subtable external="AssignedStats" />
     </column>
     <column name="}" type="END" />

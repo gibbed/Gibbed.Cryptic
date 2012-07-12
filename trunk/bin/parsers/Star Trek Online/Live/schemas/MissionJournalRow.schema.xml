@@ -112,6 +112,16 @@
     <column name="UIType" type="INT">
       <offset>88</offset>
     </column>
+    <column name="Ent" type="OPTIONALSTRUCT">
+      <offset>92</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Entity" />
+    </column>
+    <column name="MissionNumber" type="INT">
+      <offset>96</offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

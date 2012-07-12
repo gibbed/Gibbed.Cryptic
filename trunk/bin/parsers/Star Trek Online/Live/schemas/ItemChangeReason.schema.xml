@@ -15,6 +15,9 @@
     </column>
     <column name="Detail" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
     <column name="MapName" type="STRING">
       <offset>8</offset>
@@ -33,6 +36,14 @@
     <column name="KillCredit" type="BIT">
       <offset>24</offset>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="FromRollover" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="fromStore" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

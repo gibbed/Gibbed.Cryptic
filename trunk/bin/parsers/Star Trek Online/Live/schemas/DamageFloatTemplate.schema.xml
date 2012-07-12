@@ -208,11 +208,71 @@
       <redundant_name>PopoutBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
-    <column name="CombineSimilar" type="U8">
+    <column name="IconBlock" type="OPTIONALSTRUCT">
       <offset>56</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IconName" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IconBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="IconOffsetBlock" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IconOffset" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IconOffsetBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="IconScaleBlock" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IconScale" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IconScaleBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="IconXBlock" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IconX" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IconXBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="IconYBlock" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IconY" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IconYBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="CombineSimilar" type="U8">
+      <offset>76</offset>
     </column>
     <column name="DontAnchorToEntity" type="U8">
-      <offset>57</offset>
+      <offset>77</offset>
     </column>
     <column name="}" type="END" />
   </table>

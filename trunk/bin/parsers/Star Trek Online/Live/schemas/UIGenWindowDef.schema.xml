@@ -33,8 +33,16 @@
     <column name="PersistOpen" type="U8">
       <offset>17</offset>
     </column>
-    <column name="FileName" type="CURRENTFILE">
+    <column name="OnWindowAdded" type="OPTIONALSTRUCT">
       <offset>20</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="OnWindowRemoved" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>28</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

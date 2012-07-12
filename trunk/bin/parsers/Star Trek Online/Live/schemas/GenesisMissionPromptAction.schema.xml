@@ -10,28 +10,34 @@
     <column name="Text" type="STRING">
       <offset>0</offset>
     </column>
-    <column name="NextPromptName" type="STRING">
+    <column name="Style" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="GrantMission" type="U8">
+    <column name="NextPromptName" type="STRING">
       <offset>8</offset>
     </column>
+    <column name="GrantMission" type="U8">
+      <offset>12</offset>
+    </column>
     <column name="DismissAction" type="U8">
-      <offset>9</offset>
+      <offset>13</offset>
     </column>
     <column name="Actions" type="EMBEDDEDSTRUCT">
-      <offset>12</offset>
+      <offset>16</offset>
       <subtable external="WorldGameActionBlock" />
     </column>
     <column name="NextBlockName" type="STRING">
-      <offset>16</offset>
+      <offset>20</offset>
     </column>
     <column name="When" type="EMBEDDEDSTRUCT">
-      <offset>20</offset>
+      <offset>24</offset>
       <subtable external="GenesisWhen" />
     </column>
     <column name="EnabledCheckedAttrib" type="OPTIONALSTRUCT">
-      <offset>100</offset>
+      <offset>108</offset>
       <subtable external="GenesisCheckedAttrib" />
     </column>
     <column name="}" type="END" />

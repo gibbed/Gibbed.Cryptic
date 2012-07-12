@@ -16,6 +16,10 @@
     <column name="ExtraData" type="STRING">
       <offset>8</offset>
     </column>
+    <column name="ResRef" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="SearchItemDefRef" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

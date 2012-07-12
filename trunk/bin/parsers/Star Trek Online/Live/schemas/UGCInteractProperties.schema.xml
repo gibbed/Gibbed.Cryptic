@@ -10,18 +10,27 @@
     <column name="InteractText" type="STRING">
       <offset>0</offset>
     </column>
-    <column name="InteractAnim" type="REFERENCE">
+    <column name="InteractFailureText" type="STRING">
       <offset>4</offset>
+    </column>
+    <column name="InteractAnim" type="REFERENCE">
+      <offset>8</offset>
       <dictionary_name>AIAnimList</dictionary_name>
     </column>
     <column name="InteractDuration" type="INT">
-      <offset>8</offset>
-      <default>1</default>
+      <offset>12</offset>
+      <default>2</default>
       <static_define_list external="UGCInteractDuration" />
     </column>
     <column name="SucceedCheckedAttrib" type="OPTIONALSTRUCT">
-      <offset>12</offset>
+      <offset>16</offset>
       <subtable external="GenesisCheckedAttrib" />
+    </column>
+    <column name="InteractTakesItem" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="DropItem" type="STRING">
+      <offset>24</offset>
     </column>
     <column name="}" type="END" />
   </table>
