@@ -42,8 +42,14 @@
         <flag>CLIENT_ONLY</flag>
       </flags>
     </column>
-    <column name="Options" type="STRUCT">
+    <column name="estrFormattedContactName" type="STRING">
       <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Options" type="STRUCT">
+      <offset>32</offset>
       <subtable external="RemoteContactOption" />
     </column>
     <column name="}" type="END" />

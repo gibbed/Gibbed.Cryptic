@@ -38,32 +38,38 @@
     <column name="contributionEarned" type="INT">
       <offset>28</offset>
     </column>
-    <column name="projectName" type="STRING">
+    <column name="contributionGiven" type="INT">
       <offset>32</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
     </column>
-    <column name="taskName" type="STRING">
+    <column name="initialContribution" type="INT">
       <offset>36</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
     </column>
-    <column name="bucketName" type="STRING">
+    <column name="projectName" type="STRING">
       <offset>40</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="bucketFilled" type="U8">
+    <column name="taskName" type="STRING">
       <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="bucketName" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="bucketFilled" type="U8">
+      <offset>52</offset>
     </column>
     <column name="taskFinalized" type="U8">
-      <offset>45</offset>
+      <offset>53</offset>
     </column>
     <column name="noPermission" type="U8">
-      <offset>46</offset>
+      <offset>54</offset>
     </column>
     <column name="}" type="END" />
   </table>

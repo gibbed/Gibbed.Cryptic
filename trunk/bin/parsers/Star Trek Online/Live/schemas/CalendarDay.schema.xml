@@ -35,6 +35,13 @@
       <offset>20</offset>
       <subtable external="CalendarEntry" />
     </column>
+    <column name="BackgroundEventCount" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="BackgroundEvents" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="CalendarEntry" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

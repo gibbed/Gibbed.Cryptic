@@ -21,8 +21,15 @@
       </flags>
       <subtable external="CalendarTiming" />
     </column>
-    <column name="EventActive" type="BIT">
+    <column name="OwnedTiming" type="OPTIONALSTRUCT">
       <offset>8</offset>
+      <subtable external="CalendarTiming" />
+    </column>
+    <column name="SortOrder" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="EventActive" type="BIT">
+      <offset>16</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />
