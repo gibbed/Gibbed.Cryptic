@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DonationTaskBucketDonationResultUI">
+  <table>
+    <column name="DonationTaskBucketDonationResultUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DonatedItem" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Item" />
+    </column>
+    <column name="ItemDef" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="BagID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Slot" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="RequestedDonation" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="ActualDonation" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="SuccessfulDonation" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="partialDonation" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="FailedDonation" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

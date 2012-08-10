@@ -29,47 +29,58 @@
     <column name="donationCount" type="INT">
       <offset>20</offset>
     </column>
-    <column name="contributionNumericName" type="STRING">
+    <column name="requestedDonations" type="STRUCT">
       <offset>24</offset>
+      <subtable external="ContributionItemData" />
+    </column>
+    <column name="actualDonations" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="ContributionItemData" />
+    </column>
+    <column name="contributionNumericName" type="STRING">
+      <offset>32</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="contributionEarned" type="INT">
-      <offset>28</offset>
-    </column>
-    <column name="contributionGiven" type="INT">
-      <offset>32</offset>
-    </column>
-    <column name="initialContribution" type="INT">
       <offset>36</offset>
     </column>
-    <column name="projectName" type="STRING">
+    <column name="contributionGiven" type="INT">
       <offset>40</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
     </column>
-    <column name="taskName" type="STRING">
+    <column name="initialContribution" type="INT">
       <offset>44</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
     </column>
-    <column name="bucketName" type="STRING">
+    <column name="projectName" type="STRING">
       <offset>48</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="bucketFilled" type="U8">
+    <column name="taskName" type="STRING">
       <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="bucketName" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="bucketFilled" type="U8">
+      <offset>60</offset>
     </column>
     <column name="taskFinalized" type="U8">
-      <offset>53</offset>
+      <offset>61</offset>
     </column>
     <column name="noPermission" type="U8">
-      <offset>54</offset>
+      <offset>62</offset>
+    </column>
+    <column name="partialDonation" type="U8">
+      <offset>63</offset>
     </column>
     <column name="}" type="END" />
   </table>

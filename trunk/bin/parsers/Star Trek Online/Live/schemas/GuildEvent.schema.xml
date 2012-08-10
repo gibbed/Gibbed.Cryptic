@@ -122,29 +122,37 @@
       </flags>
       <subtable external="GuildEventReply" />
     </column>
-    <column name="iEventOwnerID" type="INT">
+    <column name="bRecurInTransaction" type="BIT">
       <offset>64</offset>
       <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
+        <flag>NO_NETSEND</flag>
+        <flag>NO_TEXT_SAVE</flag>
       </flags>
+      <bit_offset>65536</bit_offset>
     </column>
-    <column name="iAccountID" type="INT">
+    <column name="iEventOwnerID" type="INT">
       <offset>68</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iEndTimeTime" type="INT">
+    <column name="iAccountID" type="INT">
       <offset>72</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iRemoved" type="INT">
+    <column name="iEndTimeTime" type="INT">
       <offset>76</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iRemoved" type="INT">
+      <offset>80</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -152,21 +160,21 @@
       </flags>
     </column>
     <column name="iDaysRecurring" type="INT">
-      <offset>80</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="iRemoveTime" type="INT">
       <offset>84</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iCleanedCanceledTime" type="INT">
+    <column name="iRemoveTime" type="INT">
       <offset>88</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iCleanedCanceledTime" type="INT">
+      <offset>92</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -174,7 +182,7 @@
       </flags>
     </column>
     <column name="eaCanceledStartTime" type="STRUCT">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -182,7 +190,7 @@
       <subtable external="GuildEventCanceledInfo" />
     </column>
     <column name="eaIDsOfPlayersNotified" type="INTARRAY">
-      <offset>96</offset>
+      <offset>100</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>

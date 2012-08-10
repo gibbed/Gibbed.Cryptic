@@ -33,49 +33,53 @@
       <offset>32</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="DisplayTex" type="STRING">
+    <column name="RequirementsMessage" type="EMBEDDEDSTRUCT">
       <offset>44</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayTex" type="STRING">
+      <offset>56</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="ReqMicroTransaction" type="REFERENCE">
-      <offset>48</offset>
+      <offset>60</offset>
       <dictionary_name>MicroTransactionDef</dictionary_name>
     </column>
     <column name="OverrideValueRecipe" type="STRUCT">
-      <offset>52</offset>
+      <offset>64</offset>
       <subtable external="ItemDefRef" />
     </column>
     <column name="ForceBind" type="U8">
-      <offset>56</offset>
+      <offset>68</offset>
     </column>
     <column name="Category" type="INT">
-      <offset>60</offset>
+      <offset>72</offset>
       <static_define_list external="StoreCategory" />
     </column>
     <column name="RequiredNumeric" type="REFERENCE">
-      <offset>64</offset>
+      <offset>76</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="RequiredNumericValue" type="INT">
-      <offset>68</offset>
+      <offset>80</offset>
     </column>
     <column name="RequiredNumericIncr" type="INT">
-      <offset>72</offset>
+      <offset>84</offset>
     </column>
     <column name="ResearchTime" type="INT">
-      <offset>76</offset>
+      <offset>88</offset>
     </column>
     <column name="PurchaseTime" type="INT">
-      <offset>76</offset>
+      <offset>88</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>ResearchTime</redundant_name>
     </column>
     <column name="ExprShowItem" type="OPTIONALSTRUCT">
-      <offset>80</offset>
+      <offset>92</offset>
       <subtable external="Expression" />
     </column>
     <column name="maxAvailable" type="IGNORE" />

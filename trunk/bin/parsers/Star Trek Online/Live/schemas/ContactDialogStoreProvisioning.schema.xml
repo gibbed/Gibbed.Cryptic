@@ -34,6 +34,12 @@
     <column name="StoreGuildMapOwnerMembersOnly" type="U8">
       <offset>20</offset>
     </column>
+    <column name="eapchStores" type="STRINGARRAY">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

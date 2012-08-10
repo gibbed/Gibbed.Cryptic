@@ -448,15 +448,24 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fCamHeight" type="F32">
+    <column name="eLastCameraType" type="INT">
       <offset>100</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <static_define_list external="CameraType" />
+    </column>
+    <column name="fCamHeight" type="F32">
+      <offset>104</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
     <column name="iCamHeight" type="F32">
-      <offset>100</offset>
+      <offset>104</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>PERSIST</flag>
@@ -465,21 +474,21 @@
       <redundant_name>fCamHeight</redundant_name>
     </column>
     <column name="fCamOffset" type="F32">
-      <offset>104</offset>
-      <flags>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="iLockCamPitch" type="INT">
       <offset>108</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bUseThrottle" type="BIT">
+    <column name="iLockCamPitch" type="INT">
       <offset>112</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bUseThrottle" type="BIT">
+      <offset>116</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -487,7 +496,7 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bUseOffsetRotation" type="BIT">
-      <offset>112</offset>
+      <offset>116</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -495,7 +504,7 @@
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bEnableShooterCamera" type="BIT">
-      <offset>112</offset>
+      <offset>116</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -503,7 +512,7 @@
       <bit_offset>65538</bit_offset>
     </column>
     <column name="bEnableClickToMove" type="BIT">
-      <offset>112</offset>
+      <offset>116</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -511,7 +520,7 @@
       <bit_offset>65539</bit_offset>
     </column>
     <column name="bAutoFaceHostileTargetsOnly" type="BIT">
-      <offset>112</offset>
+      <offset>116</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -519,88 +528,79 @@
       <bit_offset>65540</bit_offset>
     </column>
     <column name="fMouseLookHardTargetRadiusAim" type="F32">
-      <offset>116</offset>
+      <offset>120</offset>
       <default>1036831949</default>
     </column>
     <column name="fTargetMaxAngleFromPlayerFacing" type="F32">
-      <offset>120</offset>
-    </column>
-    <column name="fDefaultActiveWeaponRange" type="F32">
       <offset>124</offset>
     </column>
-    <column name="fPitchDiffMultiplier" type="F32">
+    <column name="fDefaultActiveWeaponRange" type="F32">
       <offset>128</offset>
+    </column>
+    <column name="fPitchDiffMultiplier" type="F32">
+      <offset>132</offset>
       <default>1050253722</default>
     </column>
     <column name="bDisablePowerQueuing" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bUseFacingPitch" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bCheckActiveWeaponRangeForTargeting" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="bRequireValidTarget" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="bDisableFaceActivate" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="bUseCameraTargeting" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="bGetAttackAngleWhenDamaged" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="bAutoUnholster" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="bDisableTrayAutoAttack" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="bCameraTargetingUsesDirectionKeys" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="bCameraTargetingGetsPlayerFacing" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="bAutoCamMouseLook" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="bDebug" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="fCamStartingPitch" type="F32">
-      <offset>136</offset>
+      <offset>140</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
     <column name="fMouseLookHardTargetX" type="F32">
-      <offset>140</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-      <default>1056964608</default>
-    </column>
-    <column name="fMouseLookHardTargetY" type="F32">
       <offset>144</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -609,8 +609,17 @@
       </flags>
       <default>1056964608</default>
     </column>
-    <column name="fMouseLookHardTargetRadius" type="F32">
+    <column name="fMouseLookHardTargetY" type="F32">
       <offset>148</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <default>1056964608</default>
+    </column>
+    <column name="fMouseLookHardTargetRadius" type="F32">
+      <offset>152</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
         <flag>PERSIST</flag>
@@ -619,7 +628,7 @@
       <default>1036831949</default>
     </column>
     <column name="pchKeyProfileToLoad" type="STRING">
-      <offset>152</offset>
+      <offset>156</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>STRUCTPARAM</flag>
@@ -629,21 +638,21 @@
       </flags>
     </column>
     <column name="AllowKeyProfile" type="STRINGARRAY">
-      <offset>156</offset>
+      <offset>160</offset>
     </column>
     <column name="ppchAllowedKeyProfiles" type="STRINGARRAY">
-      <offset>156</offset>
+      <offset>160</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>AllowKeyProfile</redundant_name>
     </column>
     <column name="AllowAutoAttackType" type="INTARRAY">
-      <offset>160</offset>
+      <offset>164</offset>
       <static_define_list external="AutoAttackType" />
     </column>
     <column name="peAllowedAutoAttackTypes" type="INTARRAY">
-      <offset>160</offset>
+      <offset>164</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
