@@ -27,7 +27,7 @@ using Parser = Gibbed.Cryptic.FileFormats.Parser;
 using ParserSchema = Gibbed.Cryptic.FileFormats.ParserSchema;
 using Serialization = Gibbed.Cryptic.FileFormats.Serialization;
 
-namespace Gibbed.StarTrekOnline.GenerateSerializer
+namespace Gibbed.Cryptic.GenerateSerializer
 {
     internal static class Helpers
     {

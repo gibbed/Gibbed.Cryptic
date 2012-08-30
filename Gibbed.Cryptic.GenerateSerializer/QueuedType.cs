@@ -20,42 +20,49 @@
  *    distribution.
  */
 
-using System.Reflection.Emit;
+using System;
+using ParserSchema = Gibbed.Cryptic.FileFormats.ParserSchema;
 
-namespace Gibbed.StarTrekOnline.GenerateSerializer
+namespace Gibbed.Cryptic.GenerateSerializer
 {
-    internal static class ILGeneratorHelpers
+    internal class QueuedType
     {
-        private static OpCode[] Predefined =
-        {
-            OpCodes.Ldc_I4_0,
-            OpCodes.Ldc_I4_1,
-            OpCodes.Ldc_I4_2,
-            OpCodes.Ldc_I4_3,
-            OpCodes.Ldc_I4_4,
-            OpCodes.Ldc_I4_5,
-            OpCodes.Ldc_I4_6,
-            OpCodes.Ldc_I4_7,
-            OpCodes.Ldc_I4_8,
-        };
+        public string Name;
+        public ParserSchema.Table Table;
+        public QueuedType Parent;
 
-        public static void EmitConstant(this ILGenerator msil, int value)
+        public QueuedType()
+            : this(null, null, null)
         {
-            if (value == -1)
+        }
+
+        public QueuedType(string name, ParserSchema.Table table)
+            : this(name, table, null)
+        {
+        }
+
+        public QueuedType(string name, ParserSchema.Table table, QueuedType parent)
+        {
+            if (name != null && string.IsNullOrEmpty(name) == true)
             {
-                msil.Emit(OpCodes.Ldc_I4_M1);
+                throw new ArgumentException();
             }
-            else if (value < Predefined.Length)
+
+            this.Name = name;
+            this.Table = table;
+            this.Parent = parent;
+        }
+
+        public string Key
+        {
+            get
             {
-                msil.Emit(Predefined[value]);
-            }
-            else if (value >= -127 && value <= 128)
-            {
-                msil.Emit(OpCodes.Ldc_I4_S, (byte)value);
-            }
-            else
-            {
-                msil.Emit(OpCodes.Ldc_I4, value);
+                if (this.Parent == null)
+                {
+                    return this.Name;
+                }
+
+                return this.Parent.Key + "." + this.Name;
             }
         }
     }

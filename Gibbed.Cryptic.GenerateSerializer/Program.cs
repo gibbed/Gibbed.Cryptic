@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.IO;
 using NDesk.Options;
 
-namespace Gibbed.StarTrekOnline.GenerateSerializer
+namespace Gibbed.Cryptic.GenerateSerializer
 {
     internal class Program
     {
@@ -43,11 +43,16 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
         {
             var showHelp = false;
             string version = null;
-            string inputPath =
-                Path.Combine(GetExecutablePath(), "parsers", "Star Trek Online");
+            string inputPath = Path.Combine(GetExecutablePath(), "parsers", "Star Trek Online");
+            string targetGameName = "";
 
             var options = new OptionSet()
             {
+                {
+                    "g|game=",
+                    "set target game",
+                    v => targetGameName = v
+                    },
                 {
                     "p|path=",
                     "set input path",
@@ -79,22 +84,44 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 return;
             }
 
-            if (extras.Count < 0 || extras.Count > 1 || showHelp == true)
+            var targetGame = TargetGame.Unknown;
+            if (string.IsNullOrWhiteSpace(targetGameName) == false)
             {
-                Console.WriteLine("Usage: {0} [OPTIONS]+ [output_dll]", GetExecutableName());
+                if (Enum.TryParse(targetGameName, out targetGame) == false)
+                {
+                    Console.WriteLine("You must specify a valid target game!");
+                    Console.WriteLine();
+                }
+            }
+            else
+            {
+                Console.WriteLine("You must specify a target game!");
+                Console.WriteLine();
+            }
+
+            if (extras.Count < 0 || extras.Count > 1 || showHelp == true ||
+                targetGame == TargetGame.Unknown)
+            {
+                Console.WriteLine("Usage: {0} [OPTIONS]+ -g [game] [output_dll]", GetExecutableName());
                 Console.WriteLine();
                 Console.WriteLine("Options:");
                 options.WriteOptionDescriptions(Console.Out);
+                Console.WriteLine("Game tarets:");
+                foreach (var name in Enum.GetNames(typeof(TargetGame)))
+                {
+                    Console.WriteLine("  {0}", name);
+                }
                 return;
             }
 
+            Console.WriteLine("Target = {0}", targetGame);
             Console.WriteLine("Base = {0}", inputPath);
 
             var parserLoader = new ParserLoader(inputPath);
             var enumLoader = new EnumLoader(inputPath);
 
             var outputPath = extras.Count > 0 ? extras[0] : "Gibbed.StarTrekOnline.Serialization.dll";
-            new Generator(parserLoader, enumLoader).ExportAssembly(outputPath, version);
+            new Generator(targetGame, parserLoader, enumLoader).ExportAssembly(outputPath, version);
         }
     }
 }
