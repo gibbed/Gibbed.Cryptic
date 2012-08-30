@@ -32,7 +32,7 @@ using Parser = Gibbed.Cryptic.FileFormats.Parser;
 using ParserSchema = Gibbed.Cryptic.FileFormats.ParserSchema;
 using Serialization = Gibbed.Cryptic.FileFormats.Serialization;
 
-namespace Gibbed.StarTrekOnline.GenerateSerializer
+namespace Gibbed.Cryptic.GenerateSerializer
 {
     internal class Generator
     {
@@ -41,9 +41,11 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
 
         private ParserLoader ParserLoader;
         private EnumLoader EnumLoader;
+        public readonly TargetGame TargetGame;
 
-        public Generator(ParserLoader parserLoader, EnumLoader enumLoader)
+        public Generator(TargetGame targetGame, ParserLoader parserLoader, EnumLoader enumLoader)
         {
+            this.TargetGame = targetGame;
             this.ParserLoader = parserLoader;
             this.EnumLoader = enumLoader;
         }
@@ -103,7 +105,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                 if (qt.Parent == null)
                 {
                     typeBuilder = this.ModuleBuilder.DefineType(
-                        "Gibbed.StarTrekOnline.Serialization." + qt.Name,
+                        "Gibbed." + this.TargetGame.ToString() + ".Serialization." + qt.Name,
                         TypeAttributes.Public,
                         null,
                         new Type[] { typeof(Serialization.IStructure) });
@@ -121,7 +123,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
                     new CustomAttributeBuilder(typeof(DataContractAttribute)
                         .GetConstructor(Type.EmptyTypes),new object[] { },
                         new PropertyInfo[] { typeof(DataContractAttribute).GetProperty("Namespace") },
-                        new object[] { "http://datacontract.gib.me/startrekonline" }));
+                        new object[] { "http://datacontract.gib.me/" + this.TargetGame.ToString().ToLowerInvariant() }));
 
                 this.TableTypes.Add(qt.Table, typeBuilder);
 
@@ -414,7 +416,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             {
                 var name = column.StaticDefineListExternalName;
                 var builder = this.ModuleBuilder.DefineEnum(
-                    "Gibbed.StarTrekOnline.Serialization.StaticDefineList." + column.StaticDefineListExternalName,
+                    "Gibbed." + this.TargetGame.ToString() + ".Serialization.StaticDefineList." + column.StaticDefineListExternalName,
                     TypeAttributes.Public,
                     underlyingType);
 
@@ -480,7 +482,7 @@ namespace Gibbed.StarTrekOnline.GenerateSerializer
             ParserSchema.Table table, TypeBuilder structure)
         {
             var builder = this.ModuleBuilder.DefineEnum(
-                "Gibbed.StarTrekOnline.Serialization.Fields." + structure.Name + "Field",
+                "Gibbed." + this.TargetGame.ToString() + ".Serialization.Fields." + structure.Name + "Field",
                 TypeAttributes.Public,
                 typeof(int));
 

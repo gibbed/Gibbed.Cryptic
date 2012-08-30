@@ -27,7 +27,7 @@ using System.Linq;
 using Gibbed.Cryptic.FileFormats;
 using ParserSchema = Gibbed.Cryptic.FileFormats.ParserSchema;
 
-namespace Gibbed.StarTrekOnline.GenerateSerializer
+namespace Gibbed.Cryptic.GenerateSerializer
 {
     public class ParserLoader
     {

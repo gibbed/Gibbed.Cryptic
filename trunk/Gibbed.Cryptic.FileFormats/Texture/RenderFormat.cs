@@ -18,15 +18,12 @@
  * 
  * 3. This notice may not be removed or altered from any source
  *    distribution.
- *    
  */
 
-namespace Gibbed.StarTrekOnline.GenerateSerializer
+namespace Gibbed.Cryptic.FileFormats.Texture
 {
-    internal enum CheckScope
+    public enum RenderFormat : uint
     {
-        None,
-        Client,
-        Server,
+        Unknown = 0,
     }
 }

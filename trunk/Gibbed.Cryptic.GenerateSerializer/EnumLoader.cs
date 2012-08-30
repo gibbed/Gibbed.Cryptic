@@ -25,7 +25,7 @@ using System.Collections.Generic;
 using System.IO;
 using Gibbed.Cryptic.FileFormats;
 
-namespace Gibbed.StarTrekOnline.GenerateSerializer
+namespace Gibbed.Cryptic.GenerateSerializer
 {
     public class EnumLoader
     {
