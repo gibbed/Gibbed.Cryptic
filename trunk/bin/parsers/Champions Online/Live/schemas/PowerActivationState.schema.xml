@@ -16,42 +16,42 @@
       <subtable external="PowerRef" />
     </column>
     <column name="uchID" type="U8">
-      <offset>12</offset>
-      <flags>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="uiPeriod" type="INT">
       <offset>16</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fTimerActivate" type="F32">
+    <column name="uiPeriod" type="INT">
       <offset>20</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fTimeCharged" type="F32">
+    <column name="fTimerActivate" type="F32">
       <offset>24</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fTimeChargedTotal" type="F32">
+    <column name="fTimeCharged" type="F32">
       <offset>28</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fTimeActivating" type="F32">
+    <column name="fTimeChargedTotal" type="F32">
       <offset>32</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="fTimeActivating" type="F32">
+      <offset>36</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>

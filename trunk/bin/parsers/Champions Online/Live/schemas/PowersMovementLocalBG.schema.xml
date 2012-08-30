@@ -19,17 +19,29 @@
       <offset>8</offset>
       <subtable external="PMFx" />
     </column>
-    <column name="FxPendingMutable" type="STRUCT">
+    <column name="FxFlashPastMutable" type="STRUCT">
       <offset>12</offset>
       <subtable external="PMFx" />
     </column>
-    <column name="HitReactsMutable" type="STRUCT">
+    <column name="FxPendingMutable" type="STRUCT">
       <offset>16</offset>
+      <subtable external="PMFx" />
+    </column>
+    <column name="HitReactsMutable" type="STRUCT">
+      <offset>20</offset>
       <subtable external="PMHitReact" />
     </column>
     <column name="BitsStancesMutable" type="STRUCT">
-      <offset>20</offset>
+      <offset>24</offset>
       <subtable external="PMBitsStances" />
+    </column>
+    <column name="ConstantForcesQueued" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="PMConstantForce" />
+    </column>
+    <column name="ConstantForcesActive" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="PMConstantForce" />
     </column>
     <column name="}" type="END" />
   </table>

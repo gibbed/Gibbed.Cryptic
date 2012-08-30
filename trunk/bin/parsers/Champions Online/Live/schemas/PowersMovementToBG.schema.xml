@@ -39,22 +39,30 @@
       <offset>28</offset>
       <subtable external="PMIgnore" />
     </column>
-    <column name="vecPush" type="F32FIXEDARRAY">
+    <column name="ConstantForces" type="STRUCT">
       <offset>32</offset>
+      <subtable external="PMConstantForce" />
+    </column>
+    <column name="vecPush" type="F32FIXEDARRAY">
+      <offset>36</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="uiTimePush" type="INT">
-      <offset>44</offset>
-    </column>
-    <column name="erSelectedTarget" type="INT">
       <offset>48</offset>
     </column>
-    <column name="TargetUpdate" type="BIT">
+    <column name="erSelectedTarget" type="INT">
       <offset>52</offset>
+    </column>
+    <column name="lurchUpdate" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="PowersMovementLurchUpdate" />
+    </column>
+    <column name="TargetUpdate" type="BIT">
+      <offset>64</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="reset" type="BIT">
-      <offset>52</offset>
+      <offset>64</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />

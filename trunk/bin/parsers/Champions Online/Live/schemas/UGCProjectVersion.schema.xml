@@ -87,8 +87,22 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="eLanguage" type="INT">
+    <column name="pImage" type="STRING">
       <offset>44</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pLocation" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eLanguage" type="INT">
+      <offset>52</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -96,7 +110,7 @@
       <static_define_list external="Language" />
     </column>
     <column name="pCostumeOverride" type="STRING">
-      <offset>48</offset>
+      <offset>56</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -104,21 +118,6 @@
       </flags>
     </column>
     <column name="pPetOverride" type="STRING">
-      <offset>52</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="pBodyText" type="STRING">
-      <offset>56</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="strInitialMapName" type="STRING">
       <offset>60</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -126,8 +125,23 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="strInitialSpawnPoint" type="STRING">
+    <column name="pBodyText" type="STRING">
       <offset>64</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="strInitialMapName" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="strInitialSpawnPoint" type="STRING">
+      <offset>72</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -135,7 +149,7 @@
       </flags>
     </column>
     <column name="pRestrictions" type="OPTIONALSTRUCT">
-      <offset>68</offset>
+      <offset>76</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -143,7 +157,7 @@
       <subtable external="UGCProjectVersionRestrictionProperties" />
     </column>
     <column name="ugcStats" type="EMBEDDEDSTRUCT">
-      <offset>72</offset>
+      <offset>80</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -151,21 +165,21 @@
       <subtable external="UGCProjectStats" />
     </column>
     <column name="iLastTimeSentToOtherShard" type="INT">
-      <offset>96</offset>
+      <offset>104</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bSendToOtherShardSucceeded" type="U8">
-      <offset>100</offset>
+      <offset>108</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="sLastPublishTimeStamp" type="EMBEDDEDSTRUCT">
-      <offset>104</offset>
+      <offset>112</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -173,14 +187,14 @@
       <subtable external="UGCTimeStamp" />
     </column>
     <column name="iMostRecentRepublishFlags" type="INT">
-      <offset>128</offset>
+      <offset>136</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="ppRecentHistory" type="STRUCT">
-      <offset>132</offset>
+      <offset>140</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>

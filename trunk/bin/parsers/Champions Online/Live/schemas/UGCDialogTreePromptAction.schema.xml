@@ -19,16 +19,20 @@
     <column name="DismissAction" type="U8">
       <offset>8</offset>
     </column>
-    <column name="ShowWhen" type="OPTIONALSTRUCT">
+    <column name="Style" type="INT">
       <offset>12</offset>
-      <subtable external="UGCWhen" />
+      <static_define_list external="UGCDialogTreePromptActionStyle" />
     </column>
-    <column name="HideWhen" type="OPTIONALSTRUCT">
+    <column name="ShowWhen" type="OPTIONALSTRUCT">
       <offset>16</offset>
       <subtable external="UGCWhen" />
     </column>
-    <column name="EnabledCheckedAttrib" type="OPTIONALSTRUCT">
+    <column name="HideWhen" type="OPTIONALSTRUCT">
       <offset>20</offset>
+      <subtable external="UGCWhen" />
+    </column>
+    <column name="EnabledCheckedAttrib" type="OPTIONALSTRUCT">
+      <offset>24</offset>
       <subtable external="GenesisCheckedAttrib" />
     </column>
     <column name="}" type="END" />

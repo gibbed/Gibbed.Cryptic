@@ -32,35 +32,52 @@
     </column>
     <column name="RankNumeric" type="STRING">
       <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PointsSpentNumeric" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <default_string>OfficerSkillPointSpent</default_string>
     </column>
     <column name="RequiredPointsSpent" type="INT">
-      <offset>24</offset>
+      <offset>28</offset>
     </column>
     <column name="RequiredPointsSpentToPromote" type="INT">
-      <offset>24</offset>
+      <offset>28</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>RequiredPointsSpent</redundant_name>
     </column>
+    <column name="PointsSpentPlayerNumeric" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <default_string>SkillpointSpent</default_string>
+    </column>
     <column name="RequiredPointsSpentPlayer" type="INT">
-      <offset>28</offset>
+      <offset>36</offset>
     </column>
     <column name="RequiredPointsSpentToPromotePlayer" type="INT">
-      <offset>28</offset>
+      <offset>36</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>RequiredPointsSpentPlayer</redundant_name>
     </column>
     <column name="CostNumeric" type="STRING">
-      <offset>32</offset>
+      <offset>40</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="PromotionCostNumeric" type="STRING">
-      <offset>32</offset>
+      <offset>40</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>ALIAS</flag>
@@ -68,49 +85,49 @@
       <redundant_name>CostNumeric</redundant_name>
     </column>
     <column name="Cost" type="INT">
-      <offset>36</offset>
+      <offset>44</offset>
     </column>
     <column name="PromotionCost" type="INT">
-      <offset>36</offset>
+      <offset>44</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>Cost</redundant_name>
     </column>
     <column name="TrainingNumeric" type="STRING">
-      <offset>40</offset>
+      <offset>48</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="TrainingCost" type="INT">
-      <offset>44</offset>
+      <offset>52</offset>
     </column>
     <column name="TrainingTime" type="INT">
-      <offset>48</offset>
+      <offset>56</offset>
     </column>
     <column name="TrainingRefundPercent" type="F32">
-      <offset>52</offset>
+      <offset>60</offset>
       <default>1</default>
     </column>
     <column name="BaseAllowedPets" type="INT">
-      <offset>56</offset>
-    </column>
-    <column name="ExtraAllowedPets" type="INT">
-      <offset>60</offset>
-    </column>
-    <column name="ExtraPuppets" type="INT">
       <offset>64</offset>
     </column>
-    <column name="GradeCount" type="INT">
+    <column name="ExtraAllowedPets" type="INT">
       <offset>68</offset>
+    </column>
+    <column name="ExtraPuppets" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="GradeCount" type="INT">
+      <offset>76</offset>
       <default>10</default>
     </column>
     <column name="PlayerOnly" type="U8">
-      <offset>72</offset>
+      <offset>80</offset>
     </column>
     <column name="PlayerAccessibleOnly" type="U8">
-      <offset>72</offset>
+      <offset>80</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>

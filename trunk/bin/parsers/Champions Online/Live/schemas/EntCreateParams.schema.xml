@@ -12,7 +12,7 @@
       <flags>
         <flag>OBJECTTYPE</flag>
       </flags>
-      <default>1169</default>
+      <default>1174</default>
       <static_define_list external="AttribType" />
     </column>
     <column name="CreateType" type="INT">
@@ -92,9 +92,21 @@
       <offset>60</offset>
       <bit_offset>65537</bit_offset>
     </column>
-    <column name="UseFacingPitch" type="BIT">
+    <column name="OffsetUsesPitchAndRoll" type="BIT">
       <offset>60</offset>
       <bit_offset>65538</bit_offset>
+    </column>
+    <column name="AdjustOffsetByPitch" type="BIT">
+      <offset>60</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>OffsetUsesPitchAndRoll</redundant_name>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="UseFacingPitch" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="UseCreatorPitch" type="BIT">
       <offset>60</offset>
@@ -102,47 +114,51 @@
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>UseFacingPitch</redundant_name>
-      <bit_offset>65538</bit_offset>
-    </column>
-    <column name="UseMainTarget" type="BIT">
-      <offset>60</offset>
       <bit_offset>65539</bit_offset>
     </column>
-    <column name="SurviveCharacterDeathExpiration" type="BIT">
+    <column name="UseFacingRoll" type="BIT">
       <offset>60</offset>
       <bit_offset>65540</bit_offset>
     </column>
-    <column name="DieOnExpire" type="BIT">
+    <column name="UseMainTarget" type="BIT">
       <offset>60</offset>
       <bit_offset>65541</bit_offset>
     </column>
-    <column name="CanCustomizeCostume" type="BIT">
+    <column name="SurviveCharacterDeathExpiration" type="BIT">
       <offset>60</offset>
       <bit_offset>65542</bit_offset>
     </column>
-    <column name="UseTargetPositionWhenNoTarget" type="BIT">
+    <column name="DieOnExpire" type="BIT">
       <offset>60</offset>
       <bit_offset>65543</bit_offset>
     </column>
-    <column name="UseCreatorsDisplayName" type="BIT">
+    <column name="CanCustomizeCostume" type="BIT">
       <offset>60</offset>
       <bit_offset>65544</bit_offset>
     </column>
-    <column name="UseCreatorsPuppetDisplayName" type="BIT">
+    <column name="UseTargetPositionWhenNoTarget" type="BIT">
       <offset>60</offset>
       <bit_offset>65545</bit_offset>
     </column>
-    <column name="Persistent" type="BIT">
+    <column name="UseCreatorsDisplayName" type="BIT">
       <offset>60</offset>
       <bit_offset>65546</bit_offset>
     </column>
-    <column name="CreateAtTargetedEntityPos" type="BIT">
+    <column name="UseCreatorsPuppetDisplayName" type="BIT">
       <offset>60</offset>
       <bit_offset>65547</bit_offset>
     </column>
-    <column name="UseTargetPositionAsAIVarsTargetPos" type="BIT">
+    <column name="Persistent" type="BIT">
       <offset>60</offset>
       <bit_offset>65548</bit_offset>
+    </column>
+    <column name="CreateAtTargetedEntityPos" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="UseTargetPositionAsAIVarsTargetPos" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65550</bit_offset>
     </column>
     <column name="BoneGroup" type="STRING">
       <offset>64</offset>

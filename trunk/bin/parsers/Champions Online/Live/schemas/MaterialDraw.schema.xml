@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MaterialDraw">
+  <table>
+    <column name="MaterialDraw" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="tex_count" type="INT16">
+      <offset>20</offset>
+    </column>
+    <column name="const_count" type="INT16">
+      <offset>22</offset>
+    </column>
+    <column name="const_mapping_count" type="INT16">
+      <offset>24</offset>
+    </column>
+    <column name="has_swaps" type="U8">
+      <offset>26</offset>
+    </column>
+    <column name="is_occluder" type="U8">
+      <offset>27</offset>
+    </column>
+    <column name="ref_count" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="UID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="hash" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="hash_debug" type="INT16FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

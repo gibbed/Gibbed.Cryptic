@@ -57,30 +57,26 @@
       <offset>32</offset>
       <bit_offset>65538</bit_offset>
     </column>
-    <column name="UGCProperties" type="OPTIONALSTRUCT">
-      <offset>36</offset>
-      <subtable external="WorldUGCProperties" />
-    </column>
     <column name="DetailSeed" type="INT">
-      <offset>40</offset>
+      <offset>36</offset>
     </column>
     <column name="VisibleName" type="STRING">
-      <offset>44</offset>
+      <offset>40</offset>
     </column>
     <column name="PosX" type="INT">
-      <offset>48</offset>
+      <offset>44</offset>
     </column>
     <column name="PosY" type="INT">
-      <offset>52</offset>
+      <offset>48</offset>
     </column>
     <column name="PosZ" type="INT">
-      <offset>56</offset>
+      <offset>52</offset>
     </column>
     <column name="Rotation" type="INT">
-      <offset>60</offset>
+      <offset>56</offset>
     </column>
     <column name="StaticObject" type="STRUCT">
-      <offset>64</offset>
+      <offset>60</offset>
       <subtable external="GenesisObject" />
     </column>
     <column name="detail_kit_1" type="IGNORE">
@@ -89,11 +85,11 @@
       </flags>
     </column>
     <column name="Details" type="REFERENCE">
-      <offset>68</offset>
+      <offset>64</offset>
       <dictionary_name>GenesisDetailKit</dictionary_name>
     </column>
     <column name="DetailKit" type="REFERENCE">
-      <offset>68</offset>
+      <offset>64</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -101,30 +97,30 @@
       <dictionary_name>GenesisDetailKit</dictionary_name>
     </column>
     <column name="DetailDensity" type="F32">
-      <offset>72</offset>
+      <offset>68</offset>
     </column>
     <column name="Detail2" type="EMBEDDEDSTRUCT">
-      <offset>80</offset>
+      <offset>76</offset>
       <subtable external="GenesisDetailKitAndDensity" />
     </column>
     <column name="SideTrail" type="BIT">
-      <offset>92</offset>
+      <offset>88</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="HallwayRoom" type="BIT">
-      <offset>92</offset>
+      <offset>88</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="OffMap" type="BIT">
-      <offset>92</offset>
+      <offset>88</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="Prefab" type="BIT">
-      <offset>92</offset>
+      <offset>88</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="Mission" type="STRUCT">
-      <offset>96</offset>
+      <offset>92</offset>
       <subtable external="GenesisRoomMission" />
     </column>
     <column name="Seed" type="IGNORE" />

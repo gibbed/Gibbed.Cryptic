@@ -229,31 +229,39 @@
       <offset>224</offset>
       <subtable external="StoreCollection" />
     </column>
-    <column name="NoStoreItemsDialog" type="STRUCT">
+    <column name="AuctionBrokerOption" type="STRUCT">
       <offset>228</offset>
+      <subtable external="AuctionBrokerContactData" />
+    </column>
+    <column name="UGCSearchAgentOption" type="STRUCT">
+      <offset>232</offset>
+      <subtable external="UGCSearchAgentData" />
+    </column>
+    <column name="NoStoreItemsDialog" type="STRUCT">
+      <offset>236</offset>
       <subtable external="DialogBlock" />
     </column>
     <column name="missionSearchStringMsg" type="EMBEDDEDSTRUCT">
-      <offset>232</offset>
+      <offset>240</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="OptionalActionCategory" type="STRING">
-      <offset>244</offset>
+      <offset>252</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="ContactFlags" type="INT">
-      <offset>248</offset>
+      <offset>256</offset>
       <static_define_list external="ContactFlags" />
       <format>FLAGS</format>
     </column>
     <column name="SkillTrainerType" type="INT">
-      <offset>252</offset>
+      <offset>260</offset>
       <static_define_list external="SkillType" />
     </column>
     <column name="TrainerType" type="INT">
-      <offset>252</offset>
+      <offset>260</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -261,18 +269,18 @@
       <static_define_list external="SkillType" />
     </column>
     <column name="MinigameType" type="INT">
-      <offset>256</offset>
+      <offset>264</offset>
       <static_define_list external="MinigameType" />
     </column>
     <column name="AllowedClassCategory" type="INTARRAY">
-      <offset>260</offset>
+      <offset>268</offset>
     </column>
     <column name="CanAccessRemotely" type="OPTIONALSTRUCT">
-      <offset>264</offset>
+      <offset>272</offset>
       <subtable external="Expression" />
     </column>
     <column name="CanAccessRemotely:" type="OPTIONALSTRUCT">
-      <offset>264</offset>
+      <offset>272</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -280,38 +288,50 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="EndDialogAudios" type="STRUCT">
-      <offset>268</offset>
+      <offset>276</offset>
       <subtable external="EndDialogAudio" />
     </column>
     <column name="SourceType" type="INT">
-      <offset>272</offset>
+      <offset>280</offset>
       <static_define_list external="ContactSourceType" />
     </column>
     <column name="SourceName" type="STRING">
-      <offset>276</offset>
+      <offset>284</offset>
     </column>
     <column name="SourceSecondaryName" type="STRING">
-      <offset>280</offset>
+      <offset>288</offset>
     </column>
     <column name="ContactIndicatorOverride" type="INT">
-      <offset>284</offset>
+      <offset>292</offset>
       <static_define_list external="ContactIndicator" />
     </column>
+    <column name="ItemAssignmentData" type="OPTIONALSTRUCT">
+      <offset>296</offset>
+      <subtable external="ContactItemAssignmentData" />
+    </column>
+    <column name="ImageMenuData" type="OPTIONALSTRUCT">
+      <offset>300</offset>
+      <subtable external="ContactImageMenuData" />
+    </column>
     <column name="IsResearchStoreCollection" type="BIT">
-      <offset>288</offset>
+      <offset>304</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="IsCraftingStoreCollection" type="BIT">
-      <offset>288</offset>
+      <offset>304</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>IsResearchStoreCollection</redundant_name>
       <bit_offset>65536</bit_offset>
     </column>
-    <column name="AllowSwitchToLastActivePuppet" type="BIT">
-      <offset>288</offset>
+    <column name="HideFromRemoteContactList" type="BIT">
+      <offset>304</offset>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="AllowSwitchToLastActivePuppet" type="BIT">
+      <offset>304</offset>
+      <bit_offset>65538</bit_offset>
     </column>
     <column name="EndDialogAudioName" type="IGNORE" />
     <column name="DialogNodeWindowPositions" type="IGNORE">

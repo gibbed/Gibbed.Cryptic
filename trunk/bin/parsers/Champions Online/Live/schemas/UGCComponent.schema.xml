@@ -125,16 +125,12 @@
     <column name="PromptBody" type="STRING">
       <offset>136</offset>
     </column>
-    <column name="PromptType" type="INT">
-      <offset>140</offset>
-      <static_define_list external="UGCDialogTreePromptType" />
-    </column>
     <column name="Action" type="STRUCT">
-      <offset>144</offset>
+      <offset>140</offset>
       <subtable external="UGCDialogTreePromptAction" />
     </column>
     <column name="PromptButton" type="STRUCT">
-      <offset>144</offset>
+      <offset>140</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -142,25 +138,25 @@
       <subtable external="UGCDialogTreePromptAction" />
     </column>
     <column name="PromptCostume" type="STRING">
-      <offset>148</offset>
+      <offset>144</offset>
     </column>
     <column name="PromptPetCostume" type="REFERENCE">
-      <offset>152</offset>
+      <offset>148</offset>
       <dictionary_name>PetContactList</dictionary_name>
     </column>
     <column name="PromptStyle" type="STRING">
-      <offset>156</offset>
+      <offset>152</offset>
     </column>
     <column name="Prompt" type="STRUCT">
-      <offset>168</offset>
+      <offset>164</offset>
       <subtable external="UGCDialogTreePrompt" />
     </column>
     <column name="Block" type="STRUCT">
-      <offset>180</offset>
+      <offset>176</offset>
       <subtable external="UGCDialogTreeBlock" />
     </column>
     <column name="Prompt" type="STRUCT">
-      <offset>180</offset>
+      <offset>176</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -168,40 +164,43 @@
       <subtable external="UGCDialogTreeBlock" />
     </column>
     <column name="ActorID" type="INT">
-      <offset>184</offset>
+      <offset>180</offset>
     </column>
     <column name="PromptContactID" type="INT">
-      <offset>184</offset>
+      <offset>180</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>ActorID</redundant_name>
     </column>
     <column name="ObjectiveID" type="INTARRAY">
-      <offset>188</offset>
+      <offset>184</offset>
     </column>
     <column name="PromptWhenObjectiveID" type="INTARRAY">
-      <offset>188</offset>
+      <offset>184</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>ObjectiveID</redundant_name>
     </column>
     <column name="IsDefault" type="U8">
-      <offset>192</offset>
+      <offset>188</offset>
+    </column>
+    <column name="DisplayNameWasFixed" type="U8">
+      <offset>189</offset>
     </column>
     <column name="DisplayName" type="STRING">
-      <offset>196</offset>
+      <offset>192</offset>
     </column>
     <column name="ContactName" type="STRING">
-      <offset>196</offset>
+      <offset>192</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>DisplayName</redundant_name>
     </column>
     <column name="CostumeName" type="STRING">
-      <offset>200</offset>
+      <offset>196</offset>
     </column>
     <column name="fsmProperties" type="IGNORE">
       <flags>
@@ -209,23 +208,26 @@
       </flags>
     </column>
     <column name="FSMRef" type="STRING">
-      <offset>204</offset>
+      <offset>200</offset>
     </column>
     <column name="ExternVar" type="STRUCT">
-      <offset>208</offset>
+      <offset>204</offset>
       <flags>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="WorldVariableDef" />
     </column>
     <column name="PatrolPoint" type="INTARRAY">
-      <offset>212</offset>
+      <offset>208</offset>
     </column>
     <column name="Detail" type="STRUCT">
-      <offset>216</offset>
+      <offset>212</offset>
       <subtable external="UGCRoomDetailData" />
     </column>
     <column name="RoomDoor" type="INT">
+      <offset>216</offset>
+    </column>
+    <column name="IsDoorExplicitDefault" type="U8">
       <offset>220</offset>
     </column>
     <column name="TrapPower" type="STRING">
@@ -233,6 +235,9 @@
     </column>
     <column name="EmitterIndex" type="INT">
       <offset>228</offset>
+    </column>
+    <column name="PatrolParentID" type="INT">
+      <offset>232</offset>
     </column>
     <column name="Count" type="IGNORE" />
     <column name="InteractDef" type="IGNORE" />

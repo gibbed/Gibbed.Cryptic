@@ -152,20 +152,21 @@
       </flags>
     </column>
     <column name="erCreated" type="INT">
-      <offset>120</offset>
+      <offset>124</offset>
     </column>
     <column name="ppPowersCreated" type="STRUCT">
-      <offset>124</offset>
+      <offset>128</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
+        <flag>NO_INDEX</flag>
       </flags>
       <subtable external="Power" />
     </column>
     <column name="pSubtarget" type="OPTIONALSTRUCT">
-      <offset>128</offset>
+      <offset>132</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -175,7 +176,7 @@
       <subtable external="PowerSubtargetChoice" />
     </column>
     <column name="ppApplyStrengths" type="STRUCT">
-      <offset>132</offset>
+      <offset>136</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -185,7 +186,7 @@
       <subtable external="PowerApplyStrength" />
     </column>
     <column name="pSourceDetails" type="OPTIONALSTRUCT">
-      <offset>136</offset>
+      <offset>140</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -195,7 +196,7 @@
       <subtable external="AttribModSourceDetails" />
     </column>
     <column name="eFlags" type="INT">
-      <offset>140</offset>
+      <offset>144</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>

@@ -107,7 +107,7 @@
       <subtable external="UGCProjectReviews" />
     </column>
     <column name="ugcStats" type="EMBEDDEDSTRUCT">
-      <offset>72</offset>
+      <offset>68</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -115,7 +115,7 @@
       <subtable external="UGCProjectStats" />
     </column>
     <column name="ugcTags" type="EMBEDDEDSTRUCT">
-      <offset>96</offset>
+      <offset>92</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -123,12 +123,19 @@
       <subtable external="UGCProjectTags" />
     </column>
     <column name="ugcReporting" type="EMBEDDEDSTRUCT">
-      <offset>108</offset>
+      <offset>104</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
       <subtable external="UGCProjectReporting" />
+    </column>
+    <column name="ugcLifetimeTips" type="INT">
+      <offset>128</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
     </column>
     <column name="iIdOnPreviousShard" type="INT">
       <offset>132</offset>
@@ -189,6 +196,10 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
+    </column>
+    <column name="pExtraDetailData" type="OPTIONALSTRUCT">
+      <offset>160</offset>
+      <subtable external="UGCExtraDetailData" />
     </column>
     <column name="Check Container Location" type="COMMAND">
       <offset>0</offset>

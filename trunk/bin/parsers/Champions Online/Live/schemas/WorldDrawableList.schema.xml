@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldDrawableList">
+  <table>
+    <column name="WorldDrawableList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="drawable_lods" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldDrawableLod" />
+    </column>
+    <column name="lod_count" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="no_fog" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="high_detail_high_lod" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="ref_count" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Pool" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="WorldDrawableListPool" />
+    </column>
+    <column name="UID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

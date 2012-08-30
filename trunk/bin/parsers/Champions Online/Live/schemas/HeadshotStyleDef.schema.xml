@@ -21,51 +21,52 @@
         <flag>KEY</flag>
       </flags>
     </column>
-    <column name="Tags" type="STRING">
-      <offset>8</offset>
-    </column>
     <column name="BackgroundImage" type="STRING">
-      <offset>12</offset>
+      <offset>8</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="BackgroundColor" type="INT">
-      <offset>16</offset>
+      <offset>12</offset>
       <default>-1</default>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
     </column>
     <column name="Sky" type="STRING">
-      <offset>20</offset>
+      <offset>16</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Material" type="STRING">
-      <offset>24</offset>
+      <offset>20</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Frame" type="STRING">
-      <offset>28</offset>
+      <offset>24</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="DefaultAnimBits" type="STRING">
-      <offset>32</offset>
+      <offset>28</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="AnimKeyword" type="STRING">
-      <offset>36</offset>
+      <offset>32</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
+    </column>
+    <column name="HeadshotFX" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="HeadshotStyleFX" />
     </column>
     <column name="UseBackgroundOnly" type="U8">
       <offset>40</offset>
@@ -78,9 +79,8 @@
       <offset>48</offset>
       <subtable external="HeadshotStyleContactCameraParams" />
     </column>
-    <column name="UGCProperties" type="OPTIONALSTRUCT">
+    <column name="IgnoreFrame" type="U8">
       <offset>52</offset>
-      <subtable external="WorldUGCProperties" />
     </column>
     <column name="OverrideFOV" type="IGNORE" />
     <column name="Forward" type="IGNORE" />
@@ -89,6 +89,12 @@
     <column name="Pitch" type="IGNORE" />
     <column name="Yaw" type="IGNORE" />
     <column name="Roll" type="IGNORE" />
+    <column name="Tags" type="IGNORE" />
+    <column name="UGCProperties" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

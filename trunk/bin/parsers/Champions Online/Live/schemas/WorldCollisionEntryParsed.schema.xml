@@ -19,22 +19,25 @@
       <offset>76</offset>
       <default>-1</default>
     </column>
-    <column name="filterBits" type="INT">
+    <column name="MaterialSwaps" type="STRINGARRAY">
       <offset>80</offset>
     </column>
-    <column name="Scale" type="F32FIXEDARRAY">
+    <column name="filterBits" type="INT">
       <offset>84</offset>
+    </column>
+    <column name="Scale" type="F32FIXEDARRAY">
+      <offset>88</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="collision_radius" type="F32">
-      <offset>96</offset>
+      <offset>100</offset>
     </column>
     <column name="collision_min" type="F32FIXEDARRAY">
-      <offset>100</offset>
+      <offset>104</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="collision_max" type="F32FIXEDARRAY">
-      <offset>112</offset>
+      <offset>116</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="}" type="END" />

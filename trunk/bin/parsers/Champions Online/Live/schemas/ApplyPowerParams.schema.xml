@@ -12,7 +12,7 @@
       <flags>
         <flag>OBJECTTYPE</flag>
       </flags>
-      <default>1151</default>
+      <default>1155</default>
       <static_define_list external="AttribType" />
     </column>
     <column name="Def" type="REFERENCE">
@@ -30,6 +30,10 @@
     <column name="UseOwnerTargetType" type="BIT">
       <offset>16</offset>
       <bit_offset>65536</bit_offset>
+    </column>
+    <column name="CanMiss" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

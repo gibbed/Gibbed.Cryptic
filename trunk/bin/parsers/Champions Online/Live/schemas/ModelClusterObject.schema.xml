@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ModelClusterObject">
+  <table>
+    <column name="ModelClusterObject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="model_filename" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="rot_model_matrix" type="MATPYR">
+      <offset>12</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_model_matrix" type="F32FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="tex_swaps" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="TextureSwap" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

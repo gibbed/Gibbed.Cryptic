@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContactImageMenuItem">
+  <table>
+    <column name="ContactImageMenuItem" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="XPosition" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="YPosition" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="IconImage" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Action" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="WorldGameActionBlock" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

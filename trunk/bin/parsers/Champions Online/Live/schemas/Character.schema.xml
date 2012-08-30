@@ -146,8 +146,15 @@
       </flags>
       <subtable external="PowerTree" />
     </column>
-    <column name="ppPointSpentPowerTrees" type="STRUCT">
+    <column name="pClientPowerTreeInfo" type="OPTIONALSTRUCT">
       <offset>100</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+      </flags>
+      <subtable external="PowerTreeClientInfoList" />
+    </column>
+    <column name="ppPointSpentPowerTrees" type="STRUCT">
+      <offset>104</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
@@ -156,7 +163,7 @@
       <subtable external="CharacterPointSpent" />
     </column>
     <column name="uiPowerTreeModCount" type="INT">
-      <offset>104</offset>
+      <offset>108</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
@@ -165,21 +172,21 @@
       </flags>
     </column>
     <column name="uiLastFreeRespecTime" type="INT">
-      <offset>108</offset>
-      <flags>
-        <flag>SELF_ONLY</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="eaiTypeLastFreeRespecTime" type="INTARRAY">
       <offset>112</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="ppAssignedStats" type="STRUCT">
+    <column name="eaiTypeLastFreeRespecTime" type="INTARRAY">
       <offset>116</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ppAssignedStats" type="STRUCT">
+      <offset>120</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -187,7 +194,7 @@
       <subtable external="AssignedStats" />
     </column>
     <column name="ppSavedAttribStats" type="STRUCT">
-      <offset>120</offset>
+      <offset>124</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -196,7 +203,7 @@
       <subtable external="SavedAttribStats" />
     </column>
     <column name="pchAttribStatsPreset" type="STRING">
-      <offset>124</offset>
+      <offset>128</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SELF_ONLY</flag>
@@ -204,7 +211,7 @@
       </flags>
     </column>
     <column name="pchCurrentAttribStatsPreset" type="STRING">
-      <offset>124</offset>
+      <offset>128</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>ALIAS</flag>
@@ -214,7 +221,7 @@
       <redundant_name>pchAttribStatsPreset</redundant_name>
     </column>
     <column name="pchCurrentAttribStatsPreset" type="STRING">
-      <offset>124</offset>
+      <offset>128</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>ALIAS</flag>
@@ -224,7 +231,7 @@
       <redundant_name>pchAttribStatsPreset</redundant_name>
     </column>
     <column name="ppSavedAttributes" type="STRUCT">
-      <offset>128</offset>
+      <offset>132</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -233,7 +240,7 @@
       <subtable external="SavedAttribute" />
     </column>
     <column name="pattrBasic" type="OPTIONALSTRUCT">
-      <offset>132</offset>
+      <offset>136</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -241,8 +248,22 @@
       </flags>
       <subtable external="CharacterAttribs" />
     </column>
-    <column name="ModArray" type="EMBEDDEDSTRUCT">
+    <column name="pPowerStatBonusData" type="OPTIONALSTRUCT">
       <offset>140</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="PowerStatBonusData" />
+    </column>
+    <column name="pInnateAttribModData" type="OPTIONALSTRUCT">
+      <offset>144</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="InnateAttribModData" />
+    </column>
+    <column name="ModArray" type="EMBEDDEDSTRUCT">
+      <offset>152</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
@@ -252,18 +273,18 @@
       <subtable external="ModArray" />
     </column>
     <column name="ppModsNet" type="STRUCT">
-      <offset>172</offset>
+      <offset>184</offset>
       <subtable external="AttribModNet" />
     </column>
     <column name="pInnateAccrualSet" type="OPTIONALSTRUCT">
-      <offset>180</offset>
+      <offset>192</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="AttribAccrualSet" />
     </column>
     <column name="ppTraining" type="STRUCT">
-      <offset>196</offset>
+      <offset>208</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
@@ -272,24 +293,24 @@
       <subtable external="CharacterTraining" />
     </column>
     <column name="pCombatEventState" type="OPTIONALSTRUCT">
-      <offset>200</offset>
+      <offset>212</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="CombatEventState" />
     </column>
     <column name="piPowerModes" type="INTARRAY">
-      <offset>204</offset>
+      <offset>216</offset>
     </column>
     <column name="ppPowerModeHistory" type="STRUCT">
-      <offset>208</offset>
+      <offset>220</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="PowerModes" />
     </column>
     <column name="ppCooldownTimers" type="STRUCT">
-      <offset>212</offset>
+      <offset>224</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -298,295 +319,274 @@
       <subtable external="CooldownTimer" />
     </column>
     <column name="ppSpeedCooldown" type="STRUCT">
-      <offset>216</offset>
+      <offset>228</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="CooldownRateModifier" />
     </column>
     <column name="ppCombatAdvantages" type="STRUCT">
-      <offset>248</offset>
+      <offset>260</offset>
       <subtable external="CombatAdvantageNode" />
     </column>
     <column name="pChargeData" type="OPTIONALSTRUCT">
-      <offset>280</offset>
+      <offset>292</offset>
       <flags>
         <flag>NO_NETSEND</flag>
       </flags>
       <subtable external="CharacterChargeData" />
     </column>
     <column name="pSubtarget" type="OPTIONALSTRUCT">
-      <offset>284</offset>
+      <offset>296</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="PowerSubtargetChoice" />
     </column>
     <column name="hPowerDefStanceDefault" type="REFERENCE">
-      <offset>320</offset>
+      <offset>332</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <dictionary_name>PowerDef</dictionary_name>
     </column>
     <column name="CombatTrackerNetList" type="EMBEDDEDSTRUCT">
-      <offset>340</offset>
+      <offset>352</offset>
       <subtable external="CombatTrackerNetList" />
     </column>
     <column name="ppSubtargets" type="STRUCT">
-      <offset>352</offset>
+      <offset>364</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="PowerSubtargetNet" />
     </column>
     <column name="erRingoutCredit" type="INT">
-      <offset>356</offset>
+      <offset>368</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="currentTargetRef" type="INT">
-      <offset>360</offset>
+      <offset>372</offset>
     </column>
     <column name="erTargetDual" type="INT">
-      <offset>364</offset>
+      <offset>376</offset>
     </column>
     <column name="currentTargetHandle" type="REFERENCE">
-      <offset>368</offset>
+      <offset>380</offset>
       <dictionary_name>WorldInteractionNode</dictionary_name>
     </column>
     <column name="targetChangeID" type="INT">
-      <offset>372</offset>
+      <offset>384</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="perUntargetable" type="INTARRAY">
-      <offset>376</offset>
+      <offset>388</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="perHidden" type="INTARRAY">
-      <offset>380</offset>
+      <offset>392</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="ppAITargets" type="STRUCT">
-      <offset>384</offset>
+      <offset>396</offset>
       <subtable external="CharacterAITargetInfo" />
     </column>
     <column name="hHeldNode" type="REFERENCE">
-      <offset>388</offset>
+      <offset>404</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <dictionary_name>WorldInteractionNode</dictionary_name>
     </column>
     <column name="erHeld" type="INT">
-      <offset>392</offset>
+      <offset>408</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="fHeldMass" type="F32">
-      <offset>396</offset>
+      <offset>412</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="erHeldBy" type="INT">
-      <offset>400</offset>
+      <offset>416</offset>
     </column>
     <column name="ppchHeldFXNames" type="STRINGARRAY">
-      <offset>404</offset>
+      <offset>420</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="pfTimersAttribPool" type="F32ARRAY">
-      <offset>412</offset>
+      <offset>428</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="PVPDuelState" type="OPTIONALSTRUCT">
-      <offset>428</offset>
+      <offset>444</offset>
       <subtable external="PVPDuelState" />
     </column>
     <column name="PVPFlag" type="OPTIONALSTRUCT">
-      <offset>432</offset>
+      <offset>448</offset>
       <subtable external="PVPFlag" />
     </column>
     <column name="gangID" type="INT">
-      <offset>436</offset>
+      <offset>452</offset>
     </column>
     <column name="pvpTeamDuelFlag" type="OPTIONALSTRUCT">
-      <offset>440</offset>
+      <offset>456</offset>
       <subtable external="PVPTeamFlag" />
     </column>
     <column name="pNearDeath" type="OPTIONALSTRUCT">
-      <offset>448</offset>
+      <offset>464</offset>
       <subtable external="NearDeath" />
     </column>
     <column name="primaryPetRef" type="INT">
-      <offset>456</offset>
+      <offset>472</offset>
     </column>
     <column name="uiTimeCombatExit" type="INT">
-      <offset>460</offset>
+      <offset>476</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="uiTimeCombatVisualsExit" type="INT">
+      <offset>480</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="uiTimeBattleForm" type="INT">
-      <offset>464</offset>
+      <offset>484</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="uiConfuseSeed" type="INT">
-      <offset>468</offset>
+      <offset>488</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="iFreeRespecAvailable" type="INT">
-      <offset>472</offset>
+      <offset>492</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="ppAutoExecItems" type="STRUCT">
-      <offset>476</offset>
+      <offset>496</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="Item" />
     </column>
-    <column name="pchResetPowersArrayFunc" type="STRING">
-      <offset>492</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-    </column>
     <column name="bInvulnerable" type="BIT">
-      <offset>496</offset>
+      <offset>520</offset>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="bUnstoppable" type="BIT">
-      <offset>496</offset>
+      <offset>520</offset>
       <bit_offset>65552</bit_offset>
     </column>
     <column name="bUnkillable" type="BIT">
-      <offset>496</offset>
+      <offset>520</offset>
       <bit_offset>65553</bit_offset>
     </column>
     <column name="bLevelAdjusting" type="BIT">
-      <offset>496</offset>
+      <offset>520</offset>
       <bit_offset>65554</bit_offset>
     </column>
     <column name="bSafe" type="BIT">
-      <offset>496</offset>
+      <offset>520</offset>
       <bit_offset>65555</bit_offset>
     </column>
     <column name="bBattleForm" type="BIT">
-      <offset>496</offset>
+      <offset>520</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65556</bit_offset>
     </column>
     <column name="bDisableFaceActivate" type="BIT">
-      <offset>496</offset>
+      <offset>520</offset>
       <bit_offset>65558</bit_offset>
     </column>
     <column name="bDisableFaceSelected" type="BIT">
-      <offset>496</offset>
+      <offset>520</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65559</bit_offset>
     </column>
     <column name="bRequireValidTarget" type="BIT">
-      <offset>496</offset>
+      <offset>520</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65561</bit_offset>
     </column>
     <column name="bUseCameraTargeting" type="BIT">
-      <offset>496</offset>
+      <offset>520</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65562</bit_offset>
     </column>
     <column name="bDisablePowerQueuing" type="BIT">
-      <offset>496</offset>
+      <offset>520</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65563</bit_offset>
     </column>
     <column name="bShooterControls" type="BIT">
-      <offset>496</offset>
+      <offset>520</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65564</bit_offset>
     </column>
-    <column name="bIsAiming" type="BIT">
-      <offset>496</offset>
-      <flags>
-        <flag>SELF_ONLY</flag>
-      </flags>
-      <bit_offset>65565</bit_offset>
-    </column>
-    <column name="bIsCrouching" type="BIT">
-      <offset>496</offset>
-      <flags>
-        <flag>SELF_ONLY</flag>
-      </flags>
-      <bit_offset>65566</bit_offset>
-    </column>
-    <column name="bIsRolling" type="BIT">
-      <offset>496</offset>
-      <flags>
-        <flag>SELF_ONLY</flag>
-      </flags>
-      <bit_offset>65567</bit_offset>
-    </column>
     <column name="bIsPrimaryPet" type="BIT">
-      <offset>500</offset>
-      <bit_offset>65536</bit_offset>
-    </column>
-    <column name="bIsInAutoRun" type="BIT">
-      <offset>500</offset>
-      <flags>
-        <flag>SELF_ONLY</flag>
-      </flags>
+      <offset>524</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bModsOwnedByOwner" type="BIT">
-      <offset>500</offset>
+      <offset>524</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="bBecomeCritter" type="BIT">
-      <offset>500</offset>
+      <offset>524</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="bHasAvailableResearch" type="BIT">
-      <offset>500</offset>
+      <offset>524</offset>
       <flags>
         <flag>CLIENT_ONLY</flag>
       </flags>
       <bit_offset>65541</bit_offset>
     </column>
+    <column name="bIsPowersEntCreatedEntity" type="BIT">
+      <offset>524</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65547</bit_offset>
+    </column>
     <column name="ppActivationState" type="STRUCT">
-      <offset>504</offset>
+      <offset>528</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>SELF_ONLY</flag>
@@ -596,7 +596,7 @@
       <subtable external="PowerActivationState" />
     </column>
     <column name="puiPowerIDsSaved_Obsolete" type="INTARRAY">
-      <offset>560</offset>
+      <offset>584</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -604,7 +604,7 @@
       </flags>
     </column>
     <column name="eaSavedPowersIDs" type="INTARRAY">
-      <offset>560</offset>
+      <offset>584</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -614,7 +614,7 @@
       <redundant_name>puiPowerIDsSaved_Obsolete</redundant_name>
     </column>
     <column name="puiPowerIDsSaved" type="INTARRAY">
-      <offset>560</offset>
+      <offset>584</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -624,13 +624,13 @@
       <redundant_name>puiPowerIDsSaved_Obsolete</redundant_name>
     </column>
     <column name="pcSwingingFX" type="STRING">
-      <offset>564</offset>
+      <offset>588</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="dirtyBit" type="U8">
-      <offset>568</offset>
+      <offset>592</offset>
       <flags>
         <flag>NO_NETSEND</flag>
         <flag>DIRTY_BIT</flag>

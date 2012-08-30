@@ -80,13 +80,14 @@
       <offset>72</offset>
       <subtable external="GlobalGAELayerDef" />
     </column>
-    <column name="UGCProperties" type="OPTIONALSTRUCT">
-      <offset>76</offset>
-      <subtable external="WorldUGCProperties" />
-    </column>
     <column name="Sun" type="STRUCT">
-      <offset>80</offset>
+      <offset>76</offset>
       <subtable external="GenesisBackdropSunUGC" />
+    </column>
+    <column name="UGCProperties" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

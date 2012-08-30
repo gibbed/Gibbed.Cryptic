@@ -26,6 +26,10 @@
     <column name="Small" type="U8">
       <offset>20</offset>
     </column>
+    <column name="ShowCostumes" type="U8">
+      <offset>21</offset>
+      <default>1</default>
+    </column>
     <column name="Request" type="EMBEDDEDSTRUCT">
       <offset>24</offset>
       <subtable external="ResourceSearchRequest" />

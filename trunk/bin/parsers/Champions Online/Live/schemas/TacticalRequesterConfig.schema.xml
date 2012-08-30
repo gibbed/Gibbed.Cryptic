@@ -45,6 +45,14 @@
       <offset>32</offset>
       <bit_offset>65536</bit_offset>
     </column>
+    <column name="RollFacesInRollDirection" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="RollDisableDuringRootAttrib" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
     <column name="RollNoCostDistPercentThreshold" type="F32">
       <offset>36</offset>
     </column>
@@ -63,23 +71,23 @@
       <offset>52</offset>
       <bit_offset>65536</bit_offset>
     </column>
-    <column name="RollFacesInRollDirection" type="BIT">
+    <column name="DisableDoubleTapRoll" type="BIT">
       <offset>52</offset>
       <bit_offset>65537</bit_offset>
     </column>
-    <column name="DisableDoubleTapRoll" type="BIT">
+    <column name="RollWhileCrouching" type="BIT">
       <offset>52</offset>
       <bit_offset>65538</bit_offset>
     </column>
-    <column name="RollWhileCrouching" type="BIT">
+    <column name="RollIgnoresGlobalCooldown" type="BIT">
       <offset>52</offset>
       <bit_offset>65539</bit_offset>
     </column>
-    <column name="RollIgnoresGlobalCooldown" type="BIT">
+    <column name="RollOnlyWithDirectionInput" type="BIT">
       <offset>52</offset>
       <bit_offset>65540</bit_offset>
     </column>
-    <column name="RollOnlyWithDirectionInput" type="BIT">
+    <column name="QueueTacticalRolls" type="BIT">
       <offset>52</offset>
       <bit_offset>65541</bit_offset>
     </column>
@@ -117,17 +125,33 @@
     <column name="SpeedScaleSprintCombat" type="F32">
       <offset>84</offset>
     </column>
-    <column name="SprintDisabled" type="BIT">
+    <column name="SpeedSprint" type="F32">
       <offset>88</offset>
+    </column>
+    <column name="SpeedSprintCombat" type="F32">
+      <offset>92</offset>
+    </column>
+    <column name="SprintDisabled" type="BIT">
+      <offset>96</offset>
       <bit_offset>65536</bit_offset>
     </column>
+    <column name="AutoSprint" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
     <column name="SprintToggles" type="BIT">
-      <offset>92</offset>
+      <offset>100</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="CrittersIgnoreRunTimeouts" type="BIT">
-      <offset>92</offset>
+      <offset>100</offset>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="SprintFX" type="STRING">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
     <column name="aim" type="IGNORE">
       <flags>
@@ -140,84 +164,124 @@
       </flags>
     </column>
     <column name="SpeedScaleCrouch" type="F32">
-      <offset>96</offset>
+      <offset>108</offset>
       <default>1</default>
     </column>
+    <column name="Speed" type="F32">
+      <offset>112</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
     <column name="AimMinDurationSeconds" type="F32">
-      <offset>100</offset>
+      <offset>116</offset>
+    </column>
+    <column name="AimCooldown" type="F32">
+      <offset>120</offset>
     </column>
     <column name="AimDisabled" type="BIT">
-      <offset>104</offset>
+      <offset>124</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="CrouchEntityHeightRatio" type="F32">
-      <offset>108</offset>
+      <offset>128</offset>
       <default>1058642330</default>
     </column>
+    <column name="AimRequiredItemCategory" type="INTARRAY">
+      <offset>132</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
     <column name="SplitAimAndCrouch" type="BIT">
-      <offset>112</offset>
+      <offset>136</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="MovementCancelsCrouch" type="BIT">
-      <offset>112</offset>
+      <offset>136</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="CrouchModeToggles" type="BIT">
-      <offset>112</offset>
+      <offset>136</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="NoStanceTransitionsWhileAiming" type="BIT">
-      <offset>112</offset>
+      <offset>136</offset>
       <bit_offset>65539</bit_offset>
     </column>
+    <column name="AimIgnoresGlobalCooldown" type="BIT">
+      <offset>136</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65540</bit_offset>
+    </column>
     <column name="TacticalMoveGlobalCooldown" type="F32">
-      <offset>116</offset>
+      <offset>140</offset>
+    </column>
+    <column name="TacticalSpecialFallbackPowerSlot" type="INT">
+      <offset>144</offset>
+      <default>-1</default>
+    </column>
+    <column name="AllowedCategoriesWhileAimIsHeld" type="INTARRAY">
+      <offset>148</offset>
+      <static_define_list external="PowerCategory" />
     </column>
     <column name="RollDisableDuringPowers" type="BIT">
-      <offset>120</offset>
+      <offset>152</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="AimDisableDuringPowers" type="BIT">
-      <offset>120</offset>
+      <offset>152</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="SprintDisableDuringPowers" type="BIT">
-      <offset>120</offset>
+      <offset>152</offset>
       <bit_offset>65538</bit_offset>
     </column>
-    <column name="AimCancelsPowersBeforeHitFrame" type="BIT">
-      <offset>120</offset>
+    <column name="RollDisableDuringCombat" type="BIT">
+      <offset>152</offset>
       <bit_offset>65540</bit_offset>
     </column>
-    <column name="AimDisableDuringPowerDisableAttrib" type="BIT">
-      <offset>120</offset>
+    <column name="AimDisableDuringCombat" type="BIT">
+      <offset>152</offset>
       <bit_offset>65541</bit_offset>
     </column>
-    <column name="RollDisableDuringPowerDisableAttrib" type="BIT">
-      <offset>120</offset>
+    <column name="SprintDisableDuringCombat" type="BIT">
+      <offset>152</offset>
       <bit_offset>65542</bit_offset>
     </column>
-    <column name="RollDisableDuringHoldAttrib" type="BIT">
-      <offset>120</offset>
-      <bit_offset>65543</bit_offset>
-    </column>
-    <column name="TacticalAimCancelsQueuedPowers" type="BIT">
-      <offset>120</offset>
+    <column name="AimCancelsPowersBeforeHitFrame" type="BIT">
+      <offset>152</offset>
       <bit_offset>65544</bit_offset>
     </column>
-    <column name="TacticalSprintCancelsQueuedPowers" type="BIT">
-      <offset>120</offset>
+    <column name="AimDisableDuringPowerDisableAttrib" type="BIT">
+      <offset>152</offset>
       <bit_offset>65545</bit_offset>
     </column>
-    <column name="TacticalRollCancelsQueuedPowers" type="BIT">
-      <offset>120</offset>
+    <column name="RollDisableDuringPowerDisableAttrib" type="BIT">
+      <offset>152</offset>
       <bit_offset>65546</bit_offset>
+    </column>
+    <column name="TacticalAimCancelsQueuedPowers" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="TacticalSprintCancelsQueuedPowers" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="TacticalRollCancelsQueuedPowers" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="DisablePowersUsageWhileAimIsHeld" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65550</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

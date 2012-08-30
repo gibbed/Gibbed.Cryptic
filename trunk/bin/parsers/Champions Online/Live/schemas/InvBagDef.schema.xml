@@ -21,53 +21,58 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="MaxSlots" type="INT">
+    <column name="Type" type="INT">
       <offset>8</offset>
+      <default>1</default>
+      <static_define_list external="InvBagType" />
+    </column>
+    <column name="MaxSlots" type="INT">
+      <offset>12</offset>
       <default>-1</default>
     </column>
     <column name="SlotID" type="STRUCT">
-      <offset>12</offset>
+      <offset>16</offset>
       <subtable external="InvSlotIDContainer" />
     </column>
     <column name="Flags" type="INT">
-      <offset>16</offset>
+      <offset>20</offset>
       <static_define_list external="InvBagFlag" />
       <format>FLAGS</format>
     </column>
     <column name="power_yaw" type="F32">
-      <offset>20</offset>
-    </column>
-    <column name="not_in_default_inventory" type="INT">
       <offset>24</offset>
     </column>
-    <column name="MaxSlotTable" type="STRING">
+    <column name="not_in_default_inventory" type="INT">
       <offset>28</offset>
     </column>
-    <column name="MaxSlotTableNumericStandard" type="REFERENCE">
+    <column name="MaxSlotTable" type="STRING">
       <offset>32</offset>
-      <dictionary_name>ItemDef</dictionary_name>
     </column>
-    <column name="MaxSlotTableNumericPremium" type="REFERENCE">
+    <column name="MaxSlotTableNumericStandard" type="REFERENCE">
       <offset>36</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
-    <column name="BagFullMessage" type="EMBEDDEDSTRUCT">
+    <column name="MaxSlotTableNumericPremium" type="REFERENCE">
       <offset>40</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="BagFullMessage" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="maxActiveSlots" type="INT">
-      <offset>52</offset>
+      <offset>56</offset>
       <default>1</default>
     </column>
     <column name="DefaultActiveSlot" type="INTARRAY">
-      <offset>56</offset>
+      <offset>60</offset>
     </column>
     <column name="ItemArtActive" type="OPTIONALSTRUCT">
-      <offset>60</offset>
+      <offset>64</offset>
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="FXItemArtActive" type="OPTIONALSTRUCT">
-      <offset>60</offset>
+      <offset>64</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -75,11 +80,11 @@
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="ItemArtInactive" type="OPTIONALSTRUCT">
-      <offset>64</offset>
+      <offset>68</offset>
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="FXItemArtInactive" type="OPTIONALSTRUCT">
-      <offset>64</offset>
+      <offset>68</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -87,11 +92,11 @@
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="ItemArtActiveSecondary" type="OPTIONALSTRUCT">
-      <offset>68</offset>
+      <offset>72</offset>
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="SecondaryFXItemArtActive" type="OPTIONALSTRUCT">
-      <offset>68</offset>
+      <offset>72</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -99,11 +104,11 @@
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="ItemArtInactiveSecondary" type="OPTIONALSTRUCT">
-      <offset>72</offset>
+      <offset>76</offset>
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="SecondaryFXItemArtInactive" type="OPTIONALSTRUCT">
-      <offset>72</offset>
+      <offset>76</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -111,25 +116,25 @@
       <subtable external="InvBagDefItemArt" />
     </column>
     <column name="FXNodeName" type="STRING">
-      <offset>76</offset>
+      <offset>80</offset>
     </column>
     <column name="ItemMoveEvent" type="STRUCT">
-      <offset>80</offset>
+      <offset>84</offset>
       <subtable external="InvBagItemMoveEvent" />
     </column>
     <column name="PrimaryOnlyCategories" type="INTARRAY">
-      <offset>84</offset>
+      <offset>88</offset>
       <static_define_list external="ItemCategory" />
     </column>
     <column name="ChangeActiveSlotDelay" type="F32">
-      <offset>88</offset>
+      <offset>92</offset>
     </column>
     <column name="AutoAttack" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="UseItemsInInventoryFirst" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />

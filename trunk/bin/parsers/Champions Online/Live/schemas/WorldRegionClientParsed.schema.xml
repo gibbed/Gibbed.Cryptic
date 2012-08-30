@@ -45,6 +45,14 @@
       <offset>72</offset>
       <subtable external="RoomConnGraphClientParsed" />
     </column>
+    <column name="mapsnap_data" type="EMBEDDEDSTRUCT">
+      <offset>76</offset>
+      <subtable external="MapSnapRegionData" />
+    </column>
+    <column name="world_path_nodes" type="STRUCT">
+      <offset>80</offset>
+      <subtable external="WorldPathNode" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

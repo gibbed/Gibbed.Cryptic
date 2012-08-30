@@ -32,24 +32,28 @@
       <offset>20</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="CostumeProperties" type="OPTIONALSTRUCT">
+    <column name="DisplaySubName" type="EMBEDDEDSTRUCT">
       <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="CostumeProperties" type="OPTIONALSTRUCT">
+      <offset>44</offset>
       <subtable external="WorldActorCostumeProperties" />
     </column>
     <column name="CritterProperties" type="OPTIONALSTRUCT">
-      <offset>36</offset>
+      <offset>48</offset>
       <subtable external="WorldActorCritterProperties" />
     </column>
     <column name="FactionProperties" type="OPTIONALSTRUCT">
-      <offset>40</offset>
+      <offset>52</offset>
       <subtable external="WorldActorFactionProperties" />
     </column>
     <column name="Position" type="F32FIXEDARRAY">
-      <offset>44</offset>
+      <offset>56</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="Rotation" type="F32FIXEDARRAY">
-      <offset>56</offset>
+      <offset>68</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="End" type="END" />

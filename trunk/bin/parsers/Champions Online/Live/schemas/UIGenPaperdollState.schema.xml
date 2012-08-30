@@ -80,9 +80,6 @@
     <column name="uLastUpdateTime" type="INT">
       <offset>200</offset>
     </column>
-    <column name="uAnimationOrder" type="INT">
-      <offset>204</offset>
-    </column>
     <column name="Redraw" type="BIT">
       <offset>208</offset>
       <bit_offset>65536</bit_offset>
@@ -103,6 +100,10 @@
       <offset>208</offset>
       <bit_offset>65540</bit_offset>
     </column>
+    <column name="ExtentsInitialized" type="BIT">
+      <offset>208</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
     <column name="CachedEntityHeight" type="F32">
       <offset>212</offset>
     </column>
@@ -121,9 +122,45 @@
     <column name="Yaw" type="F32">
       <offset>232</offset>
     </column>
-    <column name="ExtraFX" type="STRUCT">
+    <column name="HeadshotData" type="STRUCT">
       <offset>236</offset>
+      <subtable external="PaperdollHeadshotData" />
+    </column>
+    <column name="UsedHeadshotData" type="INT">
+      <offset>240</offset>
+    </column>
+    <column name="ExtraFX" type="STRUCT">
+      <offset>244</offset>
       <subtable external="PCFXTemp" />
+    </column>
+    <column name="ItemArt" type="OPTIONALSTRUCT">
+      <offset>248</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ItemArt" />
+    </column>
+    <column name="ppchAddedFX" type="STRINGARRAY">
+      <offset>252</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="v3ExtentsMin" type="F32FIXEDARRAY">
+      <offset>256</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3ExtentsMax" type="F32FIXEDARRAY">
+      <offset>268</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3LastCamPos" type="F32FIXEDARRAY">
+      <offset>280</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3LastCamDir" type="F32FIXEDARRAY">
+      <offset>292</offset>
+      <num_elements>3</num_elements>
     </column>
     <column name="}" type="END" />
   </table>

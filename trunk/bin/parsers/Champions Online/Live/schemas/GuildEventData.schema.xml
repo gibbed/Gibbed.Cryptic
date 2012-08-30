@@ -7,7 +7,7 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="StartTime" type="INT">
+    <column name="uiID" type="INT">
       <offset>0</offset>
     </column>
     <column name="Title" type="STRING">
@@ -16,55 +16,35 @@
     <column name="Description" type="STRING">
       <offset>8</offset>
     </column>
-    <column name="OwnerName" type="STRING">
+    <column name="StartTimeTime" type="INT">
       <offset>12</offset>
     </column>
-    <column name="EventOwnerID" type="INT">
+    <column name="Duration" type="INT">
       <offset>16</offset>
     </column>
-    <column name="EventOwnerRank" type="INT">
+    <column name="RecurType" type="INT">
       <offset>20</offset>
     </column>
-    <column name="EndTime" type="INT">
+    <column name="RecurrenceCount" type="INT">
       <offset>24</offset>
     </column>
-    <column name="sStructStartTime" type="EMBEDDEDSTRUCT">
-      <offset>28</offset>
-      <subtable external="GuildEventTime" />
-    </column>
-    <column name="sStructEndTime" type="EMBEDDEDSTRUCT">
-      <offset>52</offset>
-      <subtable external="GuildEventTime" />
-    </column>
-    <column name="DaysRecurring" type="INT">
-      <offset>76</offset>
-    </column>
-    <column name="Canceled" type="U8">
-      <offset>80</offset>
-    </column>
     <column name="MinGuildRank" type="INT">
-      <offset>84</offset>
+      <offset>28</offset>
+    </column>
+    <column name="MinGuildEditRank" type="INT">
+      <offset>32</offset>
     </column>
     <column name="MinLevel" type="INT">
-      <offset>88</offset>
+      <offset>36</offset>
     </column>
     <column name="MaxLevel" type="INT">
-      <offset>92</offset>
+      <offset>40</offset>
     </column>
     <column name="MinAccepts" type="INT">
-      <offset>96</offset>
+      <offset>44</offset>
     </column>
     <column name="MaxAccepts" type="INT">
-      <offset>100</offset>
-    </column>
-    <column name="AcceptCount" type="INT">
-      <offset>104</offset>
-    </column>
-    <column name="MaybeCount" type="INT">
-      <offset>108</offset>
-    </column>
-    <column name="RefuseCount" type="INT">
-      <offset>112</offset>
+      <offset>48</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClientReticleTweenDef">
+  <table>
+    <column name="ClientReticleTweenDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ToTargetSpeed" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="BackToReticleSpeed" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="ReticlePlacementVerticalRatio" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="DistanceRatioSpeedScale" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

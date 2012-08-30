@@ -64,16 +64,8 @@
       <offset>84</offset>
       <subtable external="UIGenScrollbarState" />
     </column>
-    <column name="RowTemplate" type="OPTIONALSTRUCT">
-      <offset>112</offset>
-      <flags>
-        <flag>UNKNOWN_32</flag>
-        <flag>STRUCT_NORECURSE</flag>
-      </flags>
-      <subtable external="UIGen" />
-    </column>
     <column name="Rows" type="STRUCT">
-      <offset>116</offset>
+      <offset>112</offset>
       <flags>
         <flag>STRUCT_NORECURSE</flag>
         <flag>NO_INDEX</flag>
@@ -81,7 +73,7 @@
       <subtable external="UIGen" />
     </column>
     <column name="ColumnOrder" type="STRUCT">
-      <offset>120</offset>
+      <offset>116</offset>
       <flags>
         <flag>STRUCT_NORECURSE</flag>
         <flag>NO_INDEX</flag>
@@ -89,7 +81,7 @@
       <subtable external="UIColumn" />
     </column>
     <column name="Cols" type="STRUCT">
-      <offset>124</offset>
+      <offset>120</offset>
       <flags>
         <flag>STRUCT_NORECURSE</flag>
         <flag>NO_INDEX</flag>
@@ -97,19 +89,19 @@
       <subtable external="UIGen" />
     </column>
     <column name="DestDrawHigh" type="U8">
-      <offset>128</offset>
+      <offset>124</offset>
     </column>
     <column name="ForceShowSelectedRow" type="U8">
-      <offset>129</offset>
+      <offset>125</offset>
     </column>
     <column name="SelectedRowNotSelected" type="U8">
-      <offset>130</offset>
+      <offset>126</offset>
     </column>
     <column name="Unselected" type="U8">
-      <offset>131</offset>
+      <offset>127</offset>
     </column>
     <column name="DesiredRowSelection" type="INT">
-      <offset>132</offset>
+      <offset>128</offset>
       <default>-1</default>
     </column>
     <column name="}" type="END" />

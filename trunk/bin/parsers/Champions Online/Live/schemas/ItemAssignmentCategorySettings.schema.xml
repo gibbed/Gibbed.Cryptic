@@ -85,6 +85,10 @@
       </flags>
       <redundant_name>NumericRank2</redundant_name>
     </column>
+    <column name="AssociatedItemCategories" type="INTARRAY">
+      <offset>40</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

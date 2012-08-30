@@ -7,21 +7,21 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Pos" type="F32FIXEDARRAY">
+    <column name="ComponentID" type="INT">
       <offset>0</offset>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>4</offset>
       <num_elements>3</num_elements>
     </column>
-    <column name="orig_idx" type="INT">
-      <offset>12</offset>
-    </column>
-    <column name="is_drag" type="U8">
+    <column name="RoomID" type="INT">
       <offset>16</offset>
     </column>
-    <column name="is_door" type="U8">
-      <offset>17</offset>
+    <column name="prevConnectionInvalid" type="U8">
+      <offset>20</offset>
     </column>
-    <column name="invalid_connection" type="U8">
-      <offset>18</offset>
+    <column name="nextConnectionInvalid" type="U8">
+      <offset>21</offset>
     </column>
     <column name="}" type="END" />
   </table>

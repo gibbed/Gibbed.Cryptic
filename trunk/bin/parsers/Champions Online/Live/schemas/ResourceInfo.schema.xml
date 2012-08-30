@@ -59,6 +59,9 @@
     </column>
     <column name="Ref" type="STRUCT">
       <offset>36</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
       <subtable external="ResourceReference" />
     </column>
     <column name="}" type="END" />

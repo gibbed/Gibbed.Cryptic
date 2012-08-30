@@ -31,65 +31,71 @@
       <offset>20</offset>
       <subtable external="UsageRestriction" />
     </column>
-    <column name="Suffix" type="EMBEDDEDSTRUCT">
+    <column name="DisplaySuffix" type="STRING">
       <offset>24</offset>
-      <subtable external="DisplayMessage" />
     </column>
-    <column name="Prefix" type="EMBEDDEDSTRUCT">
-      <offset>36</offset>
-      <subtable external="DisplayMessage" />
+    <column name="DisplayPrefix" type="STRING">
+      <offset>28</offset>
     </column>
     <column name="Durability" type="F32">
-      <offset>48</offset>
+      <offset>32</offset>
       <default>-1</default>
     </column>
     <column name="DurabilityTable" type="STRING">
-      <offset>52</offset>
+      <offset>36</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Icon" type="STRING">
-      <offset>56</offset>
+      <offset>40</offset>
     </column>
     <column name="Tag" type="INT">
-      <offset>60</offset>
+      <offset>44</offset>
       <static_define_list external="ItemTag" />
     </column>
     <column name="Categories" type="INTARRAY">
-      <offset>64</offset>
+      <offset>48</offset>
       <static_define_list external="ItemCategory" />
     </column>
     <column name="ItemSet" type="STRUCT">
-      <offset>68</offset>
+      <offset>52</offset>
       <subtable external="ItemDefRef" />
     </column>
     <column name="TrainableNode" type="STRUCT">
-      <offset>72</offset>
+      <offset>56</offset>
       <subtable external="PTNodeDefRef" />
     </column>
     <column name="TrainableNodeRank" type="INT">
-      <offset>76</offset>
+      <offset>60</offset>
       <default>1</default>
     </column>
     <column name="Art" type="REFERENCE">
-      <offset>80</offset>
+      <offset>64</offset>
       <dictionary_name>ItemArt</dictionary_name>
     </column>
     <column name="Subtarget" type="REFERENCE">
-      <offset>84</offset>
+      <offset>68</offset>
       <dictionary_name>PowerSubtarget</dictionary_name>
     </column>
     <column name="Costumes" type="STRUCT">
-      <offset>88</offset>
+      <offset>72</offset>
       <subtable external="ItemCostume" />
     </column>
     <column name="CostumeRefs" type="STRUCT">
-      <offset>92</offset>
+      <offset>76</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="CostumeRefEditor" />
+    </column>
+    <column name="Suffix" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Prefix" type="EMBEDDEDSTRUCT">
+      <offset>92</offset>
+      <subtable external="DisplayMessage" />
     </column>
     <column name="}" type="END" />
   </table>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueInfoWrapper">
+  <table>
+    <column name="QueueInfoWrapper" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uEntID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="QueueInfo" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="QueueInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

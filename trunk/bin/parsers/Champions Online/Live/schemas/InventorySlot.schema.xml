@@ -18,25 +18,8 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="Type" type="INT">
-      <offset>4</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>LOGIN_SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-      <static_define_list external="InventorySlotType" />
-    </column>
-    <column name="Count" type="INT">
-      <offset>8</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>LOGIN_SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
     <column name="pItem" type="OPTIONALSTRUCT">
-      <offset>12</offset>
+      <offset>4</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>LOGIN_SUBSCRIBE</flag>
@@ -44,17 +27,8 @@
       </flags>
       <subtable external="Item" />
     </column>
-    <column name="hItemDef" type="REFERENCE">
-      <offset>16</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>LOGIN_SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-      <dictionary_name>ItemDef</dictionary_name>
-    </column>
     <column name="hSlotType" type="REFERENCE">
-      <offset>20</offset>
+      <offset>8</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>LOGIN_SUBSCRIBE</flag>
@@ -63,7 +37,7 @@
       <dictionary_name>InventorySlotIDDef</dictionary_name>
     </column>
     <column name="bHideCostumes" type="BIT">
-      <offset>24</offset>
+      <offset>12</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>LOGIN_SUBSCRIBE</flag>

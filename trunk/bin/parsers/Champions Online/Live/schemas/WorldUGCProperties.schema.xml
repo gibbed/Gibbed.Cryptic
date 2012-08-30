@@ -55,15 +55,36 @@
       <redundant_name>Faction</redundant_name>
       <subtable external="WorldUGCFactionRestrictionProperties" />
     </column>
-    <column name="DefaultHeight" type="F32">
+    <column name="MapDefaultHeight" type="F32">
       <offset>44</offset>
     </column>
-    <column name="ActorProperties" type="STRUCT">
+    <column name="DefaultHeight" type="F32">
+      <offset>44</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MapDefaultHeight</redundant_name>
+    </column>
+    <column name="MapOnlyPlatformsAreLegal" type="U8">
       <offset>48</offset>
+    </column>
+    <column name="RoomDoorsEverywhere" type="U8">
+      <offset>49</offset>
+    </column>
+    <column name="EncounterActor" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="WorldUGCActorProperties" />
+    </column>
+    <column name="ActorProperties" type="STRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>EncounterActor</redundant_name>
       <subtable external="WorldUGCActorProperties" />
     </column>
     <column name="ClickableName" type="STRING">
-      <offset>52</offset>
+      <offset>56</offset>
     </column>
     <column name="}" type="END" />
   </table>

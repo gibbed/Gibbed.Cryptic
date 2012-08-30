@@ -90,23 +90,43 @@
       <offset>92</offset>
       <subtable external="EventContactDef" />
     </column>
-    <column name="Queue" type="REFERENCE">
+    <column name="Bulletin" type="OPTIONALSTRUCT">
       <offset>96</offset>
+      <subtable external="EventBulletin" />
+    </column>
+    <column name="Queue" type="REFERENCE">
+      <offset>100</offset>
       <dictionary_name>QueueDef</dictionary_name>
     </column>
     <column name="ParentEvent" type="STRING">
-      <offset>100</offset>
-    </column>
-    <column name="uHideEventFromClient" type="BIT">
       <offset>104</offset>
-      <bit_offset>65536</bit_offset>
-    </column>
-    <column name="uHideFromExcludedMaps" type="BIT">
-      <offset>104</offset>
-      <bit_offset>65537</bit_offset>
     </column>
     <column name="EventRunMode" type="INT">
       <offset>108</offset>
+    </column>
+    <column name="HideEventFromClient" type="BIT">
+      <offset>112</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="uHideEventFromClient" type="BIT">
+      <offset>112</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>HideEventFromClient</redundant_name>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="HideFromExcludedMaps" type="BIT">
+      <offset>112</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="uHideFromExcludedMaps" type="BIT">
+      <offset>112</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>HideFromExcludedMaps</redundant_name>
+      <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

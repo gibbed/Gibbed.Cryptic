@@ -48,8 +48,12 @@
       <offset>28</offset>
       <subtable external="TempPuppetChoice" />
     </column>
-    <column name="UseIndoorLighting" type="U8">
+    <column name="VehicleRules" type="INT">
       <offset>32</offset>
+      <static_define_list external="VehicleRules" />
+    </column>
+    <column name="UseIndoorLighting" type="U8">
+      <offset>36</offset>
     </column>
     <column name="End" type="END" />
   </table>

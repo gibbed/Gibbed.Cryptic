@@ -297,33 +297,36 @@
       <offset>296</offset>
       <subtable external="GenesisPlacementChildParams" />
     </column>
-    <column name="Volume" type="OPTIONALSTRUCT">
+    <column name="ChildrenAreGroupDefs" type="U8">
       <offset>300</offset>
+    </column>
+    <column name="Volume" type="OPTIONALSTRUCT">
+      <offset>304</offset>
       <subtable external="GenesisObjectVolume" />
     </column>
     <column name="PlatformGroup" type="INT">
-      <offset>304</offset>
-    </column>
-    <column name="PlatformParentGroup" type="INT">
       <offset>308</offset>
     </column>
-    <column name="PlatformParentLevel" type="INT">
+    <column name="PlatformParentGroup" type="INT">
       <offset>312</offset>
     </column>
-    <column name="RoomDetail" type="STRUCT">
+    <column name="PlatformParentLevel" type="INT">
       <offset>316</offset>
+    </column>
+    <column name="RoomDetail" type="STRUCT">
+      <offset>320</offset>
       <subtable external="GenesisRoomDetail" />
     </column>
     <column name="RoomDoor" type="STRUCT">
-      <offset>320</offset>
+      <offset>324</offset>
       <subtable external="GenesisRoomDoorSwitch" />
     </column>
     <column name="Trap" type="STRUCT">
-      <offset>324</offset>
+      <offset>328</offset>
       <subtable external="GenesisMissionTrap" />
     </column>
     <column name="TrapObjective" type="STRING">
-      <offset>328</offset>
+      <offset>332</offset>
     </column>
     <column name="Level" type="IGNORE" />
     <column name="}" type="END" />

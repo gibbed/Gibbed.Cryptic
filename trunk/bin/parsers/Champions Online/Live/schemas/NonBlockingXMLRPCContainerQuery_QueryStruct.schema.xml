@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NonBlockingXMLRPCContainerQuery_QueryStruct">
+  <table>
+    <column name="NonBlockingXMLRPCContainerQuery_QueryStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="ExpressionString" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="MaxToReturn" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

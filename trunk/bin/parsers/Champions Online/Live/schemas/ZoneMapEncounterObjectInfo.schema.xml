@@ -13,23 +13,45 @@
         <flag>STRUCTPARAM</flag>
       </flags>
     </column>
+    <column name="RegionName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Orientation" type="QUATPYR">
+      <offset>20</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Type" type="INT">
+      <offset>36</offset>
+      <static_define_list external="WorldEncounterObjectType" />
+    </column>
+    <column name="InteractType" type="INT">
+      <offset>40</offset>
+      <static_define_list external="WorldEncounterObjectInteractType" />
+    </column>
     <column name="restrictions" type="IGNORE">
       <flags>
         <flag>FLATEMBED</flag>
       </flags>
     </column>
     <column name="MinLevel" type="INT">
-      <offset>4</offset>
+      <offset>44</offset>
     </column>
     <column name="MaxLevel" type="INT">
-      <offset>8</offset>
+      <offset>48</offset>
     </column>
     <column name="Faction" type="STRUCT">
-      <offset>12</offset>
+      <offset>52</offset>
       <subtable external="WorldUGCFactionRestrictionProperties" />
     </column>
     <column name="RestrictAllegiance" type="STRUCT">
-      <offset>12</offset>
+      <offset>52</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -37,46 +59,31 @@
       <subtable external="WorldUGCFactionRestrictionProperties" />
     </column>
     <column name="DisplayName" type="REFERENCE">
-      <offset>16</offset>
+      <offset>56</offset>
       <dictionary_name>Message</dictionary_name>
     </column>
     <column name="DisplayDetails" type="REFERENCE">
-      <offset>20</offset>
+      <offset>60</offset>
       <dictionary_name>Message</dictionary_name>
     </column>
-    <column name="UGCDisplayName" type="STRING">
-      <offset>24</offset>
-    </column>
-    <column name="UGCDisplayDetails" type="STRING">
-      <offset>28</offset>
-    </column>
     <column name="UGCContactName" type="STRING">
-      <offset>32</offset>
+      <offset>64</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="UGCContactCostume" type="REFERENCE">
-      <offset>36</offset>
+      <offset>68</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
-    <column name="RegionName" type="STRING">
-      <offset>40</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
+    <column name="UGCDisplayName" type="STRING">
+      <offset>72</offset>
     </column>
-    <column name="Pos" type="F32FIXEDARRAY">
-      <offset>44</offset>
-      <num_elements>3</num_elements>
+    <column name="UGCDisplayDetails" type="STRING">
+      <offset>76</offset>
     </column>
-    <column name="Type" type="INT">
-      <offset>56</offset>
-      <static_define_list external="WorldEncounterObjectType" />
-    </column>
-    <column name="InteractType" type="INT">
-      <offset>60</offset>
-      <static_define_list external="WorldEncounterObjectInteractType" />
+    <column name="UGCComponentID" type="INT">
+      <offset>80</offset>
     </column>
     <column name="}" type="END" />
   </table>

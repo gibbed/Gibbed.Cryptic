@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldDrawableLod">
+  <table>
+    <column name="WorldDrawableLod" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="subobjects" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="WorldDrawableSubobject" />
+    </column>
+    <column name="subobject_count" type="INT16">
+      <offset>4</offset>
+    </column>
+    <column name="no_fade" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="near_dist" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="far_dist" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="far_morph" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="occlusion_materials" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="ref_count" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="UID" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

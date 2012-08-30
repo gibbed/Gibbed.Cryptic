@@ -25,52 +25,52 @@
       <subtable external="PowerSubtargetChoice" />
     </column>
     <column name="NumTargets" type="INT">
-      <offset>156</offset>
+      <offset>160</offset>
     </column>
     <column name="Activation" type="OPTIONALSTRUCT">
-      <offset>168</offset>
+      <offset>172</offset>
       <subtable external="PowerActivation" />
     </column>
     <column name="Critical" type="EMBEDDEDSTRUCT">
-      <offset>172</offset>
+      <offset>176</offset>
       <subtable external="PACritical" />
     </column>
     <column name="Avoidance" type="EMBEDDEDSTRUCT">
-      <offset>188</offset>
+      <offset>192</offset>
       <subtable external="PAAvoidance" />
     </column>
     <column name="DamageTrigger" type="EMBEDDEDSTRUCT">
-      <offset>204</offset>
+      <offset>208</offset>
       <subtable external="PATrigger" />
     </column>
     <column name="Random" type="F32">
-      <offset>220</offset>
+      <offset>224</offset>
     </column>
     <column name="Period" type="INT">
-      <offset>252</offset>
+      <offset>256</offset>
     </column>
     <column name="AngleToTarget" type="F32">
-      <offset>268</offset>
-    </column>
-    <column name="AngleToSource" type="F32">
       <offset>272</offset>
     </column>
-    <column name="AngleToTargetVertical" type="F32">
+    <column name="AngleToSource" type="F32">
       <offset>276</offset>
     </column>
-    <column name="AngleToSourceVertical" type="F32">
+    <column name="AngleToTargetVertical" type="F32">
       <offset>280</offset>
     </column>
-    <column name="PrimaryTarget" type="BIT">
+    <column name="AngleToSourceVertical" type="F32">
       <offset>284</offset>
+    </column>
+    <column name="PrimaryTarget" type="BIT">
+      <offset>288</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Glancing" type="BIT">
-      <offset>284</offset>
+      <offset>288</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="MissMods" type="BIT">
-      <offset>284</offset>
+      <offset>288</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="}" type="END" />

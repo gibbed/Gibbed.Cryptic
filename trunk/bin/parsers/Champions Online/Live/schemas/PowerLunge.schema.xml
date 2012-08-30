@@ -16,15 +16,23 @@
     <column name="Range" type="F32">
       <offset>8</offset>
     </column>
-    <column name="FrameStart" type="INT">
+    <column name="StopDistance" type="F32">
       <offset>12</offset>
+      <default>-1</default>
     </column>
-    <column name="FramesOfActivate" type="INT">
+    <column name="FrameStart" type="INT">
       <offset>16</offset>
     </column>
-    <column name="Direction" type="INT">
+    <column name="FramesOfActivate" type="INT">
       <offset>20</offset>
+    </column>
+    <column name="Direction" type="INT">
+      <offset>24</offset>
       <static_define_list external="PowerLungeDirection" />
+    </column>
+    <column name="UseRootDistance" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

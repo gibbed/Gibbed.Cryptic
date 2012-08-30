@@ -23,6 +23,10 @@
       <offset>4</offset>
       <bit_offset>65538</bit_offset>
     </column>
+    <column name="RoomInstanceData" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="RoomInstanceData" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

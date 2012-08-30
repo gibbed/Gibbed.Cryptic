@@ -55,20 +55,24 @@
       <offset>128</offset>
       <subtable external="RewardGatedInfo" />
     </column>
-    <column name="RoundRobinEachKill" type="BIT">
+    <column name="BlockRegionTables" type="STRUCT">
       <offset>132</offset>
+      <subtable external="RewardBlockRegionTable" />
+    </column>
+    <column name="RoundRobinEachKill" type="BIT">
+      <offset>136</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ShareLootedNumericsWithTeamMembers" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="BlockRewardPackClientSend" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="NoDeathPenaltyInPowerHouse" type="BIT">
-      <offset>132</offset>
+      <offset>136</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="AllowOneItemNoWeightTable" type="IGNORE" />

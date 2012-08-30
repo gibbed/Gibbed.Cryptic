@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCResourceInfoDef">
+  <table>
+    <column name="UGCResourceInfoDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LogicalName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Dictionary" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Tags" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ugcProps" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="VisibleName" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Description" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="ImageOverride" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="NoDescription" type="BOOLFLAG">
+      <offset>40</offset>
+    </column>
+    <column name="restrictionProps" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="Faction" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="WorldUGCFactionRestrictionProperties" />
+    </column>
+    <column name="RestrictAllegiance" type="STRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Faction</redundant_name>
+      <subtable external="WorldUGCFactionRestrictionProperties" />
+    </column>
+    <column name="MapDefaultHeight" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="DefaultHeight" type="F32">
+      <offset>56</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MapDefaultHeight</redundant_name>
+    </column>
+    <column name="MapOnlyPlatformsAreLegal" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="RoomDoorsEverywhere" type="U8">
+      <offset>61</offset>
+    </column>
+    <column name="EncounterActor" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="WorldUGCActorProperties" />
+    </column>
+    <column name="ActorProperties" type="STRUCT">
+      <offset>64</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>EncounterActor</redundant_name>
+      <subtable external="WorldUGCActorProperties" />
+    </column>
+    <column name="ClickableName" type="STRING">
+      <offset>68</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

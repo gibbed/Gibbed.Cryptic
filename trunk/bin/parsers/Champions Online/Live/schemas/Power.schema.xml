@@ -127,21 +127,36 @@
         <flag>NO_NETSEND</flag>
       </flags>
     </column>
-    <column name="uiPowerSlotReplacementID" type="INT">
+    <column name="uiSrcEquipSlot" type="INT">
       <offset>68</offset>
       <flags>
         <flag>NO_NETSEND</flag>
       </flags>
     </column>
-    <column name="fTableScale" type="F32">
+    <column name="uiPowerSlotReplacementID" type="INT">
       <offset>72</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="fTableScale" type="F32">
+      <offset>76</offset>
       <default>1</default>
     </column>
     <column name="puiEnhancementIDs" type="INTARRAY">
-      <offset>88</offset>
+      <offset>92</offset>
+    </column>
+    <column name="fEnhancedRange" type="F32">
+      <offset>100</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="fEnhancedRadius" type="F32">
+      <offset>104</offset>
     </column>
     <column name="bHideInUI" type="BIT">
-      <offset>96</offset>
+      <offset>108</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -149,7 +164,7 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bActive" type="BIT">
-      <offset>96</offset>
+      <offset>108</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>

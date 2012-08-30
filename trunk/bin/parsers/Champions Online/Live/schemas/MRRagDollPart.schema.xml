@@ -7,14 +7,14 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="parentIndex" type="INT">
+    <column name="ParentIndex" type="INT">
       <offset>0</offset>
     </column>
-    <column name="parentAnchor" type="F32FIXEDARRAY">
+    <column name="ParentAnchor" type="F32FIXEDARRAY">
       <offset>4</offset>
       <num_elements>3</num_elements>
     </column>
-    <column name="selfAnchor" type="F32FIXEDARRAY">
+    <column name="SelfAnchor" type="F32FIXEDARRAY">
       <offset>16</offset>
       <num_elements>3</num_elements>
     </column>
@@ -35,42 +35,42 @@
       <num_elements>3</num_elements>
     </column>
     <column name="Density" type="F32">
-      <offset>124</offset>
+      <offset>132</offset>
     </column>
     <column name="BoneName" type="STRING">
-      <offset>128</offset>
+      <offset>136</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="parentBoneName" type="STRING">
-      <offset>132</offset>
+      <offset>140</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Pos" type="F32FIXEDARRAY">
-      <offset>136</offset>
+      <offset>144</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="Rot" type="QUATPYR">
-      <offset>148</offset>
+      <offset>156</offset>
       <num_elements>4</num_elements>
     </column>
     <column name="pose_pos" type="F32FIXEDARRAY">
-      <offset>164</offset>
+      <offset>172</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="pose_rot" type="QUATPYR">
-      <offset>176</offset>
+      <offset>184</offset>
       <num_elements>4</num_elements>
     </column>
     <column name="pose" type="BIT">
-      <offset>196</offset>
+      <offset>204</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="isBox" type="BIT">
-      <offset>196</offset>
+      <offset>204</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />

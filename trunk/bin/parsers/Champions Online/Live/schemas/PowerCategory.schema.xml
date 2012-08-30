@@ -20,48 +20,52 @@
     <column name="TimeCooldown" type="F32">
       <offset>8</offset>
     </column>
-    <column name="RequiredItemCategories" type="INTARRAY">
+    <column name="TimeCooldownOutOfCombat" type="F32">
       <offset>12</offset>
+      <default>-1</default>
+    </column>
+    <column name="RequiredItemCategories" type="INTARRAY">
+      <offset>16</offset>
       <static_define_list external="ItemCategory" />
     </column>
     <column name="SortGroup" type="INT">
-      <offset>16</offset>
+      <offset>20</offset>
     </column>
     <column name="MatchTacticalMode" type="INT">
-      <offset>20</offset>
+      <offset>24</offset>
       <static_define_list external="PowerTacticalMovementMode" />
       <format>FLAGS</format>
     </column>
     <column name="SlottingRequired" type="BIT">
-      <offset>24</offset>
+      <offset>28</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ToggleExclusive" type="BIT">
-      <offset>24</offset>
+      <offset>28</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="AutoAttackServer" type="BIT">
-      <offset>24</offset>
+      <offset>28</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="AutoAttackEnabler" type="BIT">
-      <offset>24</offset>
+      <offset>28</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="AutoAttackDisabler" type="BIT">
-      <offset>24</offset>
+      <offset>28</offset>
       <bit_offset>65540</bit_offset>
     </column>
-    <column name="DDWeaponBased" type="BIT">
-      <offset>24</offset>
+    <column name="WeaponBased" type="BIT">
+      <offset>28</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="HasAutoSlotPriority" type="BIT">
-      <offset>24</offset>
+      <offset>28</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="IgnoreTargetPitch" type="BIT">
-      <offset>24</offset>
+      <offset>28</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="}" type="END" />

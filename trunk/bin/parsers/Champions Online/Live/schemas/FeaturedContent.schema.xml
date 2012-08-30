@@ -16,14 +16,18 @@
       <offset>0</offset>
       <dictionary_name>GameProgressionNodeDef</dictionary_name>
     </column>
-    <column name="UGCProjectID" type="INT">
+    <column name="hQueueDef" type="REFERENCE">
       <offset>4</offset>
+      <dictionary_name>QueueDef</dictionary_name>
     </column>
-    <column name="UGCProjectSeriesID" type="INT">
+    <column name="UGCProjectID" type="INT">
       <offset>8</offset>
     </column>
-    <column name="ShardVariableName" type="STRING">
+    <column name="UGCProjectSeriesID" type="INT">
       <offset>12</offset>
+    </column>
+    <column name="ShardVariableName" type="STRING">
+      <offset>16</offset>
     </column>
     <column name="}" type="END" />
   </table>

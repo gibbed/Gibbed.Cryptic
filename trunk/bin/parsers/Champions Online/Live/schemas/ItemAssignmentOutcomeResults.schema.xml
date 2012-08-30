@@ -23,16 +23,20 @@
       <offset>12</offset>
       <static_define_list external="ItemQuality" />
     </column>
-    <column name="DestroyChance" type="F32">
+    <column name="DestroyItemsOfCategory" type="INTARRAY">
       <offset>16</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="DestroyChance" type="F32">
+      <offset>20</offset>
       <default>1</default>
     </column>
     <column name="NewAssignmentDescription" type="EMBEDDEDSTRUCT">
-      <offset>20</offset>
+      <offset>24</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="DestroyDescription" type="EMBEDDEDSTRUCT">
-      <offset>32</offset>
+      <offset>36</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="}" type="END" />

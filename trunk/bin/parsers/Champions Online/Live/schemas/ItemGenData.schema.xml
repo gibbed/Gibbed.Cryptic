@@ -112,25 +112,26 @@
       <offset>84</offset>
       <static_define_list external="RewardFlag" />
     </column>
-    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+    <column name="DisplayNameStr" type="STRING">
       <offset>88</offset>
-      <subtable external="DisplayMessage" />
     </column>
-    <column name="DisplayDesc" type="EMBEDDEDSTRUCT">
-      <offset>100</offset>
-      <subtable external="DisplayMessage" />
+    <column name="DisplayDescStr" type="STRING">
+      <offset>92</offset>
+    </column>
+    <column name="DisplayDescShortStr" type="STRING">
+      <offset>96</offset>
     </column>
     <column name="Flags" type="INT">
-      <offset>112</offset>
+      <offset>100</offset>
       <static_define_list external="ItemDefFlag" />
       <format>FLAGS</format>
     </column>
     <column name="bag" type="INTARRAY">
-      <offset>116</offset>
+      <offset>104</offset>
       <static_define_list external="InvBagIDs" />
     </column>
     <column name="bag2" type="INTARRAY">
-      <offset>116</offset>
+      <offset>104</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -138,90 +139,102 @@
       <static_define_list external="InvBagIDs" />
     </column>
     <column name="EquipLimit" type="OPTIONALSTRUCT">
-      <offset>120</offset>
+      <offset>108</offset>
       <subtable external="ItemEquipLimit" />
     </column>
     <column name="SlotID" type="REFERENCE">
-      <offset>124</offset>
+      <offset>112</offset>
       <dictionary_name>InventorySlotIDDef</dictionary_name>
     </column>
     <column name="StackLimit" type="INT">
-      <offset>128</offset>
+      <offset>116</offset>
       <default>1</default>
     </column>
     <column name="Icon" type="STRING">
-      <offset>132</offset>
+      <offset>120</offset>
     </column>
     <column name="IconName" type="STRING">
-      <offset>132</offset>
+      <offset>120</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>Icon</redundant_name>
     </column>
     <column name="CostumeMode" type="INT">
-      <offset>144</offset>
+      <offset>132</offset>
       <static_define_list external="kCostumeDisplayMode" />
     </column>
     <column name="CostumePriority" type="INT">
-      <offset>148</offset>
+      <offset>136</offset>
     </column>
     <column name="uSeed" type="INT">
-      <offset>152</offset>
+      <offset>140</offset>
     </column>
     <column name="ExprEconomyPoints" type="OPTIONALSTRUCT">
-      <offset>156</offset>
+      <offset>144</offset>
       <subtable external="Expression" />
     </column>
     <column name="Durability" type="F32">
-      <offset>160</offset>
+      <offset>148</offset>
     </column>
     <column name="DurabilityTable" type="STRING">
-      <offset>164</offset>
+      <offset>152</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Subtarget" type="REFERENCE">
-      <offset>168</offset>
+      <offset>156</offset>
       <dictionary_name>PowerSubtarget</dictionary_name>
     </column>
     <column name="Costumes" type="STRUCT">
-      <offset>172</offset>
+      <offset>160</offset>
       <subtable external="ItemCostume" />
     </column>
     <column name="GenerateSpeciesIcons" type="U8">
-      <offset>176</offset>
+      <offset>164</offset>
     </column>
     <column name="IconPrefix" type="STRING">
-      <offset>180</offset>
+      <offset>168</offset>
     </column>
     <column name="CostumeRefs" type="STRUCT">
-      <offset>188</offset>
+      <offset>176</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="CostumeRefEditor" />
     </column>
     <column name="Requires" type="OPTIONALSTRUCT">
-      <offset>192</offset>
+      <offset>180</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="UsageRestriction" />
     </column>
     <column name="EditorRarity" type="STRUCT">
-      <offset>196</offset>
+      <offset>184</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="ItemGenRarityDefEditor" />
     </column>
     <column name="RewardCategoryObsolete" type="STRINGARRAY">
-      <offset>200</offset>
+      <offset>188</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>192</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayDesc" type="EMBEDDEDSTRUCT">
+      <offset>204</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayDescShort" type="EMBEDDEDSTRUCT">
+      <offset>216</offset>
+      <subtable external="DisplayMessage" />
     </column>
     <column name="}" type="END" />
   </table>

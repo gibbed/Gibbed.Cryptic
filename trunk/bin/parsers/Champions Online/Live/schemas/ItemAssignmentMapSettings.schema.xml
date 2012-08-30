@@ -14,9 +14,12 @@
         <flag>STRUCTPARAM</flag>
       </flags>
     </column>
-    <column name="RarityCount" type="STRUCT">
+    <column name="RarityCount" type="INTARRAY">
       <offset>4</offset>
-      <subtable external="ItemAssignmentRarityCount" />
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <static_define_list external="ItemAssignmentRarityCountType" />
     </column>
     <column name="}" type="END" />
   </table>

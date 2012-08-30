@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCTipsConfig">
+  <table>
+    <column name="UGCTipsConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uTippingEnabled" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="hTipsNumeric" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="timeIntervalSeconds" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="allowedTipsPerTimeInterval" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="TipAmounts" type="INTARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

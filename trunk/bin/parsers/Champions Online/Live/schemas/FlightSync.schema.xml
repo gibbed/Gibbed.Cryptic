@@ -28,12 +28,27 @@
     <column name="gravityDown" type="F32">
       <offset>24</offset>
     </column>
-    <column name="avoids" type="STRUCT">
+    <column name="glideDown" type="F32">
       <offset>28</offset>
+    </column>
+    <column name="rotPDIgnorePitch" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="rotAllIgnorePitch" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="playJumpBit" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="avoids" type="STRUCT">
+      <offset>36</offset>
       <subtable external="FlightAvoid" />
     </column>
     <column name="Flags" type="EMBEDDEDSTRUCT">
-      <offset>32</offset>
+      <offset>40</offset>
       <subtable external="FlightSyncFlags" />
     </column>
     <column name="}" type="END" />

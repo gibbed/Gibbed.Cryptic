@@ -15,14 +15,22 @@
       <offset>4</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="Comments" type="STRING">
+    <column name="DisplaySubNameType" type="INT">
       <offset>16</offset>
+      <static_define_list external="EncounterCritterOverrideType" />
+    </column>
+    <column name="DisplaySubName" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Comments" type="STRING">
+      <offset>32</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="Comments:" type="STRING">
-      <offset>16</offset>
+      <offset>32</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>

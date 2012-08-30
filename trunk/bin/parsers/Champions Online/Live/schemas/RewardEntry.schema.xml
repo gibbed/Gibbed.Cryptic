@@ -55,52 +55,45 @@
     <column name="Value" type="F32">
       <offset>44</offset>
     </column>
-    <column name="PointBuyValueExpression" type="OPTIONALSTRUCT">
-      <offset>48</offset>
-      <subtable external="Expression" />
-    </column>
-    <column name="minPointCost" type="INT">
-      <offset>52</offset>
-    </column>
-    <column name="maxPointCost" type="INT">
-      <offset>56</offset>
-    </column>
     <column name="BaseItemsOnly" type="U8">
-      <offset>60</offset>
+      <offset>48</offset>
     </column>
     <column name="ScaleNumeric" type="U8">
-      <offset>61</offset>
+      <offset>49</offset>
+    </column>
+    <column name="HideInUI" type="U8">
+      <offset>50</offset>
     </column>
     <column name="ItemPowerDef" type="REFERENCE">
-      <offset>64</offset>
+      <offset>52</offset>
       <dictionary_name>ItemPowerDef</dictionary_name>
     </column>
     <column name="CostumeDef" type="REFERENCE">
-      <offset>68</offset>
+      <offset>56</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
     <column name="RequiresExpression" type="OPTIONALSTRUCT">
-      <offset>72</offset>
+      <offset>60</offset>
       <subtable external="Expression" />
     </column>
     <column name="RequiredGamePermissionToken" type="STRINGARRAY">
-      <offset>76</offset>
+      <offset>64</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Quality" type="INT">
-      <offset>80</offset>
+      <offset>68</offset>
       <static_define_list external="ItemQuality" />
     </column>
     <column name="ActivityName" type="STRING">
-      <offset>88</offset>
+      <offset>76</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="RequiredActivity" type="STRING">
-      <offset>88</offset>
+      <offset>76</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>ALIAS</flag>
@@ -108,39 +101,36 @@
       <redundant_name>ActivityName</redundant_name>
     </column>
     <column name="ShardVariable" type="STRING">
-      <offset>92</offset>
+      <offset>80</offset>
     </column>
     <column name="CharacterBasedIncludeType" type="INT">
-      <offset>96</offset>
+      <offset>84</offset>
       <default>1</default>
       <static_define_list external="CharacterBasedIncludeType" />
     </column>
     <column name="CharacterBasedIncludePrefix" type="STRING">
-      <offset>100</offset>
+      <offset>88</offset>
     </column>
     <column name="BroadcastChatMessage" type="EMBEDDEDSTRUCT">
-      <offset>104</offset>
+      <offset>92</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="RewardDiffPowerScaleMult" type="F32">
-      <offset>116</offset>
+      <offset>104</offset>
       <default>1</default>
     </column>
     <column name="ResetGatedTable" type="U8">
-      <offset>120</offset>
+      <offset>108</offset>
     </column>
     <column name="GatedForNumeric" type="INT">
-      <offset>124</offset>
+      <offset>112</offset>
       <static_define_list external="RewardGatedType" />
     </column>
     <column name="GatedPercentChange" type="INT">
-      <offset>128</offset>
+      <offset>116</offset>
     </column>
     <column name="MaxGatedPercentChange" type="INT">
-      <offset>132</offset>
-    </column>
-    <column name="ErrorIfCantSlotGem" type="U8">
-      <offset>136</offset>
+      <offset>120</offset>
     </column>
     <column name="DisableCostume" type="IGNORE" />
     <column name="DisplayNameMsg" type="IGNORE" />

@@ -11,6 +11,7 @@
       <offset>0</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
       <dictionary_name>ItemDef</dictionary_name>
@@ -19,10 +20,20 @@
       <offset>4</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
         <flag>PERSIST</flag>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="Power" />
+    </column>
+    <column name="pRollData" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ItemGemSlotRollData" />
     </column>
     <column name="pSlottedItem" type="IGNORE">
       <flags>

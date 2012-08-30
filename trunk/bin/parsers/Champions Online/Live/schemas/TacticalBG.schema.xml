@@ -38,33 +38,42 @@
     <column name="spcCooldownStart" type="INT">
       <offset>44</offset>
     </column>
-    <column name="yawFaceTarget" type="F32">
+    <column name="spcAimCooldownStart" type="INT">
       <offset>48</offset>
     </column>
-    <column name="yawRollToBGOverride" type="F32">
+    <column name="yawFaceTarget" type="F32">
       <offset>52</offset>
     </column>
-    <column name="distRolledSQR" type="F32">
+    <column name="yawRollToBGOverride" type="F32">
       <offset>56</offset>
     </column>
-    <column name="overridesActive" type="STRUCT">
+    <column name="distRolledSQR" type="F32">
       <offset>60</offset>
+    </column>
+    <column name="overridesActive" type="STRUCT">
+      <offset>64</offset>
       <subtable external="TacticalOverrides" />
     </column>
     <column name="spcDisableRollEnd" type="INT">
-      <offset>64</offset>
-    </column>
-    <column name="spcDisableAimEnd" type="INT">
       <offset>68</offset>
     </column>
-    <column name="spcDisableCrouchEnd" type="INT">
+    <column name="spcDisableAimEnd" type="INT">
       <offset>72</offset>
     </column>
-    <column name="spcDisableSprintEnd" type="INT">
+    <column name="spcDisableCrouchEnd" type="INT">
       <offset>76</offset>
     </column>
-    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+    <column name="spcDisableSprintEnd" type="INT">
       <offset>80</offset>
+    </column>
+    <column name="spcRollWaitingEnd" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="mmrFxSprint" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>92</offset>
       <subtable external="TacticalBGFlags" />
     </column>
     <column name="}" type="END" />

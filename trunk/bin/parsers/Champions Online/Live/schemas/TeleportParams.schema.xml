@@ -12,7 +12,7 @@
       <flags>
         <flag>OBJECTTYPE</flag>
       </flags>
-      <default>1199</default>
+      <default>1204</default>
       <static_define_list external="AttribType" />
     </column>
     <column name="TeleportTarget" type="INT">
@@ -42,25 +42,49 @@
       </flags>
       <static_define_list external="PowerTag" />
     </column>
-    <column name="OffsetForward" type="F32">
+    <column name="TeleportOffsetOrientation" type="INT">
       <offset>20</offset>
+      <static_define_list external="TeleportOffsetOrientation" />
     </column>
-    <column name="OffsetRight" type="F32">
+    <column name="OffsetForward" type="F32">
       <offset>24</offset>
     </column>
-    <column name="OffsetUp" type="F32">
+    <column name="OffsetRight" type="F32">
       <offset>28</offset>
     </column>
-    <column name="FacingYawOffset" type="F32">
+    <column name="OffsetUp" type="F32">
       <offset>32</offset>
     </column>
-    <column name="ClientViewTeleport" type="BIT">
+    <column name="ExprBlockDistanceFront" type="OPTIONALSTRUCT">
       <offset>36</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprBlockDistanceRight" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprBlockDistanceAbove" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="FacingYawOffset" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="OffsetUsesPitch" type="BIT">
+      <offset>52</offset>
       <bit_offset>65536</bit_offset>
     </column>
-    <column name="FacingUsePitch" type="BIT">
-      <offset>36</offset>
+    <column name="OffsetUsesRoll" type="BIT">
+      <offset>52</offset>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="ClientViewTeleport" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="FacingUsePitch" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

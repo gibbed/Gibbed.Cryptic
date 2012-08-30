@@ -21,15 +21,26 @@
     <column name="FSMName" type="STRING">
       <offset>20</offset>
     </column>
+    <column name="ChildParam" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="GenesisInstancedChildParams" />
+    </column>
     <column name="ActorData" type="STRUCT">
       <offset>24</offset>
-      <subtable external="GenesisInstancedActorData" />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ChildParam</redundant_name>
+      <subtable external="GenesisInstancedChildParams" />
     </column>
-    <column name="MissionName" type="STRING">
+    <column name="ChildParamsAreGroupDefs" type="U8">
       <offset>28</offset>
     </column>
-    <column name="Contact" type="OPTIONALSTRUCT">
+    <column name="MissionName" type="STRING">
       <offset>32</offset>
+    </column>
+    <column name="Contact" type="OPTIONALSTRUCT">
+      <offset>36</offset>
       <subtable external="GenesisMissionContactRequirements" />
     </column>
     <column name="}" type="END" />

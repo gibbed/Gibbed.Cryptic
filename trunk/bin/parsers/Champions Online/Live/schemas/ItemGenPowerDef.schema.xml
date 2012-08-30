@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemGenPowerDef">
+  <table>
+    <column name="ItemGenPowerDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="DisplayName2" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Notes" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>32</offset>
+      <static_define_list external="ItemPowerFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ExprEconomyPoints" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Power" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="PowerReplace" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>PowerReplaceDef</dictionary_name>
+    </column>
+    <column name="PowerSlot" type="REFERENCE">
+      <offset>44</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PowerReplace</redundant_name>
+      <dictionary_name>PowerReplaceDef</dictionary_name>
+    </column>
+    <column name="Restriction" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="UsageRestriction" />
+    </column>
+    <column name="CraftRecipe" type="REFERENCE">
+      <offset>52</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="ValueRecipe" type="REFERENCE">
+      <offset>56</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="PowerConfig" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="CritterPowerConfig" />
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>64</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="displayNameMsg2" type="EMBEDDEDSTRUCT">
+      <offset>76</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="descriptionMsg" type="EMBEDDEDSTRUCT">
+      <offset>88</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

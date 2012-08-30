@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCCostumeRegionDef">
+  <table>
+    <column name="UGCCostumeRegionDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="astrName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="BoneInclude" type="STRINGARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="BoneExclude" type="STRINGARRAY">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="BodyScaleInclude" type="STRINGARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="BodyScaleExclude" type="STRINGARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScaleGroup" type="STRINGARRAY">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NWBasic" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="UGCCostumeNWRegionModeDef" />
+    </column>
+    <column name="NWAdvanced" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="UGCCostumeNWRegionModeDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

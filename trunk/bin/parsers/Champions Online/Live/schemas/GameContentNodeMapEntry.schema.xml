@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameContentNodeMapEntry">
+  <table>
+    <column name="GameContentNodeMapEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="XPercent" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="YPercent" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="TextureName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ContentRefName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

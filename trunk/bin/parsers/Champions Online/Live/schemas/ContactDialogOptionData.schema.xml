@@ -116,6 +116,14 @@
     <column name="StoreCollection" type="INT">
       <offset>100</offset>
     </column>
+    <column name="hAuctionBrokerDef" type="REFERENCE">
+      <offset>104</offset>
+      <dictionary_name>AuctionBrokerDef</dictionary_name>
+    </column>
+    <column name="UGCSearchAgentData" type="OPTIONALSTRUCT">
+      <offset>108</offset>
+      <subtable external="UGCSearchAgentData" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

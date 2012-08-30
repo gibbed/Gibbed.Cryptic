@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContributionNotifyData">
+  <table>
+    <column name="ContributionNotifyData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="playerID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="projectcontainerType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="projectContainerID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="donatedItemName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="requestedDonationCount" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="donationCount" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="contributionNumericName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="contributionEarned" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="projectName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="taskName" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="bucketName" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="bucketFilled" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="taskFinalized" type="U8">
+      <offset>45</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

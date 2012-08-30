@@ -19,16 +19,12 @@
     <column name="PromptBody" type="STRING">
       <offset>8</offset>
     </column>
-    <column name="PromptType" type="INT">
-      <offset>12</offset>
-      <static_define_list external="UGCDialogTreePromptType" />
-    </column>
     <column name="Action" type="STRUCT">
-      <offset>16</offset>
+      <offset>12</offset>
       <subtable external="UGCDialogTreePromptAction" />
     </column>
     <column name="PromptButton" type="STRUCT">
-      <offset>16</offset>
+      <offset>12</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -36,16 +32,17 @@
       <subtable external="UGCDialogTreePromptAction" />
     </column>
     <column name="PromptCostume" type="STRING">
-      <offset>20</offset>
+      <offset>16</offset>
     </column>
     <column name="PromptPetCostume" type="REFERENCE">
-      <offset>24</offset>
+      <offset>20</offset>
       <dictionary_name>PetContactList</dictionary_name>
     </column>
     <column name="PromptStyle" type="STRING">
-      <offset>28</offset>
+      <offset>24</offset>
     </column>
     <column name="CameraPos" type="IGNORE" />
+    <column name="PromptType" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

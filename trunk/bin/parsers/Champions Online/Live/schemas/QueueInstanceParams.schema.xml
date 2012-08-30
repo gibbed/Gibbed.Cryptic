@@ -37,22 +37,29 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="bRematch" type="U8">
+    <column name="uiGuildID" type="INT">
       <offset>16</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pchPrivateName" type="STRING">
+    <column name="bRematch" type="U8">
       <offset>20</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pchPassword" type="STRING">
+    <column name="pchPrivateName" type="STRING">
       <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pchPassword" type="STRING">
+      <offset>28</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>

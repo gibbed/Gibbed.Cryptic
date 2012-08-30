@@ -7,12 +7,9 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="NotifyAudioEvent" type="STRUCT">
+    <column name="NotifyAudioEventGroup" type="STRUCT">
       <offset>0</offset>
-      <flags>
-        <flag>REQUIRED</flag>
-      </flags>
-      <subtable external="NotifyAudioEvent" />
+      <subtable external="NotifyAudioEventGroup" />
     </column>
     <column name="FileName" type="CURRENTFILE">
       <offset>4</offset>

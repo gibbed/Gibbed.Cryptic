@@ -12,51 +12,51 @@
       <subtable external="UGCProjectInfo" />
     </column>
     <column name="Maps" type="STRUCT">
-      <offset>44</offset>
+      <offset>64</offset>
       <subtable external="UGCProjectVersionMapInfo" />
     </column>
-    <column name="OldNameSpace" type="STRING">
-      <offset>48</offset>
+    <column name="EditingNameSpace" type="STRING">
+      <offset>68</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="NewUUID" type="STRING">
-      <offset>52</offset>
+    <column name="PublishUUID" type="STRING">
+      <offset>72</offset>
     </column>
-    <column name="NewNameSpace" type="STRING">
-      <offset>56</offset>
+    <column name="PublishNameSpace" type="STRING">
+      <offset>76</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="PublishJobName" type="STRING">
-      <offset>60</offset>
+      <offset>80</offset>
     </column>
     <column name="CostumeOverride" type="STRING">
-      <offset>64</offset>
+      <offset>84</offset>
     </column>
     <column name="PetOverride" type="STRING">
-      <offset>68</offset>
+      <offset>88</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="BodyText" type="STRING">
-      <offset>72</offset>
+      <offset>92</offset>
     </column>
     <column name="strInitialMapName" type="STRING">
-      <offset>76</offset>
+      <offset>96</offset>
     </column>
     <column name="strInitialSpawnPoint" type="STRING">
-      <offset>80</offset>
+      <offset>100</offset>
     </column>
     <column name="ProjectHeaderCopy" type="OPTIONALSTRUCT">
-      <offset>84</offset>
+      <offset>104</offset>
       <subtable external="UGCProject" />
     </column>
     <column name="EntityRef" type="INT">
-      <offset>92</offset>
+      <offset>112</offset>
     </column>
     <column name="}" type="END" />
   </table>

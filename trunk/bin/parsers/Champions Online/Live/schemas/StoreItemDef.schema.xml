@@ -29,43 +29,53 @@
       <offset>20</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="ReqMicroTransaction" type="REFERENCE">
+    <column name="longFlavorDesc" type="EMBEDDEDSTRUCT">
       <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayTex" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ReqMicroTransaction" type="REFERENCE">
+      <offset>48</offset>
       <dictionary_name>MicroTransactionDef</dictionary_name>
     </column>
     <column name="OverrideValueRecipe" type="STRUCT">
-      <offset>36</offset>
+      <offset>52</offset>
       <subtable external="ItemDefRef" />
     </column>
     <column name="ForceBind" type="U8">
-      <offset>40</offset>
+      <offset>56</offset>
     </column>
     <column name="Category" type="INT">
-      <offset>44</offset>
+      <offset>60</offset>
       <static_define_list external="StoreCategory" />
     </column>
     <column name="RequiredNumeric" type="REFERENCE">
-      <offset>48</offset>
+      <offset>64</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="RequiredNumericValue" type="INT">
-      <offset>52</offset>
+      <offset>68</offset>
     </column>
     <column name="RequiredNumericIncr" type="INT">
-      <offset>56</offset>
+      <offset>72</offset>
     </column>
     <column name="ResearchTime" type="INT">
-      <offset>60</offset>
+      <offset>76</offset>
     </column>
     <column name="PurchaseTime" type="INT">
-      <offset>60</offset>
+      <offset>76</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>ResearchTime</redundant_name>
     </column>
     <column name="ExprShowItem" type="OPTIONALSTRUCT">
-      <offset>64</offset>
+      <offset>80</offset>
       <subtable external="Expression" />
     </column>
     <column name="maxAvailable" type="IGNORE" />

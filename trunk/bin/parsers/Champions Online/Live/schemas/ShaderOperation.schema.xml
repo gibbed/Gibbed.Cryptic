@@ -19,8 +19,11 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="OperationType" type="REFERENCE">
+    <column name="Notes" type="STRING">
       <offset>8</offset>
+    </column>
+    <column name="OperationType" type="REFERENCE">
+      <offset>12</offset>
       <flags>
         <flag>NON_NULL_REF</flag>
         <flag>REQUIRED</flag>
@@ -28,22 +31,22 @@
       <dictionary_name>OperationDef</dictionary_name>
     </column>
     <column name="Input" type="STRUCT">
-      <offset>12</offset>
+      <offset>16</offset>
       <subtable external="ShaderInputEdge" />
     </column>
     <column name="FixedInput" type="STRUCT">
-      <offset>16</offset>
+      <offset>20</offset>
       <subtable external="ShaderFixedInput" />
     </column>
     <column name="Position" type="F32FIXEDARRAY">
-      <offset>24</offset>
+      <offset>28</offset>
       <num_elements>2</num_elements>
     </column>
     <column name="Collapsed" type="U8">
-      <offset>32</offset>
+      <offset>36</offset>
     </column>
     <column name="InstanceParam" type="U8">
-      <offset>33</offset>
+      <offset>37</offset>
     </column>
     <column name="EndOperation" type="END" />
   </table>

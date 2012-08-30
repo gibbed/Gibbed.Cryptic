@@ -61,20 +61,24 @@
       <offset>68</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
-    <column name="TeamMemberIdx" type="INT">
+    <column name="PreserveMovementFX" type="U8">
       <offset>72</offset>
+      <default>1</default>
     </column>
-    <column name="EntityEncounterName" type="STRING">
+    <column name="TeamMemberIdx" type="INT">
       <offset>76</offset>
     </column>
-    <column name="EntityActorName" type="STRING">
+    <column name="EntityEncounterName" type="STRING">
       <offset>80</offset>
     </column>
-    <column name="EntityActorRef" type="INT">
+    <column name="EntityActorName" type="STRING">
       <offset>84</offset>
     </column>
-    <column name="CharClassType" type="INT">
+    <column name="EntityActorRef" type="INT">
       <offset>88</offset>
+    </column>
+    <column name="CharClassType" type="INT">
+      <offset>92</offset>
       <static_define_list external="CharClassTypes" />
     </column>
     <column name="}" type="END" />

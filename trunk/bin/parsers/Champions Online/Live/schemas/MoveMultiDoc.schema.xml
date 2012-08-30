@@ -22,29 +22,33 @@
       <offset>1132</offset>
       <subtable external="MMEMFilter" />
     </column>
+    <column name="FxClipBoard" type="STRUCT">
+      <offset>1136</offset>
+      <subtable external="DynMoveFxEvent" />
+    </column>
     <column name="VisualizeMove" type="STRING">
-      <offset>1180</offset>
-    </column>
-    <column name="VisualizeMoveSeq" type="STRING">
-      <offset>1184</offset>
-    </column>
-    <column name="VisualizeFrame" type="F32">
-      <offset>1188</offset>
-    </column>
-    <column name="VisualizeFirstFrame" type="F32">
       <offset>1192</offset>
     </column>
-    <column name="VisualizeLastFrame" type="F32">
+    <column name="VisualizeMoveSeq" type="STRING">
       <offset>1196</offset>
     </column>
-    <column name="VisualizeCostumePicked" type="U8">
+    <column name="VisualizeFrame" type="F32">
       <offset>1200</offset>
     </column>
+    <column name="VisualizeFirstFrame" type="F32">
+      <offset>1204</offset>
+    </column>
+    <column name="VisualizeLastFrame" type="F32">
+      <offset>1208</offset>
+    </column>
+    <column name="VisualizeCostumePicked" type="U8">
+      <offset>1212</offset>
+    </column>
     <column name="VisualizePlaying" type="U8">
-      <offset>1201</offset>
+      <offset>1213</offset>
     </column>
     <column name="VisualizeLoop" type="U8">
-      <offset>1202</offset>
+      <offset>1214</offset>
     </column>
     <column name="}" type="END" />
   </table>

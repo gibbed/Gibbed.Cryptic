@@ -230,49 +230,76 @@
       <redundant_name>RequiresBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
-    <column name="RequiresActivityAnd" type="STRINGARRAY">
+    <column name="MapRequiresBlock" type="OPTIONALSTRUCT">
       <offset>220</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="MapSuccessBlock" type="OPTIONALSTRUCT">
+      <offset>224</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="MapFailureBlock" type="OPTIONALSTRUCT">
+      <offset>228</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="RequiresActivityAnd" type="STRINGARRAY">
+      <offset>232</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="RequiresActivityOr" type="STRINGARRAY">
-      <offset>224</offset>
+      <offset>236</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RelatedEvent" type="STRING">
+      <offset>240</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="CanRepeat" type="U8">
-      <offset>228</offset>
+      <offset>244</offset>
     </column>
     <column name="CanRepeat:" type="U8">
-      <offset>228</offset>
+      <offset>244</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>CanRepeat</redundant_name>
     </column>
     <column name="RepeatCooldownHours" type="F32">
-      <offset>232</offset>
+      <offset>248</offset>
     </column>
     <column name="RepeatCooldownHoursFromStart" type="F32">
-      <offset>236</offset>
+      <offset>252</offset>
     </column>
     <column name="RepeatCooldownCount" type="INT">
-      <offset>240</offset>
+      <offset>256</offset>
     </column>
     <column name="RepeatCooldownBlockTime" type="U8">
-      <offset>244</offset>
+      <offset>260</offset>
     </column>
     <column name="CooldownOnlyOnSuccess" type="U8">
-      <offset>245</offset>
+      <offset>261</offset>
     </column>
     <column name="NeedsReturn" type="U8">
-      <offset>246</offset>
+      <offset>262</offset>
       <default>1</default>
     </column>
     <column name="NeedsReturn:" type="U8">
-      <offset>246</offset>
+      <offset>262</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -280,21 +307,21 @@
       <default>1</default>
     </column>
     <column name="lockoutType" type="INT">
-      <offset>248</offset>
+      <offset>264</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <static_define_list external="MissionLockoutType" />
     </column>
     <column name="Parameters" type="OPTIONALSTRUCT">
-      <offset>252</offset>
+      <offset>268</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="MissionDefParams" />
     </column>
     <column name="Parameters:" type="OPTIONALSTRUCT">
-      <offset>252</offset>
+      <offset>268</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -303,91 +330,91 @@
       <subtable external="MissionDefParams" />
     </column>
     <column name="SuccessWhen" type="OPTIONALSTRUCT">
-      <offset>256</offset>
+      <offset>272</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="MissionEditCond" />
     </column>
     <column name="FailureWhen" type="OPTIONALSTRUCT">
-      <offset>260</offset>
+      <offset>276</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="MissionEditCond" />
     </column>
     <column name="ResetWhen" type="OPTIONALSTRUCT">
-      <offset>264</offset>
+      <offset>280</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="MissionEditCond" />
     </column>
     <column name="OnStartAction" type="STRUCT">
-      <offset>268</offset>
+      <offset>284</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="WorldGameActionProperties" />
     </column>
     <column name="OnSuccessAction" type="STRUCT">
-      <offset>272</offset>
+      <offset>288</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="WorldGameActionProperties" />
     </column>
     <column name="OnFailureAction" type="STRUCT">
-      <offset>276</offset>
+      <offset>292</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="WorldGameActionProperties" />
     </column>
     <column name="OnReturnAction" type="STRUCT">
-      <offset>280</offset>
+      <offset>296</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="WorldGameActionProperties" />
     </column>
     <column name="InteractableOverrides" type="STRUCT">
-      <offset>284</offset>
+      <offset>300</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="InteractableOverride" />
     </column>
     <column name="SpecialDialogOverrides" type="STRUCT">
-      <offset>288</offset>
+      <offset>304</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="SpecialDialogOverride" />
     </column>
     <column name="SpecialActionBlockOverrides" type="STRUCT">
-      <offset>292</offset>
+      <offset>308</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="ActionBlockOverride" />
     </column>
     <column name="MissionOfferOverrides" type="STRUCT">
-      <offset>296</offset>
+      <offset>312</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="MissionOfferOverride" />
     </column>
     <column name="SubMission" type="STRUCT">
-      <offset>300</offset>
+      <offset>316</offset>
       <flags>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="MissionDef" />
     </column>
     <column name="SubMission:" type="STRUCT">
-      <offset>300</offset>
+      <offset>316</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>NO_INDEX</flag>
@@ -396,57 +423,57 @@
       <subtable external="MissionDef" />
     </column>
     <column name="Waypoint" type="STRUCT">
-      <offset>304</offset>
+      <offset>320</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="MissionWaypoint" />
     </column>
     <column name="ReturnType" type="INT">
-      <offset>308</offset>
+      <offset>324</offset>
       <static_define_list external="MissionReturnType" />
     </column>
     <column name="msgReturnStringMsg" type="EMBEDDEDSTRUCT">
-      <offset>312</offset>
+      <offset>328</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="DiscoverCond" type="OPTIONALSTRUCT">
-      <offset>324</offset>
+      <offset>340</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="Expression" />
     </column>
     <column name="TrackedEvents" type="STRUCT">
-      <offset>328</offset>
+      <offset>344</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="GameEvent" />
     </column>
     <column name="OpenMissionScoreEvents" type="STRUCT">
-      <offset>332</offset>
+      <offset>348</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="OpenMissionScoreEvent" />
     </column>
     <column name="ppchProgressionNodes" type="STRINGARRAY">
-      <offset>336</offset>
+      <offset>352</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
     <column name="MinLevel" type="INT">
-      <offset>340</offset>
+      <offset>356</offset>
     </column>
     <column name="RequiredAllegiance" type="STRUCT">
-      <offset>344</offset>
+      <offset>360</offset>
       <subtable external="AllegianceRef" />
     </column>
     <column name="RelatedMission" type="STRING">
-      <offset>348</offset>
+      <offset>364</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -454,7 +481,7 @@
       <dictionary_name>Misison</dictionary_name>
     </column>
     <column name="RelatedMission:" type="STRING">
-      <offset>348</offset>
+      <offset>364</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>ALIAS</flag>
@@ -464,103 +491,71 @@
       <dictionary_name>Misison</dictionary_name>
     </column>
     <column name="Requests" type="STRUCT">
-      <offset>352</offset>
+      <offset>368</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="MissionDefRequest" />
     </column>
     <column name="PerkPoints" type="INT">
-      <offset>356</offset>
+      <offset>372</offset>
     </column>
     <column name="SortPriority" type="INT">
-      <offset>360</offset>
+      <offset>376</offset>
     </column>
     <column name="IsHandoff" type="U8">
-      <offset>364</offset>
+      <offset>380</offset>
     </column>
     <column name="doNotUncomplete" type="U8">
-      <offset>365</offset>
+      <offset>381</offset>
     </column>
     <column name="doNotAllowDrop" type="U8">
-      <offset>366</offset>
+      <offset>382</offset>
     </column>
     <column name="Shareable" type="INT">
-      <offset>368</offset>
+      <offset>384</offset>
       <static_define_list external="MissionShareableType" />
     </column>
     <column name="RequestGrantType" type="INT">
-      <offset>372</offset>
+      <offset>388</offset>
       <static_define_list external="MissionRequestGrantType" />
     </column>
     <column name="VariableDefs" type="STRUCT">
-      <offset>376</offset>
+      <offset>392</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="WorldVariableDef" />
     </column>
     <column name="DisableCompletionTracking" type="U8">
-      <offset>380</offset>
+      <offset>396</offset>
     </column>
     <column name="AuthorSource" type="INT">
-      <offset>384</offset>
+      <offset>400</offset>
       <static_define_list external="ContentAuthorSource" />
     </column>
     <column name="PlayType" type="INT">
-      <offset>388</offset>
+      <offset>404</offset>
       <static_define_list external="MissionPlayType" />
     </column>
     <column name="UGCProjectID" type="INT">
-      <offset>392</offset>
+      <offset>408</offset>
     </column>
     <column name="RefString" type="STRING">
-      <offset>396</offset>
+      <offset>412</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
     <column name="varMessageList" type="EMBEDDEDSTRUCT">
-      <offset>400</offset>
+      <offset>416</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="DisplayMessageList" />
     </column>
-    <column name="successCond" type="OPTIONALSTRUCT">
-      <offset>404</offset>
-      <flags>
-        <flag>NO_TEXT_SAVE</flag>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-      <subtable external="Expression" />
-    </column>
-    <column name="failureCond" type="OPTIONALSTRUCT">
-      <offset>408</offset>
-      <flags>
-        <flag>NO_TEXT_SAVE</flag>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-      <subtable external="Expression" />
-    </column>
-    <column name="resetCond" type="OPTIONALSTRUCT">
-      <offset>412</offset>
-      <flags>
-        <flag>NO_TEXT_SAVE</flag>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-      <subtable external="Expression" />
-    </column>
     <column name="successCount" type="OPTIONALSTRUCT">
-      <offset>416</offset>
-      <flags>
-        <flag>NO_TEXT_SAVE</flag>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-      <subtable external="Expression" />
-    </column>
-    <column name="successTarget" type="OPTIONALSTRUCT">
       <offset>420</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
@@ -568,8 +563,23 @@
       </flags>
       <subtable external="Expression" />
     </column>
-    <column name="isRequired" type="BIT">
+    <column name="successTarget" type="OPTIONALSTRUCT">
       <offset>424</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="ShowCount" type="INT">
+      <offset>428</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <static_define_list external="MDEShowCount" />
+    </column>
+    <column name="isRequired" type="BIT">
+      <offset>432</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
@@ -577,7 +587,7 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="TrackedEventsNoSave" type="STRUCT">
-      <offset>428</offset>
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
@@ -585,7 +595,7 @@
       <subtable external="GameEvent" />
     </column>
     <column name="TrackedStats" type="STRINGARRAY">
-      <offset>432</offset>
+      <offset>440</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>NO_TEXT_SAVE</flag>
@@ -593,17 +603,17 @@
       </flags>
     </column>
     <column name="RefreshCharacterPowersOnComplete" type="U8">
-      <offset>436</offset>
+      <offset>444</offset>
     </column>
     <column name="OmitFromMissionTracker" type="U8">
-      <offset>437</offset>
+      <offset>445</offset>
     </column>
     <column name="MissionTag" type="INTARRAY">
-      <offset>440</offset>
+      <offset>448</offset>
       <static_define_list external="MissionTag" />
     </column>
     <column name="MissionUIType" type="INT">
-      <offset>444</offset>
+      <offset>452</offset>
       <static_define_list external="MissionUIType" />
     </column>
     <column name="IconString:" type="IGNORE" />

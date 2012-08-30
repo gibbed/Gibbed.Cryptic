@@ -55,6 +55,10 @@
     <column name="numResults" type="INT">
       <offset>52</offset>
     </column>
+    <column name="AuctionBrokerSearchData" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="AuctionBrokerLevelInfo" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

@@ -9,34 +9,47 @@
     <column name="{" type="START" />
     <column name="Name" type="STRING">
       <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="String" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="RequirementString" type="STRING">
       <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
     <column name="Valid" type="INT">
       <offset>12</offset>
       <static_define_list external="InteractValidity" />
     </column>
-    <column name="CursorTexture" type="STRING">
+    <column name="Type" type="INT">
       <offset>16</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
+      <static_define_list external="UIInteractType" />
     </column>
-    <column name="CursorName" type="STRING">
+    <column name="CursorTexture" type="STRING">
       <offset>20</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="CursorHotSpotX" type="INT16">
+    <column name="CursorName" type="STRING">
       <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CursorHotSpotX" type="INT16">
+      <offset>28</offset>
     </column>
     <column name="CursorHotSpotY" type="INT16">
-      <offset>26</offset>
+      <offset>30</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -27,15 +27,27 @@
     <column name="Description" type="STRING">
       <offset>12</offset>
     </column>
-    <column name="PlayerCostume" type="OPTIONALSTRUCT">
+    <column name="data" type="EMBEDDEDSTRUCT">
       <offset>16</offset>
+      <subtable external="UGCCostumeData" />
+    </column>
+    <column name="CachedPlayerCostume" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="PlayerCostume" type="OPTIONALSTRUCT">
+      <offset>56</offset>
       <subtable external="PlayerCostume" />
     </column>
     <column name="Region" type="INT">
-      <offset>20</offset>
+      <offset>60</offset>
     </column>
     <column name="Allegiance" type="REFERENCE">
-      <offset>24</offset>
+      <offset>64</offset>
       <dictionary_name>AllegianceDef</dictionary_name>
     </column>
     <column name="}" type="END" />

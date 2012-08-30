@@ -9,9 +9,6 @@
     <column name="{" type="START" />
     <column name="ConditionBlock" type="OPTIONALSTRUCT">
       <offset>0</offset>
-      <flags>
-        <flag>REQUIRED</flag>
-      </flags>
       <subtable external="Expression" />
     </column>
     <column name="Condition" type="OPTIONALSTRUCT">
@@ -22,8 +19,40 @@
       <redundant_name>ConditionBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
-    <column name="Override" type="OPTIONALPOLYMORPH">
+    <column name="IntCondition" type="STRUCT">
       <offset>4</offset>
+      <subtable external="UIGenIntCondition" />
+    </column>
+    <column name="FloatCondition" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UIGenFloatCondition" />
+    </column>
+    <column name="StringCondition" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="UIGenStringCondition" />
+    </column>
+    <column name="IntCondition2" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="UIGenCondition2" />
+    </column>
+    <column name="FloatCondition2" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="UIGenCondition2" />
+    </column>
+    <column name="StringCondition2" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="UIGenCondition2" />
+    </column>
+    <column name="InState" type="INTARRAY">
+      <offset>28</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="NotInState" type="INTARRAY">
+      <offset>32</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="Override" type="OPTIONALPOLYMORPH">
+      <offset>36</offset>
       <subtable>
         <table>
           <column name="UIGenChatLog" type="EMBEDDEDSTRUCT">
@@ -126,11 +155,11 @@
       </subtable>
     </column>
     <column name="OnEnter" type="OPTIONALSTRUCT">
-      <offset>8</offset>
+      <offset>40</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="OnExit" type="OPTIONALSTRUCT">
-      <offset>12</offset>
+      <offset>44</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="}" type="END" />

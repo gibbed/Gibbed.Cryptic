@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClientReticleSetDef">
+  <table>
+    <column name="ClientReticleSetDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Reticle" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ClientReticleDef" />
+    </column>
+    <column name="DefaultDef" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

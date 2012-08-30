@@ -49,46 +49,49 @@
     <column name="Yaw" type="F32">
       <offset>76</offset>
     </column>
-    <column name="triggerID" type="INT">
+    <column name="nodeSelectionType" type="INT">
       <offset>80</offset>
     </column>
-    <column name="wakeAfterThisManyPCs" type="INT">
+    <column name="triggerID" type="INT">
       <offset>84</offset>
     </column>
-    <column name="noSourceEnt" type="BIT">
+    <column name="wakeAfterThisManyPCs" type="INT">
       <offset>88</offset>
+    </column>
+    <column name="noSourceEnt" type="BIT">
+      <offset>92</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Miss" type="BIT">
-      <offset>88</offset>
+      <offset>92</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="sendTrigger" type="BIT">
-      <offset>88</offset>
+      <offset>92</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="waitForTrigger" type="BIT">
-      <offset>88</offset>
+      <offset>92</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="triggerIsEntityID" type="BIT">
-      <offset>88</offset>
+      <offset>92</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="useTargetNode" type="BIT">
-      <offset>88</offset>
+      <offset>92</offset>
       <bit_offset>65541</bit_offset>
     </column>
-    <column name="selectNodesInRangeAndArc" type="BIT">
-      <offset>88</offset>
+    <column name="alwaysSelectSameNode" type="BIT">
+      <offset>92</offset>
       <bit_offset>65542</bit_offset>
     </column>
-    <column name="alwaysSelectSameNode" type="BIT">
-      <offset>88</offset>
+    <column name="isFlashedFX" type="BIT">
+      <offset>92</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="fxParams" type="OPTIONALSTRUCT">
-      <offset>92</offset>
+      <offset>96</offset>
       <subtable external="DynParamBlock" />
     </column>
     <column name="}" type="END" />

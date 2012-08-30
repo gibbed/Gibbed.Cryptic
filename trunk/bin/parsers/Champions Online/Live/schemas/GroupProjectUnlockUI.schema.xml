@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GroupProjectUnlockUI">
+  <table>
+    <column name="GroupProjectUnlockUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ToolTip" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Image" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GroupProjectUnlock" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>GroupProjectUnlockDef</dictionary_name>
+    </column>
+    <column name="UnlockNumeric" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="GroupProjectNumericUI" />
+    </column>
+    <column name="UnlockReferenceValue" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="UnlockManual" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="UnlockNumericGreaterEqual" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="unlocked" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCCostumeBasics">
+  <table>
+    <column name="UGCCostumeBasics" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Species" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>SpeciesDef</dictionary_name>
+    </column>
+    <column name="Gender" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>SpeciesDef</dictionary_name>
+    </column>
+    <column name="Allegiance" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>AllegianceDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -193,37 +193,46 @@
       <offset>164</offset>
       <subtable external="WorldAutoPlacementProperties" />
     </column>
-    <column name="InteractProperties" type="OPTIONALSTRUCT">
+    <column name="PathNode" type="OPTIONALSTRUCT">
       <offset>168</offset>
+      <subtable external="WorldPathNodeProperties" />
+    </column>
+    <column name="InteractProperties" type="OPTIONALSTRUCT">
+      <offset>172</offset>
       <subtable external="WorldInteractionProperties" />
     </column>
     <column name="GenesisProperties" type="OPTIONALSTRUCT">
-      <offset>172</offset>
+      <offset>176</offset>
       <subtable external="WorldGenesisProperties" />
     </column>
     <column name="GenesisChallenge" type="OPTIONALSTRUCT">
-      <offset>176</offset>
+      <offset>180</offset>
       <subtable external="WorldGenesisChallengeProperties" />
     </column>
     <column name="Terrain" type="EMBEDDEDSTRUCT">
-      <offset>180</offset>
+      <offset>184</offset>
       <subtable external="WorldTerrainProperties" />
     </column>
     <column name="TerrainExclusion" type="OPTIONALSTRUCT">
-      <offset>244</offset>
+      <offset>248</offset>
       <subtable external="WorldTerrainExclusionProperties" />
     </column>
-    <column name="UGCProperties" type="OPTIONALSTRUCT">
-      <offset>248</offset>
-      <subtable external="WorldUGCProperties" />
+    <column name="UGCRoomObjectProperties" type="OPTIONALSTRUCT">
+      <offset>252</offset>
+      <subtable external="WorldUGCRoomObjectProperties" />
     </column>
     <column name="Wind" type="EMBEDDEDSTRUCT">
-      <offset>252</offset>
+      <offset>256</offset>
       <subtable external="WorldWindProperties" />
     </column>
     <column name="Physical" type="EMBEDDEDSTRUCT">
-      <offset>268</offset>
+      <offset>272</offset>
       <subtable external="WorldPhysicalProperties" />
+    </column>
+    <column name="UGCProperties" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

@@ -51,29 +51,32 @@
     <column name="MinLevel" type="INT">
       <offset>36</offset>
     </column>
-    <column name="uTime" type="INT">
+    <column name="uSecondaryLockoutTime" type="INT">
       <offset>40</offset>
+    </column>
+    <column name="uTime" type="INT">
+      <offset>44</offset>
       <flags>
         <flag>CLIENT_ONLY</flag>
       </flags>
     </column>
     <column name="Available" type="BIT">
-      <offset>44</offset>
+      <offset>48</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Visible" type="BIT">
-      <offset>44</offset>
+      <offset>48</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="Update" type="BIT">
-      <offset>44</offset>
+      <offset>48</offset>
       <flags>
         <flag>CLIENT_ONLY</flag>
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="Current" type="BIT">
-      <offset>44</offset>
+      <offset>48</offset>
       <flags>
         <flag>CLIENT_ONLY</flag>
       </flags>

@@ -60,16 +60,19 @@
         <flag>UNKNOWN_32</flag>
       </flags>
     </column>
-    <column name="Available" type="BIT">
+    <column name="SecondaryLockoutTime" type="INT">
       <offset>40</offset>
+    </column>
+    <column name="Available" type="BIT">
+      <offset>44</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Optional" type="BIT">
-      <offset>40</offset>
+      <offset>44</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="Skippable" type="BIT">
-      <offset>40</offset>
+      <offset>44</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="}" type="END" />

@@ -57,6 +57,17 @@
       </flags>
       <subtable external="InventorySlot" />
     </column>
+    <column name="AssignmentUI" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ItemAssignmentUI" />
+    </column>
+    <column name="Locked" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

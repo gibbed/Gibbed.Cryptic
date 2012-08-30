@@ -101,7 +101,7 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="ppItems" type="STRUCT">
+    <column name="ppItemsV2" type="STRUCT">
       <offset>60</offset>
       <flags>
         <flag>PERSIST</flag>
@@ -109,8 +109,32 @@
       </flags>
       <subtable external="AuctionSlot" />
     </column>
-    <column name="auctionPetContainerIDs" type="INTARRAY">
+    <column name="ppItemsV1_Deprecated" type="STRUCT">
       <offset>64</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="AuctionSlotV1" />
+    </column>
+    <column name="ppItems" type="STRUCT">
+      <offset>64</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <redundant_name>ppItemsV1_Deprecated</redundant_name>
+      <subtable external="AuctionSlotV1" />
+    </column>
+    <column name="auctionPetContainerIDs" type="INTARRAY">
+      <offset>68</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uVersion" type="INT">
+      <offset>72</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>

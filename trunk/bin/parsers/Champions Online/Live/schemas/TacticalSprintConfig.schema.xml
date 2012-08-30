@@ -36,17 +36,33 @@
     <column name="SpeedScaleSprintCombat" type="F32">
       <offset>28</offset>
     </column>
-    <column name="SprintDisabled" type="BIT">
+    <column name="SpeedSprint" type="F32">
       <offset>32</offset>
+    </column>
+    <column name="SpeedSprintCombat" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="SprintDisabled" type="BIT">
+      <offset>40</offset>
       <bit_offset>65536</bit_offset>
     </column>
+    <column name="AutoSprint" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
     <column name="SprintToggles" type="BIT">
-      <offset>36</offset>
+      <offset>44</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="CrittersIgnoreRunTimeouts" type="BIT">
-      <offset>36</offset>
+      <offset>44</offset>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="SprintFX" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

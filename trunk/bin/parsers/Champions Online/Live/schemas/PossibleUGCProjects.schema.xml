@@ -11,8 +11,11 @@
       <offset>0</offset>
       <subtable external="PossibleUGCProject" />
     </column>
-    <column name="ProjectSeries" type="STRUCT">
+    <column name="NewProjectSeries" type="U8">
       <offset>4</offset>
+    </column>
+    <column name="ProjectSeries" type="STRUCT">
+      <offset>8</offset>
       <subtable external="UGCProjectSeries" />
     </column>
     <column name="}" type="END" />

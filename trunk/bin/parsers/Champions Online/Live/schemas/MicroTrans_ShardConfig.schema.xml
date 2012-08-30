@@ -22,34 +22,40 @@
         <flag>REQUIRED</flag>
       </flags>
     </column>
-    <column name="CurrencyExchangeForSaleBucket" type="STRING">
+    <column name="ExchangeWithdrawCurrency" type="STRING">
       <offset>8</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
     </column>
-    <column name="CurrencyExchangeReadyToClaimBucket" type="STRING">
+    <column name="CurrencyExchangeForSaleBucket" type="STRING">
       <offset>12</offset>
     </column>
-    <column name="Prefix" type="STRING">
+    <column name="CurrencyExchangeReadyToClaimBucket" type="STRING">
       <offset>16</offset>
+    </column>
+    <column name="Prefix" type="STRING">
+      <offset>20</offset>
       <flags>
         <flag>REQUIRED</flag>
       </flags>
     </column>
     <column name="CategoryPrefix" type="STRING">
-      <offset>16</offset>
+      <offset>20</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>Prefix</redundant_name>
     </column>
     <column name="MOTD" type="OPTIONALSTRUCT">
-      <offset>20</offset>
+      <offset>24</offset>
       <subtable external="MicroTrans_MOTDConfig" />
     </column>
     <column name="PointBuyEnabled" type="U8">
-      <offset>24</offset>
+      <offset>28</offset>
     </column>
     <column name="SteamWalletEnabled" type="BIT">
-      <offset>24</offset>
+      <offset>28</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="}" type="END" />

@@ -15,6 +15,9 @@
     <column name="OverrideDisplayName" type="U8">
       <offset>4</offset>
     </column>
+    <column name="OverrideDisplaySubName" type="U8">
+      <offset>5</offset>
+    </column>
     <column name="nameProps" type="IGNORE">
       <flags>
         <flag>FLATEMBED</flag>
@@ -28,14 +31,22 @@
       <offset>12</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="Comments" type="STRING">
+    <column name="DisplaySubNameType" type="INT">
       <offset>24</offset>
+      <static_define_list external="EncounterCritterOverrideType" />
+    </column>
+    <column name="DisplaySubName" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Comments" type="STRING">
+      <offset>40</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="Comments:" type="STRING">
-      <offset>24</offset>
+      <offset>40</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -43,18 +54,18 @@
       <redundant_name>Comments</redundant_name>
     </column>
     <column name="OverrideSpawnConditions" type="U8">
-      <offset>28</offset>
+      <offset>44</offset>
     </column>
     <column name="SpawnAtTeamSize" type="STRUCT">
-      <offset>32</offset>
+      <offset>48</offset>
       <subtable external="EncounterActorSpawnProperties" />
     </column>
     <column name="BossAtTeamSize" type="STRUCT">
-      <offset>36</offset>
+      <offset>52</offset>
       <subtable external="EncounterActorSpawnProperties" />
     </column>
     <column name="OverrideCritterType" type="U8">
-      <offset>40</offset>
+      <offset>56</offset>
     </column>
     <column name="critterProps" type="IGNORE">
       <flags>
@@ -62,43 +73,43 @@
       </flags>
     </column>
     <column name="CritterType" type="INT">
-      <offset>44</offset>
+      <offset>60</offset>
       <static_define_list external="ActorCritterType" />
     </column>
     <column name="CritterDef" type="REFERENCE">
-      <offset>48</offset>
+      <offset>64</offset>
       <dictionary_name>CritterDef</dictionary_name>
     </column>
     <column name="CritterGroup" type="REFERENCE">
-      <offset>52</offset>
+      <offset>68</offset>
       <dictionary_name>CritterGroup</dictionary_name>
     </column>
     <column name="CritterRank" type="STRING">
-      <offset>56</offset>
+      <offset>72</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="CritterSubRank" type="STRING">
-      <offset>60</offset>
+      <offset>76</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="LevelOffset" type="INT">
-      <offset>64</offset>
+      <offset>80</offset>
     </column>
     <column name="CritterMapVariable" type="STRING">
-      <offset>68</offset>
+      <offset>84</offset>
     </column>
     <column name="NemesisLeaderTeam" type="U8">
-      <offset>72</offset>
+      <offset>88</offset>
     </column>
     <column name="NemesisTeamIndex" type="INT">
-      <offset>76</offset>
+      <offset>92</offset>
     </column>
     <column name="OverrideFaction" type="U8">
-      <offset>80</offset>
+      <offset>96</offset>
     </column>
     <column name="factionProps" type="IGNORE">
       <flags>
@@ -106,18 +117,18 @@
       </flags>
     </column>
     <column name="CritterFactionType" type="INT">
-      <offset>84</offset>
+      <offset>100</offset>
       <static_define_list external="EncounterTemplateOverrideType" />
     </column>
     <column name="CritterFaction" type="REFERENCE">
-      <offset>88</offset>
+      <offset>104</offset>
       <dictionary_name>CritterFaction</dictionary_name>
     </column>
     <column name="CritterGang" type="INT">
-      <offset>92</offset>
+      <offset>108</offset>
     </column>
     <column name="OverrideCritterSpawnInfo" type="U8">
-      <offset>96</offset>
+      <offset>112</offset>
     </column>
     <column name="spawnInfoProps" type="IGNORE">
       <flags>
@@ -125,17 +136,17 @@
       </flags>
     </column>
     <column name="SpawnAnimType" type="INT">
-      <offset>100</offset>
+      <offset>116</offset>
       <static_define_list external="EncounterTemplateOverrideType" />
     </column>
     <column name="SpawnAnim" type="STRING">
-      <offset>104</offset>
+      <offset>120</offset>
     </column>
     <column name="SpawnLockdownTime" type="F32">
-      <offset>108</offset>
+      <offset>124</offset>
     </column>
     <column name="OverrideMisc" type="U8">
-      <offset>112</offset>
+      <offset>128</offset>
     </column>
     <column name="miscProps" type="IGNORE">
       <flags>
@@ -143,20 +154,20 @@
       </flags>
     </column>
     <column name="IsNonCombatant" type="U8">
-      <offset>116</offset>
+      <offset>132</offset>
     </column>
     <column name="PetContactList" type="REFERENCE">
-      <offset>120</offset>
+      <offset>136</offset>
       <dictionary_name>PetContactList</dictionary_name>
     </column>
     <column name="CombatRole" type="STRING">
-      <offset>124</offset>
+      <offset>140</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="OverrideFSMInfo" type="U8">
-      <offset>128</offset>
+      <offset>144</offset>
     </column>
     <column name="fsmProps" type="IGNORE">
       <flags>
@@ -164,29 +175,29 @@
       </flags>
     </column>
     <column name="FSMType" type="INT">
-      <offset>132</offset>
+      <offset>148</offset>
       <static_define_list external="EncounterTemplateOverrideType" />
     </column>
     <column name="FSM" type="REFERENCE">
-      <offset>136</offset>
+      <offset>152</offset>
       <dictionary_name>FSM</dictionary_name>
     </column>
     <column name="VariableDef" type="STRUCT">
-      <offset>140</offset>
+      <offset>156</offset>
       <subtable external="WorldVariableDef" />
     </column>
     <column name="OverrideInteractionInfo" type="U8">
-      <offset>144</offset>
+      <offset>160</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
     <column name="InteractionType" type="INT">
-      <offset>148</offset>
+      <offset>164</offset>
       <static_define_list external="EncounterCritterOverrideType" />
     </column>
     <column name="InteractionProperties" type="OPTIONALSTRUCT">
-      <offset>152</offset>
+      <offset>168</offset>
       <subtable external="WorldInteractionProperties" />
     </column>
     <column name="End" type="END" />

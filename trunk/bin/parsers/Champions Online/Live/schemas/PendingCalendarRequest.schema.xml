@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PendingCalendarRequest">
+  <table>
+    <column name="PendingCalendarRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uStartDate" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="uEndDate" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="TagsInclude" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="TagsExclude" type="INTARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

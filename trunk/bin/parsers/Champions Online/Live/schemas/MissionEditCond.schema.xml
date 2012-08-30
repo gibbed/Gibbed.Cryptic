@@ -24,8 +24,20 @@
       <offset>8</offset>
       <subtable external="MissionEditCond" />
     </column>
-    <column name="ShowCount" type="U8">
+    <column name="ShowCount" type="INT">
       <offset>12</offset>
+      <static_define_list external="MDEShowCount" />
+    </column>
+    <column name="Count" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Expression" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
     </column>
     <column name="}" type="END" />
   </table>

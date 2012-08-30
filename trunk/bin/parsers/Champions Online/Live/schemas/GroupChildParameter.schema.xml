@@ -7,7 +7,7 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="parameter_name" type="STRING">
+    <column name="ParameterName" type="STRING">
       <offset>0</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -16,6 +16,12 @@
     </column>
     <column name="IntValue" type="INT">
       <offset>4</offset>
+    </column>
+    <column name="InheritValue" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

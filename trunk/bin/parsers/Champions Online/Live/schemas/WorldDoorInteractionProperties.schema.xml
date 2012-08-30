@@ -36,48 +36,51 @@
     <column name="CollectDestinationStatus" type="U8">
       <offset>78</offset>
     </column>
-    <column name="UseChoiceTable" type="U8">
+    <column name="DestinationSameOwner" type="U8">
       <offset>79</offset>
     </column>
-    <column name="MapName" type="STRING">
+    <column name="UseChoiceTable" type="U8">
       <offset>80</offset>
     </column>
-    <column name="SpawnTargetName" type="STRING">
+    <column name="MapName" type="STRING">
       <offset>84</offset>
     </column>
-    <column name="ChoiceTable" type="REFERENCE">
+    <column name="SpawnTargetName" type="STRING">
       <offset>88</offset>
+    </column>
+    <column name="ChoiceTable" type="REFERENCE">
+      <offset>92</offset>
       <dictionary_name>ChoiceTable</dictionary_name>
     </column>
     <column name="ChoiceName" type="STRING">
-      <offset>92</offset>
+      <offset>96</offset>
     </column>
     <column name="TransitionOverride" type="REFERENCE">
-      <offset>96</offset>
+      <offset>100</offset>
       <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
     </column>
     <column name="DoorIdentifier" type="STRING">
-      <offset>100</offset>
+      <offset>104</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="DoorKey" type="STRING">
-      <offset>104</offset>
-    </column>
-    <column name="CustomMotion" type="U8">
       <offset>108</offset>
     </column>
-    <column name="Rotation" type="F32FIXEDARRAY">
+    <column name="CustomMotion" type="U8">
       <offset>112</offset>
+    </column>
+    <column name="Rotation" type="F32FIXEDARRAY">
+      <offset>116</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="Postion" type="F32FIXEDARRAY">
-      <offset>124</offset>
+      <offset>128</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="TranslationTime" type="F32">
-      <offset>136</offset>
+      <offset>140</offset>
     </column>
     <column name="End" type="END" />
   </table>

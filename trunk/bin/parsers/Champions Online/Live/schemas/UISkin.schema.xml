@@ -420,30 +420,58 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="AccordionButtonStyle:" type="REFERENCE">
+    <column name="TreechartInsertionPlus:" type="STRING">
       <offset>320</offset>
-      <dictionary_name>UIStyleBorder</dictionary_name>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="AccordionButtonStyle(Highlight):" type="REFERENCE">
+    <column name="TreechartInsertionPlusHover:" type="STRING">
       <offset>324</offset>
-      <dictionary_name>UIStyleBorder</dictionary_name>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="AccordionButtonStyle(Pressed):" type="REFERENCE">
+    <column name="TreechartInsertionPlusPressed:" type="STRING">
       <offset>328</offset>
-      <dictionary_name>UIStyleBorder</dictionary_name>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="AccordionButtonStyle(Disabled):" type="REFERENCE">
+    <column name="AccordionButtonStyle:" type="REFERENCE">
       <offset>332</offset>
       <dictionary_name>UIStyleBorder</dictionary_name>
     </column>
-    <column name="DefaultCursor:" type="STRING">
+    <column name="AccordionButtonStyle(Highlight):" type="REFERENCE">
       <offset>336</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="AccordionButtonStyle(Pressed):" type="REFERENCE">
+      <offset>340</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="AccordionButtonStyle(Disabled):" type="REFERENCE">
+      <offset>344</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="ChatLogStyle:" type="REFERENCE">
+      <offset>348</offset>
+      <dictionary_name>UIStyleBorder</dictionary_name>
+    </column>
+    <column name="DefaultCursor:" type="STRING">
+      <offset>352</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="TextCursor:" type="STRING">
-      <offset>340</offset>
+      <offset>356</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -451,38 +479,6 @@
       <dictionary_name>Texture</dictionary_name>
     </column>
     <column name="DragCursorBottomLeft:" type="STRING">
-      <offset>344</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>GLOBAL_NAME</flag>
-      </flags>
-      <dictionary_name>UICursor</dictionary_name>
-    </column>
-    <column name="DragCursorBottomRight:" type="STRING">
-      <offset>348</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>GLOBAL_NAME</flag>
-      </flags>
-      <dictionary_name>UICursor</dictionary_name>
-    </column>
-    <column name="DragCursorTopLeft:" type="STRING">
-      <offset>352</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>GLOBAL_NAME</flag>
-      </flags>
-      <dictionary_name>UICursor</dictionary_name>
-    </column>
-    <column name="DragCursorTopRight:" type="STRING">
-      <offset>356</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>GLOBAL_NAME</flag>
-      </flags>
-      <dictionary_name>UICursor</dictionary_name>
-    </column>
-    <column name="DragCursorBottom:" type="STRING">
       <offset>360</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -490,7 +486,7 @@
       </flags>
       <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="DragCursorLeft:" type="STRING">
+    <column name="DragCursorBottomRight:" type="STRING">
       <offset>364</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -498,7 +494,7 @@
       </flags>
       <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="DragCursorRight:" type="STRING">
+    <column name="DragCursorTopLeft:" type="STRING">
       <offset>368</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -506,7 +502,7 @@
       </flags>
       <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="DragCursorTop:" type="STRING">
+    <column name="DragCursorTopRight:" type="STRING">
       <offset>372</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -514,7 +510,7 @@
       </flags>
       <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="DragCursorAnyDirection:" type="STRING">
+    <column name="DragCursorBottom:" type="STRING">
       <offset>376</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -522,43 +518,43 @@
       </flags>
       <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="PaneTreePane:" type="REFERENCE">
+    <column name="DragCursorLeft:" type="STRING">
       <offset>380</offset>
-      <dictionary_name>UIStyleBorder</dictionary_name>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="ArrowDropDown:" type="STRING">
+    <column name="DragCursorRight:" type="STRING">
       <offset>384</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
       </flags>
-      <dictionary_name>Texture</dictionary_name>
+      <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="SliderHandle:" type="STRING">
+    <column name="DragCursorTop:" type="STRING">
       <offset>388</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
       </flags>
-      <dictionary_name>Texture</dictionary_name>
+      <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="SliderTroughHL:" type="STRING">
+    <column name="DragCursorAnyDirection:" type="STRING">
       <offset>392</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
       </flags>
-      <dictionary_name>Texture</dictionary_name>
+      <dictionary_name>UICursor</dictionary_name>
     </column>
-    <column name="SliderTroughHM:" type="STRING">
+    <column name="PaneTreePane:" type="REFERENCE">
       <offset>396</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>GLOBAL_NAME</flag>
-      </flags>
-      <dictionary_name>Texture</dictionary_name>
+      <dictionary_name>UIStyleBorder</dictionary_name>
     </column>
-    <column name="SliderTroughHR:" type="STRING">
+    <column name="ArrowDropDown:" type="STRING">
       <offset>400</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -566,7 +562,7 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="Minus:" type="STRING">
+    <column name="SliderHandle:" type="STRING">
       <offset>404</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -574,7 +570,7 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="Plus:" type="STRING">
+    <column name="SliderTroughHL:" type="STRING">
       <offset>408</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -582,7 +578,7 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="CheckBoxChecked:" type="STRING">
+    <column name="SliderTroughHM:" type="STRING">
       <offset>412</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -590,7 +586,7 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="CheckBoxUnchecked:" type="STRING">
+    <column name="SliderTroughHR:" type="STRING">
       <offset>416</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -598,7 +594,7 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="RadioBoxChecked:" type="STRING">
+    <column name="Minus:" type="STRING">
       <offset>420</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -606,8 +602,40 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="RadioBoxUnchecked:" type="STRING">
+    <column name="Plus:" type="STRING">
       <offset>424</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="CheckBoxChecked:" type="STRING">
+      <offset>428</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="CheckBoxUnchecked:" type="STRING">
+      <offset>432</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="RadioBoxChecked:" type="STRING">
+      <offset>436</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="RadioBoxUnchecked:" type="STRING">
+      <offset>440</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>

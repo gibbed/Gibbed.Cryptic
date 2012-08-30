@@ -12,22 +12,22 @@
     </column>
     <column name="aim" type="EMBEDDEDSTRUCT">
       <offset>4</offset>
-      <subtable external="TacticalSyncAim" />
+      <subtable external="TacticalRequesterAimDef" />
     </column>
     <column name="crouch" type="EMBEDDEDSTRUCT">
-      <offset>12</offset>
+      <offset>24</offset>
       <subtable external="TacticalSyncCrouch" />
     </column>
     <column name="run" type="EMBEDDEDSTRUCT">
-      <offset>16</offset>
+      <offset>28</offset>
       <subtable external="TacticalSyncRun" />
     </column>
     <column name="Roll" type="EMBEDDEDSTRUCT">
-      <offset>36</offset>
+      <offset>48</offset>
       <subtable external="TacticalRequesterRollDef" />
     </column>
     <column name="Flags" type="EMBEDDEDSTRUCT">
-      <offset>72</offset>
+      <offset>84</offset>
       <subtable external="TacticalSyncFlags" />
     </column>
     <column name="}" type="END" />
