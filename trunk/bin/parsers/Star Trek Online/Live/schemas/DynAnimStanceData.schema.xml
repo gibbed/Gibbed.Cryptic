@@ -20,8 +20,16 @@
         <flag>KEY</flag>
       </flags>
     </column>
-    <column name="FileName" type="CURRENTFILE">
+    <column name="BoneVisSet" type="INT">
       <offset>8</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default>-1</default>
+      <static_define_list external="SkelBoneVisibilitySet" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>12</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

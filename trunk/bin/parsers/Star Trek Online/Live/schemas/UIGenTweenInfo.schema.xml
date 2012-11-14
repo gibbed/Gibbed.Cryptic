@@ -6,6 +6,7 @@
         <flag>PARSETABLE_INFO</flag>
       </flags>
     </column>
+    <column name="{" type="START" />
     <column name="Type" type="INT">
       <offset>0</offset>
       <flags>
@@ -27,6 +28,10 @@
         <flag>STRUCTPARAM</flag>
       </flags>
     </column>
-    <column name="&#xA;" type="END" />
+    <column name="TweenBox" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="UIGenTweenBoxInfo" />
+    </column>
+    <column name="}" type="END" />
   </table>
 </parser>

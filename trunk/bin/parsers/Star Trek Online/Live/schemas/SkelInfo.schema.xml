@@ -72,36 +72,44 @@
       <offset>48</offset>
       <dictionary_name>DynAnimChartRunTime</dictionary_name>
     </column>
+    <column name="MountedChart" type="REFERENCE">
+      <offset>52</offset>
+      <dictionary_name>DynAnimChartRunTime</dictionary_name>
+    </column>
+    <column name="StrandInfo" type="REFERENCE">
+      <offset>56</offset>
+      <dictionary_name>DynStrandDataSet</dictionary_name>
+    </column>
     <column name="BodySockInfo" type="IGNORE">
       <flags>
         <flag>FLATEMBED</flag>
       </flags>
     </column>
     <column name="BodySockGeo" type="STRING">
-      <offset>52</offset>
+      <offset>60</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="BodySockPose" type="STRING">
-      <offset>56</offset>
+      <offset>64</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="BodySockMin" type="F32FIXEDARRAY">
-      <offset>60</offset>
+      <offset>68</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="BodySockMax" type="F32FIXEDARRAY">
-      <offset>72</offset>
+      <offset>80</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="LOD" type="BOOLFLAG">
-      <offset>84</offset>
+      <offset>92</offset>
     </column>
     <column name="Static" type="BOOLFLAG">
-      <offset>85</offset>
+      <offset>93</offset>
     </column>
     <column name="End" type="END" />
   </table>

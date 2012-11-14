@@ -24,8 +24,17 @@
       <offset>8</offset>
       <default>1</default>
     </column>
-    <column name="File" type="CURRENTFILE">
+    <column name="AltType" type="INT">
       <offset>12</offset>
+      <default>-1</default>
+      <static_define_list external="SensitivityType" />
+    </column>
+    <column name="AltValue" type="F32">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>20</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

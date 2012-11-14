@@ -28,8 +28,11 @@
     <column name="UGCProjectID" type="INT">
       <offset>16</offset>
     </column>
-    <column name="Partitions" type="STRUCT">
+    <column name="AllowInstanceSwitchingBetweenOwnedMaps" type="U8">
       <offset>20</offset>
+    </column>
+    <column name="Partitions" type="STRUCT">
+      <offset>24</offset>
       <subtable external="MapPartitionSummary" />
     </column>
     <column name="}" type="END" />

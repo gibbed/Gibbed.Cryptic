@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCSolarSystemSuns">
+  <table>
+    <column name="UGCSolarSystemSuns" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Sun" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="UGCSSLibObj" />
+    </column>
+    <column name="LibObject" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Sun</redundant_name>
+      <subtable external="UGCSSLibObj" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

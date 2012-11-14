@@ -666,6 +666,11 @@
       <offset>364</offset>
       <subtable external="PowerGrab" />
     </column>
+    <column name="lurch" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
     <column name="SlideFrameStart" type="INT">
       <offset>368</offset>
     </column>
@@ -696,93 +701,113 @@
       </flags>
       <redundant_name>SlideDistance</redundant_name>
     </column>
-    <column name="LurchCapsuleBufferRadius" type="F32">
+    <column name="MovementSpeed" type="F32">
       <offset>380</offset>
     </column>
-    <column name="MovementSpeed" type="F32">
+    <column name="LurchCapsuleBufferRadius" type="F32">
       <offset>384</offset>
     </column>
-    <column name="FinalFloaterPercent" type="F32">
-      <offset>388</offset>
-    </column>
     <column name="MovementGraph" type="REFERENCE">
-      <offset>392</offset>
+      <offset>388</offset>
       <dictionary_name>DynAnimGraph</dictionary_name>
     </column>
-    <column name="CostumePartOverride" type="OPTIONALSTRUCT">
+    <column name="LurchIgnoreCollision" type="BIT">
+      <offset>392</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="LurchSlideInMovementDirection" type="BIT">
+      <offset>392</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="FinalFloaterPercent" type="F32">
       <offset>396</offset>
+    </column>
+    <column name="CostumePartOverride" type="OPTIONALSTRUCT">
+      <offset>400</offset>
       <subtable external="PowerAnimFXCostumePartOverride" />
     </column>
     <column name="cpchPCBoneName" type="STRING">
-      <offset>400</offset>
+      <offset>404</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
     <column name="LocTargetingReticleFxName" type="STRING">
-      <offset>404</offset>
+      <offset>408</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="Dragon" type="OPTIONALSTRUCT">
+      <offset>412</offset>
+      <subtable external="DragonPowerAnimFX" />
+    </column>
     <column name="bfUsedFields" type="INTFIXEDARRAY">
-      <offset>408</offset>
+      <offset>416</offset>
       <flags>
         <flag>USEDFIELD</flag>
       </flags>
       <num_elements>6</num_elements>
     </column>
     <column name="PlayChargeDuringActivate" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="KeepStance" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="EmitCustomizable" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="ActivateFXOffsetOnMiss" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="DelayedHit" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="DelayedHitShared" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="LocationHit" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="NoPeriodicHitBits" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="NoPeriodicHitAnimKeyword" type="BIT">
+      <offset>440</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>NoPeriodicHitBits</redundant_name>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="MainTargetOnly" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="GlobalFX" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="CapsuleHit" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="DisableFaceActivate" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="DisableTurnToFaceTarget" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -790,11 +815,11 @@
       <bit_offset>65547</bit_offset>
     </column>
     <column name="LockFacingDuringActivate" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="FaceActivateAllowForward" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -802,65 +827,61 @@
       <bit_offset>65548</bit_offset>
     </column>
     <column name="LockFacingDuringPreactivate" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="LocationActivate" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <bit_offset>65550</bit_offset>
     </column>
     <column name="FlashTriggersStanceSwitch" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="HasSticky" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65552</bit_offset>
     </column>
-    <column name="SplitFloaters" type="BIT">
-      <offset>432</offset>
+    <column name="AlwaysChooseSameNode" type="BIT">
+      <offset>440</offset>
       <bit_offset>65553</bit_offset>
     </column>
-    <column name="AlwaysChooseSameNode" type="BIT">
-      <offset>432</offset>
+    <column name="DerivePersistStanceFromItem" type="BIT">
+      <offset>440</offset>
       <bit_offset>65554</bit_offset>
     </column>
-    <column name="DerivePersistStanceFromItem" type="BIT">
-      <offset>432</offset>
-      <bit_offset>65555</bit_offset>
-    </column>
     <column name="ReactTrigger" type="BIT">
-      <offset>432</offset>
-      <bit_offset>524308</bit_offset>
+      <offset>440</offset>
+      <bit_offset>524307</bit_offset>
       <static_define_list external="AttackReactTrigger" />
     </column>
     <column name="NodeSelection" type="BIT">
-      <offset>432</offset>
-      <bit_offset>196636</bit_offset>
+      <offset>440</offset>
+      <bit_offset>196635</bit_offset>
       <static_define_list external="PowerAnimNodeSelectionType" />
     </column>
     <column name="ChooseNodesInRangeAndArc" type="BIT">
-      <offset>432</offset>
+      <offset>440</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>NodeSelection</redundant_name>
-      <bit_offset>196636</bit_offset>
+      <bit_offset>196635</bit_offset>
       <static_define_list external="PowerAnimNodeSelectionType" />
     </column>
     <column name="ChargeFXNeedsPowerScales" type="BIT">
-      <offset>432</offset>
-      <bit_offset>65567</bit_offset>
+      <offset>440</offset>
+      <bit_offset>65566</bit_offset>
     </column>
     <column name="ActivateFXNeedsPowerScales" type="BIT">
-      <offset>436</offset>
-      <bit_offset>65536</bit_offset>
+      <offset>440</offset>
+      <bit_offset>65567</bit_offset>
     </column>
     <column name="RootOptionalHack" type="IGNORE" />
     <column name="StanceSTO" type="IGNORE" />

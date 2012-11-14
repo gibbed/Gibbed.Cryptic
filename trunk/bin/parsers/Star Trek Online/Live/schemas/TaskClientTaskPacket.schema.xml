@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TaskClientTaskPacket">
+  <table>
+    <column name="TaskClientTaskPacket" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="request_id" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="task_type" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="worker_version" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="fileAttachment" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="sendStats" type="EMBEDDEDSTRUCT">
+      <offset>280</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="recvStats" type="EMBEDDEDSTRUCT">
+      <offset>312</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

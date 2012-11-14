@@ -34,6 +34,13 @@
     <column name="CanBeWithdrawn" type="U8">
       <offset>28</offset>
     </column>
+    <column name="Featured" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="UGCFeaturedData" />
+    </column>
+    <column name="AuthorAllowsFeatured" type="U8">
+      <offset>36</offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

@@ -85,15 +85,23 @@
       </flags>
       <subtable external="PuppetRequest" />
     </column>
-    <column name="uPuppetSwapVersion" type="INT">
+    <column name="hPreferredCategorySet" type="REFERENCE">
       <offset>44</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CharClassCategorySet</dictionary_name>
+    </column>
+    <column name="uPuppetSwapVersion" type="INT">
+      <offset>48</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="uSavedModsVersion" type="INT">
-      <offset>48</offset>
+      <offset>52</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -101,7 +109,7 @@
       </flags>
     </column>
     <column name="bPuppetTransformFailed" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>

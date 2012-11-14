@@ -96,6 +96,7 @@
     <column name="iLastPlayedTime" type="INT">
       <offset>292</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -105,6 +106,7 @@
       <offset>296</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
+        <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -307,8 +309,15 @@
       </flags>
       <subtable external="EntInteractStatus" />
     </column>
+    <column name="ItemUpgradeInfo" type="EMBEDDEDSTRUCT">
+      <offset>596</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="ItemUpgradeInfo" />
+    </column>
     <column name="pWarpTo" type="OPTIONALSTRUCT">
-      <offset>600</offset>
+      <offset>612</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -317,14 +326,14 @@
       <subtable external="PlayerPowersWarpToData" />
     </column>
     <column name="fMovementThrottle" type="F32">
-      <offset>604</offset>
+      <offset>616</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <default>1</default>
     </column>
     <column name="SkillType" type="INT">
-      <offset>608</offset>
+      <offset>620</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -332,7 +341,7 @@
       <static_define_list external="SkillType" />
     </column>
     <column name="eSkillSpecialization" type="INTARRAY">
-      <offset>612</offset>
+      <offset>624</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -340,13 +349,13 @@
       <static_define_list external="ItemTag" />
     </column>
     <column name="eaSubscribedChannels" type="STRINGARRAY">
-      <offset>616</offset>
+      <offset>628</offset>
       <flags>
         <flag>NO_NETSEND</flag>
       </flags>
     </column>
     <column name="pGuild" type="OPTIONALSTRUCT">
-      <offset>620</offset>
+      <offset>632</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -354,7 +363,7 @@
       <subtable external="PlayerGuild" />
     </column>
     <column name="pcGuildName" type="STRING">
-      <offset>624</offset>
+      <offset>636</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>LOGIN_SUBSCRIBE</flag>
@@ -363,7 +372,7 @@
       </flags>
     </column>
     <column name="iGuildID" type="INT">
-      <offset>628</offset>
+      <offset>640</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>LOGIN_SUBSCRIBE</flag>
@@ -372,21 +381,21 @@
       </flags>
     </column>
     <column name="uiLastGuildStatsInfoVersion" type="INT">
-      <offset>632</offset>
+      <offset>644</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
     <column name="pPlayerQueueInfo" type="OPTIONALSTRUCT">
-      <offset>636</offset>
+      <offset>648</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="PlayerQueueInfo" />
     </column>
     <column name="eaQueueCooldowns" type="STRUCT">
-      <offset>640</offset>
+      <offset>652</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -395,7 +404,7 @@
       <subtable external="PlayerQueueCooldown" />
     </column>
     <column name="pActivity" type="OPTIONALSTRUCT">
-      <offset>644</offset>
+      <offset>656</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -403,13 +412,13 @@
       <subtable external="PlayerActivity" />
     </column>
     <column name="pchActivityString" type="STRING">
-      <offset>648</offset>
+      <offset>660</offset>
       <flags>
         <flag>SELF_AND_TEAM_ONLY</flag>
       </flags>
     </column>
     <column name="eLFGMode" type="INT">
-      <offset>652</offset>
+      <offset>664</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>LOGIN_SUBSCRIBE</flag>
@@ -419,7 +428,7 @@
       <static_define_list external="TeamMode" />
     </column>
     <column name="eLFGDifficultyMode" type="INT">
-      <offset>656</offset>
+      <offset>668</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -427,7 +436,7 @@
       <static_define_list external="LFGDifficultyMode" />
     </column>
     <column name="eWhitelistFlags" type="INT">
-      <offset>660</offset>
+      <offset>672</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -436,7 +445,7 @@
       <static_define_list external="PlayerWhitelistFlags" />
     </column>
     <column name="lastAdvertTime" type="INT">
-      <offset>664</offset>
+      <offset>676</offset>
       <flags>
         <flag>NO_NETSEND</flag>
         <flag>PERSIST</flag>
@@ -444,14 +453,14 @@
       </flags>
     </column>
     <column name="xuid" type="STRING">
-      <offset>680</offset>
+      <offset>692</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="pUI" type="OPTIONALSTRUCT">
-      <offset>684</offset>
+      <offset>696</offset>
       <flags>
         <flag>ALWAYS_ALLOC</flag>
         <flag>SELF_ONLY</flag>
@@ -461,14 +470,14 @@
       <subtable external="PlayerUI" />
     </column>
     <column name="ppMyWaypoints" type="STRUCT">
-      <offset>688</offset>
+      <offset>700</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="MinimapWaypoint" />
     </column>
     <column name="pTitleMsgKey" type="REFERENCE">
-      <offset>692</offset>
+      <offset>704</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -476,7 +485,7 @@
       <dictionary_name>Message</dictionary_name>
     </column>
     <column name="pMinigameData" type="OPTIONALSTRUCT">
-      <offset>696</offset>
+      <offset>708</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -484,14 +493,14 @@
       <subtable external="MinigameData" />
     </column>
     <column name="pTempMinigameData" type="OPTIONALSTRUCT">
-      <offset>700</offset>
+      <offset>712</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="TempMinigameData" />
     </column>
     <column name="pItemAssignmentPersistedData" type="OPTIONALSTRUCT">
-      <offset>704</offset>
+      <offset>716</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -499,14 +508,14 @@
       <subtable external="ItemAssignmentPersistedData" />
     </column>
     <column name="pItemAssignmentData" type="OPTIONALSTRUCT">
-      <offset>708</offset>
+      <offset>720</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="ItemAssignmentPlayerData" />
     </column>
     <column name="pchLastItemAssignmentVolume" type="STRING">
-      <offset>712</offset>
+      <offset>724</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
@@ -515,75 +524,75 @@
       </flags>
     </column>
     <column name="hSharedBank" type="REFERENCE">
-      <offset>716</offset>
+      <offset>728</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <dictionary_name>CopyDict_EntitySharedBank</dictionary_name>
     </column>
     <column name="uSharedBankInitTime" type="INT">
-      <offset>720</offset>
+      <offset>732</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="pTradeBag" type="OPTIONALSTRUCT">
-      <offset>724</offset>
+      <offset>736</offset>
       <subtable external="TradeBag" />
     </column>
     <column name="erTradePartner" type="INT">
-      <offset>728</offset>
+      <offset>740</offset>
     </column>
     <column name="PetInfo" type="STRUCT">
-      <offset>740</offset>
+      <offset>752</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="PlayerPetInfo" />
     </column>
     <column name="eaPlayerEntCopyForInfo" type="STRUCT">
-      <offset>748</offset>
+      <offset>760</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="PlayerEntCopyForInfo" />
     </column>
     <column name="pCSRListener" type="OPTIONALSTRUCT">
-      <offset>848</offset>
+      <offset>860</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="CSRListenerInfo" />
     </column>
     <column name="iStasis" type="INT">
-      <offset>852</offset>
+      <offset>864</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="iTimeLastScanForInteractables" type="INT">
-      <offset>856</offset>
+      <offset>868</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="pArmamentSwapInfo" type="OPTIONALSTRUCT">
-      <offset>864</offset>
+      <offset>876</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="ArmamentSwapInfo" />
     </column>
     <column name="debugInfo" type="OPTIONALSTRUCT">
-      <offset>868</offset>
+      <offset>880</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="PlayerDebug" />
     </column>
     <column name="pEmailV2" type="OPTIONALSTRUCT">
-      <offset>872</offset>
+      <offset>884</offset>
       <flags>
         <flag>ALWAYS_ALLOC</flag>
         <flag>SELF_ONLY</flag>
@@ -592,7 +601,7 @@
       <subtable external="NPCEMail" />
     </column>
     <column name="pEmailV1_Deprecated" type="OPTIONALSTRUCT">
-      <offset>876</offset>
+      <offset>888</offset>
       <flags>
         <flag>ALWAYS_ALLOC</flag>
         <flag>SELF_ONLY</flag>
@@ -601,7 +610,7 @@
       <subtable external="NPCEMailV1" />
     </column>
     <column name="pEmail" type="OPTIONALSTRUCT">
-      <offset>876</offset>
+      <offset>888</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>ALWAYS_ALLOC</flag>
@@ -612,7 +621,7 @@
       <subtable external="NPCEMailV1" />
     </column>
     <column name="pMicroTransInfo" type="OPTIONALSTRUCT">
-      <offset>880</offset>
+      <offset>892</offset>
       <flags>
         <flag>ALWAYS_ALLOC</flag>
         <flag>SELF_ONLY</flag>
@@ -621,7 +630,7 @@
       <subtable external="PlayerMTInfo" />
     </column>
     <column name="pPlayerAccountData" type="OPTIONALSTRUCT">
-      <offset>884</offset>
+      <offset>896</offset>
       <flags>
         <flag>ALWAYS_ALLOC</flag>
         <flag>SELF_ONLY</flag>
@@ -630,7 +639,7 @@
       <subtable external="PlayerAccountData" />
     </column>
     <column name="pPlayerAuctionData" type="OPTIONALSTRUCT">
-      <offset>888</offset>
+      <offset>900</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -638,42 +647,42 @@
       <subtable external="PlayerAuctionData" />
     </column>
     <column name="bMapTransferPending" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bMovingToLocation" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bStuckRespawn" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="bDisableRespawn" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="bUseFacingPitch" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="bAutoJoinTeamVoiceChat" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>SPECIAL_DEFAULT</flag>
@@ -681,14 +690,14 @@
       <bit_offset>65543</bit_offset>
     </column>
     <column name="bIsGM" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="bWipeEmail" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -696,21 +705,21 @@
       <bit_offset>65545</bit_offset>
     </column>
     <column name="bTimeControlPause" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="bTimeControlAllowed" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="bIsFirstSessionLogin" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -719,21 +728,21 @@
       <bit_offset>65548</bit_offset>
     </column>
     <column name="bIsDev" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="bIgnoreClientPowerActivations" type="BIT">
-      <offset>892</offset>
+      <offset>904</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <bit_offset>65550</bit_offset>
     </column>
     <column name="iPrevDoorRegion" type="INT">
-      <offset>900</offset>
+      <offset>912</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -743,34 +752,34 @@
       <static_define_list external="WorldRegionType" />
     </column>
     <column name="pMovieMapTransfer" type="OPTIONALSTRUCT">
-      <offset>904</offset>
+      <offset>916</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="MapDescription" />
     </column>
     <column name="pchActiveMovieName" type="STRING">
-      <offset>908</offset>
+      <offset>920</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="pchTransitionSequence" type="STRING">
-      <offset>912</offset>
+      <offset>924</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="pMapMoveConfirm" type="OPTIONALSTRUCT">
-      <offset>916</offset>
+      <offset>928</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="PlayerMapMoveConfirm" />
     </column>
     <column name="pchLastUsedDoorIdentifier" type="STRING">
-      <offset>924</offset>
+      <offset>936</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -780,7 +789,7 @@
       </flags>
     </column>
     <column name="pchLastUsedDoorMapName" type="STRING">
-      <offset>928</offset>
+      <offset>940</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -790,7 +799,7 @@
       </flags>
     </column>
     <column name="pchLastUsedDoorSpawnPointName" type="STRING">
-      <offset>932</offset>
+      <offset>944</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -800,7 +809,7 @@
       </flags>
     </column>
     <column name="uLastUsedDoorMapID" type="INT">
-      <offset>936</offset>
+      <offset>948</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_AND_TEAM_ONLY</flag>
@@ -809,7 +818,7 @@
       </flags>
     </column>
     <column name="uLastUsedDoorPartitionID" type="INT">
-      <offset>940</offset>
+      <offset>952</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_AND_TEAM_ONLY</flag>
@@ -818,7 +827,7 @@
       </flags>
     </column>
     <column name="pWarp" type="OPTIONALSTRUCT">
-      <offset>944</offset>
+      <offset>956</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -827,7 +836,7 @@
       <subtable external="PlayerWarpToData" />
     </column>
     <column name="pRecruitWarp" type="OPTIONALSTRUCT">
-      <offset>944</offset>
+      <offset>956</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -838,7 +847,7 @@
       <subtable external="PlayerWarpToData" />
     </column>
     <column name="RecruitWarp" type="OPTIONALSTRUCT">
-      <offset>944</offset>
+      <offset>956</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -849,42 +858,42 @@
       <subtable external="PlayerWarpToData" />
     </column>
     <column name="uiLastRecruitWarpTime" type="INT">
-      <offset>948</offset>
+      <offset>960</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="iCurrentCharacterIDs" type="INTARRAY">
-      <offset>952</offset>
+      <offset>964</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="interiorInvites" type="STRUCT">
-      <offset>956</offset>
+      <offset>968</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="InteriorInvite" />
     </column>
     <column name="eaGuildMapInvites" type="STRUCT">
-      <offset>960</offset>
+      <offset>972</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="GuildMapInvite" />
     </column>
     <column name="dirtyBit" type="U8">
-      <offset>964</offset>
+      <offset>976</offset>
       <flags>
         <flag>NO_NETSEND</flag>
         <flag>DIRTY_BIT</flag>
       </flags>
     </column>
     <column name="pXBoxSpecificData" type="OPTIONALSTRUCT">
-      <offset>968</offset>
+      <offset>980</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -892,11 +901,11 @@
       <subtable external="XBoxSpecificData" />
     </column>
     <column name="ppKeyValueCache" type="STRUCT">
-      <offset>972</offset>
+      <offset>984</offset>
       <subtable external="AccountProxyKeyValueInfo" />
     </column>
     <column name="iVirtualShardID" type="INT">
-      <offset>976</offset>
+      <offset>988</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>LOGIN_SUBSCRIBE</flag>
@@ -904,7 +913,7 @@
       </flags>
     </column>
     <column name="eaRewardMods" type="STRUCT">
-      <offset>984</offset>
+      <offset>996</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -912,25 +921,25 @@
       <subtable external="RewardModifier" />
     </column>
     <column name="uLastRewardTeam" type="INT">
-      <offset>988</offset>
+      <offset>1000</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="uLastRewardCount" type="INT">
-      <offset>992</offset>
+      <offset>1004</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="uiLastRewardTime" type="INT">
-      <offset>996</offset>
+      <offset>1008</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="eaRewardGatedData" type="STRUCT">
-      <offset>1000</offset>
+      <offset>1012</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -939,13 +948,13 @@
       <subtable external="RewardGatedTypeData" />
     </column>
     <column name="uLastLotsPostedByPlayer" type="INT">
-      <offset>1004</offset>
+      <offset>1016</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="eaNumericConversionStates" type="STRUCT">
-      <offset>1012</offset>
+      <offset>1024</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -953,14 +962,14 @@
       <subtable external="NumericConversionState" />
     </column>
     <column name="hCurrencyExchangeAccountData" type="REFERENCE">
-      <offset>1016</offset>
+      <offset>1028</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <dictionary_name>CopyDict_CurrencyExchange</dictionary_name>
     </column>
     <column name="timeLastVerifyEntityMissionData" type="INT">
-      <offset>1020</offset>
+      <offset>1032</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
@@ -968,7 +977,7 @@
       </flags>
     </column>
     <column name="pEventInfo" type="OPTIONALSTRUCT">
-      <offset>1024</offset>
+      <offset>1036</offset>
       <flags>
         <flag>ALWAYS_ALLOC</flag>
         <flag>SELF_ONLY</flag>
@@ -978,38 +987,45 @@
       <subtable external="PlayerEventInfo" />
     </column>
     <column name="eaItemBuyBackList" type="STRUCT">
-      <offset>1028</offset>
+      <offset>1040</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="ItemBuyBack" />
     </column>
     <column name="uBuyBackId" type="INT">
-      <offset>1032</offset>
+      <offset>1044</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="uBuyBackTime" type="INT">
-      <offset>1036</offset>
+      <offset>1048</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
-    <column name="pUGCSubscription" type="OPTIONALSTRUCT">
-      <offset>1040</offset>
+    <column name="hUGCAccount" type="REFERENCE">
+      <offset>1052</offset>
       <flags>
-        <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
-        <flag>PERSIST</flag>
       </flags>
-      <subtable external="UGCSubscription" />
+      <dictionary_name>CopyDict_UGCAccount</dictionary_name>
+    </column>
+    <column name="hGroupProjectContainer" type="REFERENCE">
+      <offset>1056</offset>
+      <dictionary_name>CopyDict_GroupProjectContainerPlayer</dictionary_name>
     </column>
     <column name="eaAwayTeamPetIDs" type="IGNORE" />
     <column name="eaAwayTeamCritterIDs" type="IGNORE" />
     <column name="bNotLookingForGroup" type="IGNORE" />
     <column name="bAnonymous" type="IGNORE" />
     <column name="uPreviousBulletinTime" type="IGNORE" />
+    <column name="pUGCSubscription" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

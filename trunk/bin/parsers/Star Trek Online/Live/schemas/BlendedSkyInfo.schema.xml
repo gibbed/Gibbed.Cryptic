@@ -10,11 +10,17 @@
     <column name="specified_values" type="INT">
       <offset>0</offset>
     </column>
-    <column name="FogClip" type="U8">
+    <column name="IgnoreFogClip" type="U8">
       <offset>4</offset>
     </column>
-    <column name="FogClipLow" type="U8">
+    <column name="FogClip" type="U8">
       <offset>5</offset>
+    </column>
+    <column name="IgnoreFogClipLow" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="FogClipLow" type="U8">
+      <offset>7</offset>
     </column>
     <column name="CloudShadowTexture" type="STRING">
       <offset>8</offset>
@@ -106,16 +112,20 @@
       <offset>1364</offset>
       <subtable external="SkyTimeScattering" />
     </column>
+    <column name="SkyShadows" type="EMBEDDEDSTRUCT">
+      <offset>1392</offset>
+      <subtable external="ShadowRules" />
+    </column>
     <column name="outputWorldLightDir" type="F32FIXEDARRAY">
-      <offset>1524</offset>
+      <offset>1564</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="outputWorldLightDir2" type="F32FIXEDARRAY">
-      <offset>1536</offset>
+      <offset>1576</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="secondaryLightType2" type="INT">
-      <offset>1548</offset>
+      <offset>1588</offset>
       <static_define_list external="LightAffectType" />
     </column>
     <column name="}" type="END" />

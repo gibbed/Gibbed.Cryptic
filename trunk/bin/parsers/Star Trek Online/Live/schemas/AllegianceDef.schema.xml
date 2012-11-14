@@ -69,14 +69,22 @@
       <offset>80</offset>
       <subtable external="AllegianceDefaultMap" />
     </column>
-    <column name="NewCharacterMap" type="STRINGARRAY">
+    <column name="NamePrefix" type="STRUCT">
       <offset>84</offset>
+      <subtable external="AllegianceNamePrefix" />
+    </column>
+    <column name="SubNamePrefix" type="STRUCT">
+      <offset>88</offset>
+      <subtable external="AllegianceNamePrefix" />
+    </column>
+    <column name="NewCharacterMap" type="STRINGARRAY">
+      <offset>92</offset>
     </column>
     <column name="SkipTutorialMap" type="STRINGARRAY">
-      <offset>88</offset>
+      <offset>96</offset>
     </column>
     <column name="FallbackStaticMap" type="STRING">
-      <offset>92</offset>
+      <offset>100</offset>
     </column>
     <column name="}" type="END" />
   </table>

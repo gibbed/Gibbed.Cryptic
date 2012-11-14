@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AllegianceNamePrefix">
+  <table>
+    <column name="AllegianceNamePrefix" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Prefix" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="AllowedClass" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CharacterClassRef" />
+    </column>
+    <column name="AllowedSpecies" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="SpeciesDefRef" />
+    </column>
+    <column name="GameAccountUnlockKey" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

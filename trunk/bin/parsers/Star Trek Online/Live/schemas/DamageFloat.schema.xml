@@ -27,53 +27,66 @@
       <offset>24</offset>
       <num_elements>2</num_elements>
     </column>
-    <column name="Color" type="INT">
+    <column name="v2DestPos" type="F32FIXEDARRAY">
       <offset>32</offset>
+      <num_elements>2</num_elements>
     </column>
-    <column name="Color2" type="INT">
-      <offset>36</offset>
-    </column>
-    <column name="Scale" type="F32">
+    <column name="Color" type="INT">
       <offset>40</offset>
     </column>
-    <column name="MaxPopout" type="F32">
+    <column name="Color2" type="INT">
       <offset>44</offset>
     </column>
-    <column name="Priority" type="F32">
+    <column name="Scale" type="F32">
       <offset>48</offset>
     </column>
-    <column name="Message" type="STRING">
+    <column name="MaxPopout" type="F32">
       <offset>52</offset>
     </column>
-    <column name="IconOffsetFrom" type="INT">
+    <column name="Priority" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="Message" type="STRING">
       <offset>60</offset>
     </column>
-    <column name="v2IconPos" type="F32FIXEDARRAY">
+    <column name="Angle" type="F32">
       <offset>64</offset>
+    </column>
+    <column name="IconOffsetFrom" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="v2IconPos" type="F32FIXEDARRAY">
+      <offset>76</offset>
       <num_elements>2</num_elements>
     </column>
     <column name="v2IconPosOffset" type="F32FIXEDARRAY">
-      <offset>72</offset>
+      <offset>84</offset>
       <num_elements>2</num_elements>
     </column>
     <column name="IconScale" type="F32">
-      <offset>80</offset>
+      <offset>92</offset>
     </column>
     <column name="hFont" type="REFERENCE">
-      <offset>84</offset>
+      <offset>96</offset>
       <dictionary_name>UIStyleFont</dictionary_name>
     </column>
     <column name="v2PosOffset" type="F32FIXEDARRAY">
-      <offset>88</offset>
+      <offset>100</offset>
       <num_elements>2</num_elements>
     </column>
     <column name="v2VelocityBase" type="F32FIXEDARRAY">
-      <offset>96</offset>
+      <offset>108</offset>
       <num_elements>2</num_elements>
     </column>
     <column name="v2Size" type="F32FIXEDARRAY">
-      <offset>104</offset>
+      <offset>116</offset>
       <num_elements>2</num_elements>
+    </column>
+    <column name="uiPowID" type="INT">
+      <offset>124</offset>
+    </column>
+    <column name="Crit" type="U8">
+      <offset>128</offset>
     </column>
     <column name="}" type="END" />
   </table>

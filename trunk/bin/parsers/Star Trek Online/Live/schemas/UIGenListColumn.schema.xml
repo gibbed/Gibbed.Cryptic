@@ -362,61 +362,81 @@
       <offset>248</offset>
       <dictionary_name>UIGen</dictionary_name>
     </column>
-    <column name="TPIField" type="STRING">
+    <column name="Template" type="REFERENCE">
+      <offset>248</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CellTemplate</redundant_name>
+      <dictionary_name>UIGen</dictionary_name>
+    </column>
+    <column name="TemplateChild" type="STRUCT">
       <offset>252</offset>
+      <subtable external="UIGenChild" />
+    </column>
+    <column name="TemplateChildren" type="STRUCT">
+      <offset>252</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TemplateChild</redundant_name>
+      <subtable external="UIGenChild" />
+    </column>
+    <column name="TPIField" type="STRING">
+      <offset>256</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="OnActivated" type="OPTIONALSTRUCT">
-      <offset>256</offset>
-      <subtable external="UIGenAction" />
-    </column>
-    <column name="OnSelected" type="OPTIONALSTRUCT">
       <offset>260</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="Alignment" type="U8">
+    <column name="OnSelected" type="OPTIONALSTRUCT">
       <offset>264</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="Alignment" type="U8">
+      <offset>268</offset>
       <default>10</default>
       <static_define_list external="UIDirection" />
     </column>
     <column name="Sortable" type="BIT">
-      <offset>264</offset>
+      <offset>268</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="Resizable" type="BIT">
-      <offset>264</offset>
+      <offset>268</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="ShrinkToFit" type="BIT">
-      <offset>264</offset>
+      <offset>268</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="ScaleToFit" type="BIT">
-      <offset>264</offset>
+      <offset>268</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="NoWrap" type="BIT">
-      <offset>264</offset>
+      <offset>268</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="PlainText" type="BIT">
-      <offset>264</offset>
+      <offset>268</offset>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="SafeMode" type="BIT">
-      <offset>264</offset>
+      <offset>268</offset>
       <bit_offset>65550</bit_offset>
     </column>
     <column name="FilterProfanity" type="BIT">
-      <offset>264</offset>
+      <offset>268</offset>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="}" type="END" />

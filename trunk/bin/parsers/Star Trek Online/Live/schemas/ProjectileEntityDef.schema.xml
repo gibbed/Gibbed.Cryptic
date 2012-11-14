@@ -173,12 +173,15 @@
     <column name="ResetHitEntsTimer" type="F32">
       <offset>100</offset>
     </column>
-    <column name="ProjectileType" type="INT">
+    <column name="InitialEntityHitDelay" type="F32">
       <offset>104</offset>
+    </column>
+    <column name="ProjectileType" type="INT">
+      <offset>108</offset>
       <static_define_list external="EProjectileType" />
     </column>
     <column name="AttachOnCreate" type="INT">
-      <offset>108</offset>
+      <offset>112</offset>
       <static_define_list external="EProjectileAttachOnCreate" />
     </column>
     <column name="}" type="END" />

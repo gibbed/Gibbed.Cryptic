@@ -13,20 +13,26 @@
     <column name="uiTeamID" type="INT">
       <offset>4</offset>
     </column>
-    <column name="GroupIndex" type="INT">
+    <column name="MapKey" type="INT64">
       <offset>8</offset>
     </column>
-    <column name="Level" type="INT">
-      <offset>12</offset>
-    </column>
-    <column name="Rank" type="INT">
+    <column name="JoinMapKey" type="INT64">
       <offset>16</offset>
     </column>
+    <column name="GroupIndex" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Level" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="Rank" type="INT">
+      <offset>32</offset>
+    </column>
     <column name="State" type="INT">
-      <offset>20</offset>
+      <offset>36</offset>
     </column>
     <column name="hEntity" type="REFERENCE">
-      <offset>24</offset>
+      <offset>40</offset>
       <dictionary_name>CopyDict_ENTITYPLAYER</dictionary_name>
     </column>
     <column name="}" type="END" />

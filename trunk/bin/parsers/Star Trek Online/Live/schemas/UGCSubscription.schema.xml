@@ -7,12 +7,13 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="eaiSeries" type="INTARRAY">
+    <column name="eaAuthors" type="STRUCT">
       <offset>0</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
+      <subtable external="UGCAuthorSubscription" />
     </column>
     <column name="}" type="END" />
   </table>

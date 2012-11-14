@@ -12,7 +12,7 @@
       <flags>
         <flag>OBJECTTYPE</flag>
       </flags>
-      <default>21</default>
+      <default>22</default>
       <static_define_list external="UIGenType" />
     </column>
     <column name="bf" type="INTFIXEDARRAY">
@@ -328,88 +328,92 @@
       <offset>232</offset>
       <dictionary_name>UIGenScrollbarDef</dictionary_name>
     </column>
-    <column name="ScrollbarTopMargin" type="INT16">
+    <column name="DisabledScrollbarDef" type="REFERENCE">
       <offset>236</offset>
-      <static_define_list external="UISize" />
+      <dictionary_name>UIGenScrollbarDef</dictionary_name>
     </column>
-    <column name="ScrollbarBottomMargin" type="INT16">
-      <offset>238</offset>
-      <static_define_list external="UISize" />
-    </column>
-    <column name="ScrollbarLeftMargin" type="INT16">
+    <column name="ScrollbarTopMargin" type="INT16">
       <offset>240</offset>
       <static_define_list external="UISize" />
     </column>
-    <column name="ScrollbarRightMargin" type="INT16">
+    <column name="ScrollbarBottomMargin" type="INT16">
       <offset>242</offset>
       <static_define_list external="UISize" />
     </column>
-    <column name="ScrollbarOnlyShowWhenNeeded" type="BIT">
+    <column name="ScrollbarLeftMargin" type="INT16">
       <offset>244</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ScrollbarRightMargin" type="INT16">
+      <offset>246</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ScrollbarOnlyShowWhenNeeded" type="BIT">
+      <offset>248</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ScrollbarCaptureMouse" type="BIT">
-      <offset>244</offset>
+      <offset>248</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="ScrollbarUseWheel" type="BIT">
-      <offset>244</offset>
+      <offset>248</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="ScrollbarUseStick" type="BIT">
-      <offset>244</offset>
+      <offset>248</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="Font" type="REFERENCE">
-      <offset>248</offset>
+      <offset>252</offset>
       <dictionary_name>UIStyleFont</dictionary_name>
     </column>
     <column name="DefaultLinkColor" type="INT">
-      <offset>252</offset>
+      <offset>256</offset>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
       <format>COLOR</format>
     </column>
     <column name="PlayerLinkColor" type="INT">
-      <offset>256</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-    </column>
-    <column name="PowerLinkColor" type="INT">
       <offset>260</offset>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
     </column>
-    <column name="FilterTabGroup" type="STRING">
+    <column name="PowerLinkColor" type="INT">
       <offset>264</offset>
-      <flags>
-        <flag>ESTRING</flag>
-      </flags>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
     </column>
-    <column name="FilterChannel" type="STRING">
+    <column name="FilterTabGroup" type="STRING">
       <offset>268</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="FilterTab" type="STRING">
+    <column name="FilterChannel" type="STRING">
       <offset>272</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="FilterTab" type="STRING">
+      <offset>276</offset>
     </column>
     <column name="PrivateMessageHandleExpr" type="OPTIONALSTRUCT">
-      <offset>276</offset>
+      <offset>280</offset>
       <subtable external="Expression" />
     </column>
     <column name="HandleExpr" type="OPTIONALSTRUCT">
-      <offset>276</offset>
+      <offset>280</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -417,11 +421,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="DisplayTabExprBlock" type="OPTIONALSTRUCT">
-      <offset>280</offset>
+      <offset>284</offset>
       <subtable external="Expression" />
     </column>
     <column name="TabExpr" type="OPTIONALSTRUCT">
-      <offset>280</offset>
+      <offset>284</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -429,11 +433,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="DisplayChannelExpr" type="OPTIONALSTRUCT">
-      <offset>284</offset>
+      <offset>288</offset>
       <subtable external="Expression" />
     </column>
     <column name="ChannelExpr" type="OPTIONALSTRUCT">
-      <offset>284</offset>
+      <offset>288</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -441,31 +445,31 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="FilterNotifyType" type="INTARRAY">
-      <offset>288</offset>
+      <offset>292</offset>
       <static_define_list external="NotifyType" />
     </column>
     <column name="LinkButton" type="INT">
-      <offset>292</offset>
+      <offset>296</offset>
       <default>-1</default>
       <static_define_list external="MouseButton" />
     </column>
     <column name="LinkClicked" type="STRUCT">
-      <offset>296</offset>
-      <subtable external="UIGenLinkHandlerAction" />
-    </column>
-    <column name="LinkHovered" type="STRUCT">
       <offset>300</offset>
       <subtable external="UIGenLinkHandlerAction" />
     </column>
-    <column name="Indent" type="F32">
+    <column name="LinkHovered" type="STRUCT">
       <offset>304</offset>
+      <subtable external="UIGenLinkHandlerAction" />
+    </column>
+    <column name="Indent" type="F32">
+      <offset>308</offset>
     </column>
     <column name="HangingIndent" type="F32">
-      <offset>308</offset>
+      <offset>312</offset>
       <default>10</default>
     </column>
     <column name="FollowingLineIndent" type="F32">
-      <offset>308</offset>
+      <offset>312</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -473,25 +477,25 @@
       <default>10</default>
     </column>
     <column name="ShowLinkUnderline" type="U8">
-      <offset>312</offset>
+      <offset>316</offset>
     </column>
     <column name="ShowLinkHoverUnderline" type="U8">
-      <offset>313</offset>
+      <offset>317</offset>
     </column>
     <column name="SelectionColor" type="INT">
-      <offset>316</offset>
+      <offset>320</offset>
       <default>1721342412</default>
     </column>
     <column name="HideChannelName" type="BIT">
-      <offset>320</offset>
+      <offset>324</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ShowNewMessages" type="BIT">
-      <offset>320</offset>
+      <offset>324</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="OnlyShowMessagesSentAfterGenIsCreated" type="BIT">
-      <offset>320</offset>
+      <offset>324</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -499,14 +503,14 @@
       <bit_offset>65537</bit_offset>
     </column>
     <column name="CopyOnSelect" type="BIT">
-      <offset>320</offset>
+      <offset>324</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="TextFading" type="BIT">
-      <offset>320</offset>
+      <offset>324</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>

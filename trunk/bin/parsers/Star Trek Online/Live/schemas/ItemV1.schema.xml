@@ -224,42 +224,50 @@
       </flags>
       <dictionary_name>Mission</dictionary_name>
     </column>
-    <column name="uiTimestamp" type="INT">
+    <column name="ppItemGemSlots" type="STRUCT">
       <offset>68</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ItemGemSlot" />
+    </column>
+    <column name="uiTimestamp" type="INT">
+      <offset>72</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
     <column name="owner" type="INT">
-      <offset>72</offset>
+      <offset>76</offset>
     </column>
     <column name="iWarpChargesUsed" type="U8">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>SOMETIMES_TRANSACT</flag>
       </flags>
     </column>
     <column name="bWarpActive" type="BIT">
-      <offset>80</offset>
+      <offset>84</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bTrainingFromItem" type="BIT">
-      <offset>80</offset>
+      <offset>84</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bSlottedOnItemAssignment" type="BIT">
-      <offset>80</offset>
+      <offset>84</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="bAlgo" type="BIT">
-      <offset>80</offset>
+      <offset>84</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>LOGIN_SUBSCRIBE</flag>
@@ -268,23 +276,23 @@
       <bit_offset>65539</bit_offset>
     </column>
     <column name="bUnlootable" type="BIT">
-      <offset>80</offset>
+      <offset>84</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="bExemptFromLootMode" type="BIT">
-      <offset>80</offset>
+      <offset>84</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="bTransactionPending" type="BIT">
-      <offset>80</offset>
+      <offset>84</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="bForceBind" type="BIT">
-      <offset>80</offset>
+      <offset>84</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="iPendingTransactionCount" type="U8">
-      <offset>84</offset>
+      <offset>88</offset>
     </column>
     <column name="bHide" type="IGNORE" />
     <column name="}" type="END" />

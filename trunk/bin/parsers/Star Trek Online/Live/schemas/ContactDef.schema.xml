@@ -201,59 +201,71 @@
       </flags>
       <subtable external="SpecialActionBlock" />
     </column>
-    <column name="LoreDialog" type="STRUCT">
+    <column name="ImageMenuData" type="OPTIONALSTRUCT">
       <offset>176</offset>
+      <subtable external="ContactImageMenuData" />
+    </column>
+    <column name="LoreDialog" type="STRUCT">
+      <offset>180</offset>
       <subtable external="ContactLoreDialog" />
     </column>
     <column name="Stores" type="STRUCT">
-      <offset>180</offset>
+      <offset>184</offset>
       <subtable external="StoreRef" />
     </column>
     <column name="PowerStore" type="STRUCT">
-      <offset>184</offset>
+      <offset>188</offset>
       <subtable external="PowerStoreRef" />
     </column>
     <column name="BuyOptionMsg" type="EMBEDDEDSTRUCT">
-      <offset>188</offset>
+      <offset>192</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="SellOptionMsg" type="EMBEDDEDSTRUCT">
-      <offset>200</offset>
+      <offset>204</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="BuyBackOptionMsg" type="EMBEDDEDSTRUCT">
-      <offset>212</offset>
+      <offset>216</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="StoreCollection" type="STRUCT">
-      <offset>224</offset>
+      <offset>228</offset>
       <subtable external="StoreCollection" />
     </column>
+    <column name="AuctionBrokerOption" type="STRUCT">
+      <offset>232</offset>
+      <subtable external="AuctionBrokerContactData" />
+    </column>
+    <column name="UGCSearchAgentOption" type="STRUCT">
+      <offset>236</offset>
+      <subtable external="UGCSearchAgentData" />
+    </column>
     <column name="NoStoreItemsDialog" type="STRUCT">
-      <offset>228</offset>
+      <offset>240</offset>
       <subtable external="DialogBlock" />
     </column>
     <column name="missionSearchStringMsg" type="EMBEDDEDSTRUCT">
-      <offset>232</offset>
+      <offset>244</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="OptionalActionCategory" type="STRING">
-      <offset>244</offset>
+      <offset>256</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="ContactFlags" type="INT">
-      <offset>248</offset>
+      <offset>260</offset>
       <static_define_list external="ContactFlags" />
       <format>FLAGS</format>
     </column>
     <column name="SkillTrainerType" type="INT">
-      <offset>252</offset>
+      <offset>264</offset>
       <static_define_list external="SkillType" />
     </column>
     <column name="TrainerType" type="INT">
-      <offset>252</offset>
+      <offset>264</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -261,18 +273,18 @@
       <static_define_list external="SkillType" />
     </column>
     <column name="MinigameType" type="INT">
-      <offset>256</offset>
+      <offset>268</offset>
       <static_define_list external="MinigameType" />
     </column>
     <column name="AllowedClassCategory" type="INTARRAY">
-      <offset>260</offset>
+      <offset>272</offset>
     </column>
     <column name="CanAccessRemotely" type="OPTIONALSTRUCT">
-      <offset>264</offset>
+      <offset>276</offset>
       <subtable external="Expression" />
     </column>
     <column name="CanAccessRemotely:" type="OPTIONALSTRUCT">
-      <offset>264</offset>
+      <offset>276</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -280,33 +292,33 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="EndDialogAudios" type="STRUCT">
-      <offset>268</offset>
+      <offset>280</offset>
       <subtable external="EndDialogAudio" />
     </column>
     <column name="SourceType" type="INT">
-      <offset>272</offset>
+      <offset>284</offset>
       <static_define_list external="ContactSourceType" />
     </column>
     <column name="SourceName" type="STRING">
-      <offset>276</offset>
+      <offset>288</offset>
     </column>
     <column name="SourceSecondaryName" type="STRING">
-      <offset>280</offset>
+      <offset>292</offset>
     </column>
     <column name="ContactIndicatorOverride" type="INT">
-      <offset>284</offset>
+      <offset>296</offset>
       <static_define_list external="ContactIndicator" />
     </column>
     <column name="ItemAssignmentData" type="OPTIONALSTRUCT">
-      <offset>288</offset>
+      <offset>300</offset>
       <subtable external="ContactItemAssignmentData" />
     </column>
     <column name="IsResearchStoreCollection" type="BIT">
-      <offset>292</offset>
+      <offset>304</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="IsCraftingStoreCollection" type="BIT">
-      <offset>292</offset>
+      <offset>304</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -314,12 +326,16 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="HideFromRemoteContactList" type="BIT">
-      <offset>292</offset>
+      <offset>304</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="AllowSwitchToLastActivePuppet" type="BIT">
-      <offset>292</offset>
+      <offset>304</offset>
       <bit_offset>65538</bit_offset>
+    </column>
+    <column name="UpdateOptionsEveryTick" type="BIT">
+      <offset>304</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="EndDialogAudioName" type="IGNORE" />
     <column name="DialogNodeWindowPositions" type="IGNORE">

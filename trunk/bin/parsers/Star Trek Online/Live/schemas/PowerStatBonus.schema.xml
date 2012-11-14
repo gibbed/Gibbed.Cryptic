@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerStatBonus">
+  <table>
+    <column name="PowerStatBonus" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SourceAttrib" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Entries" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="PowerStatBonusEntry" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

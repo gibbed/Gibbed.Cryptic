@@ -25,48 +25,51 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="GroundHeightAdjustment" type="F32">
-      <offset>12</offset>
-    </column>
-    <column name="ConeTargetDistance" type="F32">
-      <offset>16</offset>
-    </column>
-    <column name="CylinderTargetDistance" type="F32">
-      <offset>20</offset>
-    </column>
     <column name="KeybindName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FxParamNameScale" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FxKillMessage" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="cursorX" type="INT">
       <offset>24</offset>
+    </column>
+    <column name="cursorY" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="CursorTexture2" type="STRING">
+      <offset>32</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="AllowCharacterEffectArea" type="BIT">
-      <offset>28</offset>
+      <offset>36</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="IgnoreMouseLockState" type="BIT">
-      <offset>28</offset>
+      <offset>36</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="ShowOnCursor" type="BIT">
-      <offset>28</offset>
+      <offset>36</offset>
       <bit_offset>65538</bit_offset>
     </column>
-    <column name="cursorX" type="INT">
-      <offset>32</offset>
-    </column>
-    <column name="cursorY" type="INT">
-      <offset>36</offset>
-    </column>
     <column name="MoveIntoRangeOnClick" type="BIT">
-      <offset>40</offset>
-      <bit_offset>65536</bit_offset>
-    </column>
-    <column name="CursorTexture2" type="STRING">
-      <offset>44</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
+      <offset>36</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

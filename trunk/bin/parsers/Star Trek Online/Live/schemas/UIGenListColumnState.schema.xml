@@ -34,26 +34,42 @@
     <column name="Rows" type="STRUCT">
       <offset>12</offset>
       <flags>
+        <flag>UNKNOWN_32</flag>
         <flag>STRUCT_NORECURSE</flag>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="UIGen" />
     </column>
-    <column name="Column" type="INT">
+    <column name="OwnedRows" type="STRUCT">
       <offset>16</offset>
+      <flags>
+        <flag>STRUCT_NORECURSE</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UIGen" />
+    </column>
+    <column name="TemplateGens" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UIGenChild" />
+    </column>
+    <column name="Column" type="INT">
+      <offset>24</offset>
     </column>
     <column name="TPICol" type="INT">
-      <offset>20</offset>
+      <offset>28</offset>
       <default>-1</default>
     </column>
     <column name="PlainString" type="STRING">
-      <offset>24</offset>
+      <offset>32</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="Truncate" type="EMBEDDEDSTRUCT">
-      <offset>36</offset>
+      <offset>44</offset>
       <subtable external="UIGenBundleTruncateState" />
     </column>
     <column name="}" type="END" />

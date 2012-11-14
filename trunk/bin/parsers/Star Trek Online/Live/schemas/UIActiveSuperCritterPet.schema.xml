@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIActiveSuperCritterPet">
+  <table>
+    <column name="UIActiveSuperCritterPet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Level" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Summoned" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="Dead" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="Locked" type="U8">
+      <offset>10</offset>
+    </column>
+    <column name="Slotted" type="U8">
+      <offset>11</offset>
+    </column>
+    <column name="Training" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="uiTrainingTimeInSeconds" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="entRef" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="FakeEnt" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Entity" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

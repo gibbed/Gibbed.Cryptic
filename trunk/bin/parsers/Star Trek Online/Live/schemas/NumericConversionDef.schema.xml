@@ -35,8 +35,12 @@
     <column name="quantityPerInterval" type="INT">
       <offset>20</offset>
     </column>
-    <column name="autoConversionMaxIntervalsToken" type="STRING">
+    <column name="BonusDef" type="STRUCT">
       <offset>24</offset>
+      <subtable external="NumericConversionBonusDef" />
+    </column>
+    <column name="autoConversionMaxIntervalsToken" type="STRING">
+      <offset>28</offset>
     </column>
     <column name="}" type="END" />
   </table>

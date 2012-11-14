@@ -98,11 +98,14 @@
       <redundant_name>RegionBoundsMax</redundant_name>
       <num_elements>3</num_elements>
     </column>
-    <column name="eaiRevealed" type="INTARRAY">
+    <column name="fGroundFocusHeight" type="F32">
       <offset>36</offset>
     </column>
-    <column name="RevealedString" type="STRING">
+    <column name="eaiRevealed" type="INTARRAY">
       <offset>40</offset>
+    </column>
+    <column name="RevealedString" type="STRING">
+      <offset>44</offset>
       <flags>
         <flag>ESTRING</flag>
         <flag>SERVER_ONLY</flag>
@@ -111,7 +114,7 @@
       </flags>
     </column>
     <column name="pchRevealedString" type="STRING">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>ESTRING</flag>
         <flag>ALIAS</flag>

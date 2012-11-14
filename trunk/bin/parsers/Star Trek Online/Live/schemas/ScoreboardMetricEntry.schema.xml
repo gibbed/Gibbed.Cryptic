@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ScoreboardMetricEntry">
+  <table>
+    <column name="ScoreboardMetricEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EntID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Name" type="FIXEDSTRING">
+      <offset>4</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="AccountName" type="FIXEDSTRING">
+      <offset>132</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="MetricValue" type="INT">
+      <offset>260</offset>
+    </column>
+    <column name="Rank" type="INT">
+      <offset>264</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

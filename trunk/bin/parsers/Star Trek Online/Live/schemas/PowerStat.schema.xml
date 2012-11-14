@@ -59,8 +59,14 @@
       <offset>32</offset>
       <static_define_list external="CharClassCategory" />
     </column>
-    <column name="File" type="CURRENTFILE">
+    <column name="Tag" type="STRING">
       <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>44</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

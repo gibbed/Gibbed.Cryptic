@@ -143,23 +143,26 @@
     <column name="WhenExternalMap" type="STRINGARRAY">
       <offset>60</offset>
     </column>
-    <column name="WhenExternalChallenge" type="STRUCT">
+    <column name="WhenAnyCrypticMap" type="U8">
       <offset>64</offset>
+    </column>
+    <column name="WhenExternalChallenge" type="STRUCT">
+      <offset>68</offset>
       <subtable external="GenesisWhenExternalChallenge" />
     </column>
     <column name="WhenExternalRoom" type="STRUCT">
-      <offset>68</offset>
+      <offset>72</offset>
       <subtable external="GenesisWhenExternalRoom" />
     </column>
     <column name="WhenExternalPrompt" type="STRUCT">
-      <offset>72</offset>
+      <offset>76</offset>
       <subtable external="GenesisWhenExternalPrompt" />
     </column>
     <column name="WhenItemDefName" type="STRINGARRAY">
-      <offset>76</offset>
+      <offset>80</offset>
     </column>
     <column name="WhenItemCount" type="INT">
-      <offset>80</offset>
+      <offset>84</offset>
     </column>
     <column name="}" type="END" />
   </table>

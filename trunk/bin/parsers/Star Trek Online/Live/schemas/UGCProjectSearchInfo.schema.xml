@@ -10,27 +10,42 @@
     <column name="AccessLevel" type="INT">
       <offset>0</offset>
     </column>
-    <column name="MaxEditSlots" type="INT">
+    <column name="MaxProjectSlots" type="INT">
       <offset>4</offset>
     </column>
-    <column name="IsReviewer" type="U8">
+    <column name="MaxSeriesSlots" type="INT">
       <offset>8</offset>
     </column>
-    <column name="OwnerAccountID" type="INT">
+    <column name="IsReviewer" type="U8">
       <offset>12</offset>
     </column>
-    <column name="Simple_Raw" type="STRING">
+    <column name="UGCProjects" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="UGCSeries" type="U8">
+      <offset>14</offset>
+    </column>
+    <column name="ProgressionNodes" type="U8">
+      <offset>15</offset>
+    </column>
+    <column name="Queues" type="U8">
       <offset>16</offset>
     </column>
-    <column name="Simple_SSSTree" type="STRING">
+    <column name="OwnerAccountID" type="INT">
       <offset>20</offset>
     </column>
-    <column name="filters" type="STRUCT">
+    <column name="Simple_Raw" type="STRING">
       <offset>24</offset>
+    </column>
+    <column name="Simple_SSSTree" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="filters" type="STRUCT">
+      <offset>32</offset>
       <subtable external="UGCProjectSearchFilter" />
     </column>
-    <column name="FiltersForProgressionNodes" type="STRUCT">
-      <offset>28</offset>
+    <column name="TempFilters" type="STRUCT">
+      <offset>36</offset>
       <flags>
         <flag>NO_NETSEND</flag>
         <flag>UNKNOWN_32</flag>
@@ -38,32 +53,48 @@
       <subtable external="UGCProjectSearchFilter" />
     </column>
     <column name="Import" type="U8">
-      <offset>32</offset>
+      <offset>40</offset>
     </column>
     <column name="VirtualShardID" type="INT">
-      <offset>36</offset>
+      <offset>44</offset>
     </column>
     <column name="PlayerAllegiance" type="STRING">
-      <offset>40</offset>
+      <offset>48</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="PlayerLevel" type="INT">
-      <offset>44</offset>
-    </column>
-    <column name="PlayerLevelMin" type="INT">
-      <offset>48</offset>
-    </column>
-    <column name="PlayerLevelMax" type="INT">
       <offset>52</offset>
     </column>
-    <column name="Lang" type="INT">
+    <column name="PlayerLevelMin" type="INT">
       <offset>56</offset>
+    </column>
+    <column name="PlayerLevelMax" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="Lang" type="INT">
+      <offset>64</offset>
       <static_define_list external="Language" />
     </column>
+    <column name="Location" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PublishedInLastNDays" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="FeaturedIncludeArchives" type="U8">
+      <offset>76</offset>
+    </column>
+    <column name="Subscription" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <subtable external="UGCSubscriptionSearchInfo" />
+    </column>
     <column name="SpecialType" type="INT">
-      <offset>60</offset>
+      <offset>84</offset>
       <static_define_list external="UGCProjectSearchSpecialType" />
     </column>
     <column name="}" type="END" />

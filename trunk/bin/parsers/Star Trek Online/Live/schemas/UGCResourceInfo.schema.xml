@@ -36,6 +36,10 @@
       <offset>20</offset>
       <subtable external="UGCCostumeMetadata" />
     </column>
+    <column name="DefMetadata" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="UGCGroupDefMetadata" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

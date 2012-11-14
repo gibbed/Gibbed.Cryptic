@@ -12,7 +12,7 @@
       <flags>
         <flag>OBJECTTYPE</flag>
       </flags>
-      <default>25</default>
+      <default>26</default>
       <static_define_list external="UIGenType" />
     </column>
     <column name="Texture" type="OPTIONALSTRUCT">
@@ -80,77 +80,89 @@
     <column name="uLastUpdateTime" type="INT">
       <offset>200</offset>
     </column>
-    <column name="Redraw" type="BIT">
+    <column name="uDisplayDataTime" type="INT">
       <offset>204</offset>
+    </column>
+    <column name="Redraw" type="BIT">
+      <offset>212</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="UseSkeletonRadius" type="BIT">
-      <offset>204</offset>
+      <offset>212</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="Animating" type="BIT">
-      <offset>204</offset>
+      <offset>212</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="WasAnimating" type="BIT">
-      <offset>204</offset>
+      <offset>212</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="Created" type="BIT">
-      <offset>204</offset>
+      <offset>212</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="ExtentsInitialized" type="BIT">
-      <offset>204</offset>
+      <offset>212</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="CachedEntityHeight" type="F32">
-      <offset>208</offset>
-    </column>
-    <column name="Radius" type="F32">
-      <offset>212</offset>
-    </column>
-    <column name="Zoom" type="F32">
       <offset>216</offset>
     </column>
-    <column name="ZoomHeight" type="F32">
+    <column name="Radius" type="F32">
       <offset>220</offset>
     </column>
-    <column name="Pitch" type="F32">
+    <column name="Zoom" type="F32">
       <offset>224</offset>
     </column>
-    <column name="Yaw" type="F32">
+    <column name="ZoomHeight" type="F32">
       <offset>228</offset>
     </column>
-    <column name="HeadshotData" type="STRUCT">
+    <column name="Pitch" type="F32">
       <offset>232</offset>
+    </column>
+    <column name="Yaw" type="F32">
+      <offset>236</offset>
+    </column>
+    <column name="HeadshotData" type="STRUCT">
+      <offset>240</offset>
       <subtable external="PaperdollHeadshotData" />
     </column>
     <column name="UsedHeadshotData" type="INT">
-      <offset>236</offset>
+      <offset>244</offset>
     </column>
     <column name="ExtraFX" type="STRUCT">
-      <offset>240</offset>
+      <offset>248</offset>
       <subtable external="PCFXTemp" />
     </column>
     <column name="ItemArt" type="OPTIONALSTRUCT">
-      <offset>244</offset>
+      <offset>252</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
       <subtable external="ItemArt" />
     </column>
-    <column name="v3ExtentsMin" type="F32FIXEDARRAY">
-      <offset>248</offset>
-      <num_elements>3</num_elements>
+    <column name="ppchAddedFX" type="STRINGARRAY">
+      <offset>256</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="v3ExtentsMax" type="F32FIXEDARRAY">
+    <column name="v3ExtentsMin" type="F32FIXEDARRAY">
       <offset>260</offset>
       <num_elements>3</num_elements>
     </column>
-    <column name="v3LastCamPos" type="F32FIXEDARRAY">
+    <column name="v3ExtentsMax" type="F32FIXEDARRAY">
       <offset>272</offset>
       <num_elements>3</num_elements>
     </column>
-    <column name="v3LastCamDir" type="F32FIXEDARRAY">
+    <column name="v3LastCamPos" type="F32FIXEDARRAY">
       <offset>284</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3LastCamDir" type="F32FIXEDARRAY">
+      <offset>296</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="}" type="END" />

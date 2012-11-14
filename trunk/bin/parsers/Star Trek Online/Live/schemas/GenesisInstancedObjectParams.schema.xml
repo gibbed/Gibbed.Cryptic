@@ -15,18 +15,22 @@
       <offset>12</offset>
       <subtable external="Expression" />
     </column>
-    <column name="HasPatrol" type="U8">
+    <column name="EncounterDespawnWhen" type="OPTIONALSTRUCT">
       <offset>16</offset>
+      <subtable external="Expression" />
     </column>
-    <column name="FSMName" type="STRING">
+    <column name="HasPatrol" type="U8">
       <offset>20</offset>
     </column>
-    <column name="ChildParam" type="STRUCT">
+    <column name="FSMName" type="STRING">
       <offset>24</offset>
+    </column>
+    <column name="ChildParam" type="STRUCT">
+      <offset>28</offset>
       <subtable external="GenesisInstancedChildParams" />
     </column>
     <column name="ActorData" type="STRUCT">
-      <offset>24</offset>
+      <offset>28</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -34,13 +38,13 @@
       <subtable external="GenesisInstancedChildParams" />
     </column>
     <column name="ChildParamsAreGroupDefs" type="U8">
-      <offset>28</offset>
-    </column>
-    <column name="MissionName" type="STRING">
       <offset>32</offset>
     </column>
-    <column name="Contact" type="OPTIONALSTRUCT">
+    <column name="MissionName" type="STRING">
       <offset>36</offset>
+    </column>
+    <column name="Contact" type="OPTIONALSTRUCT">
+      <offset>40</offset>
       <subtable external="GenesisMissionContactRequirements" />
     </column>
     <column name="}" type="END" />

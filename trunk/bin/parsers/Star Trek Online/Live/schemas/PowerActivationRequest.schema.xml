@@ -119,35 +119,42 @@
       <offset>132</offset>
       <bit_offset>65548</bit_offset>
     </column>
-    <column name="uchActID" type="U8">
-      <offset>134</offset>
-    </column>
-    <column name="puiActIDsCanceled" type="INTARRAY">
+    <column name="InputDirectionBits" type="BIT">
       <offset>136</offset>
+      <bit_offset>262144</bit_offset>
     </column>
-    <column name="ModeDeactivate" type="INT">
+    <column name="uchActID" type="U8">
       <offset>140</offset>
     </column>
-    <column name="PredictedIdx" type="INT">
+    <column name="puiActIDsCanceled" type="INTARRAY">
       <offset>144</offset>
     </column>
-    <column name="LungePrediction" type="INT">
+    <column name="ModeDeactivate" type="INT">
       <offset>148</offset>
     </column>
-    <column name="uiSeq" type="INT">
+    <column name="PredictedIdx" type="INT">
       <offset>152</offset>
     </column>
-    <column name="uiSeqReset" type="INT">
+    <column name="LungePrediction" type="INT">
       <offset>156</offset>
     </column>
-    <column name="erConfuseTarget" type="INT">
+    <column name="uiSeq" type="INT">
       <offset>160</offset>
     </column>
-    <column name="perConfuseTargetList" type="INTARRAY">
+    <column name="uiSeqReset" type="INT">
       <offset>164</offset>
     </column>
-    <column name="uiConfuseSeed" type="INT">
+    <column name="erConfuseTarget" type="INT">
       <offset>168</offset>
+    </column>
+    <column name="perConfuseTargetList" type="INTARRAY">
+      <offset>172</offset>
+    </column>
+    <column name="uiConfuseSeed" type="INT">
+      <offset>176</offset>
+    </column>
+    <column name="erProximityAssistTarget" type="INT">
+      <offset>180</offset>
     </column>
     <column name="}" type="END" />
   </table>

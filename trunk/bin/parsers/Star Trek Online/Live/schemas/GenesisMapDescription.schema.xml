@@ -48,20 +48,12 @@
       <offset>28</offset>
       <subtable external="GenesisExteriorLayout" />
     </column>
-    <column name="SpaceUGC" type="OPTIONALSTRUCT">
-      <offset>32</offset>
-      <subtable external="GenesisSpaceUGC" />
-    </column>
-    <column name="PrefabUGC" type="OPTIONALSTRUCT">
-      <offset>36</offset>
-      <subtable external="GenesisPrefabUGC" />
-    </column>
     <column name="MissionDescription" type="STRUCT">
-      <offset>40</offset>
+      <offset>32</offset>
       <subtable external="GenesisMissionDescription" />
     </column>
     <column name="SharedChallenge" type="STRUCT">
-      <offset>44</offset>
+      <offset>36</offset>
       <subtable external="GenesisMissionChallenge" />
     </column>
     <column name="version_0" type="IGNORE">
@@ -70,19 +62,19 @@
       </flags>
     </column>
     <column name="Type" type="INT">
-      <offset>48</offset>
+      <offset>40</offset>
       <static_define_list external="GenesisMapType" />
     </column>
     <column name="LayoutInfoSpecifier" type="INT">
-      <offset>52</offset>
+      <offset>44</offset>
       <static_define_list external="GenesisTemplateOrCustom" />
     </column>
     <column name="ExteriorLayoutInfoTemplate" type="REFERENCE">
-      <offset>56</offset>
+      <offset>48</offset>
       <dictionary_name>GenesisMapDescExteriorLayoutTemplate</dictionary_name>
     </column>
     <column name="InteriorLayoutInfoTemplate" type="REFERENCE">
-      <offset>60</offset>
+      <offset>52</offset>
       <dictionary_name>GenesisMapDescInteriorLayoutTemplate</dictionary_name>
     </column>
     <column name="backdrop_info" type="IGNORE">
@@ -91,24 +83,24 @@
       </flags>
     </column>
     <column name="BackdropSpecifier" type="INT">
-      <offset>64</offset>
+      <offset>56</offset>
       <static_define_list external="GenesisTagOrName" />
     </column>
     <column name="BackdropTags2" type="STRINGARRAY">
-      <offset>68</offset>
+      <offset>60</offset>
     </column>
     <column name="BackdropTags" type="STRING">
-      <offset>72</offset>
+      <offset>64</offset>
     </column>
     <column name="Backdrop" type="REFERENCE">
-      <offset>76</offset>
+      <offset>68</offset>
       <dictionary_name>GenesisBackdrop</dictionary_name>
     </column>
     <column name="NoSharingDetail" type="U8">
-      <offset>80</offset>
+      <offset>72</offset>
     </column>
     <column name="EncounterJitter" type="EMBEDDEDSTRUCT">
-      <offset>84</offset>
+      <offset>76</offset>
       <subtable external="GenesisEncounterJitter" />
     </column>
     <column name="}" type="END" />

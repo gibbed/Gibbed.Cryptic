@@ -95,8 +95,32 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="missionDrops" type="STRUCT">
+    <column name="FailureGoldRewardTable" type="STRING">
       <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FailureSilverRewardTable" type="STRING">
+      <offset>72</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FailureBronzeRewardTable" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FailureDefaultRewardTable" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="missionDrops" type="STRUCT">
+      <offset>84</offset>
       <subtable external="MissionDrop" />
     </column>
     <column name="}" type="END" />

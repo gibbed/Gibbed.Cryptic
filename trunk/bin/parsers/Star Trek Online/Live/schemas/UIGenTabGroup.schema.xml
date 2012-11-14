@@ -335,95 +335,111 @@
       <offset>236</offset>
       <dictionary_name>UIGen</dictionary_name>
     </column>
-    <column name="ScrollTabLeft" type="STRING">
+    <column name="TemplateChild" type="STRUCT">
+      <offset>240</offset>
+      <subtable external="UIGenChild" />
+    </column>
+    <column name="TemplateChildren" type="STRUCT">
       <offset>240</offset>
       <flags>
-        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
       </flags>
+      <redundant_name>TemplateChild</redundant_name>
+      <subtable external="UIGenChild" />
     </column>
-    <column name="ScrollTabRight" type="STRING">
+    <column name="ScrollTabLeft" type="STRING">
       <offset>244</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="ScrollTabLeftMouseOver" type="STRING">
+    <column name="ScrollTabRight" type="STRING">
       <offset>248</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="ScrollTabRightMouseOver" type="STRING">
+    <column name="ScrollTabLeftMouseOver" type="STRING">
       <offset>252</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="ScrollTabLeftPressed" type="STRING">
+    <column name="ScrollTabRightMouseOver" type="STRING">
       <offset>256</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="ScrollTabRightPressed" type="STRING">
+    <column name="ScrollTabLeftPressed" type="STRING">
       <offset>260</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="ScrollTabColor" type="INT">
+    <column name="ScrollTabRightPressed" type="STRING">
       <offset>264</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="ScrollTabDisabledColor" type="INT">
+    <column name="ScrollTabColor" type="INT">
       <offset>268</offset>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
       <format>COLOR</format>
     </column>
-    <column name="LeftPad" type="INT16">
+    <column name="ScrollTabDisabledColor" type="INT">
       <offset>272</offset>
-      <static_define_list external="UISize" />
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
     </column>
-    <column name="TabSpacing" type="INT16">
-      <offset>274</offset>
-      <static_define_list external="UISize" />
-    </column>
-    <column name="TabToScrollMinSpacing" type="INT16">
+    <column name="LeftPad" type="INT16">
       <offset>276</offset>
       <static_define_list external="UISize" />
     </column>
-    <column name="ScrollSpacing" type="INT16">
+    <column name="TabSpacing" type="INT16">
       <offset>278</offset>
       <static_define_list external="UISize" />
     </column>
-    <column name="RightPad" type="INT16">
+    <column name="TabToScrollMinSpacing" type="INT16">
       <offset>280</offset>
       <static_define_list external="UISize" />
     </column>
-    <column name="VerticalScrollButtonAlignment" type="U8">
+    <column name="ScrollSpacing" type="INT16">
       <offset>282</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="RightPad" type="INT16">
+      <offset>284</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="VerticalScrollButtonAlignment" type="U8">
+      <offset>286</offset>
       <static_define_list external="UIDirection" />
     </column>
     <column name="TabScrollerVisibility" type="U8">
-      <offset>283</offset>
+      <offset>287</offset>
       <default>1</default>
       <static_define_list external="UIGenTabScrollerVisibilty" />
     </column>
     <column name="StretchTabsToFit" type="BIT">
-      <offset>284</offset>
+      <offset>288</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ScrollTabUseWheel" type="BIT">
-      <offset>284</offset>
+      <offset>288</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="AppendTemplateChildren" type="BIT">
+      <offset>288</offset>
+      <bit_offset>65538</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

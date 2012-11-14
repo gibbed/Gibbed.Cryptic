@@ -36,15 +36,22 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iDeletionTime" type="INT">
+    <column name="iLastUpdatedTime" type="INT">
       <offset>16</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="eaVersions" type="STRUCT">
+    <column name="iDeletionTime" type="INT">
       <offset>20</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eaVersions" type="STRUCT">
+      <offset>24</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -52,7 +59,7 @@
       <subtable external="UGCProjectSeriesVersion" />
     </column>
     <column name="ugcReviews" type="EMBEDDEDSTRUCT">
-      <offset>24</offset>
+      <offset>28</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -60,7 +67,7 @@
       <subtable external="UGCProjectReviews" />
     </column>
     <column name="ugcSearchCache" type="EMBEDDEDSTRUCT">
-      <offset>48</offset>
+      <offset>52</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -68,8 +75,13 @@
       <subtable external="UGCSeriesSearchCache" />
     </column>
     <column name="pExtraDetailData" type="OPTIONALSTRUCT">
-      <offset>56</offset>
+      <offset>60</offset>
       <subtable external="UGCExtraDetailData" />
+    </column>
+    <column name="ugcSubscribers" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

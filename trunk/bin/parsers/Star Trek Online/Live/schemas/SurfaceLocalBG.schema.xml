@@ -29,8 +29,14 @@
       <offset>72</offset>
       <subtable external="SurfaceSpeedPenalty" />
     </column>
-    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+    <column name="spcStrafingOverride" type="INT">
       <offset>76</offset>
+    </column>
+    <column name="spcDisableJump" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>84</offset>
       <subtable external="SurfaceLocalBGFlags" />
     </column>
     <column name="}" type="END" />

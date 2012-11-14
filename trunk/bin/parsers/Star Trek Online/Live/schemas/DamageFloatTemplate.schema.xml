@@ -39,9 +39,6 @@
     </column>
     <column name="VelocityXBlock" type="OPTIONALSTRUCT">
       <offset>8</offset>
-      <flags>
-        <flag>REQUIRED</flag>
-      </flags>
       <subtable external="Expression" />
     </column>
     <column name="VelocityX" type="OPTIONALSTRUCT">
@@ -268,11 +265,47 @@
       <redundant_name>IconYBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
-    <column name="CombineSimilar" type="U8">
+    <column name="MinArcBlock" type="OPTIONALSTRUCT">
       <offset>76</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="MinArc" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MinArcBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="MaxArcBlock" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="MaxArc" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MaxArcBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="RadiusBlock" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Radius" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RadiusBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="CombineSimilar" type="U8">
+      <offset>88</offset>
     </column>
     <column name="DontAnchorToEntity" type="U8">
-      <offset>77</offset>
+      <offset>89</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -57,31 +57,36 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="BaseChart" type="REFERENCE">
+    <column name="BoneVisSet" type="INT">
       <offset>32</offset>
+      <default>-1</default>
+      <static_define_list external="SkelBoneVisibilitySet" />
+    </column>
+    <column name="BaseChart" type="REFERENCE">
+      <offset>36</offset>
       <dictionary_name>DynAnimChartLoadTime</dictionary_name>
     </column>
     <column name="MovementSet" type="REFERENCE">
-      <offset>36</offset>
+      <offset>40</offset>
       <flags>
         <flag>NON_NULL_REF</flag>
       </flags>
       <dictionary_name>DynMovementSet</dictionary_name>
     </column>
     <column name="GraphRef" type="STRUCT">
-      <offset>40</offset>
+      <offset>44</offset>
       <subtable external="DynAnimChartGraphRefLoadTime" />
     </column>
     <column name="MoveRef" type="STRUCT">
-      <offset>44</offset>
+      <offset>48</offset>
       <subtable external="DynAnimChartMoveRefLoadTime" />
     </column>
     <column name="SubChart" type="STRUCT">
-      <offset>48</offset>
+      <offset>52</offset>
       <subtable external="DynAnimSubChartRef" />
     </column>
     <column name="IsSubChart" type="U8">
-      <offset>52</offset>
+      <offset>56</offset>
     </column>
     <column name="Priority" type="IGNORE" />
     <column name="}" type="END" />

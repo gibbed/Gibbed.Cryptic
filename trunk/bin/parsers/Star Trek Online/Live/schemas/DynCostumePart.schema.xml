@@ -31,6 +31,14 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="TextureSwap" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="DynCostumePartTextureSwap" />
+    </column>
+    <column name="UseColor" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="DynCostumePartColorSwap" />
+    </column>
     <column name="End" type="END" />
   </table>
 </parser>

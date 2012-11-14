@@ -23,22 +23,32 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="ValuesNegative" type="BIT">
+    <column name="Numeric" type="STRING">
       <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ValuesNegative" type="BIT">
+      <offset>16</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ValuesZero" type="BIT">
-      <offset>12</offset>
+      <offset>16</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
-    <column name="File" type="CURRENTFILE">
+    <column name="UsePointsEarned" type="BIT">
       <offset>16</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>20</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

@@ -142,40 +142,48 @@
       <subtable external="WorldPerfFrameCounts" />
     </column>
     <column name="gpu_bound" type="INT">
-      <offset>944</offset>
-    </column>
-    <column name="over_budget_mem" type="INT">
-      <offset>948</offset>
-    </column>
-    <column name="over_budget_perf" type="INT">
-      <offset>952</offset>
-    </column>
-    <column name="mem_usage_mbs" type="INT">
-      <offset>956</offset>
-    </column>
-    <column name="stalled" type="INT">
-      <offset>960</offset>
-    </column>
-    <column name="stall_time" type="F32">
-      <offset>964</offset>
-    </column>
-    <column name="triangles_in_scene" type="INT64">
       <offset>968</offset>
     </column>
-    <column name="opaque_triangles_drawn" type="INT64">
+    <column name="over_budget_mem" type="INT">
+      <offset>972</offset>
+    </column>
+    <column name="over_budget_perf" type="INT">
       <offset>976</offset>
     </column>
-    <column name="alpha_triangles_drawn" type="INT64">
+    <column name="mem_usage_mbs" type="INT">
+      <offset>980</offset>
+    </column>
+    <column name="stalled" type="INT">
       <offset>984</offset>
     </column>
-    <column name="objects_in_scene" type="INT">
+    <column name="stall_time" type="F32">
+      <offset>988</offset>
+    </column>
+    <column name="triangles_in_scene" type="INT64">
       <offset>992</offset>
     </column>
+    <column name="opaque_triangles_drawn" type="INT64">
+      <offset>1000</offset>
+    </column>
+    <column name="alpha_triangles_drawn" type="INT64">
+      <offset>1008</offset>
+    </column>
+    <column name="objects_in_scene" type="INT">
+      <offset>1016</offset>
+    </column>
     <column name="opaque_objects_drawn" type="INT">
-      <offset>996</offset>
+      <offset>1020</offset>
     </column>
     <column name="alpha_objects_drawn" type="INT">
-      <offset>1000</offset>
+      <offset>1024</offset>
+    </column>
+    <column name="cam_pos" type="F32FIXEDARRAY">
+      <offset>1028</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="cam_pyr" type="F32FIXEDARRAY">
+      <offset>1040</offset>
+      <num_elements>3</num_elements>
     </column>
     <column name="}" type="END" />
   </table>

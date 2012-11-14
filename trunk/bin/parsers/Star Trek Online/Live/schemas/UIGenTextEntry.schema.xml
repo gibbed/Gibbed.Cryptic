@@ -471,16 +471,8 @@
       <offset>292</offset>
       <subtable external="UIAngle" />
     </column>
-    <column name="CursorLowerLayer" type="STRUCT">
-      <offset>300</offset>
-      <subtable external="UIGenBundleTexture" />
-    </column>
-    <column name="CursorLayer" type="STRUCT">
-      <offset>304</offset>
-      <subtable external="UIGenBundleTexture" />
-    </column>
     <column name="CursorAnimation" type="OPTIONALSTRUCT">
-      <offset>308</offset>
+      <offset>300</offset>
       <subtable external="UIGenBundleTextureAnimation" />
     </column>
     <column name="TextureCoordinateData" type="IGNORE">
@@ -489,63 +481,63 @@
       </flags>
     </column>
     <column name="CursorOffsetU" type="F32">
-      <offset>312</offset>
+      <offset>304</offset>
     </column>
     <column name="CursorOffsetV" type="F32">
-      <offset>316</offset>
+      <offset>308</offset>
     </column>
     <column name="CursorScaleU" type="F32">
-      <offset>320</offset>
+      <offset>312</offset>
       <default>1</default>
     </column>
     <column name="CursorScaleV" type="F32">
-      <offset>324</offset>
+      <offset>316</offset>
       <default>1</default>
     </column>
     <column name="CursorMode" type="BIT">
-      <offset>328</offset>
+      <offset>320</offset>
       <bit_offset>327680</bit_offset>
       <static_define_list external="UITextureMode" />
     </column>
     <column name="CursorEffect" type="BIT">
-      <offset>328</offset>
+      <offset>320</offset>
       <bit_offset>262149</bit_offset>
       <static_define_list external="RdrSpriteEffect" />
     </column>
     <column name="CursorAlignment" type="BIT">
-      <offset>328</offset>
+      <offset>320</offset>
       <bit_offset>327689</bit_offset>
       <static_define_list external="UIDirection" />
     </column>
     <column name="CursorAdditive" type="BIT">
-      <offset>332</offset>
+      <offset>324</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="CursorForceBottomLayer" type="BIT">
-      <offset>332</offset>
+      <offset>324</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="Password" type="STRING">
-      <offset>336</offset>
+      <offset>328</offset>
     </column>
     <column name="Validate" type="INT">
-      <offset>340</offset>
+      <offset>332</offset>
       <static_define_list external="TextBufferValidation" />
     </column>
     <column name="MaxLength" type="INT">
-      <offset>344</offset>
+      <offset>336</offset>
       <default>-1</default>
     </column>
     <column name="ShowCursorWhenUnfocused" type="BIT">
-      <offset>348</offset>
+      <offset>340</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="TintCursorFromFont" type="BIT">
-      <offset>348</offset>
+      <offset>340</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="Editable" type="BIT">
-      <offset>348</offset>
+      <offset>340</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>

@@ -32,14 +32,20 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="bHidden" type="U8">
+    <column name="fHighestRating" type="F32">
       <offset>16</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pComment" type="STRING">
+    <column name="bHidden" type="U8">
       <offset>20</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pComment" type="STRING">
+      <offset>24</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>

@@ -51,101 +51,105 @@
     <column name="Slot" type="INT">
       <offset>24</offset>
     </column>
-    <column name="DragType" type="STRING">
+    <column name="Purpose" type="INT">
       <offset>28</offset>
+      <static_define_list external="PowerPurpose" />
+    </column>
+    <column name="DragType" type="STRING">
+      <offset>32</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
     </column>
     <column name="Key" type="INT">
-      <offset>32</offset>
-    </column>
-    <column name="HighlightType" type="INT">
       <offset>36</offset>
     </column>
-    <column name="LastStackedItemCount" type="INT">
+    <column name="HighlightType" type="INT">
       <offset>40</offset>
     </column>
-    <column name="uiNextStackedItemUpdate" type="INT">
+    <column name="LastStackedItemCount" type="INT">
       <offset>44</offset>
     </column>
-    <column name="NumTotalCharges" type="INT">
+    <column name="uiNextStackedItemUpdate" type="INT">
       <offset>48</offset>
     </column>
-    <column name="Valid" type="BIT">
+    <column name="NumTotalCharges" type="INT">
       <offset>52</offset>
+    </column>
+    <column name="Valid" type="BIT">
+      <offset>56</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Activatable" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="InRange" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="EnoughPower" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="LineOfSight" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="Facing" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="NotDisabled" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="Active" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="Current" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="Queued" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="MultiExec" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="Charging" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="Maintaining" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="Recharging" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="RefillingCharges" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65550</bit_offset>
     </column>
     <column name="InCooldown" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="ModeEnabled" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65552</bit_offset>
     </column>
     <column name="AutoActivating" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65553</bit_offset>
     </column>
     <column name="AutoActivate" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -153,35 +157,35 @@
       <bit_offset>65553</bit_offset>
     </column>
     <column name="AutoActivateEnabled" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65554</bit_offset>
     </column>
     <column name="OwnedTrayElem" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65555</bit_offset>
     </column>
     <column name="Highlight" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65556</bit_offset>
     </column>
     <column name="ReferencesTrayElem" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65557</bit_offset>
     </column>
     <column name="UseBaseReplacePower" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65558</bit_offset>
     </column>
     <column name="InterruptOnRequest" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65559</bit_offset>
     </column>
     <column name="Locked" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65560</bit_offset>
     </column>
     <column name="Dirty" type="BIT">
-      <offset>52</offset>
+      <offset>56</offset>
       <bit_offset>65561</bit_offset>
     </column>
     <column name="}" type="END" />

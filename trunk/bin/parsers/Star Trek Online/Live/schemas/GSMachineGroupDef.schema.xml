@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GSMachineGroupDef">
+  <table>
+    <column name="GSMachineGroupDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PredefinedGroupName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Machine" type="STRINGARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="MachineName" type="STRINGARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Machine</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

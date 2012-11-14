@@ -11,8 +11,12 @@
       <offset>0</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
-    <column name="Rewards" type="OPTIONALSTRUCT">
+    <column name="PackResultQuality" type="INT">
       <offset>4</offset>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="Rewards" type="OPTIONALSTRUCT">
+      <offset>8</offset>
       <subtable external="InvRewardRequest" />
     </column>
     <column name="}" type="END" />

@@ -2,26 +2,26 @@
 <parser name="Value">
   <table>
     <column name="ParamBitfield" type="INTFIXEDARRAY">
-      <offset>720</offset>
+      <offset>748</offset>
       <flags>
         <flag>USEDFIELD</flag>
       </flags>
       <num_elements>5</num_elements>
     </column>
     <column name="Apply" type="STRUCT">
-      <offset>704</offset>
+      <offset>732</offset>
       <subtable external="Apply" />
     </column>
     <column name="Param" type="STRUCT">
-      <offset>708</offset>
+      <offset>736</offset>
       <subtable external="DynApplyParam" />
     </column>
     <column name="Interp" type="STRUCT">
-      <offset>712</offset>
+      <offset>740</offset>
       <subtable external="Interp" />
     </column>
     <column name="JitterList" type="STRUCT">
-      <offset>716</offset>
+      <offset>744</offset>
       <subtable external="DynJitterList" />
     </column>
     <column name="StartOfValueToks" type="IGNORE" />
@@ -110,13 +110,13 @@
       </flags>
     </column>
     <column name="SkyName" type="STRINGARRAY">
-      <offset>644</offset>
+      <offset>672</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="SkyFalloff" type="INT">
-      <offset>660</offset>
+      <offset>688</offset>
       <static_define_list external="eSkyFalloffType" />
     </column>
     <column name="BlendMode" type="INT">
@@ -126,7 +126,7 @@
       </static_define_list>
     </column>
     <column name="Trail" type="INT">
-      <offset>544</offset>
+      <offset>560</offset>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
@@ -138,13 +138,13 @@
       </static_define_list>
     </column>
     <column name="LightType" type="INT">
-      <offset>372</offset>
+      <offset>384</offset>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
     </column>
     <column name="LightShadows" type="BOOL">
-      <offset>412</offset>
+      <offset>428</offset>
     </column>
     <column name="EntMaterial" type="INT">
       <offset>344</offset>
@@ -205,39 +205,39 @@
       </static_define_list>
     </column>
     <column name="SplatType" type="INT">
-      <offset>616</offset>
+      <offset>632</offset>
       <static_define_list external="eDynSplatType" />
     </column>
     <column name="FlareType" type="INT">
-      <offset>664</offset>
+      <offset>692</offset>
       <static_define_list external="eDynFlareType" />
     </column>
     <column name="FlareSize" type="F32ARRAY">
-      <offset>668</offset>
+      <offset>696</offset>
     </column>
     <column name="FlarePosition" type="F32ARRAY">
-      <offset>684</offset>
+      <offset>712</offset>
     </column>
     <column name="FlareMaterial" type="STRINGARRAY">
-      <offset>688</offset>
+      <offset>716</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="SplatForceDown" type="BOOLFLAG">
-      <offset>632</offset>
+      <offset>648</offset>
     </column>
     <column name="SplatUpdateScale" type="BOOLFLAG">
-      <offset>633</offset>
+      <offset>649</offset>
     </column>
     <column name="SplatCenter" type="BOOLFLAG">
-      <offset>634</offset>
+      <offset>650</offset>
     </column>
     <column name="TrailCurve" type="BOOLFLAG">
-      <offset>549</offset>
+      <offset>565</offset>
     </column>
     <column name="TrailStop" type="BOOLFLAG">
-      <offset>548</offset>
+      <offset>564</offset>
     </column>
     <column name="TexWords" type="STRING">
       <offset>348</offset>
@@ -249,10 +249,10 @@
       <offset>364</offset>
     </column>
     <column name="TimeScaleChildren" type="BOOLFLAG">
-      <offset>696</offset>
+      <offset>724</offset>
     </column>
     <column name="AttachCamera" type="BOOL">
-      <offset>592</offset>
+      <offset>608</offset>
     </column>
     <column name="GetModelFromCostumeBone" type="STRING">
       <offset>52</offset>
@@ -264,20 +264,33 @@
       <offset>329</offset>
     </column>
     <column name="CameraDelayDistanceBasis" type="F32">
-      <offset>604</offset>
+      <offset>620</offset>
     </column>
     <column name="CameraLookAt" type="STRING">
-      <offset>608</offset>
+      <offset>624</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="CameraLookAtSpeed" type="F32">
-      <offset>612</offset>
+      <offset>628</offset>
+    </column>
+    <column name="SplatBoneNameForProjection" type="STRING">
+      <offset>660</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SplatDisableCulling" type="BOOLFLAG">
+      <offset>668</offset>
     </column>
     <column name="StartOfDynamicToks" type="IGNORE" />
     <column name="Position" type="F32FIXEDARRAY">
       <offset>144</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="DrawOffset" type="F32FIXEDARRAY">
+      <offset>372</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="Velocity" type="F32FIXEDARRAY">
@@ -368,148 +381,151 @@
       <num_elements>4</num_elements>
     </column>
     <column name="LightDiffuseHSV" type="F32FIXEDARRAY">
-      <offset>388</offset>
+      <offset>400</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="LightSpecularHSV" type="F32FIXEDARRAY">
-      <offset>376</offset>
+      <offset>388</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="LightRadius" type="F32">
-      <offset>400</offset>
+      <offset>412</offset>
     </column>
-    <column name="LightInnerCone" type="F32">
-      <offset>404</offset>
-    </column>
-    <column name="LightOuterCone" type="F32">
-      <offset>408</offset>
-    </column>
-    <column name="TrailKey1Time" type="F32">
+    <column name="LightInnerRadiusPercentage" type="F32">
       <offset>416</offset>
     </column>
-    <column name="TrailKey2Time" type="F32">
-      <offset>440</offset>
-    </column>
-    <column name="TrailKey3Time" type="F32">
-      <offset>464</offset>
-    </column>
-    <column name="TrailKey4Time" type="F32">
-      <offset>488</offset>
-    </column>
-    <column name="TrailKey1Width" type="F32">
+    <column name="LightInnerCone" type="F32">
       <offset>420</offset>
     </column>
-    <column name="TrailKey2Width" type="F32">
-      <offset>444</offset>
+    <column name="LightOuterCone" type="F32">
+      <offset>424</offset>
     </column>
-    <column name="TrailKey3Width" type="F32">
-      <offset>468</offset>
+    <column name="TrailKey1Time" type="F32">
+      <offset>432</offset>
     </column>
-    <column name="TrailKey4Width" type="F32">
-      <offset>492</offset>
+    <column name="TrailKey2Time" type="F32">
+      <offset>456</offset>
     </column>
-    <column name="TrailKey1Alpha" type="F32">
+    <column name="TrailKey3Time" type="F32">
+      <offset>480</offset>
+    </column>
+    <column name="TrailKey4Time" type="F32">
+      <offset>504</offset>
+    </column>
+    <column name="TrailKey1Width" type="F32">
       <offset>436</offset>
     </column>
-    <column name="TrailKey2Alpha" type="F32">
+    <column name="TrailKey2Width" type="F32">
       <offset>460</offset>
     </column>
-    <column name="TrailKey3Alpha" type="F32">
+    <column name="TrailKey3Width" type="F32">
       <offset>484</offset>
     </column>
-    <column name="TrailKey4Alpha" type="F32">
+    <column name="TrailKey4Width" type="F32">
       <offset>508</offset>
     </column>
+    <column name="TrailKey1Alpha" type="F32">
+      <offset>452</offset>
+    </column>
+    <column name="TrailKey2Alpha" type="F32">
+      <offset>476</offset>
+    </column>
+    <column name="TrailKey3Alpha" type="F32">
+      <offset>500</offset>
+    </column>
+    <column name="TrailKey4Alpha" type="F32">
+      <offset>524</offset>
+    </column>
     <column name="TrailKey1Color" type="F32FIXEDARRAY">
-      <offset>424</offset>
+      <offset>440</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="TrailKey2Color" type="F32FIXEDARRAY">
-      <offset>448</offset>
+      <offset>464</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="TrailKey3Color" type="F32FIXEDARRAY">
-      <offset>472</offset>
+      <offset>488</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="TrailKey4Color" type="F32FIXEDARRAY">
-      <offset>496</offset>
+      <offset>512</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="TrailFadeIn" type="F32">
-      <offset>512</offset>
-    </column>
-    <column name="TrailFadeOut" type="F32">
-      <offset>516</offset>
-    </column>
-    <column name="TrailTexDensity" type="F32">
-      <offset>520</offset>
-    </column>
-    <column name="TrailEmitRate" type="F32">
-      <offset>524</offset>
-    </column>
-    <column name="TrailEmitDistance" type="F32">
       <offset>528</offset>
     </column>
+    <column name="TrailFadeOut" type="F32">
+      <offset>532</offset>
+    </column>
+    <column name="TrailTexDensity" type="F32">
+      <offset>536</offset>
+    </column>
+    <column name="TrailEmitRate" type="F32">
+      <offset>540</offset>
+    </column>
+    <column name="TrailEmitDistance" type="F32">
+      <offset>544</offset>
+    </column>
     <column name="TrailMinSpeed" type="F32">
-      <offset>552</offset>
+      <offset>568</offset>
     </column>
     <column name="TrailCurveDir" type="F32FIXEDARRAY">
-      <offset>556</offset>
+      <offset>572</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="TrailSpeedThreshold" type="F32">
-      <offset>532</offset>
+      <offset>548</offset>
     </column>
     <column name="ShakePower" type="F32">
-      <offset>568</offset>
+      <offset>584</offset>
     </column>
     <column name="ShakeRadius" type="F32">
-      <offset>572</offset>
+      <offset>588</offset>
     </column>
     <column name="ShakeVertical" type="F32">
-      <offset>576</offset>
+      <offset>592</offset>
     </column>
     <column name="ShakePan" type="F32">
-      <offset>580</offset>
+      <offset>596</offset>
     </column>
     <column name="ShakeSpeed" type="F32">
-      <offset>584</offset>
+      <offset>600</offset>
       <default>1</default>
     </column>
     <column name="FOV" type="F32">
-      <offset>588</offset>
+      <offset>604</offset>
     </column>
     <column name="CameraControlInfluence" type="F32">
-      <offset>596</offset>
+      <offset>612</offset>
       <default>1</default>
     </column>
     <column name="CameraDelaySpeed" type="F32">
-      <offset>600</offset>
+      <offset>616</offset>
     </column>
     <column name="SplatRadius" type="F32">
-      <offset>620</offset>
+      <offset>636</offset>
     </column>
     <column name="SplatInnerRadius" type="F32">
-      <offset>624</offset>
-    </column>
-    <column name="SplatLength" type="F32">
-      <offset>628</offset>
-    </column>
-    <column name="SplatFadePlane" type="F32">
       <offset>640</offset>
     </column>
-    <column name="SkyRadius" type="F32">
-      <offset>648</offset>
+    <column name="SplatLength" type="F32">
+      <offset>644</offset>
     </column>
-    <column name="SkyLength" type="F32">
-      <offset>652</offset>
-    </column>
-    <column name="SkyWeight" type="F32">
+    <column name="SplatFadePlane" type="F32">
       <offset>656</offset>
     </column>
+    <column name="SkyRadius" type="F32">
+      <offset>676</offset>
+    </column>
+    <column name="SkyLength" type="F32">
+      <offset>680</offset>
+    </column>
+    <column name="SkyWeight" type="F32">
+      <offset>684</offset>
+    </column>
     <column name="FlareColor" type="F32FIXEDARRAY">
-      <offset>672</offset>
+      <offset>700</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="ClothWindOverride" type="F32FIXEDARRAY">
@@ -520,7 +536,7 @@
       <offset>368</offset>
     </column>
     <column name="TimeScale" type="F32">
-      <offset>692</offset>
+      <offset>720</offset>
       <default>1</default>
     </column>
     <column name="End" type="END" />

@@ -25,6 +25,13 @@
       <offset>28</offset>
       <subtable external="ZoneMapEncounterRoomInfo" />
     </column>
+    <column name="GroundFocusHeight" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>36</offset>
+      <static_define_list external="WorldRegionType" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

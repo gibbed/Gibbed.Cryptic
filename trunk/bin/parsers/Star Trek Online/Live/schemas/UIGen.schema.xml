@@ -141,6 +141,10 @@
             <offset>0</offset>
             <subtable external="UIGenTextEntry" />
           </column>
+          <column name="UIGenWebView" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenWebView" />
+          </column>
         </table>
       </subtable>
     </column>
@@ -246,6 +250,10 @@
           <column name="UIGenTextEntry" type="EMBEDDEDSTRUCT">
             <offset>0</offset>
             <subtable external="UIGenTextEntry" />
+          </column>
+          <column name="UIGenWebView" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenWebView" />
           </column>
         </table>
       </subtable>
@@ -361,6 +369,10 @@
             <offset>0</offset>
             <subtable external="UIGenTextEntry" />
           </column>
+          <column name="UIGenWebView" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenWebView" />
+          </column>
         </table>
       </subtable>
     </column>
@@ -382,8 +394,15 @@
       </flags>
       <subtable external="UIGenTweenState" />
     </column>
-    <column name="Result" type="OPTIONALPOLYMORPH">
+    <column name="BoxTweenState" type="OPTIONALSTRUCT">
       <offset>60</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+      <subtable external="UIGenTweenBoxState" />
+    </column>
+    <column name="Result" type="OPTIONALPOLYMORPH">
+      <offset>64</offset>
       <flags>
         <flag>NO_WRITE</flag>
         <flag>UNKNOWN_32</flag>
@@ -486,18 +505,22 @@
             <offset>0</offset>
             <subtable external="UIGenTextEntry" />
           </column>
+          <column name="UIGenWebView" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenWebView" />
+          </column>
         </table>
       </subtable>
     </column>
     <column name="Code" type="OPTIONALSTRUCT">
-      <offset>64</offset>
+      <offset>68</offset>
       <flags>
         <flag>NO_WRITE</flag>
       </flags>
       <subtable external="UIGenCodeInterface" />
     </column>
     <column name="State" type="OPTIONALPOLYMORPH">
-      <offset>68</offset>
+      <offset>72</offset>
       <flags>
         <flag>NO_WRITE</flag>
       </flags>
@@ -595,11 +618,15 @@
             <offset>0</offset>
             <subtable external="UIGenTextState" />
           </column>
+          <column name="UIGenWebViewState" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenWebViewState" />
+          </column>
         </table>
       </subtable>
     </column>
     <column name="GenState" type="OPTIONALPOLYMORPH">
-      <offset>68</offset>
+      <offset>72</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>NO_WRITE</flag>
@@ -699,63 +726,67 @@
             <offset>0</offset>
             <subtable external="UIGenTextState" />
           </column>
+          <column name="UIGenWebViewState" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenWebViewState" />
+          </column>
         </table>
       </subtable>
     </column>
     <column name="bfStates" type="INTFIXEDARRAY">
-      <offset>72</offset>
-      <num_elements>6</num_elements>
+      <offset>76</offset>
+      <num_elements>7</num_elements>
     </column>
     <column name="Transitions" type="STRUCT">
-      <offset>96</offset>
+      <offset>104</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="UIGenAction" />
     </column>
     <column name="BeforeCreate" type="OPTIONALSTRUCT">
-      <offset>100</offset>
+      <offset>108</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="AfterCreate" type="OPTIONALSTRUCT">
-      <offset>104</offset>
-      <subtable external="UIGenAction" />
-    </column>
-    <column name="PointerUpdate" type="OPTIONALSTRUCT">
-      <offset>108</offset>
-      <subtable external="UIGenPointerUpdate" />
-    </column>
-    <column name="BeforeUpdate" type="OPTIONALSTRUCT">
       <offset>112</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="BeforeResult" type="OPTIONALSTRUCT">
+    <column name="PointerUpdate" type="OPTIONALSTRUCT">
       <offset>116</offset>
-      <subtable external="UIGenAction" />
+      <subtable external="UIGenPointerUpdate" />
     </column>
-    <column name="BeforeHide" type="OPTIONALSTRUCT">
+    <column name="BeforeUpdate" type="OPTIONALSTRUCT">
       <offset>120</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="Parent" type="OPTIONALSTRUCT">
+    <column name="BeforeResult" type="OPTIONALSTRUCT">
       <offset>124</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="BeforeHide" type="OPTIONALSTRUCT">
+      <offset>128</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="Parent" type="OPTIONALSTRUCT">
+      <offset>132</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="UIGen" />
     </column>
     <column name="FileName" type="CURRENTFILE">
-      <offset>128</offset>
+      <offset>136</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Var" type="STRUCT">
-      <offset>132</offset>
+      <offset>140</offset>
       <subtable external="UIGenVarTypeGlob" />
     </column>
     <column name="Vars" type="STRUCT">
-      <offset>132</offset>
+      <offset>140</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -763,11 +794,11 @@
       <subtable external="UIGenVarTypeGlob" />
     </column>
     <column name="CopyVar" type="STRUCT">
-      <offset>136</offset>
+      <offset>144</offset>
       <subtable external="UIGenVarTypeGlob" />
     </column>
     <column name="CopyVars" type="STRUCT">
-      <offset>136</offset>
+      <offset>144</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -775,65 +806,73 @@
       <subtable external="UIGenVarTypeGlob" />
     </column>
     <column name="JailCell" type="STRING">
-      <offset>140</offset>
+      <offset>148</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>STRUCTPARAM</flag>
       </flags>
     </column>
     <column name="Window" type="STRING">
-      <offset>144</offset>
+      <offset>152</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="SpriteCache" type="OPTIONALSTRUCT">
-      <offset>148</offset>
+      <offset>156</offset>
       <subtable external="UIGenSpriteCache" />
     </column>
     <column name="FinalScale" type="F32">
-      <offset>268</offset>
+      <offset>276</offset>
       <default>1</default>
     </column>
     <column name="FinalAlpha" type="U8">
-      <offset>272</offset>
+      <offset>280</offset>
       <default>255</default>
     </column>
     <column name="Layer" type="U8">
-      <offset>273</offset>
+      <offset>281</offset>
     </column>
     <column name="Priority" type="U8">
-      <offset>274</offset>
+      <offset>282</offset>
     </column>
     <column name="Priority" type="U8">
-      <offset>274</offset>
+      <offset>282</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>Priority</redundant_name>
     </column>
     <column name="Clone" type="U8">
-      <offset>275</offset>
+      <offset>283</offset>
     </column>
     <column name="UseEstimatedSize" type="BIT">
-      <offset>276</offset>
+      <offset>284</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="NeedsRebuild" type="BIT">
-      <offset>276</offset>
+      <offset>284</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="Popup" type="BIT">
-      <offset>276</offset>
+      <offset>284</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="TopLevelChildren" type="BIT">
-      <offset>276</offset>
+      <offset>284</offset>
       <bit_offset>65539</bit_offset>
     </column>
-    <column name="IsRoot" type="BIT">
-      <offset>276</offset>
+    <column name="NextFocusOnCreate" type="BIT">
+      <offset>284</offset>
       <bit_offset>65540</bit_offset>
+    </column>
+    <column name="IsRoot" type="BIT">
+      <offset>284</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="IsCutsceneRoot" type="BIT">
+      <offset>284</offset>
+      <bit_offset>65542</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

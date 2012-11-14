@@ -104,39 +104,16 @@
       </flags>
       <static_define_list external="AutoAttackType" />
     </column>
-    <column name="bStrafing" type="U8">
+    <column name="ePowerCursorActivationType" type="INT">
       <offset>44</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
+      <static_define_list external="PowerCursorActivationType" />
     </column>
-    <column name="bSoftTarget" type="U8">
-      <offset>45</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="bAutoHardTarget" type="U8">
-      <offset>46</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="bForceCameraNearOffset" type="U8">
-      <offset>47</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="bAutoHardTargetIfNoneExists" type="U8">
+    <column name="bStrafing" type="U8">
       <offset>48</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -144,7 +121,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bSnapCameraOnAttack" type="U8">
+    <column name="bSoftTarget" type="U8">
       <offset>49</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -152,7 +129,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bDisableFaceSelected" type="U8">
+    <column name="bAutoHardTarget" type="U8">
       <offset>50</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -160,8 +137,40 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
+    <column name="bForceCameraNearOffset" type="U8">
+      <offset>51</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bAutoHardTargetIfNoneExists" type="U8">
+      <offset>52</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bSnapCameraOnAttack" type="U8">
+      <offset>53</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bDisableFaceSelected" type="U8">
+      <offset>54</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
     <column name="bDisableFaceTarget" type="U8">
-      <offset>50</offset>
+      <offset>54</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>USEROPTIONBIT_1</flag>
@@ -171,38 +180,6 @@
       <redundant_name>bDisableFaceSelected</redundant_name>
     </column>
     <column name="bRequireHardTargetToExec" type="U8">
-      <offset>51</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="bCancelTargetOnOffClick" type="U8">
-      <offset>52</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="bDeselectIfOffScreen" type="U8">
-      <offset>53</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="bTargetObjectsLast" type="U8">
-      <offset>54</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="bTargetThreateningFirst" type="U8">
       <offset>55</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -210,7 +187,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bNeverTargetObjects" type="U8">
+    <column name="bCancelTargetOnOffClick" type="U8">
       <offset>56</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -218,7 +195,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bNeverTargetPets" type="U8">
+    <column name="bDeselectIfOffScreen" type="U8">
       <offset>57</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -226,7 +203,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bResetTabOverTime" type="U8">
+    <column name="bTargetObjectsLast" type="U8">
       <offset>58</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -234,7 +211,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bMeleeIgnoreBadHardTarget" type="U8">
+    <column name="bTargetThreateningFirst" type="U8">
       <offset>59</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -242,7 +219,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bAssistTargetIfInvalid" type="U8">
+    <column name="bNeverTargetObjects" type="U8">
       <offset>60</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -250,7 +227,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bShowMouseLookReticle" type="U8">
+    <column name="bNeverTargetPets" type="U8">
       <offset>61</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -258,7 +235,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bMouseLookHardTarget" type="U8">
+    <column name="bResetTabOverTime" type="U8">
       <offset>62</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -266,7 +243,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bMouseLookHardTargetExcludeCorpses" type="U8">
+    <column name="bMeleeIgnoreBadHardTarget" type="U8">
       <offset>63</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -274,7 +251,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bMouseLookInteract" type="U8">
+    <column name="bAssistTargetIfInvalid" type="U8">
       <offset>64</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -282,7 +259,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bTargetAttackerIfAttacked" type="U8">
+    <column name="bShowMouseLookReticle" type="U8">
       <offset>65</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -290,7 +267,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bTabTargetOffscreen" type="U8">
+    <column name="bMouseLookHardTarget" type="U8">
       <offset>66</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -298,7 +275,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bStopMovingOnInteract" type="U8">
+    <column name="bMouseLookHardTargetExcludeCorpses" type="U8">
       <offset>67</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -306,7 +283,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bKeepMovingDuringContactDialogs" type="U8">
+    <column name="bMouseLookInteract" type="U8">
       <offset>68</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -314,8 +291,40 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bTurningTurnsCameraWhenFacingTarget" type="U8">
+    <column name="bTargetAttackerIfAttacked" type="U8">
       <offset>69</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bTabTargetOffscreen" type="U8">
+      <offset>70</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bStopMovingOnInteract" type="U8">
+      <offset>71</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bKeepMovingDuringContactDialogs" type="U8">
+      <offset>72</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bTurningTurnsCameraWhenFacingTarget" type="U8">
+      <offset>73</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
         <flag>PERSIST</flag>
@@ -324,38 +333,6 @@
       <default>1</default>
     </column>
     <column name="bDoubleTapDirToRoll" type="U8">
-      <offset>70</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="bAimModeAsToggle" type="U8">
-      <offset>71</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="bUseZoomCamWithAimMode" type="U8">
-      <offset>72</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="bTargetLockCamDisableWhenNoTarget" type="U8">
-      <offset>73</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="bDelayAutoAttackUntilCombat" type="U8">
       <offset>74</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -363,7 +340,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bInvertMouseX" type="U8">
+    <column name="bAimModeAsToggle" type="U8">
       <offset>75</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -371,7 +348,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bInvertMouseY" type="U8">
+    <column name="bUseZoomCamWithAimMode" type="U8">
       <offset>76</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -379,8 +356,49 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bCameraShake" type="U8">
+    <column name="bTargetLockCamDisableWhenNoTarget" type="U8">
       <offset>77</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bDelayAutoAttackUntilCombat" type="U8">
+      <offset>78</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bInvertMouseX" type="U8">
+      <offset>79</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bInvertMouseY" type="U8">
+      <offset>80</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bCameraShake" type="U8">
+      <offset>81</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="bDisableDefaultOffset" type="U8">
+      <offset>82</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
         <flag>PERSIST</flag>
@@ -389,7 +407,7 @@
       <default>1</default>
     </column>
     <column name="fAutoAttackDelay" type="F32">
-      <offset>80</offset>
+      <offset>84</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
         <flag>PERSIST</flag>
@@ -397,7 +415,7 @@
       </flags>
     </column>
     <column name="iCamDistance" type="F32">
-      <offset>84</offset>
+      <offset>88</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
         <flag>PERSIST</flag>
@@ -405,7 +423,7 @@
       </flags>
     </column>
     <column name="CamDistance" type="F32">
-      <offset>84</offset>
+      <offset>88</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>USEROPTIONBIT_1</flag>
@@ -415,7 +433,7 @@
       <redundant_name>iCamDistance</redundant_name>
     </column>
     <column name="fCamDistance" type="F32">
-      <offset>84</offset>
+      <offset>88</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>USEROPTIONBIT_1</flag>
@@ -425,14 +443,6 @@
       <redundant_name>iCamDistance</redundant_name>
     </column>
     <column name="fCamMaxDistance" type="F32">
-      <offset>88</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="fCamMouseLookSensitivity" type="F32">
       <offset>92</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -440,7 +450,7 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fCamControllerLookSensitivity" type="F32">
+    <column name="fCamMouseLookSensitivity" type="F32">
       <offset>96</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -448,8 +458,16 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="eLastCameraType" type="INT">
+    <column name="fCamControllerLookSensitivity" type="F32">
       <offset>100</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="eLastCameraType" type="INT">
+      <offset>104</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
         <flag>PERSIST</flag>
@@ -458,14 +476,14 @@
       <static_define_list external="CameraType" />
     </column>
     <column name="fCamHeight" type="F32">
-      <offset>104</offset>
+      <offset>108</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
     <column name="iCamHeight" type="F32">
-      <offset>104</offset>
+      <offset>108</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>PERSIST</flag>
@@ -474,21 +492,21 @@
       <redundant_name>fCamHeight</redundant_name>
     </column>
     <column name="fCamOffset" type="F32">
-      <offset>108</offset>
-      <flags>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-    </column>
-    <column name="iLockCamPitch" type="INT">
       <offset>112</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bUseThrottle" type="BIT">
+    <column name="iLockCamPitch" type="INT">
       <offset>116</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bUseThrottle" type="BIT">
+      <offset>120</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -496,7 +514,7 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bUseOffsetRotation" type="BIT">
-      <offset>116</offset>
+      <offset>120</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -504,7 +522,7 @@
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bEnableShooterCamera" type="BIT">
-      <offset>116</offset>
+      <offset>120</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -512,7 +530,7 @@
       <bit_offset>65538</bit_offset>
     </column>
     <column name="bEnableClickToMove" type="BIT">
-      <offset>116</offset>
+      <offset>120</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -520,7 +538,7 @@
       <bit_offset>65539</bit_offset>
     </column>
     <column name="bAutoFaceHostileTargetsOnly" type="BIT">
-      <offset>116</offset>
+      <offset>120</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -528,88 +546,79 @@
       <bit_offset>65540</bit_offset>
     </column>
     <column name="fMouseLookHardTargetRadiusAim" type="F32">
-      <offset>120</offset>
+      <offset>124</offset>
       <default>1036831949</default>
     </column>
     <column name="fTargetMaxAngleFromPlayerFacing" type="F32">
-      <offset>124</offset>
-    </column>
-    <column name="fDefaultActiveWeaponRange" type="F32">
       <offset>128</offset>
     </column>
-    <column name="fPitchDiffMultiplier" type="F32">
+    <column name="fDefaultActiveWeaponRange" type="F32">
       <offset>132</offset>
+    </column>
+    <column name="fPitchDiffMultiplier" type="F32">
+      <offset>136</offset>
       <default>1050253722</default>
     </column>
     <column name="bDisablePowerQueuing" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bUseFacingPitch" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bCheckActiveWeaponRangeForTargeting" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="bRequireValidTarget" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="bDisableFaceActivate" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="bUseCameraTargeting" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="bGetAttackAngleWhenDamaged" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="bAutoUnholster" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="bDisableTrayAutoAttack" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="bCameraTargetingUsesDirectionKeys" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="bCameraTargetingGetsPlayerFacing" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="bAutoCamMouseLook" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="bDebug" type="BIT">
-      <offset>136</offset>
+      <offset>140</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="fCamStartingPitch" type="F32">
-      <offset>140</offset>
+      <offset>144</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
     <column name="fMouseLookHardTargetX" type="F32">
-      <offset>144</offset>
-      <flags>
-        <flag>USEROPTIONBIT_1</flag>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
-      </flags>
-      <default>1056964608</default>
-    </column>
-    <column name="fMouseLookHardTargetY" type="F32">
       <offset>148</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
@@ -618,8 +627,17 @@
       </flags>
       <default>1056964608</default>
     </column>
-    <column name="fMouseLookHardTargetRadius" type="F32">
+    <column name="fMouseLookHardTargetY" type="F32">
       <offset>152</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <default>1056964608</default>
+    </column>
+    <column name="fMouseLookHardTargetRadius" type="F32">
+      <offset>156</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
         <flag>PERSIST</flag>
@@ -628,7 +646,7 @@
       <default>1036831949</default>
     </column>
     <column name="pchKeyProfileToLoad" type="STRING">
-      <offset>156</offset>
+      <offset>160</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>STRUCTPARAM</flag>
@@ -638,21 +656,21 @@
       </flags>
     </column>
     <column name="AllowKeyProfile" type="STRINGARRAY">
-      <offset>160</offset>
+      <offset>164</offset>
     </column>
     <column name="ppchAllowedKeyProfiles" type="STRINGARRAY">
-      <offset>160</offset>
+      <offset>164</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>AllowKeyProfile</redundant_name>
     </column>
     <column name="AllowAutoAttackType" type="INTARRAY">
-      <offset>164</offset>
+      <offset>168</offset>
       <static_define_list external="AutoAttackType" />
     </column>
     <column name="peAllowedAutoAttackTypes" type="INTARRAY">
-      <offset>164</offset>
+      <offset>168</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>

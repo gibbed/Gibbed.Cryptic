@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldPathNodeProperties">
+  <table>
+    <column name="WorldPathNodeProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="UGC" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="Connection" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="WorldPathEdge" />
+    </column>
+    <column name="Connections" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Connection</redundant_name>
+      <subtable external="WorldPathEdge" />
+    </column>
+    <column name="CanBeObstructed" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="IsSecret" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="TeleportID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

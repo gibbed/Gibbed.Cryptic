@@ -52,6 +52,14 @@
       <offset>32</offset>
       <static_define_list external="CharClassCategory" />
     </column>
+    <column name="PathAllowed" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="CharacterPathRef" />
+    </column>
+    <column name="RequiredGemSlotType" type="INT">
+      <offset>40</offset>
+      <static_define_list external="ItemGemType" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

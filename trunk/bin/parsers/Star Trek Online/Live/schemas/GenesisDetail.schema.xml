@@ -144,11 +144,20 @@
     <column name="AbsolutePosition" type="U8">
       <offset>112</offset>
     </column>
-    <column name="SnapToGeo" type="U8">
+    <column name="SnapRayCast" type="U8">
       <offset>113</offset>
     </column>
-    <column name="ChildPlacement" type="STRUCT">
+    <column name="SnapToGeo" type="U8">
+      <offset>114</offset>
+    </column>
+    <column name="SnapNormal" type="U8">
+      <offset>115</offset>
+    </column>
+    <column name="LegacyHeightCheck" type="U8">
       <offset>116</offset>
+    </column>
+    <column name="ChildPlacement" type="STRUCT">
+      <offset>120</offset>
       <subtable external="GenesisPlacementChildParams" />
     </column>
     <column name="}" type="END" />

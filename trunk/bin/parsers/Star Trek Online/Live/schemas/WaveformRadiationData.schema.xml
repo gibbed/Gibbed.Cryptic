@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WaveformRadiationData">
+  <table>
+    <column name="WaveformRadiationData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Repetitions" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="MinHeight" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="MaxHeight" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="MinWidth" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="MaxWidth" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="TweenTime" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -7,39 +7,20 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Names" type="STRINGARRAY">
+    <column name="Species" type="STRING">
       <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
     </column>
-    <column name="FirstNames" type="STRINGARRAY">
+    <column name="Names" type="STRUCT">
       <offset>4</offset>
+      <subtable external="GenNameEntry" />
     </column>
-    <column name="MiddleNames" type="STRINGARRAY">
+    <column name="Available" type="INT">
       <offset>8</offset>
-    </column>
-    <column name="LastNames" type="STRINGARRAY">
-      <offset>12</offset>
-    </column>
-    <column name="hCurSpecies" type="REFERENCE">
-      <offset>16</offset>
-      <dictionary_name>SpeciesDef</dictionary_name>
-    </column>
-    <column name="Index" type="INT">
-      <offset>20</offset>
-      <flags>
-        <flag>CLIENT_ONLY</flag>
-      </flags>
-    </column>
-    <column name="Updated" type="INT">
-      <offset>24</offset>
-      <flags>
-        <flag>CLIENT_ONLY</flag>
-      </flags>
-    </column>
-    <column name="ListNames" type="INT">
-      <offset>28</offset>
-    </column>
-    <column name="NameGroupIndex" type="INT">
-      <offset>32</offset>
     </column>
     <column name="}" type="END" />
   </table>

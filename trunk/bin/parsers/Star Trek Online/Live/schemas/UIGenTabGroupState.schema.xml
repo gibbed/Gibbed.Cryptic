@@ -26,46 +26,62 @@
     <column name="Tabs" type="STRUCT">
       <offset>8</offset>
       <flags>
+        <flag>UNKNOWN_32</flag>
         <flag>STRUCT_NORECURSE</flag>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="UIGen" />
     </column>
-    <column name="ScrollTabLeft" type="STRING">
+    <column name="OwnedTabs" type="STRUCT">
       <offset>12</offset>
+      <flags>
+        <flag>STRUCT_NORECURSE</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UIGen" />
+    </column>
+    <column name="TemplateGens" type="STRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UIGenChild" />
+    </column>
+    <column name="ScrollTabLeft" type="STRING">
+      <offset>20</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="ScrollTabRight" type="STRING">
-      <offset>16</offset>
+      <offset>24</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="SelectedTab" type="INT">
-      <offset>20</offset>
-    </column>
-    <column name="ScrollPosition" type="F32">
-      <offset>24</offset>
-    </column>
-    <column name="LastTabScrollTime" type="INT">
       <offset>28</offset>
     </column>
-    <column name="LastScrollState" type="INT">
+    <column name="ScrollPosition" type="F32">
       <offset>32</offset>
+    </column>
+    <column name="LastTabScrollTime" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="LastScrollState" type="INT">
+      <offset>40</offset>
       <static_define_list external="UIGenState" />
     </column>
     <column name="ForceShowSelectedTab" type="BIT">
-      <offset>36</offset>
+      <offset>44</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ScrollButtonsVisible" type="BIT">
-      <offset>36</offset>
+      <offset>44</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="ScrollButtonClickedLastFrame" type="BIT">
-      <offset>36</offset>
+      <offset>44</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="}" type="END" />

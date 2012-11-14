@@ -266,23 +266,15 @@
     <column name="StringCostume" type="STRING">
       <offset>2480</offset>
     </column>
-    <column name="PortraitTexture" type="OPTIONALSTRUCT">
-      <offset>2484</offset>
-      <flags>
-        <flag>UNKNOWN_32</flag>
-        <flag>CLIENT_ONLY</flag>
-      </flags>
-      <subtable external="BasicTexture" />
-    </column>
     <column name="OwnerType" type="INT">
-      <offset>2488</offset>
+      <offset>2484</offset>
       <static_define_list external="GlobalType" />
     </column>
     <column name="OwnerID" type="INT">
-      <offset>2492</offset>
+      <offset>2488</offset>
     </column>
     <column name="AssignedStat" type="STRUCT">
-      <offset>2496</offset>
+      <offset>2492</offset>
       <subtable external="AssignedStats" />
     </column>
     <column name="}" type="END" />

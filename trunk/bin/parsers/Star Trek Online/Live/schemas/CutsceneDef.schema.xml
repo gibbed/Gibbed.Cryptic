@@ -68,75 +68,85 @@
       <offset>52</offset>
       <subtable external="CutsceneSubtitleList" />
     </column>
-    <column name="MapName" type="STRING">
+    <column name="UIGenList" type="OPTIONALSTRUCT">
       <offset>56</offset>
+      <subtable external="CutsceneUIGenList" />
     </column>
-    <column name="BlendRate" type="F32">
+    <column name="MapName" type="STRING">
       <offset>60</offset>
     </column>
-    <column name="CutsceneEnts" type="STRUCT">
+    <column name="BlendRate" type="F32">
       <offset>64</offset>
+    </column>
+    <column name="CutsceneEnts" type="STRUCT">
+      <offset>68</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="CutsceneEnt" />
     </column>
     <column name="CutsceneSound" type="STRING">
-      <offset>68</offset>
+      <offset>72</offset>
     </column>
     <column name="Subtitles" type="EMBEDDEDSTRUCT">
-      <offset>72</offset>
+      <offset>76</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="SinglePlayer" type="U8">
-      <offset>84</offset>
-    </column>
-    <column name="Unskippable" type="U8">
-      <offset>85</offset>
-    </column>
-    <column name="HideAllPlayers" type="U8">
-      <offset>86</offset>
-    </column>
-    <column name="AutoAdjustCameraDistance" type="U8">
-      <offset>87</offset>
-    </column>
-    <column name="CameraClippingAvoidance" type="U8">
+    <column name="TranslatedSubtitles" type="STRING">
       <offset>88</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
     </column>
-    <column name="AutoAdjustMinEntityRadius" type="F32">
+    <column name="SinglePlayer" type="U8">
       <offset>92</offset>
     </column>
-    <column name="GameCameraTweenTime" type="F32">
+    <column name="Unskippable" type="U8">
+      <offset>93</offset>
+    </column>
+    <column name="HideAllPlayers" type="U8">
+      <offset>94</offset>
+    </column>
+    <column name="AutoAdjustCameraDistance" type="U8">
+      <offset>95</offset>
+    </column>
+    <column name="CameraClippingAvoidance" type="U8">
       <offset>96</offset>
     </column>
-    <column name="SoundCropDistanceScalar" type="F32">
+    <column name="AutoAdjustMinEntityRadius" type="F32">
       <offset>100</offset>
+    </column>
+    <column name="GameCameraTweenTime" type="F32">
+      <offset>104</offset>
+    </column>
+    <column name="SoundCropDistanceScalar" type="F32">
+      <offset>108</offset>
       <default>1</default>
     </column>
     <column name="MinCutSceneSendRange" type="F32">
-      <offset>104</offset>
+      <offset>112</offset>
     </column>
     <column name="TimeToFadePlayers" type="F32">
-      <offset>108</offset>
+      <offset>116</offset>
     </column>
     <column name="CamPositions" type="STRUCT">
-      <offset>112</offset>
+      <offset>120</offset>
       <subtable external="CutscenePos" />
     </column>
     <column name="CamTargets" type="STRUCT">
-      <offset>116</offset>
+      <offset>124</offset>
       <subtable external="CutscenePos" />
     </column>
     <column name="Interpolate" type="INT">
-      <offset>120</offset>
+      <offset>128</offset>
       <static_define_list external="InterpolationType" />
     </column>
     <column name="CutsceneDepthOfField" type="OPTIONALSTRUCT">
-      <offset>124</offset>
+      <offset>132</offset>
       <subtable external="CutsceneDOF" />
     </column>
     <column name="PlayOnceOnly" type="U8">
-      <offset>128</offset>
+      <offset>136</offset>
     </column>
     <column name="Tags" type="IGNORE" />
     <column name="}" type="END" />

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BuildScriptingVariableList">
+  <table>
+    <column name="BuildScriptingVariableList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ScriptingVariables" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="BuildScriptingVariable" />
+    </column>
+    <column name="StartingVariables" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="BuildScriptingVariable" />
+    </column>
+    <column name="ResettableStartingVariables" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="BuildScriptingVariable" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

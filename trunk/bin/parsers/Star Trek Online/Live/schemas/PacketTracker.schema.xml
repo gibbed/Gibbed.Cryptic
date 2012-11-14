@@ -27,68 +27,74 @@
     <column name="TotalBytesSent" type="INT64">
       <offset>32</offset>
     </column>
-    <column name="le512bytes" type="EMBEDDEDSTRUCT">
+    <column name="CurCount" type="INT">
       <offset>40</offset>
+    </column>
+    <column name="MaxCount" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="le512bytes" type="EMBEDDEDSTRUCT">
+      <offset>48</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le1K" type="EMBEDDEDSTRUCT">
-      <offset>56</offset>
+      <offset>64</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le2K" type="EMBEDDEDSTRUCT">
-      <offset>72</offset>
+      <offset>80</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le4K" type="EMBEDDEDSTRUCT">
-      <offset>88</offset>
+      <offset>96</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le8K" type="EMBEDDEDSTRUCT">
-      <offset>104</offset>
+      <offset>112</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le16K" type="EMBEDDEDSTRUCT">
-      <offset>120</offset>
+      <offset>128</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le32K" type="EMBEDDEDSTRUCT">
-      <offset>136</offset>
+      <offset>144</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le64K" type="EMBEDDEDSTRUCT">
-      <offset>152</offset>
+      <offset>160</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le128K" type="EMBEDDEDSTRUCT">
-      <offset>168</offset>
+      <offset>176</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le256K" type="EMBEDDEDSTRUCT">
-      <offset>184</offset>
+      <offset>192</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le512K" type="EMBEDDEDSTRUCT">
-      <offset>200</offset>
+      <offset>208</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le1M" type="EMBEDDEDSTRUCT">
-      <offset>216</offset>
+      <offset>224</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le2M" type="EMBEDDEDSTRUCT">
-      <offset>232</offset>
+      <offset>240</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le4M" type="EMBEDDEDSTRUCT">
-      <offset>248</offset>
+      <offset>256</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="le8M" type="EMBEDDEDSTRUCT">
-      <offset>264</offset>
+      <offset>272</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="gt8M" type="EMBEDDEDSTRUCT">
-      <offset>280</offset>
+      <offset>288</offset>
       <subtable external="PacketTrackerBucket" />
     </column>
     <column name="}" type="END" />

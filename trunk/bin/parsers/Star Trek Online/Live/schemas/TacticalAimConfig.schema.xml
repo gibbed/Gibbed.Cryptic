@@ -40,34 +40,46 @@
       <offset>24</offset>
       <static_define_list external="ItemCategory" />
     </column>
-    <column name="SplitAimAndCrouch" type="BIT">
+    <column name="AimCostAttrib" type="INT">
       <offset>28</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="SplitAimAndCrouch" type="BIT">
+      <offset>32</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="MovementCancelsCrouch" type="BIT">
-      <offset>28</offset>
+      <offset>32</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="CrouchModeToggles" type="BIT">
-      <offset>28</offset>
+      <offset>32</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="NoStanceTransitionsWhileAiming" type="BIT">
-      <offset>28</offset>
+      <offset>32</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="AimIgnoresGlobalCooldown" type="BIT">
-      <offset>28</offset>
+      <offset>32</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65540</bit_offset>
+    </column>
+    <column name="AimStrafes" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="AimDisablesJump" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65542</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

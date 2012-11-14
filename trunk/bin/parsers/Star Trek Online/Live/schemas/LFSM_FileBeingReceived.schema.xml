@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LFSM_FileBeingReceived">
+  <table>
+    <column name="LFSM_FileBeingReceived" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Handle" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="cmd" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="FileName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ExpectedSize" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="SizeReceived" type="INT64">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

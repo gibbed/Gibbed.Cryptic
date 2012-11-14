@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCAchievementServerEvent">
+  <table>
+    <column name="UGCAchievementServerEvent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ProjectPublished" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="UGCProjectPublishedEvent" />
+    </column>
+    <column name="ProjectPlayed" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="UGCProjectPlayedEvent" />
+    </column>
+    <column name="ProjectReviewed" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="UGCProjectReviewedEvent" />
+    </column>
+    <column name="ReviewedProject" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="UGCReviewedProjectEvent" />
+    </column>
+    <column name="ProjectTipped" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="UGCProjectTippedEvent" />
+    </column>
+    <column name="TippedProject" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="UGCTippedProjectEvent" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -174,49 +174,58 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="rootDefOrig" type="REFERENCE">
+    <column name="TrackedMission" type="STRING">
       <offset>56</offset>
-      <dictionary_name>MissionDef</dictionary_name>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
     </column>
-    <column name="rootDefOverride" type="REFERENCE">
+    <column name="pchTrackedMission" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>TrackedMission</redundant_name>
+    </column>
+    <column name="rootDefOrig" type="REFERENCE">
       <offset>60</offset>
       <dictionary_name>MissionDef</dictionary_name>
     </column>
-    <column name="missionNameOverride" type="STRING">
+    <column name="rootDefOverride" type="REFERENCE">
       <offset>64</offset>
+      <dictionary_name>MissionDef</dictionary_name>
     </column>
-    <column name="Count" type="INT">
+    <column name="missionNameOverride" type="STRING">
       <offset>68</offset>
     </column>
-    <column name="Target" type="INT">
+    <column name="Count" type="INT">
       <offset>72</offset>
     </column>
-    <column name="expirationTime" type="INT">
+    <column name="Target" type="INT">
       <offset>76</offset>
     </column>
-    <column name="debugInfo" type="OPTIONALSTRUCT">
+    <column name="expirationTime" type="INT">
       <offset>80</offset>
+    </column>
+    <column name="debugInfo" type="OPTIONALSTRUCT">
+      <offset>84</offset>
       <subtable external="MissionDebug" />
     </column>
     <column name="openChildren" type="BIT">
-      <offset>84</offset>
+      <offset>88</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Depth" type="INT">
-      <offset>88</offset>
+      <offset>92</offset>
     </column>
     <column name="dirtyBit" type="U8">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>NO_NETSEND</flag>
         <flag>DIRTY_BIT</flag>
-      </flags>
-    </column>
-    <column name="lastClientNotifiedTime" type="INT">
-      <offset>104</offset>
-      <flags>
-        <flag>NO_WRITE</flag>
-        <flag>CLIENT_ONLY</flag>
       </flags>
     </column>
     <column name="}" type="END" />

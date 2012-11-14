@@ -48,19 +48,23 @@
       <offset>48</offset>
       <dictionary_name>CharacterPath</dictionary_name>
     </column>
-    <column name="hSpecies" type="REFERENCE">
+    <column name="SecondaryPaths" type="STRUCT">
       <offset>52</offset>
+      <subtable external="AdditionalCharacterPath" />
+    </column>
+    <column name="hSpecies" type="REFERENCE">
+      <offset>56</offset>
       <dictionary_name>Species</dictionary_name>
     </column>
     <column name="ExpLevel" type="INT">
-      <offset>56</offset>
+      <offset>60</offset>
     </column>
     <column name="Costume" type="OPTIONALSTRUCT">
-      <offset>60</offset>
+      <offset>64</offset>
       <subtable external="PlayerCostume" />
     </column>
     <column name="ppchCompletedNodes" type="STRINGARRAY">
-      <offset>64</offset>
+      <offset>68</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

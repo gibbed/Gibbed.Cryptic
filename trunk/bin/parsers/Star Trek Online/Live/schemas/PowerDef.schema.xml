@@ -205,47 +205,59 @@
     <column name="RangeSecondary" type="F32">
       <offset>108</offset>
     </column>
-    <column name="TimeCharge" type="F32">
+    <column name="StartingRadius" type="F32">
       <offset>112</offset>
     </column>
-    <column name="TimeActivate" type="F32">
+    <column name="TimeCharge" type="F32">
       <offset>116</offset>
     </column>
-    <column name="TimeActivatePeriod" type="F32">
+    <column name="TimeActivate" type="F32">
       <offset>120</offset>
     </column>
-    <column name="PeriodsMax" type="INT">
+    <column name="TimeActivatePeriod" type="F32">
       <offset>124</offset>
     </column>
-    <column name="TimePreactivate" type="F32">
+    <column name="PeriodsMax" type="INT">
       <offset>128</offset>
     </column>
-    <column name="TimeMaintain" type="F32">
+    <column name="TimePreactivate" type="F32">
       <offset>132</offset>
+    </column>
+    <column name="TimeMaintain" type="F32">
+      <offset>136</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
     <column name="TimeRecharge" type="F32">
-      <offset>136</offset>
-    </column>
-    <column name="TimeOverride" type="F32">
       <offset>140</offset>
     </column>
-    <column name="TimeAllowQueue" type="F32">
+    <column name="TimeOverride" type="F32">
       <offset>144</offset>
+    </column>
+    <column name="TimeAllowQueue" type="F32">
+      <offset>148</offset>
       <default>-1</default>
     </column>
+    <column name="TotalCastPeriod" type="F32">
+      <offset>152</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="TimePostMaintain" type="F32">
+      <offset>156</offset>
+    </column>
     <column name="ExprBlockRequiresQueue" type="OPTIONALSTRUCT">
-      <offset>148</offset>
+      <offset>160</offset>
       <subtable external="Expression" />
     </column>
     <column name="ExprBlockRequiresCharge" type="OPTIONALSTRUCT">
-      <offset>152</offset>
+      <offset>164</offset>
       <subtable external="Expression" />
     </column>
     <column name="ExprRequiresChargeBlock" type="OPTIONALSTRUCT">
-      <offset>152</offset>
+      <offset>164</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -253,7 +265,7 @@
       <subtable external="Expression" />
     </column>
     <column name="ExprRequiresCharge" type="OPTIONALSTRUCT">
-      <offset>152</offset>
+      <offset>164</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -261,54 +273,54 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="ChargeRequire" type="F32">
-      <offset>156</offset>
+      <offset>168</offset>
     </column>
     <column name="PowerModesRequired" type="INTARRAY">
-      <offset>160</offset>
+      <offset>172</offset>
       <static_define_list external="PowerMode" />
     </column>
     <column name="PowerModesDisallowed" type="INTARRAY">
-      <offset>164</offset>
+      <offset>176</offset>
       <static_define_list external="PowerMode" />
     </column>
     <column name="CombatEvents" type="INTARRAY">
-      <offset>168</offset>
+      <offset>180</offset>
       <static_define_list external="CombatEvent" />
     </column>
     <column name="CombatEventTime" type="F32">
-      <offset>172</offset>
+      <offset>184</offset>
     </column>
     <column name="ExprBlockRequiresApply" type="OPTIONALSTRUCT">
-      <offset>176</offset>
+      <offset>188</offset>
       <subtable external="Expression" />
     </column>
     <column name="Charges" type="INT">
-      <offset>180</offset>
-    </column>
-    <column name="ChargeRefillInterval" type="F32">
-      <offset>184</offset>
-    </column>
-    <column name="LifetimeReal" type="F32">
-      <offset>188</offset>
-    </column>
-    <column name="LifetimeGame" type="F32">
       <offset>192</offset>
     </column>
-    <column name="LifetimeUsage" type="F32">
+    <column name="ChargeRefillInterval" type="F32">
       <offset>196</offset>
     </column>
-    <column name="AttribKeyBlock" type="INT">
+    <column name="LifetimeReal" type="F32">
       <offset>200</offset>
     </column>
-    <column name="AttribMod" type="STRUCT">
+    <column name="LifetimeGame" type="F32">
       <offset>204</offset>
+    </column>
+    <column name="LifetimeUsage" type="F32">
+      <offset>208</offset>
+    </column>
+    <column name="AttribKeyBlock" type="INT">
+      <offset>212</offset>
+    </column>
+    <column name="AttribMod" type="STRUCT">
+      <offset>216</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="AttribModDef" />
     </column>
     <column type="STRUCT">
-      <offset>208</offset>
+      <offset>220</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>NO_INDEX</flag>
@@ -316,7 +328,7 @@
       <subtable external="AttribModDef" />
     </column>
     <column name="OrderedModsClient" type="STRUCT">
-      <offset>212</offset>
+      <offset>224</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>NO_INDEX</flag>
@@ -324,7 +336,7 @@
       <subtable external="AttribModDef" />
     </column>
     <column name="SpecialModsClient" type="STRUCT">
-      <offset>216</offset>
+      <offset>228</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>NO_INDEX</flag>
@@ -332,33 +344,33 @@
       <subtable external="AttribModDef" />
     </column>
     <column name="Combo" type="STRUCT">
-      <offset>220</offset>
+      <offset>232</offset>
       <subtable external="PowerCombo" />
     </column>
     <column type="STRUCT">
-      <offset>224</offset>
+      <offset>236</offset>
       <flags>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="PowerCombo" />
     </column>
     <column name="AttribIgnore" type="INTARRAY">
-      <offset>228</offset>
+      <offset>240</offset>
       <static_define_list external="AttribType" />
     </column>
     <column name="AttribDepend" type="INTARRAY">
-      <offset>232</offset>
+      <offset>244</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="ExprBlockEnhanceAttach" type="OPTIONALSTRUCT">
-      <offset>236</offset>
+      <offset>248</offset>
       <subtable external="Expression" />
     </column>
     <column name="ExprEnhanceBlock" type="OPTIONALSTRUCT">
-      <offset>236</offset>
+      <offset>248</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -366,7 +378,7 @@
       <subtable external="Expression" />
     </column>
     <column name="ExprEnhance" type="OPTIONALSTRUCT">
-      <offset>236</offset>
+      <offset>248</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -374,11 +386,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="ExprBlockEnhanceApply" type="OPTIONALSTRUCT">
-      <offset>240</offset>
+      <offset>252</offset>
       <subtable external="Expression" />
     </column>
     <column name="ExprEnhanceApplyBlock" type="OPTIONALSTRUCT">
-      <offset>240</offset>
+      <offset>252</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -386,11 +398,11 @@
       <subtable external="Expression" />
     </column>
     <column name="ExprEnhanceEntCreate" type="OPTIONALSTRUCT">
-      <offset>244</offset>
+      <offset>256</offset>
       <subtable external="Expression" />
     </column>
     <column name="ExprEnhanceEntCreateBlock" type="OPTIONALSTRUCT">
-      <offset>244</offset>
+      <offset>256</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -398,65 +410,69 @@
       <subtable external="Expression" />
     </column>
     <column name="AttribHit" type="INT">
-      <offset>248</offset>
+      <offset>260</offset>
       <default>-1</default>
       <static_define_list external="AttribType" />
     </column>
     <column name="AttribMiss" type="INT">
-      <offset>252</offset>
+      <offset>264</offset>
       <default>-1</default>
       <static_define_list external="AttribType" />
     </column>
+    <column name="PreActivatePowerDef" type="REFERENCE">
+      <offset>268</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
     <column name="AnimFX" type="REFERENCE">
-      <offset>256</offset>
+      <offset>272</offset>
       <dictionary_name>PowerAnimFX</dictionary_name>
     </column>
     <column name="HueOverride" type="F32">
-      <offset>260</offset>
+      <offset>276</offset>
     </column>
     <column name="EmitOverride" type="REFERENCE">
-      <offset>264</offset>
+      <offset>280</offset>
       <dictionary_name>PowerEmit</dictionary_name>
     </column>
     <column name="IconName" type="STRING">
-      <offset>268</offset>
+      <offset>284</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Purpose" type="INT">
-      <offset>272</offset>
+      <offset>288</offset>
       <static_define_list external="PowerPurpose" />
     </column>
     <column name="CursorLocationTargetRadius" type="F32">
-      <offset>276</offset>
+      <offset>292</offset>
     </column>
     <column name="msgDisplayName" type="EMBEDDEDSTRUCT">
-      <offset>280</offset>
+      <offset>296</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="msgDescription" type="EMBEDDEDSTRUCT">
-      <offset>292</offset>
+      <offset>308</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="msgDescriptionLong" type="EMBEDDEDSTRUCT">
-      <offset>304</offset>
+      <offset>320</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="msgDescriptionFlavor" type="EMBEDDEDSTRUCT">
-      <offset>316</offset>
+      <offset>332</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="msgAttribOverride" type="EMBEDDEDSTRUCT">
-      <offset>328</offset>
+      <offset>344</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="msgAutoDesc" type="EMBEDDEDSTRUCT">
-      <offset>340</offset>
+      <offset>356</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="AITags" type="INT">
-      <offset>352</offset>
+      <offset>368</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
@@ -464,19 +480,19 @@
       <format>FLAGS</format>
     </column>
     <column name="AIMinRange" type="INT">
-      <offset>356</offset>
+      <offset>372</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="AIMaxRange" type="INT">
-      <offset>360</offset>
+      <offset>376</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="AIPowerConfigDef" type="STRING">
-      <offset>364</offset>
+      <offset>380</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -485,21 +501,21 @@
       <dictionary_name>AIPowerConfigDef</dictionary_name>
     </column>
     <column name="AIPowerConfigDefInst" type="OPTIONALSTRUCT">
-      <offset>368</offset>
+      <offset>384</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="AIPowerConfigDef" />
     </column>
     <column name="ExprBlockAICommand" type="OPTIONALSTRUCT">
-      <offset>372</offset>
+      <offset>388</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="Expression" />
     </column>
     <column name="ExprAICommand" type="OPTIONALSTRUCT">
-      <offset>372</offset>
+      <offset>388</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -508,42 +524,42 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="Group" type="STRING">
-      <offset>376</offset>
+      <offset>392</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="IndexTags" type="STRING">
-      <offset>380</offset>
+      <offset>396</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="Notes" type="STRING">
-      <offset>384</offset>
+      <offset>400</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>CASE_SENSITIVE</flag>
       </flags>
     </column>
     <column name="File" type="CURRENTFILE">
-      <offset>388</offset>
+      <offset>404</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="uiVersion" type="INT">
-      <offset>392</offset>
+      <offset>408</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="ForceBinningAgain" type="INT">
-      <offset>392</offset>
+      <offset>408</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>NO_TEXT_SAVE</flag>
@@ -551,8 +567,26 @@
       </flags>
       <redundant_name>uiVersion</redundant_name>
     </column>
+    <column name="CriticalChanceAttrib" type="INT">
+      <offset>412</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <default>-1</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="CriticalSeverityAttrib" type="INT">
+      <offset>416</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <default>-1</default>
+      <static_define_list external="AttribType" />
+    </column>
     <column name="Interrupts" type="BIT">
-      <offset>396</offset>
+      <offset>420</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -561,7 +595,7 @@
       <format>FLAGS</format>
     </column>
     <column name="Error" type="BIT">
-      <offset>396</offset>
+      <offset>420</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
@@ -569,14 +603,14 @@
       <static_define_list external="PowerError" />
     </column>
     <column name="AffectedRequiresPerceivance" type="U8">
-      <offset>400</offset>
+      <offset>424</offset>
     </column>
     <column name="TrackTarget" type="U8">
-      <offset>401</offset>
+      <offset>425</offset>
       <default>1</default>
     </column>
     <column name="Type" type="BIT">
-      <offset>404</offset>
+      <offset>428</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -584,37 +618,37 @@
       <static_define_list external="PowerType" />
     </column>
     <column name="TargetVisibilityMain" type="BIT">
-      <offset>404</offset>
+      <offset>428</offset>
       <bit_offset>524296</bit_offset>
       <static_define_list external="TargetVisibility" />
     </column>
     <column name="TargetVisibilityAffected" type="BIT">
-      <offset>404</offset>
+      <offset>428</offset>
       <bit_offset>524304</bit_offset>
       <static_define_list external="TargetVisibility" />
     </column>
     <column name="Tracking" type="BIT">
-      <offset>404</offset>
+      <offset>428</offset>
       <bit_offset>524312</bit_offset>
       <static_define_list external="TargetTracking" />
     </column>
     <column name="EffectArea" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>524288</bit_offset>
       <static_define_list external="EffectArea" />
     </column>
     <column name="EffectAreaSort" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>327688</bit_offset>
       <static_define_list external="EffectAreaSort" />
     </column>
     <column name="SourceEnterCombat" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>196621</bit_offset>
       <static_define_list external="PowerEnterCombatType" />
     </column>
     <column name="SetsCombat" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -623,12 +657,12 @@
       <static_define_list external="PowerEnterCombatType" />
     </column>
     <column name="RequireValidTarget" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>196624</bit_offset>
       <static_define_list external="PowerRequireValidTarget" />
     </column>
     <column name="UnrestrictedTargeting" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -637,7 +671,7 @@
       <static_define_list external="PowerRequireValidTarget" />
     </column>
     <column name="ActivateRules" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -646,7 +680,7 @@
       <format>FLAGS</format>
     </column>
     <column name="ActivateWhileDead" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SPECIAL_DEFAULT</flag>
@@ -657,84 +691,84 @@
       <format>FLAGS</format>
     </column>
     <column name="Unpredicted" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>65558</bit_offset>
     </column>
     <column name="ActivateWhileMundane" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>65559</bit_offset>
     </column>
     <column name="Overrides" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>65560</bit_offset>
     </column>
     <column name="InstantDeactivation" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>65561</bit_offset>
     </column>
     <column name="RechargeDisabled" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>65562</bit_offset>
     </column>
     <column name="RechargeRequiresHit" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>65563</bit_offset>
     </column>
     <column name="RechargeRequiresCombat" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>65564</bit_offset>
     </column>
     <column name="CooldownGlobalNotChecked" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>65565</bit_offset>
     </column>
     <column name="CooldownGlobalNotApplied" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>65566</bit_offset>
     </column>
     <column name="ChargesSetCooldownWhenEmpty" type="BIT">
-      <offset>408</offset>
+      <offset>432</offset>
       <bit_offset>65567</bit_offset>
     </column>
     <column name="AutoReapply" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="DeactivationLeavesMods" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="DeactivationDisablesMods" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="ModsExpireWithoutPower" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="AlwaysQueue" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="DisableTargetEnterCombat" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="HitChanceIgnore" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="IgnoreAccuracy" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -742,23 +776,23 @@
       <bit_offset>65542</bit_offset>
     </column>
     <column name="HitChanceOneTime" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="DoNotAutoSlot" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="HideInUI" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="SimpleProjectileMotion" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="AlwaysHitGround" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -766,195 +800,227 @@
       <bit_offset>65546</bit_offset>
     </column>
     <column name="EnhanceCopyLevel" type="BIT">
-      <offset>412</offset>
+      <offset>436</offset>
       <bit_offset>65547</bit_offset>
     </column>
-    <column name="SlottingRequired" type="BIT">
-      <offset>412</offset>
-      <flags>
-        <flag>NO_TEXT_SAVE</flag>
-      </flags>
+    <column name="EnhancePowerFields" type="BIT">
+      <offset>436</offset>
       <bit_offset>65548</bit_offset>
     </column>
-    <column name="ToggleExclusive" type="BIT">
-      <offset>412</offset>
-      <flags>
-        <flag>NO_TEXT_SAVE</flag>
-      </flags>
+    <column name="AreaEffectOffsetsRootRelative" type="BIT">
+      <offset>436</offset>
       <bit_offset>65549</bit_offset>
     </column>
-    <column name="AutoAttackServer" type="BIT">
-      <offset>412</offset>
+    <column name="SlottingRequired" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65550</bit_offset>
     </column>
-    <column name="AutoAttackEnabler" type="BIT">
-      <offset>412</offset>
+    <column name="ToggleExclusive" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65551</bit_offset>
     </column>
-    <column name="AutoAttackDisabler" type="BIT">
-      <offset>412</offset>
+    <column name="AutoAttackServer" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65552</bit_offset>
     </column>
-    <column name="WeaponBased" type="BIT">
-      <offset>412</offset>
+    <column name="AutoAttackEnabler" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65553</bit_offset>
     </column>
-    <column name="SelfOnce" type="BIT">
-      <offset>412</offset>
+    <column name="AutoAttackDisabler" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65554</bit_offset>
     </column>
-    <column name="MissMods" type="BIT">
-      <offset>412</offset>
+    <column name="WeaponBased" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65555</bit_offset>
     </column>
-    <column name="ComboToggle" type="BIT">
-      <offset>412</offset>
+    <column name="SelfOnce" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65556</bit_offset>
     </column>
-    <column name="ComboTargetRules" type="BIT">
-      <offset>412</offset>
+    <column name="MissMods" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65557</bit_offset>
     </column>
-    <column name="ApplyObjectDeath" type="BIT">
-      <offset>412</offset>
+    <column name="ComboToggle" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65558</bit_offset>
     </column>
-    <column name="LimitedUse" type="BIT">
-      <offset>412</offset>
+    <column name="ComboTargetRules" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65559</bit_offset>
     </column>
-    <column name="EnhancementExtension" type="BIT">
-      <offset>412</offset>
+    <column name="ApplyObjectDeath" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65560</bit_offset>
     </column>
-    <column name="EnhanceExtend" type="BIT">
-      <offset>412</offset>
-      <flags>
-        <flag>ALIAS</flag>
-        <flag>NO_TEXT_SAVE</flag>
-      </flags>
-      <redundant_name>EnhancementExtension</redundant_name>
-      <bit_offset>65560</bit_offset>
-    </column>
-    <column name="RequiresCooldown" type="BIT">
-      <offset>412</offset>
+    <column name="LimitedUse" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65561</bit_offset>
     </column>
-    <column name="SafeForSelfOnly" type="BIT">
-      <offset>412</offset>
+    <column name="EnhancementExtension" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65562</bit_offset>
     </column>
-    <column name="MultiAttribPower" type="BIT">
-      <offset>412</offset>
+    <column name="EnhanceExtend" type="BIT">
+      <offset>436</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <redundant_name>EnhancementExtension</redundant_name>
+      <bit_offset>65562</bit_offset>
+    </column>
+    <column name="RequiresCooldown" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65563</bit_offset>
     </column>
-    <column name="ModsIgnoreStrength" type="BIT">
-      <offset>412</offset>
+    <column name="SafeForSelfOnly" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65564</bit_offset>
     </column>
-    <column name="HasEffectAreaOffsets" type="BIT">
-      <offset>412</offset>
+    <column name="MultiAttribPower" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65565</bit_offset>
     </column>
-    <column name="HasEffectAreaPositionOffsets" type="BIT">
-      <offset>412</offset>
+    <column name="ModsIgnoreStrength" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65566</bit_offset>
     </column>
-    <column name="HasProjectileCreateAttrib" type="BIT">
-      <offset>412</offset>
+    <column name="HasEffectAreaOffsets" type="BIT">
+      <offset>436</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65567</bit_offset>
     </column>
-    <column name="HasTeleportAttrib" type="BIT">
-      <offset>416</offset>
+    <column name="HasEffectAreaPositionOffsets" type="BIT">
+      <offset>440</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65536</bit_offset>
     </column>
-    <column name="HasWarpAttrib" type="BIT">
-      <offset>416</offset>
+    <column name="HasProjectileCreateAttrib" type="BIT">
+      <offset>440</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
-    <column name="DelayTargetingOnQueuedActivation" type="BIT">
-      <offset>416</offset>
+    <column name="HasTeleportAttrib" type="BIT">
+      <offset>440</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
       <bit_offset>65538</bit_offset>
     </column>
-    <column name="UseCameraTargetingVecTargetAssist" type="BIT">
-      <offset>416</offset>
+    <column name="HasWarpAttrib" type="BIT">
+      <offset>440</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
       <bit_offset>65539</bit_offset>
     </column>
-    <column name="DoNotAllowCancelBeforeHitFrame" type="BIT">
-      <offset>416</offset>
+    <column name="DelayTargetingOnQueuedActivation" type="BIT">
+      <offset>440</offset>
       <bit_offset>65540</bit_offset>
     </column>
-    <column name="UpdateChargeTargetOnDeactivate" type="BIT">
-      <offset>416</offset>
+    <column name="UseCameraTargetingVecTargetAssist" type="BIT">
+      <offset>440</offset>
       <bit_offset>65541</bit_offset>
     </column>
-    <column name="DisableConfuseTargeting" type="BIT">
-      <offset>416</offset>
+    <column name="DoNotAllowCancelBeforeHitFrame" type="BIT">
+      <offset>440</offset>
       <bit_offset>65542</bit_offset>
     </column>
-    <column name="IgnoreShieldCheck" type="BIT">
-      <offset>416</offset>
+    <column name="UpdateChargeTargetOnDeactivate" type="BIT">
+      <offset>440</offset>
       <bit_offset>65543</bit_offset>
+    </column>
+    <column name="ChargeAllowIndefiniteCharging" type="BIT">
+      <offset>440</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="DisableConfuseTargeting" type="BIT">
+      <offset>440</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="ActivationImmunity" type="BIT">
+      <offset>440</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="ForceHideDamageFloats" type="BIT">
+      <offset>440</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="IgnoreShieldCheck" type="BIT">
+      <offset>440</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="RechargeWhileOffline" type="BIT">
+      <offset>440</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="CancelPreActivatePower" type="BIT">
+      <offset>440</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="EffectAreaCentered" type="BIT">
+      <offset>440</offset>
+      <bit_offset>65551</bit_offset>
     </column>
     <column name="msgActivateSource" type="IGNORE" />
     <column name="msgActivateBroadcast" type="IGNORE" />

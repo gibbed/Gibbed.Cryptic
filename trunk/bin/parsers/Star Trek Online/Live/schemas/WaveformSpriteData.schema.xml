@@ -40,8 +40,16 @@
     <column name="ScaleU" type="F32">
       <offset>36</offset>
     </column>
-    <column name="Init" type="U8">
+    <column name="Mode" type="INT">
       <offset>40</offset>
+      <static_define_list external="WaveformMode" />
+    </column>
+    <column name="Init" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="RadiationData" type="EMBEDDEDSTRUCT">
+      <offset>48</offset>
+      <subtable external="WaveformRadiationData" />
     </column>
     <column name="}" type="END" />
   </table>

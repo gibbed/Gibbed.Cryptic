@@ -21,6 +21,14 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
+    <column name="bStepIsLocked" type="BIT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

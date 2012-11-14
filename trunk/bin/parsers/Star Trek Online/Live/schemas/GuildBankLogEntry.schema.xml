@@ -43,23 +43,15 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pItem" type="OPTIONALSTRUCT">
-      <offset>20</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-      <subtable external="Item" />
-    </column>
     <column name="iNumberMoved" type="INT">
-      <offset>24</offset>
+      <offset>20</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="eBag" type="INT">
-      <offset>28</offset>
+      <offset>24</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -67,12 +59,17 @@
       <static_define_list external="InvBagIDs" />
     </column>
     <column name="ppItemNames" type="STRUCT">
-      <offset>32</offset>
+      <offset>28</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
       <subtable external="GuildBankLogEntryNames" />
+    </column>
+    <column name="pItem" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

@@ -131,36 +131,42 @@
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="PartialPermissions" type="U8">
+    <column name="UpdateContactDialogOptionsNextTick" type="U8">
       <offset>92</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="RemotelyAccessing" type="U8">
+    <column name="PartialPermissions" type="U8">
       <offset>93</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="AwaitingMapTransfer" type="U8">
+    <column name="RemotelyAccessing" type="U8">
       <offset>94</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="PurchaseInProgress" type="U8">
+    <column name="AwaitingMapTransfer" type="U8">
       <offset>95</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="BuyBackList" type="STRUCT">
+    <column name="PurchaseInProgress" type="U8">
       <offset>96</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="BuyBackList" type="STRUCT">
+      <offset>100</offset>
       <subtable external="StoreItemInfo" />
     </column>
     <column name="ppchVisitedSpecialDialogs" type="STRINGARRAY">
-      <offset>100</offset>
+      <offset>104</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>

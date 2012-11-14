@@ -255,74 +255,78 @@
       <offset>236</offset>
       <subtable external="WorldAutoPlacementProperties" />
     </column>
-    <column name="InteractProperties" type="OPTIONALSTRUCT">
+    <column name="PathNode" type="OPTIONALSTRUCT">
       <offset>240</offset>
+      <subtable external="WorldPathNodeProperties" />
+    </column>
+    <column name="InteractProperties" type="OPTIONALSTRUCT">
+      <offset>244</offset>
       <subtable external="WorldInteractionProperties" />
     </column>
     <column name="GenesisProperties" type="OPTIONALSTRUCT">
-      <offset>244</offset>
+      <offset>248</offset>
       <subtable external="WorldGenesisProperties" />
     </column>
     <column name="GenesisChallenge" type="OPTIONALSTRUCT">
-      <offset>248</offset>
+      <offset>252</offset>
       <subtable external="WorldGenesisChallengeProperties" />
     </column>
     <column name="Terrain" type="EMBEDDEDSTRUCT">
-      <offset>252</offset>
+      <offset>256</offset>
       <subtable external="WorldTerrainProperties" />
     </column>
     <column name="TerrainExclusion" type="OPTIONALSTRUCT">
-      <offset>316</offset>
+      <offset>320</offset>
       <subtable external="WorldTerrainExclusionProperties" />
     </column>
     <column name="UGCRoomObjectProperties" type="OPTIONALSTRUCT">
-      <offset>320</offset>
+      <offset>324</offset>
       <subtable external="WorldUGCRoomObjectProperties" />
     </column>
     <column name="Wind" type="EMBEDDEDSTRUCT">
-      <offset>324</offset>
+      <offset>328</offset>
       <subtable external="WorldWindProperties" />
     </column>
     <column name="Physical" type="EMBEDDEDSTRUCT">
-      <offset>340</offset>
+      <offset>344</offset>
       <subtable external="WorldPhysicalProperties" />
     </column>
     <column name="Model" type="STRING">
-      <offset>404</offset>
+      <offset>408</offset>
     </column>
     <column name="Property" type="STRUCT">
-      <offset>408</offset>
+      <offset>412</offset>
       <subtable external="PropertyLoad" />
     </column>
     <column name="TexSwap" type="STRUCT">
-      <offset>412</offset>
+      <offset>416</offset>
       <subtable external="TexSwapLoad" />
     </column>
     <column name="ScopeEntry" type="STRUCT">
-      <offset>416</offset>
+      <offset>420</offset>
       <subtable external="ScopeTableLoad" />
     </column>
     <column name="InstanceData" type="STRUCT">
-      <offset>420</offset>
+      <offset>424</offset>
       <subtable external="InstanceDataLoad" />
     </column>
     <column name="HasTint0" type="BOOLFLAG">
-      <offset>424</offset>
+      <offset>428</offset>
     </column>
     <column name="TintColorHSV0" type="F32FIXEDARRAY">
-      <offset>428</offset>
+      <offset>432</offset>
       <num_elements>3</num_elements>
       <format>HSV</format>
     </column>
     <column name="HasTintOffset0" type="BOOLFLAG">
-      <offset>440</offset>
+      <offset>444</offset>
     </column>
     <column name="TintColorOffsetHSV0" type="F32FIXEDARRAY">
-      <offset>444</offset>
+      <offset>448</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="bfParamsSpecified" type="INTFIXEDARRAY">
-      <offset>456</offset>
+      <offset>460</offset>
       <flags>
         <flag>USEDFIELD</flag>
       </flags>

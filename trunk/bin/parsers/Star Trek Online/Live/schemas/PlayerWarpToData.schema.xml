@@ -101,8 +101,15 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bRecruitWarp" type="BIT">
+    <column name="pchAllegiance" type="STRING">
       <offset>68</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bRecruitWarp" type="BIT">
+      <offset>72</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -110,8 +117,16 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bMustBeTeamed" type="BIT">
-      <offset>68</offset>
+      <offset>72</offset>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="bMustBeSameAllegiance" type="BIT">
+      <offset>72</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

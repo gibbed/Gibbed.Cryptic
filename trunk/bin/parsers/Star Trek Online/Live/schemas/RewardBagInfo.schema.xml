@@ -56,19 +56,27 @@
     <column name="LevelDelta" type="INT">
       <offset>44</offset>
     </column>
-    <column name="maxID" type="INT">
+    <column name="nextID" type="INT">
       <offset>48</offset>
     </column>
-    <column name="peaLootOwners" type="STRUCT">
+    <column name="ShowRewardPackUI" type="BIT">
       <offset>52</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="RewardPackOverallQuality" type="INT">
+      <offset>56</offset>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="peaLootOwners" type="STRUCT">
+      <offset>60</offset>
       <subtable external="CritterLootOwner" />
     </column>
     <column name="NotYoursCostume" type="REFERENCE">
-      <offset>56</offset>
+      <offset>64</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
     <column name="YoursCostume" type="REFERENCE">
-      <offset>60</offset>
+      <offset>68</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
     <column name="}" type="END" />

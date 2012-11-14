@@ -15,24 +15,82 @@
     <column name="InheritBits" type="U8">
       <offset>4</offset>
     </column>
-    <column name="BitFlash" type="STRINGARRAY">
+    <column name="Material" type="STRING">
       <offset>8</offset>
     </column>
-    <column name="BitToggle" type="STRINGARRAY">
+    <column name="Texture1New" type="STRING">
       <offset>12</offset>
     </column>
-    <column name="BitSet" type="STRINGARRAY">
+    <column name="Texture1Old" type="STRING">
       <offset>16</offset>
     </column>
-    <column name="BitClear" type="STRINGARRAY">
+    <column name="Texture2New" type="STRING">
       <offset>20</offset>
     </column>
-    <column name="Param" type="STRUCT">
+    <column name="Texture2Old" type="STRING">
       <offset>24</offset>
+    </column>
+    <column name="Texture3New" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="Texture3Old" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="Texture4New" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="Texture4Old" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="Color" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Color1" type="F32FIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color2" type="F32FIXEDARRAY">
+      <offset>72</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color3" type="F32FIXEDARRAY">
+      <offset>88</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="BitFlash" type="STRINGARRAY">
+      <offset>104</offset>
+    </column>
+    <column name="BitToggle" type="STRINGARRAY">
+      <offset>108</offset>
+    </column>
+    <column name="BitSet" type="STRINGARRAY">
+      <offset>112</offset>
+    </column>
+    <column name="BitClear" type="STRINGARRAY">
+      <offset>116</offset>
+    </column>
+    <column name="AnimKeyword" type="STRINGARRAY">
+      <offset>120</offset>
+    </column>
+    <column name="AnimFlag" type="STRINGARRAY">
+      <offset>124</offset>
+    </column>
+    <column name="SetStance" type="STRINGARRAY">
+      <offset>128</offset>
+    </column>
+    <column name="ClearStance" type="STRINGARRAY">
+      <offset>132</offset>
+    </column>
+    <column name="ToggleStance" type="STRINGARRAY">
+      <offset>136</offset>
+    </column>
+    <column name="Param" type="STRUCT">
+      <offset>140</offset>
       <subtable external="DynApplyParam" />
     </column>
     <column name="NotDependentSkeleton" type="BOOLFLAG">
-      <offset>28</offset>
+      <offset>144</offset>
     </column>
     <column name="End" type="END" />
   </table>

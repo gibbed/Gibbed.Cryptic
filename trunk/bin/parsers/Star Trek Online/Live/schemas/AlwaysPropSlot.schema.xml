@@ -10,12 +10,14 @@
     <column name="iSlotID" type="INT">
       <offset>0</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="hDef" type="REFERENCE">
       <offset>4</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
       <dictionary_name>AlwaysPropSlotDef</dictionary_name>
@@ -23,6 +25,14 @@
     <column name="iPetID" type="INT">
       <offset>8</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iPuppetID" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>

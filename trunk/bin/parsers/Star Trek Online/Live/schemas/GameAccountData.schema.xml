@@ -144,8 +144,15 @@
       </flags>
       <subtable external="ChatConfig" />
     </column>
-    <column name="eaRecruiters" type="STRUCT">
+    <column name="iLastChatAccessLevel" type="INT">
       <offset>116</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eaRecruiters" type="STRUCT">
+      <offset>120</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -153,22 +160,29 @@
       <subtable external="RecruiterContainer" />
     </column>
     <column name="eaRecruits" type="STRUCT">
-      <offset>120</offset>
+      <offset>124</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
       <subtable external="RecruitContainer" />
     </column>
+    <column name="bUGCAccountCreated" type="U8">
+      <offset>128</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
     <column name="iFoundryTipBalance" type="INT">
-      <offset>124</offset>
+      <offset>132</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="eaTipRecords" type="STRUCT">
-      <offset>128</offset>
+      <offset>136</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>

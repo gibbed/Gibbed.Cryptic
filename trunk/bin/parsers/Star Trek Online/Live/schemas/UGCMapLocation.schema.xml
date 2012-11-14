@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCMapLocation">
+  <table>
+    <column name="UGCMapLocation" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="positionX" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="positionY" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

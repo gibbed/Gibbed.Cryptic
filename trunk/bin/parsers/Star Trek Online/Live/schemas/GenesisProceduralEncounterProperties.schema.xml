@@ -166,30 +166,33 @@
     <column name="WhenExternalMap" type="STRINGARRAY">
       <offset>76</offset>
     </column>
-    <column name="WhenExternalChallenge" type="STRUCT">
+    <column name="WhenAnyCrypticMap" type="U8">
       <offset>80</offset>
+    </column>
+    <column name="WhenExternalChallenge" type="STRUCT">
+      <offset>84</offset>
       <subtable external="GenesisWhenExternalChallenge" />
     </column>
     <column name="WhenExternalRoom" type="STRUCT">
-      <offset>84</offset>
+      <offset>88</offset>
       <subtable external="GenesisWhenExternalRoom" />
     </column>
     <column name="WhenExternalPrompt" type="STRUCT">
-      <offset>88</offset>
+      <offset>92</offset>
       <subtable external="GenesisWhenExternalPrompt" />
     </column>
     <column name="WhenItemDefName" type="STRINGARRAY">
-      <offset>92</offset>
-    </column>
-    <column name="WhenItemCount" type="INT">
       <offset>96</offset>
     </column>
-    <column name="SpawnWhenChallenge" type="STRUCT">
+    <column name="WhenItemCount" type="INT">
       <offset>100</offset>
+    </column>
+    <column name="SpawnWhenChallenge" type="STRUCT">
+      <offset>104</offset>
       <subtable external="GenesisMissionZoneChallenge" />
     </column>
     <column name="SpawnWhenPrompt" type="STRUCT">
-      <offset>104</offset>
+      <offset>108</offset>
       <subtable external="GenesisProceduralPromptInfo" />
     </column>
     <column name="}" type="END" />

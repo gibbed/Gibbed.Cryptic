@@ -90,8 +90,18 @@
       </flags>
       <subtable external="TrayElem" />
     </column>
-    <column name="ppModsSaved" type="STRUCT">
+    <column name="ppActiveSlotsSaved" type="STRUCT">
       <offset>32</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="SavedActiveSlots" />
+    </column>
+    <column name="ppModsSaved" type="STRUCT">
+      <offset>36</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -100,7 +110,7 @@
       <subtable external="AttribMod" />
     </column>
     <column name="ppSavedPropSlots" type="STRUCT">
-      <offset>36</offset>
+      <offset>40</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -108,7 +118,7 @@
       <subtable external="AlwaysPropSlot" />
     </column>
     <column name="curType" type="INT">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -116,8 +126,9 @@
       <static_define_list external="GlobalType" />
     </column>
     <column name="curID" type="INT">
-      <offset>44</offset>
+      <offset>48</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>

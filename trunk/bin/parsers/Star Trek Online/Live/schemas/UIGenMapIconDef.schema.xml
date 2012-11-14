@@ -87,50 +87,54 @@
       <offset>44</offset>
       <default>2</default>
     </column>
-    <column name="MaxCount" type="INT">
+    <column name="BaseScale" type="F32">
       <offset>48</offset>
+      <default>1</default>
+    </column>
+    <column name="MaxCount" type="INT">
+      <offset>52</offset>
     </column>
     <column name="OnLeftClick" type="OPTIONALSTRUCT">
-      <offset>56</offset>
-      <subtable external="UIGenAction" />
-    </column>
-    <column name="OnRightClick" type="OPTIONALSTRUCT">
       <offset>60</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="OnLeftDoubleClick" type="OPTIONALSTRUCT">
+    <column name="OnRightClick" type="OPTIONALSTRUCT">
       <offset>64</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="Z" type="INT16">
+    <column name="OnLeftDoubleClick" type="OPTIONALSTRUCT">
       <offset>68</offset>
+      <subtable external="UIGenAction" />
     </column>
-    <column name="OutOfBounds" type="U8">
-      <offset>70</offset>
-    </column>
-    <column name="ClampToEdge" type="U8">
-      <offset>71</offset>
-    </column>
-    <column name="Rotate" type="U8">
+    <column name="Z" type="INT16">
       <offset>72</offset>
     </column>
-    <column name="Scale" type="U8">
-      <offset>73</offset>
-    </column>
-    <column name="ScaleToWorld" type="U8">
+    <column name="OutOfBounds" type="U8">
       <offset>74</offset>
     </column>
-    <column name="Clip" type="U8">
+    <column name="ClampToEdge" type="U8">
       <offset>75</offset>
     </column>
-    <column name="Pushable" type="U8">
+    <column name="Rotate" type="U8">
       <offset>76</offset>
     </column>
-    <column name="AlwaysShowLabel" type="U8">
+    <column name="Scale" type="U8">
       <offset>77</offset>
     </column>
-    <column name="IgnoreWorldSize" type="U8">
+    <column name="ScaleToWorld" type="U8">
       <offset>78</offset>
+    </column>
+    <column name="Clip" type="U8">
+      <offset>79</offset>
+    </column>
+    <column name="Pushable" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="AlwaysShowLabel" type="U8">
+      <offset>81</offset>
+    </column>
+    <column name="IgnoreWorldSize" type="U8">
+      <offset>82</offset>
     </column>
     <column name="}" type="END" />
   </table>

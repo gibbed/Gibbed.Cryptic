@@ -40,41 +40,43 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="OutOfRangeColor" type="F32FIXEDARRAY">
+    <column name="FxKillMessage" type="STRING">
       <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OutOfRangeColor" type="F32FIXEDARRAY">
+      <offset>28</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="InRangeColor" type="F32FIXEDARRAY">
-      <offset>36</offset>
+      <offset>40</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="cursorX" type="INT">
-      <offset>48</offset>
-    </column>
-    <column name="cursorY" type="INT">
       <offset>52</offset>
     </column>
-    <column name="CursorTexture2" type="STRING">
+    <column name="cursorY" type="INT">
       <offset>56</offset>
+    </column>
+    <column name="CursorTexture2" type="STRING">
+      <offset>60</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="ClampToMaxDistance" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="TestPowerRequirementsOnUpdate" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="ShowOnCursor" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65538</bit_offset>
-    </column>
-    <column name="ActivatePowerOnPowerExecRelease" type="BIT">
-      <offset>60</offset>
-      <bit_offset>65539</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

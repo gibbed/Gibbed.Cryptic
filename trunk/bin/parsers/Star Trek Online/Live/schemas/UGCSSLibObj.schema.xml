@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCSSLibObj">
+  <table>
+    <column name="UGCSSLibObj" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="obj" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="UID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="ExternalName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ChallengeID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Offset" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="UGCSSOffset" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

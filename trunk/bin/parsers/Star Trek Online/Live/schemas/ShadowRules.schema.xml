@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShadowRules">
+  <table>
+    <column name="ShadowRules" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="camerafalloffdist" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="camerascalefalloff" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="threesplitdistances" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="foursplitdistances" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

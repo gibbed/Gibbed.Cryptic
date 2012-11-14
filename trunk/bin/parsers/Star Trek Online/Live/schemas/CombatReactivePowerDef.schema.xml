@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatReactivePowerDef">
+  <table>
+    <column name="CombatReactivePowerDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PreactivateTime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="DeactivateTime" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="ActivateSpeedScalePenalty" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="PreactivateSpeedScalePenalty" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="AnimFX" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="CombatReactivePowerAnimFx" />
+    </column>
+    <column name="ActivatePowerDef" type="REFERENCE">
+      <offset>48</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="AttribPoolName" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AttribPoolPostDelayTimer" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="CostAttrib" type="INT">
+      <offset>60</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="MaxCostAttrib" type="INT">
+      <offset>64</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="RequiredItemCategory" type="INTARRAY">
+      <offset>68</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="InCombatTimer" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="DisablesJump" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="EnableStrafing" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="AllowPowersCast" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

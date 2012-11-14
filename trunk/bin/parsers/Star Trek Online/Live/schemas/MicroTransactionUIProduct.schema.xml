@@ -67,59 +67,66 @@
       <offset>52</offset>
       <static_define_list external="MicroPurchaseErrorType" />
     </column>
-    <column name="Update" type="INT">
+    <column name="Inventory" type="STRUCT">
       <offset>56</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="InventorySlot" />
+    </column>
+    <column name="Update" type="INT">
+      <offset>60</offset>
     </column>
     <column name="PrerequisitesMet" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="CannotPurchaseAgain" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="OneTimePurchase" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="UniqueInInv" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="Updated" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="ItemRestrictions" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="NewProduct" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="FeaturedProduct" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="OwnedProduct" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="FailsExpression" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="NotEnoughCurrency" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="AlreadyEntitled" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="PremiumEntitlement" type="BIT">
-      <offset>60</offset>
+      <offset>64</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="}" type="END" />

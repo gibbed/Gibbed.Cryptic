@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemUpgradeStack">
+  <table>
+    <column name="ItemUpgradeStack" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SrcBagId" type="INT">
+      <offset>0</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="SrcSlotIdx" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="SrcItemId" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="ModBagId" type="INT">
+      <offset>16</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="ModSlotIdx" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="uModItemId" type="INT64">
+      <offset>24</offset>
+    </column>
+    <column name="StackRemaining" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="ModDef" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="Chance" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="EntID" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

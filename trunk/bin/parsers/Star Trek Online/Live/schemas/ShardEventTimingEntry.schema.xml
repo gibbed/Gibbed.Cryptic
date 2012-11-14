@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShardEventTimingEntry">
+  <table>
+    <column name="ShardEventTimingEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="StartDate" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="EndDate" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="DateStart" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="TimeEnd" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="TimeRepeat" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="TimeDuration" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="RandomStartTime" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

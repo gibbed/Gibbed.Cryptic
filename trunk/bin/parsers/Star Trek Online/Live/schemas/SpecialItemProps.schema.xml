@@ -53,6 +53,32 @@
       </flags>
       <subtable external="ItemDoorKey" />
     </column>
+    <column name="ppItemGemSlots" type="STRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ItemGemSlot" />
+    </column>
+    <column name="pSuperCritterPet" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="SuperCritterPet" />
+    </column>
+    <column name="pTransmutationProps" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ItemTransmutationProps" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

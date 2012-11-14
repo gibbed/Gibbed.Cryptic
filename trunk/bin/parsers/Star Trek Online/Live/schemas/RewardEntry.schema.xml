@@ -100,34 +100,37 @@
       </flags>
       <redundant_name>ActivityName</redundant_name>
     </column>
-    <column name="CharacterBasedIncludeType" type="INT">
+    <column name="ShardVariable" type="STRING">
       <offset>80</offset>
+    </column>
+    <column name="CharacterBasedIncludeType" type="INT">
+      <offset>84</offset>
       <default>1</default>
       <static_define_list external="CharacterBasedIncludeType" />
     </column>
     <column name="CharacterBasedIncludePrefix" type="STRING">
-      <offset>84</offset>
+      <offset>88</offset>
     </column>
     <column name="BroadcastChatMessage" type="EMBEDDEDSTRUCT">
-      <offset>88</offset>
+      <offset>92</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="RewardDiffPowerScaleMult" type="F32">
-      <offset>100</offset>
+      <offset>104</offset>
       <default>1</default>
     </column>
     <column name="ResetGatedTable" type="U8">
-      <offset>104</offset>
+      <offset>108</offset>
     </column>
     <column name="GatedForNumeric" type="INT">
-      <offset>108</offset>
+      <offset>112</offset>
       <static_define_list external="RewardGatedType" />
     </column>
     <column name="GatedPercentChange" type="INT">
-      <offset>112</offset>
+      <offset>116</offset>
     </column>
     <column name="MaxGatedPercentChange" type="INT">
-      <offset>116</offset>
+      <offset>120</offset>
     </column>
     <column name="DisableCostume" type="IGNORE" />
     <column name="DisplayNameMsg" type="IGNORE" />

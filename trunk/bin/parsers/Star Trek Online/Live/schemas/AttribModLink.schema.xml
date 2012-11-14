@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribModLink">
+  <table>
+    <column name="AttribModLink" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uiLinkedApplyID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="uiLinkedActIDServer" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uiLinkedDefIdx" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="erTarget" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

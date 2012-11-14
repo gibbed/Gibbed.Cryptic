@@ -197,8 +197,36 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pExtraDetailData" type="OPTIONALSTRUCT">
+    <column name="pFeatured" type="OPTIONALSTRUCT">
+      <offset>156</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCFeaturedData" />
+    </column>
+    <column name="bAuthorAllowsFeatured" type="U8">
       <offset>160</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bUGCFeaturedCopyProjectInProgress" type="U8">
+      <offset>161</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uUGCFeaturedOrigProjectID" type="INT">
+      <offset>164</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pExtraDetailData" type="OPTIONALSTRUCT">
+      <offset>172</offset>
       <subtable external="UGCExtraDetailData" />
     </column>
     <column name="Check Container Location" type="COMMAND">

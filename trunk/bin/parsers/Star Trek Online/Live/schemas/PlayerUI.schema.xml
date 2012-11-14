@@ -234,8 +234,16 @@
       </flags>
       <subtable external="PlayerUIMapRegionScale" />
     </column>
-    <column name="bDisallowGuildInvites" type="U8">
+    <column name="bGoldenPathActive" type="U8">
       <offset>112</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="bDisallowGuildInvites" type="U8">
+      <offset>113</offset>
       <flags>
         <flag>USEROPTIONBIT_2</flag>
         <flag>PERSIST</flag>
@@ -243,12 +251,28 @@
       </flags>
     </column>
     <column name="dirtyBit" type="U8">
-      <offset>113</offset>
+      <offset>114</offset>
       <flags>
         <flag>NO_NETSEND</flag>
         <flag>USEROPTIONBIT_2</flag>
         <flag>DIRTY_BIT</flag>
       </flags>
+    </column>
+    <column name="uiLastLevelPowersMenuAt" type="U8">
+      <offset>115</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="uiLevelUpWizardDismissedAt" type="U8">
+      <offset>116</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <default>1</default>
     </column>
     <column name="}" type="END" />
   </table>

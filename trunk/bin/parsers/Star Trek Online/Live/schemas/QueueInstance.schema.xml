@@ -88,14 +88,11 @@
     <column name="uiNextMapLaunchTime" type="INT">
       <offset>56</offset>
     </column>
-    <column name="uSucceedAt" type="INT">
+    <column name="uiPlayersPreventingMapLaunch" type="U8">
       <offset>60</offset>
     </column>
-    <column name="uiPlayersPreventingMapLaunch" type="U8">
-      <offset>64</offset>
-    </column>
     <column name="bNewMap" type="BIT">
-      <offset>68</offset>
+      <offset>64</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -103,7 +100,7 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bOvertime" type="BIT">
-      <offset>68</offset>
+      <offset>64</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -111,7 +108,7 @@
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bEnableLeaverPenalty" type="BIT">
-      <offset>68</offset>
+      <offset>64</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -119,23 +116,23 @@
       <bit_offset>65538</bit_offset>
     </column>
     <column name="bOpenMap" type="BIT">
-      <offset>68</offset>
+      <offset>64</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="bAutoFill" type="BIT">
-      <offset>68</offset>
+      <offset>64</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="bReplay" type="BIT">
-      <offset>68</offset>
+      <offset>64</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="eaTeams" type="STRUCT">
-      <offset>72</offset>
+      <offset>68</offset>
       <subtable external="QueueMemberTeam" />
     </column>
     <column name="eaForceLeaves" type="STRUCT">
-      <offset>76</offset>
+      <offset>72</offset>
       <subtable external="QueueMemberForceLeave" />
     </column>
     <column name="}" type="END" />

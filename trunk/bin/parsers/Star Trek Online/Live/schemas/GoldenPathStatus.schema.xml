@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GoldenPathStatus">
+  <table>
+    <column name="GoldenPathStatus" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="GoldenPathFX" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GoldenPathObstructedFX" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GoldenPathAreaFX" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GoldenPathAreaDeathFX" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FoundPath" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="HasArrived" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="TargetWaypoint" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="MinimapWaypoint" />
+    </column>
+    <column name="FXStartPoint" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="IsPathObstructed" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="VerticalPathOffset" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="FirstNodeInArea" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="GoldenPathNode" />
+    </column>
+    <column name="PathFX" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="GoldenPathFXConnection" />
+    </column>
+    <column name="FXHidden" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

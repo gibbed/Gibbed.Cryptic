@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionAdditionalParams">
+  <table>
+    <column name="GenesisMissionAdditionalParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="InteractableOverrides" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="InteractableOverride" />
+    </column>
+    <column name="MissionOfferOverrides" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="MissionOfferOverride" />
+    </column>
+    <column name="ImageMenuItemOverrides" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ImageMenuItemOverride" />
+    </column>
+    <column name="SuccessActions" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="WorldGameActionProperties" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

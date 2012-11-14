@@ -77,6 +77,13 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
+    <column name="pchItemName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
     <column name="ppTranslatedTokens" type="IGNORE" />
     <column name="}" type="END" />
   </table>

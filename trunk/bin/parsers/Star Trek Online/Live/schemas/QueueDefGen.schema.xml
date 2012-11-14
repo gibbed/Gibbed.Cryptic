@@ -466,38 +466,53 @@
       <offset>292</offset>
       <static_define_list external="QueueCategory" />
     </column>
-    <column name="LevelBand" type="STRUCT">
+    <column name="Reward" type="INT">
       <offset>296</offset>
+      <static_define_list external="QueueReward" />
+    </column>
+    <column name="Difficulty" type="INT">
+      <offset>300</offset>
+      <static_define_list external="QueueDifficulty" />
+    </column>
+    <column name="ExpectedGameTime" type="INT">
+      <offset>304</offset>
+    </column>
+    <column name="LevelBand" type="STRUCT">
+      <offset>308</offset>
       <subtable external="QueueLevelBand" />
     </column>
     <column name="TrackedEvent" type="STRUCT">
-      <offset>300</offset>
+      <offset>312</offset>
       <subtable external="QueueTrackedEvent" />
     </column>
     <column name="QueueRewardTables" type="STRUCT">
-      <offset>304</offset>
+      <offset>316</offset>
       <subtable external="QueueRewardTable" />
     </column>
+    <column name="EnableStrictTeamRules" type="BIT">
+      <offset>320</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
     <column name="EditorData" type="STRUCT">
-      <offset>308</offset>
+      <offset>324</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="QueueLevelBandEditorData" />
     </column>
     <column name="BaseDef" type="REFERENCE">
-      <offset>312</offset>
+      <offset>328</offset>
       <dictionary_name>QueueDef</dictionary_name>
     </column>
     <column name="ChoiceTable" type="REFERENCE">
-      <offset>316</offset>
+      <offset>332</offset>
       <dictionary_name>ChoiceTable</dictionary_name>
     </column>
     <column name="MarkAsPublic" type="U8">
-      <offset>320</offset>
+      <offset>336</offset>
     </column>
     <column name="QueueCategoryChange" type="INT">
-      <offset>324</offset>
+      <offset>340</offset>
       <static_define_list external="QueueCategory" />
     </column>
     <column name="}" type="END" />

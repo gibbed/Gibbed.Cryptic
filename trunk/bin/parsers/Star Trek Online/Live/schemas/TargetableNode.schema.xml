@@ -23,11 +23,21 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="RequirementName" type="STRING">
+    <column name="Tags" type="STRINGARRAY">
       <offset>12</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
+    </column>
+    <column name="RequirementName" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="IsAttemptable" type="U8">
+      <offset>20</offset>
+      <default>1</default>
     </column>
     <column name="}" type="END" />
   </table>

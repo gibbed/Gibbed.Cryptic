@@ -7,11 +7,10 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Rows" type="STRUCT">
+    <column name="Ints" type="INTARRAY">
       <offset>0</offset>
-      <subtable external="TextParserBinaryBlockRow" />
     </column>
-    <column name="NumBytesInLastRow" type="U8">
+    <column name="ActualByteSize" type="INT">
       <offset>4</offset>
     </column>
     <column name="SizeBeforeZipping" type="INT">

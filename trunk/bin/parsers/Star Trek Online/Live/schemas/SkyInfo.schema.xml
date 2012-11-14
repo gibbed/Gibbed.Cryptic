@@ -42,11 +42,17 @@
       <offset>28</offset>
       <subtable external="Moon" />
     </column>
-    <column name="FogClip" type="U8">
+    <column name="IgnoreFogClip" type="U8">
       <offset>32</offset>
     </column>
-    <column name="FogClipLow" type="U8">
+    <column name="FogClip" type="U8">
       <offset>33</offset>
+    </column>
+    <column name="IgnoreFogClipLow" type="U8">
+      <offset>34</offset>
+    </column>
+    <column name="FogClipLow" type="U8">
+      <offset>35</offset>
     </column>
     <column name="CloudShadowTexture" type="STRING">
       <offset>36</offset>
@@ -145,8 +151,12 @@
       <offset>120</offset>
       <subtable external="SkyDome" />
     </column>
-    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+    <column name="SkyShadows" type="STRUCT">
       <offset>124</offset>
+      <subtable external="ShadowRules" />
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>128</offset>
       <flags>
         <flag>USEDFIELD</flag>
       </flags>

@@ -36,13 +36,21 @@
       <offset>20</offset>
       <subtable external="GenesisWhen" />
     </column>
+    <column name="Reward" type="REFERENCE">
+      <offset>108</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
     <column name="Objective" type="STRUCT">
-      <offset>104</offset>
+      <offset>112</offset>
       <subtable external="GenesisMissionObjective" />
     </column>
     <column name="OnStartAction" type="STRUCT">
-      <offset>108</offset>
+      <offset>116</offset>
       <subtable external="WorldGameActionProperties" />
+    </column>
+    <column name="ExtraWaypoint" type="STRUCT">
+      <offset>120</offset>
+      <subtable external="MissionWaypoint" />
     </column>
     <column name="succeedWhenOld" type="IGNORE">
       <flags>
@@ -50,36 +58,36 @@
       </flags>
     </column>
     <column name="Type" type="INT">
-      <offset>112</offset>
+      <offset>124</offset>
       <default>12</default>
       <static_define_list external="GenesisWhenType" />
     </column>
     <column name="CompleteChallenge" type="OPTIONALSTRUCT">
-      <offset>116</offset>
+      <offset>128</offset>
       <subtable external="GenesisMissionObjectiveOld_CompleteChallenge" />
     </column>
     <column name="ReachLocation" type="OPTIONALSTRUCT">
-      <offset>120</offset>
+      <offset>132</offset>
       <subtable external="GenesisMissionObjectiveOld_ReachLocation" />
     </column>
     <column name="KillCritter" type="OPTIONALSTRUCT">
-      <offset>124</offset>
+      <offset>136</offset>
       <subtable external="GenesisMissionObjectiveOld_KillCritter" />
     </column>
     <column name="KillCritterGroup" type="OPTIONALSTRUCT">
-      <offset>128</offset>
+      <offset>140</offset>
       <subtable external="GenesisMissionObjectiveOld_KillCritterGroup" />
     </column>
     <column name="TalkToContact" type="OPTIONALSTRUCT">
-      <offset>132</offset>
+      <offset>144</offset>
       <subtable external="GenesisMissionObjectiveOld_TalkToContact" />
     </column>
     <column name="CollectItems" type="OPTIONALSTRUCT">
-      <offset>136</offset>
+      <offset>148</offset>
       <subtable external="GenesisMissionObjectiveOld_CollectItems" />
     </column>
     <column name="PromptComplete" type="OPTIONALSTRUCT">
-      <offset>140</offset>
+      <offset>152</offset>
       <subtable external="GenesisMissionObjectiveOld_PromptComplete" />
     </column>
     <column name="DescriptionText" type="IGNORE" />

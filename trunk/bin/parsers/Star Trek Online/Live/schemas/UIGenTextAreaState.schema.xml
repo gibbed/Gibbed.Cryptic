@@ -35,50 +35,50 @@
       <subtable external="UIGenBundleTextureState" />
     </column>
     <column name="Default" type="STRING">
-      <offset>60</offset>
+      <offset>48</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="LineBreaks" type="STRINGARRAY">
-      <offset>64</offset>
+      <offset>52</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
     </column>
     <column name="LastFont" type="OPTIONALSTRUCT">
-      <offset>68</offset>
+      <offset>56</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="UIStyleFont" />
     </column>
     <column name="LastWidth" type="F32">
-      <offset>72</offset>
+      <offset>60</offset>
     </column>
     <column name="LastScale" type="F32">
-      <offset>76</offset>
+      <offset>64</offset>
     </column>
     <column name="Timer" type="F32">
-      <offset>80</offset>
+      <offset>68</offset>
     </column>
     <column name="ScrollToCursor" type="BIT">
-      <offset>84</offset>
+      <offset>72</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Dirty" type="BIT">
-      <offset>84</offset>
+      <offset>72</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="Selecting" type="BIT">
-      <offset>84</offset>
+      <offset>72</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="Truncating" type="U8">
-      <offset>85</offset>
+      <offset>73</offset>
     </column>
     <column name="Truncate" type="EMBEDDEDSTRUCT">
-      <offset>88</offset>
+      <offset>76</offset>
       <subtable external="UIGenBundleTruncateState" />
     </column>
     <column name="}" type="END" />

@@ -36,16 +36,22 @@
       <offset>20</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="TreeType" type="REFERENCE">
+    <column name="IconName" type="STRING">
       <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreeType" type="REFERENCE">
+      <offset>36</offset>
       <dictionary_name>PowerTreeTypeDef</dictionary_name>
     </column>
     <column name="ExprBlockRequires" type="OPTIONALSTRUCT">
-      <offset>36</offset>
+      <offset>40</offset>
       <subtable external="Expression" />
     </column>
     <column name="RequiresBlock" type="OPTIONALSTRUCT">
-      <offset>36</offset>
+      <offset>40</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -53,7 +59,7 @@
       <subtable external="Expression" />
     </column>
     <column name="Requires" type="OPTIONALSTRUCT">
-      <offset>36</offset>
+      <offset>40</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -61,24 +67,24 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="Group" type="STRUCT">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="PTGroupDef" />
     </column>
     <column name="File" type="CURRENTFILE">
-      <offset>44</offset>
+      <offset>48</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Class" type="REFERENCE">
-      <offset>48</offset>
+      <offset>52</offset>
       <dictionary_name>CharacterClass</dictionary_name>
     </column>
     <column name="TopDown" type="OPTIONALSTRUCT">
-      <offset>52</offset>
+      <offset>56</offset>
       <flags>
         <flag>NO_WRITE</flag>
         <flag>CLIENT_ONLY</flag>
@@ -86,49 +92,52 @@
       <subtable external="PowerTreeTopDown" />
     </column>
     <column name="Links" type="STRUCT">
-      <offset>56</offset>
+      <offset>60</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="PowerTreeLink" />
     </column>
     <column name="UICategory" type="INT">
-      <offset>60</offset>
+      <offset>64</offset>
       <static_define_list external="PowerTreeUICategory" />
     </column>
     <column name="DefaultPlayingStyle" type="STRING">
-      <offset>64</offset>
+      <offset>68</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="MaxSpendablePointsCostTable" type="STRING">
-      <offset>68</offset>
-    </column>
-    <column name="MaxSpendablePoints" type="F32">
       <offset>72</offset>
     </column>
-    <column name="MinCost" type="INT">
+    <column name="MaxSpendablePoints" type="F32">
       <offset>76</offset>
+    </column>
+    <column name="MinCost" type="INT">
+      <offset>80</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
     <column name="AutoBuy" type="U8">
-      <offset>80</offset>
-    </column>
-    <column name="Temporary" type="U8">
-      <offset>81</offset>
-    </column>
-    <column name="IsTalentTree" type="INT">
       <offset>84</offset>
     </column>
-    <column name="AnimListToPlayOnGrant" type="REFERENCE">
+    <column name="Temporary" type="U8">
+      <offset>85</offset>
+    </column>
+    <column name="SendToClient" type="U8">
+      <offset>86</offset>
+    </column>
+    <column name="IsTalentTree" type="INT">
       <offset>88</offset>
+    </column>
+    <column name="AnimListToPlayOnGrant" type="REFERENCE">
+      <offset>92</offset>
       <dictionary_name>AIAnimList</dictionary_name>
     </column>
     <column name="GrantMessage" type="EMBEDDEDSTRUCT">
-      <offset>92</offset>
+      <offset>96</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="}" type="END" />

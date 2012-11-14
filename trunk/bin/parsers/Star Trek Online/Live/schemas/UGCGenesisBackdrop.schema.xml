@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCGenesisBackdrop">
+  <table>
+    <column name="UGCGenesisBackdrop" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SkyGroup" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="SkyInfoGroup" />
+    </column>
+    <column name="AmbSound" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Sun" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UGCGenesisBackdropSun" />
+    </column>
+    <column name="Fog" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="UGCGenesisBackdropFog" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

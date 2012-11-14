@@ -37,14 +37,17 @@
     <column name="Col" type="INT">
       <offset>16</offset>
     </column>
-    <column name="PlainString" type="STRING">
+    <column name="DataRow" type="INT">
       <offset>20</offset>
+    </column>
+    <column name="PlainString" type="STRING">
+      <offset>24</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
     <column name="Truncate" type="EMBEDDEDSTRUCT">
-      <offset>36</offset>
+      <offset>40</offset>
       <subtable external="UIGenBundleTruncateState" />
     </column>
     <column name="}" type="END" />

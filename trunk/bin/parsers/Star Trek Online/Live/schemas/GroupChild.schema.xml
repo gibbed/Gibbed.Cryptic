@@ -47,6 +47,11 @@
     <column name="Weight" type="F32">
       <offset>52</offset>
     </column>
+    <column name="simpleData" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
     <column name="Param" type="STRUCT">
       <offset>56</offset>
       <subtable external="GroupChildParameter" />

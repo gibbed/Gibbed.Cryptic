@@ -94,8 +94,17 @@
       <offset>76</offset>
       <static_define_list external="RewardTag" />
     </column>
-    <column name="RewardGatedType" type="INT">
+    <column name="ShowRewardPackUI" type="BIT">
       <offset>80</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="RewardPackOverallQuality" type="INT">
+      <offset>84</offset>
+      <default>-1</default>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="RewardGatedType" type="INT">
+      <offset>88</offset>
       <static_define_list external="RewardGatedType" />
     </column>
     <column name="Tags" type="IGNORE" />

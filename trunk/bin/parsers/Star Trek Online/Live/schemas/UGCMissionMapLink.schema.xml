@@ -10,24 +10,31 @@
     <column name="DoorComponent" type="INT">
       <offset>0</offset>
     </column>
-    <column name="SpawnComponent" type="INT">
+    <column name="DoorUsesMapLocation" type="U8">
       <offset>4</offset>
     </column>
-    <column name="SpawnInternalMapName" type="STRING">
+    <column name="DoorMapLocation" type="OPTIONALSTRUCT">
       <offset>8</offset>
+      <subtable external="UGCMapLocation" />
+    </column>
+    <column name="SpawnComponent" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="SpawnInternalMapName" type="STRING">
+      <offset>16</offset>
     </column>
     <column name="DialogBlock" type="OPTIONALSTRUCT">
-      <offset>12</offset>
+      <offset>20</offset>
       <subtable external="UGCDialogTreePrompt" />
     </column>
     <column name="InteractText" type="STRING">
-      <offset>16</offset>
+      <offset>24</offset>
     </column>
     <column name="ReturnText" type="STRING">
-      <offset>20</offset>
+      <offset>28</offset>
     </column>
     <column name="OpenMissionName" type="STRING">
-      <offset>24</offset>
+      <offset>32</offset>
     </column>
     <column name="}" type="END" />
   </table>

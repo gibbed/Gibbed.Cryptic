@@ -39,32 +39,44 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="ShowRewardChooser" type="U8">
+    <column name="IconName" type="STRING">
       <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
     </column>
-    <column name="uCooldownExpireTime" type="INT">
+    <column name="XPos" type="F32">
       <offset>32</offset>
     </column>
-    <column name="IsDefaultBackOption" type="U8">
+    <column name="YPos" type="F32">
       <offset>36</offset>
     </column>
-    <column name="Visited" type="U8">
-      <offset>37</offset>
-    </column>
-    <column name="CannotChoose" type="U8">
-      <offset>38</offset>
-    </column>
-    <column name="WasAppended" type="U8">
-      <offset>39</offset>
-    </column>
-    <column name="TeamMembersEligibleToSee" type="INTARRAY">
+    <column name="ShowRewardChooser" type="U8">
       <offset>40</offset>
     </column>
-    <column name="TeamMembersEligibleToInteract" type="INTARRAY">
+    <column name="uCooldownExpireTime" type="INT">
       <offset>44</offset>
     </column>
-    <column name="data" type="OPTIONALSTRUCT">
+    <column name="IsDefaultBackOption" type="U8">
       <offset>48</offset>
+    </column>
+    <column name="Visited" type="U8">
+      <offset>49</offset>
+    </column>
+    <column name="CannotChoose" type="U8">
+      <offset>50</offset>
+    </column>
+    <column name="WasAppended" type="U8">
+      <offset>51</offset>
+    </column>
+    <column name="TeamMembersEligibleToSee" type="INTARRAY">
+      <offset>52</offset>
+    </column>
+    <column name="TeamMembersEligibleToInteract" type="INTARRAY">
+      <offset>56</offset>
+    </column>
+    <column name="data" type="OPTIONALSTRUCT">
+      <offset>60</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>

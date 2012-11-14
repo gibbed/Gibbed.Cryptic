@@ -43,15 +43,22 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pcLogName" type="STRING">
+    <column name="pcAccountHandle" type="STRING">
       <offset>20</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pcMapName" type="STRING">
+    <column name="pcLogName" type="STRING">
       <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pcMapName" type="STRING">
+      <offset>28</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -59,14 +66,14 @@
       </flags>
     </column>
     <column name="pcMapMsgKey" type="STRING">
-      <offset>28</offset>
+      <offset>32</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="pcMapVars" type="STRING">
-      <offset>32</offset>
+      <offset>36</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -74,35 +81,35 @@
       </flags>
     </column>
     <column name="iMapInstanceNumber" type="INT">
-      <offset>36</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="iMapContainerID" type="INT">
       <offset>40</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="uPartitionID" type="INT">
+    <column name="iMapContainerID" type="INT">
       <offset>44</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pcStatus" type="STRING">
+    <column name="uPartitionID" type="INT">
       <offset>48</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pchClassName" type="STRING">
+    <column name="pcStatus" type="STRING">
       <offset>52</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pchClassName" type="STRING">
+      <offset>56</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -110,28 +117,28 @@
       </flags>
     </column>
     <column name="iExpLevel" type="INT">
-      <offset>56</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="iOfficerRank" type="INT">
       <offset>60</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="bJoinedVoiceChat" type="U8">
+    <column name="iOfficerRank" type="INT">
       <offset>64</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iLastVoicePacketRcvTime" type="INT">
+    <column name="bJoinedVoiceChat" type="U8">
       <offset>68</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iLastVoicePacketRcvTime" type="INT">
+      <offset>72</offset>
       <flags>
         <flag>CLIENT_ONLY</flag>
       </flags>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCGenesisSpace">
+  <table>
+    <column name="UGCGenesisSpace" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Backdrop" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>UGCGenesisBackdropDef</dictionary_name>
+    </column>
+    <column name="UGCBackdrop" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="UGCGenesisBackdrop" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

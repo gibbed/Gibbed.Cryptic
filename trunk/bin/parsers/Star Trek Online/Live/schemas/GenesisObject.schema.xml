@@ -154,55 +154,64 @@
     <column name="AbsolutePosition" type="U8">
       <offset>124</offset>
     </column>
-    <column name="SnapToGeo" type="U8">
+    <column name="SnapRayCast" type="U8">
       <offset>125</offset>
     </column>
-    <column name="ChildPlacement" type="STRUCT">
+    <column name="SnapToGeo" type="U8">
+      <offset>126</offset>
+    </column>
+    <column name="SnapNormal" type="U8">
+      <offset>127</offset>
+    </column>
+    <column name="LegacyHeightCheck" type="U8">
       <offset>128</offset>
+    </column>
+    <column name="ChildPlacement" type="STRUCT">
+      <offset>132</offset>
       <subtable external="GenesisPlacementChildParams" />
     </column>
     <column name="has_patrol" type="U8">
-      <offset>132</offset>
+      <offset>136</offset>
     </column>
     <column name="SpecifiedPatrol" type="OPTIONALSTRUCT">
-      <offset>136</offset>
+      <offset>140</offset>
       <subtable external="WorldPatrolProperties" />
     </column>
     <column name="ChallengeIsUnique" type="U8">
-      <offset>140</offset>
-    </column>
-    <column name="ForceNamedObject" type="U8">
-      <offset>141</offset>
-    </column>
-    <column name="ChallengeSpawnName" type="STRING">
       <offset>144</offset>
     </column>
-    <column name="IsTrap" type="U8">
+    <column name="ForceNamedObject" type="U8">
+      <offset>145</offset>
+    </column>
+    <column name="ChallengeSpawnName" type="STRING">
       <offset>148</offset>
     </column>
-    <column name="PlatformGroup" type="INT">
+    <column name="IsTrap" type="U8">
       <offset>152</offset>
     </column>
-    <column name="PlatformParentGroup" type="INT">
+    <column name="PlatformGroup" type="INT">
       <offset>156</offset>
     </column>
-    <column name="PlatformParentLevel" type="INT">
+    <column name="PlatformParentGroup" type="INT">
       <offset>160</offset>
     </column>
-    <column name="RoomDetail" type="STRUCT">
+    <column name="PlatformParentLevel" type="INT">
       <offset>164</offset>
+    </column>
+    <column name="RoomDetail" type="STRUCT">
+      <offset>168</offset>
       <subtable external="GenesisRoomDetail" />
     </column>
     <column name="RoomDoor" type="STRUCT">
-      <offset>168</offset>
+      <offset>172</offset>
       <subtable external="GenesisRoomDoorSwitch" />
     </column>
     <column name="Volume" type="OPTIONALSTRUCT">
-      <offset>172</offset>
+      <offset>176</offset>
       <subtable external="GenesisObjectVolume" />
     </column>
     <column name="SourceContext" type="OPTIONALSTRUCT">
-      <offset>176</offset>
+      <offset>180</offset>
       <subtable external="GenesisRuntimeErrorContext" />
     </column>
     <column name="}" type="END" />

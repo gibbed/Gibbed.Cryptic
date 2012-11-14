@@ -128,12 +128,16 @@
       <offset>136</offset>
       <subtable external="Expression" />
     </column>
-    <column name="GenesisData" type="OPTIONALSTRUCT">
+    <column name="RequiredClassCategorySet" type="REFERENCE">
       <offset>140</offset>
+      <dictionary_name>CharClassCategorySet</dictionary_name>
+    </column>
+    <column name="GenesisData" type="OPTIONALSTRUCT">
+      <offset>144</offset>
       <subtable external="GenesisZoneMapData" />
     </column>
     <column name="ProceduralData" type="OPTIONALSTRUCT">
-      <offset>140</offset>
+      <offset>144</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -141,11 +145,11 @@
       <subtable external="GenesisZoneMapData" />
     </column>
     <column name="BackupGenesisData" type="OPTIONALSTRUCT">
-      <offset>144</offset>
+      <offset>148</offset>
       <subtable external="GenesisZoneMapData" />
     </column>
     <column name="BackupProceduralData" type="OPTIONALSTRUCT">
-      <offset>144</offset>
+      <offset>148</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -153,11 +157,11 @@
       <subtable external="GenesisZoneMapData" />
     </column>
     <column name="GenesisInfo" type="OPTIONALSTRUCT">
-      <offset>148</offset>
+      <offset>152</offset>
       <subtable external="GenesisZoneMapInfo" />
     </column>
     <column name="GenesisMapData" type="OPTIONALSTRUCT">
-      <offset>148</offset>
+      <offset>152</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -165,70 +169,70 @@
       <subtable external="GenesisZoneMapInfo" />
     </column>
     <column name="AllowEncounterHack" type="U8">
-      <offset>152</offset>
+      <offset>156</offset>
     </column>
     <column name="FromUGCFile" type="FILENAME">
-      <offset>156</offset>
+      <offset>160</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="RespawnData" type="OPTIONALSTRUCT">
-      <offset>160</offset>
+      <offset>164</offset>
       <subtable external="WorldRespawnData" />
     </column>
     <column name="Level" type="INT">
-      <offset>164</offset>
-    </column>
-    <column name="ForceTeamSize" type="INT">
       <offset>168</offset>
     </column>
-    <column name="Difficulty" type="INT">
+    <column name="ForceTeamSize" type="INT">
       <offset>172</offset>
     </column>
-    <column name="Variable" type="STRUCT">
+    <column name="Difficulty" type="INT">
       <offset>176</offset>
+    </column>
+    <column name="Variable" type="STRUCT">
+      <offset>180</offset>
       <subtable external="WorldVariableDef" />
     </column>
     <column name="IgnoreTeamSizeBonusXP" type="U8">
-      <offset>180</offset>
-    </column>
-    <column name="ConfirmPurchasesOnExit" type="U8">
-      <offset>181</offset>
-    </column>
-    <column name="CollectDoorDestStatus" type="U8">
-      <offset>182</offset>
-    </column>
-    <column name="DisableDuels" type="U8">
-      <offset>183</offset>
-    </column>
-    <column name="DisableInstanceChanging" type="U8">
       <offset>184</offset>
     </column>
-    <column name="TeamNotRequired" type="U8">
+    <column name="ConfirmPurchasesOnExit" type="U8">
       <offset>185</offset>
     </column>
-    <column name="TerrainStaticLighting" type="U8">
+    <column name="CollectDoorDestStatus" type="U8">
       <offset>186</offset>
     </column>
-    <column name="ShardVariables" type="U8">
+    <column name="DisableDuels" type="U8">
       <offset>187</offset>
     </column>
-    <column name="DisableVisitedTracking" type="U8">
+    <column name="DisableInstanceChanging" type="U8">
       <offset>188</offset>
     </column>
-    <column name="PowersRequireValidTarget" type="U8">
+    <column name="TeamNotRequired" type="U8">
       <offset>189</offset>
     </column>
-    <column name="EnableUpsellFeatures" type="U8">
+    <column name="TerrainStaticLighting" type="U8">
       <offset>190</offset>
     </column>
-    <column name="ParentMap" type="OPTIONALSTRUCT">
+    <column name="ShardVariables" type="U8">
+      <offset>191</offset>
+    </column>
+    <column name="DisableVisitedTracking" type="U8">
       <offset>192</offset>
+    </column>
+    <column name="PowersRequireValidTarget" type="U8">
+      <offset>193</offset>
+    </column>
+    <column name="EnableUpsellFeatures" type="U8">
+      <offset>194</offset>
+    </column>
+    <column name="ParentMap" type="OPTIONALSTRUCT">
+      <offset>196</offset>
       <subtable external="ParentZoneMap" />
     </column>
     <column name="MastermindDef" type="STRING">
-      <offset>196</offset>
+      <offset>200</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -236,7 +240,7 @@
       <dictionary_name>AIMastermindDef</dictionary_name>
     </column>
     <column name="CivilianMapDef" type="STRING">
-      <offset>200</offset>
+      <offset>204</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -244,7 +248,7 @@
       <dictionary_name>AICivilianMapDef</dictionary_name>
     </column>
     <column name="PlayerFSM" type="STRINGARRAY">
-      <offset>204</offset>
+      <offset>208</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -252,23 +256,30 @@
       <dictionary_name>FSM</dictionary_name>
     </column>
     <column name="LightOverride" type="INT">
-      <offset>208</offset>
+      <offset>212</offset>
       <static_define_list external="ZoneMapLightOverrideType" />
     </column>
     <column name="RecordPlayerMatchStats" type="U8">
-      <offset>212</offset>
+      <offset>216</offset>
     </column>
     <column name="GuildOwned" type="U8">
-      <offset>213</offset>
+      <offset>217</offset>
     </column>
     <column name="GuildNotRequired" type="U8">
-      <offset>214</offset>
+      <offset>218</offset>
+    </column>
+    <column name="UsedInUGC" type="U8">
+      <offset>219</offset>
     </column>
     <column name="GenerateMapSnapMini" type="U8">
-      <offset>215</offset>
+      <offset>219</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>UsedInUGC</redundant_name>
     </column>
     <column name="bfParamsSpecified" type="INTFIXEDARRAY">
-      <offset>216</offset>
+      <offset>220</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>USEDFIELD</flag>
@@ -276,7 +287,7 @@
       <num_elements>3</num_elements>
     </column>
     <column name="saving" type="U8">
-      <offset>232</offset>
+      <offset>236</offset>
       <flags>
         <flag>NO_WRITE</flag>
       </flags>

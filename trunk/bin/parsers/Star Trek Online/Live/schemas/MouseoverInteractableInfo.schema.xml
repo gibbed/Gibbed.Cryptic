@@ -33,23 +33,30 @@
       <offset>16</offset>
       <static_define_list external="UIInteractType" />
     </column>
-    <column name="CursorTexture" type="STRING">
+    <column name="LootBags" type="STRUCT">
       <offset>20</offset>
       <flags>
-        <flag>POOL_STRING</flag>
+        <flag>UNKNOWN_32</flag>
       </flags>
+      <subtable external="InventoryBag" />
     </column>
-    <column name="CursorName" type="STRING">
+    <column name="CursorTexture" type="STRING">
       <offset>24</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="CursorHotSpotX" type="INT16">
+    <column name="CursorName" type="STRING">
       <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CursorHotSpotX" type="INT16">
+      <offset>32</offset>
     </column>
     <column name="CursorHotSpotY" type="INT16">
-      <offset>30</offset>
+      <offset>34</offset>
     </column>
     <column name="}" type="END" />
   </table>

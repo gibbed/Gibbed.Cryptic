@@ -28,11 +28,14 @@
     <column name="NearOffsetAim" type="F32">
       <offset>24</offset>
     </column>
-    <column name="uiNextAimTime" type="INT">
+    <column name="UseClosestDistanceInShooterOnly" type="U8">
       <offset>28</offset>
     </column>
-    <column name="HadTargetLastFrame" type="U8">
+    <column name="uiNextAimTime" type="INT">
       <offset>32</offset>
+    </column>
+    <column name="HadTargetLastFrame" type="U8">
+      <offset>36</offset>
     </column>
     <column name="SnapData" type="IGNORE">
       <flags>
@@ -45,33 +48,33 @@
       </flags>
     </column>
     <column name="HistorySampleTime" type="F32">
-      <offset>36</offset>
+      <offset>40</offset>
     </column>
     <column name="HistoryMultiplier" type="F32">
-      <offset>40</offset>
+      <offset>44</offset>
       <default>1</default>
     </column>
     <column name="MinSpeed" type="F32">
-      <offset>44</offset>
+      <offset>48</offset>
       <default>5</default>
     </column>
     <column name="MaxSpeed" type="F32">
-      <offset>48</offset>
+      <offset>52</offset>
       <default>30</default>
     </column>
     <column name="MaxAngle" type="F32">
-      <offset>52</offset>
+      <offset>56</offset>
       <default>120</default>
     </column>
     <column name="History" type="STRUCT">
-      <offset>56</offset>
+      <offset>60</offset>
       <subtable external="CameraSmoothNode" />
     </column>
     <column name="Accum" type="F32">
-      <offset>60</offset>
+      <offset>64</offset>
     </column>
     <column name="SnappedToTarget" type="U8">
-      <offset>64</offset>
+      <offset>68</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -7,15 +7,21 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="uGroupID" type="INT">
+    <column name="GroupUID" type="INT">
       <offset>0</offset>
     </column>
-    <column name="Pos" type="F32FIXEDARRAY">
+    <column name="GroupDebugName" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>8</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="Rot" type="F32">
-      <offset>16</offset>
+      <offset>20</offset>
     </column>
     <column name="}" type="END" />
   </table>

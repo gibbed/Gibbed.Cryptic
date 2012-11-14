@@ -181,18 +181,31 @@
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="hTrackedContact" type="REFERENCE">
+    <column name="pLeaderboardInfo" type="OPTIONALSTRUCT">
       <offset>84</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="OpenMissionLeaderboardInfo" />
+    </column>
+    <column name="pchTrackedMission" type="STRING">
+      <offset>88</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="hTrackedContact" type="REFERENCE">
+      <offset>92</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <dictionary_name>ContactDef</dictionary_name>
     </column>
     <column name="iTotalPerkPoints" type="INT">
-      <offset>88</offset>
+      <offset>96</offset>
     </column>
     <column name="eaiEscorting" type="INTARRAY">
-      <offset>92</offset>
+      <offset>100</offset>
     </column>
     <column name="eaRequests" type="IGNORE">
       <flags>

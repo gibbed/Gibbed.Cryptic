@@ -28,19 +28,31 @@
     <column name="Order" type="INT">
       <offset>16</offset>
     </column>
-    <column name="NonRefundable" type="BIT">
+    <column name="RespecGroup" type="INTARRAY">
       <offset>20</offset>
+      <static_define_list external="PTRespecGroupType" />
+    </column>
+    <column name="NonRefundable" type="BIT">
+      <offset>24</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="SpentPointsNonDynamic" type="BIT">
-      <offset>20</offset>
+      <offset>24</offset>
       <bit_offset>65537</bit_offset>
     </column>
-    <column name="SpentPointsNumeric" type="STRING">
+    <column name="OnlyRespecUsingFull" type="BIT">
       <offset>24</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="HasAutoBuyTrees" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="SpentPointsNumeric" type="STRING">
+      <offset>28</offset>
     </column>
     <column name="DisregardPath" type="BIT">
-      <offset>28</offset>
+      <offset>32</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="FirstGroupMax" type="IGNORE" />

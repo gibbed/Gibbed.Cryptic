@@ -73,41 +73,57 @@
     <column name="MaxRate" type="F32">
       <offset>128</offset>
     </column>
-    <column name="Length" type="F32">
+    <column name="BlendFrames" type="F32">
       <offset>132</offset>
-      <flags>
-        <flag>NO_TEXT_SAVE</flag>
-      </flags>
+      <default>1089470464</default>
     </column>
-    <column name="RandSpeed" type="U8">
+    <column name="BlendRate" type="F32">
       <offset>136</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
+    <column name="Length" type="F32">
+      <offset>140</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="RandSpeed" type="U8">
+      <offset>144</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
     <column name="Verified" type="U8">
-      <offset>137</offset>
+      <offset>145</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
     <column name="Ragdoll" type="BOOLFLAG">
-      <offset>138</offset>
+      <offset>146</offset>
     </column>
     <column name="RegisterWep" type="BOOLFLAG">
-      <offset>139</offset>
+      <offset>147</offset>
     </column>
     <column name="IKMeleeMode" type="BOOLFLAG">
-      <offset>140</offset>
+      <offset>148</offset>
     </column>
     <column name="EnableIKSliding" type="BOOLFLAG">
-      <offset>141</offset>
+      <offset>149</offset>
     </column>
     <column name="DisableIKLeftWrist" type="BOOLFLAG">
-      <offset>142</offset>
+      <offset>150</offset>
     </column>
     <column name="DisableIKRightArm" type="BOOLFLAG">
-      <offset>143</offset>
+      <offset>151</offset>
+    </column>
+    <column name="PlayWhileStopped" type="BOOLFLAG">
+      <offset>152</offset>
+    </column>
+    <column name="EnableTerrainTiltBlend" type="BOOLFLAG">
+      <offset>153</offset>
     </column>
     <column name="End" type="END" />
   </table>

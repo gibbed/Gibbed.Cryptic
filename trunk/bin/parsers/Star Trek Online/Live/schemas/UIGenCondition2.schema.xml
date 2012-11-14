@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenCondition2">
+  <table>
+    <column name="UIGenCondition2" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Var1" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="Condition" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <static_define_list external="UIGenCondition" />
+    </column>
+    <column name="Var2" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="Gen1" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default_string>_Self</default_string>
+    </column>
+    <column name="Gen2" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default_string>_Self</default_string>
+    </column>
+    <column name="hGen1" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>UIGen</dictionary_name>
+    </column>
+    <column name="hGen2" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>UIGen</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

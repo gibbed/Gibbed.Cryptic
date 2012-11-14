@@ -73,6 +73,19 @@
       <offset>68</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
+    <column name="RemoteContact" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="GroupProjectRemoteContact" />
+    </column>
+    <column name="PowerTree" type="STRINGARRAY">
+      <offset>76</offset>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

@@ -45,76 +45,82 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="FontSize" type="INT16">
+    <column name="SubstitutionMissingGlyphs" type="STRING">
       <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FontSize" type="INT16">
+      <offset>28</offset>
     </column>
     <column name="Spread" type="INT16">
-      <offset>26</offset>
+      <offset>30</offset>
     </column>
     <column name="Padding" type="INT16FIXEDARRAY">
-      <offset>28</offset>
-      <num_elements>2</num_elements>
-    </column>
-    <column name="TexSize" type="INT16FIXEDARRAY">
       <offset>32</offset>
       <num_elements>2</num_elements>
     </column>
-    <column name="MaxAscent" type="INT16">
+    <column name="TexSize" type="INT16FIXEDARRAY">
       <offset>36</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="MaxAscent" type="INT16">
+      <offset>40</offset>
     </column>
     <column name="MaxDescent" type="INT16">
-      <offset>38</offset>
+      <offset>42</offset>
     </column>
     <column name="VerticalShift" type="INT16">
-      <offset>40</offset>
+      <offset>44</offset>
       <default>-32768</default>
     </column>
     <column name="IgnoreBoldStyle" type="BIT">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65552</bit_offset>
     </column>
     <column name="IgnoreItalicStyle" type="BIT">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65553</bit_offset>
     </column>
     <column name="DensityOffset" type="F32">
-      <offset>44</offset>
+      <offset>48</offset>
     </column>
     <column name="OutlineDensityOffset" type="F32">
-      <offset>48</offset>
+      <offset>52</offset>
       <default>-943501312</default>
     </column>
     <column name="Smoothing" type="F32">
-      <offset>52</offset>
+      <offset>56</offset>
       <default>1</default>
     </column>
     <column name="OutlineSmoothing" type="F32">
-      <offset>56</offset>
+      <offset>60</offset>
       <default>-1</default>
     </column>
     <column name="SpacingAdjustment" type="F32">
-      <offset>60</offset>
+      <offset>64</offset>
       <default>1</default>
     </column>
     <column name="ExtraWidthPixels" type="INT16">
-      <offset>64</offset>
+      <offset>68</offset>
       <default>2</default>
     </column>
     <column name="VerticalGradientShift" type="INT16">
-      <offset>66</offset>
+      <offset>70</offset>
     </column>
     <column name="VerticalGradientIntensity" type="F32">
-      <offset>68</offset>
+      <offset>72</offset>
       <default>1</default>
     </column>
     <column name="Glyph" type="STRUCT">
-      <offset>72</offset>
+      <offset>76</offset>
       <subtable external="GfxFontGlyphData" />
     </column>
     <column name="EndFont" type="END" />

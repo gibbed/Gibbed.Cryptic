@@ -169,22 +169,28 @@
       <offset>160</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
-    <column name="RewardTable" type="REFERENCE">
+    <column name="StanceWords" type="STRINGARRAY">
       <offset>164</offset>
-      <dictionary_name>RewardTable</dictionary_name>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="AddRewardTable" type="REFERENCE">
+    <column name="RewardTable" type="REFERENCE">
       <offset>168</offset>
       <dictionary_name>RewardTable</dictionary_name>
     </column>
-    <column name="PreferredMinRange" type="F32">
+    <column name="AddRewardTable" type="REFERENCE">
       <offset>172</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="PreferredMinRange" type="F32">
+      <offset>176</offset>
       <flags>
         <flag>NO_WRITE</flag>
       </flags>
     </column>
     <column name="PreferedMinRange" type="F32">
-      <offset>172</offset>
+      <offset>176</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>NO_WRITE</flag>
@@ -192,13 +198,13 @@
       <redundant_name>PreferredMinRange</redundant_name>
     </column>
     <column name="PreferredMaxRange" type="F32">
-      <offset>176</offset>
+      <offset>180</offset>
       <flags>
         <flag>NO_WRITE</flag>
       </flags>
     </column>
     <column name="PreferedMaxRange" type="F32">
-      <offset>176</offset>
+      <offset>180</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>NO_WRITE</flag>
@@ -206,13 +212,13 @@
       <redundant_name>PreferredMaxRange</redundant_name>
     </column>
     <column name="Leash" type="F32">
-      <offset>180</offset>
+      <offset>184</offset>
       <flags>
         <flag>NO_WRITE</flag>
       </flags>
     </column>
     <column name="AIConfig" type="STRING">
-      <offset>184</offset>
+      <offset>188</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -220,7 +226,7 @@
       <dictionary_name>AIConfig</dictionary_name>
     </column>
     <column name="AI" type="STRING">
-      <offset>184</offset>
+      <offset>188</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>ALIAS</flag>
@@ -230,11 +236,11 @@
       <dictionary_name>AIConfig</dictionary_name>
     </column>
     <column name="FSM" type="REFERENCE">
-      <offset>188</offset>
+      <offset>192</offset>
       <dictionary_name>FSM</dictionary_name>
     </column>
     <column name="AIFSM" type="REFERENCE">
-      <offset>188</offset>
+      <offset>192</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -242,11 +248,11 @@
       <dictionary_name>FSM</dictionary_name>
     </column>
     <column name="CombatFSM" type="REFERENCE">
-      <offset>192</offset>
+      <offset>196</offset>
       <dictionary_name>FSM</dictionary_name>
     </column>
     <column name="SpawnAnim" type="STRING">
-      <offset>196</offset>
+      <offset>200</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -254,10 +260,10 @@
       <dictionary_name>AnimationLibrary</dictionary_name>
     </column>
     <column name="SpawnLockdownTime" type="F32">
-      <offset>200</offset>
+      <offset>204</offset>
     </column>
     <column name="SpawnAnimAlternate" type="STRING">
-      <offset>204</offset>
+      <offset>208</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -265,134 +271,138 @@
       <dictionary_name>AnimationLibrary</dictionary_name>
     </column>
     <column name="SpawnLockdownTimeAlternate" type="F32">
-      <offset>208</offset>
+      <offset>212</offset>
     </column>
     <column name="SpawnWeight" type="F32">
-      <offset>212</offset>
+      <offset>216</offset>
       <default>1</default>
     </column>
     <column name="PowerConfigs" type="STRUCT">
-      <offset>216</offset>
+      <offset>220</offset>
       <subtable external="CritterPowerConfig" />
     </column>
     <column name="lingerDuration" type="F32">
-      <offset>220</offset>
+      <offset>224</offset>
       <default>15</default>
     </column>
     <column name="Hue" type="F32">
-      <offset>224</offset>
+      <offset>228</offset>
     </column>
     <column name="Untargetable" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Unselectable" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="Invulnerable" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="Unstoppable" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="Unkillable" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="LevelAdjusting" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="PseudoPlayer" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="DisableTurnToFace" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="IgnoreCombatMods" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="NonCombat" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="NoPowersAllowed" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="IgnoreExternalInnates" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="IgnoreEntCreateHue" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="DropMyInventory" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="NoInterpAlphaOnSpawn" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65550</bit_offset>
     </column>
     <column name="UseCapsuleForPowerArcChecks" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="UseClosestPowerAnimNode" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65552</bit_offset>
     </column>
-    <column name="IgnoreExternalAnimBits" type="BIT">
-      <offset>228</offset>
+    <column name="SpecialLargeMonster" type="BIT">
+      <offset>232</offset>
       <bit_offset>65553</bit_offset>
     </column>
-    <column name="AlwaysHaveWeaponsReady" type="BIT">
-      <offset>228</offset>
+    <column name="IgnoreExternalAnimBits" type="BIT">
+      <offset>232</offset>
       <bit_offset>65554</bit_offset>
     </column>
-    <column name="Interaction" type="EMBEDDEDSTRUCT">
+    <column name="AlwaysHaveWeaponsReady" type="BIT">
       <offset>232</offset>
+      <bit_offset>65555</bit_offset>
+    </column>
+    <column name="Interaction" type="EMBEDDEDSTRUCT">
+      <offset>236</offset>
       <subtable external="OldInteractionProperties" />
     </column>
     <column name="InteractionDef" type="REFERENCE">
-      <offset>292</offset>
+      <offset>296</offset>
       <dictionary_name>InteractionDef</dictionary_name>
     </column>
     <column name="InteractRange" type="INT">
-      <offset>296</offset>
-    </column>
-    <column name="Mass" type="F32">
       <offset>300</offset>
     </column>
-    <column name="InteractionFlags" type="INT">
+    <column name="Mass" type="F32">
       <offset>304</offset>
+    </column>
+    <column name="InteractionFlags" type="INT">
+      <offset>308</offset>
       <static_define_list external="kCritterOverrideFlag" />
       <format>FLAGS</format>
     </column>
     <column name="Underlings" type="STRINGARRAY">
-      <offset>308</offset>
+      <offset>312</offset>
       <flags>
         <flag>GLOBAL_NAME</flag>
       </flags>
       <dictionary_name>CritterDef</dictionary_name>
     </column>
     <column name="EntityMinSeeAtDistance" type="F32">
-      <offset>312</offset>
+      <offset>316</offset>
     </column>
     <column name="RidableBlock" type="OPTIONALSTRUCT">
-      <offset>316</offset>
+      <offset>320</offset>
       <subtable external="Expression" />
     </column>
     <column name="Ridable" type="OPTIONALSTRUCT">
-      <offset>316</offset>
+      <offset>320</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -400,7 +410,7 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="RidingPower" type="STRING">
-      <offset>320</offset>
+      <offset>324</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -408,7 +418,7 @@
       <dictionary_name>PowerDef</dictionary_name>
     </column>
     <column name="RidingItem" type="STRING">
-      <offset>324</offset>
+      <offset>328</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -416,32 +426,32 @@
       <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="RidingBit" type="STRING">
-      <offset>328</offset>
+      <offset>332</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="CritterVars" type="STRUCT">
-      <offset>332</offset>
+      <offset>336</offset>
       <subtable external="CritterVar" />
     </column>
     <column name="CritterItems" type="STRUCT">
-      <offset>336</offset>
+      <offset>340</offset>
       <subtable external="DefaultItemDef" />
     </column>
     <column name="CritterLoreEntries" type="STRUCT">
-      <offset>340</offset>
+      <offset>344</offset>
       <subtable external="CritterLore" />
     </column>
     <column name="OverrideMovementRequesterDef" type="REFERENCE">
-      <offset>344</offset>
+      <offset>348</offset>
       <dictionary_name>DragonMovementDef</dictionary_name>
     </column>
     <column name="Deprecated" type="U8">
-      <offset>348</offset>
+      <offset>352</offset>
     </column>
     <column name="Gender" type="INT">
-      <offset>352</offset>
+      <offset>356</offset>
       <static_define_list external="Gender" />
     </column>
     <column name="Latebind" type="IGNORE">

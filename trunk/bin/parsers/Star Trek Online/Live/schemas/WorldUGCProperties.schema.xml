@@ -68,23 +68,31 @@
     <column name="MapOnlyPlatformsAreLegal" type="U8">
       <offset>48</offset>
     </column>
+    <column name="groupDefProps" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
     <column name="RoomDoorsEverywhere" type="U8">
-      <offset>49</offset>
+      <offset>52</offset>
+    </column>
+    <column name="ClickableName" type="STRING">
+      <offset>56</offset>
     </column>
     <column name="EncounterActor" type="STRUCT">
-      <offset>52</offset>
+      <offset>60</offset>
       <subtable external="WorldUGCActorProperties" />
     </column>
     <column name="ActorProperties" type="STRUCT">
-      <offset>52</offset>
+      <offset>60</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>EncounterActor</redundant_name>
       <subtable external="WorldUGCActorProperties" />
     </column>
-    <column name="ClickableName" type="STRING">
-      <offset>56</offset>
+    <column name="DefaultSnapNormal" type="U8">
+      <offset>64</offset>
     </column>
     <column name="}" type="END" />
   </table>

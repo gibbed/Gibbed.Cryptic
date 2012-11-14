@@ -328,58 +328,62 @@
       <offset>232</offset>
       <dictionary_name>UIGenScrollbarDef</dictionary_name>
     </column>
-    <column name="ScrollbarTopMargin" type="INT16">
+    <column name="DisabledScrollbarDef" type="REFERENCE">
       <offset>236</offset>
-      <static_define_list external="UISize" />
+      <dictionary_name>UIGenScrollbarDef</dictionary_name>
     </column>
-    <column name="ScrollbarBottomMargin" type="INT16">
-      <offset>238</offset>
-      <static_define_list external="UISize" />
-    </column>
-    <column name="ScrollbarLeftMargin" type="INT16">
+    <column name="ScrollbarTopMargin" type="INT16">
       <offset>240</offset>
       <static_define_list external="UISize" />
     </column>
-    <column name="ScrollbarRightMargin" type="INT16">
+    <column name="ScrollbarBottomMargin" type="INT16">
       <offset>242</offset>
       <static_define_list external="UISize" />
     </column>
-    <column name="ScrollbarOnlyShowWhenNeeded" type="BIT">
+    <column name="ScrollbarLeftMargin" type="INT16">
       <offset>244</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ScrollbarRightMargin" type="INT16">
+      <offset>246</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ScrollbarOnlyShowWhenNeeded" type="BIT">
+      <offset>248</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ScrollbarCaptureMouse" type="BIT">
-      <offset>244</offset>
+      <offset>248</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="ScrollbarUseWheel" type="BIT">
-      <offset>244</offset>
+      <offset>248</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="ScrollbarUseStick" type="BIT">
-      <offset>244</offset>
+      <offset>248</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="VirtualTopPadding" type="INT16">
-      <offset>248</offset>
-      <static_define_list external="UISize" />
-    </column>
-    <column name="VirtualBottomPadding" type="INT16">
-      <offset>250</offset>
-      <static_define_list external="UISize" />
-    </column>
-    <column name="VirtualLeftPadding" type="INT16">
       <offset>252</offset>
       <static_define_list external="UISize" />
     </column>
-    <column name="VirtualRightPadding" type="INT16">
+    <column name="VirtualBottomPadding" type="INT16">
       <offset>254</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="VirtualLeftPadding" type="INT16">
+      <offset>256</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="VirtualRightPadding" type="INT16">
+      <offset>258</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="}" type="END" />

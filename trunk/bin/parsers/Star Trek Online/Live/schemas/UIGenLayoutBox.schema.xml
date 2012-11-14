@@ -335,15 +335,27 @@
       <redundant_name>TemplateExprBlock</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
-    <column name="AspectRatio" type="F32">
+    <column name="TemplateChild" type="STRUCT">
       <offset>240</offset>
+      <subtable external="UIGenChild" />
+    </column>
+    <column name="TemplateChildren" type="STRUCT">
+      <offset>240</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TemplateChild</redundant_name>
+      <subtable external="UIGenChild" />
+    </column>
+    <column name="AspectRatio" type="F32">
+      <offset>244</offset>
     </column>
     <column name="ColumnsBlock" type="OPTIONALSTRUCT">
-      <offset>244</offset>
+      <offset>248</offset>
       <subtable external="Expression" />
     </column>
     <column name="Columns" type="OPTIONALSTRUCT">
-      <offset>244</offset>
+      <offset>248</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -351,7 +363,7 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="MaxColumns" type="OPTIONALSTRUCT">
-      <offset>244</offset>
+      <offset>248</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -359,41 +371,46 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="Rows" type="U8">
-      <offset>248</offset>
+      <offset>252</offset>
     </column>
     <column name="MaxRows" type="U8">
-      <offset>248</offset>
+      <offset>252</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>Rows</redundant_name>
     </column>
     <column name="LayoutDirection" type="U8">
-      <offset>249</offset>
+      <offset>253</offset>
       <static_define_list external="UIDirection" />
     </column>
     <column name="LayoutOrder" type="U8">
-      <offset>250</offset>
+      <offset>254</offset>
       <default>6</default>
       <static_define_list external="UIDirection" />
     </column>
-    <column name="VariableSize" type="U8">
-      <offset>251</offset>
+    <column name="VariableSize" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65560</bit_offset>
+    </column>
+    <column name="AppendTemplateChildren" type="BIT">
+      <offset>252</offset>
+      <bit_offset>65561</bit_offset>
     </column>
     <column name="HorizontalSpacing" type="U8">
-      <offset>252</offset>
+      <offset>256</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="VerticalSpacing" type="U8">
-      <offset>253</offset>
+      <offset>257</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="CalculateXBlock" type="OPTIONALSTRUCT">
-      <offset>256</offset>
+      <offset>260</offset>
       <subtable external="Expression" />
     </column>
     <column name="CalculateX" type="OPTIONALSTRUCT">
-      <offset>256</offset>
+      <offset>260</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -401,11 +418,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="CalculateYBlock" type="OPTIONALSTRUCT">
-      <offset>260</offset>
+      <offset>264</offset>
       <subtable external="Expression" />
     </column>
     <column name="CalculateY" type="OPTIONALSTRUCT">
-      <offset>260</offset>
+      <offset>264</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -413,11 +430,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="ModelBlock" type="OPTIONALSTRUCT">
-      <offset>264</offset>
+      <offset>268</offset>
       <subtable external="Expression" />
     </column>
     <column name="Model" type="OPTIONALSTRUCT">
-      <offset>264</offset>
+      <offset>268</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -425,11 +442,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="FilterBlock" type="OPTIONALSTRUCT">
-      <offset>268</offset>
+      <offset>272</offset>
       <subtable external="Expression" />
     </column>
     <column name="Filter" type="OPTIONALSTRUCT">
-      <offset>268</offset>
+      <offset>272</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
