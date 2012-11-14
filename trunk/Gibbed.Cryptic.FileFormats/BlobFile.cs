@@ -32,18 +32,16 @@ namespace Gibbed.Cryptic.FileFormats
     public class BlobFile
     {
         public uint ParserHash;
+        public string Type;
 
-        public List<Blob.FileEntry> Files
-            = new List<Blob.FileEntry>();
-
-        public List<Blob.DependencyEntry> Dependencies
-            = new List<Blob.DependencyEntry>();
+        public List<Blob.FileEntry> Files = new List<Blob.FileEntry>();
+        public List<Blob.DependencyEntry> Dependencies = new List<Blob.DependencyEntry>();
 
         public void Serialize(Stream output)
         {
             output.WriteString("CrypticS", Encoding.ASCII);
             output.WriteValueU32(this.ParserHash);
-            output.WriteStringPascal("ParseJ", 4096);
+            output.WriteStringPascal("ParseM", 4096);
 
             output.WriteStringPascal("Files1", 20);
             using (var data = new MemoryStream())
@@ -54,6 +52,16 @@ namespace Gibbed.Cryptic.FileFormats
                     data.WriteStringPascal(entry.Name, 260);
                     data.WriteValueU32(entry.Timestamp);
                 }
+
+                data.Position = 0;
+                output.WriteValueU32((uint)data.Length);
+                output.WriteFromStream(data, (uint)data.Length);
+            }
+
+            output.WriteStringPascal("Files1", 20);
+            using (var data = new MemoryStream())
+            {
+                data.WriteValueS32(0);
 
                 data.Position = 0;
                 output.WriteValueU32((uint)data.Length);
@@ -79,19 +87,23 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void Deserialize(Stream input)
         {
-            if (input.ReadString(8, Encoding.ASCII) != "CrypticS")
+            var magic = input.ReadString(8, Encoding.ASCII);
+            if (magic != "CrypticS")
             {
                 throw new FormatException();
             }
 
             this.ParserHash = input.ReadValueU32();
 
-            if (input.ReadStringPascal(4096) != "ParseJ")
+            var type = input.ReadStringPascal(4096);
+            if (type != "ParseM")
             {
                 throw new FormatException();
             }
+            this.Type = type;
 
-            if (input.ReadStringPascal(20) != "Files1")
+            var filesTag = input.ReadStringPascal(20);
+            if (filesTag != "Files1")
             {
                 throw new FormatException();
             }
@@ -117,7 +129,24 @@ namespace Gibbed.Cryptic.FileFormats
                 }
             }
 
-            if (input.ReadStringPascal(20) != "Depen1")
+            var extraFilesTag = input.ReadStringPascal(20);
+            if (extraFilesTag != "Files1")
+            {
+                throw new FormatException();
+            }
+
+            var extraFileInfoSize = input.ReadValueU32();
+            using (var data = input.ReadToMemoryStream(extraFileInfoSize))
+            {
+                var count = data.ReadValueU32();
+                if (count != 0)
+                {
+                    throw new FormatException();
+                }
+            }
+
+            var dependenciesTag = input.ReadStringPascal(20);
+            if (dependenciesTag != "Depen1")
             {
                 throw new FormatException();
             }

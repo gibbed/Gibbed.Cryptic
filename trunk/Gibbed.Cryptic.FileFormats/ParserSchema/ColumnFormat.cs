@@ -25,19 +25,19 @@ namespace Gibbed.Cryptic.FileFormats.ParserSchema
     public enum ColumnFormat
     {
         // ReSharper disable InconsistentNaming
-        None,
-        IP,
-        Unsigned,
-        DatesS2000,
-        Perfect,
-        NoPath,
-        HSV,
-        Texture,
-        Color,
-        FriendlyDate,
-        FriendlySS2000,
-        KBytes,
-        Flags,
+        None = 0,
+        IP = 1,
+        Unsigned = 2,
+        DatesS2000 = 3,
+        Percent = 4,
+        HSV = 5,
+        Unknown6 = 6,
+        Texture = 7,
+        Color = 8,
+        FriendlyDate = 9,
+        FriendlySS2000 = 10,
+        KBytes = 11,
+        Flags = 12,
         // ReSharper restore InconsistentNaming
     }
 }
