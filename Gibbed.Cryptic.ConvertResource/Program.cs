@@ -239,19 +239,14 @@ namespace Gibbed.Cryptic.ConvertResource
 
                     Console.WriteLine("Loading entries...");
 
-                    Func<uint, string> getFileNameFromIndex = i =>
+                    Func<int, string> getFileNameFromIndex = i =>
                     {
-                        if (i == 0)
-                        {
-                            return null;
-                        }
-
-                        if (i > resource.Files.Count)
+                        if (i < 0 || i >= resource.Files.Count)
                         {
                             throw new KeyNotFoundException("file index " + i.ToString() + " is out of range");
                         }
 
-                        return resource.Files[(int)(i - 1)].Name;
+                        return resource.Files[i].Name;
                     };
 
                     var list = (IList)loadResource.Invoke(null,
@@ -671,21 +666,7 @@ namespace Gibbed.Cryptic.ConvertResource
                         entries.Add(entry);
                     }
 
-                    Func<string, uint> getIndexFromFileName = s =>
-                    {
-                        if (s == null)
-                        {
-                            return 0;
-                        }
-
-                        var index = blob.Files.FindIndex(fe => fe.Name == s);
-                        if (index < 0)
-                        {
-                            throw new KeyNotFoundException("file name '" + s + "' not found");
-                        }
-
-                        return (uint)(1 + index);
-                    };
+                    Func<string, int> getIndexFromFileName = s => blob.Files.FindIndex(fe => fe.Name == s);
 
                     Console.WriteLine("Saving entries...");
                     var saveResource = typeof(BlobDataWriter)
