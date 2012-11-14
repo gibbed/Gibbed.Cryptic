@@ -48,11 +48,14 @@ namespace Gibbed.Cryptic.FileFormats
             get { return this._IsServer; }
         }
 
-        public BlobDataWriter(Stream output, bool isClient, bool isServer)
+        private readonly Func<string, uint> _GetIndexFromFileName;
+
+        public BlobDataWriter(Stream output, bool isClient, bool isServer, Func<string, uint> getIndexFromFileName)
         {
             this._Output = output;
             this._IsClient = isClient;
             this._IsServer = isServer;
+            this._GetIndexFromFileName = getIndexFromFileName;
         }
 
         private class ResourceLoader<TType> : Serialization.IStructure
@@ -81,12 +84,12 @@ namespace Gibbed.Cryptic.FileFormats
             }
         }
 
-        public static void SaveObject<TType>(TType instance, Stream output, bool isClient, bool isServer)
+        public static void SaveObject<TType>(TType instance, Stream output, bool isClient, bool isServer, Func<string, uint> getIndexFromFileName)
             where TType : Serialization.IStructure, new()
         {
             using (var data = new MemoryStream())
             {
-                var reader = new BlobDataWriter(data, isClient, isServer);
+                var reader = new BlobDataWriter(data, isClient, isServer, getIndexFromFileName);
                 reader.WriteValueStructure(instance, false, null);
 
                 data.Position = 0;
@@ -94,7 +97,7 @@ namespace Gibbed.Cryptic.FileFormats
             }
         }
 
-        public static void SaveResource<TType>(List<TType> list, Stream output, bool isClient, bool isServer)
+        public static void SaveResource<TType>(List<TType> list, Stream output, bool isClient, bool isServer, Func<string, uint> getIndexFromFileName)
             where TType : Serialization.IStructure, new()
         {
             var loader = new ResourceLoader<TType>();
@@ -103,7 +106,7 @@ namespace Gibbed.Cryptic.FileFormats
 #if ALLINMEMORY
             using (var data = new MemoryStream())
             {
-                var reader = new BlobDataWriter(data, isClient, isServer);
+                var reader = new BlobDataWriter(data, isClient, isServer, getIndexFromFileName);
                 reader.WriteValueStructure(loader, false, null);
 
                 data.Position = 0;
@@ -252,7 +255,8 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void WriteValueCurrentFile(string value, object state)
         {
-            this._Output.WriteStringPascalUncapped(value);
+            var index = this._GetIndexFromFileName(value);
+            this._Output.WriteValueU32(index);
         }
 
         public void WriteArrayCurrentFile(string[] array, int count, object state)

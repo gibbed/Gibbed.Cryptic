@@ -239,10 +239,25 @@ namespace Gibbed.Cryptic.ConvertResource
 
                     Console.WriteLine("Loading entries...");
 
+                    Func<uint, string> getFileNameFromIndex = i =>
+                    {
+                        if (i == 0)
+                        {
+                            return null;
+                        }
+
+                        if (i > resource.Files.Count)
+                        {
+                            throw new KeyNotFoundException("file index " + i.ToString() + " is out of range");
+                        }
+
+                        return resource.Files[(int)(i - 1)].Name;
+                    };
+
                     var list = (IList)loadResource.Invoke(null,
                                                           new object[]
                                                           {
-                                                              input, schema.IsClient, schema.IsServer
+                                                              input, schema.IsClient, schema.IsServer, getFileNameFromIndex
                                                           });
 
                     var entries = list.Cast<object>();
@@ -656,6 +671,22 @@ namespace Gibbed.Cryptic.ConvertResource
                         entries.Add(entry);
                     }
 
+                    Func<string, uint> getIndexFromFileName = s =>
+                    {
+                        if (s == null)
+                        {
+                            return 0;
+                        }
+
+                        var index = blob.Files.FindIndex(fe => fe.Name == s);
+                        if (index < 0)
+                        {
+                            throw new KeyNotFoundException("file name '" + s + "' not found");
+                        }
+
+                        return (uint)(1 + index);
+                    };
+
                     Console.WriteLine("Saving entries...");
                     var saveResource = typeof(BlobDataWriter)
                         .GetMethod("SaveResource", BindingFlags.Public | BindingFlags.Static)
@@ -667,7 +698,7 @@ namespace Gibbed.Cryptic.ConvertResource
                         saveResource.Invoke(null,
                                             new object[]
                                             {
-                                                entries, output, schema.IsClient, schema.IsServer,
+                                                entries, output, schema.IsClient, schema.IsServer, getIndexFromFileName,
                                             });
                     }
                 }

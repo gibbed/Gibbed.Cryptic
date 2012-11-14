@@ -231,13 +231,28 @@ namespace Gibbed.Cryptic.ConvertObject
                         });
                     }
 
+                    Func<uint, string> getFileNameFromIndex = i =>
+                    {
+                        if (i == 0)
+                        {
+                            return null;
+                        }
+
+                        if (i > resource.Files.Count)
+                        {
+                            throw new KeyNotFoundException("file index " + i.ToString() + " is out of range");
+                        }
+
+                        return resource.Files[(int)(i - 1)].Name;
+                    };
+
                     var loadObject = typeof(BlobDataReader)
                         .GetMethod("LoadObject", BindingFlags.Public | BindingFlags.Static)
                         .MakeGenericMethod(type);
                     var data = loadObject.Invoke(null,
                                                  new object[]
                                                  {
-                                                     input, schema.IsClient, schema.IsServer
+                                                     input, schema.IsClient, schema.IsServer, getFileNameFromIndex
                                                  });
 
                     Console.WriteLine("Saving object to XML...");
@@ -372,6 +387,22 @@ namespace Gibbed.Cryptic.ConvertObject
                     var objectSerializer = new DataContractSerializer(type);
                     data = objectSerializer.ReadObject(subtree);
 
+                    Func<string, uint> getIndexFromFileName = s =>
+                    {
+                        if (s == null)
+                        {
+                            return 0;
+                        }
+
+                        var index = blob.Files.FindIndex(fe => fe.Name == s);
+                        if (index < 0)
+                        {
+                            throw new KeyNotFoundException("file name '" + s + "' not found");
+                        }
+
+                        return (uint)(1 + index);
+                    };
+
                     Console.WriteLine("Saving object...");
                     var saveResource = typeof(BlobDataWriter)
                         .GetMethod("SaveObject", BindingFlags.Public | BindingFlags.Static)
@@ -380,9 +411,9 @@ namespace Gibbed.Cryptic.ConvertObject
                     {
                         blob.Serialize(output);
                         saveResource.Invoke(null,
-                                            new object[]
+                                            new[]
                                             {
-                                                data, output, schema.IsClient, schema.IsServer,
+                                                data, output, schema.IsClient, schema.IsServer, getIndexFromFileName,
                                             });
                     }
                 }
