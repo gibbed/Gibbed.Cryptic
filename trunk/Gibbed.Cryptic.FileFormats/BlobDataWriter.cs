@@ -48,9 +48,9 @@ namespace Gibbed.Cryptic.FileFormats
             get { return this._IsServer; }
         }
 
-        private readonly Func<string, uint> _GetIndexFromFileName;
+        private readonly Func<string, int> _GetIndexFromFileName;
 
-        public BlobDataWriter(Stream output, bool isClient, bool isServer, Func<string, uint> getIndexFromFileName)
+        public BlobDataWriter(Stream output, bool isClient, bool isServer, Func<string, int> getIndexFromFileName)
         {
             this._Output = output;
             this._IsClient = isClient;
@@ -84,7 +84,7 @@ namespace Gibbed.Cryptic.FileFormats
             }
         }
 
-        public static void SaveObject<TType>(TType instance, Stream output, bool isClient, bool isServer, Func<string, uint> getIndexFromFileName)
+        public static void SaveObject<TType>(TType instance, Stream output, bool isClient, bool isServer, Func<string, int> getIndexFromFileName)
             where TType : Serialization.IStructure, new()
         {
             using (var data = new MemoryStream())
@@ -97,7 +97,7 @@ namespace Gibbed.Cryptic.FileFormats
             }
         }
 
-        public static void SaveResource<TType>(List<TType> list, Stream output, bool isClient, bool isServer, Func<string, uint> getIndexFromFileName)
+        public static void SaveResource<TType>(List<TType> list, Stream output, bool isClient, bool isServer, Func<string, int> getIndexFromFileName)
             where TType : Serialization.IStructure, new()
         {
             var loader = new ResourceLoader<TType>();
@@ -255,8 +255,21 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void WriteValueCurrentFile(string value, object state)
         {
+            if (value == null)
+            {
+                this._Output.WriteValueU32(0);
+                return;
+            }
+
             var index = this._GetIndexFromFileName(value);
-            this._Output.WriteValueU32(index);
+            if (index < 0)
+            {
+                this._Output.WriteValueU32(1);
+                this._Output.WriteStringPascalUncapped(value);
+                return;
+            }
+
+            this._Output.WriteValueS32(2 + index);
         }
 
         public void WriteArrayCurrentFile(string[] array, int count, object state)

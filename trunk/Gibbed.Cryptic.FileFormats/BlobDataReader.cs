@@ -48,9 +48,9 @@ namespace Gibbed.Cryptic.FileFormats
             get { return this._IsServer; }
         }
 
-        private readonly Func<uint, string> _GetFileNameFromIndex;
+        private readonly Func<int, string> _GetFileNameFromIndex;
 
-        public BlobDataReader(Stream input, bool isClient, bool isServer, Func<uint, string> getFileNameFromIndex)
+        public BlobDataReader(Stream input, bool isClient, bool isServer, Func<int, string> getFileNameFromIndex)
         {
             this._Input = input;
             this._IsClient = isClient;
@@ -84,14 +84,14 @@ namespace Gibbed.Cryptic.FileFormats
             }
         }
 
-        public static TType LoadObject<TType>(Stream input, bool isClient, bool isServer, Func<uint, string> getFileNameFromIndex)
+        public static TType LoadObject<TType>(Stream input, bool isClient, bool isServer, Func<int, string> getFileNameFromIndex)
             where TType : Serialization.IStructure, new()
         {
             var reader = new BlobDataReader(input, isClient, isServer, getFileNameFromIndex);
             return reader.ReadValueStructure<TType>(false, null);
         }
 
-        public static List<TType> LoadResource<TType>(Stream input, bool isClient, bool isServer, Func<uint, string> getFileNameFromIndex)
+        public static List<TType> LoadResource<TType>(Stream input, bool isClient, bool isServer, Func<int, string> getFileNameFromIndex)
             where TType : Serialization.IStructure, new()
         {
             var reader = new BlobDataReader(input, isClient, isServer, getFileNameFromIndex);
@@ -236,7 +236,18 @@ namespace Gibbed.Cryptic.FileFormats
         public string ReadValueCurrentFile(object state)
         {
             var index = this._Input.ReadValueU32();
-            return this._GetFileNameFromIndex(index);
+
+            if (index == 0)
+            {
+                return null;
+            }
+
+            if (index == 1)
+            {
+                return this._Input.ReadStringPascalUncapped();
+            }
+
+            return this._GetFileNameFromIndex((int)(index - 2));
         }
 
         public string[] ReadArrayCurrentFile(int count, object state)
