@@ -48,11 +48,14 @@ namespace Gibbed.Cryptic.FileFormats
             get { return this._IsServer; }
         }
 
-        public BlobDataReader(Stream input, bool isClient, bool isServer)
+        private readonly Func<uint, string> _GetFileNameFromIndex;
+
+        public BlobDataReader(Stream input, bool isClient, bool isServer, Func<uint, string> getFileNameFromIndex)
         {
             this._Input = input;
             this._IsClient = isClient;
             this._IsServer = isServer;
+            this._GetFileNameFromIndex = getFileNameFromIndex;
         }
 
         private class ResourceLoader<TType> : Serialization.IStructure
@@ -81,17 +84,17 @@ namespace Gibbed.Cryptic.FileFormats
             }
         }
 
-        public static TType LoadObject<TType>(Stream input, bool isClient, bool isServer)
+        public static TType LoadObject<TType>(Stream input, bool isClient, bool isServer, Func<uint, string> getFileNameFromIndex)
             where TType : Serialization.IStructure, new()
         {
-            var reader = new BlobDataReader(input, isClient, isServer);
+            var reader = new BlobDataReader(input, isClient, isServer, getFileNameFromIndex);
             return reader.ReadValueStructure<TType>(false, null);
         }
 
-        public static List<TType> LoadResource<TType>(Stream input, bool isClient, bool isServer)
+        public static List<TType> LoadResource<TType>(Stream input, bool isClient, bool isServer, Func<uint, string> getFileNameFromIndex)
             where TType : Serialization.IStructure, new()
         {
-            var reader = new BlobDataReader(input, isClient, isServer);
+            var reader = new BlobDataReader(input, isClient, isServer, getFileNameFromIndex);
             var loader = reader.ReadValueStructure<ResourceLoader<TType>>(false, null);
             return loader.List;
         }
@@ -232,7 +235,8 @@ namespace Gibbed.Cryptic.FileFormats
 
         public string ReadValueCurrentFile(object state)
         {
-            return this._Input.ReadStringPascalUncapped();
+            var index = this._Input.ReadValueU32();
+            return this._GetFileNameFromIndex(index);
         }
 
         public string[] ReadArrayCurrentFile(int count, object state)
@@ -420,6 +424,7 @@ namespace Gibbed.Cryptic.FileFormats
             var dataSize = this._Input.ReadValueU32();
 
 #if ALLINMEMORY
+            var start = this._Input.Position;
             var end = this._Input.Position + dataSize;
 
             var instance = (Serialization.IStructure)Activator.CreateInstance(type);
