@@ -132,7 +132,51 @@ namespace Gibbed.Cryptic.ExportParserTables
             StringBuilder sb;
 
             sb = new StringBuilder();
-            sb.Append("55 8B EC 81 EC F0 00 00 00 53 56 57 ");
+            sb.Append("55 8B EC ");
+            sb.Append("83 EC 50 ");
+            sb.Append("53 56 57 ");
+            sb.Append("C7 45 FC 00 00 00 00 8D 45 FC 50 8B 4D 08 51 ");
+            sb.Append("E8 xx xx xx xx ");
+            sb.Append("83 C4 04 50 ");
+            sb.Append("8B 15 xx xx xx xx ");
+            sb.Append("52 ");
+            sb.Append("E8 xx xx xx xx ");
+            sb.Append("83 C4 0C 83 7D FC 00 ");
+            sb.Append("0F 84 xx xx xx xx ");
+            sb.Append("C7 45 F4 00 00 00 00 ");
+            sb.Append("C7 45 F0 xx xx xx xx ");
+            sb.Append("8B 45 FC 81 B8 64 01 00 00 81 00 00 00 ");
+            sb.Append("75 xx ");
+            sb.Append("8B 45 FC 8B 88 7C 01 00 00 89 4D F0 EB xx ");
+            sb.Append("8B 45 FC 81 B8 64 01 00 00 82 00 00 00 ");
+            sb.Append("75 xx ");
+            sb.Append("C7 45 F0 xx xx xx xx ");
+            sb.Append("EB xx ");
+
+            var codeOffset = memory.Search(new ByteSearch(sb.ToString()));
+            if (codeOffset == uint.MaxValue)
+            {
+                //throw new InvalidOperationException();
+                return 0;
+            }
+
+            var pointer = memory.ReadU32(codeOffset + 35);
+            if (pointer == 0)
+            {
+                throw new InvalidOperationException();
+            }
+
+            return memory.ReadU32(pointer);
+        }
+
+        public static uint FindOldExpressionFunctionTable(ProcessMemory memory)
+        {
+            StringBuilder sb;
+
+            sb = new StringBuilder();
+            sb.Append("55 8B EC ");
+            sb.Append("81 EC F0 00 00 00 ");
+            sb.Append("53 56 57 ");
             sb.Append("8D BD 10 FF FF FF B9 3C 00 00 00 B8 CC CC CC CC F3 AB ");
             sb.Append("C7 45 F8 00 00 00 00 8D 45 F8 50 8B 4D 08 51 ");
             sb.Append("E8 xx xx xx xx ");
