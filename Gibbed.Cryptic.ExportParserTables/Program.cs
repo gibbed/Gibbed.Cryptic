@@ -41,12 +41,17 @@ namespace Gibbed.Cryptic.ExportParserTables
             switch (memory.ReadU32(baseAddress))
             {
                 case 1:
+                {
                     return "int";
+                }
+
                 case 2:
+                {
                     return "string";
-                default:
-                    throw new NotSupportedException();
+                }
             }
+
+            throw new NotSupportedException();
         }
 
         private static List<KeyValuePair<string, string>> ReadKeyValueList(
@@ -247,57 +252,6 @@ namespace Gibbed.Cryptic.ExportParserTables
 
         private static Dictionary<Parser.ColumnFlags, string> ColumnFlagNames = GenerateColumnFlagNames();
 
-        /*
-        private static Dictionary<Parser.ColumnFlags, string> BasicFlags = new Dictionary<Parser.ColumnFlags,string>()
-        {
-            {Parser.ColumnFlags.FIXED_ARRAY, "FIXED_ARRAY"},
-            {Parser.ColumnFlags.INDIRECT, "INDIRECT"},
-            {Parser.ColumnFlags.POOL_STRING, "POOL_STRING"},
-            {Parser.ColumnFlags.ESTRING, "ESTRING"},
-            {Parser.ColumnFlags.OBJECTTYPE, "OBJECTTYPE"},
-            {Parser.ColumnFlags.STRUCTPARAM, "STRUCTPARAM"},
-            {Parser.ColumnFlags.ALWAYS_ALLOC, "ALWAYS_ALLOC"},
-            {Parser.ColumnFlags.NON_NULL_REF, "NON_NULL_REF"},
-            {Parser.ColumnFlags.REQUIRED, "REQUIRED"},
-            {Parser.ColumnFlags.NO_WRITE, "NO_WRITE"},
-            {Parser.ColumnFlags.NO_NETSEND, "NO_NETSEND"},
-            {Parser.ColumnFlags.FLATEMBED, "FLATEMBED"},
-            {Parser.ColumnFlags.NO_TEXT_SAVE, "NO_TEXT_SAVE"},
-            {Parser.ColumnFlags.GLOBAL_NAME, "GLOBAL_NAME"},
-            {Parser.ColumnFlags.USEDFIELD, "USEDFIELD"},
-            {Parser.ColumnFlags.USEROPTIONBIT_1, "USEROPTIONBIT_1"},
-            {Parser.ColumnFlags.USEROPTIONBIT_2, "USEROPTIONBIT_2"},
-            {Parser.ColumnFlags.USEROPTIONBIT_3, "USEROPTIONBIT_3"},
-            {Parser.ColumnFlags.POOL_STRING_DB, "POOL_STRING_DB"},
-            {Parser.ColumnFlags.DEFAULT_FIELD, "DEFAULT_FIELD"},
-            {Parser.ColumnFlags.DEMO_IGNORE, "DEMO_IGNORE"},
-            {Parser.ColumnFlags.PUPPET_NO_COPY, "PUPPET_NO_COPY"},
-            {Parser.ColumnFlags.SUBSCRIBE, "SUBSCRIBE"},
-            {Parser.ColumnFlags.SERVER_ONLY, "SERVER_ONLY"},
-            {Parser.ColumnFlags.CLIENT_ONLY, "CLIENT_ONLY"},
-            {Parser.ColumnFlags.SELF_ONLY, "SELF_ONLY"},
-            {Parser.ColumnFlags.SELF_AND_TEAM_ONLY, "SELF_AND_TEAM_ONLY"},
-            {Parser.ColumnFlags.LOGIN_SUBSCRIBE, "LOGIN_SUBSCRIBE"},
-            {Parser.ColumnFlags.KEY, "KEY"},
-            {Parser.ColumnFlags.PERSIST, "PERSIST"},
-            {Parser.ColumnFlags.NO_TRANSACT, "NO_TRANSACT"},
-            {Parser.ColumnFlags.SOMETIMES_TRANSACT, "SOMETIMES_TRANSACT"},
-            {Parser.ColumnFlags.VITAL_REF, "VITAL_REF"},
-            {Parser.ColumnFlags.NON_NULL_REF__ERROR_ONLY, "NON_NULL_REF__ERROR_ONLY"},
-            {Parser.ColumnFlags.DIRTY_BIT, "DIRTY_BIT"},
-            {Parser.ColumnFlags.NO_INHERIT, "NO_INHERIT"},
-            {Parser.ColumnFlags.IGNORE_STRUCT, "IGNORE_STRUCT"},
-            {Parser.ColumnFlags.SPECIAL_DEFAULT, "SPECIAL_DEFAULT"},
-            {Parser.ColumnFlags.PARSETABLE_INFO, "PARSETABLE_INFO"},
-            {Parser.ColumnFlags.INHERITANCE_STRUCT, "INHERITANCE_STRUCT"},
-            {Parser.ColumnFlags.STRUCT_NORECURSE, "STRUCT_NORECURSE"},
-            {Parser.ColumnFlags.CASE_SENSITIVE, "CASE_SENSITIVE"},
-            {Parser.ColumnFlags.EDIT_ONLY, "EDIT_ONLY"},
-            {Parser.ColumnFlags.NO_INDEX, "NO_INDEX"},
-            {Parser.ColumnFlags.NO_LOG, "NO_LOG"},
-        };
-        */
-
         private static string[] FloatRounding =
             {
                 null,
@@ -309,9 +263,7 @@ namespace Gibbed.Cryptic.ExportParserTables
             };
 
         public static Parser.ColumnFlags ColumnFlagsMask = ColumnFlagNames
-            .Aggregate<KeyValuePair<Parser.ColumnFlags, string>, Parser.ColumnFlags>(
-                Parser.ColumnFlags.None,
-                (a, b) => a | b.Key);
+            .Aggregate(Parser.ColumnFlags.None, (a, b) => a | b.Key);
 
         private static uint HashKeyValueList(
             ProcessMemory memory,
@@ -545,15 +497,14 @@ namespace Gibbed.Cryptic.ExportParserTables
                 "UNSIGNED", // 2
                 "DATESS2000", // 3
                 "PERCENT", // 4
-                "NOPATH", // 5
-                "HSV", // 6
-                null,
-                "TEXTURE", // 8
-                "COLOR", // 9
-                "FRIENDLYDATE", // 10
-                "FRIENDLYSS2000", // 11
-                "KBYTES", // 12
-                "FLAGS", // 13
+                "HSV", // 5
+                null, // 6
+                "TEXTURE", // 7
+                "COLOR", // 8
+                "FRIENDLYDATE", // 9
+                "FRIENDLYSS2000", // 10
+                "KBYTES", // 11
+                "FLAGS", // 12
             };
 
         private static void ExportParserTable(

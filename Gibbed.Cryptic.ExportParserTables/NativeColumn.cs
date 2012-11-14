@@ -21,6 +21,7 @@
  */
 
 using System;
+using System.Globalization;
 using System.Runtime.InteropServices;
 using Parser = Gibbed.Cryptic.FileFormats.Parser;
 
@@ -84,7 +85,7 @@ namespace Gibbed.Cryptic.ExportParserTables
 
         public override string ToString()
         {
-            return this.Type.ToString();
+            return this.Type.ToString(CultureInfo.InvariantCulture);
         }
     }
 }
