@@ -887,64 +887,67 @@
     <column name="UGCMissionDefaultNonCombatRewardTable" type="STRING">
       <offset>236</offset>
     </column>
-    <column name="MicrotransactionDefaultCurrency" type="STRING">
+    <column name="UGCAchievementsEnable" type="U8">
       <offset>240</offset>
     </column>
+    <column name="MicrotransactionDefaultCurrency" type="STRING">
+      <offset>244</offset>
+    </column>
     <column name="MicrotransactionCurrency" type="STRING">
-      <offset>240</offset>
+      <offset>244</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MicrotransactionDefaultCurrency</redundant_name>
     </column>
     <column name="MTCurrency" type="STRING">
-      <offset>240</offset>
+      <offset>244</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MicrotransactionDefaultCurrency</redundant_name>
     </column>
     <column name="DefaultCurrency" type="STRING">
-      <offset>240</offset>
+      <offset>244</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MicrotransactionDefaultCurrency</redundant_name>
     </column>
     <column name="UGCProjectNoPlayDaysBeforeNoRepublish" type="INT">
-      <offset>244</offset>
+      <offset>248</offset>
       <default>30</default>
     </column>
     <column name="OverheadGenBone" type="STRING">
-      <offset>248</offset>
+      <offset>252</offset>
     </column>
     <column name="DefaultTooltipDelay" type="F32">
-      <offset>252</offset>
+      <offset>256</offset>
       <default>1</default>
     </column>
     <column name="TutorialMissionName" type="STRING">
-      <offset>256</offset>
-    </column>
-    <column name="DefaultCutsceneForContacts" type="STRING">
       <offset>260</offset>
     </column>
-    <column name="MinNameLength" type="INT">
+    <column name="DefaultCutsceneForContacts" type="STRING">
       <offset>264</offset>
+    </column>
+    <column name="MinNameLength" type="INT">
+      <offset>268</offset>
       <default>3</default>
     </column>
     <column name="MaxNameLength" type="INT">
-      <offset>268</offset>
+      <offset>272</offset>
       <default>50</default>
     </column>
     <column name="MaxTeamUpGroupSize" type="INT">
-      <offset>272</offset>
+      <offset>276</offset>
       <default>5</default>
     </column>
     <column name="MinimumTeamLevel" type="INT">
-      <offset>276</offset>
+      <offset>280</offset>
     </column>
     <column name="MaxHideShowCollisionTris" type="INT">
-      <offset>280</offset>
+      <offset>284</offset>
       <default>2000</default>
     </column>
     <column name="}" type="END" />
