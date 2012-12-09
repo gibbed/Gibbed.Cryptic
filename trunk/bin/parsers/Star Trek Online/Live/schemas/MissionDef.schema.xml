@@ -519,9 +519,6 @@
     <column name="doNotAllowDrop" type="U8">
       <offset>386</offset>
     </column>
-    <column name="UsesTrackedMission" type="U8">
-      <offset>387</offset>
-    </column>
     <column name="Shareable" type="INT">
       <offset>388</offset>
       <static_define_list external="MissionShareableType" />
@@ -612,28 +609,36 @@
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="RefreshCharacterPowersOnComplete" type="U8">
+    <column name="TrackedMission" type="STRING">
       <offset>448</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="RefreshCharacterPowersOnComplete" type="U8">
+      <offset>452</offset>
     </column>
     <column name="OmitFromMissionTracker" type="U8">
-      <offset>449</offset>
+      <offset>453</offset>
     </column>
     <column name="MissionTag" type="INTARRAY">
-      <offset>452</offset>
+      <offset>456</offset>
       <static_define_list external="MissionTag" />
     </column>
     <column name="MissionUIType" type="INT">
-      <offset>456</offset>
+      <offset>460</offset>
       <static_define_list external="MissionUIType" />
     </column>
     <column name="IsTutorialPerk" type="U8">
-      <offset>460</offset>
+      <offset>464</offset>
     </column>
     <column name="OnlyRewardIfScored" type="U8">
-      <offset>461</offset>
+      <offset>465</offset>
     </column>
     <column name="TutorialScreenRegion" type="INT">
-      <offset>464</offset>
+      <offset>468</offset>
       <static_define_list external="TutorialScreenRegion" />
     </column>
     <column name="IconString:" type="IGNORE" />

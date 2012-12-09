@@ -131,76 +131,83 @@
       <offset>116</offset>
       <static_define_list external="ZoneMapType" />
     </column>
-    <column name="ProvideIndividualMapInfo" type="BIT">
+    <column name="PrivateQueueLevelLimit" type="INT">
       <offset>120</offset>
+    </column>
+    <column name="ProvideIndividualMapInfo" type="BIT">
+      <offset>124</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="EnableMissionReturnAtEnd" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="EnableInMapPlayerChatUpdates" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="EnableStrictTeamRules" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="QueueJoinTimeIsExact" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="ScoreboardRemovesInactivePlayerScores" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="DisbandAutoTeamsWhenMatchEnds" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="DisableJoinOrCreateOnAllQueueMaps" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="RemainInPrivateQueuesAfterMapFinishes" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="AlwaysSendPlayerMemberInfo" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="AlwaysSendMessageAsNotification" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="StayInQueueOnMapLeave" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="CanLeaveTeam" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="AutoJoinQueueRequiresPlayerAccept" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="ServerCreatesNormalTeams" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65550</bit_offset>
     </column>
     <column name="KeepQueueInfo" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="DisablePrivateQueues" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65552</bit_offset>
+    </column>
+    <column name="EnablePrivateQueueLevelLimit" type="BIT">
+      <offset>124</offset>
+      <bit_offset>65553</bit_offset>
     </column>
     <column name="ShowClientsInvalidQueuesWithReason" type="IGNORE" />
     <column name="}" type="END" />
