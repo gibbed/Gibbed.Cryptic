@@ -1,20 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<parser name="InvBagExtraID">
+<parser name="GatewayInfo">
   <table>
-    <column name="InvBagExtraID" type="IGNORE">
+    <column name="GatewayInfo" type="IGNORE">
       <flags>
         <flag>PARSETABLE_INFO</flag>
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Names" type="STRINGARRAY">
+    <column name="bHidden" type="BIT">
       <offset>0</offset>
       <flags>
-        <flag>STRUCTPARAM</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
       </flags>
-    </column>
-    <column name="CanAffectCostume" type="U8">
-      <offset>4</offset>
+      <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

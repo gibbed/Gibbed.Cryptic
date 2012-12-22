@@ -704,25 +704,29 @@
       <offset>36</offset>
       <bit_offset>65563</bit_offset>
     </column>
-    <column name="LegacyInteractBehaviorInUGC" type="BIT">
+    <column name="EnableFMV" type="BIT">
       <offset>36</offset>
       <bit_offset>65564</bit_offset>
     </column>
-    <column name="CombatDeathPrediction" type="BIT">
+    <column name="LegacyInteractBehaviorInUGC" type="BIT">
       <offset>36</offset>
       <bit_offset>65565</bit_offset>
     </column>
-    <column name="LegacyEncounterDynamicSpawnType" type="BIT">
+    <column name="CombatDeathPrediction" type="BIT">
       <offset>36</offset>
       <bit_offset>65566</bit_offset>
     </column>
-    <column name="RoundItemStatsOnApplyToChar" type="BIT">
+    <column name="LegacyEncounterDynamicSpawnType" type="BIT">
       <offset>36</offset>
       <bit_offset>65567</bit_offset>
     </column>
-    <column name="UgcRewardOverrideEnable" type="BIT">
+    <column name="RoundItemStatsOnApplyToChar" type="BIT">
       <offset>40</offset>
       <bit_offset>65536</bit_offset>
+    </column>
+    <column name="UgcRewardOverrideEnable" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65537</bit_offset>
     </column>
     <column name="FontSmallSize" type="INT">
       <offset>44</offset>
@@ -888,74 +892,77 @@
     <column name="UGCMissionDefaultRewardTable" type="STRING">
       <offset>236</offset>
     </column>
-    <column name="UGCMissionDefaultNonCombatRewardTable" type="STRING">
+    <column name="UGCMissionFeaturedRewardTable" type="STRING">
       <offset>240</offset>
     </column>
-    <column name="UGCAchievementsEnable" type="U8">
+    <column name="UGCMissionDefaultNonCombatRewardTable" type="STRING">
       <offset>244</offset>
     </column>
-    <column name="MicrotransactionDefaultCurrency" type="STRING">
+    <column name="UGCAchievementsEnable" type="U8">
       <offset>248</offset>
     </column>
+    <column name="MicrotransactionDefaultCurrency" type="STRING">
+      <offset>252</offset>
+    </column>
     <column name="MicrotransactionCurrency" type="STRING">
-      <offset>248</offset>
+      <offset>252</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MicrotransactionDefaultCurrency</redundant_name>
     </column>
     <column name="MTCurrency" type="STRING">
-      <offset>248</offset>
+      <offset>252</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MicrotransactionDefaultCurrency</redundant_name>
     </column>
     <column name="DefaultCurrency" type="STRING">
-      <offset>248</offset>
+      <offset>252</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MicrotransactionDefaultCurrency</redundant_name>
     </column>
     <column name="UGCProjectNoPlayDaysBeforeNoRepublish" type="INT">
-      <offset>252</offset>
+      <offset>256</offset>
       <default>30</default>
     </column>
     <column name="OverheadGenBone" type="STRING">
-      <offset>256</offset>
+      <offset>260</offset>
     </column>
     <column name="DefaultTooltipDelay" type="F32">
-      <offset>260</offset>
+      <offset>264</offset>
       <default>1</default>
     </column>
     <column name="TutorialMissionName" type="STRING">
-      <offset>264</offset>
-    </column>
-    <column name="DefaultCutsceneForContacts" type="STRING">
       <offset>268</offset>
     </column>
-    <column name="MinNameLength" type="INT">
+    <column name="DefaultCutsceneForContacts" type="STRING">
       <offset>272</offset>
+    </column>
+    <column name="MinNameLength" type="INT">
+      <offset>276</offset>
       <default>3</default>
     </column>
     <column name="MaxNameLength" type="INT">
-      <offset>276</offset>
+      <offset>280</offset>
       <default>50</default>
     </column>
     <column name="MaxTeamUpGroupSize" type="INT">
-      <offset>280</offset>
+      <offset>284</offset>
       <default>5</default>
     </column>
     <column name="MinimumTeamLevel" type="INT">
-      <offset>284</offset>
+      <offset>288</offset>
     </column>
     <column name="MaxHideShowCollisionTris" type="INT">
-      <offset>288</offset>
+      <offset>292</offset>
       <default>2000</default>
     </column>
     <column name="UgcRewardOverrideTimeMinutes" type="F32">
-      <offset>292</offset>
+      <offset>296</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -1016,6 +1016,16 @@
       <offset>1056</offset>
       <dictionary_name>CopyDict_GroupProjectContainerPlayer</dictionary_name>
     </column>
+    <column name="pGatewayInfo" type="OPTIONALSTRUCT">
+      <offset>1060</offset>
+      <flags>
+        <flag>ALWAYS_ALLOC</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="GatewayInfo" />
+    </column>
     <column name="eaAwayTeamPetIDs" type="IGNORE" />
     <column name="eaAwayTeamCritterIDs" type="IGNORE" />
     <column name="bNotLookingForGroup" type="IGNORE" />
