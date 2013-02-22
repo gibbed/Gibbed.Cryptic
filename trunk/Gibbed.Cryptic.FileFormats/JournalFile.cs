@@ -30,9 +30,7 @@ namespace Gibbed.Cryptic.FileFormats
     public class JournalFile
     {
         public Endian Endian = Endian.Little;
-
-        public List<Journal.Entry> Entries
-            = new List<Journal.Entry>();
+        public List<Journal.Entry> Entries = new List<Journal.Entry>();
 
         public void Serialize(Stream output)
         {

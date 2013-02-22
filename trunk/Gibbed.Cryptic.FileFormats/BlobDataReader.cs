@@ -430,7 +430,7 @@ namespace Gibbed.Cryptic.FileFormats
 
                 if (hasValue != 1)
                 {
-                    throw new FormatException();
+                    throw new FormatException("invalid optional data for structure");
                 }
             }
 
@@ -443,9 +443,13 @@ namespace Gibbed.Cryptic.FileFormats
             var instance = (Serialization.IStructure)Activator.CreateInstance(type);
             instance.Deserialize(this, state);
 
-            if (this._Input.Position != end)
+            if (this._Input.Position < end)
             {
-                throw new FormatException();
+                throw new FormatException("buffer underrun on serializing structure");
+            }
+            else if (this._Input.Position > end)
+            {
+                throw new FormatException("buffer overrun on serializing structure");
             }
 
             return instance;
@@ -455,9 +459,13 @@ namespace Gibbed.Cryptic.FileFormats
                 var instance = (ICrypticStructure)Activator.CreateInstance(type);
                 instance.Serialize(new BlobReader(data, isCLient, isServer));
 
-                if (data.Position != data.Length)
+                if (data.Position < data.Length)
                 {
-                    throw new FormatException();
+                    throw new FormatException("buffer underrun on serializing structure");
+                }
+                else if (data.Position > data.Length)
+                {
+                    throw new FormatException("buffer overrun on serializing structure");
                 }
 
                 return instance;
@@ -497,7 +505,7 @@ namespace Gibbed.Cryptic.FileFormats
 
                 if (hasValue != 1)
                 {
-                    throw new FormatException();
+                    throw new FormatException("invalid optional data for polymorph");
                 }
             }
 
@@ -560,7 +568,7 @@ namespace Gibbed.Cryptic.FileFormats
             MultiValueOpcode op;
             if (MultiValue.TryParseOpcode(name, out op) == false)
             {
-                throw new FormatException();
+                throw new FormatException("invalid or unknown multivalue opcode");
             }
 
             // ReSharper disable BitwiseOperatorOnEnumWihtoutFlags

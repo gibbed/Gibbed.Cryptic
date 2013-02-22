@@ -34,7 +34,7 @@ namespace Gibbed.Cryptic.FileFormats
             var length = stream.ReadValueU16();
             if (length > maxLength)
             {
-                throw new FormatException();
+                throw new FormatException("string length exceeds maximum length");
             }
             var text = stream.ReadString(length, Encoding.UTF8);
             var padding = (-(length - 2)) & 3;

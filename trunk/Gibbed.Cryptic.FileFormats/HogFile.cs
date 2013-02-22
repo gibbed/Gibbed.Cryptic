@@ -29,14 +29,13 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public class HogFile
     {
+        public const uint Signature = 0xDEADF00D;
+
         public Endian Endian;
         public ushort Version;
 
-        public List<Hog.FileEntry> Files
-            = new List<Hog.FileEntry>();
-
-        public List<Hog.AttributeEntry> Attributes
-            = new List<Hog.AttributeEntry>();
+        public List<Hog.FileEntry> Files = new List<Hog.FileEntry>();
+        public List<Hog.AttributeEntry> Attributes = new List<Hog.AttributeEntry>();
 
         public byte[] OperationJournal;
         public byte[] DataListJournal;
@@ -49,17 +48,17 @@ namespace Gibbed.Cryptic.FileFormats
         public void Deserialize(Stream input)
         {
             var magic = input.ReadValueU32(Endian.Little);
-            if (magic != 0xDEADF00D &&
-                magic.Swap() != 0xDEADF00D)
+            if (magic != Signature &&
+                magic.Swap() != Signature)
             {
-                throw new FormatException("bad magic");
+                throw new FormatException("bad hog magic");
             }
-            var endian = magic == 0xDEADF00D ? Endian.Little : Endian.Big;
+            var endian = magic == Signature ? Endian.Little : Endian.Big;
 
             var version = input.ReadValueU16(endian);
             if (version < 10 || version > 11)
             {
-                throw new FormatException("unsupported version");
+                throw new FormatException("unsupported hog version");
             }
 
             var operationJournalSize = input.ReadValueU16(endian);
@@ -70,7 +69,7 @@ namespace Gibbed.Cryptic.FileFormats
 
             if (operationJournalSize > 1024)
             {
-                throw new FormatException();
+                throw new FormatException("bad hog operation journal size");
             }
 
             this.OperationJournal = input.ReadBytes(operationJournalSize);
