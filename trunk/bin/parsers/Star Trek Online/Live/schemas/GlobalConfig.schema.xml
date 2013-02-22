@@ -728,241 +728,248 @@
       <offset>40</offset>
       <bit_offset>65537</bit_offset>
     </column>
-    <column name="FontSmallSize" type="INT">
+    <column name="UseBuyBackCountOverride" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="uBuyBackCountOverride" type="INT">
       <offset>44</offset>
     </column>
-    <column name="FontMediumSize" type="INT">
+    <column name="FontSmallSize" type="INT">
       <offset>48</offset>
     </column>
-    <column name="FontLargeSize" type="INT">
+    <column name="FontMediumSize" type="INT">
       <offset>52</offset>
     </column>
-    <column name="DXTQuality" type="INT">
+    <column name="FontLargeSize" type="INT">
       <offset>56</offset>
     </column>
-    <column name="DefaultEditorAggroRadius" type="INT">
+    <column name="DXTQuality" type="INT">
       <offset>60</offset>
     </column>
-    <column name="MaxOffscreenIconsPlayers" type="INT">
+    <column name="DefaultEditorAggroRadius" type="INT">
       <offset>64</offset>
     </column>
-    <column name="MaxOffscreenIconsCritters" type="INT">
+    <column name="MaxOffscreenIconsPlayers" type="INT">
       <offset>68</offset>
     </column>
-    <column name="OffscreenIconCombineDistance" type="F32">
+    <column name="MaxOffscreenIconsCritters" type="INT">
       <offset>72</offset>
     </column>
-    <column name="MaxActiveMissions" type="INT">
+    <column name="OffscreenIconCombineDistance" type="F32">
       <offset>76</offset>
     </column>
-    <column name="SecondaryMissionCooldownHours" type="F32">
+    <column name="MaxActiveMissions" type="INT">
       <offset>80</offset>
     </column>
-    <column name="CostumeMirrorChanceRequired" type="F32">
+    <column name="SecondaryMissionCooldownHours" type="F32">
       <offset>84</offset>
     </column>
-    <column name="CostumeMirrorChanceOptional" type="F32">
+    <column name="CostumeMirrorChanceRequired" type="F32">
       <offset>88</offset>
     </column>
-    <column name="MapSnapOutdoorRes" type="F32">
+    <column name="CostumeMirrorChanceOptional" type="F32">
       <offset>92</offset>
     </column>
-    <column name="MapSnapIndoorRes" type="F32">
+    <column name="MapSnapOutdoorRes" type="F32">
       <offset>96</offset>
     </column>
-    <column name="MapSnapImageCellSize" type="INT">
+    <column name="MapSnapIndoorRes" type="F32">
       <offset>100</offset>
     </column>
-    <column name="MapSnapOutdoorOrthoSkewX" type="F32">
+    <column name="MapSnapImageCellSize" type="INT">
       <offset>104</offset>
     </column>
-    <column name="MapSnapOutdoorOrthoSkewZ" type="F32">
+    <column name="MapSnapOutdoorOrthoSkewX" type="F32">
       <offset>108</offset>
     </column>
-    <column name="MapSnapIndoorOrthoSkewX" type="F32">
+    <column name="MapSnapOutdoorOrthoSkewZ" type="F32">
       <offset>112</offset>
     </column>
-    <column name="MapSnapIndoorOrthoSkewZ" type="F32">
+    <column name="MapSnapIndoorOrthoSkewX" type="F32">
       <offset>116</offset>
     </column>
-    <column name="FollowTargetEntityDistance" type="F32">
+    <column name="MapSnapIndoorOrthoSkewZ" type="F32">
       <offset>120</offset>
+    </column>
+    <column name="FollowTargetEntityDistance" type="F32">
+      <offset>124</offset>
       <default>1056964608</default>
     </column>
     <column name="LevelingNumericItem" type="STRING">
-      <offset>124</offset>
+      <offset>128</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="UISkinTrayPowerIconHack" type="STRING">
-      <offset>128</offset>
-    </column>
-    <column name="NeedBeforeGreedThreshold" type="STRING">
       <offset>132</offset>
     </column>
-    <column name="DefaultLootMode" type="STRING">
+    <column name="NeedBeforeGreedThreshold" type="STRING">
       <offset>136</offset>
     </column>
-    <column name="rollover_distance" type="F32">
+    <column name="DefaultLootMode" type="STRING">
       <offset>140</offset>
+    </column>
+    <column name="rollover_distance" type="F32">
+      <offset>144</offset>
       <default>3</default>
     </column>
     <column name="rollover_display_time" type="F32">
-      <offset>144</offset>
-      <default>1056964608</default>
-    </column>
-    <column name="rollover_pickup_time" type="F32">
       <offset>148</offset>
       <default>1056964608</default>
     </column>
-    <column name="rollover_postpickup_linger_time" type="F32">
+    <column name="rollover_pickup_time" type="F32">
       <offset>152</offset>
+      <default>1056964608</default>
     </column>
-    <column name="lootent_postloot_linger_time" type="F32">
+    <column name="rollover_postpickup_linger_time" type="F32">
       <offset>156</offset>
     </column>
-    <column name="CCGetBaseAttribValues" type="INT">
+    <column name="lootent_postloot_linger_time" type="F32">
       <offset>160</offset>
+    </column>
+    <column name="CCGetBaseAttribValues" type="INT">
+      <offset>164</offset>
       <static_define_list external="CCGetBaseAttribValues" />
     </column>
     <column name="CCGetPointsLeft" type="INT">
-      <offset>164</offset>
+      <offset>168</offset>
       <static_define_list external="CCGetPointsLeft" />
     </column>
     <column name="CCValidateAttribChanges" type="INT">
-      <offset>168</offset>
+      <offset>172</offset>
       <static_define_list external="CCValidateAttribChanges" />
     </column>
     <column name="RenamePlayerPuppetClassType" type="STRING">
-      <offset>172</offset>
+      <offset>176</offset>
     </column>
     <column name="CharSelectionPortraitTextureFov" type="F32">
-      <offset>176</offset>
+      <offset>180</offset>
       <default>-1</default>
     </column>
     <column name="CharSelectionHeadshotWidth" type="INT">
-      <offset>180</offset>
-      <default>128</default>
-    </column>
-    <column name="CharSelectionHeadshotHeight" type="INT">
       <offset>184</offset>
       <default>128</default>
     </column>
-    <column name="SpawnPointLoadingScreenDistSq" type="F32">
+    <column name="CharSelectionHeadshotHeight" type="INT">
       <offset>188</offset>
+      <default>128</default>
+    </column>
+    <column name="SpawnPointLoadingScreenDistSq" type="F32">
+      <offset>192</offset>
       <default>1193033728</default>
     </column>
     <column name="ClientSideContactDialogAnimList" type="STRING">
-      <offset>192</offset>
-    </column>
-    <column name="DefaultGuildThemeName" type="STRING">
       <offset>196</offset>
     </column>
-    <column name="uWorldCellGameCRC" type="INT">
+    <column name="DefaultGuildThemeName" type="STRING">
       <offset>200</offset>
     </column>
-    <column name="LaunchVideoPath" type="STRING">
+    <column name="uWorldCellGameCRC" type="INT">
       <offset>204</offset>
     </column>
-    <column name="CategoryNameForDoors" type="STRING">
+    <column name="LaunchVideoPath" type="STRING">
       <offset>208</offset>
     </column>
-    <column name="UGCSpotlightMissionName" type="STRING">
+    <column name="CategoryNameForDoors" type="STRING">
       <offset>212</offset>
     </column>
-    <column name="combatUpdateTimer" type="F32">
+    <column name="UGCSpotlightMissionName" type="STRING">
       <offset>216</offset>
+    </column>
+    <column name="combatUpdateTimer" type="F32">
+      <offset>220</offset>
       <default>1036831949</default>
     </column>
     <column name="maxServerFPS" type="F32">
-      <offset>220</offset>
+      <offset>224</offset>
       <default>30</default>
     </column>
     <column name="NumUGCReviewsBeforeNonReviewerCanPlay" type="INT">
-      <offset>224</offset>
+      <offset>228</offset>
       <default>5</default>
     </column>
     <column name="UGCMissionRewardScaleOverTime" type="INT">
-      <offset>228</offset>
-    </column>
-    <column name="UGCMissionRewardMaxScale" type="F32">
       <offset>232</offset>
     </column>
-    <column name="UGCMissionDefaultRewardTable" type="STRING">
+    <column name="UGCMissionRewardMaxScale" type="F32">
       <offset>236</offset>
     </column>
-    <column name="UGCMissionFeaturedRewardTable" type="STRING">
+    <column name="UGCMissionDefaultRewardTable" type="STRING">
       <offset>240</offset>
     </column>
-    <column name="UGCMissionDefaultNonCombatRewardTable" type="STRING">
+    <column name="UGCMissionFeaturedRewardTable" type="STRING">
       <offset>244</offset>
     </column>
-    <column name="UGCAchievementsEnable" type="U8">
+    <column name="UGCMissionDefaultNonCombatRewardTable" type="STRING">
       <offset>248</offset>
     </column>
-    <column name="MicrotransactionDefaultCurrency" type="STRING">
+    <column name="UGCAchievementsEnable" type="U8">
       <offset>252</offset>
     </column>
+    <column name="MicrotransactionDefaultCurrency" type="STRING">
+      <offset>256</offset>
+    </column>
     <column name="MicrotransactionCurrency" type="STRING">
-      <offset>252</offset>
+      <offset>256</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MicrotransactionDefaultCurrency</redundant_name>
     </column>
     <column name="MTCurrency" type="STRING">
-      <offset>252</offset>
+      <offset>256</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MicrotransactionDefaultCurrency</redundant_name>
     </column>
     <column name="DefaultCurrency" type="STRING">
-      <offset>252</offset>
+      <offset>256</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MicrotransactionDefaultCurrency</redundant_name>
     </column>
     <column name="UGCProjectNoPlayDaysBeforeNoRepublish" type="INT">
-      <offset>256</offset>
+      <offset>260</offset>
       <default>30</default>
     </column>
     <column name="OverheadGenBone" type="STRING">
-      <offset>260</offset>
+      <offset>264</offset>
     </column>
     <column name="DefaultTooltipDelay" type="F32">
-      <offset>264</offset>
+      <offset>268</offset>
       <default>1</default>
     </column>
     <column name="TutorialMissionName" type="STRING">
-      <offset>268</offset>
-    </column>
-    <column name="DefaultCutsceneForContacts" type="STRING">
       <offset>272</offset>
     </column>
-    <column name="MinNameLength" type="INT">
+    <column name="DefaultCutsceneForContacts" type="STRING">
       <offset>276</offset>
+    </column>
+    <column name="MinNameLength" type="INT">
+      <offset>280</offset>
       <default>3</default>
     </column>
     <column name="MaxNameLength" type="INT">
-      <offset>280</offset>
+      <offset>284</offset>
       <default>50</default>
     </column>
     <column name="MaxTeamUpGroupSize" type="INT">
-      <offset>284</offset>
+      <offset>288</offset>
       <default>5</default>
     </column>
     <column name="MinimumTeamLevel" type="INT">
-      <offset>288</offset>
+      <offset>292</offset>
     </column>
     <column name="MaxHideShowCollisionTris" type="INT">
-      <offset>292</offset>
+      <offset>296</offset>
       <default>2000</default>
     </column>
     <column name="UgcRewardOverrideTimeMinutes" type="F32">
-      <offset>296</offset>
+      <offset>300</offset>
     </column>
     <column name="}" type="END" />
   </table>

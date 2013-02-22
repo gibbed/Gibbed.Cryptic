@@ -12,7 +12,7 @@
       <flags>
         <flag>KEY</flag>
         <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
       </flags>
       <static_define_list external="RewardGatedType" />
     </column>
@@ -20,14 +20,14 @@
       <offset>4</offset>
       <flags>
         <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
       </flags>
     </column>
     <column name="uNumTimes" type="INT">
       <offset>8</offset>
       <flags>
         <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
       </flags>
     </column>
     <column name="}" type="END" />

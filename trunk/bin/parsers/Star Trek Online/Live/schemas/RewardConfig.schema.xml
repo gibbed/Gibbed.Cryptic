@@ -23,69 +23,81 @@
       <offset>88</offset>
       <subtable external="RecruitMods" />
     </column>
-    <column name="OriginMappings" type="EMBEDDEDSTRUCT">
+    <column name="UGCRewardConfig" type="EMBEDDEDSTRUCT">
       <offset>96</offset>
+      <subtable external="UGCRewardConfig" />
+    </column>
+    <column name="OriginMappings" type="EMBEDDEDSTRUCT">
+      <offset>112</offset>
       <subtable external="OriginToPickupTypeMappings" />
     </column>
     <column name="TypeCostumeMappings" type="EMBEDDEDSTRUCT">
-      <offset>100</offset>
+      <offset>116</offset>
       <subtable external="TypeToCostumeMappings" />
     </column>
     <column name="IgnoreSubRank" type="U8">
-      <offset>116</offset>
+      <offset>132</offset>
     </column>
     <column name="ComputeRewardQuality" type="U8">
-      <offset>117</offset>
+      <offset>133</offset>
     </column>
     <column name="lifetimeRewards" type="EMBEDDEDSTRUCT">
-      <offset>120</offset>
+      <offset>136</offset>
       <subtable external="LifetimeRewardsInfo" />
     </column>
     <column name="LifetimeRewardsList" type="STRUCT">
-      <offset>124</offset>
+      <offset>140</offset>
       <subtable external="LifetimeRewardsInfo" />
     </column>
     <column name="NumericsNotGivenToWholeTeam" type="STRINGARRAY">
-      <offset>128</offset>
+      <offset>144</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="GiftData" type="EMBEDDEDSTRUCT">
-      <offset>132</offset>
+      <offset>148</offset>
       <subtable external="ExperienceGift" />
     </column>
     <column name="RewardGateInfo" type="STRUCT">
-      <offset>144</offset>
+      <offset>160</offset>
       <subtable external="RewardGatedInfo" />
     </column>
     <column name="BlockRegionTables" type="STRUCT">
-      <offset>148</offset>
+      <offset>164</offset>
       <subtable external="RewardBlockRegionTable" />
     </column>
     <column name="RoundRobinEachKill" type="BIT">
-      <offset>152</offset>
+      <offset>168</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ShareLootedNumericsWithTeamMembers" type="BIT">
-      <offset>152</offset>
+      <offset>168</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="BlockRewardPackClientSend" type="BIT">
-      <offset>152</offset>
+      <offset>168</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="NoDeathPenaltyInPowerHouse" type="BIT">
-      <offset>152</offset>
+      <offset>168</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="LootEntsAlwaysAutoLoot" type="BIT">
-      <offset>152</offset>
+      <offset>168</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="UseEntryWeightsOnly" type="BIT">
-      <offset>152</offset>
+      <offset>168</offset>
       <bit_offset>65541</bit_offset>
+    </column>
+    <column name="UseUGCRewardConfig" type="BIT">
+      <offset>168</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="UseRewardGatingMissions" type="BIT">
+      <offset>168</offset>
+      <bit_offset>65543</bit_offset>
     </column>
     <column name="AllowOneItemNoWeightTable" type="IGNORE" />
     <column name="}" type="END" />

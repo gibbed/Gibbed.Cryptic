@@ -26,6 +26,17 @@
       <offset>388</offset>
       <string_length>256</string_length>
     </column>
+    <column name="hashedPWPasswordFixedSalt" type="FIXEDSTRING">
+      <offset>644</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="KeyVersion" type="INT">
+      <offset>772</offset>
+    </column>
+    <column name="encryptedPassword" type="FIXEDSTRING">
+      <offset>776</offset>
+      <string_length>173</string_length>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

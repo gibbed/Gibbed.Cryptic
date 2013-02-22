@@ -43,29 +43,22 @@
       <static_define_list external="PetRelationshipStatus" />
       <format>FLAGS</format>
     </column>
-    <column name="eaAlwaysPropEnts" type="INTARRAY">
+    <column name="bTeamRequest" type="U8">
       <offset>12</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="bTeamRequest" type="U8">
+    <column name="conID" type="INT">
       <offset>16</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="conID" type="INT">
-      <offset>20</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
     <column name="hPet" type="INT">
-      <offset>20</offset>
+      <offset>16</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -74,22 +67,23 @@
       <redundant_name>conID</redundant_name>
     </column>
     <column name="hPetRef" type="REFERENCE">
-      <offset>24</offset>
+      <offset>20</offset>
       <dictionary_name>CopyDict_EntitySavedPet</dictionary_name>
     </column>
     <column name="uiPetID" type="INT">
-      <offset>28</offset>
+      <offset>24</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="eaPurposes" type="INTARRAY">
-      <offset>44</offset>
+      <offset>40</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
     </column>
+    <column name="eaAlwaysPropEnts" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

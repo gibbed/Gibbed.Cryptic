@@ -24,6 +24,10 @@
       <offset>12</offset>
       <static_define_list external="ChatLogSpanType" />
     </column>
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Item" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>
