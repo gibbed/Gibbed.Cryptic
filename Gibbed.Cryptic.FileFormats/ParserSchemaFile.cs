@@ -88,7 +88,7 @@ namespace Gibbed.Cryptic.FileFormats
                     var flag = flagIterator.Current.Value;
                     if (Enum.IsDefined(typeof(Parser.ColumnFlags), flag) == false)
                     {
-                        throw new FormatException();
+                        throw new FormatException("invalid schema flag");
                     }
 
                     column.Flags |= (Parser.ColumnFlags)Enum.Parse(typeof(Parser.ColumnFlags), flag);
@@ -143,7 +143,7 @@ namespace Gibbed.Cryptic.FileFormats
                     ParserSchema.ColumnFormat format;
                     if (Enum.TryParse(formatName, true, out format) == false)
                     {
-                        throw new FormatException();
+                        throw new FormatException("invalid column format");
                     }
                     column.Format = format;
                 }

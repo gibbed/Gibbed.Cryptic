@@ -39,7 +39,7 @@ namespace Gibbed.Cryptic.FileFormats
             T parsed;
             if (Enum.TryParse(value, out parsed) == false)
             {
-                throw new FormatException();
+                throw new FormatException(string.Format("failed to parse enum {0}", typeof(T).Name));
             }
             return parsed;
         }
@@ -52,7 +52,7 @@ namespace Gibbed.Cryptic.FileFormats
                 T value;
                 if (Enum.TryParse(item, out value) == false)
                 {
-                    throw new FormatException();
+                    throw new FormatException(string.Format("failed to parse enum {0}", typeof(T).Name));
                 }
                 items.Add(value);
             }

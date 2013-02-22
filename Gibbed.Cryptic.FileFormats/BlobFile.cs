@@ -92,7 +92,7 @@ namespace Gibbed.Cryptic.FileFormats
             var magic = input.ReadString(8, Encoding.ASCII);
             if (magic != "CrypticS")
             {
-                throw new FormatException();
+                throw new FormatException("invalid blob magic");
             }
 
             this.ParserHash = input.ReadValueU32();
@@ -100,14 +100,14 @@ namespace Gibbed.Cryptic.FileFormats
             var type = input.ReadStringPascal(4096);
             if (type != "ParseM")
             {
-                throw new FormatException();
+                throw new FormatException("invalid blob type");
             }
             this.Type = type;
 
             var filesTag = input.ReadStringPascal(20);
             if (filesTag != "Files1")
             {
-                throw new FormatException();
+                throw new FormatException("invalid blob files tag");
             }
 
             var fileInfoSize = input.ReadValueU32();
@@ -127,14 +127,14 @@ namespace Gibbed.Cryptic.FileFormats
 
                 if (data.Position != data.Length)
                 {
-                    throw new FormatException();
+                    throw new FormatException("did not read blob file entry correctly");
                 }
             }
 
             var extraFilesTag = input.ReadStringPascal(20);
             if (extraFilesTag != "Files1")
             {
-                throw new FormatException();
+                throw new FormatException("invalid blob extra files tag");
             }
 
             var extraFileInfoSize = input.ReadValueU32();
@@ -143,14 +143,14 @@ namespace Gibbed.Cryptic.FileFormats
                 var count = data.ReadValueU32();
                 if (count != 0)
                 {
-                    throw new FormatException();
+                    throw new FormatException("did not read blob extra data correctly");
                 }
             }
 
             var dependenciesTag = input.ReadStringPascal(20);
             if (dependenciesTag != "Depen1")
             {
-                throw new FormatException();
+                throw new FormatException("invalid blob dependencies tag");
             }
 
             var dependencyInfoSize = input.ReadValueU32();
@@ -171,7 +171,7 @@ namespace Gibbed.Cryptic.FileFormats
 
                 if (data.Position != data.Length)
                 {
-                    throw new FormatException();
+                    throw new FormatException("did not read blob dependency entry correctly");
                 }
             }
         }

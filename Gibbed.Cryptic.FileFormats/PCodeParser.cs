@@ -258,7 +258,7 @@ namespace Gibbed.Cryptic.FileFormats
             var tree = parser.Parse(value);
             if (tree.Status != Irony.Parsing.ParseTreeStatus.Parsed)
             {
-                throw new FormatException();
+                throw new FormatException("failed to parse pcode");
             }
 
             var list = new List<MultiValue>();
@@ -308,7 +308,7 @@ namespace Gibbed.Cryptic.FileFormats
                                 StaticVariableType sv;
                                 if (MultiValue.TryParseStaticVariable(code.ChildNodes[1].Token.Text, out sv) == false)
                                 {
-                                    throw new FormatException();
+                                    throw new FormatException("invalid static variable type");
                                 }
                                 arg = sv;
                                 break;
