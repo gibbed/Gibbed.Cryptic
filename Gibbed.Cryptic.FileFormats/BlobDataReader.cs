@@ -32,6 +32,8 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public class BlobDataReader : Serialization.IFileReader
     {
+        public const int MaxArraySize = 1200000;
+
         private readonly Stream _Input;
 
         private readonly bool _IsClient;
@@ -117,9 +119,9 @@ namespace Gibbed.Cryptic.FileFormats
             Func<BlobDataReader, object, TType> readValue)
         {
             var count = this._Input.ReadValueU32();
-            if (count > 800000)
+            if (count > MaxArraySize)
             {
-                throw new FormatException();
+                throw new FormatException(string.Format("list exceeds maximum array size ({0} > {1})", count, MaxArraySize));
             }
 
             var list = new List<TType>();
