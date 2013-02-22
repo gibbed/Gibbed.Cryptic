@@ -22,6 +22,10 @@
       <offset>12</offset>
       <subtable external="InventorySlotReference" />
     </column>
+    <column name="Type" type="INT">
+      <offset>20</offset>
+      <static_define_list external="ItemGemType" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

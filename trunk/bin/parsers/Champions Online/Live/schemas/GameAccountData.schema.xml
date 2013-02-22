@@ -105,8 +105,31 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="bLifetimeSubscription" type="BIT">
+    <column name="uFirstPlayedTime" type="INT">
       <offset>52</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uTotalPlayedTime" type="INT">
+      <offset>56</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uTotalPlayedTime_AccountServer" type="INT">
+      <offset>56</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>uTotalPlayedTime</redundant_name>
+    </column>
+    <column name="bLifetimeSubscription" type="BIT">
+      <offset>60</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -114,7 +137,7 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bPress" type="BIT">
-      <offset>52</offset>
+      <offset>60</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -122,7 +145,7 @@
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bLinkedAccount" type="BIT">
-      <offset>52</offset>
+      <offset>60</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -130,7 +153,7 @@
       <bit_offset>65538</bit_offset>
     </column>
     <column name="bShadowAccount" type="BIT">
-      <offset>52</offset>
+      <offset>60</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -138,21 +161,21 @@
       <bit_offset>65539</bit_offset>
     </column>
     <column name="ChatConfig" type="EMBEDDEDSTRUCT">
-      <offset>56</offset>
+      <offset>64</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
       <subtable external="ChatConfig" />
     </column>
     <column name="iLastChatAccessLevel" type="INT">
-      <offset>116</offset>
+      <offset>124</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="eaRecruiters" type="STRUCT">
-      <offset>120</offset>
+      <offset>128</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -160,7 +183,7 @@
       <subtable external="RecruiterContainer" />
     </column>
     <column name="eaRecruits" type="STRUCT">
-      <offset>124</offset>
+      <offset>132</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -168,14 +191,14 @@
       <subtable external="RecruitContainer" />
     </column>
     <column name="iFoundryTipBalance" type="INT">
-      <offset>128</offset>
+      <offset>136</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="eaTipRecords" type="STRUCT">
-      <offset>132</offset>
+      <offset>140</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>

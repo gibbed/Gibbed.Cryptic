@@ -188,6 +188,10 @@
       <offset>156</offset>
       <bit_offset>65547</bit_offset>
     </column>
+    <column name="bAutoLootMe" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
     <column name="pcRank" type="STRING">
       <offset>160</offset>
       <flags>
@@ -203,7 +207,7 @@
     <column name="eInteractionFlag" type="INT">
       <offset>168</offset>
       <static_define_list external="kCritterOverrideFlag" />
-      <format>FLAGS</format>
+      <format_raw>13</format_raw>
     </column>
     <column name="fMass" type="F32">
       <offset>172</offset>
@@ -214,7 +218,7 @@
     <column name="eCritterSubType" type="INT">
       <offset>180</offset>
       <static_define_list external="CrittterSubType" />
-      <format>FLAGS</format>
+      <format_raw>13</format_raw>
     </column>
     <column name="pcNemesisMinionCostumeSet" type="STRING">
       <offset>184</offset>

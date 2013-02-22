@@ -10,29 +10,36 @@
     <column name="entRef" type="INT">
       <offset>0</offset>
     </column>
-    <column name="TotalDamageSelf" type="F32">
+    <column name="ContainerID" type="INT">
       <offset>4</offset>
     </column>
-    <column name="MyTeamDamageShare" type="F32">
+    <column name="TotalDamageSelf" type="F32">
       <offset>8</offset>
     </column>
-    <column name="PercentOfTeamCredit" type="F32">
+    <column name="MyTeamDamageShare" type="F32">
       <offset>12</offset>
     </column>
-    <column name="PercentCreditSelf" type="F32">
+    <column name="PercentOfTeamCredit" type="F32">
       <offset>16</offset>
     </column>
-    <column name="PercentCreditTeam" type="F32">
+    <column name="PercentCreditSelf" type="F32">
       <offset>20</offset>
     </column>
-    <column name="FinalBlow" type="U8">
+    <column name="PercentCreditTeam" type="F32">
       <offset>24</offset>
     </column>
+    <column name="FinalBlow" type="U8">
+      <offset>28</offset>
+    </column>
     <column name="HasCredit" type="U8">
-      <offset>25</offset>
+      <offset>29</offset>
     </column>
     <column name="HasTeamCredit" type="U8">
-      <offset>26</offset>
+      <offset>30</offset>
+    </column>
+    <column name="CBIData" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="CharacterBasedIncludeContext" />
     </column>
     <column name="}" type="END" />
   </table>

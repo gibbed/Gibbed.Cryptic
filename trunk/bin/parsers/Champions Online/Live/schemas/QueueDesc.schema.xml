@@ -59,93 +59,97 @@
       <offset>44</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="cooldownDisplayNameMesg" type="EMBEDDEDSTRUCT">
+    <column name="rewardsMesg" type="EMBEDDEDSTRUCT">
       <offset>56</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="cooldownDescriptionMesg" type="EMBEDDEDSTRUCT">
+    <column name="cooldownDisplayNameMesg" type="EMBEDDEDSTRUCT">
       <offset>68</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="Category" type="INT">
+    <column name="cooldownDescriptionMesg" type="EMBEDDEDSTRUCT">
       <offset>80</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Category" type="INT">
+      <offset>92</offset>
       <static_define_list external="QueueCategory" />
     </column>
     <column name="Params" type="OPTIONALSTRUCT">
-      <offset>84</offset>
+      <offset>96</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="QueueInstanceParams" />
     </column>
     <column name="CannotUseReason" type="INT">
-      <offset>88</offset>
+      <offset>100</offset>
       <static_define_list external="QueueCannotUseReason" />
     </column>
     <column name="QueueState" type="INT">
-      <offset>92</offset>
+      <offset>104</offset>
       <static_define_list external="PlayerQueueState" />
     </column>
     <column name="RegionFlags" type="INT">
-      <offset>96</offset>
+      <offset>108</offset>
       <static_define_list external="ControlSchemeRegionType" />
     </column>
     <column name="uCooldownTime" type="INT">
-      <offset>100</offset>
+      <offset>112</offset>
     </column>
     <column name="uiInstanceID" type="INT">
-      <offset>104</offset>
+      <offset>116</offset>
     </column>
     <column name="MapKey" type="INT64">
-      <offset>112</offset>
+      <offset>120</offset>
     </column>
     <column name="uiMapID" type="INT64">
-      <offset>112</offset>
+      <offset>120</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MapKey</redundant_name>
     </column>
     <column name="uiOwnerID" type="INT">
-      <offset>120</offset>
-    </column>
-    <column name="uAvgWaitTime" type="INT">
-      <offset>124</offset>
-    </column>
-    <column name="ElapsedMapTime" type="INT">
       <offset>128</offset>
     </column>
-    <column name="PlayerCountMax" type="INT">
+    <column name="uAvgWaitTime" type="INT">
       <offset>132</offset>
     </column>
-    <column name="PlayerCountMin" type="INT">
+    <column name="ElapsedMapTime" type="INT">
       <offset>136</offset>
     </column>
-    <column name="GroupPlayerCount" type="INTARRAY">
+    <column name="PlayerCountMax" type="INT">
       <offset>140</offset>
     </column>
-    <column name="TotalPlayerCount" type="INT">
+    <column name="PlayerCountMin" type="INT">
       <offset>144</offset>
     </column>
-    <column name="hGroup1Allegiance" type="REFERENCE">
+    <column name="GroupPlayerCount" type="INTARRAY">
       <offset>148</offset>
+    </column>
+    <column name="TotalPlayerCount" type="INT">
+      <offset>152</offset>
+    </column>
+    <column name="hGroup1Allegiance" type="REFERENCE">
+      <offset>156</offset>
       <dictionary_name>AllegianceDef</dictionary_name>
     </column>
     <column name="hGroup2Allegiance" type="REFERENCE">
-      <offset>152</offset>
+      <offset>160</offset>
       <dictionary_name>AllegianceDef</dictionary_name>
     </column>
     <column name="Bolster" type="U8">
-      <offset>156</offset>
+      <offset>164</offset>
     </column>
     <column name="AllGroupsSameAllegiance" type="U8">
-      <offset>157</offset>
+      <offset>165</offset>
     </column>
     <column name="Overtime" type="U8">
-      <offset>158</offset>
+      <offset>166</offset>
     </column>
     <column name="HasPassword" type="U8">
-      <offset>159</offset>
+      <offset>167</offset>
     </column>
     <column name="}" type="END" />
   </table>

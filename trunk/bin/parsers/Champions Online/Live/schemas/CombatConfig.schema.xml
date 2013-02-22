@@ -91,13 +91,13 @@
     <column name="InterruptToggles" type="INT">
       <offset>92</offset>
       <static_define_list external="PowerInterruption" />
-      <format>FLAGS</format>
+      <format_raw>13</format_raw>
     </column>
     <column name="SoftTargetFlags" type="INT">
       <offset>96</offset>
       <default>33</default>
       <static_define_list external="TargetType" />
-      <format>FLAGS</format>
+      <format_raw>13</format_raw>
     </column>
     <column name="TrayMaxSize" type="INT">
       <offset>100</offset>

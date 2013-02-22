@@ -27,53 +27,61 @@
       <offset>96</offset>
       <subtable external="OriginToPickupTypeMappings" />
     </column>
-    <column name="IgnoreSubRank" type="U8">
+    <column name="TypeCostumeMappings" type="EMBEDDEDSTRUCT">
       <offset>100</offset>
+      <subtable external="TypeToCostumeMappings" />
+    </column>
+    <column name="IgnoreSubRank" type="U8">
+      <offset>108</offset>
     </column>
     <column name="ComputeRewardQuality" type="U8">
-      <offset>101</offset>
+      <offset>109</offset>
     </column>
     <column name="lifetimeRewards" type="EMBEDDEDSTRUCT">
-      <offset>104</offset>
+      <offset>112</offset>
       <subtable external="LifetimeRewardsInfo" />
     </column>
     <column name="LifetimeRewardsList" type="STRUCT">
-      <offset>108</offset>
+      <offset>116</offset>
       <subtable external="LifetimeRewardsInfo" />
     </column>
     <column name="NumericsNotGivenToWholeTeam" type="STRINGARRAY">
-      <offset>112</offset>
+      <offset>120</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="GiftData" type="EMBEDDEDSTRUCT">
-      <offset>116</offset>
+      <offset>124</offset>
       <subtable external="ExperienceGift" />
     </column>
     <column name="RewardGateInfo" type="STRUCT">
-      <offset>128</offset>
+      <offset>136</offset>
       <subtable external="RewardGatedInfo" />
     </column>
     <column name="BlockRegionTables" type="STRUCT">
-      <offset>132</offset>
+      <offset>140</offset>
       <subtable external="RewardBlockRegionTable" />
     </column>
     <column name="RoundRobinEachKill" type="BIT">
-      <offset>136</offset>
+      <offset>144</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ShareLootedNumericsWithTeamMembers" type="BIT">
-      <offset>136</offset>
+      <offset>144</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="BlockRewardPackClientSend" type="BIT">
-      <offset>136</offset>
+      <offset>144</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="NoDeathPenaltyInPowerHouse" type="BIT">
-      <offset>136</offset>
+      <offset>144</offset>
       <bit_offset>65539</bit_offset>
+    </column>
+    <column name="LootEntsAlwaysAutoLoot" type="BIT">
+      <offset>144</offset>
+      <bit_offset>65540</bit_offset>
     </column>
     <column name="AllowOneItemNoWeightTable" type="IGNORE" />
     <column name="}" type="END" />

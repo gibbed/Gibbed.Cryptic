@@ -421,24 +421,28 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="CurrentPreset" type="INT">
+    <column name="SpecialCharacterClass" type="INTARRAY">
       <offset>692</offset>
+      <static_define_list external="CharClassTypes" />
+    </column>
+    <column name="CurrentPreset" type="INT">
+      <offset>696</offset>
     </column>
     <column name="LastCameraMode" type="INT">
-      <offset>696</offset>
+      <offset>700</offset>
       <default>-1</default>
       <static_define_list external="CameraMode" />
     </column>
     <column name="CameraMode" type="INT">
-      <offset>700</offset>
+      <offset>704</offset>
       <static_define_list external="CameraMode" />
     </column>
     <column name="CameraModeSettings" type="STRUCT">
-      <offset>708</offset>
+      <offset>712</offset>
       <subtable external="CameraModeSettings" />
     </column>
     <column name="FocusSmoothing" type="OPTIONALSTRUCT">
-      <offset>712</offset>
+      <offset>716</offset>
       <subtable external="CameraFocusSmoothingData" />
     </column>
     <column name="EndCameraSettings" type="END" />
