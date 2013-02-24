@@ -36,45 +36,30 @@ namespace Gibbed.Cryptic.ExportParserTables
         public uint Offset;
         public uint Parameter0;
         public uint Parameter1;
-        public uint Unknown1C;
-        public uint Unknown20;
+        public uint Format;
+        public uint FormatStringPointer;
         public uint Unknown24;
 
         public byte MinBits
         {
-            get
-            {
-                return (byte)((this.Type >> 8) & 0xFF);
-            }
+            get { return (byte)((this.Type >> 8) & 0xFF); }
         }
 
         public byte FloatRounding
         {
-            get
-            {
-                return this.MinBits;
-            }
+            get { return this.MinBits; }
         }
 
         public byte Token
         {
-            get
-            {
-                return (byte)(this.Type & 0xFF);
-            }
+            get { return (byte)(this.Type & 0xFF); }
 
-            set
-            {
-                this.Type = (this.Type & ~(UInt32)0xFF) | (byte)(value);
-            }
+            set { this.Type = (this.Type & ~(UInt32)0xFF) | (byte)(value); }
         }
 
         public Parser.ColumnFlags Flags
         {
-            get
-            {
-                return (Parser.ColumnFlags)(this.Type & ~0xFFFFUL);
-            }
+            get { return (Parser.ColumnFlags)(this.Type & ~0xFFFFUL); }
 
             set
             {

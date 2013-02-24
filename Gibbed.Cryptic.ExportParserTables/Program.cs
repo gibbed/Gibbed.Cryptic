@@ -253,14 +253,14 @@ namespace Gibbed.Cryptic.ExportParserTables
         private static Dictionary<Parser.ColumnFlags, string> ColumnFlagNames = GenerateColumnFlagNames();
 
         private static string[] FloatRounding =
-            {
-                null,
-                "HUNDREDTHS",
-                "TENTHS",
-                "ONES",
-                "FIVES",
-                "TENS",
-            };
+        {
+            null,
+            "HUNDREDTHS",
+            "TENTHS",
+            "ONES",
+            "FIVES",
+            "TENS",
+        };
 
         public static Parser.ColumnFlags ColumnFlagsMask = ColumnFlagNames
             .Aggregate(Parser.ColumnFlags.None, (a, b) => a | b.Key);
@@ -479,10 +479,10 @@ namespace Gibbed.Cryptic.ExportParserTables
 
                 if (column.Token == 23)
                 {
-                    var unknown20 = memory.ReadStringZ(column.Unknown20);
-                    if (string.IsNullOrEmpty(unknown20) == false)
+                    var formatString = memory.ReadStringZ(column.FormatStringPointer);
+                    if (string.IsNullOrEmpty(formatString) == false)
                     {
-                        hash = Adler32.Hash(unknown20, hash);
+                        hash = Adler32.Hash(formatString, hash);
                     }
                 }
             }
@@ -491,21 +491,215 @@ namespace Gibbed.Cryptic.ExportParserTables
         }
 
         private static string[] FormatNames =
+        {
+            null,
+            "IP", // 1
+            "UNSIGNED", // 2
+            "DATESS2000", // 3
+            "PERCENT", // 4
+            "HSV", // 5
+            null, // 6
+            "TEXTURE", // 7
+            "COLOR", // 8
+            "FRIENDLYDATE", // 9
+            "FRIENDLYSS2000", // 10
+            "KBYTES", // 11
+            "FLAGS", // 12
+        };
+
+        private static bool IsTokenWhitespace(char c)
+        {
+            return c == ' ' ||
+                   c == '\t' ||
+                   c == '\n' ||
+                   c == '\r';
+        }
+
+        private static string[] Tokenize(string text, int maxTokens)
+        {
+            var tokens = new List<string>();
+            for (int i = 0; i < text.Length;)
             {
-                null,
-                "IP", // 1
-                "UNSIGNED", // 2
-                "DATESS2000", // 3
-                "PERCENT", // 4
-                "HSV", // 5
-                null, // 6
-                "TEXTURE", // 7
-                "COLOR", // 8
-                "FRIENDLYDATE", // 9
-                "FRIENDLYSS2000", // 10
-                "KBYTES", // 11
-                "FLAGS", // 12
-            };
+                if (IsTokenWhitespace(text[i]) == true)
+                {
+                    i++;
+                }
+                else if (text[i] == '"')
+                {
+                    if (tokens.Count >= maxTokens)
+                    {
+                        throw new InvalidOperationException();
+                    }
+
+                    var tokenStart = i;
+                    i++;
+
+                    for (; i < text.Length;)
+                    {
+                        if (text[i] == '"')
+                        {
+                            break;
+                        }
+
+                        if (text[i] == '\\')
+                        {
+                            if (i + 1 >= text.Length)
+                            {
+                                throw new FormatException();
+                            }
+
+                            i += 2;
+                        }
+                        else
+                        {
+                            i++;
+                        }
+                    }
+
+                    if (i >= text.Length ||
+                        text[i] != '"')
+                    {
+                        throw new FormatException();
+                    }
+                    i++;
+
+                    tokens.Add(text.Substring(tokenStart, i - tokenStart));
+
+                    if (i < text.Length &&
+                        IsTokenWhitespace(text[i]) == false)
+                    {
+                        throw new FormatException();
+                    }
+                    i++;
+                }
+                else if (i + 1 >= text.Length ||
+                         text[i + 0] != '<' ||
+                         text[i + 1] != '&')
+                {
+                    if (tokens.Count >= maxTokens)
+                    {
+                        throw new InvalidOperationException();
+                    }
+
+                    var tokenStart = i;
+                    i++;
+
+                    for (; i < text.Length;)
+                    {
+                        if (IsTokenWhitespace(text[i]) == true)
+                        {
+                            break;
+                        }
+
+                        i++;
+                    }
+
+                    tokens.Add(text.Substring(tokenStart, i - tokenStart));
+
+                    i++;
+                }
+                else
+                {
+                    if (tokens.Count >= maxTokens)
+                    {
+                        throw new InvalidOperationException();
+                    }
+
+                    var end = text.IndexOf("&>", i + 2, StringComparison.Ordinal);
+                    if (end < 0)
+                    {
+                        throw new FormatException();
+                    }
+
+                    tokens.Add(text.Substring(i, end + 2 - i));
+
+                    i = end + 2;
+                    if (i < text.Length &&
+                        IsTokenWhitespace(text[i]) == false)
+                    {
+                        throw new FormatException();
+                    }
+                }
+            }
+            return tokens.ToArray();
+        }
+
+        private static Dictionary<string, string> ParseFormatStrings(string formatString)
+        {
+            if (formatString == null)
+            {
+                throw new ArgumentNullException("formatString");
+            }
+
+            var tokens = Tokenize(formatString, 256);
+            var formatStrings = new Dictionary<string, string>();
+            for (int i = 0; i < tokens.Length;)
+            {
+                if (i + 2 >= tokens.Length)
+                {
+                    throw new FormatException();
+                }
+
+                if (tokens[i + 1] != "=")
+                {
+                    throw new FormatException();
+                }
+
+                var key = tokens[i + 0];
+                var value = tokens[i + 2];
+
+                if (value.StartsWith("\"") == true)
+                {
+                    value = value.Substring(1, value.Length - 2);
+                    formatStrings.Add(key, value);
+                }
+                else if (value.StartsWith("<&") == true)
+                {
+                    // todo: figure it out
+                    throw new NotSupportedException();
+                }
+                else
+                {
+                    int dummy;
+                    if (int.TryParse(value, out dummy) == false)
+                    {
+                        throw new FormatException();
+                    }
+                    /* normally I would store the value as an int somehow, but
+                     * it's easier to just parse the value on demand later
+                     */
+                    formatStrings.Add(key, value);
+                }
+
+                i += 3;
+                if (i < tokens.Length)
+                {
+                    if (tokens[i] != ",")
+                    {
+                        throw new FormatException();
+                    }
+                    i++;
+                }
+            }
+            return formatStrings;
+        }
+
+        private static void ExportFormatStrings(XmlWriter xml, string formatString)
+        {
+            if (formatString == null)
+            {
+                throw new ArgumentNullException("formatString");
+            }
+
+            var formatStrings = ParseFormatStrings(formatString);
+            foreach (var kv in formatStrings)
+            {
+                xml.WriteStartElement("format_string");
+                xml.WriteAttributeString("name", kv.Key);
+                xml.WriteValue(kv.Value);
+                xml.WriteEndElement();
+            }
+        }
 
         private static void ExportParserTable(
             ProcessMemory memory,
@@ -572,10 +766,12 @@ namespace Gibbed.Cryptic.ExportParserTables
                     xml.WriteElementString("flag", "PARSETABLE_INFO");
                     xml.WriteEndElement();
 
-                    var formatString = memory.ReadStringZ(column.Unknown20);
+                    var formatString = memory.ReadStringZ(column.FormatStringPointer);
                     if (string.IsNullOrEmpty(formatString) == false)
                     {
-                        xml.WriteElementString("format_string", formatString);
+                        xml.WriteStartElement("format_strings");
+                        ExportFormatStrings(xml, formatString);
+                        xml.WriteEndElement();
                     }
                 }
                 else
@@ -745,7 +941,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                             }
                         }
 
-                        var format = column.Unknown1C & 0xFF;
+                        var format = column.Format & 0xFF;
                         if (format != 0)
                         {
                             if (format < FormatNames.Length &&
@@ -757,6 +953,14 @@ namespace Gibbed.Cryptic.ExportParserTables
                             {
                                 xml.WriteElementString("format_raw", format.ToString());
                             }
+                        }
+
+                        var formatString = memory.ReadStringZ(column.FormatStringPointer);
+                        if (string.IsNullOrEmpty(formatString) == false)
+                        {
+                            xml.WriteStartElement("format_strings");
+                            ExportFormatStrings(xml, formatString);
+                            xml.WriteEndElement();
                         }
                     }
                 }
@@ -867,9 +1071,9 @@ namespace Gibbed.Cryptic.ExportParserTables
             projectName = null;
 
             process = Process.GetProcessesByName("GameClient")
-                .FirstOrDefault(p => p.MainWindowTitle == "Champions Online" ||
-                                     p.MainWindowTitle == "Star Trek Online" ||
-                                     p.MainWindowTitle == "Neverwinter");
+                             .FirstOrDefault(p => p.MainWindowTitle == "Champions Online" ||
+                                                  p.MainWindowTitle == "Star Trek Online" ||
+                                                  p.MainWindowTitle == "Neverwinter");
             if (process != null)
             {
                 var path = process.MainModule.FileName;
@@ -880,7 +1084,7 @@ namespace Gibbed.Cryptic.ExportParserTables
             }
 
             process = Process.GetProcessesByName("Champions Online")
-                .FirstOrDefault();
+                             .FirstOrDefault();
             if (process != null)
             {
                 projectName = Path.Combine("Champions Online", "Launcher");
@@ -888,7 +1092,7 @@ namespace Gibbed.Cryptic.ExportParserTables
             }
 
             process = Process.GetProcessesByName("Star Trek Online")
-                .FirstOrDefault();
+                             .FirstOrDefault();
             if (process != null)
             {
                 projectName = Path.Combine("Star Trek Online", "Launcher");
@@ -911,26 +1115,26 @@ namespace Gibbed.Cryptic.ExportParserTables
             Directory.CreateDirectory(outputPath);
 
             string[] dontHash =
-                {
-                    /* these are badly defined recursive structures that
+            {
+                /* these are badly defined recursive structures that
                  * make hashing blow up (even the game would too!) */
-                    "WrlDef",
-                    "WrlScene",
-                    "WrlChildren",
-                    // now ignoring XML* wholesale in the check code
-                    /*"XMLArray",
+                "WrlDef",
+                "WrlScene",
+                "WrlChildren",
+                // now ignoring XML* wholesale in the check code
+                /*"XMLArray",
                 "XMLValue",
                 "XMLParseState",
                 "XMLMember",*/
 
-                    "MemoryBudget",
-                    "ModuleMemOperationStats",
-                    "TestServerGlobal",
-                    "TestServerGlobalReference",
-                    "TestServerGlobalValue",
-                    /* this one just takes forever :P */
-                    //"Entity",
-                };
+                "MemoryBudget",
+                "ModuleMemOperationStats",
+                "TestServerGlobal",
+                "TestServerGlobalReference",
+                "TestServerGlobalValue",
+                /* this one just takes forever :P */
+                //"Entity",
+            };
 
             using (var memory = new ProcessMemory())
             {
