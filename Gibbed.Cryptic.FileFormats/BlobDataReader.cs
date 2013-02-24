@@ -32,8 +32,6 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public class BlobDataReader : Serialization.IFileReader
     {
-        public const int MaxArraySize = 1200000;
-
         private readonly Stream _Input;
 
         private readonly bool _IsClient;
@@ -67,7 +65,7 @@ namespace Gibbed.Cryptic.FileFormats
 
             public void Deserialize(Serialization.IFileReader reader, object state)
             {
-                this.List = reader.ReadListStructure<TType>(state);
+                this.List = reader.ReadListStructure<TType>(ParserSchemaFile.DefaultMaxArraySize, state);
             }
 
             public void Serialize(Serialization.IFileWriter writer, object state)
@@ -86,14 +84,20 @@ namespace Gibbed.Cryptic.FileFormats
             }
         }
 
-        public static TType LoadObject<TType>(Stream input, bool isClient, bool isServer, Func<int, string> getFileNameFromIndex)
+        public static TType LoadObject<TType>(Stream input,
+                                              bool isClient,
+                                              bool isServer,
+                                              Func<int, string> getFileNameFromIndex)
             where TType : Serialization.IStructure, new()
         {
             var reader = new BlobDataReader(input, isClient, isServer, getFileNameFromIndex);
             return reader.ReadValueStructure<TType>(false, null);
         }
 
-        public static List<TType> LoadResource<TType>(Stream input, bool isClient, bool isServer, Func<int, string> getFileNameFromIndex)
+        public static List<TType> LoadResource<TType>(Stream input,
+                                                      bool isClient,
+                                                      bool isServer,
+                                                      Func<int, string> getFileNameFromIndex)
             where TType : Serialization.IStructure, new()
         {
             var reader = new BlobDataReader(input, isClient, isServer, getFileNameFromIndex);
@@ -115,13 +119,14 @@ namespace Gibbed.Cryptic.FileFormats
         }
 
         private List<TType> ReadNativeList<TType>(
+            int maxCount,
             object state,
             Func<BlobDataReader, object, TType> readValue)
         {
             var count = this._Input.ReadValueU32();
-            if (count > MaxArraySize)
+            if (count > maxCount)
             {
-                throw new FormatException(string.Format("list exceeds maximum array size ({0} > {1})", count, MaxArraySize));
+                throw new FormatException(string.Format("list exceeds maximum array size ({0} > {1})", count, maxCount));
             }
 
             var list = new List<TType>();
@@ -144,10 +149,10 @@ namespace Gibbed.Cryptic.FileFormats
             return array;
         }
 
-        public List<byte> ReadListByte(object state)
+        public List<byte> ReadListByte(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueByte(b));
+                maxCount, state, (a, b) => a.ReadValueByte(b));
         }
 
         public short ReadValueInt16(object state)
@@ -161,10 +166,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueInt16(b));
         }
 
-        public List<short> ReadListInt16(object state)
+        public List<short> ReadListInt16(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueInt16(b));
+                maxCount, state, (a, b) => a.ReadValueInt16(b));
         }
 
         public int ReadValueInt32(object state)
@@ -178,10 +183,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueInt32(b));
         }
 
-        public List<int> ReadListInt32(object state)
+        public List<int> ReadListInt32(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueInt32(b));
+                maxCount, state, (a, b) => a.ReadValueInt32(b));
         }
 
         public long ReadValueInt64(object state)
@@ -195,10 +200,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueInt64(b));
         }
 
-        public List<long> ReadListInt64(object state)
+        public List<long> ReadListInt64(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueInt64(b));
+                maxCount, state, (a, b) => a.ReadValueInt64(b));
         }
 
         public float ReadValueFloat(object state)
@@ -212,10 +217,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueFloat(b));
         }
 
-        public List<float> ReadListFloat(object state)
+        public List<float> ReadListFloat(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueFloat(b));
+                maxCount, state, (a, b) => a.ReadValueFloat(b));
         }
 
         public string ReadValueString(object state)
@@ -229,10 +234,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueString(b));
         }
 
-        public List<string> ReadListString(object state)
+        public List<string> ReadListString(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueString(b));
+                maxCount, state, (a, b) => a.ReadValueString(b));
         }
 
         public string ReadValueCurrentFile(object state)
@@ -258,10 +263,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueCurrentFile(b));
         }
 
-        public List<string> ReadListCurrentFile(object state)
+        public List<string> ReadListCurrentFile(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueCurrentFile(b));
+                maxCount, state, (a, b) => a.ReadValueCurrentFile(b));
         }
 
         public int ReadValueTimestamp(object state)
@@ -275,10 +280,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueTimestamp(b));
         }
 
-        public List<int> ReadListTimestamp(object state)
+        public List<int> ReadListTimestamp(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueTimestamp(b));
+                maxCount, state, (a, b) => a.ReadValueTimestamp(b));
         }
 
         public int ReadValueLineNumber(object state)
@@ -292,10 +297,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueLineNumber(b));
         }
 
-        public List<int> ReadListLineNumber(object state)
+        public List<int> ReadListLineNumber(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueLineNumber(b));
+                maxCount, state, (a, b) => a.ReadValueLineNumber(b));
         }
 
         public bool ReadValueBoolean(object state)
@@ -309,10 +314,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueBoolean(b));
         }
 
-        public List<bool> ReadListBoolean(object state)
+        public List<bool> ReadListBoolean(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueBoolean(b));
+                maxCount, state, (a, b) => a.ReadValueBoolean(b));
         }
 
         public bool ReadValueBooleanFlag(object state)
@@ -326,10 +331,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueBooleanFlag(b));
         }
 
-        public List<bool> ReadListBooleanFlag(object state)
+        public List<bool> ReadListBooleanFlag(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueBooleanFlag(b));
+                maxCount, state, (a, b) => a.ReadValueBooleanFlag(b));
         }
 
         public float ReadValueQUATPYR(object state)
@@ -343,10 +348,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueQUATPYR(b));
         }
 
-        public List<float> ReadListQUATPYR(object state)
+        public List<float> ReadListQUATPYR(int maxCount, object state)
         {
             return this.ReadNativeList(
-               state, (a, b) => a.ReadValueQUATPYR(b));
+                maxCount, state, (a, b) => a.ReadValueQUATPYR(b));
         }
 
         public MATPYR ReadValueMATPYR(object state)
@@ -360,10 +365,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueMATPYR(b));
         }
 
-        public List<MATPYR> ReadListMATPYR(object state)
+        public List<MATPYR> ReadListMATPYR(int maxCount, object state)
         {
             return this.ReadNativeList(
-               state, (a, b) => a.ReadValueMATPYR(b));
+                maxCount, state, (a, b) => a.ReadValueMATPYR(b));
         }
 
         public string ReadValueFilename(object state)
@@ -377,10 +382,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueFilename(b));
         }
 
-        public List<string> ReadListFilename(object state)
+        public List<string> ReadListFilename(int maxCount, object state)
         {
             return this.ReadNativeList(
-               state, (a, b) => a.ReadValueFilename(b));
+                maxCount, state, (a, b) => a.ReadValueFilename(b));
         }
 
         public string ReadValueReference(object state)
@@ -394,10 +399,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueReference(b));
         }
 
-        public List<string> ReadListReference(object state)
+        public List<string> ReadListReference(int maxCount, object state)
         {
             return this.ReadNativeList(
-               state, (a, b) => a.ReadValueReference(b));
+                maxCount, state, (a, b) => a.ReadValueReference(b));
         }
 
         public FunctionCall ReadValueFunctionCall(object state)
@@ -411,10 +416,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueFunctionCall(b));
         }
 
-        public List<FunctionCall> ReadListFunctionCall(object state)
+        public List<FunctionCall> ReadListFunctionCall(int maxCount, object state)
         {
             return this.ReadNativeList(
-               state, (a, b) => a.ReadValueFunctionCall(b));
+                maxCount, state, (a, b) => a.ReadValueFunctionCall(b));
         }
 
         private Serialization.IStructure ReadValueStructure(
@@ -486,11 +491,11 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueStructure<TType>(false, b));
         }
 
-        public List<TType> ReadListStructure<TType>(object state)
+        public List<TType> ReadListStructure<TType>(int maxCount, object state)
             where TType : Serialization.IStructure, new()
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueStructure<TType>(false, b));
+                maxCount, state, (a, b) => a.ReadValueStructure<TType>(false, b));
         }
 
         public object ReadValuePolymorph(Type[] validTypes, bool optional, object state)
@@ -520,10 +525,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValuePolymorph(validTypes, false, b));
         }
 
-        public List<object> ReadListPolymorph(Type[] validTypes, object state)
+        public List<object> ReadListPolymorph(Type[] validTypes, int maxCount, object state)
         {
             return this.ReadNativeList(
-               state, (a, b) => a.ReadValuePolymorph(validTypes, false, b));
+                maxCount, state, (a, b) => a.ReadValuePolymorph(validTypes, false, b));
         }
 
         public StashTable ReadValueStashTable(object state)
@@ -537,10 +542,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueStashTable(b));
         }
 
-        public List<StashTable> ReadListStashTable(object state)
+        public List<StashTable> ReadListStashTable(int maxCount, object state)
         {
             return this.ReadNativeList(
-               state, (a, b) => a.ReadValueStashTable(b));
+                maxCount, state, (a, b) => a.ReadValueStashTable(b));
         }
 
         public uint ReadValueBit(int bitOffset, object state)
@@ -554,10 +559,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueBit(bitOffset, b));
         }
 
-        public List<uint> ReadListBit(int bitOffset, object state)
+        public List<uint> ReadListBit(int bitOffset, int maxCount, object state)
         {
             return this.ReadNativeList(
-               state, (a, b) => a.ReadValueBit(bitOffset, b));
+                maxCount, state, (a, b) => a.ReadValueBit(bitOffset, b));
         }
 
         public MultiValue ReadValueMultiValue(object state)
@@ -632,10 +637,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueMultiValue(b));
         }
 
-        public List<MultiValue> ReadListMultiValue(object state)
+        public List<MultiValue> ReadListMultiValue(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueMultiValue(state));
+                maxCount, state, (a, b) => a.ReadValueMultiValue(state));
         }
 
         public TType ReadValueByteEnum<TType>(object state)
@@ -649,10 +654,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueByteEnum<TType>(b));
         }
 
-        public List<TType> ReadListByteEnum<TType>(object state)
+        public List<TType> ReadListByteEnum<TType>(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueByteEnum<TType>(state));
+                maxCount, state, (a, b) => a.ReadValueByteEnum<TType>(state));
         }
 
         public TType ReadValueInt16Enum<TType>(object state)
@@ -666,10 +671,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueInt16Enum<TType>(b));
         }
 
-        public List<TType> ReadListInt16Enum<TType>(object state)
+        public List<TType> ReadListInt16Enum<TType>(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueInt16Enum<TType>(state));
+                maxCount, state, (a, b) => a.ReadValueInt16Enum<TType>(state));
         }
 
         public TType ReadValueInt32Enum<TType>(object state)
@@ -683,10 +688,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueInt32Enum<TType>(b));
         }
 
-        public List<TType> ReadListInt32Enum<TType>(object state)
+        public List<TType> ReadListInt32Enum<TType>(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueInt32Enum<TType>(b));
+                maxCount, state, (a, b) => a.ReadValueInt32Enum<TType>(b));
         }
 
         public TType ReadValueBitEnum<TType>(int bitOffset, object state)
@@ -700,10 +705,10 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueBitEnum<TType>(bitOffset, b));
         }
 
-        public List<TType> ReadListBitEnum<TType>(int bitOffset, object state)
+        public List<TType> ReadListBitEnum<TType>(int bitOffset, int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueBitEnum<TType>(bitOffset, b));
+                maxCount, state, (a, b) => a.ReadValueBitEnum<TType>(bitOffset, b));
         }
     }
 }

@@ -134,6 +134,7 @@ namespace Gibbed.Cryptic.FileFormats
                 return list;
             }
         }
+
         // ReSharper restore RedundantIfElseBlock
 
         // ReSharper disable RedundantIfElseBlock
@@ -164,6 +165,7 @@ namespace Gibbed.Cryptic.FileFormats
                 }
             }
         }
+
         // ReSharper restore RedundantIfElseBlock
 
         public byte[] ReadArrayByte(int count, object state)
@@ -172,7 +174,7 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueByte(b));
         }
 
-        public List<byte> ReadListByte(object state)
+        public List<byte> ReadListByte(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -205,6 +207,7 @@ namespace Gibbed.Cryptic.FileFormats
                 }
             }
         }
+
         // ReSharper restore RedundantIfElseBlock
 
         public short[] ReadArrayInt16(int count, object state)
@@ -212,7 +215,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<short> ReadListInt16(object state)
+        public List<short> ReadListInt16(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -245,6 +248,7 @@ namespace Gibbed.Cryptic.FileFormats
                 }
             }
         }
+
         // ReSharper restore RedundantIfElseBlock
 
         public int[] ReadArrayInt32(int count, object state)
@@ -253,7 +257,7 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueInt32(b));
         }
 
-        public List<int> ReadListInt32(object state)
+        public List<int> ReadListInt32(int maxCount, object state)
         {
             return this.ReadNativeList(
                 state, (a, b) => a.ReadValueInt32(b));
@@ -276,6 +280,7 @@ namespace Gibbed.Cryptic.FileFormats
                 throw new NotImplementedException();
             }
         }
+
         // ReSharper restore RedundantIfElseBlock
 
         public long[] ReadArrayInt64(int count, object state)
@@ -283,7 +288,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<long> ReadListInt64(object state)
+        public List<long> ReadListInt64(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -299,7 +304,7 @@ namespace Gibbed.Cryptic.FileFormats
                 count, state, (a, b) => a.ReadValueFloat(b));
         }
 
-        public List<float> ReadListFloat(object state)
+        public List<float> ReadListFloat(int maxCount, object state)
         {
             return this.ReadNativeList(
                 state, (a, b) => a.ReadValueFloat(b));
@@ -315,7 +320,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<string> ReadListString(object state)
+        public List<string> ReadListString(int maxCount, object state)
         {
             return this.ReadNativeList(
                 state, (a, b) => a.ReadValueString(b));
@@ -331,7 +336,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<string> ReadListCurrentFile(object state)
+        public List<string> ReadListCurrentFile(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -346,7 +351,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<int> ReadListTimestamp(object state)
+        public List<int> ReadListTimestamp(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -361,7 +366,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<int> ReadListLineNumber(object state)
+        public List<int> ReadListLineNumber(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -381,7 +386,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<bool> ReadListBoolean(object state)
+        public List<bool> ReadListBoolean(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -396,7 +401,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<bool> ReadListBooleanFlag(object state)
+        public List<bool> ReadListBooleanFlag(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -411,7 +416,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<float> ReadListQUATPYR(object state)
+        public List<float> ReadListQUATPYR(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -426,7 +431,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<MATPYR> ReadListMATPYR(object state)
+        public List<MATPYR> ReadListMATPYR(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -441,7 +446,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<string> ReadListFilename(object state)
+        public List<string> ReadListFilename(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -456,7 +461,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<string> ReadListReference(object state)
+        public List<string> ReadListReference(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -471,7 +476,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<FunctionCall> ReadListFunctionCall(object state)
+        public List<FunctionCall> ReadListFunctionCall(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -496,6 +501,7 @@ namespace Gibbed.Cryptic.FileFormats
                 return default(TType);
             }
         }
+
         // ReSharper restore RedundantIfElseBlock
 
         public TType[] ReadArrayStructure<TType>(int count, object state)
@@ -504,7 +510,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<TType> ReadListStructure<TType>(object state)
+        public List<TType> ReadListStructure<TType>(int maxCount, object state)
             where TType : Serialization.IStructure, new()
         {
             return this.ReadNativeList(
@@ -534,6 +540,7 @@ namespace Gibbed.Cryptic.FileFormats
                 return null;
             }
         }
+
         // ReSharper restore RedundantIfElseBlock
 
         public object[] ReadArrayPolymorph(Type[] validTypes, int count, object state)
@@ -541,7 +548,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<object> ReadListPolymorph(Type[] validTypes, object state)
+        public List<object> ReadListPolymorph(Type[] validTypes, int maxCount, object state)
         {
             return this.ReadNativeList(
                 state, (a, b) => a.ReadValuePolymorph(validTypes, false, b));
@@ -557,7 +564,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<StashTable> ReadListStashTable(object state)
+        public List<StashTable> ReadListStashTable(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -583,7 +590,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<uint> ReadListBit(int bitOffset, object state)
+        public List<uint> ReadListBit(int bitOffset, int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -661,7 +668,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<MultiValue> ReadListMultiValue(object state)
+        public List<MultiValue> ReadListMultiValue(int maxCount, object state)
         {
             return this.ReadNativeList(
                 state, (a, b) => a.ReadValueMultiValue(b));
@@ -677,7 +684,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<TType> ReadListByteEnum<TType>(object state)
+        public List<TType> ReadListByteEnum<TType>(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -692,7 +699,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<TType> ReadListInt16Enum<TType>(object state)
+        public List<TType> ReadListInt16Enum<TType>(int maxCount, object state)
         {
             throw new NotImplementedException();
         }
@@ -707,7 +714,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<TType> ReadListInt32Enum<TType>(object state)
+        public List<TType> ReadListInt32Enum<TType>(int maxCount, object state)
         {
             return this.ReadNativeList(
                 state, (a, b) => a.ReadValueInt32Enum<TType>(b));
@@ -723,7 +730,7 @@ namespace Gibbed.Cryptic.FileFormats
             throw new NotImplementedException();
         }
 
-        public List<TType> ReadListBitEnum<TType>(int bitOffset, object state)
+        public List<TType> ReadListBitEnum<TType>(int bitOffset, int maxCount, object state)
         {
             throw new NotImplementedException();
         }

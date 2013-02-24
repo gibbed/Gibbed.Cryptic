@@ -31,8 +31,6 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public class BlobFile
     {
-        public const int MaxArraySize = 1200000;
-
         public uint ParserHash;
         public string Type;
 
@@ -218,9 +216,11 @@ namespace Gibbed.Cryptic.FileFormats
                 else
                 {
                     var count = input.ReadValueU32();
-                    if (count > MaxArraySize)
+                    if (count > ParserSchemaFile.DefaultMaxArraySize)
                     {
-                        throw new FormatException(string.Format("list exceeds maximum array size ({0} > {1})", count, MaxArraySize));
+                        throw new FormatException(string.Format("list exceeds maximum array size ({0} > {1})",
+                                                                count,
+                                                                ParserSchemaFile.DefaultMaxArraySize));
                     }
 
                     for (int i = 0; i < count; i++)
