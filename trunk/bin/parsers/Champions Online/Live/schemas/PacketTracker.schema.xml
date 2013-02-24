@@ -5,7 +5,9 @@
       <flags>
         <flag>PARSETABLE_INFO</flag>
       </flags>
-      <format_string>HTML_DEF_FIELDS_TO_SHOW = "TotalCreated, TotalBytesSent"</format_string>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">TotalCreated, TotalBytesSent</format_string>
+      </format_strings>
     </column>
     <column name="{" type="START" />
     <column name="DescriptiveName" type="STRING">
@@ -26,6 +28,9 @@
     </column>
     <column name="TotalBytesSent" type="INT64">
       <offset>32</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
     </column>
     <column name="le512bytes" type="EMBEDDEDSTRUCT">
       <offset>40</offset>

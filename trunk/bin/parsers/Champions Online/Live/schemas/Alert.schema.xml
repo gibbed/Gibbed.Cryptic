@@ -5,7 +5,9 @@
       <flags>
         <flag>PARSETABLE_INFO</flag>
       </flags>
-      <format_string>HTML_DEF_FIELDS_TO_SHOW = "Command1, Command2, Command3, Command4, VNC, String, Level, Category, MostRecentHappenedTime, ErrorLink"</format_string>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">Command1, Command2, Command3, Command4, VNC, String, Level, Category, MostRecentHappenedTime, ErrorLink</format_string>
+      </format_strings>
     </column>
     <column name="{" type="START" />
     <column name="VNC" type="STRING">
@@ -13,6 +15,9 @@
       <flags>
         <flag>ESTRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+      </format_strings>
     </column>
     <column name="Key" type="STRING">
       <offset>4</offset>
@@ -22,6 +27,9 @@
     </column>
     <column name="String" type="STRING">
       <offset>8</offset>
+      <format_strings>
+        <format_string name="HTML_PREFORMATTED">1</format_string>
+      </format_strings>
     </column>
     <column name="Level" type="INT">
       <offset>12</offset>
@@ -33,6 +41,9 @@
     </column>
     <column name="MostRecentHappenedTime" type="INT">
       <offset>20</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO_SHORT">1</format_string>
+      </format_strings>
     </column>
     <column name="LifeSpan" type="INT">
       <offset>24</offset>
@@ -78,30 +89,45 @@
       <flags>
         <flag>ESTRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+      </format_strings>
     </column>
     <column name="Command1" type="STRING">
       <offset>84</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
     </column>
     <column name="Command2" type="STRING">
       <offset>88</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
     </column>
     <column name="Command3" type="STRING">
       <offset>92</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
     </column>
     <column name="Command4" type="STRING">
       <offset>96</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
     </column>
     <column name="PatchVersion" type="STRING">
       <offset>104</offset>

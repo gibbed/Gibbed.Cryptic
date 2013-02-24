@@ -12,6 +12,9 @@
       <flags>
         <flag>ESTRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+      </format_strings>
     </column>
     <column name="ShardCategoryName" type="STRING">
       <offset>4</offset>
@@ -51,6 +54,9 @@
     </column>
     <column name="HasLocalMontiringMCP" type="U8">
       <offset>44</offset>
+      <format_strings>
+        <format_string name="HTML_SKIP">1</format_string>
+      </format_strings>
     </column>
     <column name="allLoginServerIPs" type="INTARRAY">
       <offset>48</offset>

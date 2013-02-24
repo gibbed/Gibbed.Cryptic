@@ -12,6 +12,9 @@
       <flags>
         <flag>ESTRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+      </format_strings>
     </column>
     <column name="List" type="OPTIONALSTRUCT">
       <offset>4</offset>
@@ -22,6 +25,10 @@
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+        <format_string name="HTML_NO_HEADER">1</format_string>
+      </format_strings>
     </column>
     <column name="}" type="END" />
   </table>

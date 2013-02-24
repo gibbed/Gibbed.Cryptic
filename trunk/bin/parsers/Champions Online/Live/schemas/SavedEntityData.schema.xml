@@ -115,6 +115,9 @@
         <flag>PERSIST</flag>
       </flags>
       <subtable external="SavedContainerRef" />
+      <format_strings>
+        <format_string name="FIXUP_CONTAINER_REF">1</format_string>
+      </format_strings>
     </column>
     <column name="ppOwnedContainers" type="STRUCT">
       <offset>160</offset>
@@ -190,6 +193,9 @@
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
+      <format_strings>
+        <format_string name="FIXUP_CONTAINER_TYPE">EntitySavedPet</format_string>
+      </format_strings>
     </column>
     <column name="ppAlwaysPropSlots" type="STRUCT">
       <offset>192</offset>
@@ -517,6 +523,9 @@
         <flag>PERSIST</flag>
       </flags>
       <dictionary_name>CopyDict_PlayerDiary</dictionary_name>
+      <format_strings>
+        <format_string name="DEPENDENT_CONTAINER_TYPE">PlayerDiary</format_string>
+      </format_strings>
     </column>
     <column name="activityLogEntries" type="STRUCT">
       <offset>336</offset>

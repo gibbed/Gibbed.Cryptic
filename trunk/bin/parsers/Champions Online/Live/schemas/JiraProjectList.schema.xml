@@ -10,6 +10,9 @@
     <column name="Projects" type="STRUCT">
       <offset>0</offset>
       <subtable external="JiraProject" />
+      <format_strings>
+        <format_string name="XML_UNWRAP_ARRAY">1</format_string>
+      </format_strings>
     </column>
     <column name="}" type="END" />
   </table>

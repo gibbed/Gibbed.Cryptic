@@ -57,6 +57,9 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
+      <format_strings>
+        <format_string name="HTML_SECS">1</format_string>
+      </format_strings>
     </column>
     <column name="ppMaps" type="STRUCT">
       <offset>28</offset>
@@ -204,6 +207,9 @@
     <column name="GetProjectToImport" type="COMMAND">
       <offset>0</offset>
       <command_string>GetProjectToImport $FIELD(pNameSpace) $NOCONFIRM</command_string>
+      <format_strings>
+        <format_string name="commandExpr">\q$SERVERTYPE\q = \qMapManager\q</format_string>
+      </format_strings>
     </column>
     <column name="}" type="END" />
   </table>

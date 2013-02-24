@@ -5,7 +5,9 @@
       <flags>
         <flag>PARSETABLE_INFO</flag>
       </flags>
-      <format_string>HTML_DEF_FIELDS_TO_SHOW = "internalStatus.State, internalStatus.UpdateString, MostRecentUpdateTime"</format_string>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">internalStatus.State, internalStatus.UpdateString, MostRecentUpdateTime</format_string>
+      </format_strings>
     </column>
     <column name="{" type="START" />
     <column name="internalStatus" type="EMBEDDEDSTRUCT">
@@ -14,18 +16,30 @@
     </column>
     <column name="TimeBegan" type="INT">
       <offset>32</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO">1</format_string>
+      </format_strings>
     </column>
     <column name="MostRecentUpdateTime" type="INT">
       <offset>36</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO">1</format_string>
+      </format_strings>
     </column>
     <column name="SucceededOrFailedTime" type="INT">
       <offset>40</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO">1</format_string>
+      </format_strings>
     </column>
     <column name="NumUpdatesReceived" type="INT">
       <offset>44</offset>
     </column>
     <column name="TimeoutLength" type="INT">
       <offset>48</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_DURATION">1</format_string>
+      </format_strings>
     </column>
     <column name="TimeoutIndex" type="INT">
       <offset>52</offset>

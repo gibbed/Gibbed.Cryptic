@@ -9,9 +9,15 @@
     <column name="{" type="START" />
     <column name="StartingTime" type="INT">
       <offset>0</offset>
+      <format_strings>
+        <format_string name="HTML_SECS">1</format_string>
+      </format_strings>
     </column>
     <column name="EndingTime" type="INT">
       <offset>4</offset>
+      <format_strings>
+        <format_string name="HTML_SECS">1</format_string>
+      </format_strings>
     </column>
     <column name="MapNames" type="STRINGARRAY">
       <offset>8</offset>
@@ -48,12 +54,21 @@
     </column>
     <column name="uObjID" type="INT">
       <offset>60</offset>
+      <format_strings>
+        <format_string name="HTML_SKIP">1</format_string>
+      </format_strings>
     </column>
     <column name="uPlayerID" type="INT">
       <offset>64</offset>
+      <format_strings>
+        <format_string name="HTML_SKIP">1</format_string>
+      </format_strings>
     </column>
     <column name="uAccountID" type="INT">
       <offset>68</offset>
+      <format_strings>
+        <format_string name="HTML_SKIP">1</format_string>
+      </format_strings>
     </column>
     <column name="}" type="END" />
   </table>

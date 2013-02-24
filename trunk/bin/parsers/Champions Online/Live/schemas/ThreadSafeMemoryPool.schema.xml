@@ -5,11 +5,16 @@
       <flags>
         <flag>PARSETABLE_INFO</flag>
       </flags>
-      <format_string>HTML_DEF_FIELDS_TO_SHOW = "allocationCount, structSize"</format_string>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">allocationCount, structSize</format_string>
+      </format_strings>
     </column>
     <column name="{" type="START" />
     <column name="structSize" type="INT">
       <offset>12</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
     </column>
     <column name="structsPerBlock" type="INT">
       <offset>16</offset>
@@ -22,12 +27,21 @@
     </column>
     <column name="TotalBytes" type="INT">
       <offset>28</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
     </column>
     <column name="UsedBytes" type="INT">
       <offset>32</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
     </column>
     <column name="FreeBytes" type="INT">
       <offset>36</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
     </column>
     <column name="Name" type="STRING">
       <offset>40</offset>

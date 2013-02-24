@@ -15,6 +15,9 @@
     </column>
     <column name="NotesLink" type="STRING">
       <offset>4</offset>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+      </format_strings>
     </column>
     <column name="CommandComment" type="STRING">
       <offset>8</offset>
@@ -27,6 +30,9 @@
       <flags>
         <flag>ESTRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
     </column>
     <column name="AccessLevel" type="INT">
       <offset>16</offset>
