@@ -13,25 +13,44 @@
     </column>
     <column name="Offset" type="INT">
       <offset>256</offset>
+      <format_strings>
+        <format_string name="HTML_SVR_PARAM">1</format_string>
+      </format_strings>
     </column>
     <column name="limit" type="INT">
       <offset>260</offset>
+      <format_strings>
+        <format_string name="HTML_SVR_PARAM">1</format_string>
+      </format_strings>
     </column>
     <column name="more" type="INT">
       <offset>264</offset>
+      <format_strings>
+        <format_string name="HTML_SVR_PARAM">1</format_string>
+      </format_strings>
     </column>
     <column name="Count" type="INT">
       <offset>268</offset>
+      <format_strings>
+        <format_string name="HTML_SVR_PARAM">1</format_string>
+      </format_strings>
     </column>
     <column name="Links" type="STRUCT">
       <offset>272</offset>
       <subtable external="GenericLinkForHttpXpath" />
+      <format_strings>
+        <format_string name="TEST_FILTER">svr</format_string>
+      </format_strings>
     </column>
     <column name="Comment" type="STRING">
       <offset>276</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+        <format_string name="HTML_NO_HEADER">1</format_string>
+      </format_strings>
     </column>
     <column name="}" type="END" />
   </table>

@@ -15,12 +15,21 @@
     </column>
     <column name="TotalSpace" type="INT64">
       <offset>8</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
     </column>
     <column name="UsedSpace" type="INT64">
       <offset>16</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
     </column>
     <column name="FreeSpace" type="INT64">
       <offset>24</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
     </column>
     <column name="MemoryPools" type="STRUCT">
       <offset>32</offset>

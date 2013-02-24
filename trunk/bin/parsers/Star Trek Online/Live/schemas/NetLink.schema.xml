@@ -5,7 +5,9 @@
       <flags>
         <flag>PARSETABLE_INFO</flag>
       </flags>
-      <format_string>HTML_DEF_FIELDS_TO_SHOW = "DebugName, Type, outbox, full_count, curr_sendbuf, stats.send.bytes, stats.recv.bytes"</format_string>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">DebugName, Type, outbox, full_count, curr_sendbuf, stats.send.bytes, stats.recv.bytes</format_string>
+      </format_strings>
     </column>
     <column name="{" type="START" />
     <column name="Type" type="INT">

@@ -56,6 +56,9 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
+      <format_strings>
+        <format_string name="DEPENDENT_CONTAINER_TYPE">EntitySavedPet</format_string>
+      </format_strings>
     </column>
     <column name="hPet" type="INT">
       <offset>16</offset>
@@ -65,6 +68,9 @@
         <flag>PERSIST</flag>
       </flags>
       <redundant_name>conID</redundant_name>
+      <format_strings>
+        <format_string name="DEPENDENT_CONTAINER_TYPE">EntitySavedPet</format_string>
+      </format_strings>
     </column>
     <column name="hPetRef" type="REFERENCE">
       <offset>20</offset>

@@ -26,16 +26,26 @@
       <flags>
         <flag>ESTRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+        <format_string name="HTML_COMMAND_IN_NEW_WINDOW">1</format_string>
+      </format_strings>
     </column>
     <column name="DescriptiveName" type="STRING">
       <offset>24</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
+      <format_strings>
+        <format_string name="HTML_NO_HEADER">1</format_string>
+      </format_strings>
     </column>
     <column name="Links" type="STRUCT">
       <offset>28</offset>
       <subtable external="CachedGlobalObjectListLink" />
+      <format_strings>
+        <format_string name="HTML_SKIP">1</format_string>
+      </format_strings>
     </column>
     <column name="NumObjects" type="INT">
       <offset>32</offset>

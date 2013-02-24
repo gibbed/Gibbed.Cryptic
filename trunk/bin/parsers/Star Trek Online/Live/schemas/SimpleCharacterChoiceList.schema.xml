@@ -19,14 +19,23 @@
     <column name="Online" type="STRUCT">
       <offset>8</offset>
       <subtable external="SimpleCharacterChoice" />
+      <format_strings>
+        <format_string name="XML_DECODE_KEY">1</format_string>
+      </format_strings>
     </column>
     <column name="Offline" type="STRUCT">
       <offset>12</offset>
       <subtable external="SimpleCharacterChoice" />
+      <format_strings>
+        <format_string name="XML_DECODE_KEY">1</format_string>
+      </format_strings>
     </column>
     <column name="Deleted" type="STRUCT">
       <offset>16</offset>
       <subtable external="SimpleCharacterChoice" />
+      <format_strings>
+        <format_string name="XML_DECODE_KEY">1</format_string>
+      </format_strings>
     </column>
     <column name="}" type="END" />
   </table>

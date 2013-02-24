@@ -35,6 +35,9 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO">1</format_string>
+      </format_strings>
     </column>
     <column name="ppProjectVersions" type="STRUCT">
       <offset>16</offset>
@@ -175,6 +178,9 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
+      <format_strings>
+        <format_string name="HTML_SECS">1</format_string>
+      </format_strings>
     </column>
     <column name="pIDString" type="STRING">
       <offset>144</offset>
@@ -196,6 +202,9 @@
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO">1</format_string>
+      </format_strings>
     </column>
     <column name="pFeatured" type="OPTIONALSTRUCT">
       <offset>156</offset>
@@ -232,6 +241,9 @@
     <column name="Check Container Location" type="COMMAND">
       <offset>0</offset>
       <command_string>DebugCheckContainerLoc UGCProject $FIELD(id)</command_string>
+      <format_strings>
+        <format_string name="commandExpr">\q$SERVERTYPE\q = \qObjectDB\q</format_string>
+      </format_strings>
     </column>
     <column name="Apply Transaction" type="COMMAND">
       <offset>0</offset>

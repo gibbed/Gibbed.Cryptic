@@ -5,7 +5,9 @@
       <flags>
         <flag>PARSETABLE_INFO</flag>
       </flags>
-      <format_string>HTTP_HEADER_COMMAND = "GetEntityHTMLHeader"</format_string>
+      <format_strings>
+        <format_string name="HTTP_HEADER_COMMAND">GetEntityHTMLHeader</format_string>
+      </format_strings>
     </column>
     <column name="{" type="START" />
     <column name="myContainerID" type="INT">
@@ -555,10 +557,16 @@
     <column name="Dump Container on Clone" type="COMMAND">
       <offset>0</offset>
       <command_string>ServerMonDumpEntity $FIELD(myEntityType) $FIELD(myContainerID)</command_string>
+      <format_strings>
+        <format_string name="commandExpr">\q$SERVERTYPE\q = \qCloneObjectDB\q</format_string>
+      </format_strings>
     </column>
     <column name="Dump Container" type="COMMAND">
       <offset>0</offset>
       <command_string>ServerMonDumpEntity $FIELD(myEntityType) $FIELD(myContainerID)</command_string>
+      <format_strings>
+        <format_string name="commandExpr">\q$SERVERTYPE\q = \qObjectDB\q</format_string>
+      </format_strings>
     </column>
     <column name="Apply Transaction" type="COMMAND">
       <offset>0</offset>
@@ -567,22 +575,37 @@
     <column name="Send Message" type="COMMAND">
       <offset>0</offset>
       <command_string>BroadcastMessageToPlayer $FIELD(myContainerID) $STRING(Message To Send)$NORETURN</command_string>
+      <format_strings>
+        <format_string name="commandExpr">\q$FIELD(myEntityType)\q = \qEntityPlayer\q</format_string>
+      </format_strings>
     </column>
     <column name="Set Access Level" type="COMMAND">
       <offset>0</offset>
       <command_string>SetAccessLevelByContainerID $FIELD(myContainerID) $INT(New Access Level) $CONFIRM(Really set the access level?)</command_string>
+      <format_strings>
+        <format_string name="commandExpr">\q$FIELD(myEntityType)\q = \qEntityPlayer\q AND \q$SERVERTYPE\q = \qGameServer\q</format_string>
+      </format_strings>
     </column>
     <column name="Boot player" type="COMMAND">
       <offset>0</offset>
       <command_string>ForceLogout $FIELD(myEntityType) $FIELD(myContainerID) $CONFIRM(Really boot this player?)</command_string>
+      <format_strings>
+        <format_string name="commandExpr">\q$FIELD(myEntityType)\q = \qEntityPlayer\q AND \q$SERVERTYPE\q = \qGameServer\q</format_string>
+      </format_strings>
     </column>
     <column name="Check Container Location" type="COMMAND">
       <offset>0</offset>
       <command_string>DebugCheckContainerLoc $FIELD(myEntityType) $FIELD(myContainerID)</command_string>
+      <format_strings>
+        <format_string name="commandExpr">\q$SERVERTYPE\q = \qObjectDB\q</format_string>
+      </format_strings>
     </column>
     <column name="Get RAM Usage" type="COMMAND">
       <offset>0</offset>
       <command_string>ServerMonGetEntityRAMUsage $FIELD(myEntityType) $FIELD(myContainerID) $INT(Should allocate a bunch of extra copies then free them to test RAM reporting)</command_string>
+      <format_strings>
+        <format_string name="commandExpr">\q$SERVERTYPE\q = \qObjectDB\q OR \q$SERVERTYPE\q = \qCloneObjectDB\q</format_string>
+      </format_strings>
     </column>
     <column name="hAlignment" type="IGNORE" />
     <column name="}" type="END" />
