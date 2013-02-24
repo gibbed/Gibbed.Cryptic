@@ -20,13 +20,16 @@
  *    distribution.
  */
 
+using System.Globalization;
+using System.Collections.Generic;
+
 namespace Gibbed.Cryptic.FileFormats.ParserSchema
 {
     public class Column
     {
         public string Name;
         public byte Token;
-        
+
         public uint Offset;
 
         public Parser.ColumnFlags Flags;
@@ -55,6 +58,31 @@ namespace Gibbed.Cryptic.FileFormats.ParserSchema
         public bool StaticDefineListIsExternal;
 
         public ColumnFormat Format = ColumnFormat.None;
+        public readonly Dictionary<string, string> FormatStrings = new Dictionary<string, string>();
+
+        public string GetFormatStringAsString(string key, string defaultValue)
+        {
+            if (this.FormatStrings.ContainsKey(key) == false)
+            {
+                return defaultValue;
+            }
+            return this.FormatStrings[key];
+        }
+
+        public int GetFormatStringAsInt(string key, int defaultValue)
+        {
+            var text = this.GetFormatStringAsString(key, null);
+            if (text == null)
+            {
+                return defaultValue;
+            }
+            return int.Parse(text, CultureInfo.InvariantCulture);
+        }
+
+        public bool GetFormatStringAsBool(string key, bool defaultValue)
+        {
+            return this.GetFormatStringAsInt(key, defaultValue == true ? 1 : 0) != 0;
+        }
 
         public override string ToString()
         {

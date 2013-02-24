@@ -691,7 +691,17 @@ namespace Gibbed.Cryptic.ExportParserTables
                 throw new ArgumentNullException("formatString");
             }
 
-            var formatStrings = ParseFormatStrings(formatString);
+            Dictionary<string, string> formatStrings;
+            try
+            {
+                formatStrings = ParseFormatStrings(formatString);
+            }
+            catch (FormatException)
+            {
+                xml.WriteComment(" failed to parse format string: " + formatString + " ");
+                return;
+            }
+
             foreach (var kv in formatStrings)
             {
                 xml.WriteStartElement("format_string");
@@ -766,7 +776,22 @@ namespace Gibbed.Cryptic.ExportParserTables
                     xml.WriteElementString("flag", "PARSETABLE_INFO");
                     xml.WriteEndElement();
 
-                    var formatString = memory.ReadStringZ(column.FormatStringPointer);
+                    /* Star Trek Online replaces its format string with a
+                     * stash table of parsed tokens.
+                     */
+                    string formatString = null;
+                    if (column.FormatStringPointer != 0)
+                    {
+                        if (memory.ReadU32(column.FormatStringPointer) == 33)
+                        {
+                            formatString = memory.ReadStringZ(memory.ReadU32(column.FormatStringPointer + 4));
+                        }
+                        else
+                        {
+                            formatString = memory.ReadStringZ(column.FormatStringPointer);
+                        }
+                    }
+
                     if (string.IsNullOrEmpty(formatString) == false)
                     {
                         xml.WriteStartElement("format_strings");
@@ -798,9 +823,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                             .Where(c => (c.Key.Flags & Parser.ColumnFlags.ALIAS) == 0)
                             .Where(c => c.Key.Offset == column.Offset)
                             .Where(c => c.Key.Token == column.Token)
-                            .Where(c => c.Key.Token != 23 || c.Key.Parameter0 == column.Parameter0)
-                            .FirstOrDefault();
-
+                            .FirstOrDefault(c => c.Key.Token != 23 || c.Key.Parameter0 == column.Parameter0);
                         if (aliased.Key != null)
                         {
                             xml.WriteElementString("redundant_name", aliased.Value);
@@ -887,8 +910,8 @@ namespace Gibbed.Cryptic.ExportParserTables
                                     {
                                         xml.WriteComment(" dynamic enum? ");
                                         /*xml.WriteStartElement("enum");
-                                        ExportEnum(memory, column.Parameter1, xml);
-                                        xml.WriteEndElement();*/
+                                            ExportEnum(memory, column.Parameter1, xml);
+                                            xml.WriteEndElement();*/
                                     }
                                     else
                                     {
@@ -955,7 +978,22 @@ namespace Gibbed.Cryptic.ExportParserTables
                             }
                         }
 
-                        var formatString = memory.ReadStringZ(column.FormatStringPointer);
+                        /* Star Trek Online replaces its format string with a
+                         * stash table of parsed tokens.
+                         */
+                        string formatString = null;
+                        if (column.FormatStringPointer != 0)
+                        {
+                            if (memory.ReadU32(column.FormatStringPointer) == 33)
+                            {
+                                formatString = memory.ReadStringZ(memory.ReadU32(column.FormatStringPointer + 4));
+                            }
+                            else
+                            {
+                                formatString = memory.ReadStringZ(column.FormatStringPointer);
+                            }
+                        }
+
                         if (string.IsNullOrEmpty(formatString) == false)
                         {
                             xml.WriteStartElement("format_strings");

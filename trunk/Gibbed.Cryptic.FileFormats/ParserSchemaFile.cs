@@ -29,6 +29,8 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public class ParserSchemaFile
     {
+        public const int DefaultMaxArraySize = 1200000;
+
         public string Name;
         public ParserSchema.Table Table;
 
@@ -148,6 +150,27 @@ namespace Gibbed.Cryptic.FileFormats
                     column.Format = format;
                 }
 
+                var formatStringIterator = columnNode.Select("format_strings/format_string");
+                column.FormatStrings.Clear();
+                while (formatStringIterator.MoveNext() == true)
+                {
+                    var formatStringNode = formatStringIterator.Current;
+                    if (formatStringNode == null)
+                    {
+                        throw new InvalidOperationException();
+                    }
+
+                    var formatStringKey = formatStringNode.GetAttribute("name", "");
+                    if (string.IsNullOrEmpty(formatStringKey) == true)
+                    {
+                        throw new FormatException("invalid schema format string key");
+                    }
+
+                    /*Console.WriteLine("Adding {0}={1} to {2}",
+                        formatStringKey, formatStringNode.Value, column.Name);*/
+                    column.FormatStrings.Add(formatStringKey, formatStringNode.Value);
+                }
+
                 table.Columns.Add(column);
             }
 
@@ -221,8 +244,8 @@ namespace Gibbed.Cryptic.FileFormats
                 }
 
                 var hash = hashText.StartsWith("0x") == true
-                           ? uint.Parse(hashText, NumberStyles.AllowHexSpecifier)
-                           : uint.Parse(hashText);
+                               ? uint.Parse(hashText, NumberStyles.AllowHexSpecifier)
+                               : uint.Parse(hashText);
 
                 return hash;
             }
