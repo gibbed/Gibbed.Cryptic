@@ -27,5 +27,6 @@ namespace Gibbed.Cryptic.GenerateSerializer
         Unknown,
         ChampionsOnline,
         StarTrekOnline,
+        Neverwinter,
     }
 }
