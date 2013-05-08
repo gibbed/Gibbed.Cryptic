@@ -166,7 +166,9 @@ namespace Gibbed.Cryptic.ConvertResource
                     var schema = config.GetSchema(schemaName);
                     if (schema == null)
                     {
-                        Console.WriteLine("Don't know how to handle '{0}'!", schemaName);
+                        Console.WriteLine("Don't know how to handle '{0}'  with a hash of '{1}'.",
+                                          schemaName,
+                                          blob.ParserHash);
                         return;
                     }
 
