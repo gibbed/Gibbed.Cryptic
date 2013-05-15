@@ -570,6 +570,53 @@ namespace Gibbed.Cryptic.GenerateSerializer
             return builder.CreateType();
         }
 
+        private static object ConvertDefaultValue(int defaultValue, TypeCode typeCode)
+        {
+            switch (typeCode)
+            {
+                case TypeCode.SByte:
+                {
+                    return (sbyte)defaultValue;
+                }
+                case TypeCode.Byte:
+                {
+                    return (byte)defaultValue;
+                }
+
+                case TypeCode.Int16:
+                {
+                    return (short)defaultValue;
+                }
+
+                case TypeCode.UInt16:
+                {
+                    return (ushort)defaultValue;
+                }
+
+                case TypeCode.Int32:
+                {
+                    return defaultValue;
+                }
+
+                case TypeCode.UInt32:
+                {
+                    return (uint)defaultValue;
+                }
+
+                case TypeCode.Int64:
+                {
+                    return (long)defaultValue;
+                }
+
+                case TypeCode.UInt64:
+                {
+                    return (ulong)defaultValue;
+                }
+            }
+
+            return Convert.ChangeType(defaultValue, typeCode);
+        }
+
         private FieldBuilder ExportField(
             ParserSchema.Table table, ParserSchema.Column column, TypeBuilder structure)
         {
@@ -586,7 +633,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 {
                     if (column.Default != 0)
                     {
-                        defaultValue = column.Default;
+                        defaultValue = ConvertDefaultValue(column.Default, Type.GetTypeCode(type));
                     }
 
                     break;
@@ -620,7 +667,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 }
                 else
                 {
-                    builder.SetConstant(Convert.ChangeType(defaultValue, type));
+                    builder.SetConstant(defaultValue);
                 }
             }
 
