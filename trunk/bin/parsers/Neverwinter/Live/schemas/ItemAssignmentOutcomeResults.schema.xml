@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentOutcomeResults">
+  <table>
+    <column name="ItemAssignmentOutcomeResults" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="GrantRewardTable" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="NewAssignment" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>ItemAssignmentDef</dictionary_name>
+    </column>
+    <column name="NewAssignmentChance" type="F32">
+      <offset>8</offset>
+      <default>1</default>
+    </column>
+    <column name="DestroyItemsOfQuality" type="INTARRAY">
+      <offset>12</offset>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="DestroyItemsOfCategory" type="INTARRAY">
+      <offset>16</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="DestroyChance" type="F32">
+      <offset>20</offset>
+      <default>1</default>
+    </column>
+    <column name="NewAssignmentDescription" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DestroyDescription" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="SampleRewards" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="InvRewardRequest" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldBaseInteractionProperties">
+  <table>
+    <column name="WorldBaseInteractionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="InteractionClass" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="DisplayNameMsg" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="OverrideFX" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AdditionalUniqueFX" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StartsHidden" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="VisiblePerEnt" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="TabSelect" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="uInteractDist" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="uTargetDist" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

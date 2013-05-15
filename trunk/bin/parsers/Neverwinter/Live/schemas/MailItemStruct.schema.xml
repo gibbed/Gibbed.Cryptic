@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MailItemStruct">
+  <table>
+    <column name="MailItemStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="entRef" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="uLotID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="mail" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="ChatMailStruct" />
+    </column>
+    <column name="ItemString" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="auctionPetContainerIDs" type="INTARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="mailPetContainerIDs" type="INTARRAY">
+      <offset>20</offset>
+    </column>
+    <column name="containerItemPetIDs" type="INTARRAY">
+      <offset>24</offset>
+    </column>
+    <column name="FullItemString" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

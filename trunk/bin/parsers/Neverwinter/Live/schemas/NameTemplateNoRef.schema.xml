@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NameTemplateNoRef">
+  <table>
+    <column name="NameTemplateNoRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Phoneme" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PhonemeSet" />
+    </column>
+    <column name="Weight" type="F32">
+      <offset>4</offset>
+      <default>1</default>
+    </column>
+    <column name="Belong" type="INT">
+      <offset>8</offset>
+      <default>-1</default>
+    </column>
+    <column name="Restrict" type="INT">
+      <offset>12</offset>
+      <default>-1</default>
+    </column>
+    <column name="AutoCaps" type="BIT">
+      <offset>16</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

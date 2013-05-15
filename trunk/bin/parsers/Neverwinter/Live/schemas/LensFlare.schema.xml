@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LensFlare">
+  <table>
+    <column name="LensFlare" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="LensFlarePiece" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="LensFlarePiece" />
+    </column>
+    <column name="EndLensFlare" type="END" />
+  </table>
+</parser>

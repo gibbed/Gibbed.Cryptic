@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OpenMissionScoreEntry">
+  <table>
+    <column name="OpenMissionScoreEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="playerID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="playerName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Costume" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="Points" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="Rank" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="RewardTier" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="IsHeader" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

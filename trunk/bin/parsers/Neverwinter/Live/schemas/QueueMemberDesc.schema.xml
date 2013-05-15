@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueMemberDesc">
+  <table>
+    <column name="QueueMemberDesc" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Allegiance" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="hClass" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="State" type="INT">
+      <offset>12</offset>
+      <static_define_list external="PlayerQueueState" />
+    </column>
+    <column name="uiEntID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Level" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Rank" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="GroupID" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="uiTeamID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="uiLastUpdateFrame" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="IsHeader" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="IsTeammate" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="IsGuildmate" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="IsFriend" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="FirstTeamMember" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="LastTeamMember" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

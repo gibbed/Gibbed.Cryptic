@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GroupVolumePropertiesServer">
+  <table>
+    <column name="GroupVolumePropertiesServer" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ActionVolume" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldActionVolumeProperties" />
+    </column>
+    <column name="PowerVolume" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="WorldPowerVolumeProperties" />
+    </column>
+    <column name="WarpVolume" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="WorldWarpVolumeProperties" />
+    </column>
+    <column name="LandmarkVolume" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="WorldLandmarkVolumeProperties" />
+    </column>
+    <column name="NeighborhoodVolume" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="WorldNeighborhoodVolumeProperties" />
+    </column>
+    <column name="InteractionVolume" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="WorldInteractionProperties" />
+    </column>
+    <column name="OptionalActionVolume" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="WorldOptionalActionVolumeProperties" />
+    </column>
+    <column name="AIVolume" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="WorldAIVolumeProperties" />
+    </column>
+    <column name="BcnVolume" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="WorldBeaconVolumeProperties" />
+    </column>
+    <column name="EventVolume" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="WorldEventVolumeProperties" />
+    </column>
+    <column name="CivilianVolume" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="WorldCivilianVolumeProperties" />
+    </column>
+    <column name="MastermindVolume" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="WorldMastermindVolumeProperties" />
+    </column>
+    <column name="MapLevelVolume" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="WorldMapLevelOverrideVolumeProperties" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

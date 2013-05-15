@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EntCreateVanityParams">
+  <table>
+    <column name="EntCreateVanityParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1180</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Critter" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>CritterDef</dictionary_name>
+    </column>
+    <column name="ExprBlockDistanceFront" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprBlockDistanceRight" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprBlockDistanceAbove" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

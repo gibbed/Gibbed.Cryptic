@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionObjective">
+  <table>
+    <column name="GenesisMissionObjective" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="UIString" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="ShortText" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>UIString</redundant_name>
+    </column>
+    <column name="SuccessFloaterText" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="TimeToComplete" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Optional" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="ShowWaypoints" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="SucceedWhen" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="GenesisWhen" />
+    </column>
+    <column name="Reward" type="REFERENCE">
+      <offset>108</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="Objective" type="STRUCT">
+      <offset>112</offset>
+      <subtable external="GenesisMissionObjective" />
+    </column>
+    <column name="OnStartAction" type="STRUCT">
+      <offset>116</offset>
+      <subtable external="WorldGameActionProperties" />
+    </column>
+    <column name="ExtraWaypoint" type="STRUCT">
+      <offset>120</offset>
+      <subtable external="MissionWaypoint" />
+    </column>
+    <column name="succeedWhenOld" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>124</offset>
+      <default>12</default>
+      <static_define_list external="GenesisWhenType" />
+    </column>
+    <column name="CompleteChallenge" type="OPTIONALSTRUCT">
+      <offset>128</offset>
+      <subtable external="GenesisMissionObjectiveOld_CompleteChallenge" />
+    </column>
+    <column name="ReachLocation" type="OPTIONALSTRUCT">
+      <offset>132</offset>
+      <subtable external="GenesisMissionObjectiveOld_ReachLocation" />
+    </column>
+    <column name="KillCritter" type="OPTIONALSTRUCT">
+      <offset>136</offset>
+      <subtable external="GenesisMissionObjectiveOld_KillCritter" />
+    </column>
+    <column name="KillCritterGroup" type="OPTIONALSTRUCT">
+      <offset>140</offset>
+      <subtable external="GenesisMissionObjectiveOld_KillCritterGroup" />
+    </column>
+    <column name="TalkToContact" type="OPTIONALSTRUCT">
+      <offset>144</offset>
+      <subtable external="GenesisMissionObjectiveOld_TalkToContact" />
+    </column>
+    <column name="CollectItems" type="OPTIONALSTRUCT">
+      <offset>148</offset>
+      <subtable external="GenesisMissionObjectiveOld_CollectItems" />
+    </column>
+    <column name="PromptComplete" type="OPTIONALSTRUCT">
+      <offset>152</offset>
+      <subtable external="GenesisMissionObjectiveOld_PromptComplete" />
+    </column>
+    <column name="DescriptionText" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

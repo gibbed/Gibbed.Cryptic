@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AvailableCharSlots">
+  <table>
+    <column name="AvailableCharSlots" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="numTotalSlots" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="numUnrestrictedSlots" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="SlotRestrictions" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="CharSlotRestriction" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

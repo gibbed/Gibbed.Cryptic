@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CharacterClassAdjustAttrib">
+  <table>
+    <column name="CharacterClassAdjustAttrib" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Attrib" type="INT">
+      <offset>0</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Aspect" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="ExpressionBlock" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Expr" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExpressionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Level" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Values" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>70</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

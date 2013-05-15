@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisRuntimeError">
+  <table>
+    <column name="GenesisRuntimeError" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GenesisRuntimeErrorType" />
+    </column>
+    <column name="Entry" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="GenesisRuntimeErrorContext" />
+    </column>
+    <column name="FieldName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ObjectName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Message" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="MessageKey" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ExtraText" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

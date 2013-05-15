@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DonationTaskDef">
+  <table>
+    <column name="DonationTaskDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="descriptionMsg" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Repeatable" type="BOOLFLAG">
+      <offset>36</offset>
+    </column>
+    <column name="Cancelable" type="BOOLFLAG">
+      <offset>37</offset>
+    </column>
+    <column name="taskAvailableExpr" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="taskAvailableExpr" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>taskAvailableExpr</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Bucket" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="GroupProjectDonationRequirement" />
+    </column>
+    <column name="TaskStartReward" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="DonationTaskReward" />
+    </column>
+    <column name="TaskReward" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="DonationTaskReward" />
+    </column>
+    <column name="secondsToComplete" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="SlotType" type="INT">
+      <offset>60</offset>
+      <static_define_list external="GroupProjectTaskSlotType" />
+    </column>
+    <column name="tooltipMsg" type="EMBEDDEDSTRUCT">
+      <offset>64</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="taskAvailableForNewProject" type="BOOLFLAG">
+      <offset>80</offset>
+    </column>
+    <column name="Category" type="INT">
+      <offset>84</offset>
+      <static_define_list external="DonationTaskCategoryType" />
+    </column>
+    <column name="completionRewardTable" type="REFERENCE">
+      <offset>88</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

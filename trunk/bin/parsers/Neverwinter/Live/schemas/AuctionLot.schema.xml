@@ -1,0 +1,163 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AuctionLot">
+  <table>
+    <column name="AuctionLot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="iContainerID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="OwnerID" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="OwnerAccountID" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iLangID" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="recipientID" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="Title" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="Price" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pOptionalData" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="AuctionLotOptionalData" />
+    </column>
+    <column name="pBiddingInfo" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="AuctionBiddingInfo" />
+    </column>
+    <column name="State" type="INT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="AuctionLotState" />
+    </column>
+    <column name="creationTime" type="INT">
+      <offset>44</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <format_strings>
+        <format_string name="JSON_SECS_TO_RFC822">1</format_string>
+      </format_strings>
+    </column>
+    <column name="modifiedTime" type="INT">
+      <offset>48</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <format_strings>
+        <format_string name="JSON_SECS_TO_RFC822">1</format_string>
+      </format_strings>
+    </column>
+    <column name="uExpireTime" type="INT">
+      <offset>52</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <format_strings>
+        <format_string name="JSON_SECS_TO_RFC822">1</format_string>
+      </format_strings>
+    </column>
+    <column name="uPostingFee" type="INT">
+      <offset>56</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uSoldFee" type="INT">
+      <offset>60</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ppItemsV2" type="STRUCT">
+      <offset>64</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="AuctionSlot" />
+    </column>
+    <column name="ppItemsV1_Deprecated" type="STRUCT">
+      <offset>68</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="AuctionSlotV1" />
+    </column>
+    <column name="ppItems" type="STRUCT">
+      <offset>68</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <redundant_name>ppItemsV1_Deprecated</redundant_name>
+      <subtable external="AuctionSlotV1" />
+    </column>
+    <column name="auctionPetContainerIDs" type="INTARRAY">
+      <offset>72</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uVersion" type="INT">
+      <offset>76</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="Apply Transaction" type="COMMAND">
+      <offset>0</offset>
+      <command_string>ServerMonTransactionOnEntity AuctionLot $FIELD(iContainerID) $STRING(Transaction String)$CONFIRM(Really apply this transaction?)</command_string>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

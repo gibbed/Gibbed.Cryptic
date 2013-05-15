@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TestClientContactDialogOption">
+  <table>
+    <column name="TestClientContactDialogOption" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="IsMission" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="IsMissionComplete" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

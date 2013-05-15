@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCGeometryOptions">
+  <table>
+    <column name="PCGeometryOptions" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ChildGeometryDef" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PCGeometryChildDef" />
+    </column>
+    <column name="IsChild" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="SubSkeleton" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SubBone" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FXSwap" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="PCFXSwap" />
+    </column>
+    <column name="FX" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="PCFX" />
+    </column>
+    <column name="BodyColorSet0" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="BodyColorSet" type="REFERENCE">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>BodyColorSet0</redundant_name>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="BodyColorSet1" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="BodyColorSet2" type="REFERENCE">
+      <offset>32</offset>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="BodyColorSet3" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="ColorQuadSet" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>CostumeColorQuads</dictionary_name>
+    </column>
+    <column name="DamageFxInfo" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>DynFxDamageInfo</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

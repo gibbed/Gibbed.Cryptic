@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCExtraDetailData">
+  <table>
+    <column name="UGCExtraDetailData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ReviewForCurAccount" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="UGCSingleReview" />
+    </column>
+    <column name="NumReviewPages" type="INT">
+      <offset>4</offset>
+      <default>-1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

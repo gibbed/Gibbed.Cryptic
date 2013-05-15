@@ -1,0 +1,108 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisInteriorLayout">
+  <table>
+    <column name="GenesisInteriorLayout" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Info" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="InteriorKitSpecifier" type="INT">
+      <offset>4</offset>
+      <static_define_list external="GenesisTagOrName" />
+    </column>
+    <column name="InteriorKitTags2" type="STRINGARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="InteriorKitTags" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="InteriorKit" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>GenesisInteriorKit</dictionary_name>
+    </column>
+    <column name="LightKitSpecifier" type="INT">
+      <offset>20</offset>
+      <static_define_list external="GenesisTagOrName" />
+    </column>
+    <column name="LightKitTags2" type="STRINGARRAY">
+      <offset>24</offset>
+    </column>
+    <column name="LightKitTags" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="LightKit" type="REFERENCE">
+      <offset>32</offset>
+      <dictionary_name>GenesisInteriorKit</dictionary_name>
+    </column>
+    <column name="LayoutInfoSpecifier" type="INT">
+      <offset>36</offset>
+      <static_define_list external="GenesisTemplateOrCustom" />
+    </column>
+    <column name="InteriorLayoutInfoTemplate" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>GenesisMapDescInteriorLayoutTemplate</dictionary_name>
+    </column>
+    <column name="Room" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="GenesisLayoutRoom" />
+    </column>
+    <column name="Path" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="GenesisLayoutPath" />
+    </column>
+    <column name="detail_kit_1" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="DetailSpecifier" type="INT">
+      <offset>52</offset>
+      <static_define_list external="GenesisTagOrName" />
+    </column>
+    <column name="DetailTags2" type="STRINGARRAY">
+      <offset>56</offset>
+    </column>
+    <column name="DetailTags" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="DetailKit" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>GenesisDetailKit</dictionary_name>
+    </column>
+    <column name="DetailDensity" type="F32">
+      <offset>68</offset>
+      <default>100</default>
+    </column>
+    <column name="VaryPerRoom" type="U8">
+      <offset>72</offset>
+    </column>
+    <column name="Detail2" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
+      <subtable external="GenesisDetailKitLayout" />
+    </column>
+    <column name="VertDir" type="INT">
+      <offset>108</offset>
+      <static_define_list external="GenesisVertDir" />
+    </column>
+    <column name="CommonData" type="EMBEDDEDSTRUCT">
+      <offset>112</offset>
+      <subtable external="GenesisLayoutCommonData" />
+    </column>
+    <column name="LightDensity" type="IGNORE" />
+    <column name="LightDetail" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

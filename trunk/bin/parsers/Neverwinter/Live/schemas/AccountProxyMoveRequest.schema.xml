@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxyMoveRequest">
+  <table>
+    <column name="AccountProxyMoveRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Proxy" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="uSrcAccountID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="SrcKey" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="uDestAccountID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="DestKey" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Value" type="INT64">
+      <offset>24</offset>
+    </column>
+    <column name="uRequestID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="uLockContainerID" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

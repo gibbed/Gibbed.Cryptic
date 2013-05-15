@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ZoneMapInfoRequest">
+  <table>
+    <column name="ZoneMapInfoRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayNameMsgKey" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="MapType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="ZoneMapType" />
+    </column>
+    <column name="Regions" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="WorldRegion" />
+    </column>
+    <column name="GenesisData" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisZoneMapData" />
+    </column>
+    <column name="GenesisInfo" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="GenesisZoneMapInfo" />
+    </column>
+    <column name="VarDefs" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="RequiresExpr" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="PermissionExpr" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ConfirmPurchasesOnExit" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

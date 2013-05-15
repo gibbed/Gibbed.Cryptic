@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldUGCActorProperties">
+  <table>
+    <column name="WorldUGCActorProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="groupDisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RankName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Class" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="Costume" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="WorldUGCActorCostumeProperties" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

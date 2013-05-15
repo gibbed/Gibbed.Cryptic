@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameProgressionNodeDef">
+  <table>
+    <column name="GameProgressionNodeDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NodeType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="GameProgressionNodeType" />
+    </column>
+    <column name="NodeFunctionalType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="GameProgressionNodeFunctionalType" />
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Summary" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Teaser" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="ArtFileName" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MissionGroupInfo" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="GameProgressionNodeMissionGroupInfo" />
+    </column>
+    <column name="RequiredAllegiance" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>AllegianceDef</dictionary_name>
+    </column>
+    <column name="RequiredSubAllegiance" type="REFERENCE">
+      <offset>72</offset>
+      <dictionary_name>AllegianceDef</dictionary_name>
+    </column>
+    <column name="RequiredNode" type="REFERENCE">
+      <offset>76</offset>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="NodeToWindBack" type="REFERENCE">
+      <offset>80</offset>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="ChildNode" type="STRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="GameProgressionNodeRef" />
+    </column>
+    <column name="DependentNodes" type="STRUCT">
+      <offset>88</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="GameProgressionNodeRef" />
+    </column>
+    <column name="hNextSibling" type="REFERENCE">
+      <offset>92</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="hPrevSibling" type="REFERENCE">
+      <offset>96</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="hParent" type="REFERENCE">
+      <offset>100</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="SortOrder" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="Debug" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="BranchStory" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="MissionGroupsAreUnlockedByDefault" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="DontAdvanceStoryAutomatically" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="SetProgressionOnMissionAccept" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NotifyActionFloatToGenItem">
+  <table>
+    <column name="NotifyActionFloatToGenItem" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="String" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Lifetime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="WorldOrigin" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Point1" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Point2" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Point3" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Point4" type="F32FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="ScreenScale" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

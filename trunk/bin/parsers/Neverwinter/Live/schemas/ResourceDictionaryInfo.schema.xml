@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ResourceDictionaryInfo">
+  <table>
+    <column name="ResourceDictionaryInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DictName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DictCategoryName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Resource" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="ResourceInfo" />
+    </column>
+    <column name="Browsable" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="NoLocation" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

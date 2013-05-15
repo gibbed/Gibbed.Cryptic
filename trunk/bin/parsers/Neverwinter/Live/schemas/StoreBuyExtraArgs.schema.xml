@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StoreBuyExtraArgs">
+  <table>
+    <column name="StoreBuyExtraArgs" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Provisioned" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="hStoreDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>StoreDef</dictionary_name>
+    </column>
+    <column name="uStoreItemIndex" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="provisioningProjectName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="provisioningNumericName" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerLooseUI">
+  <table>
+    <column name="PlayerLooseUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SavedCartPowers" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="SavedCartPower" />
+    </column>
+    <column name="PersistedWindow" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UIPersistedWindow" />
+    </column>
+    <column name="PlayingStyles" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="HUDOptions" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="PlayerHUDOptions" />
+    </column>
+    <column name="PetCommandOrder" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="PlayerPetPersistedOrder" />
+    </column>
+    <column name="LockTray" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ShowMapChoice" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="AutoSideKick" type="BIT">
+      <offset>20</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ShowAstrometrics" type="BIT">
+      <offset>20</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ShowDistantSystems" type="BIT">
+      <offset>20</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65540</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ShowNearSystems" type="BIT">
+      <offset>20</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65541</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ShowNearSystemTooltips" type="BIT">
+      <offset>20</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65542</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="eNotifyAudioMode" type="INT">
+      <offset>24</offset>
+      <default>1</default>
+      <static_define_list external="PlayerNotifyAudioMode" />
+    </column>
+    <column name="ShowOverhead" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="PlayerShowOverhead" />
+    </column>
+    <column name="uiTrayMode" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="uiPowerLevelsMode" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

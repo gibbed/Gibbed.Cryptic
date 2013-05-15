@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SSCluster">
+  <table>
+    <column name="SSCluster" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ClusterObject" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="SSClusterObject" />
+    </column>
+    <column name="Height" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="MinDist" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="MaxDist" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

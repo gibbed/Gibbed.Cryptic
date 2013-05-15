@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldDrawableSubobject">
+  <table>
+    <column name="WorldDrawableSubobject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="material_draws" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="MaterialDraw" />
+    </column>
+    <column name="Model" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="ModelDraw" />
+    </column>
+    <column name="subobject_idx" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="ref_count" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="UID" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

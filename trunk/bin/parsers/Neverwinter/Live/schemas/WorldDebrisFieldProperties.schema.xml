@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldDebrisFieldProperties">
+  <table>
+    <column name="WorldDebrisFieldProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="GroupRef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>GroupDef</dictionary_name>
+    </column>
+    <column name="RandomOffset" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="EvenDistribution" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="Box" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="RandomRotation" type="U8">
+      <offset>10</offset>
+    </column>
+    <column name="Density" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="FallOff" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="CenterOccluder" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="Occluders" type="F32ARRAY">
+      <offset>24</offset>
+    </column>
+    <column name="groupdeprecated" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="GroupUID" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="GroupName" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="Seed" type="IGNORE" />
+    <column name="End" type="END" />
+  </table>
+</parser>

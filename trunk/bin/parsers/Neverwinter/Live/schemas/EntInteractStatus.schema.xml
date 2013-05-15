@@ -1,0 +1,156 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EntInteractStatus">
+  <table>
+    <column name="EntInteractStatus" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dirtyBit" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="Interacting" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="SittingInChair" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="InteractOptions" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="InteractOptions" />
+    </column>
+    <column name="OverrideEntries" type="STRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="WorldInteractionPropertyEntry" />
+    </column>
+    <column name="hInteractUseTimeMsg" type="REFERENCE">
+      <offset>96</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="overrideRef" type="INT">
+      <offset>100</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="hOverrideNode" type="REFERENCE">
+      <offset>104</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <dictionary_name>WorldInteractionNode</dictionary_name>
+    </column>
+    <column name="PromptedInteractOptions" type="STRUCT">
+      <offset>108</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <subtable external="InteractOption" />
+    </column>
+    <column name="hPreferredTargetNode" type="REFERENCE">
+      <offset>112</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <dictionary_name>WorldInteractionNode</dictionary_name>
+    </column>
+    <column name="preferredTargetEntity" type="INT">
+      <offset>116</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="overrideSet" type="BIT">
+      <offset>120</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="promptInteraction" type="BIT">
+      <offset>120</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="promptPickup" type="BIT">
+      <offset>120</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="pickupTarget" type="STRING">
+      <offset>124</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="NearbyContactTypes" type="INT">
+      <offset>136</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="RecentQueueInteractions" type="STRUCT">
+      <offset>140</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="InteractedQueueDef" />
+    </column>
+    <column name="TargetableNodes" type="STRUCT">
+      <offset>144</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="TargetableNode" />
+    </column>
+    <column name="TooltipNodes" type="STRUCT">
+      <offset>152</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="TooltipNode" />
+    </column>
+    <column name="VisibleNodes" type="STRUCT">
+      <offset>156</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="VisibleOverrideNode" />
+    </column>
+    <column name="DoorStatusNodes" type="STRUCT">
+      <offset>168</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="NodeSummary" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

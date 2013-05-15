@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynAnimGraphNodeInheritBits">
+  <table>
+    <column name="DynAnimGraphNodeInheritBits" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="InheritPath" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="InheritInterpolation" type="U8">
+      <offset>1</offset>
+    </column>
+    <column name="InheritEaseIn" type="U8">
+      <offset>2</offset>
+    </column>
+    <column name="InheritEaseOut" type="U8">
+      <offset>3</offset>
+    </column>
+    <column name="InheritNoSelfInterp" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="InheritForceEndFreeze" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="InheritOverrideAllBones" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="InheritOverrideMovement" type="U8">
+      <offset>7</offset>
+    </column>
+    <column name="InheritOverrideDefaultMove" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="InheritAllowRandomMoveRepeats" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="InheritDisableTorsoPointing" type="U8">
+      <offset>10</offset>
+    </column>
+    <column name="InheritDisableGroundReg" type="U8">
+      <offset>11</offset>
+    </column>
+    <column name="InheritDisableUpperBodyGroundReg" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="InheritFxEvent" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="InheritGraphImpact" type="U8">
+      <offset>14</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

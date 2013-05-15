@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldZoneMapScope">
+  <table>
+    <column name="WorldZoneMapScope" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Scope" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldScope" />
+    </column>
+    <column name="encounter_hacks" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="WorldEncounterHack" />
+    </column>
+    <column name="encounters" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="WorldEncounter" />
+    </column>
+    <column name="interactables" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="WorldNamedInteractable" />
+    </column>
+    <column name="spawn_points" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="WorldSpawnPoint" />
+    </column>
+    <column name="patrol_routes" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="WorldPatrolRoute" />
+    </column>
+    <column name="named_points" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="WorldNamedPoint" />
+    </column>
+    <column name="named_volumes" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="WorldNamedVolume" />
+    </column>
+    <column name="trigger_conditions" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="WorldTriggerCondition" />
+    </column>
+    <column name="layer_fsms" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="WorldLayerFSM" />
+    </column>
+    <column name="Groups" type="STRUCT">
+      <offset>80</offset>
+      <subtable external="WorldLogicalGroup" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

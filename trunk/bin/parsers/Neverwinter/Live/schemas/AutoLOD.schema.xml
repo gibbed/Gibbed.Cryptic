@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AutoLOD">
+  <table>
+    <column name="AutoLOD" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="AllowedError" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="UpScale" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="LODNear" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="LODFar" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="LodFarMorph" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="LodFlags" type="INT">
+      <offset>20</offset>
+      <static_define_list external="AutoLODFlags" />
+    </column>
+    <column name="ModelName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GeoFileName" type="FILENAME">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TextureSwap" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="TextureSwap" />
+    </column>
+    <column name="MaterialSwap" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="MaterialSwap" />
+    </column>
+    <column name="NoFade" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="UseFallbackMaterials" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="LodNearFade" type="IGNORE" />
+    <column name="LodFarFade" type="IGNORE" />
+    <column name="End" type="END" />
+  </table>
+</parser>

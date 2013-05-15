@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ZoneMapExternalMapSnap">
+  <table>
+    <column name="ZoneMapExternalMapSnap" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="deps" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="FileEntry" />
+    </column>
+    <column name="Version" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="MapRoom" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="RoomPartitionParsed" />
+    </column>
+    <column name="PathNode" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <subtable external="ZoneMapMetadataPathNode" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

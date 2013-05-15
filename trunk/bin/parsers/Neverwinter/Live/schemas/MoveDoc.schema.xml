@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MoveDoc">
+  <table>
+    <column name="MoveDoc" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="OrigObject" type="OPTIONALSTRUCT">
+      <offset>1112</offset>
+      <subtable external="DynMove" />
+    </column>
+    <column name="Object" type="OPTIONALSTRUCT">
+      <offset>1116</offset>
+      <subtable external="DynMove" />
+    </column>
+    <column name="NextUndoObject" type="OPTIONALSTRUCT">
+      <offset>1120</offset>
+      <subtable external="DynMove" />
+    </column>
+    <column name="IsSaving" type="U8">
+      <offset>1124</offset>
+    </column>
+    <column name="IsDeleting" type="U8">
+      <offset>1132</offset>
+    </column>
+    <column name="EnableDelete" type="U8">
+      <offset>1133</offset>
+    </column>
+    <column name="IsSelected" type="U8">
+      <offset>1144</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

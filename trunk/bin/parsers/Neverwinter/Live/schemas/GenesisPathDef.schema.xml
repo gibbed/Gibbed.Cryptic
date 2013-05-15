@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisPathDef">
+  <table>
+    <column name="GenesisPathDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FileName" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Tags" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Width" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="MinLength" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="MaxLength" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Windiness" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="NoDetailsOrPaths" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

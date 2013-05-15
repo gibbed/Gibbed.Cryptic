@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowersMovementLocalBG">
+  <table>
+    <column name="PowersMovementLocalBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="BitsFlashMutable" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PMBits" />
+    </column>
+    <column name="BitsPendingMutable" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PMBits" />
+    </column>
+    <column name="FxFlashMutable" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="PMFx" />
+    </column>
+    <column name="FxFlashPastMutable" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="PMFx" />
+    </column>
+    <column name="FxPendingMutable" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="PMFx" />
+    </column>
+    <column name="HitReactsMutable" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="PMHitReact" />
+    </column>
+    <column name="BitsStancesMutable" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="PMBitsStances" />
+    </column>
+    <column name="ConstantForcesQueued" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="PMConstantForce" />
+    </column>
+    <column name="ConstantForcesActive" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="PMConstantForce" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

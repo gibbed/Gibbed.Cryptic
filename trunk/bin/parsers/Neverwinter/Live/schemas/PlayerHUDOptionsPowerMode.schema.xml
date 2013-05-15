@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerHUDOptionsPowerMode">
+  <table>
+    <column name="PlayerHUDOptionsPowerMode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Region" type="INT">
+      <offset>0</offset>
+      <static_define_list external="ControlSchemeRegionType" />
+    </column>
+    <column name="PowerMode" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list external="PowerMode" />
+    </column>
+    <column name="EnableType" type="INTARRAY">
+      <offset>8</offset>
+      <static_define_list external="OverHeadEntityTypes" />
+    </column>
+    <column name="EnableName" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="EnableLife" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="EnableReticle" type="U8">
+      <offset>14</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

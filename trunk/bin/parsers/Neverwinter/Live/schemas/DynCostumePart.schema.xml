@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynCostumePart">
+  <table>
+    <column name="DynCostumePart" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="BoneName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Geometry" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Model" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Material" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TextureSwap" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="DynCostumePartTextureSwap" />
+    </column>
+    <column name="UseColor" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="DynCostumePartColorSwap" />
+    </column>
+    <column name="UseAltParams" type="BOOLFLAG">
+      <offset>24</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

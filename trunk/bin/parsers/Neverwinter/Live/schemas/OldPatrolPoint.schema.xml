@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OldPatrolPoint">
+  <table>
+    <column name="OldPatrolPoint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="pointLoc" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="pointRot" type="QUATPYR">
+      <offset>12</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

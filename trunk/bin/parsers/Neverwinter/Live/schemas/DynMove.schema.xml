@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynMove">
+  <table>
+    <column name="DynMove" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Comments" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="UserFilename" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="UserScope" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="DynMoveSeq" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="DynMoveSeq" />
+    </column>
+    <column name="DynMoveTag" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="DynMoveTag" />
+    </column>
+    <column name="Verified" type="U8">
+      <offset>32</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

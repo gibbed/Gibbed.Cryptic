@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MachineInfoForShardSetupList">
+  <table>
+    <column name="MachineInfoForShardSetupList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Comment" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Machines" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="MachineInfoForShardSetup" />
+    </column>
+    <column name="MachineGroup" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="GSMachineGroupDef" />
+    </column>
+    <column name="BaseGameServerGroupName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="GenericArgs" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="ShardSetupGenericArg" />
+      <format_strings>
+        <format_string name="DEFAULT_FIELD">1</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

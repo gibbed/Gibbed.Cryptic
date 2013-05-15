@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PhysicalProperties">
+  <table>
+    <column name="PhysicalProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="PhysicalProperties" type="START" />
+    <column name="FN" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="name_key" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="countAs" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Reverb" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Dampen" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="Restitution" type="F32">
+      <offset>20</offset>
+      <default>-1</default>
+    </column>
+    <column name="SFriction" type="F32">
+      <offset>24</offset>
+      <default>-1</default>
+    </column>
+    <column name="DFriction" type="F32">
+      <offset>28</offset>
+      <default>-1</default>
+    </column>
+    <column name="Civilian" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="EndPhysicalProperties" type="END" />
+  </table>
+</parser>

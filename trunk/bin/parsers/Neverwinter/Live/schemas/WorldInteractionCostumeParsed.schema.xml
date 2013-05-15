@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldInteractionCostumeParsed">
+  <table>
+    <column name="WorldInteractionCostumeParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hand_pivot_idx" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="mass_pivot_idx" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="carry_anim_bit_string_idx" type="INT">
+      <offset>8</offset>
+      <default>-1</default>
+    </column>
+    <column name="costume_parts" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="WorldInteractionCostumePartParsed" />
+    </column>
+    <column name="interaction_uids" type="INTARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

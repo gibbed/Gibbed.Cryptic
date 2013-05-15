@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StructInfoForHttpXpath">
+  <table>
+    <column name="StructInfoForHttpXpath" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ErrorString" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="RedirectString" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="TPIString" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="StructString" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Column" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Index" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="IsRootStruct" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="IsArray" type="U8">
+      <offset>25</offset>
+    </column>
+    <column name="PersistType" type="INT">
+      <offset>28</offset>
+      <static_define_list external="enumHttpXPathPersistType" />
+    </column>
+    <column name="PrefixString" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="SuffixString" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ExtraStylesheets" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ExtraScripts" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

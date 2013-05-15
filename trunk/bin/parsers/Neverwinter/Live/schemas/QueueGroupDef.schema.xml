@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueGroupDef">
+  <table>
+    <column name="QueueGroupDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Min" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="MinTimed" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Max" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="MaxTimed" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="AutoBalanceMin" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="Allegiance" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Affiliation" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Allegiance</redundant_name>
+    </column>
+    <column name="SpawnTargetName" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="Requires" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="pRequires" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Requires</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Faction" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>CritterFaction</dictionary_name>
+    </column>
+    <column name="TeamFX" type="STRINGARRAY">
+      <offset>48</offset>
+    </column>
+    <column name="UseGroupPrivateSettings" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="PrivateMinGroupSize" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="PrivateOverTimeSize" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

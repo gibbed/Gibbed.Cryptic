@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenWindowDef">
+  <table>
+    <column name="UIGenWindowDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Clones" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="HideInState" type="INTARRAY">
+      <offset>8</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="RequireInState" type="INTARRAY">
+      <offset>12</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="AllowInState" type="INTARRAY">
+      <offset>16</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="Modal" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="PersistOpen" type="U8">
+      <offset>21</offset>
+    </column>
+    <column name="OnWindowAdded" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="OnWindowRemoved" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRRagDollFG">
+  <table>
+    <column name="MRRagDollFG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="toBG" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="MRRagDollToBG" />
+    </column>
+    <column name="ragdollOver" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

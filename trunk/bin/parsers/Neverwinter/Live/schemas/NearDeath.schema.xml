@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NearDeath">
+  <table>
+    <column name="NearDeath" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Timer" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="perHostileInteracts" type="INTARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="perFriendlyInteracts" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="erKiller" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="erKillerSource" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="hKillingBlowDef" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="KillingAttribMod" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="FatalDamageAmount" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="FatalDamageAmountNoResist" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

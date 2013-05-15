@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TicketRequestResponse">
+  <table>
+    <column name="TicketRequestResponse" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Character" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Product" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="MainCategory" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Category" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Label" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="Summary" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="Status" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="Response" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="DescriptionBreak" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ResponseBreak" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="uFiledTime" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="uLastTime" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="uDaysAgo" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="Priority" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="uCount" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="uSubscribedAccounts" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="Sticky" type="U8">
+      <offset>72</offset>
+    </column>
+    <column name="Visible" type="U8">
+      <offset>73</offset>
+    </column>
+    <column name="IsSubscribed" type="U8">
+      <offset>74</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

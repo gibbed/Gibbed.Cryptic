@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TargetedRotationSync">
+  <table>
+    <column name="TargetedRotationSync" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="entRef" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="TargetedRotationSyncFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

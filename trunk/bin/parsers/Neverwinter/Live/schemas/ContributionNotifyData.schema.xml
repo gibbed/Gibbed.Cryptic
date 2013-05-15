@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContributionNotifyData">
+  <table>
+    <column name="ContributionNotifyData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="playerID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="projectcontainerType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="projectContainerID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="donatedItemName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="requestedDonationCount" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="donationCount" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="requestedDonations" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="ContributionItemData" />
+    </column>
+    <column name="actualDonations" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="ContributionItemData" />
+    </column>
+    <column name="contributionNumericName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="contributionEarned" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="contributionGiven" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="initialContribution" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="ProjectName" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="taskName" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="bucketName" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="bucketFilled" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="taskFinalized" type="U8">
+      <offset>61</offset>
+    </column>
+    <column name="noPermission" type="U8">
+      <offset>62</offset>
+    </column>
+    <column name="partialDonation" type="U8">
+      <offset>63</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

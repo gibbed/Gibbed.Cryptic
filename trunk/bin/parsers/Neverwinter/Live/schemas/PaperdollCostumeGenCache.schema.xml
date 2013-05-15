@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PaperdollCostumeGenCache">
+  <table>
+    <column name="PaperdollCostumeGenCache" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uLastUpdateTime" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="FileName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Source1" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="Source2" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="KeyInt" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="KeyFloat" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="Result" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

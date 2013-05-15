@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisProceduralObjectParams">
+  <table>
+    <column name="GenesisProceduralObjectParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ModelName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="RoomProperties" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="WorldRoomProperties" />
+    </column>
+    <column name="PowerVolume" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="WorldPowerVolumeProperties" />
+    </column>
+    <column name="FXVolume" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="WorldFXVolumeProperties" />
+    </column>
+    <column name="SkyVolume" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="WorldSkyVolumeProperties" />
+    </column>
+    <column name="SoundVolume" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="WorldSoundVolumeProperties" />
+    </column>
+    <column name="SoundSphere" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="WorldSoundSphereProperties" />
+    </column>
+    <column name="ActionVolume" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="WorldActionVolumeProperties" />
+    </column>
+    <column name="EventVolume" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="WorldEventVolumeProperties" />
+    </column>
+    <column name="OptionalActionVolume" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="WorldOptionalActionVolumeProperties" />
+    </column>
+    <column name="Curve" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="WorldCurve" />
+    </column>
+    <column name="PatrolProperties" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="WorldPatrolProperties" />
+    </column>
+    <column name="InteractionProperties" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="WorldInteractionProperties" />
+    </column>
+    <column name="SpawnProperties" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="WorldSpawnProperties" />
+    </column>
+    <column name="PhysicalProperties" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="WorldPhysicalProperties" />
+    </column>
+    <column name="Genesis" type="OPTIONALSTRUCT">
+      <offset>124</offset>
+      <subtable external="WorldGenesisProperties" />
+    </column>
+    <column name="TerrainProperties" type="EMBEDDEDSTRUCT">
+      <offset>128</offset>
+      <subtable external="WorldTerrainProperties" />
+    </column>
+    <column name="VolumeProperties" type="OPTIONALSTRUCT">
+      <offset>192</offset>
+      <subtable external="GroupVolumeProperties" />
+    </column>
+    <column name="HullProperties" type="OPTIONALSTRUCT">
+      <offset>196</offset>
+      <subtable external="GroupHullProperties" />
+    </column>
+    <column name="LightProperties" type="OPTIONALSTRUCT">
+      <offset>200</offset>
+      <subtable external="WorldLightProperties" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

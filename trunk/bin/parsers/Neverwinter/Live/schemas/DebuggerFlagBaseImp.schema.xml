@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DebuggerFlagBaseImp">
+  <table>
+    <column name="DebuggerFlagBaseImp" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Index" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="default_value" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="changed_func" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="trickle_up" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="trickle_down" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="value_based" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="min_value" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="max_value" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

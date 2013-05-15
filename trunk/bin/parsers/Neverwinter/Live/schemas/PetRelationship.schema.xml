@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PetRelationship">
+  <table>
+    <column name="PetRelationship" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="eRelationship" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="PetRelationshipType" />
+    </column>
+    <column name="eState" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="OwnedContainerState" />
+    </column>
+    <column name="eStatus_Deprecated" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="PetRelationshipStatus" />
+      <format>FLAGS</format>
+    </column>
+    <column name="eStatus" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>eStatus_Deprecated</redundant_name>
+      <static_define_list external="PetRelationshipStatus" />
+      <format>FLAGS</format>
+    </column>
+    <column name="bTeamRequest" type="U8">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="conID" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <format_strings>
+        <format_string name="DEPENDENT_CONTAINER_TYPE">EntitySavedPet</format_string>
+      </format_strings>
+    </column>
+    <column name="hPet" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>conID</redundant_name>
+      <format_strings>
+        <format_string name="DEPENDENT_CONTAINER_TYPE">EntitySavedPet</format_string>
+      </format_strings>
+    </column>
+    <column name="hPetRef" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>CopyDict_EntitySavedPet</dictionary_name>
+    </column>
+    <column name="uiPetID" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eaPurposes" type="INTARRAY">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eaAlwaysPropEnts" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

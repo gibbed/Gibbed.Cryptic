@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCAssetTagType">
+  <table>
+    <column name="UGCAssetTagType" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Dictionary" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="FilterByTypeName" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="DrawEditorOnly" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="EnableIconGridView" type="U8">
+      <offset>14</offset>
+    </column>
+    <column name="PreferIconGridView" type="U8">
+      <offset>15</offset>
+    </column>
+    <column name="IsYTranslate" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="TagCategory" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="UGCAssetTagCategory" />
+    </column>
+    <column name="SpaceModePreview" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="VanityPetInfo">
+  <table>
+    <column name="VanityPetInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ShortDesc" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="LongDesc" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="hPowerDef" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="MicroTransactionID" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Active" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Updated" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Owned" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

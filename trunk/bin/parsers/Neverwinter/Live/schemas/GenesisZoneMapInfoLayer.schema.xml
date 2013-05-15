@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisZoneMapInfoLayer">
+  <table>
+    <column name="GenesisZoneMapInfoLayer" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="SkyGroup" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="SkyInfoGroup" />
+    </column>
+    <column name="OverrideCubeMap" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RegionType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="WorldRegionType" />
+    </column>
+    <column name="ExternalMap" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxyWebSrvGameEvent">
+  <table>
+    <column name="AccountProxyWebSrvGameEvent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ProductShortName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="EventName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="uAccountID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Lang" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="keyValueList" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="WebSrvKeyValueList" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

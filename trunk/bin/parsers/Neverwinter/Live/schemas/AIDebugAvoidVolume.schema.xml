@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AIDebugAvoidVolume">
+  <table>
+    <column name="AIDebugAvoidVolume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="rot_mtxBox" type="MATPYR">
+      <offset>12</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_mtxBox" type="F32FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="BoxMin" type="F32FIXEDARRAY">
+      <offset>60</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="BoxMax" type="F32FIXEDARRAY">
+      <offset>72</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>84</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

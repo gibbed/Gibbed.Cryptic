@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Login2CharacterChoices">
+  <table>
+    <column name="Login2CharacterChoices" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="missingShardNames" type="STRINGARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="characterChoices" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="Login2CharacterChoice" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

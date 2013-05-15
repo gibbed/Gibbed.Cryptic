@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LockboxTeaserEntry">
+  <table>
+    <column name="LockboxTeaserEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TeaserType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="LockboxTeaserType" />
+    </column>
+    <column name="TeaserValue" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

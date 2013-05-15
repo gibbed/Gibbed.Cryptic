@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemUpgradeLadder">
+  <table>
+    <column name="ItemUpgradeLadder" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ItemPrefix" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Items" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ItemDefRefContainer" />
+    </column>
+    <column name="SkillType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="SkillType" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

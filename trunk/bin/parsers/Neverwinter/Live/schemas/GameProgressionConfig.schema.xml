@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameProgressionConfig">
+  <table>
+    <column name="GameProgressionConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="StoryIntroNotification" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="AllowReplay" type="BIT">
+      <offset>12</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="EnableTeamProgressionTracking" type="BIT">
+      <offset>12</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ValidateProgression" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="AutoGrantMissionOnSetProgression" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="SendStoryIntroNotificationOnMapEnter" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="MustMeetRequirementsToSkipMissions" type="BIT">
+      <offset>12</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65541</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="StoreMostRecentlyPlayedNode" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="ValidateMaps" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

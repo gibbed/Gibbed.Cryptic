@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AudioAssets">
+  <table>
+    <column name="AudioAssets" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Components" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="AudioAssetComponents" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

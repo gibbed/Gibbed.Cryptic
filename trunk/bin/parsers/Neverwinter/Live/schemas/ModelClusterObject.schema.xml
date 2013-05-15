@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ModelClusterObject">
+  <table>
+    <column name="ModelClusterObject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="model_filename" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="mesh_filename" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="model_timestamp" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="gmesh_texture_files" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="ModelClusterTextures" />
+    </column>
+    <column name="model_matrix" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>16</num_elements>
+      <format_strings>
+        <format_string name="HIGH_PREC_FLOAT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>84</offset>
+      <format_strings>
+        <format_string name="HIGH_PREC_FLOAT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>88</offset>
+      <num_elements>3</num_elements>
+      <format_strings>
+        <format_string name="HIGH_PREC_FLOAT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="tex_stamps" type="STRUCT">
+      <offset>100</offset>
+      <subtable external="NamedTimestamp" />
+    </column>
+    <column name="mat_stamps" type="STRUCT">
+      <offset>104</offset>
+      <subtable external="NamedTimestamp" />
+    </column>
+    <column name="tex_swaps" type="STRUCT">
+      <offset>112</offset>
+      <subtable external="RemeshAssetSwap" />
+    </column>
+    <column name="mat_swaps" type="STRUCT">
+      <offset>116</offset>
+      <subtable external="RemeshAssetSwap" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

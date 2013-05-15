@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCAchievementEvent">
+  <table>
+    <column name="UGCAchievementEvent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UGCAuthorID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="UGCProjectID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="UGCSeriesID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Client" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="UGCAchievementClientEvent" />
+    </column>
+    <column name="Server" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="UGCAchievementServerEvent" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

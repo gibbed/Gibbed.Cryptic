@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxyLock">
+  <table>
+    <column name="AccountProxyLock" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uAccountID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pKey" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uDestAccountID" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pDestKey" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fDestroyTime" type="F32">
+      <offset>16</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="Result" type="INT">
+      <offset>20</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="AccountProxyResult" />
+    </column>
+    <column name="ActivityType" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="AccountProxyActivityType" />
+    </column>
+    <column name="eTransactionType" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="TransactionLogType" />
+    </column>
+    <column name="RequestID" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pLock" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uPurchaseID" type="INT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pOrderID" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iCmdID" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="ID" type="IGNORE" />
+    <column name="uProductID" type="IGNORE" />
+    <column name="pActivation" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

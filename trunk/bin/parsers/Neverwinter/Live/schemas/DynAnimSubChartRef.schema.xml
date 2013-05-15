@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynAnimSubChartRef">
+  <table>
+    <column name="DynAnimSubChartRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ChartName" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>DynAnimChartLoadTime</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

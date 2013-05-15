@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CurrencyExchangeSubscriptionState">
+  <table>
+    <column name="CurrencyExchangeSubscriptionState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="INT64">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="subscriberID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="subscriberType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="lastUIDataRequestTime" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="lastUIDataUpdateTime" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

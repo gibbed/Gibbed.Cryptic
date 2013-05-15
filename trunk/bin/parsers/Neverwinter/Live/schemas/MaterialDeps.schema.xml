@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MaterialDeps">
+  <table>
+    <column name="MaterialDeps" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="depfilename" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GeoFile" type="FILENAME">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MaterialDep" type="FIXEDFILENAME">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>EARRAY</flag>
+        <flag>INDIRECT</flag>
+      </flags>
+    </column>
+    <column name="MaterialModelDep" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="MaterialModelDep" />
+    </column>
+    <column name="EndMaterialDeps" type="END" />
+  </table>
+</parser>

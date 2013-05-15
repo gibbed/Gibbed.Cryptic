@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FSMSaveHolder">
+  <table>
+    <column name="FSMSaveHolder" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="FSM" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="FSM" />
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

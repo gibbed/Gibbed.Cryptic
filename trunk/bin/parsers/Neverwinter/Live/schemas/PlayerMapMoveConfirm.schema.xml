@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerMapMoveConfirm">
+  <table>
+    <column name="PlayerMapMoveConfirm" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="PlayerMapMoveType" />
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="NamedSpawnPoint" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="QueueName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="OwnerType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="uOwnerID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Variables" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="WorldVariable" />
+    </column>
+    <column name="Scope" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="WorldScope" />
+    </column>
+    <column name="Warp" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="PlayerWarpToData" />
+    </column>
+    <column name="uiTimeStart" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="uiTimeToConfirm" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

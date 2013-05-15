@@ -1,0 +1,316 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProject">
+  <table>
+    <column name="UGCProject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iOwnerAccountID" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pOwnerAccountName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iCreationTime" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO">1</format_string>
+      </format_strings>
+    </column>
+    <column name="SeriesID" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pPublicName_ForSearching" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pOwnerAccountName_ForSearching" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bFlaggedAsCryptic" type="U8">
+      <offset>28</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pPublicName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pPublishedVersionName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>pPublicName</redundant_name>
+    </column>
+    <column name="iOwnerLangID" type="INT">
+      <offset>36</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ppProjectVersions" type="STRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCProjectVersion" />
+    </column>
+    <column name="ppDeletedProjectVersions" type="STRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCDeletedProjectVersion" />
+    </column>
+    <column name="ppProjectPermissions" type="STRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCProjectPermission" />
+    </column>
+    <column name="ugcReviews" type="EMBEDDEDSTRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCProjectReviews" />
+    </column>
+    <column name="ugcStats" type="EMBEDDEDSTRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCProjectStats" />
+    </column>
+    <column name="ugcTags" type="EMBEDDEDSTRUCT">
+      <offset>116</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCProjectTags" />
+    </column>
+    <column name="ugcReporting" type="EMBEDDEDSTRUCT">
+      <offset>128</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCProjectReporting" />
+    </column>
+    <column name="ugcLifetimeTips" type="INT">
+      <offset>152</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ImportComment" type="STRING">
+      <offset>156</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="strImportComment" type="STRING">
+      <offset>156</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ImportComment</redundant_name>
+    </column>
+    <column name="bNewlyImported" type="U8">
+      <offset>160</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="PreviousShard" type="STRING">
+      <offset>164</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="strPreviousShard" type="STRING">
+      <offset>164</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>PreviousShard</redundant_name>
+    </column>
+    <column name="iIdOnPreviousShard" type="INT">
+      <offset>168</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bBanned" type="U8">
+      <offset>172</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="CSRBanned" type="U8">
+      <offset>172</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>bBanned</redundant_name>
+    </column>
+    <column name="bCSRBanned" type="U8">
+      <offset>172</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>bBanned</redundant_name>
+    </column>
+    <column name="iDeletionTime" type="INT">
+      <offset>176</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_SECS">1</format_string>
+      </format_strings>
+    </column>
+    <column name="pIDString" type="STRING">
+      <offset>180</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bTestOnly" type="U8">
+      <offset>184</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iMostRecentPlayedTime" type="INT">
+      <offset>188</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO">1</format_string>
+      </format_strings>
+    </column>
+    <column name="pFeatured" type="OPTIONALSTRUCT">
+      <offset>192</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCFeaturedData" />
+    </column>
+    <column name="bAuthorAllowsFeatured" type="U8">
+      <offset>196</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bUGCFeaturedCopyProjectInProgress" type="U8">
+      <offset>197</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uUGCFeaturedOrigProjectID" type="INT">
+      <offset>200</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pExtraDetailData" type="OPTIONALSTRUCT">
+      <offset>208</offset>
+      <subtable external="UGCExtraDetailData" />
+    </column>
+    <column name="Withdraw Project" type="COMMAND">
+      <offset>0</offset>
+      <command_string>WithdrawProject $FIELD(id) $STRING(Comment String) $CONFIRM(Really withdraw this project?)</command_string>
+      <format_strings>
+        <format_string name="commandExpr">\q$SERVERTYPE\q = \qUGCDataManager\q</format_string>
+      </format_strings>
+    </column>
+    <column name="Check Container Location" type="COMMAND">
+      <offset>0</offset>
+      <command_string>DebugCheckContainerLoc UGCProject $FIELD(id)</command_string>
+      <format_strings>
+        <format_string name="commandExpr">\q$SERVERTYPE\q = \qObjectDB\q</format_string>
+      </format_strings>
+    </column>
+    <column name="Apply Transaction" type="COMMAND">
+      <offset>0</offset>
+      <command_string>ServerMonTransactionOnEntity UGCProject $FIELD(id) $STRING(Transaction String)$CONFIRM(Really apply this transaction?)</command_string>
+    </column>
+    <column name="pPrevPublicName" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

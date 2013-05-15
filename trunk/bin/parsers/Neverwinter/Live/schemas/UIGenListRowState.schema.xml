@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenListRowState">
+  <table>
+    <column name="UIGenListRowState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>10</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="List" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+        <flag>STRUCT_NORECURSE</flag>
+      </flags>
+      <subtable external="UIGen" />
+    </column>
+    <column name="RowTemplate" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+        <flag>STRUCT_NORECURSE</flag>
+      </flags>
+      <subtable external="UIGen" />
+    </column>
+    <column name="Row" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Col" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="DataRow" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="PlainString" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Truncate" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="UIGenBundleTruncateState" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

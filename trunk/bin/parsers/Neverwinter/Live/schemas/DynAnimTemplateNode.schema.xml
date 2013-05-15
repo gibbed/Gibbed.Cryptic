@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynAnimTemplateNode">
+  <table>
+    <column name="DynAnimTemplateNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="defaultNext" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DynAnimTemplateNodeRef" />
+    </column>
+    <column name="Switch" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="DynAnimTemplateSwitch" />
+    </column>
+    <column name="Path" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="DynAnimTemplatePath" />
+    </column>
+    <column name="Type" type="INT">
+      <offset>20</offset>
+      <static_define_list external="eAnimTemplateNodeType" />
+    </column>
+    <column name="Interruptible" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="X" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="Y" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

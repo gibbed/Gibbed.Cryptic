@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldVolumeWater">
+  <table>
+    <column name="WorldVolumeWater" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Water" type="START" />
+    <column name="FileName" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="MaterialName" type="STRING">
+      <offset>4</offset>
+      <default_string>WaterVolume_default</default_string>
+    </column>
+    <column name="refractMin" type="F32">
+      <offset>8</offset>
+      <default>1056964608</default>
+    </column>
+    <column name="refractMax" type="F32">
+      <offset>12</offset>
+      <default>6</default>
+    </column>
+    <column name="rippleMin" type="F32">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="rippleMax" type="F32">
+      <offset>20</offset>
+      <default>12</default>
+    </column>
+    <column name="DOFValues" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="DOFValues" />
+    </column>
+    <column name="LowEnd" type="EMBEDDEDSTRUCT">
+      <offset>128</offset>
+      <subtable external="WorldVolumeWaterLowEnd" />
+    </column>
+    <column name="EndWater" type="END" />
+  </table>
+</parser>

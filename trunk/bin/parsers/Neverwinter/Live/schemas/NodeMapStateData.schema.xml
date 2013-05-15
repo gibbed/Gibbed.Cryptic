@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NodeMapStateData">
+  <table>
+    <column name="NodeMapStateData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dirtyBit" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="NodeEntries" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="NodeMapStateEntry" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

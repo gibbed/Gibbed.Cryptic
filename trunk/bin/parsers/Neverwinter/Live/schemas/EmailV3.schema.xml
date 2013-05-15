@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EmailV3">
+  <table>
+    <column name="EmailV3" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="eaMessages" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="EmailV3Message" />
+    </column>
+    <column name="bUnreadMail" type="U8">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uLastUsedID" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uLastSyncTime" type="IGNORE" />
+    <column name="bReadAll" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

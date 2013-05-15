@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Message">
+  <table>
+    <column name="Message" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MessageKey" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="MessageKeyVer3" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <redundant_name>MessageKey</redundant_name>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>CASE_SENSITIVE</flag>
+      </flags>
+    </column>
+    <column name="DefaultString" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>CASE_SENSITIVE</flag>
+      </flags>
+    </column>
+    <column name="LineNum" type="LINENUM">
+      <offset>20</offset>
+    </column>
+    <column name="Final" type="BIT">
+      <offset>24</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="DoNotTranslate" type="BIT">
+      <offset>24</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="LocallyTranslated" type="BIT">
+      <offset>24</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

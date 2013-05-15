@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CurrencyExchangeConfig">
+  <table>
+    <column name="CurrencyExchangeConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Enabled" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="maxPlayerOpenOrders" type="INT">
+      <offset>4</offset>
+      <default>5</default>
+    </column>
+    <column name="maxDisplayPrices" type="INT">
+      <offset>8</offset>
+      <default>10</default>
+    </column>
+    <column name="orderExpireDays" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="maxPlayerLogEntries" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="maxMTCPrice" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="minMTCPrice" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="maxQuantityPerOrder" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="minQuantityPerOrder" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="maxMTCLockRetryCount" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="tcNumeric" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

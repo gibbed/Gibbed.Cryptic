@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectInfo">
+  <table>
+    <column name="UGCProjectInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="creationTime" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="FromContainer" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="PublicName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Notes" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="Permission" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="UGCProjectPermission" />
+    </column>
+    <column name="Language" type="INT">
+      <offset>36</offset>
+      <static_define_list external="Language" />
+    </column>
+    <column name="MapLocation" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="UGCMapLocation" />
+    </column>
+    <column name="SearchLocation" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="RestrictionProperties" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="WorldUGCRestrictionProperties" />
+    </column>
+    <column name="uLifetimeTipsReceived" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="AverageRating" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="ID" type="IGNORE" />
+    <column name="IDString" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SpeciesGenData">
+  <table>
+    <column name="SpeciesGenData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NumToGenerate" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="MaleSkeleton" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>CostumeSkeleton</dictionary_name>
+    </column>
+    <column name="FemaleSkeleton" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>CostumeSkeleton</dictionary_name>
+    </column>
+    <column name="DefaultMaleFeatures" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>SpeciesFeature</dictionary_name>
+    </column>
+    <column name="DefaultFemaleFeatures" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>SpeciesFeature</dictionary_name>
+    </column>
+    <column name="FeaturesToUse" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="SpeciesDefiningFeatureRef" />
+    </column>
+    <column name="UniformGroup" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="UniformGroupGen" />
+    </column>
+    <column name="GroupedCritterDef" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="CritterGroupGen" />
+    </column>
+    <column name="AllowedMaleVoice" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="VoiceRef" />
+    </column>
+    <column name="AllowedFemaleVoice" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="VoiceRef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

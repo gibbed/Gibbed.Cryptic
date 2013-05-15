@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AlwaysPropSlotData">
+  <table>
+    <column name="AlwaysPropSlotData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hDef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>AlwaysPropSlotDef</dictionary_name>
+    </column>
+    <column name="RestrictType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="AlwaysPropSlotClassRestrictType" />
+    </column>
+    <column name="RestrictDef" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="AlwaysPropSlotClassRestrictDef" />
+    </column>
+    <column name="Name" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="ClassDisplayName" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="uiPuppetID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="SlotID" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="uiPetID" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="ID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="PropItem" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Item" />
+    </column>
+    <column name="hPropItemDef" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="PropItemKey" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentSlotUI">
+  <table>
+    <column name="ItemAssignmentSlotUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hDef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>ItemAssignmentDef</dictionary_name>
+    </column>
+    <column name="hNewAssignmentDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>ItemAssignmentDef</dictionary_name>
+    </column>
+    <column name="uNewAssignmentID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="hItemDef" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="uItemID" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="BagID" type="INT">
+      <offset>24</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="BagSlot" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="AssignmentSlot" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="RequiredCategories" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="RawRequiredCategories" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="RestrictCategories" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="RawRestrictCategories" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="AffectedCategories" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="RawAffectedCategories" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DestroyDescription" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="NewAssignmentDescription" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="FailsReason" type="INT">
+      <offset>72</offset>
+      <static_define_list external="ItemAssignmentFailsRequiresReason" />
+    </column>
+    <column name="OutcomeModifyValue" type="F32">
+      <offset>76</offset>
+    </column>
+    <column name="DurationModifyValue" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="Destroyed" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="NewAssignment" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Unslottable" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="OptionalSlot" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Updated" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

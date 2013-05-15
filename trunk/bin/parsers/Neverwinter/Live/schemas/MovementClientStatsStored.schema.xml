@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MovementClientStatsStored">
+  <table>
+    <column name="MovementClientStatsStored" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="packetsFromClient" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="MovementClientStatsPacketArray" />
+    </column>
+    <column name="packetsFromServer" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="MovementClientStatsPacketArray" />
+    </column>
+    <column name="frames" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="MovementClientStatsFrames" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

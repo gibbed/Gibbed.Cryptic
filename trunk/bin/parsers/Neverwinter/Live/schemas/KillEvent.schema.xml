@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="KillEvent">
+  <table>
+    <column name="KillEvent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="RegionType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="LogParserWorldRegionType" />
+    </column>
+    <column name="Sources" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="KillEventParticipant" />
+    </column>
+    <column name="Targets" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="KillEventParticipant" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

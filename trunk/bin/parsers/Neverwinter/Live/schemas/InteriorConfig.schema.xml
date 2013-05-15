@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InteriorConfig">
+  <table>
+    <column name="InteriorConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="interiorPetType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="CharClassTypes" />
+    </column>
+    <column name="interiorChangeContactType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="ContactFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="interiorChangeCost" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="interiorChangeCostNumeric" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="interiorChangeFreeNumeric" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FreePurchaseKey" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="FreeSetting" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="InteriorSettingMTRef" />
+    </column>
+    <column name="PersistAlternates" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="SettingChosenAutomatically" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

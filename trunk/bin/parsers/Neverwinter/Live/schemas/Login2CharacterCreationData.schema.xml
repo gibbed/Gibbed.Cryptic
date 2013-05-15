@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Login2CharacterCreationData">
+  <table>
+    <column name="Login2CharacterCreationData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="subName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="gameSpecificChoice" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="ClassName" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hClass" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ClassName</redundant_name>
+    </column>
+    <column name="AllegianceName" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CharacterPathName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SpeciesName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hSpecies" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SpeciesName</redundant_name>
+    </column>
+    <column name="PowerTreeName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hPowerTree" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PowerTreeName</redundant_name>
+    </column>
+    <column name="MoodName" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hMood" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MoodName</redundant_name>
+    </column>
+    <column name="powerNodes" type="STRINGARRAY">
+      <offset>40</offset>
+    </column>
+    <column name="Costumes" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="PossibleCharacterCostume" />
+    </column>
+    <column name="Costume" type="STRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Costumes</redundant_name>
+      <subtable external="PossibleCharacterCostume" />
+    </column>
+    <column name="hCostume" type="STRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Costumes</redundant_name>
+      <subtable external="PossibleCharacterCostume" />
+    </column>
+    <column name="AssignedStat" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="AssignedStats" />
+    </column>
+    <column name="PetInfo" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="LoginPetInfo" />
+    </column>
+    <column name="puppetInfo" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="LoginPuppetInfo" />
+    </column>
+    <column name="CostumePreset" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="VirtualShardID" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="shardName" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="skipTutorial" type="U8">
+      <offset>72</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

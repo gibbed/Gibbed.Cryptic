@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExclusionVolume">
+  <table>
+    <column name="ExclusionVolume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="ExclusionVolumeType" />
+    </column>
+    <column name="MinExtent" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="MaxExtent" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="begin_radius" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="end_radius" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="rot_mat" type="MATPYR">
+      <offset>36</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_mat" type="F32FIXEDARRAY">
+      <offset>72</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="is_a_path" type="U8">
+      <offset>84</offset>
+    </column>
+    <column name="is_on_path" type="U8">
+      <offset>85</offset>
+    </column>
+    <column name="above_terrain" type="U8">
+      <offset>86</offset>
+    </column>
+    <column name="below_terrain" type="U8">
+      <offset>87</offset>
+    </column>
+    <column name="collides" type="U8">
+      <offset>88</offset>
+    </column>
+    <column name="col_type" type="INT">
+      <offset>92</offset>
+      <static_define_list external="WorldTerrainCollisionType" />
+    </column>
+    <column name="Platform" type="INT">
+      <offset>96</offset>
+      <static_define_list external="WorldPlatformType" />
+    </column>
+    <column name="challenges_only" type="U8">
+      <offset>100</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

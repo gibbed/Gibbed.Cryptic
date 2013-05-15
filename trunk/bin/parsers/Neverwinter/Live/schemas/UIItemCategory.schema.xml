@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIItemCategory">
+  <table>
+    <column name="UIItemCategory" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CategoryName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="CategoryNameWithoutPrefix" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="CategoryNamePrefix" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Category" type="INT">
+      <offset>16</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="CategoryData" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ItemCategoryInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldDrawableEntryParsed">
+  <table>
+    <column name="WorldDrawableEntryParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="base_data" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldCellEntryParsed" />
+    </column>
+    <column name="fade_mid_idx" type="INT">
+      <offset>72</offset>
+      <default>-1</default>
+    </column>
+    <column name="fade_radius" type="F32">
+      <offset>76</offset>
+      <float_rounding>ONES</float_rounding>
+    </column>
+    <column name="Color" type="F32FIXEDARRAY">
+      <offset>80</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="draw_list_idx" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="instance_param_list_idx" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="fx_entry_id" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="animation_entry_id" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="is_near_fade" type="BIT">
+      <offset>112</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="is_clustered" type="BIT">
+      <offset>112</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="undeclared" type="BIT">
+      <offset>112</offset>
+      <bit_offset>1966082</bit_offset>
+    </column>
+    <column name="bitfield" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="camera_facing" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="axis_camera_facing" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="unlit" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="occluder" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="double_sided_occluder" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="low_detail" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="high_detail" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="high_fill_detail" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="map_snap_hidden" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="no_shadow_cast" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="no_shadow_receive" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="force_trunk_wind" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="no_vertex_lighting" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="use_character_lighting" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="future_flag2" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="future_flag3" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="future_flag4" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="future_flag5" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65553</bit_offset>
+    </column>
+    <column name="bitfield_u32" type="INT">
+      <offset>116</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+    </column>
+    <column name="lod_vertex_light_colors" type="STRUCT">
+      <offset>120</offset>
+      <subtable external="WorldDrawableEntryVertexLightColorsParsed" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

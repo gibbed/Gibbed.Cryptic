@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BackgroundPlayerCostume">
+  <table>
+    <column name="BackgroundPlayerCostume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="hCostume" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="SlotType" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hMood" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>PCMood</dictionary_name>
+    </column>
+    <column name="hClass" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="Dirty" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMapTextureAssembly">
+  <table>
+    <column name="UIGenMapTextureAssembly" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapAssembly" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Assembly" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="AssemblyRef" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+      <dictionary_name>UITextureAssembly</dictionary_name>
+    </column>
+    <column name="uiFrameLastUpdate" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="Colors" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="Color4" />
+    </column>
+    <column name="PaddingTop" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="TopPadding" type="U8">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PaddingTop</redundant_name>
+    </column>
+    <column name="PaddingBottom" type="U8">
+      <offset>29</offset>
+    </column>
+    <column name="BottomPadding" type="U8">
+      <offset>29</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PaddingBottom</redundant_name>
+    </column>
+    <column name="PaddingLeft" type="U8">
+      <offset>30</offset>
+    </column>
+    <column name="LeftPadding" type="U8">
+      <offset>30</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PaddingLeft</redundant_name>
+    </column>
+    <column name="PaddingRight" type="U8">
+      <offset>31</offset>
+    </column>
+    <column name="RightPadding" type="U8">
+      <offset>31</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PaddingRight</redundant_name>
+    </column>
+    <column name="Z" type="INT16">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

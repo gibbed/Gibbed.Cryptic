@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MicroTrans_PaymentMethodUI">
+  <table>
+    <column name="MicroTrans_PaymentMethodUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Type" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="NameOnAccount" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Currency" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="CCPrefix" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="CCSuffix" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="CCExpDate" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="SteamWallet" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

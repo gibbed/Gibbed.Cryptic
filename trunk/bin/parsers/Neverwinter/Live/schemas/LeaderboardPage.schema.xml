@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LeaderboardPage">
+  <table>
+    <column name="LeaderboardPage" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LeaderboardKey" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Interval" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Entries" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="LeaderboardPageEntry" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

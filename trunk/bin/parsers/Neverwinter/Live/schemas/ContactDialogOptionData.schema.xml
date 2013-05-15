@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContactDialogOptionData">
+  <table>
+    <column name="ContactDialogOptionData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Action" type="INT">
+      <offset>0</offset>
+      <static_define_list external="ContactActionType" />
+    </column>
+    <column name="targetState" type="INT">
+      <offset>4</offset>
+      <static_define_list external="ContactDialogState" />
+    </column>
+    <column name="FirstOptionsList" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="FirstInteract" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="IsOfficerTrainer" type="U8">
+      <offset>10</offset>
+    </column>
+    <column name="uCooldownExpireTime" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="hRootMission" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="hRootMissionSecondary" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="SubMissionName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SubMissionNameSecondary" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MissionOfferParams" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="MissionOfferParams" />
+    </column>
+    <column name="HeadshotData" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="ContactHeadshotData" />
+    </column>
+    <column name="HeadshotDisplayName" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="NamespacedMissionContactData" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="NamespacedMissionContactData" />
+    </column>
+    <column name="hClassCategorySet" type="REFERENCE">
+      <offset>48</offset>
+      <dictionary_name>CharClassCategorySet</dictionary_name>
+    </column>
+    <column name="hMissionListContactDef" type="REFERENCE">
+      <offset>52</offset>
+      <dictionary_name>ContactDef</dictionary_name>
+    </column>
+    <column name="hTargetContactDef" type="REFERENCE">
+      <offset>56</offset>
+      <dictionary_name>ContactDef</dictionary_name>
+    </column>
+    <column name="TargetDialogName" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CompletedDialogName" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DialogActionIndex" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="VolumeName" type="STRING">
+      <offset>72</offset>
+    </column>
+    <column name="OptionalActionIndex" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="hItemDef" type="REFERENCE">
+      <offset>80</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="EntType" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="EntID" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="ItemBagID" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="ItemSlot" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="SpecialDialogSubIndex" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="StoreCollection" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="ImageMenuItemIndex" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="hAuctionBrokerDef" type="REFERENCE">
+      <offset>112</offset>
+      <dictionary_name>AuctionBrokerDef</dictionary_name>
+    </column>
+    <column name="UGCSearchAgentData" type="OPTIONALSTRUCT">
+      <offset>116</offset>
+      <subtable external="UGCSearchAgentData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

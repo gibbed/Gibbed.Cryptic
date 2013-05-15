@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ControlSpec">
+  <table>
+    <column name="ControlSpec" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Spec" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ControlSpecLine" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

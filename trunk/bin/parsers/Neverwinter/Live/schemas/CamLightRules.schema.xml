@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CamLightRules">
+  <table>
+    <column name="CamLightRules" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Enabled" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="keyOverride" type="U8">
+      <offset>1</offset>
+    </column>
+    <column name="Offset" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="AmbientHSV" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="DiffuseHSV" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="SpecularHSV" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="innerRadius" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="outerRadius" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

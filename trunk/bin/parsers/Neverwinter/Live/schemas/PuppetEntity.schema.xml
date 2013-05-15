@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PuppetEntity">
+  <table>
+    <column name="PuppetEntity" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="eState" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="PuppetContainerState" />
+    </column>
+    <column name="eType" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="hEntityRef" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+      </flags>
+      <dictionary_name>CopyDict_EntitySavedPet</dictionary_name>
+    </column>
+    <column name="pchLooseUI" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchLooseUI_Obsolete" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>pchLooseUI</redundant_name>
+    </column>
+    <column name="PuppetTray" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="piUITrayIndex" type="INTARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="puiNoSlotPowerIDs" type="INTARRAY">
+      <offset>20</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="ppTrayElems" type="STRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="TrayElem" />
+    </column>
+    <column name="ppAutoAttackElems" type="STRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="TrayElem" />
+    </column>
+    <column name="ppActiveSlotsSaved" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="SavedActiveSlots" />
+    </column>
+    <column name="ppModsSaved" type="STRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="AttribMod" />
+    </column>
+    <column name="ppSavedPropSlots" type="STRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="AlwaysPropSlot" />
+    </column>
+    <column name="curType" type="INT">
+      <offset>44</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="curID" type="INT">
+      <offset>48</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <format_strings>
+        <format_string name="FIXUP_CONTAINER_TYPE">.curType</format_string>
+      </format_strings>
+    </column>
+    <column name="hEntity" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

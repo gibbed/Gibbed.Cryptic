@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenLayoutBoxInstance">
+  <table>
+    <column name="UIGenLayoutBoxInstance" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Gen" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="UIGen" />
+    </column>
+    <column name="Template" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+        <flag>STRUCT_NORECURSE</flag>
+      </flags>
+      <subtable external="UIGen" />
+    </column>
+    <column name="InstanceNumber" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="DataNumber" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Row" type="INT16">
+      <offset>16</offset>
+    </column>
+    <column name="Column" type="INT16">
+      <offset>18</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AutoLODTemplate">
+  <table>
+    <column name="AutoLODTemplate" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="LODNear" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="LODFar" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="NoFade" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="LodNearFade" type="IGNORE" />
+    <column name="LodFarFade" type="IGNORE" />
+    <column name="End" type="END" />
+  </table>
+</parser>

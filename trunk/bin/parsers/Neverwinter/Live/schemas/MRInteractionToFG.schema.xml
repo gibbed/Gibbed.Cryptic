@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRInteractionToFG">
+  <table>
+    <column name="MRInteractionToFG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="pathVersionReceived" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="reachedWaypointIndex" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="MRInteractionToFGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

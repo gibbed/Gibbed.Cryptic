@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribMod">
+  <table>
+    <column name="AttribMod" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hPowerDef" type="REFERENCE">
+      <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="uiVersion" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="uiDefIdx" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="uiApplyID" type="INT">
+      <offset>36</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="uiPowerID" type="INT">
+      <offset>44</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="iPowerIDSub" type="INT">
+      <offset>48</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="iPowerIDLinkedSub" type="INT16">
+      <offset>52</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="erPersonal" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="pParams" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="AttribModParams" />
+    </column>
+    <column name="fHue" type="F32">
+      <offset>72</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bActive" type="BIT">
+      <offset>84</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="bDisabled" type="BIT">
+      <offset>84</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="bProcessOfflineTimeOnLogin" type="BIT">
+      <offset>84</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="bDeathPeekCompleted" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="bPostFirstTickApply" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="bProcessedDisplayNameTraker" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="fDuration" type="F32">
+      <offset>88</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="fDurationOriginal" type="F32">
+      <offset>92</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="fMagnitude" type="F32">
+      <offset>96</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="fMagnitudeOriginal" type="F32">
+      <offset>100</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pFragility" type="OPTIONALSTRUCT">
+      <offset>104</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="ModFragility" />
+    </column>
+    <column name="fAvoidance" type="F32">
+      <offset>108</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="fTimer" type="F32">
+      <offset>112</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="erCreated" type="INT">
+      <offset>128</offset>
+    </column>
+    <column name="ppPowersCreated" type="STRUCT">
+      <offset>132</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="Power" />
+    </column>
+    <column name="pSubtarget" type="OPTIONALSTRUCT">
+      <offset>136</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="PowerSubtargetChoice" />
+    </column>
+    <column name="ppApplyStrengths" type="STRUCT">
+      <offset>140</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="PowerApplyStrength" />
+    </column>
+    <column name="pSourceDetails" type="OPTIONALSTRUCT">
+      <offset>144</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="AttribModSourceDetails" />
+    </column>
+    <column name="eFlags" type="INT">
+      <offset>152</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <static_define_list external="CombatTrackerFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="eModPowerSource" type="IGNORE" />
+    <column name="fCheckTimer" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

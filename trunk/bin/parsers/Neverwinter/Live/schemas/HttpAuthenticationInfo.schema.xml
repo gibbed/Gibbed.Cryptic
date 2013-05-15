@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="HttpAuthenticationInfo">
+  <table>
+    <column name="HttpAuthenticationInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AuthUserName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="AuthStringCRC" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ticket" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="SessionStructs" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="HttpSessionStruct" />
+    </column>
+    <column name="port" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="access_level" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="time_last_used" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ResourceGroup">
+  <table>
+    <column name="ResourceGroup" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Groups" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ResourceGroup" />
+    </column>
+    <column name="Infos" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ResourceInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

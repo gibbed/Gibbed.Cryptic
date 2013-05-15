@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QuickPlayMenu">
+  <table>
+    <column name="QuickPlayMenu" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="playerName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Script" type="STRINGARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="SubMenu" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="QuickPlayMenu" />
+    </column>
+    <column name="KeyBind" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="KeyBind" />
+    </column>
+    <column name="DefaultCharacter" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="Info" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="Login2CharacterCreationData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

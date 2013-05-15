@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemDefWarp">
+  <table>
+    <column name="ItemDefWarp" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LimitedUse" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="WarpChargesMax" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Map" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Spawn" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uiTimeToConfirm" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="WarpType" type="BIT">
+      <offset>20</offset>
+      <bit_offset>262144</bit_offset>
+      <static_define_list external="ItemWarpType" />
+    </column>
+    <column name="CanMapMove" type="BIT">
+      <offset>20</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65540</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

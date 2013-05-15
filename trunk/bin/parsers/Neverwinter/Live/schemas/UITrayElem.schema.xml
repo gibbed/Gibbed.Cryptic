@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UITrayElem">
+  <table>
+    <column name="UITrayElem" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TrayElem" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="TrayElem" />
+    </column>
+    <column name="PetData" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="PetTrayElemData" />
+    </column>
+    <column name="PetTrayElem" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PetData</redundant_name>
+      <subtable external="PetTrayElemData" />
+    </column>
+    <column name="SourceItem" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Item" />
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Tray" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Slot" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Purpose" type="INT">
+      <offset>28</offset>
+      <static_define_list external="PowerPurpose" />
+    </column>
+    <column name="DragType" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Key" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="HighlightType" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="LastStackedItemCount" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="uiNextStackedItemUpdate" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="NumTotalCharges" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="Valid" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Activatable" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="InRange" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="EnoughPower" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="LineOfSight" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="Facing" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="NotDisabled" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="Active" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="Current" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="Queued" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="MultiExec" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="Charging" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="Maintaining" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="Recharging" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="RefillingCharges" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="InCooldown" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="ModeEnabled" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="AutoActivating" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65553</bit_offset>
+    </column>
+    <column name="AutoActivate" type="BIT">
+      <offset>56</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AutoActivating</redundant_name>
+      <bit_offset>65553</bit_offset>
+    </column>
+    <column name="AutoActivateEnabled" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65554</bit_offset>
+    </column>
+    <column name="OwnedTrayElem" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65555</bit_offset>
+    </column>
+    <column name="Highlight" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65556</bit_offset>
+    </column>
+    <column name="ReferencesTrayElem" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
+    <column name="UseBaseReplacePower" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65558</bit_offset>
+    </column>
+    <column name="InterruptOnRequest" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65559</bit_offset>
+    </column>
+    <column name="Locked" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65560</bit_offset>
+    </column>
+    <column name="StateSwitchedPower" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65561</bit_offset>
+    </column>
+    <column name="Dirty" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65562</bit_offset>
+    </column>
+    <column name="WillActivateOnUse" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65563</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

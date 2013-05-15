@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TargetTypePair">
+  <table>
+    <column name="TargetTypePair" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Require" type="INT">
+      <offset>0</offset>
+      <static_define_list external="TargetType" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Exclude" type="INT">
+      <offset>4</offset>
+      <static_define_list external="TargetType" />
+      <format>FLAGS</format>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

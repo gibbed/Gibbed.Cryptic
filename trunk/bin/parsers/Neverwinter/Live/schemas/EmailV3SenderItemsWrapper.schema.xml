@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EmailV3SenderItemsWrapper">
+  <table>
+    <column name="EmailV3SenderItemsWrapper" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ItemsFromPlayer" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="EmailV3SenderItem" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

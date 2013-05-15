@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldWarpActionProperties">
+  <table>
+    <column name="WorldWarpActionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="WarpDest" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="SpawnTargetName" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="TransitionOverride" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="VariableDef" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="Variable" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="WorldVariable" />
+    </column>
+    <column name="IncludeTeammates" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

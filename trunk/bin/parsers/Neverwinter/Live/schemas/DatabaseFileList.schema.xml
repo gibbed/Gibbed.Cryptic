@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DatabaseFileList">
+  <table>
+    <column name="DatabaseFileList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Files" type="STRINGARRAY">
+      <offset>0</offset>
+      <format_strings>
+        <format_string name="XML_UNWRAP_ARRAY">1</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

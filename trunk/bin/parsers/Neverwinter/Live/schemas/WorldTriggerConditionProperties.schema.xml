@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldTriggerConditionProperties">
+  <table>
+    <column name="WorldTriggerConditionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="condBlock" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="cond" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>condBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

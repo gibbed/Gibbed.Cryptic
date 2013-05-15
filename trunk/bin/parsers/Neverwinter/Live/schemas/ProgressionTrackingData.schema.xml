@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ProgressionTrackingData">
+  <table>
+    <column name="ProgressionTrackingData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hStoryArcNode" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="hNode" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

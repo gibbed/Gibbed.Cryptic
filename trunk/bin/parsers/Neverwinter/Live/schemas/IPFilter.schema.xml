@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="IPFilter">
+  <table>
+    <column name="IPFilter" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="IPFilterType" />
+    </column>
+    <column name="uIP1" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uIP2" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Group" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="reloadable" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

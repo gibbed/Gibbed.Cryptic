@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCMissionMapLink">
+  <table>
+    <column name="UGCMissionMapLink" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DoorComponent" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="DoorUsesMapLocation" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="DoorMapLocation" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="UGCMapLocation" />
+    </column>
+    <column name="SpawnComponent" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="SpawnInternalMapName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="DialogBlock" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="UGCDialogTreePrompt" />
+    </column>
+    <column name="InteractText" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="ReturnText" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="OpenMissionName" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

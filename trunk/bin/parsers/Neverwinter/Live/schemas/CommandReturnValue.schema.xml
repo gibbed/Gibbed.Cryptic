@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CommandReturnValue">
+  <table>
+    <column name="CommandReturnValue" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CommandRequestID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ClientID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ResultString" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ObsoletionTime" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ScoreboardEntity">
+  <table>
+    <column name="ScoreboardEntity" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EntID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="entRef" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="FactionName" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Points" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="PlayerKills" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="PlayerAssists" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="PlayerHealing" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="PlayerDamage" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="DeathsToPlayers" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="PlayerTime" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="BossKills" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="DeathsToBosses" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="TotalKills" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="DeathsTotal" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="PlayerAssaultTeams" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="Active" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="CharacterPathName" type="STRING">
+      <offset>72</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

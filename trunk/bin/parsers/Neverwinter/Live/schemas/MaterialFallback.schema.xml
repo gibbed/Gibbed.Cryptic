@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MaterialFallback">
+  <table>
+    <column name="MaterialFallback" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Template" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="InputMapping" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ShaderInputMapping" />
+    </column>
+    <column name="OperationValue" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ShaderOperationValues" />
+    </column>
+    <column name="EndFallback" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GoldenPathNode">
+  <table>
+    <column name="GoldenPathNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="v3Pos" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Connections" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="GoldenPathEdge" />
+    </column>
+    <column name="IsSecret" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="CanBeObstructed" type="U8">
+      <offset>25</offset>
+    </column>
+    <column name="HasBeenVisited" type="U8">
+      <offset>26</offset>
+    </column>
+    <column name="IsTemporary" type="U8">
+      <offset>27</offset>
+    </column>
+    <column name="TeleportID" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

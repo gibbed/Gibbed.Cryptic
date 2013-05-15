@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisZoneMapData">
+  <table>
+    <column name="GenesisZoneMapData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Seed" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="DetailSeed" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="MapTrackingEnabled" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="SolarSystem" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisSolSysZoneMap" />
+    </column>
+    <column name="GenesisInterior" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="GenesisZoneInterior" />
+    </column>
+    <column name="GenesisExterior" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="GenesisZoneExterior" />
+    </column>
+    <column name="GenesisExteriorNodes" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="GenesisZoneNodeLayout" />
+    </column>
+    <column name="GenesisMission" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="GenesisZoneMission" />
+    </column>
+    <column name="GenesisSharedChallenge" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="GenesisMissionZoneChallenge" />
+    </column>
+    <column name="EncounterOverride" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="GenesisProceduralEncounterProperties" />
+    </column>
+    <column name="MapDescription" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="GenesisMapDescription" />
+    </column>
+    <column name="Type" type="IGNORE" />
+    <column name="NoSharingDetail" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

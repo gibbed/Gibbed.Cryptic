@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldCellEntryBoundsParsed">
+  <table>
+    <column name="WorldCellEntryBoundsParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="rot_world_matrix" type="MATPYR">
+      <offset>0</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_world_matrix" type="F32FIXEDARRAY">
+      <offset>36</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="local_mid_idx" type="INT">
+      <offset>48</offset>
+      <default>-1</default>
+    </column>
+    <column name="object_tag" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

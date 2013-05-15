@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SurfaceLocalBG">
+  <table>
+    <column name="SurfaceLocalBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="overrideMaxSpeed" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="inputDir" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="velTarget" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="spcLanded" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="speedPenaltiesQueued" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="SurfaceSpeedPenalty" />
+    </column>
+    <column name="speedPenaltiesActive" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="SurfaceSpeedPenalty" />
+    </column>
+    <column name="spcStrafingOverride" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="spcDisableJump" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>84</offset>
+      <subtable external="SurfaceLocalBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

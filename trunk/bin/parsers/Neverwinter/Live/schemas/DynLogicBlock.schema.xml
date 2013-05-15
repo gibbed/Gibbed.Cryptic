@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynLogicBlock">
+  <table>
+    <column name="DynLogicBlock" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="off" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="DynBitFieldStatic" />
+    </column>
+    <column name="on" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DynBitFieldStatic" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

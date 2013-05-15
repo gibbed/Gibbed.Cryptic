@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DonationTaskBucketUI">
+  <table>
+    <column name="DonationTaskBucketUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ToolTip" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Image" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ItemDef" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="DonationTask" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>DonationTaskDef</dictionary_name>
+    </column>
+    <column name="bucketName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CurrentQuantity" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="RequiredQuantity" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="IncrementQuantity" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="AvailableItemKeys" type="STRINGARRAY">
+      <offset>40</offset>
+    </column>
+    <column name="QueuedItemKeys" type="STRINGARRAY">
+      <offset>44</offset>
+    </column>
+    <column name="QueuedItemCount" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="BucketKey" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="MaximumDonation" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="OpenDonation" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="AvailableItemsUpdate" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="CanFillBucket" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="filled" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="CanQueueItems" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatMailStruct">
+  <table>
+    <column name="ChatMailStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="sent" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="fromID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="fromHandle" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="shardName" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="subject" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="Body" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Read" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="uLotID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="toName" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="fromName" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="TypeOfEmail" type="INT">
+      <offset>44</offset>
+      <static_define_list external="EMailType" />
+    </column>
+    <column name="toContainerID" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="NPCEMailID" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="uTimeLeft" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="uTimeReceived" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="uFutureSendTime" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

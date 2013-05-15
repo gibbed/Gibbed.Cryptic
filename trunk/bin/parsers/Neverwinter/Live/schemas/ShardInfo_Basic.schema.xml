@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShardInfo_Basic">
+  <table>
+    <column name="ShardInfo_Basic" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MonitoringLink" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ShardCategoryName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ProductName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="shardName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="ClusterName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ShardLoginServerAddress" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="ShardControllerAddress" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="VersionString" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="PatchCommandLine" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="AutoClientCommandLine" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="PrePatchCommandLine" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="UniqueID" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="HasLocalMontiringMCP" type="U8">
+      <offset>48</offset>
+      <format_strings>
+        <format_string name="HTML_SKIP">1</format_string>
+      </format_strings>
+    </column>
+    <column name="allLoginServerIPs" type="INTARRAY">
+      <offset>52</offset>
+    </column>
+    <column name="LoginServerPortsAndIPs" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="PortIPPairList" />
+    </column>
+    <column name="NotReallyThere" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="AccountServer" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

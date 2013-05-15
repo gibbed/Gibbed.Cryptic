@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldClusterStats">
+  <table>
+    <column name="WorldClusterStats" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="clusteringTotals" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="netSend" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="netRecv" type="EMBEDDEDSTRUCT">
+      <offset>64</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="wtexDecompress" type="EMBEDDEDSTRUCT">
+      <offset>96</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="modelExport" type="EMBEDDEDSTRUCT">
+      <offset>128</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="pngExport" type="EMBEDDEDSTRUCT">
+      <offset>160</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="convertGeo" type="EMBEDDEDSTRUCT">
+      <offset>192</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="remeshGeo" type="EMBEDDEDSTRUCT">
+      <offset>224</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="CastTextures" type="STRUCT">
+      <offset>256</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="wtexCompress" type="EMBEDDEDSTRUCT">
+      <offset>264</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="cacheGeo" type="EMBEDDEDSTRUCT">
+      <offset>296</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="cacheTex" type="EMBEDDEDSTRUCT">
+      <offset>328</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="msetBinGeneration" type="EMBEDDEDSTRUCT">
+      <offset>360</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="wtexBinGeneration" type="EMBEDDEDSTRUCT">
+      <offset>392</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="clientClusterBinSize" type="EMBEDDEDSTRUCT">
+      <offset>424</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="inputGeo" type="EMBEDDEDSTRUCT">
+      <offset>456</offset>
+      <subtable external="WorldClusterGeoStats" />
+    </column>
+    <column name="outputGeo" type="EMBEDDEDSTRUCT">
+      <offset>480</offset>
+      <subtable external="WorldClusterGeoStats" />
+    </column>
+    <column name="numBuilds" type="INT">
+      <offset>504</offset>
+    </column>
+    <column name="numReuse" type="INT">
+      <offset>508</offset>
+    </column>
+    <column name="numCrashes" type="INT">
+      <offset>512</offset>
+    </column>
+    <column name="numDisconnects" type="INT">
+      <offset>516</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

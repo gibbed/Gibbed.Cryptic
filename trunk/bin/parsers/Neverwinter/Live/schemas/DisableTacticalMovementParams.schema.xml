@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DisableTacticalMovementParams">
+  <table>
+    <column name="DisableTacticalMovementParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1176</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Flags" type="INT">
+      <offset>4</offset>
+      <static_define_list external="TacticalDisableFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

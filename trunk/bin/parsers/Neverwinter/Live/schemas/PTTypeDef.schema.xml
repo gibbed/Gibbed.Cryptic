@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PTTypeDef">
+  <table>
+    <column name="PTTypeDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="PurchaseExpression" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="TableScale" type="F32">
+      <offset>8</offset>
+      <default>1</default>
+    </column>
+    <column name="CostScale" type="F32ARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="Order" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="RespecGroup" type="INTARRAY">
+      <offset>20</offset>
+      <static_define_list external="PTRespecGroupType" />
+    </column>
+    <column name="NonRefundable" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="SpentPointsNonDynamic" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="OnlyRespecUsingFull" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="HasAutoBuyTrees" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="SpentPointsNumeric" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="DisregardPath" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="FirstGroupMax" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

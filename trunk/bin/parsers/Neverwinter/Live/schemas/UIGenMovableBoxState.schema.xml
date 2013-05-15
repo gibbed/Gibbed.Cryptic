@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMovableBoxState">
+  <table>
+    <column name="UIGenMovableBoxState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>13</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="Original" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="UIPosition" />
+    </column>
+    <column name="Override" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="UIPosition" />
+    </column>
+    <column name="Moving" type="U8">
+      <offset>88</offset>
+    </column>
+    <column name="Resizing" type="INT">
+      <offset>92</offset>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="GrabbedX" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="GrabbedY" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="chPriority" type="U8">
+      <offset>104</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

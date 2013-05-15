@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MicroTransactionDef">
+  <table>
+    <column name="MicroTransactionDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="ProductName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Category" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <static_define_list external="ProductCategory" />
+    </column>
+    <column name="ProductIdentifier" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="RequiredPurchase" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>MicroTransactionDef</dictionary_name>
+    </column>
+    <column name="Categories" type="STRINGARRAY">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>MicroTransactionCategory</dictionary_name>
+    </column>
+    <column name="Shards" type="INTARRAY">
+      <offset>32</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <static_define_list external="MicroTrans_ShardCategory" />
+    </column>
+    <column name="ProductConfig" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="MicroTransactionAccountServerConfig" />
+    </column>
+    <column name="ReclaimProductConfig" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="MicroTransactionAccountServerConfig" />
+    </column>
+    <column name="displayNameMesg" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="descriptionShortMesg" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="descriptionLongMesg" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="SmallIcon" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LargeIcon" type="STRING">
+      <offset>84</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LargeIconSecond" type="STRING">
+      <offset>88</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LargeIconThird" type="STRING">
+      <offset>92</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LegacyName" type="STRING">
+      <offset>96</offset>
+    </column>
+    <column name="uiPrice" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="ExprCanBuyBlock" type="OPTIONALSTRUCT">
+      <offset>104</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprCanBuy" type="OPTIONALSTRUCT">
+      <offset>104</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprCanBuyBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="BuyExprRequiresEntity" type="BIT">
+      <offset>108</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="UseBuyExprForVisibility" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="OnePerCharacter" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="OnePerAccount" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="AllegianceRestriction" type="BIT">
+      <offset>108</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="Deprecated" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="BuyProduct" type="BIT">
+      <offset>108</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="IsF2PDuplicate" type="BIT">
+      <offset>108</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="GenerateReclaimProduct" type="BIT">
+      <offset>108</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="BuyForAllShards" type="BIT">
+      <offset>108</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="PromoProduct" type="BIT">
+      <offset>108</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="OldProductName" type="BIT">
+      <offset>108</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="Parts" type="STRUCT">
+      <offset>112</offset>
+      <subtable external="MicroTransactionPart" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

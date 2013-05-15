@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BulletinClient">
+  <table>
+    <column name="BulletinClient" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ActivateTime" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="EventTime" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Message" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="BulletinMessage" />
+    </column>
+    <column name="CategoryMessage" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="BulletinMessage" />
+    </column>
+    <column name="EventMessage" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="BulletinMessage" />
+    </column>
+    <column name="MicroTransactionDef" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>MicroTransactionDef</dictionary_name>
+    </column>
+    <column name="MicroTransactionID" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="Link" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="EventTexture" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CategoryTexture" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CategoryName" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="Category" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="IsHeader" type="U8">
+      <offset>72</offset>
+    </column>
+    <column name="HasEventTakenPlace" type="U8">
+      <offset>73</offset>
+    </column>
+    <column name="MissionComplete" type="U8">
+      <offset>74</offset>
+    </column>
+    <column name="MostRecentCategory" type="U8">
+      <offset>75</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

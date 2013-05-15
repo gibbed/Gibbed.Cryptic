@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCMovableTextureInfo">
+  <table>
+    <column name="PCMovableTextureInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MovableTexture" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="hMovableTexture" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableTexture</redundant_name>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="MovableX" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fMovableX" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableX</redundant_name>
+    </column>
+    <column name="MovableY" type="F32">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fMovableY" type="F32">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableY</redundant_name>
+    </column>
+    <column name="MovableScaleX" type="F32">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="MovScaleX" type="F32">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableScaleX</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="fMovableScaleX" type="F32">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableScaleX</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="MovableScaleY" type="F32">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="MovScaleY" type="F32">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableScaleY</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="fMovableScaleY" type="F32">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableScaleY</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="MovableRotation" type="F32">
+      <offset>20</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="MovRotation" type="F32">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableRotation</redundant_name>
+    </column>
+    <column name="fMovableRotation" type="F32">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableRotation</redundant_name>
+    </column>
+    <column name="MovableValue" type="F32">
+      <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fMovableValue" type="F32">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MovableValue</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

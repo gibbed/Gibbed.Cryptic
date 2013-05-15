@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StoreItemInfo">
+  <table>
+    <column name="StoreItemInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <subtable external="Item" />
+    </column>
+    <column name="OwnedItem" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Item" />
+    </column>
+    <column name="Count" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="CanBuyError" type="INT">
+      <offset>12</offset>
+      <static_define_list external="StoreCanBuyError" />
+    </column>
+    <column name="FailsRequirements" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CanBuyError</redundant_name>
+      <static_define_list external="StoreCanBuyError" />
+    </column>
+    <column name="RequirementsText" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="RequirementsMessage" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="RequiredMicroTransaction" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>MicroTransactionDef</dictionary_name>
+    </column>
+    <column name="RequiredMicroTransactionID" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="BagID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="Slot" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="StoreName" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Index" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="CostInfo" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="StoreItemCostInfo" />
+    </column>
+    <column name="storeItemPetID" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="IsValueRecipe" type="U8">
+      <offset>56</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="IsFromPersistedStore" type="U8">
+      <offset>57</offset>
+    </column>
+    <column name="UsesAccountKey" type="U8">
+      <offset>58</offset>
+    </column>
+    <column name="AccountKeyCount" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="MayBuyInBulk" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="IsHeader" type="U8">
+      <offset>68</offset>
+    </column>
+    <column name="StoreCategory" type="INT">
+      <offset>72</offset>
+      <static_define_list external="StoreCategory" />
+    </column>
+    <column name="HighlightCategory" type="INTARRAY">
+      <offset>76</offset>
+      <static_define_list external="StoreHighlightCategory" />
+    </column>
+    <column name="StoreItemIndex" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="RequiredNumericName" type="STRING">
+      <offset>84</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RequiredNumericValue" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="RequiredNumericIncr" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="ResearchTime" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="PurchaseTime" type="INT">
+      <offset>96</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ResearchTime</redundant_name>
+    </column>
+    <column name="ExpireTime" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="ForceBind" type="U8">
+      <offset>104</offset>
+    </column>
+    <column name="MicroTransaction" type="REFERENCE">
+      <offset>108</offset>
+      <dictionary_name>MicroTransactionDef</dictionary_name>
+    </column>
+    <column name="MicroTransactionID" type="INT">
+      <offset>112</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="BuyBackInfo" type="OPTIONALSTRUCT">
+      <offset>116</offset>
+      <subtable external="BuyBackItemInfo" />
+    </column>
+    <column name="LongDesc" type="STRING">
+      <offset>120</offset>
+    </column>
+    <column name="DisplayTex" type="STRING">
+      <offset>124</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

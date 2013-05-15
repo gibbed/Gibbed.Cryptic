@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShaderGraph">
+  <table>
+    <column name="ShaderGraph" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="FN" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TimeStamp" type="TIMESTAMP">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="Operation" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="ShaderOperation" />
+    </column>
+    <column name="Flags" type="INT">
+      <offset>16</offset>
+      <static_define_list external="ShaderGraphFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Features" type="INT">
+      <offset>20</offset>
+      <static_define_list external="ShaderGraphFeatures" />
+      <format>FLAGS</format>
+    </column>
+    <column name="FeaturesOverriden" type="INT">
+      <offset>24</offset>
+      <static_define_list external="ShaderGraphFeatures" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Reflection" type="INT">
+      <offset>28</offset>
+      <static_define_list external="ShaderGraphReflectionType" />
+    </column>
+    <column name="Defines" type="STRINGARRAY">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ExcludeClustering" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="GraphQuality" type="INT">
+      <offset>40</offset>
+      <static_define_list external="ShaderGraphQuality" />
+    </column>
+    <column name="EndShaderGraph" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CharacterPathSuggestedPurchase">
+  <table>
+    <column name="CharacterPathSuggestedPurchase" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PowerTable" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SuggestedNode" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CharacterPathChoice" />
+    </column>
+    <column name="Choice" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SuggestedNode</redundant_name>
+      <subtable external="CharacterPathChoice" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

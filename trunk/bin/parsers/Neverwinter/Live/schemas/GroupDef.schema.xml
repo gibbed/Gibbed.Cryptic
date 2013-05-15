@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GroupDef">
+  <table>
+    <column name="GroupDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="nameuid" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FN" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="Tags" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Version" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="RootID" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Group" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="GroupChild" />
+    </column>
+    <column name="ReplaceMaterial" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="MaterialProperty" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="MaterialNamedConstant" />
+    </column>
+    <column name="ModelScale" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="WindParams" type="F32FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="LogicalGroup" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="LogicalGroup" />
+    </column>
+    <column name="propertystructs" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="server_volume" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="ActionVolume" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <subtable external="WorldActionVolumeProperties" />
+    </column>
+    <column name="PowerVolume" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <subtable external="WorldPowerVolumeProperties" />
+    </column>
+    <column name="WarpVolume" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <subtable external="WorldWarpVolumeProperties" />
+    </column>
+    <column name="LandmarkVolume" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="WorldLandmarkVolumeProperties" />
+    </column>
+    <column name="NeighborhoodVolume" type="OPTIONALSTRUCT">
+      <offset>88</offset>
+      <subtable external="WorldNeighborhoodVolumeProperties" />
+    </column>
+    <column name="InteractionVolume" type="OPTIONALSTRUCT">
+      <offset>92</offset>
+      <subtable external="WorldInteractionProperties" />
+    </column>
+    <column name="OptionalActionVolume" type="OPTIONALSTRUCT">
+      <offset>96</offset>
+      <subtable external="WorldOptionalActionVolumeProperties" />
+    </column>
+    <column name="AIVolume" type="OPTIONALSTRUCT">
+      <offset>100</offset>
+      <subtable external="WorldAIVolumeProperties" />
+    </column>
+    <column name="BcnVolume" type="OPTIONALSTRUCT">
+      <offset>104</offset>
+      <subtable external="WorldBeaconVolumeProperties" />
+    </column>
+    <column name="EventVolume" type="OPTIONALSTRUCT">
+      <offset>108</offset>
+      <subtable external="WorldEventVolumeProperties" />
+    </column>
+    <column name="CivilianVolume" type="OPTIONALSTRUCT">
+      <offset>112</offset>
+      <subtable external="WorldCivilianVolumeProperties" />
+    </column>
+    <column name="MastermindVolume" type="OPTIONALSTRUCT">
+      <offset>116</offset>
+      <subtable external="WorldMastermindVolumeProperties" />
+    </column>
+    <column name="MapLevelVolume" type="OPTIONALSTRUCT">
+      <offset>120</offset>
+      <subtable external="WorldMapLevelOverrideVolumeProperties" />
+    </column>
+    <column name="client_volume" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="SkyVolume" type="OPTIONALSTRUCT">
+      <offset>124</offset>
+      <subtable external="WorldSkyVolumeProperties" />
+    </column>
+    <column name="WaterVolume" type="OPTIONALSTRUCT">
+      <offset>128</offset>
+      <subtable external="WorldWaterVolumeProperties" />
+    </column>
+    <column name="ClusterVolume" type="OPTIONALSTRUCT">
+      <offset>132</offset>
+      <subtable external="WorldClusterVolumeProperties" />
+    </column>
+    <column name="IndoorVolume" type="OPTIONALSTRUCT">
+      <offset>136</offset>
+      <subtable external="WorldIndoorVolumeProperties" />
+    </column>
+    <column name="SoundVolume" type="OPTIONALSTRUCT">
+      <offset>140</offset>
+      <subtable external="WorldSoundVolumeProperties" />
+    </column>
+    <column name="FXVolume" type="OPTIONALSTRUCT">
+      <offset>144</offset>
+      <subtable external="WorldFXVolumeProperties" />
+    </column>
+    <column name="Volume" type="OPTIONALSTRUCT">
+      <offset>148</offset>
+      <subtable external="GroupVolumeProperties" />
+    </column>
+    <column name="HullProperties" type="OPTIONALSTRUCT">
+      <offset>152</offset>
+      <subtable external="GroupHullProperties" />
+    </column>
+    <column name="RoomProperties" type="OPTIONALSTRUCT">
+      <offset>156</offset>
+      <subtable external="WorldRoomProperties" />
+    </column>
+    <column name="WindSource" type="OPTIONALSTRUCT">
+      <offset>160</offset>
+      <subtable external="WorldWindSourceProperties" />
+    </column>
+    <column name="Animation" type="OPTIONALSTRUCT">
+      <offset>164</offset>
+      <subtable external="WorldAnimationProperties" />
+    </column>
+    <column name="SoundConn" type="OPTIONALSTRUCT">
+      <offset>168</offset>
+      <subtable external="WorldSoundConnProperties" />
+    </column>
+    <column name="SoundSphere" type="OPTIONALSTRUCT">
+      <offset>172</offset>
+      <subtable external="WorldSoundSphereProperties" />
+    </column>
+    <column name="FXProperties" type="OPTIONALSTRUCT">
+      <offset>176</offset>
+      <subtable external="WorldFXProperties" />
+    </column>
+    <column name="LightProperties" type="OPTIONALSTRUCT">
+      <offset>180</offset>
+      <subtable external="WorldLightProperties" />
+    </column>
+    <column name="InteractLocation" type="OPTIONALSTRUCT">
+      <offset>184</offset>
+      <subtable external="WorldInteractLocationProperties" />
+    </column>
+    <column name="AmbientJob" type="OPTIONALSTRUCT">
+      <offset>184</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>InteractLocation</redundant_name>
+      <subtable external="WorldInteractLocationProperties" />
+    </column>
+    <column name="Curve" type="OPTIONALSTRUCT">
+      <offset>188</offset>
+      <subtable external="WorldCurve" />
+    </column>
+    <column name="CuveGaps" type="OPTIONALSTRUCT">
+      <offset>192</offset>
+      <subtable external="WorldCurveGaps" />
+    </column>
+    <column name="ChildCurve" type="OPTIONALSTRUCT">
+      <offset>196</offset>
+      <subtable external="WorldChildCurve" />
+    </column>
+    <column name="LODOverride" type="OPTIONALSTRUCT">
+      <offset>200</offset>
+      <subtable external="WorldLODOverride" />
+    </column>
+    <column name="Planet" type="OPTIONALSTRUCT">
+      <offset>204</offset>
+      <subtable external="WorldPlanetProperties" />
+    </column>
+    <column name="Building" type="OPTIONALSTRUCT">
+      <offset>208</offset>
+      <subtable external="WorldBuildingProperties" />
+    </column>
+    <column name="DebrisField" type="OPTIONALSTRUCT">
+      <offset>212</offset>
+      <subtable external="WorldDebrisFieldProperties" />
+    </column>
+    <column name="EncounterLayer" type="OPTIONALSTRUCT">
+      <offset>216</offset>
+      <subtable external="WorldEncounterLayerProperties" />
+    </column>
+    <column name="EncounterDef" type="OPTIONALSTRUCT">
+      <offset>220</offset>
+      <subtable external="WorldEncounterProperties" />
+    </column>
+    <column name="Encounter" type="OPTIONALSTRUCT">
+      <offset>224</offset>
+      <subtable external="WorldEncounterHackProperties" />
+    </column>
+    <column name="SpawnPoint" type="OPTIONALSTRUCT">
+      <offset>228</offset>
+      <subtable external="WorldSpawnProperties" />
+    </column>
+    <column name="PatrolRoute" type="OPTIONALSTRUCT">
+      <offset>232</offset>
+      <subtable external="WorldPatrolProperties" />
+    </column>
+    <column name="TriggerCondition" type="OPTIONALSTRUCT">
+      <offset>236</offset>
+      <subtable external="WorldTriggerConditionProperties" />
+    </column>
+    <column name="LayerFSM" type="OPTIONALSTRUCT">
+      <offset>240</offset>
+      <subtable external="WorldLayerFSMProperties" />
+    </column>
+    <column name="AutoPlacement" type="OPTIONALSTRUCT">
+      <offset>244</offset>
+      <subtable external="WorldAutoPlacementProperties" />
+    </column>
+    <column name="PathNode" type="OPTIONALSTRUCT">
+      <offset>248</offset>
+      <subtable external="WorldPathNodeProperties" />
+    </column>
+    <column name="InteractProperties" type="OPTIONALSTRUCT">
+      <offset>252</offset>
+      <subtable external="WorldInteractionProperties" />
+    </column>
+    <column name="GenesisProperties" type="OPTIONALSTRUCT">
+      <offset>256</offset>
+      <subtable external="WorldGenesisProperties" />
+    </column>
+    <column name="GenesisChallenge" type="OPTIONALSTRUCT">
+      <offset>260</offset>
+      <subtable external="WorldGenesisChallengeProperties" />
+    </column>
+    <column name="Terrain" type="EMBEDDEDSTRUCT">
+      <offset>264</offset>
+      <subtable external="WorldTerrainProperties" />
+    </column>
+    <column name="TerrainExclusion" type="OPTIONALSTRUCT">
+      <offset>328</offset>
+      <subtable external="WorldTerrainExclusionProperties" />
+    </column>
+    <column name="UGCRoomObjectProperties" type="OPTIONALSTRUCT">
+      <offset>332</offset>
+      <subtable external="WorldUGCRoomObjectProperties" />
+    </column>
+    <column name="Wind" type="EMBEDDEDSTRUCT">
+      <offset>336</offset>
+      <subtable external="WorldWindProperties" />
+    </column>
+    <column name="Physical" type="EMBEDDEDSTRUCT">
+      <offset>352</offset>
+      <subtable external="WorldPhysicalProperties" />
+    </column>
+    <column name="Model" type="STRING">
+      <offset>420</offset>
+    </column>
+    <column name="Property" type="STRUCT">
+      <offset>424</offset>
+      <subtable external="PropertyLoad" />
+    </column>
+    <column name="TexSwap" type="STRUCT">
+      <offset>428</offset>
+      <subtable external="TexSwapLoad" />
+    </column>
+    <column name="ScopeEntry" type="STRUCT">
+      <offset>432</offset>
+      <subtable external="ScopeTableLoad" />
+    </column>
+    <column name="InstanceData" type="STRUCT">
+      <offset>436</offset>
+      <subtable external="InstanceDataLoad" />
+    </column>
+    <column name="HasTint0" type="BOOLFLAG">
+      <offset>440</offset>
+    </column>
+    <column name="TintColorHSV0" type="F32FIXEDARRAY">
+      <offset>444</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="HasTintOffset0" type="BOOLFLAG">
+      <offset>456</offset>
+    </column>
+    <column name="TintColorOffsetHSV0" type="F32FIXEDARRAY">
+      <offset>460</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>472</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TintColorHSV1" type="IGNORE" />
+    <column name="UGCProperties" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SimpleCpuThreadData">
+  <table>
+    <column name="SimpleCpuThreadData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Thread" type="INT">
+      <offset>0</offset>
+      <static_define_list external="SimpleCpuUsageThread" />
+    </column>
+    <column name="TimerCpuTicks64" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

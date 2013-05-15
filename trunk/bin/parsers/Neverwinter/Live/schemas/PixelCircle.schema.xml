@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PixelCircle">
+  <table>
+    <column name="PixelCircle" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Coords" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PixelCircleCoords" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

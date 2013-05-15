@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerShowOverhead">
+  <table>
+    <column name="PlayerShowOverhead" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ShowEnemy" type="INT">
+      <offset>0</offset>
+      <default>1179</default>
+      <static_define_list external="OverHeadEntityFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ShowFriendlyNPC" type="INT">
+      <offset>4</offset>
+      <default>1179</default>
+      <static_define_list external="OverHeadEntityFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ShowFriends" type="INT">
+      <offset>8</offset>
+      <default>1180</default>
+      <static_define_list external="OverHeadEntityFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ShowTeam" type="INT">
+      <offset>12</offset>
+      <default>1180</default>
+      <static_define_list external="OverHeadEntityFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ShowSupergroup" type="INT">
+      <offset>16</offset>
+      <default>1180</default>
+      <static_define_list external="OverHeadEntityFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ShowPet" type="INT">
+      <offset>20</offset>
+      <default>1180</default>
+      <static_define_list external="OverHeadEntityFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ShowEnemyPlayer" type="INT">
+      <offset>24</offset>
+      <default>1180</default>
+      <static_define_list external="OverHeadEntityFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ShowPlayer" type="INT">
+      <offset>28</offset>
+      <default>1180</default>
+      <static_define_list external="OverHeadEntityFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ShowSelf" type="INT">
+      <offset>32</offset>
+      <static_define_list external="OverHeadEntityFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ShowPlayerTitles" type="U8">
+      <offset>36</offset>
+      <default>1</default>
+    </column>
+    <column name="ShowPlayerRoles" type="U8">
+      <offset>37</offset>
+      <default>1</default>
+    </column>
+    <column name="ShowDamageFloaters" type="U8">
+      <offset>38</offset>
+      <default>1</default>
+    </column>
+    <column name="ShowPetDamageFloaters" type="U8">
+      <offset>39</offset>
+      <default>1</default>
+    </column>
+    <column name="ShowTeamDamageFloaters" type="U8">
+      <offset>40</offset>
+      <default>1</default>
+    </column>
+    <column name="ShowAllPlayerDamageFloaters" type="U8">
+      <offset>41</offset>
+      <default>1</default>
+    </column>
+    <column name="ShowOwnedEntityDamageFloaters" type="U8">
+      <offset>42</offset>
+      <default>1</default>
+    </column>
+    <column name="ShowInteractionIcons" type="U8">
+      <offset>43</offset>
+      <default>1</default>
+    </column>
+    <column name="ShowPlayerPowerDisplayNames" type="U8">
+      <offset>44</offset>
+      <default>1</default>
+    </column>
+    <column name="ShowUnrelatedDamageFloaters" type="U8">
+      <offset>45</offset>
+    </column>
+    <column name="ShowHostileHealingFloaters" type="U8">
+      <offset>46</offset>
+    </column>
+    <column name="DontShowPlayerOutgoing" type="U8">
+      <offset>47</offset>
+    </column>
+    <column name="DontShowPlayerIncoming" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="ShowCriticalStatusInfo" type="U8">
+      <offset>49</offset>
+      <default>1</default>
+    </column>
+    <column name="ShowReticlesAs" type="INT">
+      <offset>52</offset>
+      <default>1</default>
+      <static_define_list external="OverHeadReticleFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

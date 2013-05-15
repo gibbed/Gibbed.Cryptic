@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueMapRules">
+  <table>
+    <column name="QueueMapRules" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="QGameRules" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="publicRules" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="GameType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="PVPGameType" />
+    </column>
+    <column name="PointMax" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Scoreboard" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Leaderboard" type="STRINGARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="DisableNaturalRespawn" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="SuicidePenality" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="RoundTime" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="IntervalTime" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="CaptureTime" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="RecycleTime" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="FriendlyBonus" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="PointTime" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="CaptureDistance" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="CapturePointName" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="PointStatusFX" type="STRINGARRAY">
+      <offset>52</offset>
+    </column>
+    <column name="CapturePointFX" type="STRINGARRAY">
+      <offset>56</offset>
+    </column>
+    <column name="ContestedPointFX" type="STRINGARRAY">
+      <offset>60</offset>
+    </column>
+    <column name="MaxGameTime" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="MaxOvertime" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="MaxDropTime" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="FlagName" type="STRING">
+      <offset>76</offset>
+    </column>
+    <column name="FlagCritter" type="STRING">
+      <offset>80</offset>
+    </column>
+    <column name="FlagPower" type="STRINGARRAY">
+      <offset>84</offset>
+    </column>
+    <column name="FlagCarrierClass" type="REFERENCE">
+      <offset>88</offset>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="RechargePowerCategories" type="STRINGARRAY">
+      <offset>92</offset>
+    </column>
+    <column name="RequireOwnFlagToScore" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="FlagStackPowers" type="STRUCT">
+      <offset>100</offset>
+      <subtable external="CTF_FlagPowerStack" />
+    </column>
+    <column name="MatchMakingRules" type="OPTIONALSTRUCT">
+      <offset>104</offset>
+      <subtable external="QueueMatchMakingRules" />
+    </column>
+    <column name="MaxLocalTeamsPerGroup" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="NeutralFaction" type="REFERENCE">
+      <offset>112</offset>
+      <dictionary_name>CritterFaction</dictionary_name>
+    </column>
+    <column name="EnableAutoTeam" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="EnableTeamUp" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="AllowConcede" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="AllowVoteKick" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="IgnoresPVPAttribMods" type="BIT">
+      <offset>116</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65540</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ChallengeMatch" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="PrivateMatch" type="BIT">
+      <offset>116</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ChallengeMatch</redundant_name>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="DisableAutoBalance" type="BIT">
+      <offset>116</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65542</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

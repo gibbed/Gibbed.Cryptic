@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ParsedAVP">
+  <table>
+    <column name="ParsedAVP" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Attribute" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Value" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="GameTitle" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>12</offset>
+      <static_define_list external="MicroItemType" />
+    </column>
+    <column name="ItemIdent" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

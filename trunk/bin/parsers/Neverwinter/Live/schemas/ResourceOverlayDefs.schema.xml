@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ResourceOverlayDefs">
+  <table>
+    <column name="ResourceOverlayDefs" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Overlay" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ResourceOverlayDef" />
+    </column>
+    <column name="OverlayDef" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Overlay</redundant_name>
+      <subtable external="ResourceOverlayDef" />
+    </column>
+    <column name="ResourceOverlayDef" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Overlay</redundant_name>
+      <subtable external="ResourceOverlayDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

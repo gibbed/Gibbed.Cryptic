@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerTreeDef">
+  <table>
+    <column name="PowerTreeDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Respec" type="INT">
+      <offset>4</offset>
+      <default>1</default>
+      <static_define_list external="PowerTreeRespec" />
+    </column>
+    <column name="DisplayMessage" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>DisplayMessage</redundant_name>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DescriptionMessage" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="IconName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreeType" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>PowerTreeTypeDef</dictionary_name>
+    </column>
+    <column name="ExprBlockRequires" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="RequiresBlock" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockRequires</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="Requires" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockRequires</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Group" type="STRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="PTGroupDef" />
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Class" type="REFERENCE">
+      <offset>52</offset>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="TopDown" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <subtable external="PowerTreeTopDown" />
+    </column>
+    <column name="Links" type="STRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="PowerTreeLink" />
+    </column>
+    <column name="UICategory" type="INT">
+      <offset>64</offset>
+      <static_define_list external="PowerTreeUICategory" />
+    </column>
+    <column name="DefaultPlayingStyle" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MaxSpendablePointsCostTable" type="STRING">
+      <offset>72</offset>
+    </column>
+    <column name="MaxSpendablePoints" type="F32">
+      <offset>76</offset>
+    </column>
+    <column name="MinCost" type="INT">
+      <offset>80</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="AutoBuy" type="U8">
+      <offset>84</offset>
+    </column>
+    <column name="Temporary" type="U8">
+      <offset>85</offset>
+    </column>
+    <column name="SendToClient" type="U8">
+      <offset>86</offset>
+    </column>
+    <column name="IsTalentTree" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="AnimListToPlayOnGrant" type="REFERENCE">
+      <offset>92</offset>
+      <dictionary_name>AIAnimList</dictionary_name>
+    </column>
+    <column name="GrantMessage" type="EMBEDDEDSTRUCT">
+      <offset>96</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ModelClusterSource">
+  <table>
+    <column name="ModelClusterSource" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="cluster_tool_version" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="cluster_models" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ModelClusterObject" />
+    </column>
+    <column name="cluster_volumes_condensed" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="ModelClusterVolume" />
+    </column>
+    <column name="texture_super_sample" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

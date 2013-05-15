@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCFSMProperties">
+  <table>
+    <column name="UGCFSMProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FSMRef" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ExternVarV1" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UGCFSMVar" />
+    </column>
+    <column name="ExternVar" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

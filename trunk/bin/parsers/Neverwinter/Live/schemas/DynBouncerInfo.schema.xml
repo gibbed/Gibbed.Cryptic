@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynBouncerInfo">
+  <table>
+    <column name="DynBouncerInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="BoneName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="eBouncerType" />
+    </column>
+    <column name="spring" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="DampRate" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="MaxDist" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="Rotation" type="QUATPYR">
+      <offset>20</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

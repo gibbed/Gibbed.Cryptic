@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRInteractionBG">
+  <table>
+    <column name="MRInteractionBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Path" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="MRInteractionPath" />
+    </column>
+    <column name="pathVersion" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="pathVersionStarted" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="targetWaypointIndexMutable" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="triggeredWaypointIndex" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="spcReachedWaypoint" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="spcLingering" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="minDistFromWP" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="spcMinDistChanged" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="spcMoveOnRailStart" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="scaleMoveOnRail" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="posMoveOnRailStart" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="rotMoveOnRailStart" type="QUATPYR">
+      <offset>56</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="pyFaceMoveOnRailStart" type="F32FIXEDARRAY">
+      <offset>72</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
+      <subtable external="MRInteractionBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerStats">
+  <table>
+    <column name="PlayerStats" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PointsLeft" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="XP" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="NextLevelXP" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Reputation" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="PvPWins" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="PvPLosses" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="PvPGames" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Stats" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="StatInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

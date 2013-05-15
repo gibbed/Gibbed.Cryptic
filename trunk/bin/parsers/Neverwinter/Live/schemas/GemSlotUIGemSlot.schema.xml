@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GemSlotUIGemSlot">
+  <table>
+    <column name="GemSlotUIGemSlot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CommittedItem" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Item" />
+    </column>
+    <column name="InventoryItem" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Item" />
+    </column>
+    <column name="AllowedTypes" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ItemGemType" />
+      <format>FLAGS</format>
+    </column>
+    <column name="InvSlot" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="InventorySlotReference" />
+    </column>
+    <column name="Locked" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

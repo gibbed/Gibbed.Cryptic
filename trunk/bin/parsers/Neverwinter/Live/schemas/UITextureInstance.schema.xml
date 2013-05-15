@@ -1,0 +1,278 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UITextureInstance">
+  <table>
+    <column name="UITextureInstance" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Texture" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="SubAssembly" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>UITextureAssembly</dictionary_name>
+    </column>
+    <column name="LeftFrom" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="UITextureInstancePosition" />
+    </column>
+    <column name="RightFrom" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="UITextureInstancePosition" />
+    </column>
+    <column name="TopFrom" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="UITextureInstancePosition" />
+    </column>
+    <column name="BottomFrom" type="EMBEDDEDSTRUCT">
+      <offset>60</offset>
+      <subtable external="UITextureInstancePosition" />
+    </column>
+    <column name="HorizontalCenterFrom" type="EMBEDDEDSTRUCT">
+      <offset>76</offset>
+      <subtable external="UITextureInstancePosition" />
+    </column>
+    <column name="VerticalCenterFrom" type="EMBEDDEDSTRUCT">
+      <offset>92</offset>
+      <subtable external="UITextureInstancePosition" />
+    </column>
+    <column name="Fallback" type="OPTIONALSTRUCT">
+      <offset>108</offset>
+      <subtable external="UITextureInstanceFallback" />
+    </column>
+    <column name="TopLeftColor" type="INT">
+      <offset>112</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="Color" type="INT">
+      <offset>112</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TopLeftColor</redundant_name>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="TopColor" type="INT">
+      <offset>112</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TopLeftColor</redundant_name>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="LeftColor" type="INT">
+      <offset>112</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TopLeftColor</redundant_name>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="TopRightColor" type="INT">
+      <offset>116</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="RightColor" type="INT">
+      <offset>116</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TopRightColor</redundant_name>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="BottomLeftColor" type="INT">
+      <offset>120</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="BottomColor" type="INT">
+      <offset>120</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>BottomLeftColor</redundant_name>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="BottomRightColor" type="INT">
+      <offset>124</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="ScaleHorizontal" type="F32">
+      <offset>128</offset>
+      <default>1</default>
+    </column>
+    <column name="HorizontalScale" type="F32">
+      <offset>128</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ScaleHorizontal</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="ScaleVertical" type="F32">
+      <offset>132</offset>
+      <default>1</default>
+    </column>
+    <column name="VerticalScale" type="F32">
+      <offset>132</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ScaleVertical</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="Rotation" type="EMBEDDEDSTRUCT">
+      <offset>136</offset>
+      <subtable external="UIAngle" />
+    </column>
+    <column name="Z" type="U8">
+      <offset>144</offset>
+    </column>
+    <column name="VerticalMode" type="BIT">
+      <offset>148</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>327680</bit_offset>
+      <static_define_list external="UITextureMode" />
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ModeVertical" type="BIT">
+      <offset>148</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <redundant_name>VerticalMode</redundant_name>
+      <bit_offset>327680</bit_offset>
+      <static_define_list external="UITextureMode" />
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="HorizontalMode" type="BIT">
+      <offset>148</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>327685</bit_offset>
+      <static_define_list external="UITextureMode" />
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ModeHorizontal" type="BIT">
+      <offset>148</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <redundant_name>HorizontalMode</redundant_name>
+      <bit_offset>327685</bit_offset>
+      <static_define_list external="UITextureMode" />
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Alignment" type="BIT">
+      <offset>148</offset>
+      <bit_offset>327690</bit_offset>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="MouseRegion" type="U8">
+      <offset>152</offset>
+    </column>
+    <column name="ScaleReset" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="ResetScale" type="BIT">
+      <offset>152</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ScaleReset</redundant_name>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="ColorReset" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="ResetColor" type="BIT">
+      <offset>152</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ColorReset</redundant_name>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="IsSubAssembly" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="Additive" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="AdditiveReset" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="ResetAdditive" type="BIT">
+      <offset>152</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AdditiveReset</redundant_name>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="FlipX" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="FlipY" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="Clip" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

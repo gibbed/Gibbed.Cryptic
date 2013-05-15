@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatLogEntry">
+  <table>
+    <column name="ChatLogEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Msg" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="ChatMessage" />
+    </column>
+    <column name="TimeStamp" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="FormattedText" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="XML_ENCODE_BASE64">1</format_string>
+      </format_strings>
+    </column>
+    <column name="FormatSpans" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="ChatLogFormatSpan" />
+    </column>
+    <column name="FromLink" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="ChatLink" />
+    </column>
+    <column name="ToLink" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="ChatLink" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountNetStruct_ToAccountServerLogin">
+  <table>
+    <column name="AccountNetStruct_ToAccountServerLogin" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hashedCrypticPassword" type="FIXEDSTRING">
+      <offset>0</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="hashedPWPassword" type="FIXEDSTRING">
+      <offset>128</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="AccountName" type="FIXEDSTRING">
+      <offset>256</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="LoginType" type="INT">
+      <offset>384</offset>
+    </column>
+    <column name="machineID" type="FIXEDSTRING">
+      <offset>388</offset>
+      <string_length>256</string_length>
+    </column>
+    <column name="hashedPWPasswordFixedSalt" type="FIXEDSTRING">
+      <offset>644</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="KeyVersion" type="INT">
+      <offset>772</offset>
+    </column>
+    <column name="encryptedPassword" type="FIXEDSTRING">
+      <offset>776</offset>
+      <string_length>173</string_length>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

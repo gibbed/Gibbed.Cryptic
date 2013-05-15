@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PuppetRequestChoice">
+  <table>
+    <column name="PuppetRequestChoice" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Allegiance" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Allegiance</dictionary_name>
+    </column>
+    <column name="CritterDef" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>CritterDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EncounterSpawnProperties">
+  <table>
+    <column name="EncounterSpawnProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="SpawnAnimType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="EncounterSpawnAnimType" />
+    </column>
+    <column name="SpawnAnim" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="SpawnLockdownTime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="DynamicSpawnType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="WorldEncounterDynamicSpawnType" />
+    </column>
+    <column name="IsAmbush" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="OverrideParentValues" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

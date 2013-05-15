@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameProgressionNodeRef">
+  <table>
+    <column name="GameProgressionNodeRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="NodeDef" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

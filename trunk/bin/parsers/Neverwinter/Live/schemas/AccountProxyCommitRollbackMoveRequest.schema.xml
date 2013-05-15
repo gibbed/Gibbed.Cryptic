@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxyCommitRollbackMoveRequest">
+  <table>
+    <column name="AccountProxyCommitRollbackMoveRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uSrcAccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="SrcKey" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="uDestAccountID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="DestKey" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Lock" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="TransactionType" type="INT">
+      <offset>20</offset>
+      <static_define_list external="TransactionLogType" />
+    </column>
+    <column name="uLockContainerID" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

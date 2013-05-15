@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldLODProperties">
+  <table>
+    <column name="WorldLODProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LODScale" type="F32">
+      <offset>0</offset>
+      <default>1</default>
+    </column>
+    <column name="ShowPanel" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="LowDetail" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="HighDetail" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="HighFillDetail" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="FadeNode" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="IgnoreLODOverride" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="ClusteringOverride" type="INT">
+      <offset>8</offset>
+      <static_define_list external="WleClusterOverride" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

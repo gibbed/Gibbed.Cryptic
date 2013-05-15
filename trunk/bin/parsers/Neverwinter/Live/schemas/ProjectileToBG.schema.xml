@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ProjectileToBG">
+  <table>
+    <column name="ProjectileToBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="minHold" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="vel" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Target" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Timer" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="impactTimer" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="getupTimer" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="spcStart" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="useTarget" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="lowAngle" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="isInFlight" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="proneAtEnd" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="NearDeath" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="InstantFacePlant" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="IgnoreTravelTime" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="resetAnimBits" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

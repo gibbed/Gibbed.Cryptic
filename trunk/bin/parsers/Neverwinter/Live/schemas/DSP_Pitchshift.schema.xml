@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DSP_Pitchshift">
+  <table>
+    <column name="DSP_Pitchshift" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="pitchshift_pitch" type="F32">
+      <offset>0</offset>
+      <default>1</default>
+    </column>
+    <column name="pitchshift_fftsize" type="F32">
+      <offset>4</offset>
+      <default>1024</default>
+    </column>
+    <column name="pitchshift_maxchannels" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

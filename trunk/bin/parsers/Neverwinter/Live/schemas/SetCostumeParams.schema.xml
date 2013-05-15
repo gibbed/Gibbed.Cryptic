@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SetCostumeParams">
+  <table>
+    <column name="SetCostumeParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1204</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Mode" type="INT">
+      <offset>4</offset>
+      <static_define_list external="kCostumeDisplayMode" />
+    </column>
+    <column name="Priority" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="CostumeName" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="BoneGroup" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Skeleton" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>CostumeSkeleton</dictionary_name>
+    </column>
+    <column name="TurnRateScale" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="CopyCostumeFromSourceEnt" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="AsMount" type="U8">
+      <offset>29</offset>
+    </column>
+    <column name="MountScaleOverride" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

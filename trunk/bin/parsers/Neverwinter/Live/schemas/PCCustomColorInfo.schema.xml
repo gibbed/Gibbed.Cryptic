@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCCustomColorInfo">
+  <table>
+    <column name="PCCustomColorInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="glowScale" type="U8FIXEDARRAY">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Reflection" type="U8FIXEDARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Reflection" type="U8FIXEDARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Reflection</redundant_name>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="specularity" type="U8FIXEDARRAY">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="CustomReflection" type="U8">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bCustomReflection" type="U8">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>CustomReflection</redundant_name>
+    </column>
+    <column name="CustomSpecularity" type="U8">
+      <offset>13</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bCustomSpecularity" type="U8">
+      <offset>13</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>CustomSpecularity</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

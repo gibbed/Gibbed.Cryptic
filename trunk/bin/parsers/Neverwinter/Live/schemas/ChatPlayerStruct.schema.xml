@@ -1,0 +1,245 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatPlayerStruct">
+  <table>
+    <column name="ChatPlayerStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="chatHandle" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="PlayerInfo" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="onlineCharacterID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="onlineCharacterAccessLevel" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="onlinePlayerName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="onlinePlayerAllegiance" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="gamePublicNameKey" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="playerMap" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MapNameMsgKey" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MapVars" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="NeighborhoodNameMsgKey" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MapInstance" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="MapType" type="INT">
+      <offset>48</offset>
+      <static_define_list external="ZoneMapType" />
+    </column>
+    <column name="Key" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="uNumPlayers" type="INT">
+      <offset>56</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="LocationMessageKey" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="PlayerLevel" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="PlayerRank" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="ClassName" type="STRING">
+      <offset>72</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PathName" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PlayingStyles" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PlayerActivity" type="STRING">
+      <offset>84</offset>
+    </column>
+    <column name="voiceId" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="voiceURI" type="STRING">
+      <offset>92</offset>
+    </column>
+    <column name="LFGMode" type="INT">
+      <offset>96</offset>
+      <static_define_list external="TeamMode" />
+    </column>
+    <column name="LFGDifficultyMode" type="INT">
+      <offset>100</offset>
+      <static_define_list external="LFGDifficultyMode" />
+    </column>
+    <column name="uLoginServerID" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="PlayerTeam" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="TeamStatusMessage" type="STRING">
+      <offset>112</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="TeamMode" type="INT">
+      <offset>116</offset>
+      <static_define_list external="TeamMode" />
+    </column>
+    <column name="Difficulty" type="INT">
+      <offset>120</offset>
+    </column>
+    <column name="PlayerGuild" type="INT">
+      <offset>124</offset>
+    </column>
+    <column name="CanGuildChat" type="U8">
+      <offset>128</offset>
+      <default>1</default>
+    </column>
+    <column name="IsOfficer" type="U8">
+      <offset>129</offset>
+    </column>
+    <column name="Language" type="INT">
+      <offset>132</offset>
+      <static_define_list external="Language" />
+    </column>
+    <column name="IsGM" type="U8">
+      <offset>136</offset>
+    </column>
+    <column name="IsDev" type="U8">
+      <offset>137</offset>
+    </column>
+    <column name="IsAutoAFK" type="U8">
+      <offset>138</offset>
+    </column>
+    <column name="LookingForGroup" type="U8">
+      <offset>139</offset>
+    </column>
+    <column name="Anonymous" type="U8">
+      <offset>140</offset>
+    </column>
+    <column name="TeamInviteResponse" type="INT">
+      <offset>144</offset>
+    </column>
+    <column name="uShardHash" type="INT">
+      <offset>148</offset>
+    </column>
+    <column name="uChatServerID" type="INT">
+      <offset>152</offset>
+    </column>
+    <column name="uVirtualShardID" type="INT">
+      <offset>156</offset>
+    </column>
+    <column name="shardName" type="STRING">
+      <offset>160</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GamePermissionInfo" type="INT">
+      <offset>164</offset>
+      <static_define_list external="ChatGamePermissionInfoEnum" />
+    </column>
+    <column name="SocialRestricted" type="U8">
+      <offset>168</offset>
+    </column>
+    <column name="GoldSubscriber" type="U8">
+      <offset>169</offset>
+    </column>
+    <column name="uLastPurchase" type="INT">
+      <offset>172</offset>
+    </column>
+    <column name="ExtraPlayerInfo" type="STRUCT">
+      <offset>176</offset>
+      <subtable external="PlayerInfoStruct" />
+    </column>
+    <column name="GuildName" type="STRING">
+      <offset>180</offset>
+    </column>
+    <column name="online_status" type="INT">
+      <offset>184</offset>
+      <static_define_list external="UserStatus" />
+    </column>
+    <column name="Comment" type="STRING">
+      <offset>188</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Status" type="STRING">
+      <offset>192</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="CharacterShards" type="STRINGARRAY">
+      <offset>196</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>200</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

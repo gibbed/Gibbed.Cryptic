@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldCivilianVolumeProperties">
+  <table>
+    <column name="WorldCivilianVolumeProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="DisableRoads" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="DisableSidewalks" type="U8">
+      <offset>1</offset>
+    </column>
+    <column name="ForcedRoad" type="U8">
+      <offset>2</offset>
+    </column>
+    <column name="ForcedRoadHasMedian" type="U8">
+      <offset>3</offset>
+    </column>
+    <column name="ForcedSidewalk" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="ForcedAsIs" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="ForcedIntersection" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="ForcedCrosswalk" type="U8">
+      <offset>7</offset>
+    </column>
+    <column name="PedestrianWanderArea" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="CivilianCritterSpawns" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="CivilianCritterSpawn" />
+    </column>
+    <column name="LegDefinition" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

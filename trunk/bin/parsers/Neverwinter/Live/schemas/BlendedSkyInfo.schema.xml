@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BlendedSkyInfo">
+  <table>
+    <column name="BlendedSkyInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="specified_values" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="IgnoreFogClip" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="FogClip" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="IgnoreFogClipLow" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="FogClipLow" type="U8">
+      <offset>7</offset>
+    </column>
+    <column name="CloudShadowTexture" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DiffuseWarpTextureCharacter" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DiffuseWarpTextureWorld" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AmbientCube" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ReflectionCube" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SkySun" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="SkyTimeSun" />
+    </column>
+    <column name="SkySecondarySun" type="EMBEDDEDSTRUCT">
+      <offset>168</offset>
+      <subtable external="SkyTimeSecondarySun" />
+    </column>
+    <column name="SkyCharacterLighting" type="EMBEDDEDSTRUCT">
+      <offset>212</offset>
+      <subtable external="SkyTimeCharacterLighting" />
+    </column>
+    <column name="SkyCloudShadows" type="EMBEDDEDSTRUCT">
+      <offset>328</offset>
+      <subtable external="SkyTimeCloudShadows" />
+    </column>
+    <column name="SkyShadowFade" type="EMBEDDEDSTRUCT">
+      <offset>368</offset>
+      <subtable external="SkyTimeShadowFade" />
+    </column>
+    <column name="SkyColorCorrection" type="EMBEDDEDSTRUCT">
+      <offset>396</offset>
+      <subtable external="SkyTimeColorCorrection" />
+    </column>
+    <column name="SkyTint" type="EMBEDDEDSTRUCT">
+      <offset>864</offset>
+      <subtable external="SkyTimeTint" />
+    </column>
+    <column name="SkyOutline" type="EMBEDDEDSTRUCT">
+      <offset>896</offset>
+      <subtable external="SkyTimeOutline" />
+    </column>
+    <column name="SkyFog" type="EMBEDDEDSTRUCT">
+      <offset>964</offset>
+      <subtable external="SkyTimeFog" />
+    </column>
+    <column name="SkyLightBehavior" type="EMBEDDEDSTRUCT">
+      <offset>1088</offset>
+      <subtable external="SkyTimeLightBehavior" />
+    </column>
+    <column name="SkyBloom" type="EMBEDDEDSTRUCT">
+      <offset>1132</offset>
+      <subtable external="SkyTimeBloom" />
+    </column>
+    <column name="DOFValues" type="EMBEDDEDSTRUCT">
+      <offset>1180</offset>
+      <subtable external="DOFValues" />
+    </column>
+    <column name="AmbientOcclusion" type="EMBEDDEDSTRUCT">
+      <offset>1284</offset>
+      <subtable external="SkyTimeAmbientOcclusion" />
+    </column>
+    <column name="Wind" type="EMBEDDEDSTRUCT">
+      <offset>1320</offset>
+      <subtable external="SkyTimeWind" />
+    </column>
+    <column name="SkyScattering" type="EMBEDDEDSTRUCT">
+      <offset>1364</offset>
+      <subtable external="SkyTimeScattering" />
+    </column>
+    <column name="SkyShadows" type="EMBEDDEDSTRUCT">
+      <offset>1392</offset>
+      <subtable external="ShadowRules" />
+    </column>
+    <column name="outputWorldLightDir" type="F32FIXEDARRAY">
+      <offset>1564</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="outputWorldLightDir2" type="F32FIXEDARRAY">
+      <offset>1576</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="secondaryLightType2" type="INT">
+      <offset>1588</offset>
+      <static_define_list external="LightAffectType" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

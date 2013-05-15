@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueGameSettingsData">
+  <table>
+    <column name="QueueGameSettingsData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Value" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="MinValue" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="MaxValue" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="RewardMinValue" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SimpleResourceRef">
+  <table>
+    <column name="SimpleResourceRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PrivateName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="PublicName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

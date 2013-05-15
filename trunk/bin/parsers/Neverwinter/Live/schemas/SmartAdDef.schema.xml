@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SmartAdDef">
+  <table>
+    <column name="SmartAdDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Tag" type="INT">
+      <offset>4</offset>
+      <static_define_list external="SmartAdAutoTag" />
+    </column>
+    <column name="DisplayTag" type="INT">
+      <offset>8</offset>
+      <default>-1</default>
+      <static_define_list external="DisplayTags" />
+    </column>
+    <column name="IncludeBlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IncludeExpr" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IncludeBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ExcludeBlock" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExcludeExpr" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExcludeBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Weight" type="F32">
+      <offset>24</offset>
+      <default>1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

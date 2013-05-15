@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldPowerVolumeProperties">
+  <table>
+    <column name="WorldPowerVolumeProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Power" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="Strength" type="INT">
+      <offset>4</offset>
+      <static_define_list external="WorldPowerVolumeStrength" />
+    </column>
+    <column name="Level" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="RepeatTime" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="TriggerCondition" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldCellEntryParsed">
+  <table>
+    <column name="WorldCellEntryParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="entry_bounds" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldCellEntryBoundsParsed" />
+    </column>
+    <column name="shared_bounds_idx" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="parent_entry_uid" type="INT">
+      <offset>60</offset>
+      <default>-1</default>
+    </column>
+    <column name="interaction_child_idx" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="group_id" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

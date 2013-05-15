@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeEditLine">
+  <table>
+    <column name="CostumeEditLine" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Name2" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="displayNameMsg2" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="ScaleValue1" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="ScaleValue2" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="ScaleMin1" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="ScaleMin2" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="ScaleMax1" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="ScaleMax2" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>56</offset>
+      <static_define_list external="CostumeEditLineType" />
+    </column>
+    <column name="MergeType" type="INT">
+      <offset>60</offset>
+      <static_define_list external="CostumeEditLineType" />
+    </column>
+    <column name="CurrentTex" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="CurrentMat" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCMaterialDef" />
+    </column>
+    <column name="CurrentGeo" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCGeometryDef" />
+    </column>
+    <column name="CurrentBone" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCBoneDef" />
+    </column>
+    <column name="CurrentCat" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCCategory" />
+    </column>
+    <column name="CurrentRegion" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCRegion" />
+    </column>
+    <column name="CurrentValue" type="OPTIONALSTRUCT">
+      <offset>88</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCBodyScaleValue" />
+    </column>
+    <column name="CurrentOverlay" type="OPTIONALSTRUCT">
+      <offset>92</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="CostumeRefForSet" />
+    </column>
+    <column name="CurrentGuildOverlay" type="OPTIONALSTRUCT">
+      <offset>96</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PlayerCostumeHolder" />
+    </column>
+    <column name="hOwnerMat" type="REFERENCE">
+      <offset>100</offset>
+      <dictionary_name>PCMaterialDef</dictionary_name>
+    </column>
+    <column name="hOwnerGeo" type="REFERENCE">
+      <offset>104</offset>
+      <dictionary_name>PCGeometryDef</dictionary_name>
+    </column>
+    <column name="hOwnerBone" type="REFERENCE">
+      <offset>108</offset>
+      <dictionary_name>PCBoneDef</dictionary_name>
+    </column>
+    <column name="hOwnerCat" type="REFERENCE">
+      <offset>112</offset>
+      <dictionary_name>PCCategory</dictionary_name>
+    </column>
+    <column name="hOwnerRegion" type="REFERENCE">
+      <offset>116</offset>
+      <dictionary_name>PCRegion</dictionary_name>
+    </column>
+    <column name="Tex" type="STRUCT">
+      <offset>120</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="Mat" type="STRUCT">
+      <offset>124</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCMaterialDef" />
+    </column>
+    <column name="Geo" type="STRUCT">
+      <offset>128</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCGeometryDef" />
+    </column>
+    <column name="Bone" type="STRUCT">
+      <offset>132</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCBoneDef" />
+    </column>
+    <column name="Cat" type="STRUCT">
+      <offset>136</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCCategory" />
+    </column>
+    <column name="Region" type="STRUCT">
+      <offset>140</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCRegion" />
+    </column>
+    <column name="Values" type="STRUCT">
+      <offset>144</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCBodyScaleValue" />
+    </column>
+    <column name="Overlays" type="STRUCT">
+      <offset>148</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="CostumeRefForSet" />
+    </column>
+    <column name="GuildOverlays" type="STRUCT">
+      <offset>152</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PlayerCostumeHolder" />
+    </column>
+    <column name="Color0Allowed" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Color1Allowed" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Color2Allowed" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="Color3Allowed" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="HasSlider" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="SysName" type="STRING">
+      <offset>160</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Value1" type="F32">
+      <offset>164</offset>
+    </column>
+    <column name="Value2" type="F32">
+      <offset>168</offset>
+    </column>
+    <column name="UnlockInfo" type="OPTIONALSTRUCT">
+      <offset>172</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UnlockMetaData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

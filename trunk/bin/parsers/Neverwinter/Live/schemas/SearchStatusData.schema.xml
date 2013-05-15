@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SearchStatusData">
+  <table>
+    <column name="SearchStatusData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SearchTitle" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="filterType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="SearchFilterType" />
+    </column>
+    <column name="FilterString" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="yScroll" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="Small" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="ShowCostumes" type="U8">
+      <offset>21</offset>
+      <default>1</default>
+    </column>
+    <column name="Request" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="ResourceSearchRequest" />
+    </column>
+    <column name="Result" type="EMBEDDEDSTRUCT">
+      <offset>60</offset>
+      <subtable external="ResourceSearchResult" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

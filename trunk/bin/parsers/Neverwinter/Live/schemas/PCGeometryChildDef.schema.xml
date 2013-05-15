@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCGeometryChildDef">
+  <table>
+    <column name="PCGeometryChildDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ChildBone" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>CostumeBone</dictionary_name>
+    </column>
+    <column name="DefaultChildGeometry" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>CostumeGeometry</dictionary_name>
+    </column>
+    <column name="ChildGeometry" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="PCGeometryRef" />
+    </column>
+    <column name="RequiresChildGeometry" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

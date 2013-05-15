@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisZoneMapRoom">
+  <table>
+    <column name="GenesisZoneMapRoom" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Room" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Tags" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Width" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Depth" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Door" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="GenesisRoomDoor" />
+    </column>
+    <column name="Area" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="GenesisRoomRectArea" />
+    </column>
+    <column name="CustomObject" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="UseProjLights" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="NoDetailsOrPaths" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Volumized" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="DetailSeed" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="VisibleName" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="PosX" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="PosY" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="PosZ" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="Rotation" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="StaticObject" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="GenesisObject" />
+    </column>
+    <column name="detail_kit_1" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Details" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>GenesisDetailKit</dictionary_name>
+    </column>
+    <column name="DetailKit" type="REFERENCE">
+      <offset>64</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Details</redundant_name>
+      <dictionary_name>GenesisDetailKit</dictionary_name>
+    </column>
+    <column name="DetailDensity" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="Detail2" type="EMBEDDEDSTRUCT">
+      <offset>76</offset>
+      <subtable external="GenesisDetailKitAndDensity" />
+    </column>
+    <column name="SideTrail" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="HallwayRoom" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="OffMap" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="Prefab" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Mission" type="STRUCT">
+      <offset>92</offset>
+      <subtable external="GenesisRoomMission" />
+    </column>
+    <column name="Seed" type="IGNORE" />
+    <column name="LightDensity" type="IGNORE" />
+    <column name="LightDetail" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

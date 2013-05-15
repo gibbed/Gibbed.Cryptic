@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenButtonState">
+  <table>
+    <column name="UIGenButtonState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>4</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="String" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Pressed" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="Truncate" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="UIGenBundleTruncateState" />
+    </column>
+    <column name="v2TextSize" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

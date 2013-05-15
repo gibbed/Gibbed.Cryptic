@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenAction">
+  <table>
+    <column name="UIGenAction" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Command" type="STRINGARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="ExpressionBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Expression" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExpressionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Sound" type="STRINGARRAY">
+      <offset>8</offset>
+      <flags>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Sound</dictionary_name>
+    </column>
+    <column name="EnterState" type="INTARRAY">
+      <offset>12</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="ExitState" type="INTARRAY">
+      <offset>16</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="ToggleState" type="INTARRAY">
+      <offset>20</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="CopyParentState" type="INTARRAY">
+      <offset>24</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="Mutate" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="UIGenMutateOther" />
+    </column>
+    <column name="Message" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="UIGenMessagePacket" />
+    </column>
+    <column name="Set" type="STRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UIGenVarTypeGlobAndGen" />
+    </column>
+    <column name="Focus" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Unfocus" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="TooltipFocus" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="TooltipUnfocus" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

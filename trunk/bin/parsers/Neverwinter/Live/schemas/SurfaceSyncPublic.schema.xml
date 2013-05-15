@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SurfaceSyncPublic">
+  <table>
+    <column name="SurfaceSyncPublic" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="speeds_0" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="SurfaceSyncSpeedRange" />
+    </column>
+    <column name="speeds_1" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="SurfaceSyncSpeedRange" />
+    </column>
+    <column name="speeds_2" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="SurfaceSyncSpeedRange" />
+    </column>
+    <column name="speeds_3" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="SurfaceSyncSpeedRange" />
+    </column>
+    <column name="Friction" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="Gravity" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

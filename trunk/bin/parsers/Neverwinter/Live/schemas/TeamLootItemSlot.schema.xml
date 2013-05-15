@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TeamLootItemSlot">
+  <table>
+    <column name="TeamLootItemSlot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uiLootEnt" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="LootInteractable" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Item" />
+    </column>
+    <column name="Count" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="ItemID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="LocalStartTime" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="TimeLimit" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

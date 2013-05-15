@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NonBlockingContainerQueryStruct">
+  <table>
+    <column name="NonBlockingContainerQueryStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContainerIDs" type="INTARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="ExpressionString" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="MaxToReturn" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

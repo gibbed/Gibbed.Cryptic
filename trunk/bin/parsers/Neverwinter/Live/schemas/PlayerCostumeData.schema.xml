@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerCostumeData">
+  <table>
+    <column name="PlayerCostumeData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dirtyBit" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="ActiveCostume" type="U8">
+      <offset>1</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iActiveCostume" type="U8">
+      <offset>1</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ActiveCostume</redundant_name>
+    </column>
+    <column name="SlotSetVersion" type="U8">
+      <offset>2</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iSlotSetVersion" type="U8">
+      <offset>2</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>SlotSetVersion</redundant_name>
+    </column>
+    <column name="SlotSet" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="PCSlotSet" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>SlotSet</redundant_name>
+    </column>
+    <column name="CostumeSlot" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="PlayerCostumeSlot" />
+    </column>
+    <column name="eaCostumeSlots" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <redundant_name>CostumeSlot</redundant_name>
+      <subtable external="PlayerCostumeSlot" />
+    </column>
+    <column name="UnlockedCostume" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>PUPPET_NO_COPY</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PlayerCostumeRef" />
+    </column>
+    <column name="eaUnlockedCostumeRefs" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PUPPET_NO_COPY</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>UnlockedCostume</redundant_name>
+      <subtable external="PlayerCostumeRef" />
+    </column>
+    <column name="ValidateTag" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uiValidateTag" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ValidateTag</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

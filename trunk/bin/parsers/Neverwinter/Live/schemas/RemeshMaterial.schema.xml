@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RemeshMaterial">
+  <table>
+    <column name="RemeshMaterial" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="simplygon_material" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="tex_swaps" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="RemeshAssetSwap" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

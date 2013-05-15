@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TestBlock">
+  <table>
+    <column name="{" type="START" />
+    <column name="maskfield" type="INT">
+      <offset>0</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>FLAGS</format>
+    </column>
+    <column name="floatarray" type="F32ARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="testinitfloat" type="F32">
+      <offset>12</offset>
+      <default>-1</default>
+    </column>
+    <column name="intarray" type="INTARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="multivalpp" type="MULTIEARRAY">
+      <offset>20</offset>
+    </column>
+    <column name="singlestruct" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="StructWithBits" />
+    </column>
+    <column name="eastruct" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="StructWithBits" />
+    </column>
+    <column name="singlelinestruct" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="singlelinestruct" />
+    </column>
+    <column name="structintarray" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="structintarray" />
+    </column>
+    <column name="functioncall" type="FUNCTIONCALL">
+      <offset>80</offset>
+    </column>
+    <column name="bitsStruct" type="EMBEDDEDSTRUCT">
+      <offset>84</offset>
+      <subtable external="StructWithBits" />
+    </column>
+    <column name="Widget" type="POLYMORPH">
+      <offset>48</offset>
+      <subtable external="Widget" />
+    </column>
+    <column name="ParamBitfield" type="INTFIXEDARRAY">
+      <offset>152</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>10</num_elements>
+    </column>
+    <column name="TestVec3_1" type="F32FIXEDARRAY">
+      <offset>104</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TestIVec3_1" type="INTFIXEDARRAY">
+      <offset>116</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TestVec3_2" type="F32FIXEDARRAY">
+      <offset>128</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TestIVec3_2" type="INTFIXEDARRAY">
+      <offset>140</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

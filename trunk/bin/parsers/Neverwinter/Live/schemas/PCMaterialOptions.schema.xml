@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCMaterialOptions">
+  <table>
+    <column name="PCMaterialOptions" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ExtraColor" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PCMaterialDefColor" />
+    </column>
+    <column name="ExtraValue" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PCMaterialDefConstant" />
+    </column>
+    <column name="FXSwap" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="PCFXSwap" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

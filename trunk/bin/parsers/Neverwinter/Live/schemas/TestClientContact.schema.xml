@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TestClientContact">
+  <table>
+    <column name="TestClientContact" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Ref" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="IsImportant" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="HasMission" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="HasMissionComplete" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

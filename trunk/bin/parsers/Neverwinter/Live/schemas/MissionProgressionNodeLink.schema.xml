@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MissionProgressionNodeLink">
+  <table>
+    <column name="MissionProgressionNodeLink" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MissionName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="hNodeDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="MissionIndex" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="uTimestamp" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ModelLODTemplate">
+  <table>
+    <column name="ModelLODTemplate" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="AutoLODTemplate" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="AutoLODTemplate" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PreventClustering" type="BOOLFLAG">
+      <offset>16</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

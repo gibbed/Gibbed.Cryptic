@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CutsceneSubtitleList">
+  <table>
+    <column name="CutsceneSubtitleList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="common" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="RelativePos" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="main_offset" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="OffsetType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="CutsceneOffsetType" />
+    </column>
+    <column name="CutsceneEntName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="EncounterName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ActorName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="BoneName" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="EntityRef" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="TwoRelativePos" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="SecondaryOffset" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="CutsceneOffsetData" />
+    </column>
+    <column name="SubtitlePoint" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="CutsceneSubtitlePoint" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountInfoStripped">
+  <table>
+    <column name="AccountInfoStripped" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AccountName" type="FIXEDSTRING">
+      <offset>0</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="Permissions" type="STRUCT">
+      <offset>128</offset>
+      <subtable external="AccountPermissionStruct" />
+    </column>
+    <column name="ProductKeys" type="STRINGARRAY">
+      <offset>132</offset>
+    </column>
+    <column name="email" type="STRING">
+      <offset>136</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>140</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

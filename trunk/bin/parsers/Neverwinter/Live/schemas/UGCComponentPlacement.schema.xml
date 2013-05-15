@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCComponentPlacement">
+  <table>
+    <column name="UGCComponentPlacement" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ExternalPlacement" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="RoomID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="RotationPYR" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Pitch" type="F32">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RotationPYR</redundant_name>
+    </column>
+    <column name="Rotation" type="F32">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+    </column>
+    <column name="Roll" type="F32">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+    </column>
+    <column name="Snap" type="INT">
+      <offset>36</offset>
+      <static_define_list external="UGCComponentHeightSnap" />
+    </column>
+    <column name="SnapNormal" type="U8">
+      <offset>40</offset>
+    </column>
+    <column name="RoomLevel" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="ZOrderSort" type="INT">
+      <offset>48</offset>
+      <static_define_list external="UGCZOrderSort" />
+    </column>
+    <column name="ExternalMap" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="ExternalObject" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

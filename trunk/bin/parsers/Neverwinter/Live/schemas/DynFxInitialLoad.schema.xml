@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynFxInitialLoad">
+  <table>
+    <column name="DynFxInitialLoad" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DynFx" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="DynFxInfo" />
+    </column>
+    <column name="packed_data_serialize" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="SerializablePackedStructStream" />
+    </column>
+    <column name="data_infos_serialize" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="DynFxDataInfoSerialize" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

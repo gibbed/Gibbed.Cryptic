@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FileSpecs">
+  <table>
+    <column name="FileSpecs" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="hoggspecs" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="HogSpec" />
+    </column>
+    <column name="flagspecs" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="FlagSpec" />
+    </column>
+    <column name="controlspecs" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="ControlSpec" />
+    </column>
+  </table>
+</parser>

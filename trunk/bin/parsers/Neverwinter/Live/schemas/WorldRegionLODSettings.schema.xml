@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldRegionLODSettings">
+  <table>
+    <column name="WorldRegionLODSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="NumLevels" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="BodysockLevel" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Distances" type="F32ARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="PerLevelMax" type="INTARRAY">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

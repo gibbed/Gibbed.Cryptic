@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ProjectileEntityDef">
+  <table>
+    <column name="ProjectileEntityDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Costume" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="mmSettings" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Speed" type="F32">
+      <offset>12</offset>
+      <default>-1</default>
+    </column>
+    <column name="Acceleration" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="TargetSpeed" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="Range" type="F32">
+      <offset>24</offset>
+      <default>300</default>
+    </column>
+    <column name="Lifetime" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="Gravity" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="EntityCollisionRadius" type="F32">
+      <offset>36</offset>
+      <default>6</default>
+    </column>
+    <column name="WorldCollisionRadius" type="F32">
+      <offset>40</offset>
+      <default>3</default>
+    </column>
+    <column name="MaxHitEntities" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="SurfaceObstructAngle" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="StepHeight" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="HitsFriendlies" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="HitsEnemies" type="BIT">
+      <offset>56</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="LinearVelocity" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="HugGround" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="WallsObstruct" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="HitsOwner" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="IgnoreHitWhileStationary" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="PowerOnHitEnt" type="REFERENCE">
+      <offset>60</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="PowerOnCollideWorld" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="PowerOnExpire" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="PowerOnHitGotoEnt" type="REFERENCE">
+      <offset>72</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="PowerOnDeath" type="REFERENCE">
+      <offset>76</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="OnQueuedDeath" type="STRUCT">
+      <offset>80</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprOnQueuedDeath" type="STRUCT">
+      <offset>80</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>OnQueuedDeath</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="OnExpire" type="STRUCT">
+      <offset>84</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprOnExpire" type="STRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>OnExpire</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="OnCollideWorld" type="STRUCT">
+      <offset>88</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprOnCollideWorld" type="STRUCT">
+      <offset>88</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>OnCollideWorld</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="OnHitEntity" type="STRUCT">
+      <offset>92</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprOnHitEntity" type="STRUCT">
+      <offset>92</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>OnHitEntity</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="OnHitGotoEnt" type="STRUCT">
+      <offset>96</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprOnHitGotoEnt" type="STRUCT">
+      <offset>96</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>OnHitGotoEnt</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ResetHitEntsTimer" type="F32">
+      <offset>100</offset>
+    </column>
+    <column name="DecrementNumEntitiesHitCounterOnReset" type="U8">
+      <offset>104</offset>
+      <default>1</default>
+    </column>
+    <column name="InitialEntityHitDelay" type="F32">
+      <offset>108</offset>
+    </column>
+    <column name="ProjectileType" type="INT">
+      <offset>112</offset>
+      <static_define_list external="EProjectileType" />
+    </column>
+    <column name="AttachOnCreate" type="INT">
+      <offset>116</offset>
+      <static_define_list external="EProjectileAttachOnCreate" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRGrabToFG">
+  <table>
+    <column name="MRGrabToFG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="MRGrabToFGFlags" />
+    </column>
+    <column name="Status" type="INT">
+      <offset>4</offset>
+      <static_define_list external="MRGrabStatus" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

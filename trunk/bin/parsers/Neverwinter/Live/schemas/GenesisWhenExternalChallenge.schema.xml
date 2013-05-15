@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisWhenExternalChallenge">
+  <table>
+    <column name="GenesisWhenExternalChallenge" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>8</offset>
+      <static_define_list external="GenesisChallengeType" />
+    </column>
+    <column name="Clickie" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisMissionChallengeClickie" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

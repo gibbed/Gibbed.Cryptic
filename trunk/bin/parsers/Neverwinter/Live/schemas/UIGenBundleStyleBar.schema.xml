@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenBundleStyleBar">
+  <table>
+    <column name="UIGenBundleStyleBar" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Bar" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>UIStyleBar</dictionary_name>
+    </column>
+    <column name="BarBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="BarExpr" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>BarBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

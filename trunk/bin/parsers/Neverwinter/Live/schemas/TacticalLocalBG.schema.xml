@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalLocalBG">
+  <table>
+    <column name="TacticalLocalBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="movhMaxSpeed" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="hAutoSprint" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="hAimStrafe" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="hAimJumpDisable" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="surfaceNormal" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="dirRelativeForDoubleTap" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="overridesQueued" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="TacticalOverrides" />
+    </column>
+    <column name="CurrentRollSpeed" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="stanceAiming" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="stanceCrouching" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="stanceSprint" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="spcClearAllOverrides" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>64</offset>
+      <subtable external="TacticalLocalBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

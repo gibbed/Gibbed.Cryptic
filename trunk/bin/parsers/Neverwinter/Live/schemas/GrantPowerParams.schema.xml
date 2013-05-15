@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GrantPowerParams">
+  <table>
+    <column name="GrantPowerParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1183</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="hDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

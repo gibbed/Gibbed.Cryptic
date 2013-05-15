@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GimmeEmailAliasList">
+  <table>
+    <column name="GimmeEmailAliasList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Alias" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="GimmeEmailAlias" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

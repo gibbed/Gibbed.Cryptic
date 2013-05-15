@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCSearchCacheEntry">
+  <table>
+    <column name="UGCSearchCacheEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AccessLevel" type="INT">
+      <offset>0</offset>
+      <static_define_list external="UGCSearchCacheCriteria" />
+    </column>
+    <column name="IsReviewer" type="INT">
+      <offset>4</offset>
+      <static_define_list external="UGCSearchCacheCriteria" />
+    </column>
+    <column name="UGCProjects" type="INT">
+      <offset>8</offset>
+      <static_define_list external="UGCSearchCacheCriteria" />
+    </column>
+    <column name="UGCSeries" type="INT">
+      <offset>12</offset>
+      <static_define_list external="UGCSearchCacheCriteria" />
+    </column>
+    <column name="PlayerLevel" type="INT">
+      <offset>16</offset>
+      <static_define_list external="UGCSearchCacheCriteria" />
+    </column>
+    <column name="PlayerLevelMin" type="INT">
+      <offset>20</offset>
+      <static_define_list external="UGCSearchCacheCriteria" />
+    </column>
+    <column name="PlayerLevelMax" type="INT">
+      <offset>24</offset>
+      <static_define_list external="UGCSearchCacheCriteria" />
+    </column>
+    <column name="Lang" type="INT">
+      <offset>28</offset>
+      <static_define_list external="UGCSearchCacheCriteria" />
+    </column>
+    <column name="PublishedInLastNDays" type="INT">
+      <offset>32</offset>
+      <static_define_list external="UGCSearchCacheCriteria" />
+    </column>
+    <column name="FeaturedIncludeArchives" type="INT">
+      <offset>36</offset>
+      <static_define_list external="UGCSearchCacheCriteria" />
+    </column>
+    <column name="SpecialType" type="INT">
+      <offset>40</offset>
+      <static_define_list external="UGCSearchCacheCriteria" />
+    </column>
+    <column name="UGCProjectSearchInfo" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="UGCProjectSearchInfo" />
+    </column>
+    <column name="UGCSearchCacheResults" type="STRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+      <subtable external="UGCSearchCacheResult" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

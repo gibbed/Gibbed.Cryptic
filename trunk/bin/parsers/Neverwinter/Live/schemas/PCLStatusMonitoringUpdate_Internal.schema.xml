@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCLStatusMonitoringUpdate_Internal">
+  <table>
+    <column name="PCLStatusMonitoringUpdate_Internal" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MyIDString" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="State" type="INT">
+      <offset>4</offset>
+      <static_define_list external="PCLStatusMonitoringState" />
+    </column>
+    <column name="UpdateString" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="PatchName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="PatchDir" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="MyPID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="uMyHWND" type="INT64">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

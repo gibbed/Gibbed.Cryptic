@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PatchMsgPerfInfo">
+  <table>
+    <column name="PatchMsgPerfInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="cmd" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Count" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="Duration" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="minDuration" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="maxDuration" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentSlots">
+  <table>
+    <column name="ItemAssignmentSlots" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Slots" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ItemAssignmentSlottedItem" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

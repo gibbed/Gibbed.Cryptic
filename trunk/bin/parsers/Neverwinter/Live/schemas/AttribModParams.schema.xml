@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribModParams">
+  <table>
+    <column name="AttribModParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="vecParam" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="vecTarget" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="erParam" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="iParam" type="INT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="hNodeParam" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>WorldInteractionNode</dictionary_name>
+    </column>
+    <column name="eDynamicCachedType" type="INT">
+      <offset>56</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

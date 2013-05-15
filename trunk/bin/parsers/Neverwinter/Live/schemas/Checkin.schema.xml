@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Checkin">
+  <table>
+    <column name="Checkin" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Rev" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Branch" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Time" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="SandBox" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="IncrementalFrom" type="INT">
+      <offset>16</offset>
+      <default>-2</default>
+    </column>
+    <column name="Author" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="Comment" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

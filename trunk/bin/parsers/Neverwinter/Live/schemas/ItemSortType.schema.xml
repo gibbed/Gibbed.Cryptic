@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemSortType">
+  <table>
+    <column name="ItemSortType" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="NameMsg" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="SortID" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Searchable" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="LevelIgnored" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ItemType" />
+    </column>
+    <column name="Type2" type="INT">
+      <offset>16</offset>
+      <static_define_list external="ItemType" />
+    </column>
+    <column name="RestrictBagID" type="INT">
+      <offset>20</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="RestrictSlotType" type="INT">
+      <offset>24</offset>
+      <static_define_list external="SlotType" />
+    </column>
+    <column name="ItemCategory" type="INT">
+      <offset>28</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

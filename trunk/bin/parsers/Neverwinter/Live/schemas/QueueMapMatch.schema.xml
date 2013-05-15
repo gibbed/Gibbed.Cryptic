@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueMapMatch">
+  <table>
+    <column name="QueueMapMatch" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapKey" type="INT64">
+      <offset>0</offset>
+    </column>
+    <column name="Match" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="QueueMatch" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

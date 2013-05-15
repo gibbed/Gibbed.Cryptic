@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynSkeletonDebugNewAnimSys">
+  <table>
+    <column name="DynSkeletonDebugNewAnimSys" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DebugStances" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="DynSkeletonDebugStance" />
+    </column>
+    <column name="GraphUpdaters" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="DynSkeletonDebugGraphUpdater" />
+    </column>
+    <column name="MovementBlocks" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DynSkeletonDebugMovementBlock" />
+    </column>
+    <column name="MovementFX" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="DynSkeletonDebugFX" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

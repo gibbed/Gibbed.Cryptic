@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerMapValues">
+  <table>
+    <column name="PlayerMapValues" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EntID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Values" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="MapStateValue" />
+    </column>
+    <column name="PetTargetingInfo" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="PetTargetingInfo" />
+    </column>
+    <column name="uiRespawnCount" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="uiLastRespawnTime" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

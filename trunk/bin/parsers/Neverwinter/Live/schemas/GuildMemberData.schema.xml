@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GuildMemberData">
+  <table>
+    <column name="GuildMemberData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="AtName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Status" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="PublicComment" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="PublicCommentTime" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="OfficerComment" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="OfficerCommentTime" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="ClassName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ClassDispName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Rank" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="OfficerRank" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="Level" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="Location" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Instance" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="Logout" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ContainerID" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="Online" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="LFGMode" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="uGroupProjectContribution" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

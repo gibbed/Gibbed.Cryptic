@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TransformationPart">
+  <table>
+    <column name="TransformationPart" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Color_0" type="INT">
+      <offset>4</offset>
+      <static_define_list external="ETransformColorOrigin" />
+    </column>
+    <column name="Color_1" type="INT">
+      <offset>8</offset>
+      <static_define_list external="ETransformColorOrigin" />
+    </column>
+    <column name="Color_2" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ETransformColorOrigin" />
+    </column>
+    <column name="Color_3" type="INT">
+      <offset>16</offset>
+      <static_define_list external="ETransformColorOrigin" />
+    </column>
+    <column name="Part" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="PCPart" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RoomPartitionParsed">
+  <table>
+    <column name="RoomPartitionParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="zmap_scope_name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="gmesh" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="GMeshParsed" />
+    </column>
+    <column name="bounds_min" type="F32FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="bounds_max" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="bounds_mid" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="mapSnapData" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="MapSnapRoomPartitionData" />
+    </column>
+    <column name="partition_data" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <subtable external="RoomInstanceData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

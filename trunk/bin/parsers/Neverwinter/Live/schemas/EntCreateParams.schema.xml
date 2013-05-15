@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EntCreateParams">
+  <table>
+    <column name="EntCreateParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1179</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="CreateType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="EntCreateType" />
+    </column>
+    <column name="Critter" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>CritterDef</dictionary_name>
+    </column>
+    <column name="CritterGroup" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>CritterGroup</dictionary_name>
+    </column>
+    <column name="Team" type="INT">
+      <offset>16</offset>
+      <static_define_list external="EntCreateTeam" />
+    </column>
+    <column name="Strength" type="INT">
+      <offset>20</offset>
+      <static_define_list external="EntCreateStrength" />
+    </column>
+    <column name="Rank" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SubRank" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ExprBlockDistanceFront" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprBlockDistanceRight" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprBlockDistanceAbove" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Facing" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="FSM" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="CostumeDefault" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="FaceType" type="INT">
+      <offset>56</offset>
+      <static_define_list external="EntCreateFaceType" />
+    </column>
+    <column name="FaceAbsolute" type="INT">
+      <offset>56</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FaceType</redundant_name>
+      <static_define_list external="EntCreateFaceType" />
+    </column>
+    <column name="ModsOwnedByOwner" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Teleport" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="OffsetUsesPitchAndRoll" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="AdjustOffsetByPitch" type="BIT">
+      <offset>60</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>OffsetUsesPitchAndRoll</redundant_name>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="UseFacingPitch" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="UseCreatorPitch" type="BIT">
+      <offset>60</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>UseFacingPitch</redundant_name>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="UseFacingRoll" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="UseMainTarget" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="SurviveCharacterDeathExpiration" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="DieOnExpire" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="CanCustomizeCostume" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="UseTargetPositionWhenNoTarget" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="UseCreatorsDisplayName" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="UseCreatorsPuppetDisplayName" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="Persistent" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="CreateAtTargetedEntityPos" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="UseTargetPositionAsAIVarsTargetPos" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="ClampToGround" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="BoneGroup" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="Skeleton" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>CostumeSkeleton</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

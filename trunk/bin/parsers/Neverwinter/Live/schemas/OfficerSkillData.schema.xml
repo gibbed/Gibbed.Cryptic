@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OfficerSkillData">
+  <table>
+    <column name="OfficerSkillData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CategoryList" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="OfficerSkillCategoryUI" />
+    </column>
+    <column name="Trees" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="LastUseTime" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="reset" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="AnyAvailable" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

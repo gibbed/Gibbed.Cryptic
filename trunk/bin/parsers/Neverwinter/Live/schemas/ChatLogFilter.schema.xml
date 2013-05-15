@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatLogFilter">
+  <table>
+    <column name="ChatLogFilter" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TypeFilter" type="INTARRAY">
+      <offset>0</offset>
+      <static_define_list external="ChatLogEntryType" />
+    </column>
+    <column name="TypeInclusion" type="INT">
+      <offset>4</offset>
+      <static_define_list external="ChatLogFilterEnum" />
+    </column>
+    <column name="NameFilter" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ChatUserInfo" />
+    </column>
+    <column name="NameInclusion" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ChatLogFilterEnum" />
+    </column>
+    <column name="uStartTime" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="uEndTime" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

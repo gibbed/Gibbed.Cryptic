@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatConfig">
+  <table>
+    <column name="ChatConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="eaMessageTypeColorDefs" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ChatConfigColorDef" />
+    </column>
+    <column name="eaChannelColorDefs" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ChatConfigColorDef" />
+    </column>
+    <column name="eaChatTabGroupConfigs" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ChatTabGroupConfig" />
+    </column>
+    <column name="pchCurrentTabGroup" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING_DB</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchCurrentInputChannel" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING_DB</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchStatusMessage" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iVersion" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fFontScale" type="F32">
+      <offset>28</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="fActiveWindowAlpha" type="F32">
+      <offset>32</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>1063675494</default>
+    </column>
+    <column name="fInactiveWindowAlpha" type="F32">
+      <offset>36</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>1058642330</default>
+    </column>
+    <column name="bShowDate" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="bShowTime" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="bShowMessageTypeNames" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="bHideAccountNames" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="bProfanityFilter" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="bChatHidden" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="bGlobalChannelSubscribed" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="bAnnotateAutoComplete" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="bTextFadesWithWindow" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="bShowChannelNames" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="Status" type="INT">
+      <offset>44</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="siTimeRequiredToStartFading" type="INT16">
+      <offset>48</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="siFadeAwayDuration" type="INT16">
+      <offset>50</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ppShardGlobalChannels" type="STRINGARRAY">
+      <offset>52</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pchAwayMessage" type="IGNORE" />
+    <column name="bAutoAway" type="IGNORE" />
+    <column name="bAway" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

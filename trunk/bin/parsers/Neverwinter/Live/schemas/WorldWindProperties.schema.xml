@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldWindProperties">
+  <table>
+    <column name="WorldWindProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EffectAmount" type="F32">
+      <offset>0</offset>
+      <default>1</default>
+    </column>
+    <column name="Bendiness" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="PivotOffset" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Rustling" type="F32">
+      <offset>12</offset>
+      <default>1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

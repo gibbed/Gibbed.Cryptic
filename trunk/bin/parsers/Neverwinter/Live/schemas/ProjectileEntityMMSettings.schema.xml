@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ProjectileEntityMMSettings">
+  <table>
+    <column name="ProjectileEntityMMSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Speed" type="F32">
+      <offset>0</offset>
+      <default>-1</default>
+    </column>
+    <column name="Acceleration" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="TargetSpeed" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Range" type="F32">
+      <offset>12</offset>
+      <default>300</default>
+    </column>
+    <column name="Lifetime" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="Gravity" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="EntityCollisionRadius" type="F32">
+      <offset>24</offset>
+      <default>6</default>
+    </column>
+    <column name="WorldCollisionRadius" type="F32">
+      <offset>28</offset>
+      <default>3</default>
+    </column>
+    <column name="MaxHitEntities" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="SurfaceObstructAngle" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="StepHeight" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="HitsFriendlies" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="HitsEnemies" type="BIT">
+      <offset>44</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="LinearVelocity" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="HugGround" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="WallsObstruct" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="HitsOwner" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="IgnoreHitWhileStationary" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

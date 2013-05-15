@@ -1,0 +1,542 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeEditState">
+  <table>
+    <column name="CostumeEditState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CostumeStorageType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="PCCostumeStorageType" />
+    </column>
+    <column name="uCostumeEntContainerID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="CostumeIndex" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Stance" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCStanceInfo" />
+    </column>
+    <column name="Stances" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCStanceInfo" />
+    </column>
+    <column name="Voice" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCVoice" />
+    </column>
+    <column name="Voices" type="STRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCVoice" />
+    </column>
+    <column name="Mood" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>CostumeMood</dictionary_name>
+    </column>
+    <column name="Moods" type="STRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCMood" />
+    </column>
+    <column name="hClass" type="REFERENCE">
+      <offset>52</offset>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="BodyScales" type="STRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCBodyScaleInfo" />
+    </column>
+    <column name="BodyScalesInclude" type="STRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCBodyScaleInfo" />
+    </column>
+    <column name="BodyScalesExclude" type="STRUCT">
+      <offset>64</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCBodyScaleInfo" />
+    </column>
+    <column name="BoneScales" type="STRUCT">
+      <offset>72</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCScaleInfo" />
+    </column>
+    <column name="currentCost" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="uNemesisID" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="State" type="INT">
+      <offset>84</offset>
+      <static_define_list external="NemesisState" />
+    </column>
+    <column name="motivation" type="INT">
+      <offset>88</offset>
+      <static_define_list external="NemesisMotivation" />
+    </column>
+    <column name="personality" type="INT">
+      <offset>92</offset>
+      <static_define_list external="NemesisPersonality" />
+    </column>
+    <column name="NemesisName" type="STRING">
+      <offset>96</offset>
+    </column>
+    <column name="NemesisDescription" type="STRING">
+      <offset>100</offset>
+    </column>
+    <column name="NemesisPowerSet" type="STRING">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MinionPowerSet" type="STRING">
+      <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MinionCostumeSet" type="STRING">
+      <offset>112</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NemesisPowerHue" type="F32">
+      <offset>116</offset>
+    </column>
+    <column name="MinionPowerHue" type="F32">
+      <offset>120</offset>
+    </column>
+    <column name="StartNemesis" type="OPTIONALSTRUCT">
+      <offset>124</offset>
+      <subtable external="Nemesis" />
+    </column>
+    <column name="Skeleton" type="REFERENCE">
+      <offset>128</offset>
+      <dictionary_name>CostumeSkeleton</dictionary_name>
+    </column>
+    <column name="Skeletons" type="STRUCT">
+      <offset>132</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCSkeletonDef" />
+    </column>
+    <column name="Species" type="REFERENCE">
+      <offset>136</offset>
+      <dictionary_name>Species</dictionary_name>
+    </column>
+    <column name="SlotSet" type="STRING">
+      <offset>140</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="SlotID" type="INT">
+      <offset>144</offset>
+    </column>
+    <column name="ExtraSlot" type="U8">
+      <offset>148</offset>
+    </column>
+    <column name="SlotDef" type="OPTIONALSTRUCT">
+      <offset>152</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCSlotDef" />
+    </column>
+    <column name="SlotTypes" type="STRUCT">
+      <offset>156</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCSlotType" />
+    </column>
+    <column name="SlotType" type="OPTIONALSTRUCT">
+      <offset>160</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCSlotType" />
+    </column>
+    <column name="Presets" type="STRUCT">
+      <offset>164</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="CostumePreset" />
+    </column>
+    <column name="Region" type="REFERENCE">
+      <offset>168</offset>
+      <dictionary_name>CostumeRegion</dictionary_name>
+    </column>
+    <column name="Regions" type="STRUCT">
+      <offset>172</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCRegion" />
+    </column>
+    <column name="Category" type="REFERENCE">
+      <offset>176</offset>
+      <dictionary_name>CostumeCategory</dictionary_name>
+    </column>
+    <column name="Categories" type="STRUCT">
+      <offset>180</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCCategory" />
+    </column>
+    <column name="Bone" type="REFERENCE">
+      <offset>184</offset>
+      <dictionary_name>CostumeBone</dictionary_name>
+    </column>
+    <column name="Bones" type="STRUCT">
+      <offset>188</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCBoneDef" />
+    </column>
+    <column name="AllBones" type="STRUCT">
+      <offset>192</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCBoneDef" />
+    </column>
+    <column name="ExcludeBones" type="STRINGARRAY">
+      <offset>196</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="IncludeBones" type="STRINGARRAY">
+      <offset>200</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Part" type="OPTIONALSTRUCT">
+      <offset>320</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCPart" />
+    </column>
+    <column name="CurrentLayer" type="OPTIONALSTRUCT">
+      <offset>324</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCLayer" />
+    </column>
+    <column name="ClothLayer" type="OPTIONALSTRUCT">
+      <offset>328</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCLayer" />
+    </column>
+    <column name="Layers" type="STRUCT">
+      <offset>332</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCLayer" />
+    </column>
+    <column name="Geo" type="REFERENCE">
+      <offset>336</offset>
+      <dictionary_name>CostumeGeometry</dictionary_name>
+    </column>
+    <column name="Geos" type="STRUCT">
+      <offset>340</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCGeometryDef" />
+    </column>
+    <column name="Material" type="REFERENCE">
+      <offset>344</offset>
+      <dictionary_name>CostumeMaterial</dictionary_name>
+    </column>
+    <column name="Mats" type="STRUCT">
+      <offset>348</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCMaterialDef" />
+    </column>
+    <column name="Detail" type="REFERENCE">
+      <offset>352</offset>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="DetailTex" type="STRUCT">
+      <offset>356</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="Pattern" type="REFERENCE">
+      <offset>360</offset>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="PatternTex" type="STRUCT">
+      <offset>364</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="Specular" type="REFERENCE">
+      <offset>368</offset>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="SpecularTex" type="STRUCT">
+      <offset>372</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="Diffuse" type="REFERENCE">
+      <offset>376</offset>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="DiffuseTex" type="STRUCT">
+      <offset>380</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="Movable" type="REFERENCE">
+      <offset>384</offset>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="MovableTex" type="STRUCT">
+      <offset>388</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="Styles" type="STRUCT">
+      <offset>392</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCStyle" />
+    </column>
+    <column name="RandomStyles" type="STRINGARRAY">
+      <offset>396</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="BoneValidValues" type="STRUCT">
+      <offset>400</offset>
+      <subtable external="CostumeBoneValidValues" />
+    </column>
+    <column name="FindTypes" type="INT">
+      <offset>404</offset>
+      <static_define_list external="CostumeEditLineType" />
+      <format>FLAGS</format>
+    </column>
+    <column name="FindRegions" type="STRUCT">
+      <offset>408</offset>
+      <subtable external="PCRegionRef" />
+    </column>
+    <column name="FindScaleGroup" type="STRUCT">
+      <offset>412</offset>
+      <subtable external="CostumeUIScaleGroup" />
+    </column>
+    <column name="CostumeEditLine" type="STRUCT">
+      <offset>416</offset>
+      <subtable external="CostumeEditLine" />
+    </column>
+    <column name="BufferedEditLine" type="STRUCT">
+      <offset>420</offset>
+      <subtable external="CostumeEditLine" />
+    </column>
+    <column name="BodyScalesRule" type="INT">
+      <offset>424</offset>
+    </column>
+    <column name="CostumeSet" type="STRING">
+      <offset>428</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Costumes" type="STRUCT">
+      <offset>436</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="PetCostumeList" type="STRUCT">
+      <offset>440</offset>
+      <subtable external="PetCostumeList" />
+    </column>
+    <column name="Slots" type="STRUCT">
+      <offset>444</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UICostumeSlot" />
+    </column>
+    <column name="PetSlots" type="STRUCT">
+      <offset>448</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PetCostumeSlotList" />
+    </column>
+    <column name="UnlockedCostumes" type="STRUCT">
+      <offset>452</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="UnlockedCostumeRefs" type="STRUCT">
+      <offset>456</offset>
+      <subtable external="PlayerCostumeRef" />
+    </column>
+    <column name="OwnedUnlockedCostumes" type="STRUCT">
+      <offset>460</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="OwnedUnlockedCostumeRefs" type="STRUCT">
+      <offset>464</offset>
+      <subtable external="PlayerCostumeRef" />
+    </column>
+    <column name="FlatUnlockedGeos" type="EMBEDDEDSTRUCT">
+      <offset>468</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="UnlockedCostumeParts" type="STRUCT">
+      <offset>544</offset>
+      <subtable external="UnlockedCostumePart" />
+    </column>
+    <column name="FilteredUnlockedCostumeParts" type="STRUCT">
+      <offset>548</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UnlockedCostumePart" />
+    </column>
+    <column name="UnlockedCostumeFilter" type="STRING">
+      <offset>552</offset>
+    </column>
+    <column name="UnlockMetaIncomplete" type="U8">
+      <offset>556</offset>
+    </column>
+    <column name="OwnedCostumeValid" type="U8">
+      <offset>572</offset>
+    </column>
+    <column name="PowerFXBones" type="STRINGARRAY">
+      <offset>576</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="DefaultCostumes" type="STRUCT">
+      <offset>580</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="CostumeCreatorCostumeRef" />
+    </column>
+    <column name="LockedRegions" type="STRUCT">
+      <offset>584</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCRegion" />
+    </column>
+    <column name="SharedColorLocks" type="INT">
+      <offset>588</offset>
+      <static_define_list external="PCControlledRandomLock" />
+    </column>
+    <column name="SelectedBone" type="OPTIONALSTRUCT">
+      <offset>592</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCBoneDef" />
+    </column>
+    <column name="ValidSelectedBone" type="U8">
+      <offset>596</offset>
+    </column>
+    <column name="AutoEditIndex" type="INT">
+      <offset>600</offset>
+      <default>-1</default>
+    </column>
+    <column name="ShowItems" type="STRUCT">
+      <offset>604</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ItemDefRef" />
+    </column>
+    <column name="LineListHideMirrorBones" type="U8">
+      <offset>608</offset>
+    </column>
+    <column name="TextureLinesForCurrentPartValuesOnly" type="U8">
+      <offset>609</offset>
+    </column>
+    <column name="CombineLines" type="U8">
+      <offset>610</offset>
+    </column>
+    <column name="AllowSelectFromAllBones" type="U8">
+      <offset>611</offset>
+    </column>
+    <column name="CostumeChangeIsFree" type="U8">
+      <offset>615</offset>
+    </column>
+    <column name="CostumeChanged" type="U8">
+      <offset>616</offset>
+    </column>
+    <column name="FXArray" type="STRUCT">
+      <offset>620</offset>
+      <subtable external="PCFXTemp" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

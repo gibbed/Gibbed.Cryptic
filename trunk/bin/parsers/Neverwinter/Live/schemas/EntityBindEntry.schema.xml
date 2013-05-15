@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EntityBindEntry">
+  <table>
+    <column name="EntityBindEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CategoryName" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Def" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="EntityBindCommand" />
+    </column>
+    <column name="CategoryDef" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="EntityBindCommands" />
+    </column>
+    <column name="Primary" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="EntityBindCommandKey" />
+    </column>
+    <column name="Secondary" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="EntityBindCommandKey" />
+    </column>
+    <column name="Gamepad" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="EntityBindCommandKey" />
+    </column>
+    <column name="IsCategory" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

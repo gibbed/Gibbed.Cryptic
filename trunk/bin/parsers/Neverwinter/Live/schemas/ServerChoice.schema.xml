@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ServerChoice">
+  <table>
+    <column name="ServerChoice" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Folder" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="IsOpen" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="LastMap" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="NewMap" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Indent" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ContainerID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="mapInstanceIndex" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="ChoiceType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="MapChoiceType" />
+    </column>
+    <column name="NumPlayers" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="FolderName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="MapDescription" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>DisplayName</redundant_name>
+    </column>
+    <column name="PossibleMapChoice" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PossibleMapChoice" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

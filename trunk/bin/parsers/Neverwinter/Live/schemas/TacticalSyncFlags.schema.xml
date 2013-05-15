@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalSyncFlags">
+  <table>
+    <column name="TacticalSyncFlags" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="runPlusCrouchDoesRoll" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="doubleTapDoesRoll" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="runUsesFuel" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="rollWhileAiming" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="RollIgnoresGlobalCooldown" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="SprintDisabled" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="AimIgnoresGlobalCooldown" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="AutoSprint" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="SprintToggles" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="AimStrafes" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="AimDisablesJump" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="IgnoreInput" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

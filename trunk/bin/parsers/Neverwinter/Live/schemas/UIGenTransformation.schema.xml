@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenTransformation">
+  <table>
+    <column name="UIGenTransformation" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CenterX" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="CenterY" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="Rotate" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="UIAngle" />
+    </column>
+    <column name="ShearX" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="ShearY" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="ScaleX" type="F32">
+      <offset>32</offset>
+      <default>1</default>
+    </column>
+    <column name="ScaleY" type="F32">
+      <offset>36</offset>
+      <default>1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

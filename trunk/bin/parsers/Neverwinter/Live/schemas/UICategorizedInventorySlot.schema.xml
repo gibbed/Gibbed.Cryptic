@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UICategorizedInventorySlot">
+  <table>
+    <column name="UICategorizedInventorySlot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UICategory" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="CategoryName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="CategoryNameWithoutPrefix" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="CategoryNamePrefix" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Category" type="INT">
+      <offset>16</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="CategoryData" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ItemCategoryInfo" />
+    </column>
+    <column name="SlotKey" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Slot" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="InventorySlot" />
+    </column>
+    <column name="AssignmentUI" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ItemAssignmentUI" />
+    </column>
+    <column name="AdditionalCount" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="Locked" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

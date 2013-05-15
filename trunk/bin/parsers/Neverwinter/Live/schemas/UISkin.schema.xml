@@ -1,0 +1,1120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UISkin">
+  <table>
+    <column name="UISkin" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Background:" type="U8FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Highlight:" type="U8FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Button:" type="U8FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Button(Highlight):" type="U8FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Button(Pressed):" type="U8FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Button(Disabled):" type="U8FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Button(Changed):" type="U8FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Button(Parented):" type="U8FIXEDARRAY">
+      <offset>36</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Border:" type="U8FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Border(Inactive):" type="U8FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="ThinBorder:" type="U8FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="TitleBar:" type="U8FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="TitleBar(Inactive):" type="U8FIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Trough:" type="U8FIXEDARRAY">
+      <offset>60</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Trough(Pressed):" type="U8FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Entry:" type="U8FIXEDARRAY">
+      <offset>68</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Entry(Active):" type="U8FIXEDARRAY">
+      <offset>72</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Entry(Disabled):" type="U8FIXEDARRAY">
+      <offset>76</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Entry(Changed):" type="U8FIXEDARRAY">
+      <offset>80</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Entry(Parented):" type="U8FIXEDARRAY">
+      <offset>80</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="NormalFont:" type="REFERENCE">
+      <offset>88</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="hNormal" type="REFERENCE">
+      <offset>88</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>NormalFont:</redundant_name>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="DefaultFont:" type="REFERENCE">
+      <offset>88</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>NormalFont:</redundant_name>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="TitlebarBar:" type="REFERENCE">
+      <offset>92</offset>
+      <dictionary_name>UIStyleBar</dictionary_name>
+    </column>
+    <column name="UseStyleBorders" type="U8">
+      <offset>96</offset>
+    </column>
+    <column name="UseTextureAssemblies" type="U8">
+      <offset>97</offset>
+    </column>
+    <column name="LabelStyle:" type="STRING">
+      <offset>100</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LabelFont:" type="REFERENCE">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="LabelFont(Disabled):" type="REFERENCE">
+      <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ButtonStyle:" type="STRING">
+      <offset>112</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ButtonStyle(Highlight):" type="STRING">
+      <offset>116</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ButtonStyle(Pressed):" type="STRING">
+      <offset>120</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ButtonStyle(Disabled):" type="STRING">
+      <offset>124</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ButtonFont:" type="REFERENCE">
+      <offset>128</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ButtonFont(Highlight):" type="REFERENCE">
+      <offset>132</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ButtonFont(Pressed):" type="REFERENCE">
+      <offset>136</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ButtonFont(Disabled):" type="REFERENCE">
+      <offset>140</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="PaneStyle:" type="STRING">
+      <offset>144</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PaneTitleStyle:" type="STRING">
+      <offset>148</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PaneTextFont:" type="REFERENCE">
+      <offset>152</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="WindowStyle:" type="STRING">
+      <offset>156</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="WindowTitleStyle:" type="STRING">
+      <offset>160</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="WindowTitleStyle(Flash):" type="STRING">
+      <offset>164</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="WindowTitleFont:" type="REFERENCE">
+      <offset>168</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="TitlebarFont:" type="REFERENCE">
+      <offset>168</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>WindowTitleFont:</redundant_name>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="hTitlebar" type="REFERENCE">
+      <offset>168</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>WindowTitleFont:</redundant_name>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="WindowTitleCloseButton:" type="STRING">
+      <offset>172</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="WindowButtonStyle:" type="STRING">
+      <offset>176</offset>
+    </column>
+    <column name="WindowButtonStyle(Highlight):" type="STRING">
+      <offset>180</offset>
+    </column>
+    <column name="WindowButtonStyle(Pressed):" type="STRING">
+      <offset>184</offset>
+    </column>
+    <column name="WindowModalBackgroundColor:" type="INT">
+      <offset>188</offset>
+      <default>80</default>
+    </column>
+    <column name="ModalDialogUsesBackgroundColor:" type="U8">
+      <offset>192</offset>
+    </column>
+    <column name="MenuBarStyle:" type="STRING">
+      <offset>196</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MenuBarButtonStyle:" type="STRING">
+      <offset>200</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MenuBarButtonStyle(Highlight):" type="STRING">
+      <offset>204</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MenuBarButtonStyle(Opened):" type="STRING">
+      <offset>208</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MenuBarButtonFont:" type="REFERENCE">
+      <offset>212</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="MenuBarButtonFont(Highlight):" type="REFERENCE">
+      <offset>216</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="MenuBarButtonFont(Opened):" type="REFERENCE">
+      <offset>220</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="MenuBarSpacing:" type="INT">
+      <offset>224</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MenuPopupStyle:" type="STRING">
+      <offset>228</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MenuPopupStyle(Highlight):" type="STRING">
+      <offset>232</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MenuPopupSeparatorStyle:" type="STRING">
+      <offset>236</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MenuPopupFont:" type="REFERENCE">
+      <offset>240</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="MenuPopupFont(Highlight):" type="REFERENCE">
+      <offset>244</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="MenuPopupFont(Disabled):" type="REFERENCE">
+      <offset>248</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="MenuItemHasSubmenuTexture:" type="STRING">
+      <offset>252</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="MenuPopupOffsetY:" type="INT">
+      <offset>256</offset>
+    </column>
+    <column name="TextEntryStyle:" type="STRING">
+      <offset>260</offset>
+    </column>
+    <column name="TextEntryStyle(Highlight):" type="STRING">
+      <offset>264</offset>
+    </column>
+    <column name="TextEntryStyle(Disabled):" type="STRING">
+      <offset>268</offset>
+    </column>
+    <column name="TextEntryStyle(SelectedText):" type="STRING">
+      <offset>272</offset>
+    </column>
+    <column name="TextEntryTextFont:" type="REFERENCE">
+      <offset>276</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="TextEntryHighlightTextFont:" type="REFERENCE">
+      <offset>280</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="TextEntryDefaultTextFont:" type="REFERENCE">
+      <offset>284</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="TextEntryDisabledFont:" type="REFERENCE">
+      <offset>288</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ComboBoxStyle:" type="STRING">
+      <offset>292</offset>
+    </column>
+    <column name="ComboBoxStyle(Highlight):" type="STRING">
+      <offset>296</offset>
+    </column>
+    <column name="ComboBoxStyle(Opened):" type="STRING">
+      <offset>300</offset>
+    </column>
+    <column name="ComboBoxStyle(Disabled):" type="STRING">
+      <offset>304</offset>
+    </column>
+    <column name="ComboBoxListStyle:" type="STRING">
+      <offset>308</offset>
+    </column>
+    <column name="ComboBoxListStyle(SelectedItem):" type="STRING">
+      <offset>312</offset>
+    </column>
+    <column name="ComboBoxFont:" type="REFERENCE">
+      <offset>316</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ComboBoxFont(Highlight):" type="REFERENCE">
+      <offset>320</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ComboBoxFont(Opened):" type="REFERENCE">
+      <offset>324</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ComboBoxFont(Disabled):" type="REFERENCE">
+      <offset>328</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ComboBoxPopupBottomOffsetY:" type="INT">
+      <offset>332</offset>
+    </column>
+    <column name="ComboBoxPopupTopOffsetY:" type="INT">
+      <offset>336</offset>
+    </column>
+    <column name="ListHeaderStyle:" type="STRING">
+      <offset>340</offset>
+    </column>
+    <column name="ListInsideStyle:" type="STRING">
+      <offset>344</offset>
+    </column>
+    <column name="ListStyle:" type="STRING">
+      <offset>344</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ListInsideStyle:</redundant_name>
+    </column>
+    <column name="ListOutsideStyle:" type="STRING">
+      <offset>348</offset>
+    </column>
+    <column name="ListStyle(SelectedItem):" type="STRING">
+      <offset>352</offset>
+    </column>
+    <column name="ListContentExtraPaddingRight" type="INT">
+      <offset>356</offset>
+    </column>
+    <column name="ListHeaderFont:" type="REFERENCE">
+      <offset>360</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ListItemFont:" type="REFERENCE">
+      <offset>364</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ListItemFont(SelectedItem):" type="REFERENCE">
+      <offset>368</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ListDefaultFont:" type="REFERENCE">
+      <offset>372</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="TabGroupStyle:" type="STRING">
+      <offset>376</offset>
+    </column>
+    <column name="TabGroupStyle(Selected):" type="STRING">
+      <offset>380</offset>
+    </column>
+    <column name="VerticalTabGroupStyle:" type="STRING">
+      <offset>384</offset>
+    </column>
+    <column name="VerticalTabGroupStyle(Selected):" type="STRING">
+      <offset>388</offset>
+    </column>
+    <column name="TabGroupFont:" type="REFERENCE">
+      <offset>392</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="TabGroupFont(Selected):" type="REFERENCE">
+      <offset>396</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowUp:" type="STRING">
+      <offset>400</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowUp(Highlight):" type="STRING">
+      <offset>404</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowUp(Pressed):" type="STRING">
+      <offset>408</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowDown:" type="STRING">
+      <offset>412</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowDown(Highlight):" type="STRING">
+      <offset>416</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowDown(Pressed):" type="STRING">
+      <offset>420</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowLeft:" type="STRING">
+      <offset>424</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowLeft(Highlight):" type="STRING">
+      <offset>428</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowLeft(Pressed):" type="STRING">
+      <offset>432</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowRight:" type="STRING">
+      <offset>436</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowRight(Highlight):" type="STRING">
+      <offset>440</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarArrowRight(Pressed):" type="STRING">
+      <offset>444</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ScrollbarVTroughStyle:" type="STRING">
+      <offset>448</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScrollbarVHandleStyle:" type="STRING">
+      <offset>452</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScrollbarVHandleStyle(Highlight):" type="STRING">
+      <offset>456</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScrollbarVHandleStyle(Pressed):" type="STRING">
+      <offset>460</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScrollbarHTroughStyle:" type="STRING">
+      <offset>464</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScrollbarHHandleStyle:" type="STRING">
+      <offset>468</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScrollbarHHandleStyle(Highlight):" type="STRING">
+      <offset>472</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScrollbarHHandleStyle(Pressed):" type="STRING">
+      <offset>476</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScrollbarZoomMin:" type="STRING">
+      <offset>480</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScrollbarZoomMax:" type="STRING">
+      <offset>484</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScrollareaDragCursor:" type="STRING">
+      <offset>488</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SpinnerArrowUp:" type="STRING">
+      <offset>492</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="SpinnerArrowDown:" type="STRING">
+      <offset>496</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TreeStyle:" type="STRING">
+      <offset>500</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreeStyle(SelectedItem):" type="STRING">
+      <offset>504</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreeItemFont:" type="REFERENCE">
+      <offset>508</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="TreeItemFont(SelectedItem):" type="REFERENCE">
+      <offset>512</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="TreeDefaultFont:" type="REFERENCE">
+      <offset>516</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="TreeLineColor:" type="U8FIXEDARRAY">
+      <offset>520</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="TreeLineColor(Dragging):" type="U8FIXEDARRAY">
+      <offset>524</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="TreechartBGStyle:" type="STRING">
+      <offset>528</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartPlaceholderStyle:" type="STRING">
+      <offset>532</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartGroupContentBGStyle:" type="STRING">
+      <offset>536</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartGroupBottomStyle:" type="STRING">
+      <offset>540</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartFullWidthContentBGStyle:" type="STRING">
+      <offset>544</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartNodeHighlightStyle:" type="STRING">
+      <offset>548</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartNodeSelectedStyle:" type="STRING">
+      <offset>552</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartArrowStyle:" type="STRING">
+      <offset>556</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartArrowHighlightStyle:" type="STRING">
+      <offset>560</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartArrowHighlightStyle(Active):" type="STRING">
+      <offset>564</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartArrowStyle(Alternate):" type="STRING">
+      <offset>568</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartArrowStyle(Grabbable):" type="STRING">
+      <offset>572</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartArrowStyle(NoHead):" type="STRING">
+      <offset>576</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartBranchArrowStyle:" type="STRING">
+      <offset>580</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartInsertionPlusIsCentered:" type="U8">
+      <offset>584</offset>
+    </column>
+    <column name="TreechartInsertionPlus:" type="STRING">
+      <offset>588</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TreechartInsertionPlusHover:" type="STRING">
+      <offset>592</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TreechartInsertionPlusPressed:" type="STRING">
+      <offset>596</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TreechartArrowHeight:" type="INT">
+      <offset>600</offset>
+    </column>
+    <column name="TreechartPredragCursor:" type="STRING">
+      <offset>604</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartDragCursor:" type="STRING">
+      <offset>608</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TreechartArrowHighlightOnTop:" type="U8">
+      <offset>612</offset>
+    </column>
+    <column name="AccordionButtonStyle:" type="STRING">
+      <offset>616</offset>
+    </column>
+    <column name="AccordionButtonStyle(Highlight):" type="STRING">
+      <offset>620</offset>
+    </column>
+    <column name="AccordionButtonStyle(Pressed):" type="STRING">
+      <offset>624</offset>
+    </column>
+    <column name="AccordionButtonStyle(Disabled):" type="STRING">
+      <offset>628</offset>
+    </column>
+    <column name="AccordionButtonFont:" type="REFERENCE">
+      <offset>632</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="AccordionButtonFont(Highlight):" type="REFERENCE">
+      <offset>636</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="AccordionButtonFont(Pressed):" type="REFERENCE">
+      <offset>640</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="AccordionButtonFont(Disabled):" type="REFERENCE">
+      <offset>644</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ChatLogStyle:" type="STRING">
+      <offset>648</offset>
+    </column>
+    <column name="ChatLogFont:" type="REFERENCE">
+      <offset>652</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="DefaultCursor:" type="STRING">
+      <offset>656</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TextCursor:" type="STRING">
+      <offset>660</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DragCursorBottomLeft:" type="STRING">
+      <offset>664</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorBottomRight:" type="STRING">
+      <offset>668</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorTopLeft:" type="STRING">
+      <offset>672</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorTopRight:" type="STRING">
+      <offset>676</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorBottom:" type="STRING">
+      <offset>680</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorLeft:" type="STRING">
+      <offset>684</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorRight:" type="STRING">
+      <offset>688</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorTop:" type="STRING">
+      <offset>692</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="DragCursorAnyDirection:" type="STRING">
+      <offset>696</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="PaneTreePane:" type="STRING">
+      <offset>700</offset>
+    </column>
+    <column name="HorizontalSeparator:" type="STRING">
+      <offset>704</offset>
+    </column>
+    <column name="VerticalSeparator:" type="STRING">
+      <offset>708</offset>
+    </column>
+    <column name="SliderHandle:" type="STRING">
+      <offset>712</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="SliderHandle(Highlight):" type="STRING">
+      <offset>716</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="SliderHandle(Pressed):" type="STRING">
+      <offset>720</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="SliderHandle(Disabled):" type="STRING">
+      <offset>724</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="SliderTrough:" type="STRING">
+      <offset>728</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SliderTrough(Disabled):" type="STRING">
+      <offset>732</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ProgressBarTrough:" type="STRING">
+      <offset>736</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ProgressBarFilled:" type="STRING">
+      <offset>740</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ProgressBarHeight:" type="INT">
+      <offset>744</offset>
+      <default>16</default>
+    </column>
+    <column name="MinimapSelectedStyle:" type="STRING">
+      <offset>748</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MinimapIconScale:" type="F32">
+      <offset>752</offset>
+      <default>1</default>
+    </column>
+    <column name="TooltipStyle:" type="STRING">
+      <offset>756</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ArrowDropDown:" type="STRING">
+      <offset>760</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="Minus:" type="STRING">
+      <offset>764</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="Plus:" type="STRING">
+      <offset>768</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="CheckBoxChecked:" type="STRING">
+      <offset>772</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="CheckBoxUnchecked:" type="STRING">
+      <offset>776</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="CheckBoxHighlight:" type="STRING">
+      <offset>780</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="RadioBoxChecked:" type="STRING">
+      <offset>784</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="RadioBoxUnchecked:" type="STRING">
+      <offset>788</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="RadioBoxHighlight:" type="STRING">
+      <offset>792</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="UISkin" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

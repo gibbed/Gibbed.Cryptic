@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GuildRecruitData">
+  <table>
+    <column name="GuildRecruitData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContainerID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="RecruitMessage" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="WebSite" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Emblem" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="EmblemColor0" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="EmblemColor1" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="EmblemRotation" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="Emblem2" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Emblem2Color0" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="Emblem2Color1" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="Emblem2Rotation" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="Emblem2X" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="Emblem2Y" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="Emblem2ScaleX" type="F32">
+      <offset>56</offset>
+      <default>1</default>
+    </column>
+    <column name="Emblem2ScaleY" type="F32">
+      <offset>60</offset>
+      <default>1</default>
+    </column>
+    <column name="Emblem3" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Color1" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="Color2" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="MinLevelRecruit" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="RecruitCategories" type="STRING">
+      <offset>80</offset>
+    </column>
+    <column name="HasMambers" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="GuildAllegiance" type="STRING">
+      <offset>88</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

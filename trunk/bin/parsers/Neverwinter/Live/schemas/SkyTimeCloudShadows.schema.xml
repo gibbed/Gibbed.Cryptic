@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyTimeCloudShadows">
+  <table>
+    <column name="SkyTimeCloudShadows" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Layer1Multiplier" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Layer1Scale" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Layer1ScrollRate" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Layer2Multiplier" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="Layer2Scale" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="Layer2ScrollRate" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>36</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="EndSkyCloudShadows" type="END" />
+  </table>
+</parser>

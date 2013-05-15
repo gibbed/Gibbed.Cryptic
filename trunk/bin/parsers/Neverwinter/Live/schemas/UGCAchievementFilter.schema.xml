@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCAchievementFilter">
+  <table>
+    <column name="UGCAchievementFilter" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UGCAchievementClientFilter" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="MapCreated" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="UGCMapCreatedFilter" />
+    </column>
+    <column name="UGCAchievementServerFilter" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="PlayerReviewer" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="UGCPlayerReviewerFilter" />
+    </column>
+    <column name="ProjectPublished" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="UGCProjectPublishedFilter" />
+    </column>
+    <column name="SeriesPublished" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="UGCSeriesPublishedFilter" />
+    </column>
+    <column name="ProjectPlayed" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="UGCProjectPlayedFilter" />
+    </column>
+    <column name="PlayedProject" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="UGCPlayedProjectFilter" />
+    </column>
+    <column name="ProjectReviewed" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="UGCProjectReviewedFilter" />
+    </column>
+    <column name="ReviewedProject" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="UGCReviewedProjectFilter" />
+    </column>
+    <column name="ProjectTipped" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="UGCProjectTippedFilter" />
+    </column>
+    <column name="TippedProject" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="UGCTippedProjectFilter" />
+    </column>
+    <column name="ProjectFeatured" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="UGCProjectFeaturedFilter" />
+    </column>
+    <column name="AchievementGranted" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="UGCAchievementGrantedFilter" />
+    </column>
+    <column name="SeriesReviewed" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="UGCSeriesReviewedFilter" />
+    </column>
+    <column name="ReviewedSeries" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="UGCReviewedSeriesFilter" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

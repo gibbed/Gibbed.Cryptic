@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MemDumpNode">
+  <table>
+    <column name="MemDumpNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="FIXEDSTRING">
+      <offset>0</offset>
+      <string_length>64</string_length>
+    </column>
+    <column name="StartingRAM" type="INT64">
+      <offset>64</offset>
+    </column>
+    <column name="EndingRAM" type="INT64">
+      <offset>72</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

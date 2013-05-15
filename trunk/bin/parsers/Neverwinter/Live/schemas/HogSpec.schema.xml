@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="HogSpec">
+  <table>
+    <column name="HogSpec" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FileName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="strip" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="FileSpecs" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="Spec" />
+    </column>
+    <column name="mirror_stripped" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

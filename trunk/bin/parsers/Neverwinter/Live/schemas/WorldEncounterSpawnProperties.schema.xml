@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldEncounterSpawnProperties">
+  <table>
+    <column name="WorldEncounterSpawnProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="SpawnConditionType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="WorldEncounterSpawnCondType" />
+    </column>
+    <column name="SpawnCondition" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="SpawnRadiusType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="WorldEncounterRadiusType" />
+    </column>
+    <column name="SpawnRadius" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="RespawnTimerType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="WorldEncounterTimerType" />
+    </column>
+    <column name="RespawnTimer" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="DynamicSpawnType" type="INT">
+      <offset>24</offset>
+      <static_define_list external="WorldEncounterDynamicSpawnType" />
+    </column>
+    <column name="SpawnDelay" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="SpawnChance" type="F32">
+      <offset>32</offset>
+      <default>100</default>
+    </column>
+    <column name="DespawnCondition" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="WaveProperites" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="EncounterWaveProperties" />
+    </column>
+    <column name="LockoutRadius" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="ForceTeamSize" type="INT">
+      <offset>48</offset>
+      <static_define_list external="WorldEncounterSpawnTeamSize" />
+    </column>
+    <column name="MastermindSpawnType" type="INT">
+      <offset>52</offset>
+      <static_define_list external="WorldEncounterMastermindSpawnType" />
+    </column>
+    <column name="SpawnTag" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NoDespawn" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="SnapToGround" type="U8">
+      <offset>61</offset>
+      <default>1</default>
+    </column>
+    <column name="DifficultyOffset" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="DisableAggroDelay" type="U8">
+      <offset>68</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LeaderboardDefs">
+  <table>
+    <column name="LeaderboardDefs" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Leaderboard" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="LeaderboardDef" />
+    </column>
+    <column name="LeaderboardData" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="LeaderboardDataDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

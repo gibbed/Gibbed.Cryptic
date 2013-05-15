@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMapDescInteriorLayoutTemplate">
+  <table>
+    <column name="GenesisMapDescInteriorLayoutTemplate" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="BackdropInfo" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="GenesisMapDescBackdrop" />
+    </column>
+    <column name="LayoutInfo" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisInteriorLayoutInfo" />
+    </column>
+    <column name="Detail1" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="GenesisDetailKitLayout" />
+    </column>
+    <column name="Detail2" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="GenesisDetailKitLayout" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

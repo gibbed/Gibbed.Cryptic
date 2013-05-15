@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CSRCommandObject">
+  <table>
+    <column name="CSRCommandObject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="callerType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="callerID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="callerAccessLevel" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="callerName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="callerAccount" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="PlayerType" type="INT">
+      <offset>20</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="playerID" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="playerName" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="CommandString" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

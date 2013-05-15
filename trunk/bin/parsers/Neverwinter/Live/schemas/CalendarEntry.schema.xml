@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CalendarEntry">
+  <table>
+    <column name="CalendarEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Event" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="CalendarEvent" />
+    </column>
+    <column name="Timing" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="CalendarTiming" />
+    </column>
+    <column name="OwnedTiming" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="CalendarTiming" />
+    </column>
+    <column name="SortOrder" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="EventActive" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

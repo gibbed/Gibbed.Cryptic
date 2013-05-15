@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemGemUnslotCost">
+  <table>
+    <column name="ItemGemUnslotCost" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Currency" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ExprBlockRequires" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprRequiresBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockRequires</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprRequires" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockRequires</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ExprBlockCost" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprCostBlock" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockCost</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprCost" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockCost</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

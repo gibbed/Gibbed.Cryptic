@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisExteriorLayout">
+  <table>
+    <column name="GenesisExteriorLayout" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Info" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="GeotypeSpecifier" type="INT">
+      <offset>4</offset>
+      <static_define_list external="GenesisTagOrName" />
+    </column>
+    <column name="GeotypeTags2" type="STRINGARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="GeotypeTags" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="GeoType" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>GenesisGeotype</dictionary_name>
+    </column>
+    <column name="EcosystemSpecifier" type="INT">
+      <offset>20</offset>
+      <static_define_list external="GenesisTagOrName" />
+    </column>
+    <column name="EcosystemTags2" type="STRINGARRAY">
+      <offset>24</offset>
+    </column>
+    <column name="EcosystemTags" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="Ecosystem" type="REFERENCE">
+      <offset>32</offset>
+      <dictionary_name>GenesisEcosystem</dictionary_name>
+    </column>
+    <column name="ColorShift" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="LayoutInfoSpecifier" type="INT">
+      <offset>40</offset>
+      <static_define_list external="GenesisTemplateOrCustom" />
+    </column>
+    <column name="ExteriorLayoutInfoTemplate" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>GenesisMapDescExteriorLayoutTemplate</dictionary_name>
+    </column>
+    <column name="PlayAreaMin" type="F32FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="PlayAreaMax" type="F32FIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="PlayAreaBuffer" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="VertDir" type="INT">
+      <offset>68</offset>
+      <static_define_list external="GenesisVertDir" />
+    </column>
+    <column name="Shape" type="INT">
+      <offset>72</offset>
+      <static_define_list external="GenesisExteriorShape" />
+    </column>
+    <column name="MaxRoadAngle" type="F32">
+      <offset>76</offset>
+    </column>
+    <column name="MinSideTrailLength" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="MaxSideTrailLength" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="IsVistaTerrain" type="U8">
+      <offset>88</offset>
+    </column>
+    <column name="Room" type="STRUCT">
+      <offset>92</offset>
+      <subtable external="GenesisLayoutRoom" />
+    </column>
+    <column name="Path" type="STRUCT">
+      <offset>96</offset>
+      <subtable external="GenesisLayoutPath" />
+    </column>
+    <column name="detail_kit_1" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="DetailSpecifier" type="INT">
+      <offset>100</offset>
+      <static_define_list external="GenesisTagOrName" />
+    </column>
+    <column name="DetailTags2" type="STRINGARRAY">
+      <offset>104</offset>
+    </column>
+    <column name="DetailTags" type="STRING">
+      <offset>108</offset>
+    </column>
+    <column name="DetailKit" type="REFERENCE">
+      <offset>112</offset>
+      <dictionary_name>GenesisDetailKit</dictionary_name>
+    </column>
+    <column name="DetailDensity" type="F32">
+      <offset>116</offset>
+      <default>100</default>
+    </column>
+    <column name="VaryPerRoom" type="U8">
+      <offset>120</offset>
+    </column>
+    <column name="Detail2" type="EMBEDDEDSTRUCT">
+      <offset>128</offset>
+      <subtable external="GenesisDetailKitLayout" />
+    </column>
+    <column name="CommonData" type="EMBEDDEDSTRUCT">
+      <offset>156</offset>
+      <subtable external="GenesisLayoutCommonData" />
+    </column>
+    <column name="LightDetail" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

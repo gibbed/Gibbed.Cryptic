@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WebRequestChatMailStruct">
+  <table>
+    <column name="WebRequestChatMailStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="sent" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="subject" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Body" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Read" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="fromName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="AttachedItems" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="Item" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

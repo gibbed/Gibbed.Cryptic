@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldPathNode">
+  <table>
+    <column name="WorldPathNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="UID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Properties" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="UGC" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="Connection" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="WorldPathEdge" />
+    </column>
+    <column name="Connections" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Connection</redundant_name>
+      <subtable external="WorldPathEdge" />
+    </column>
+    <column name="CanBeObstructed" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="IsSecret" type="U8">
+      <offset>25</offset>
+    </column>
+    <column name="TeleportID" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClientCharacterInitData">
+  <table>
+    <column name="ClientCharacterInitData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ActivationStateToggle" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PowerActivationState" />
+    </column>
+    <column name="rechargeState" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="PowerRechargeState" />
+    </column>
+    <column name="CooldownTimers" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="CooldownTimer" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

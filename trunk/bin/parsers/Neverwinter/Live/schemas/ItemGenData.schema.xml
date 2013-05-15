@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemGenData">
+  <table>
+    <column name="ItemGenData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DataName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <default_string />
+    </column>
+    <column name="InternalScope" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <default_string />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="SuffixOption" type="INT">
+      <offset>16</offset>
+      <default>3</default>
+      <static_define_list external="ItemGenSuffix" />
+    </column>
+    <column name="ItemType" type="INT">
+      <offset>20</offset>
+      <static_define_list external="ItemType" />
+    </column>
+    <column name="Tag" type="INT">
+      <offset>24</offset>
+      <static_define_list external="ItemTag" />
+    </column>
+    <column name="Categories" type="INTARRAY">
+      <offset>28</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="Tier" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="ItemGenTier" />
+    </column>
+    <column name="ItemSet" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="ItemDefRef" />
+    </column>
+    <column name="TrainableNode" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="PTNodeDefRef" />
+    </column>
+    <column name="TrainableNodeRank" type="INT">
+      <offset>44</offset>
+      <default>1</default>
+    </column>
+    <column name="PowerData" type="STRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="ItemGenPowerData" />
+    </column>
+    <column name="Art" type="REFERENCE">
+      <offset>52</offset>
+      <dictionary_name>ItemArt</dictionary_name>
+    </column>
+    <column name="RewardCategory" type="INTARRAY">
+      <offset>56</offset>
+      <static_define_list external="ItemGenRewardCategory" />
+    </column>
+    <column name="LaunchType" type="INT">
+      <offset>60</offset>
+      <static_define_list external="RewardLaunchType" />
+    </column>
+    <column name="PickupType" type="INT">
+      <offset>64</offset>
+      <static_define_list external="RewardPickupType" />
+    </column>
+    <column name="RewardCostume" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="NotYoursCostume" type="REFERENCE">
+      <offset>72</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="YoursCostume" type="REFERENCE">
+      <offset>76</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="Species" type="REFERENCE">
+      <offset>80</offset>
+      <dictionary_name>Species</dictionary_name>
+    </column>
+    <column name="Damage" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="ItemDamageDef" />
+    </column>
+    <column name="RewardFlags" type="INT">
+      <offset>88</offset>
+      <static_define_list external="RewardFlag" />
+    </column>
+    <column name="DisplayNameStr" type="STRING">
+      <offset>92</offset>
+    </column>
+    <column name="DisplayDescStr" type="STRING">
+      <offset>96</offset>
+    </column>
+    <column name="DisplayDescShortStr" type="STRING">
+      <offset>100</offset>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>104</offset>
+      <static_define_list external="ItemDefFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="bag" type="INTARRAY">
+      <offset>108</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="bag2" type="INTARRAY">
+      <offset>108</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>bag</redundant_name>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="RestrictSlotType" type="INT">
+      <offset>112</offset>
+      <static_define_list external="SlotType" />
+    </column>
+    <column name="EquipLimit" type="OPTIONALSTRUCT">
+      <offset>116</offset>
+      <subtable external="ItemEquipLimit" />
+    </column>
+    <column name="SlotID" type="REFERENCE">
+      <offset>120</offset>
+      <dictionary_name>InventorySlotIDDef</dictionary_name>
+    </column>
+    <column name="StackLimit" type="INT">
+      <offset>124</offset>
+      <default>1</default>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>128</offset>
+    </column>
+    <column name="IconName" type="STRING">
+      <offset>128</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Icon</redundant_name>
+    </column>
+    <column name="CostumeMode" type="INT">
+      <offset>140</offset>
+      <static_define_list external="kCostumeDisplayMode" />
+    </column>
+    <column name="CostumePriority" type="INT">
+      <offset>144</offset>
+    </column>
+    <column name="uSeed" type="INT">
+      <offset>148</offset>
+    </column>
+    <column name="ExprEconomyPoints" type="OPTIONALSTRUCT">
+      <offset>152</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Durability" type="F32">
+      <offset>156</offset>
+    </column>
+    <column name="DurabilityTable" type="STRING">
+      <offset>160</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Subtarget" type="REFERENCE">
+      <offset>164</offset>
+      <dictionary_name>PowerSubtarget</dictionary_name>
+    </column>
+    <column name="Costumes" type="STRUCT">
+      <offset>168</offset>
+      <subtable external="ItemCostume" />
+    </column>
+    <column name="GenerateSpeciesIcons" type="U8">
+      <offset>172</offset>
+    </column>
+    <column name="IconPrefix" type="STRING">
+      <offset>176</offset>
+    </column>
+    <column name="CostumeRefs" type="STRUCT">
+      <offset>184</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="CostumeRefEditor" />
+    </column>
+    <column name="Requires" type="OPTIONALSTRUCT">
+      <offset>188</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="UsageRestriction" />
+    </column>
+    <column name="EditorRarity" type="STRUCT">
+      <offset>192</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="ItemGenRarityDefEditor" />
+    </column>
+    <column name="RewardCategoryObsolete" type="STRINGARRAY">
+      <offset>196</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>200</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayDesc" type="EMBEDDEDSTRUCT">
+      <offset>212</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayDescShort" type="EMBEDDEDSTRUCT">
+      <offset>224</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

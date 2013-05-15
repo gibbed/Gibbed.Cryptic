@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAliasDisplay">
+  <table>
+    <column name="ItemAliasDisplay" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayNameMessage" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RequiredAllegiance" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>AllegianceDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

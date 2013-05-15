@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SurfaceBGFlags">
+  <table>
+    <column name="SurfaceBGFlags" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="isAtRest" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="isUsingInput" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="preCheckIfOnGround" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="onGround" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="touchingSurface" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="wasOffGroundMotion" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="isJumping" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="offGroundByJumping" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="jumpButtonNotReleased" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="jumpButtonCausedJump" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="jumpButtonPressed" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="wasOffGroundAnim" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="justLanded" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="fastFalling" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="flourishIsActive" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="holdForFlourish" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="playFlourish" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="onSteepSlope" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65553</bit_offset>
+    </column>
+    <column name="stuckOnSteepSlope" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65554</bit_offset>
+    </column>
+    <column name="sticking" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65555</bit_offset>
+    </column>
+    <column name="hasAdditiveVel" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65556</bit_offset>
+    </column>
+    <column name="hasConstantForceVel" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
+    <column name="setRepelAnim" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65558</bit_offset>
+    </column>
+    <column name="turnBecomesStrafe" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65559</bit_offset>
+    </column>
+    <column name="isTurning" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65560</bit_offset>
+    </column>
+    <column name="ownsAnimation" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65561</bit_offset>
+    </column>
+    <column name="pitchDiffInput" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65562</bit_offset>
+    </column>
+    <column name="hasStanceMask" type="BIT">
+      <offset>4</offset>
+      <bit_offset>524288</bit_offset>
+    </column>
+    <column name="speedPenaltyIsStrictScale" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

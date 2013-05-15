@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameContentNodeRef">
+  <table>
+    <column name="GameContentNodeRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GameContentNodeType" />
+    </column>
+    <column name="UGCProjectID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="UGCProjectSeriesID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="UGCProjectSeriesNodeID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Node" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="DestinationNode" type="REFERENCE">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Node</redundant_name>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="Queue" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>QueueDef</dictionary_name>
+    </column>
+    <column name="Mission" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>Mission</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

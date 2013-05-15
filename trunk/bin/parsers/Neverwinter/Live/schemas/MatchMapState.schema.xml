@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MatchMapState">
+  <table>
+    <column name="MatchMapState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ScoreboardName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="State" type="INT">
+      <offset>4</offset>
+      <static_define_list external="ScoreboardState" />
+    </column>
+    <column name="uCounterTime" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Countdown" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="Overtime" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="uTotalMatchTime" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="GroupGameParams" type="POLYMORPH">
+      <offset>20</offset>
+      <subtable>
+        <table>
+          <column name="CTFGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="CTFGroupParams" />
+          </column>
+          <column name="CUSGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="CUSGroupParams" />
+          </column>
+          <column name="DMGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="DMGroupParams" />
+          </column>
+          <column name="DOMGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="DOMGroupParams" />
+          </column>
+          <column name="LMSGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="LMSGroupParams" />
+          </column>
+          <column name="TDEGroupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="TDEGroupParams" />
+          </column>
+        </table>
+      </subtable>
+    </column>
+    <column name="GameSpecific" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="DOMControlPoint" />
+    </column>
+    <column name="pvpRules" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="PVPPublicGameRules" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynMoveTransition">
+  <table>
+    <column name="DynMoveTransition" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Comments" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Chart" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>DynAnimChartLoadTime</dictionary_name>
+    </column>
+    <column name="Forced" type="BOOLFLAG">
+      <offset>20</offset>
+    </column>
+    <column name="BlendLowerBodyFromGraph" type="BOOLFLAG">
+      <offset>21</offset>
+    </column>
+    <column name="BlendWholeBodyFromGraph" type="BOOLFLAG">
+      <offset>22</offset>
+    </column>
+    <column name="interpBlockPre" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="DynAnimInterpolation" />
+    </column>
+    <column name="interpBlockPost" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="DynAnimInterpolation" />
+    </column>
+    <column name="BlendWholeBodyToGraph" type="BOOLFLAG">
+      <offset>48</offset>
+    </column>
+    <column name="BlendLowerBodyToGraph" type="BOOLFLAG">
+      <offset>49</offset>
+    </column>
+    <column name="TimedStanceWordSource" type="STRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <subtable external="DynAnimTimedStance" />
+    </column>
+    <column name="TimedStanceWordTarget" type="STRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <subtable external="DynAnimTimedStance" />
+    </column>
+    <column name="StanceWordSource" type="STRINGARRAY">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StanceWordTarget" type="STRINGARRAY">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MovementTypeSource" type="STRINGARRAY">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MovementTypeTarget" type="STRINGARRAY">
+      <offset>84</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Move" type="REFERENCE">
+      <offset>88</offset>
+      <dictionary_name>DynMove</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

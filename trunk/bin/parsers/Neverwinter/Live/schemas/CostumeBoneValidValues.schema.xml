@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeBoneValidValues">
+  <table>
+    <column name="CostumeBoneValidValues" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hBone" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <dictionary_name>PCBoneDef</dictionary_name>
+    </column>
+    <column name="Geos" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCGeometryDef" />
+    </column>
+    <column name="Mats" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCMaterialDef" />
+    </column>
+    <column name="Details" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="Patterns" type="STRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="Speculars" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="Diffuses" type="STRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="Movables" type="STRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCTextureDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

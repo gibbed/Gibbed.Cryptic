@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMutateOther">
+  <table>
+    <column name="UIGenMutateOther" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hGen" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>UIGen</dictionary_name>
+    </column>
+    <column name="EnterState" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="ExitState" type="INTARRAY">
+      <offset>8</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="ToggleState" type="INTARRAY">
+      <offset>12</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="CopyParentState" type="INTARRAY">
+      <offset>16</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

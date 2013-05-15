@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerCostumeHolder">
+  <table>
+    <column name="PlayerCostumeHolder" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="PlayerCostume" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+  </table>
+</parser>

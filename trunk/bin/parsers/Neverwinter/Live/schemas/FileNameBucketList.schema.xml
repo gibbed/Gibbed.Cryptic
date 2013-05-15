@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FileNameBucketList">
+  <table>
+    <column name="FileNameBucketList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Buckets" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="FileNameBucket" />
+    </column>
+    <column name="Flags" type="INT">
+      <offset>24</offset>
+      <static_define_list external="enumLogParsingFlags" />
+    </column>
+    <column name="DoingChunkedProcessing" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="TotalLogCount" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="StartingBytes" type="INT64">
+      <offset>40</offset>
+    </column>
+    <column name="DataPoints" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="ProgressDataPoint" />
+    </column>
+    <column name="LikelyStartingTime" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="LikelyEndingTime" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

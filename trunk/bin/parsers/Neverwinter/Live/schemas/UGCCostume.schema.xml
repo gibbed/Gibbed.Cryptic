@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCCostume">
+  <table>
+    <column name="UGCCostume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="fstrFilename" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="data" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="UGCCostumeData" />
+    </column>
+    <column name="CachedPlayerCostume" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="PlayerCostume" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="Region" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="Allegiance" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>AllegianceDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

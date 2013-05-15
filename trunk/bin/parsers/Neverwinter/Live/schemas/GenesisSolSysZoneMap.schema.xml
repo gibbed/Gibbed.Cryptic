@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisSolSysZoneMap">
+  <table>
+    <column name="GenesisSolSysZoneMap" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LayoutName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="LayoutSeed" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="TransmogrifyVersion" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Backdrop" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisBackdrop" />
+    </column>
+    <column name="Shoebox" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="GenesisShoebox" />
+    </column>
+    <column name="NoSharingDetail" type="U8">
+      <offset>100</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

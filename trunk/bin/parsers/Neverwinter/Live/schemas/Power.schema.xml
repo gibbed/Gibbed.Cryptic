@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Power">
+  <table>
+    <column name="Power" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hDef" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="uiID" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uiTimeCreated" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iLevel" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fHue" type="F32">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="hEmit" type="REFERENCE">
+      <offset>20</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>PowerEmit</dictionary_name>
+    </column>
+    <column name="iEntCreateCostume" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iChargesUsed" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="iChargesUsedTransact" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fLifetimeGameUsed" type="F32">
+      <offset>36</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="fLifetimeUsageUsed" type="F32">
+      <offset>40</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="fTimeRecharge" type="F32">
+      <offset>44</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="fTimeChargeRefill" type="F32">
+      <offset>48</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="ppSubPowers" type="STRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="Power" />
+    </column>
+    <column name="ppSubCombatStatePowers" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="Power" />
+    </column>
+    <column name="iLevelAdjustment" type="INT">
+      <offset>76</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="fYaw" type="F32">
+      <offset>80</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="uiReplacementID" type="INT">
+      <offset>84</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="uiSrcEquipSlot" type="INT">
+      <offset>88</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="uiPowerSlotReplacementID" type="INT">
+      <offset>92</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="fTableScale" type="F32">
+      <offset>96</offset>
+      <default>1</default>
+    </column>
+    <column name="puiEnhancementIDs" type="INTARRAY">
+      <offset>112</offset>
+    </column>
+    <column name="ppAttribEnhancements" type="STRUCT">
+      <offset>116</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="PowerAttribEnhancements" />
+    </column>
+    <column name="fEnhancedRange" type="F32">
+      <offset>124</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="fEnhancedRadius" type="F32">
+      <offset>128</offset>
+    </column>
+    <column name="bHideInUI" type="BIT">
+      <offset>132</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="bActive" type="BIT">
+      <offset>132</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

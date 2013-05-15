@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SolarSystemSuns">
+  <table>
+    <column name="SolarSystemSuns" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Sun" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="SSLibObj" />
+    </column>
+    <column name="LibObject" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Sun</redundant_name>
+      <subtable external="SSLibObj" />
+    </column>
+    <column name="DoNotScale" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

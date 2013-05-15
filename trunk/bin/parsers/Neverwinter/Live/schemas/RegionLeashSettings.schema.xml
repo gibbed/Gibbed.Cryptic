@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RegionLeashSettings">
+  <table>
+    <column name="RegionLeashSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="NoTargetWaitTime" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="AnimListStart" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AnimListFinish" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DurationStart" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="DurationFinish" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="TeleportDist" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="Speed" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="TurnRate" type="F32">
+      <offset>28</offset>
+      <default>-1</default>
+    </column>
+    <column name="Traction" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="Friction" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

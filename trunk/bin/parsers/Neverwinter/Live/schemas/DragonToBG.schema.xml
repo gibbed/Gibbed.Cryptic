@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DragonToBG">
+  <table>
+    <column name="DragonToBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dm" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="DragonMovementDef" />
+    </column>
+    <column name="MaxSpeed" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="Friction" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="Traction" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="erFaceTarget" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="erOverrideFaceTarget" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="OverrideFacePos" type="F32FIXEDARRAY">
+      <offset>72</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="OverrideYawOffset" type="F32">
+      <offset>84</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>88</offset>
+      <subtable external="DragonToBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

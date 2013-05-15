@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContactDialogStoreProvisioning">
+  <table>
+    <column name="ContactDialogStoreProvisioning" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="GroupProjectType" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="GroupProjectDef" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GroupProjectNumericDef" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NumericName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="NumericValue" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="StoreGuildMapOwnerMembersOnly" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="eapchStores" type="STRINGARRAY">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

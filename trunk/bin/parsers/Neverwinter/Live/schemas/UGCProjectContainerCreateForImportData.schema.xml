@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectContainerCreateForImportData">
+  <table>
+    <column name="UGCProjectContainerCreateForImportData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UGCProject" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="UGCProject" />
+    </column>
+    <column name="DynamicPatchInfo" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="DynamicPatchInfo" />
+    </column>
+    <column name="estrError" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Cluster_Overview">
+  <table>
+    <column name="Cluster_Overview" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Shards" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ClusterShardSummary" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

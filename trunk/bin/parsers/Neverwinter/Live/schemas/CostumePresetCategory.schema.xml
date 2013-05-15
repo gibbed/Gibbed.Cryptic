@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumePresetCategory">
+  <table>
+    <column name="CostumePresetCategory" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Group" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SlotType" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="ExcludeGroup" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="ExcludeSlotType" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="CostumeTestParts" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="ValidatePlayerCostumeItems" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

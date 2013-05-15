@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountTicket">
+  <table>
+    <column name="AccountTicket" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="AccountName" type="FIXEDSTRING">
+      <offset>4</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="DisplayName" type="FIXEDSTRING">
+      <offset>132</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="pwAccountName" type="STRING">
+      <offset>260</offset>
+    </column>
+    <column name="uExpirationTime" type="INT">
+      <offset>264</offset>
+    </column>
+    <column name="Permissions" type="STRUCT">
+      <offset>268</offset>
+      <subtable external="AccountPermissionStruct" />
+    </column>
+    <column name="uSalt" type="INT">
+      <offset>272</offset>
+    </column>
+    <column name="InvalidDisplayName" type="U8">
+      <offset>276</offset>
+    </column>
+    <column name="MachineRestricted" type="U8">
+      <offset>277</offset>
+    </column>
+    <column name="SavingNext" type="U8">
+      <offset>278</offset>
+    </column>
+    <column name="LoginType" type="INT">
+      <offset>280</offset>
+      <static_define_list external="AccountLoginType" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

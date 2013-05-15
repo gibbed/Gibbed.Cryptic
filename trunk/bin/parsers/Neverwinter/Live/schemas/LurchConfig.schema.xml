@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LurchConfig">
+  <table>
+    <column name="LurchConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LurchAddedCapsuleRadius" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="LurchDisable" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="LurchStopOnEntityCollision" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="LurchDisableInAir" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="LurchStopOnLedges" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

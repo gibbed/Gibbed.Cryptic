@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LinkFileSendingMode_ManagedFileSend">
+  <table>
+    <column name="LinkFileSendingMode_ManagedFileSend" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="LinkName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Handle" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="cmd" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="LocalFileName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="RemoteFileName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="BytesPerTick" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="FileSize" type="INT64">
+      <offset>32</offset>
+    </column>
+    <column name="BytesSent" type="INT64">
+      <offset>40</offset>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>48</offset>
+      <static_define_list external="ManagedSendFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

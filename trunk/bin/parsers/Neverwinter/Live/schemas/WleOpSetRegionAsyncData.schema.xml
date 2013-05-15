@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WleOpSetRegionAsyncData">
+  <table>
+    <column name="WleOpSetRegionAsyncData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RegionName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="SkyGroup" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="SkyInfoGroup" />
+    </column>
+    <column name="Type" type="INT">
+      <offset>8</offset>
+      <static_define_list external="WorldRegionType" />
+    </column>
+    <column name="cubemapTexName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="maxPets" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="WorldGeoClustering" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="VehicleRules" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="IndoorLighting" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

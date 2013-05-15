@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StateBasedAlert">
+  <table>
+    <column name="StateBasedAlert" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="GlobObjType" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ExpressionString" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="CheckFrequency" type="INT">
+      <offset>8</offset>
+      <default>5</default>
+    </column>
+    <column name="LifeSpan" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="TimeBeforeTriggering" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Level" type="INT">
+      <offset>20</offset>
+      <static_define_list external="enumAlertLevel" />
+    </column>
+    <column name="Category" type="INT">
+      <offset>24</offset>
+      <static_define_list external="enumAlertCategory" />
+    </column>
+    <column name="AlertKey" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AlertString" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

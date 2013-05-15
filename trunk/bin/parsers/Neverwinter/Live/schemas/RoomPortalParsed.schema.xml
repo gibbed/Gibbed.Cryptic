@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RoomPortalParsed">
+  <table>
+    <column name="RoomPortalParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="layer_idx" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="def_name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="portal_id" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="neighbor_id" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="bounds_min" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="bounds_max" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="rot_world_mat" type="MATPYR">
+      <offset>40</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_world_mat" type="F32FIXEDARRAY">
+      <offset>76</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="sound_conn_props" type="OPTIONALSTRUCT">
+      <offset>88</offset>
+      <subtable external="WorldSoundConnProperties" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

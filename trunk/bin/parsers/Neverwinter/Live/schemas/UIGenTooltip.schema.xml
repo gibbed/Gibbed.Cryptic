@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenTooltip">
+  <table>
+    <column name="UIGenTooltip" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hTooltip" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="TooltipBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="TooltipExpr" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TooltipBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Delay" type="F32">
+      <offset>8</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default>-1</default>
+    </column>
+    <column name="Assembly" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <default_string>Tooltip</default_string>
+      <dictionary_name>UITextureAssembly</dictionary_name>
+    </column>
+    <column name="Relative" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="UIGenRelative" />
+    </column>
+    <column name="secondaryTooltipGroup" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="SecondaryToolTip" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="UIGenSecondaryTooltip" />
+    </column>
+    <column name="Orientation" type="INT">
+      <offset>24</offset>
+      <default>6</default>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="StackDirection" type="INT">
+      <offset>28</offset>
+      <default>9</default>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="Alignment" type="INT">
+      <offset>32</offset>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="StackAlignment" type="INT">
+      <offset>36</offset>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="PrimarySpacing" type="INT16">
+      <offset>40</offset>
+      <default>4</default>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="SecondarySpacing" type="INT16">
+      <offset>42</offset>
+      <default>4</default>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="MaxWidth" type="INT16">
+      <offset>44</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default>350</default>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="MaximumWidth" type="INT16">
+      <offset>44</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <redundant_name>MaxWidth</redundant_name>
+      <default>350</default>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="InheritAlpha" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="InheritScale" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65553</bit_offset>
+    </column>
+    <column name="IgnoreParent" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65554</bit_offset>
+    </column>
+    <column name="MouseAnchor" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65555</bit_offset>
+    </column>
+    <column name="SafeMode" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65556</bit_offset>
+    </column>
+    <column name="FilterProfanity" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
+    <column name="ForceTooltipOwnership" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65558</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCFeaturedContentInfoList">
+  <table>
+    <column name="UGCFeaturedContentInfoList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FeaturedContent" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="UGCFeaturedContentInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

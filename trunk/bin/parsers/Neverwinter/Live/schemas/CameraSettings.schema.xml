@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CameraSettings">
+  <table>
+    <column name="CameraSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="IsRotatingBoom" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="IsMouseLooking" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="PowerActivationLookatOverride" type="OPTIONALSTRUCT">
+      <offset>148</offset>
+      <subtable external="CameraLookatOverrideDef" />
+    </column>
+    <column name="PowerActivationMouseDamping" type="OPTIONALSTRUCT">
+      <offset>152</offset>
+      <subtable external="CameraTargetMouseDampingDef" />
+    </column>
+    <column name="DefaultLookatOverride" type="OPTIONALSTRUCT">
+      <offset>156</offset>
+      <subtable external="CameraLookatOverrideDef" />
+    </column>
+    <column name="CameraShakeTime" type="F32">
+      <offset>160</offset>
+    </column>
+    <column name="CameraShakeMagnitude" type="F32">
+      <offset>164</offset>
+    </column>
+    <column name="CameraShakeVertical" type="F32">
+      <offset>168</offset>
+    </column>
+    <column name="CameraShakePan" type="F32">
+      <offset>172</offset>
+    </column>
+    <column name="CameraShakeSpeed" type="F32">
+      <offset>176</offset>
+    </column>
+    <column name="CameraShakeDestPYR" type="F32FIXEDARRAY">
+      <offset>180</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CameraShakeDestXYZ" type="F32FIXEDARRAY">
+      <offset>192</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CameraShakePYRVel" type="F32FIXEDARRAY">
+      <offset>204</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CameraShakeXYZVel" type="F32FIXEDARRAY">
+      <offset>216</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CameraShakeCurrentPYR" type="F32FIXEDARRAY">
+      <offset>228</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CameraShakeCurrentXYZ" type="F32FIXEDARRAY">
+      <offset>240</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="CameraShakeShiftTime" type="F32">
+      <offset>252</offset>
+    </column>
+    <column name="EnableCameraShake" type="U8">
+      <offset>256</offset>
+    </column>
+    <column name="rot_FXCameraMatrixOverride" type="MATPYR">
+      <offset>260</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_FXCameraMatrixOverride" type="F32FIXEDARRAY">
+      <offset>296</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="UseFXCameraMatrixOverride" type="U8">
+      <offset>308</offset>
+    </column>
+    <column name="FXCameraInfluence" type="F32">
+      <offset>312</offset>
+    </column>
+    <column name="LastPlayerYaw" type="F32">
+      <offset>316</offset>
+    </column>
+    <column name="CameraCenterOffset" type="F32">
+      <offset>320</offset>
+    </column>
+    <column name="CameraIsDefault" type="BIT">
+      <offset>324</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="CameraFirstFrameAfterDefault" type="BIT">
+      <offset>324</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="PlayerIsBlocked" type="BIT">
+      <offset>324</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="ForceAutoAdjust" type="BIT">
+      <offset>324</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="ResetCameraWhenAlive" type="BIT">
+      <offset>324</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="InitialTargetLockHandled" type="BIT">
+      <offset>324</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="SmoothCamera" type="BIT">
+      <offset>324</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="FlightZoom" type="BIT">
+      <offset>324</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="IsInAimMode" type="BIT">
+      <offset>324</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="ScaleMouseSpeedByFOV" type="BIT">
+      <offset>324</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="AdjustOffsetsByCapsuleSize" type="BIT">
+      <offset>324</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="AdjustFacingTowardsCameraTarget" type="BIT">
+      <offset>324</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="EnableCameraShakeByDefault" type="BIT">
+      <offset>324</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65548</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="UseNearOffset" type="U8">
+      <offset>328</offset>
+    </column>
+    <column name="IsInInspectMode" type="BIT">
+      <offset>332</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Height" type="F32">
+      <offset>336</offset>
+    </column>
+    <column name="Distance" type="F32">
+      <offset>340</offset>
+    </column>
+    <column name="Offset" type="F32">
+      <offset>344</offset>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>348</offset>
+      <default>1072064102</default>
+    </column>
+    <column name="TargetRadius" type="F32">
+      <offset>352</offset>
+      <default>1062165545</default>
+    </column>
+    <column name="PlayerHeightMultiplier" type="F32">
+      <offset>356</offset>
+      <default>1063172178</default>
+    </column>
+    <column name="MountedHeightMultiplier" type="F32">
+      <offset>360</offset>
+      <default>1</default>
+    </column>
+    <column name="FOVAdjustRate" type="F32">
+      <offset>364</offset>
+      <default>80</default>
+    </column>
+    <column name="DefaultCapsuleRadius" type="F32">
+      <offset>368</offset>
+      <default>1056964608</default>
+    </column>
+    <column name="DefaultCapsuleHeight" type="F32">
+      <offset>372</offset>
+      <default>6</default>
+    </column>
+    <column name="HeightOffsetMult" type="F32">
+      <offset>376</offset>
+      <default>1</default>
+    </column>
+    <column name="ZoomMultiplierWeight" type="F32">
+      <offset>380</offset>
+      <default>1</default>
+    </column>
+    <column name="ZoomMultiplierWeightLargeEntity" type="F32">
+      <offset>384</offset>
+    </column>
+    <column name="MouseSensitivityDefault" type="F32">
+      <offset>388</offset>
+      <default>1075838976</default>
+    </column>
+    <column name="MouseSensitivityMin" type="F32">
+      <offset>392</offset>
+      <default>1048576000</default>
+    </column>
+    <column name="MouseSensitivityMax" type="F32">
+      <offset>396</offset>
+      <default>7</default>
+    </column>
+    <column name="MouseFilter" type="F32">
+      <offset>400</offset>
+    </column>
+    <column name="MaxDistanceMinimumValue" type="F32">
+      <offset>404</offset>
+      <default>30</default>
+    </column>
+    <column name="MaxDistanceMaximumValue" type="F32">
+      <offset>408</offset>
+      <default>70</default>
+    </column>
+    <column name="ControllerSensitivityDefault" type="F32">
+      <offset>412</offset>
+      <default>2</default>
+    </column>
+    <column name="ControllerSensitivityMin" type="F32">
+      <offset>416</offset>
+      <default>1048576000</default>
+    </column>
+    <column name="ControllerSensitivityMax" type="F32">
+      <offset>420</offset>
+      <default>5</default>
+    </column>
+    <column name="RotInterpSpeed" type="STRUCT">
+      <offset>424</offset>
+      <subtable external="CameraInterpSpeed" />
+    </column>
+    <column name="DefaultRotInterpSpeed" type="INT">
+      <offset>428</offset>
+      <default>1</default>
+      <static_define_list external="ECameraInterpSpeed" />
+    </column>
+    <column name="DistancePresets" type="F32FIXEDARRAY">
+      <offset>432</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="AutoLevelSpeed" type="F32">
+      <offset>444</offset>
+    </column>
+    <column name="AutoLevelPitch" type="F32">
+      <offset>448</offset>
+    </column>
+    <column name="AutoLevelPitchPresets" type="F32FIXEDARRAY">
+      <offset>452</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="AutoLevelThreshold" type="F32">
+      <offset>464</offset>
+    </column>
+    <column name="AutoLevelThresholdSpeedReduction" type="F32">
+      <offset>468</offset>
+    </column>
+    <column name="AutoLevelMinSpeed" type="F32">
+      <offset>472</offset>
+    </column>
+    <column name="AutoLevelMaxSpeed" type="F32">
+      <offset>476</offset>
+    </column>
+    <column name="AutoLevelPitchSpeedReduction" type="F32">
+      <offset>480</offset>
+    </column>
+    <column name="AutoLevelSpeedIncrease" type="F32">
+      <offset>484</offset>
+    </column>
+    <column name="PYRKeyboardSpeed" type="F32FIXEDARRAY">
+      <offset>488</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="PYRJoypadSpeed" type="F32FIXEDARRAY">
+      <offset>500</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="PYRMouseSpeed" type="F32FIXEDARRAY">
+      <offset>512</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="PYRDefaultMouseSpeed" type="F32FIXEDARRAY">
+      <offset>524</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="MinPitch" type="F32">
+      <offset>536</offset>
+    </column>
+    <column name="MaxPitch" type="F32">
+      <offset>540</offset>
+    </column>
+    <column name="InterpSpeedPYR" type="F32FIXEDARRAY">
+      <offset>544</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="RotInterpBasis" type="F32">
+      <offset>556</offset>
+    </column>
+    <column name="RotInterpNormMin" type="F32">
+      <offset>560</offset>
+    </column>
+    <column name="RotInterpNormMax" type="F32">
+      <offset>564</offset>
+    </column>
+    <column name="DefaultRotInterpBasis" type="F32FIXEDARRAY">
+      <offset>568</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="DefaultRotInterpNormMin" type="F32FIXEDARRAY">
+      <offset>576</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="DefaultRotInterpNormMax" type="F32FIXEDARRAY">
+      <offset>584</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="DistanceInterpSpeed" type="F32">
+      <offset>592</offset>
+    </column>
+    <column name="AutoLevelInterpSpeed" type="F32">
+      <offset>596</offset>
+    </column>
+    <column name="MaxShake" type="F32">
+      <offset>600</offset>
+    </column>
+    <column name="PlayerFadeDistance" type="F32">
+      <offset>604</offset>
+      <default>2</default>
+    </column>
+    <column name="PlayerInvisibleFadeDistance" type="F32">
+      <offset>608</offset>
+      <default>1</default>
+    </column>
+    <column name="FadeScale" type="F32">
+      <offset>612</offset>
+      <default>1</default>
+    </column>
+    <column name="FadeDistanceScale" type="F32">
+      <offset>612</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FadeScale</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="NearOffsetRanges" type="F32FIXEDARRAY">
+      <offset>616</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="ShooterOffsetRanges" type="F32FIXEDARRAY">
+      <offset>624</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="NearOffsetScreenSpace" type="F32">
+      <offset>632</offset>
+    </column>
+    <column name="CurrentOffset" type="F32FIXEDARRAY">
+      <offset>636</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="IgnoreCamPYRForNearOffset" type="U8">
+      <offset>648</offset>
+    </column>
+    <column name="ClosestDistance" type="F32">
+      <offset>652</offset>
+    </column>
+    <column name="ZoomMult" type="F32">
+      <offset>656</offset>
+    </column>
+    <column name="CloseAdjustDistance" type="F32">
+      <offset>660</offset>
+      <default>5</default>
+    </column>
+    <column name="DefaultAdjustDistance" type="F32">
+      <offset>664</offset>
+      <default>5</default>
+    </column>
+    <column name="AimHeightMultiplier" type="F32">
+      <offset>668</offset>
+    </column>
+    <column name="CrouchHeightMultiplier" type="F32">
+      <offset>672</offset>
+      <default>1059481190</default>
+    </column>
+    <column name="SitHeightMultiplier" type="F32">
+      <offset>676</offset>
+      <default>1056964608</default>
+    </column>
+    <column name="HeightMultiplier" type="F32">
+      <offset>680</offset>
+    </column>
+    <column name="CrouchHeightInterp" type="F32">
+      <offset>680</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>HeightMultiplier</redundant_name>
+    </column>
+    <column name="HeightAdjustRate" type="F32">
+      <offset>684</offset>
+    </column>
+    <column name="CrouchHeightInterpRate" type="F32">
+      <offset>684</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>HeightAdjustRate</redundant_name>
+    </column>
+    <column name="GiganticPlayerHeight" type="F32">
+      <offset>688</offset>
+    </column>
+    <column name="CrouchAction" type="STRINGARRAY">
+      <offset>692</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CurrentPreset" type="INT">
+      <offset>696</offset>
+    </column>
+    <column name="LastCameraMode" type="INT">
+      <offset>700</offset>
+      <default>-1</default>
+      <static_define_list external="CameraMode" />
+    </column>
+    <column name="CameraMode" type="INT">
+      <offset>704</offset>
+      <static_define_list external="CameraMode" />
+    </column>
+    <column name="CameraModeSettings" type="STRUCT">
+      <offset>712</offset>
+      <subtable external="CameraModeSettings" />
+    </column>
+    <column name="FocusSmoothing" type="OPTIONALSTRUCT">
+      <offset>716</offset>
+      <subtable external="CameraFocusSmoothingData" />
+    </column>
+    <column name="EndCameraSettings" type="END" />
+  </table>
+</parser>

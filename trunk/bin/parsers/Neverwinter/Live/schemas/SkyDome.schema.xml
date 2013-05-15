@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyDome">
+  <table>
+    <column name="SkyDome" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="SortOrder" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="LensFlare" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="LensFlare" />
+    </column>
+    <column name="StarField" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="StarField" />
+    </column>
+    <column name="Atmosphere" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="WorldAtmosphereProperties" />
+    </column>
+    <column name="AtmosphereSunHSV" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="MaterialTexture" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="MaterialNamedTexture" />
+    </column>
+    <column name="SkyDomeTime" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="SkyDomeTime" />
+    </column>
+    <column name="Luminary" type="U8">
+      <offset>112</offset>
+    </column>
+    <column name="SecondaryLuminary" type="U8">
+      <offset>113</offset>
+    </column>
+    <column name="CharacterOnly" type="U8">
+      <offset>114</offset>
+    </column>
+    <column name="RotationAxis" type="F32FIXEDARRAY">
+      <offset>116</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="NumberOfLoops" type="INT">
+      <offset>132</offset>
+    </column>
+    <column name="StartPos" type="F32FIXEDARRAY">
+      <offset>136</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="EndPos" type="F32FIXEDARRAY">
+      <offset>148</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LoopFadePercent" type="F32">
+      <offset>160</offset>
+    </column>
+    <column name="SunLit" type="U8">
+      <offset>164</offset>
+    </column>
+    <column name="HighDetail" type="U8">
+      <offset>165</offset>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>168</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="EndSkyDome" type="END" />
+  </table>
+</parser>

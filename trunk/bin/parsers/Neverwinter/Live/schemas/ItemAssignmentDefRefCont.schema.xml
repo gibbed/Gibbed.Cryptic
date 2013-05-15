@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentDefRefCont">
+  <table>
+    <column name="ItemAssignmentDefRefCont" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hDef" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>ItemAssignmentDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

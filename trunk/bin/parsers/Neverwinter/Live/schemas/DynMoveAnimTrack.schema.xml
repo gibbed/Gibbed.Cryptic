@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynMoveAnimTrack">
+  <table>
+    <column name="DynMoveAnimTrack" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="First" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Last" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="uiFirstFrame" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="uiLastFrame" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="StartOffsetFirst" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="StartOffsetLast" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="uiStartOffsetFirstFrame" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="uiStartOffsetLastFrame" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="Offset" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="frameSnapshot" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="DynAnimFrameSnapshot" />
+    </column>
+    <column name="NonInterpFrames" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="DynMoveFrameRange" />
+    </column>
+    <column name="BoneOffset" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="DynMoveBoneOffset" />
+    </column>
+    <column name="BoneRotation" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="DynMoveBoneRotOffset" />
+    </column>
+    <column name="NoInterp" type="U8">
+      <offset>60</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="AnimTrackName" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Verified" type="U8">
+      <offset>68</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

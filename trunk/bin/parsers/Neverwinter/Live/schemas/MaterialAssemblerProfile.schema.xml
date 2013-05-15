@@ -1,0 +1,144 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MaterialAssemblerProfile">
+  <table>
+    <column name="MaterialAssemblerProfile" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="profilename" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="deviceid" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="gentemp" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="genparam" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="genboolparam" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="genparamMatrix42" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="genparamMatrix43" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="genparamMatrix44" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="genparamoffset" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="commentbegin" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="commentend" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="TexCoord0" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="TexCoord1" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="Color0" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="InstanceParam" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="GenConst1" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="GenConst2" type="STRING">
+      <offset>68</offset>
+    </column>
+    <column name="GenConst3" type="STRING">
+      <offset>72</offset>
+    </column>
+    <column name="GenConst4" type="STRING">
+      <offset>76</offset>
+    </column>
+    <column name="gentexname" type="STRING">
+      <offset>80</offset>
+    </column>
+    <column name="swizzlemap" type="STRING">
+      <offset>84</offset>
+      <default_string>xyzw</default_string>
+    </column>
+    <column name="genshaderpath" type="STRING">
+      <offset>88</offset>
+    </column>
+    <column name="genspecialshaderpath" type="STRING">
+      <offset>92</offset>
+    </column>
+    <column name="gentexsampler2D" type="STRING">
+      <offset>96</offset>
+    </column>
+    <column name="gentexsampler3D" type="STRING">
+      <offset>100</offset>
+    </column>
+    <column name="gentexsamplerCUBE" type="STRING">
+      <offset>104</offset>
+    </column>
+    <column name="gentexsamplerpart2" type="STRING">
+      <offset>108</offset>
+    </column>
+    <column name="gentexsamplerpart2comparison" type="STRING">
+      <offset>112</offset>
+    </column>
+    <column name="genconditionalbranch" type="STRING">
+      <offset>116</offset>
+    </column>
+    <column name="genconditionalif" type="STRING">
+      <offset>120</offset>
+    </column>
+    <column name="genconditionalelse" type="STRING">
+      <offset>124</offset>
+    </column>
+    <column name="genconditionalelseif" type="STRING">
+      <offset>128</offset>
+    </column>
+    <column name="genconditionalend" type="STRING">
+      <offset>132</offset>
+    </column>
+    <column name="shadowaccumulate" type="STRING">
+      <offset>136</offset>
+    </column>
+    <column name="constantbufferstart" type="STRING">
+      <offset>140</offset>
+    </column>
+    <column name="constantbufferend" type="STRING">
+      <offset>144</offset>
+    </column>
+    <column name="materialbuffername" type="STRING">
+      <offset>148</offset>
+    </column>
+    <column name="materialbufferbaseregister" type="INT">
+      <offset>152</offset>
+    </column>
+    <column name="lightbuffername" type="STRING">
+      <offset>156</offset>
+    </column>
+    <column name="lightbufferbaseregister" type="INT">
+      <offset>160</offset>
+    </column>
+    <column name="lightignorematerialconstoffset" type="INT">
+      <offset>164</offset>
+    </column>
+    <column name="EndMaterialProfile" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LoadBalancingSingleMachineInfo">
+  <table>
+    <column name="LoadBalancingSingleMachineInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MachineName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="CPU" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="CPU60" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="FreeMegs" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

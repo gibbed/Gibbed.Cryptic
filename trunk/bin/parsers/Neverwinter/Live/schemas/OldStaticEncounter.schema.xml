@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OldStaticEncounter">
+  <table>
+    <column name="OldStaticEncounter" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NoDespawn" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="BaseDef" type="REFERENCE">
+      <offset>24</offset>
+      <flags>
+        <flag>VITAL_REF</flag>
+      </flags>
+      <dictionary_name>EncounterDef</dictionary_name>
+    </column>
+    <column name="encCritterGroup" type="REFERENCE">
+      <offset>28</offset>
+      <flags>
+        <flag>NON_NULL_REF__ERROR_ONLY</flag>
+      </flags>
+      <dictionary_name>CritterGroup</dictionary_name>
+    </column>
+    <column name="SpawnAnim" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SpawnWeight" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="encFaction" type="REFERENCE">
+      <offset>40</offset>
+      <flags>
+        <flag>NON_NULL_REF__ERROR_ONLY</flag>
+      </flags>
+      <dictionary_name>CritterFaction</dictionary_name>
+    </column>
+    <column name="defOverride" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="EncounterDef" />
+    </column>
+    <column name="DeletedActors" type="INTARRAY">
+      <offset>48</offset>
+    </column>
+    <column name="patrolRouteName" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NoSnapToGround" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="encPos" type="F32FIXEDARRAY">
+      <offset>68</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="encRot" type="QUATPYR">
+      <offset>80</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="distToGround" type="F32">
+      <offset>96</offset>
+    </column>
+    <column name="ScopeNames" type="STRUCT">
+      <offset>104</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="WorldScopeNamePair" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

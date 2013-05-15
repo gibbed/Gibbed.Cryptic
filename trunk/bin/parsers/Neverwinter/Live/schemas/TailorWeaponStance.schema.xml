@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TailorWeaponStance">
+  <table>
+    <column name="TailorWeaponStance" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Bone" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <dictionary_name>PCBoneDef</dictionary_name>
+    </column>
+    <column name="StanceStickyBits" type="STRINGARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StanceStickyFX" type="STRINGARRAY">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DefaultGeo" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DefaultName" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Color0" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Color1" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color2" type="F32FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color3" type="F32FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="StanceStickyFXParamBlock" type="STRUCT">
+      <offset>80</offset>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="StanceStickyFXParam" type="STRUCT">
+      <offset>80</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>StanceStickyFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>84</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

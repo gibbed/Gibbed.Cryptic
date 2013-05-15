@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerStat">
+  <table>
+    <column name="PowerStat" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Stat" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PowerStatSource" />
+    </column>
+    <column name="StatItem" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Attrib" type="INT">
+      <offset>12</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Aspect" type="INT">
+      <offset>16</offset>
+      <static_define_list external="AttribAspect" />
+    </column>
+    <column name="ExprBlock" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Expr" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="PowerTreeNodeRequired" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PowerDefRequired" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ClassCategoryRequired" type="INT">
+      <offset>32</offset>
+      <static_define_list external="CharClassCategory" />
+    </column>
+    <column name="Tag" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

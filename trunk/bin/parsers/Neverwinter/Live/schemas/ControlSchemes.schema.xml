@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ControlSchemes">
+  <table>
+    <column name="ControlSchemes" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="iVersion" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchCurrent" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="SchemeRegion" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="ControlSchemeRegion" />
+    </column>
+    <column name="eaSchemeRegions" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>SchemeRegion</redundant_name>
+      <subtable external="ControlSchemeRegion" />
+    </column>
+    <column name="Scheme" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="ControlScheme" />
+    </column>
+    <column name="eaSchemes" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>Scheme</redundant_name>
+      <subtable external="ControlScheme" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

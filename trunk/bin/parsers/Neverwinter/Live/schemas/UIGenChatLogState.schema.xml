@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenChatLogState">
+  <table>
+    <column name="UIGenChatLogState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>22</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="Scrollbar" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="UIGenScrollbarState" />
+    </column>
+    <column name="ActiveLink" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="ChatLink" />
+    </column>
+    <column name="ActiveLinkID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="SelectionStart" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="UIGenChatLogEntryPoint" />
+    </column>
+    <column name="SelectionEnd" type="EMBEDDEDSTRUCT">
+      <offset>48</offset>
+      <subtable external="UIGenChatLogEntryPoint" />
+    </column>
+    <column name="MouseOver" type="EMBEDDEDSTRUCT">
+      <offset>60</offset>
+      <subtable external="UIGenChatLogEntryPoint" />
+    </column>
+    <column name="FirstEntryID" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="ScanEntryID" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="Channel" type="STRING">
+      <offset>80</offset>
+    </column>
+    <column name="ChannelType" type="INT">
+      <offset>84</offset>
+      <static_define_list external="ChatLogEntryType" />
+    </column>
+    <column name="Tab" type="STRING">
+      <offset>88</offset>
+    </column>
+    <column name="uTabCRC" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="PMHandle" type="STRING">
+      <offset>96</offset>
+    </column>
+    <column name="EntryLayouts" type="STRUCT">
+      <offset>100</offset>
+      <subtable external="UIGenChatLogEntryLayout" />
+    </column>
+    <column name="ChatLogVersion" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="LayoutVersion" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="FilterTab" type="INT">
+      <offset>148</offset>
+    </column>
+    <column name="FramesSinceLastCompletedResize" type="INT">
+      <offset>152</offset>
+    </column>
+    <column name="LastWidth" type="F32">
+      <offset>156</offset>
+    </column>
+    <column name="LastHeight" type="F32">
+      <offset>160</offset>
+    </column>
+    <column name="LastFontScale" type="F32">
+      <offset>164</offset>
+    </column>
+    <column name="Selecting" type="BIT">
+      <offset>168</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="LastTextFading" type="BIT">
+      <offset>168</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

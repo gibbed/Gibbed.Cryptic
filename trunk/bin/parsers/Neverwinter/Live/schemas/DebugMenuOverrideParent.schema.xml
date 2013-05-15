@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DebugMenuOverrideParent">
+  <table>
+    <column name="DebugMenuOverrideParent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="rolloverText" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="subItem" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DebugMenuOverrideItem" />
+    </column>
+    <column name="SubMenu" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="DebugMenuOverrideParent" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

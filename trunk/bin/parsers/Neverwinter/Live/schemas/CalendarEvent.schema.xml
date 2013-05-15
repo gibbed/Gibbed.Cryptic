@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CalendarEvent">
+  <table>
+    <column name="CalendarEvent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EventName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Timing" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CalendarTiming" />
+    </column>
+    <column name="msgDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="msgDisplayDescShort" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="msgDisplayDescLong" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="DisplayDescShort" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="DisplayDescLong" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Background" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Queue" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Parent" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayTag" type="INTARRAY">
+      <offset>72</offset>
+      <static_define_list external="ActivityDisplayTags" />
+    </column>
+    <column name="EventActiveOnServer" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="EventMapMove" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="EventContact" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="EventAffectsCurrentMap" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenTextAreaState">
+  <table>
+    <column name="UIGenTextAreaState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>8</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="Scrollbar" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="UIGenScrollbarState" />
+    </column>
+    <column name="Buffer" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>ALWAYS_ALLOC</flag>
+      </flags>
+      <subtable external="TextBuffer" />
+    </column>
+    <column name="ChatData" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="ChatData" />
+    </column>
+    <column name="CursorBundle" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="UIGenBundleTextureState" />
+    </column>
+    <column name="Default" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="LineBreaks" type="STRINGARRAY">
+      <offset>52</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="LastFont" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UIStyleFont" />
+    </column>
+    <column name="LastWidth" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="LastScale" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="Timer" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="ScrollToCursor" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Dirty" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Selecting" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="Truncating" type="U8">
+      <offset>73</offset>
+    </column>
+    <column name="Truncate" type="EMBEDDEDSTRUCT">
+      <offset>76</offset>
+      <subtable external="UIGenBundleTruncateState" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

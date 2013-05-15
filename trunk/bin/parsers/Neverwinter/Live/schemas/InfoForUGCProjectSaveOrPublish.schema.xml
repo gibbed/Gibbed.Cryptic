@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InfoForUGCProjectSaveOrPublish">
+  <table>
+    <column name="InfoForUGCProjectSaveOrPublish" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="sProjectInfo" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="UGCProjectInfo" />
+    </column>
+    <column name="MapNames" type="STRINGARRAY">
+      <offset>60</offset>
+    </column>
+    <column name="EditingNameSpace" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="PublishUUID" type="STRING">
+      <offset>68</offset>
+    </column>
+    <column name="PublishNameSpace" type="STRING">
+      <offset>72</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="PublishJobName" type="STRING">
+      <offset>76</offset>
+    </column>
+    <column name="CostumeOverride" type="STRING">
+      <offset>80</offset>
+    </column>
+    <column name="PetOverride" type="STRING">
+      <offset>84</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="BodyText" type="STRING">
+      <offset>88</offset>
+    </column>
+    <column name="strInitialMapName" type="STRING">
+      <offset>92</offset>
+    </column>
+    <column name="strInitialSpawnPoint" type="STRING">
+      <offset>96</offset>
+    </column>
+    <column name="ProjectHeaderCopy" type="OPTIONALSTRUCT">
+      <offset>100</offset>
+      <subtable external="UGCProject" />
+    </column>
+    <column name="EntContainerID" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

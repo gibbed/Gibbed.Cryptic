@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RequiredPower">
+  <table>
+    <column name="RequiredPower" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RequiredPowerPurpose" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="RequiredPowerCategory" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="NumberOfRequiredPower" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

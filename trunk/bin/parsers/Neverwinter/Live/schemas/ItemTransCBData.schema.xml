@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemTransCBData">
+  <table>
+    <column name="ItemTransCBData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ItemDefName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="SoldItem" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ppchNamesUntranslated" type="STRINGARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Value" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="BagID" type="INT">
+      <offset>24</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="BagSlot" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="kQuality" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="uiItemID" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="Origin" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TranslateName" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="Silent" type="U8">
+      <offset>61</offset>
+    </column>
+    <column name="FromRollover" type="U8">
+      <offset>62</offset>
+    </column>
+    <column name="fromStore" type="U8">
+      <offset>63</offset>
+    </column>
+    <column name="Lite" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

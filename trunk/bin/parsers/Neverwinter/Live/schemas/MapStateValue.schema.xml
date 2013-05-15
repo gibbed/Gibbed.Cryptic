@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MapStateValue">
+  <table>
+    <column name="MapStateValue" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="mvValue" type="MULTIVAL">
+      <offset>8</offset>
+    </column>
+    <column name="GameEvent" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="GameEvent" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ColorDefLoading">
+  <table>
+    <column name="ColorDefLoading" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Color" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ColorDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

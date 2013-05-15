@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AuctionLotList">
+  <table>
+    <column name="AuctionLotList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AuctionLots" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="AuctionLot" />
+    </column>
+    <column name="AuctionLotsCounts" type="INTARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="Result" type="INT">
+      <offset>8</offset>
+      <static_define_list external="AuctionSearchResult" />
+    </column>
+    <column name="asrhc" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="realHitcount" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="maxResults" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="timeTaken" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="cooldownEnd" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="eaiNonExistingAuctionLotContainerIDs" type="INTARRAY">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

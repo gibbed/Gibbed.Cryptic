@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TexMemUsageEntry">
+  <table>
+    <column name="TexMemUsageEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="directory" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="memory_use" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="memory_use_original" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Width" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Height" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="countInScene" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="dist" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="uv_density" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="reduced" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="origWidth" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="origHeight" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="recent" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="isLowMips" type="U8">
+      <offset>49</offset>
+    </column>
+    <column name="Shared" type="U8">
+      <offset>50</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

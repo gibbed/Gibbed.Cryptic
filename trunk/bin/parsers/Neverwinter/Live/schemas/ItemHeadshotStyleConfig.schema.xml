@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemHeadshotStyleConfig">
+  <table>
+    <column name="ItemHeadshotStyleConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="HeadshotStyleDef" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="RestrictBag" type="INT">
+      <offset>4</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="Category" type="INTARRAY">
+      <offset>8</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

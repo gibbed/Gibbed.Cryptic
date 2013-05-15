@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIPosition">
+  <table>
+    <column name="UIPosition" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="X" type="INT16">
+      <offset>0</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="Y" type="INT16">
+      <offset>2</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="PercentX" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="PercentY" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Width" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="Height" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="MinimumWidth" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="MinimumHeight" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="MaximumWidth" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="MaximumHeight" type="EMBEDDEDSTRUCT">
+      <offset>52</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="LeftMargin" type="INT16">
+      <offset>60</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="RightMargin" type="INT16">
+      <offset>62</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="TopMargin" type="INT16">
+      <offset>64</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="BottomMargin" type="INT16">
+      <offset>66</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="Scale" type="F32">
+      <offset>68</offset>
+      <default>1</default>
+    </column>
+    <column name="OffsetFrom" type="U8">
+      <offset>72</offset>
+      <default>10</default>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="ScaleNoGrow" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="ScaleNoShrink" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="ScaleAsIfWithGlobal" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="ResetScale" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="ClipToParent" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="ClipToScreen" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="PositionOnScreen" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="IgnoreParentPadding" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="ScaleAsIf" type="INT16FIXEDARRAY">
+      <offset>74</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

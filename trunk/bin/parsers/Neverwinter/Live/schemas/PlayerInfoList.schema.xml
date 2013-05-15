@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerInfoList">
+  <table>
+    <column name="PlayerInfoList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AccountIDs" type="INTARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="PlayerNames" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PlayerExtraInfo" />
+    </column>
+    <column name="PlayerInfos" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="PlayerInfoStruct" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,224 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemArt">
+  <table>
+    <column name="ItemArt" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Geo" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GeoSecondary" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GeoList" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <subtable external="ItemArtGeoData" />
+    </column>
+    <column name="Color" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Color2" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color3" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color4" type="F32FIXEDARRAY">
+      <offset>60</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Material" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Bits" type="STRINGARRAY">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Bit" type="STRINGARRAY">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Bits</redundant_name>
+    </column>
+    <column name="PrimaryBit" type="STRINGARRAY">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Bits</redundant_name>
+    </column>
+    <column name="SecondaryBits" type="STRINGARRAY">
+      <offset>84</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SecondaryBit" type="STRINGARRAY">
+      <offset>84</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SecondaryBits</redundant_name>
+    </column>
+    <column name="SecondaryStanceWords" type="STRINGARRAY">
+      <offset>88</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StanceWords" type="STRINGARRAY">
+      <offset>92</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PrimaryStanceWords" type="STRINGARRAY">
+      <offset>92</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>StanceWords</redundant_name>
+    </column>
+    <column name="FXAdd" type="STRING">
+      <offset>96</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FXPrimary" type="STRING">
+      <offset>100</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FXSecondary" type="STRING">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FXItemArtActive" type="STRING">
+      <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FXItemArtInactive" type="STRING">
+      <offset>112</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SecondaryFXItemArtActive" type="STRING">
+      <offset>116</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SecondaryFXItemArtInactive" type="STRING">
+      <offset>120</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Hue" type="F32">
+      <offset>124</offset>
+    </column>
+    <column name="ActivePrimaryBone" type="STRING">
+      <offset>128</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ActiveSecondaryBone" type="STRING">
+      <offset>132</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ActiveRotation" type="F32FIXEDARRAY">
+      <offset>136</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ActivePosition" type="F32FIXEDARRAY">
+      <offset>148</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="HolsterPrimaryBone" type="STRING">
+      <offset>160</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="HolsterSecondaryBone" type="STRING">
+      <offset>164</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="HolsterRotation" type="F32FIXEDARRAY">
+      <offset>168</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="HolsterPosition" type="F32FIXEDARRAY">
+      <offset>180</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="AlwaysShowOnBothBones" type="U8">
+      <offset>192</offset>
+    </column>
+    <column name="OptionalParam" type="F32">
+      <offset>196</offset>
+    </column>
+    <column name="AdditionalCategories" type="INTARRAY">
+      <offset>200</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>204</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>208</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

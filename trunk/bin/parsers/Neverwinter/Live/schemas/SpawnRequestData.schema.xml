@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SpawnRequestData">
+  <table>
+    <column name="SpawnRequestData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="request_id" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Label" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="remeshSystemExitCode" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="remeshSystemErrnoCode" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="data_block" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="TextParserBinaryBlock" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GfxSettings">
+  <table>
+    <column name="ScreenXPos" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ScreenYPos" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Maximized" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Fullscreen" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="MonitorIndex" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="DeviceType" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RefreshRate" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Gamma" type="F32">
+      <offset>276</offset>
+    </column>
+    <column name="RenderScaleX" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="RenderScaleY" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="AspectRatio" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="SettingsVersion" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="SettingsDefaultsVersion" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="VideoCardVendorID" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="VideoCardDeviceID" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="ShowAdvanced" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="GraphicsQuality" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="VideoMemoryMaxHMBs" type="INT">
+      <offset>112</offset>
+    </column>
+    <column name="WorldTexLODLevel" type="F32">
+      <offset>100</offset>
+    </column>
+    <column name="CharacterTexLODLevel" type="F32">
+      <offset>104</offset>
+    </column>
+    <column name="WorldDetailLevel" type="F32">
+      <offset>88</offset>
+    </column>
+    <column name="CharacterDetailLevel" type="F32">
+      <offset>92</offset>
+    </column>
+    <column name="TerrainDetailLevel" type="F32">
+      <offset>96</offset>
+      <default>1</default>
+    </column>
+    <column name="WorldLoadScale" type="F32">
+      <offset>108</offset>
+      <default>1</default>
+    </column>
+    <column name="ReduceFileStreaming" type="INT">
+      <offset>116</offset>
+    </column>
+    <column name="TexAnisotropy" type="INT">
+      <offset>140</offset>
+    </column>
+    <column name="SoftParticles" type="INT">
+      <offset>120</offset>
+    </column>
+    <column name="FxQuality" type="INT">
+      <offset>124</offset>
+    </column>
+    <column name="UseVSync2" type="INT">
+      <offset>128</offset>
+    </column>
+    <column name="Antialiasing" type="INT">
+      <offset>132</offset>
+    </column>
+    <column name="SoftwareCursor2" type="INT">
+      <offset>136</offset>
+    </column>
+    <column name="DynamicLights" type="INT">
+      <offset>168</offset>
+    </column>
+    <column name="DrawHighDetail" type="INT">
+      <offset>172</offset>
+      <default>1</default>
+    </column>
+    <column name="DrawHighFillDetail" type="INT">
+      <offset>176</offset>
+    </column>
+    <column name="DisableSplatShadows" type="INT">
+      <offset>164</offset>
+    </column>
+    <column name="GfxFeaturesDesired" type="INT">
+      <offset>144</offset>
+    </column>
+    <column name="PreloadMaterials" type="INT">
+      <offset>180</offset>
+    </column>
+    <column name="FrameRateStabilizer2" type="INT">
+      <offset>184</offset>
+    </column>
+    <column name="AutoEnableFrameRateStabilizer" type="INT">
+      <offset>188</offset>
+    </column>
+    <column name="MaxInactiveFPS" type="F32">
+      <offset>192</offset>
+    </column>
+    <column name="RenderThread" type="INT">
+      <offset>196</offset>
+    </column>
+    <column name="BloomQuality" type="INT">
+      <offset>200</offset>
+      <default>2</default>
+    </column>
+    <column name="BloomIntensity" type="F32">
+      <offset>204</offset>
+      <default>1</default>
+    </column>
+    <column name="Scattering" type="INT">
+      <offset>212</offset>
+    </column>
+    <column name="SSAO" type="INT">
+      <offset>216</offset>
+    </column>
+    <column name="LightingQuality" type="INT">
+      <offset>220</offset>
+      <default>10</default>
+    </column>
+    <column name="MaxReflection" type="INT">
+      <offset>224</offset>
+    </column>
+    <column name="MaxLightsPerObject" type="INT">
+      <offset>156</offset>
+    </column>
+    <column name="MaxShadowedLights" type="INT">
+      <offset>160</offset>
+    </column>
+    <column name="HighQualityDOF2" type="INT">
+      <offset>228</offset>
+    </column>
+    <column name="UseFullSkinning" type="INT">
+      <offset>232</offset>
+      <default>1</default>
+    </column>
+    <column name="GPUAccelParticles" type="INT">
+      <offset>236</offset>
+      <default>1</default>
+    </column>
+    <column name="MaxDebris" type="INT">
+      <offset>240</offset>
+    </column>
+    <column name="PoissonShadows" type="INT">
+      <offset>244</offset>
+    </column>
+    <column name="LastRecordedPerf" type="F32">
+      <offset>280</offset>
+    </column>
+    <column name="LastRecordedMSAAPerf" type="F32">
+      <offset>284</offset>
+    </column>
+    <column name="MinDepthBiasFix" type="INT">
+      <offset>248</offset>
+    </column>
+    <column name="HigherSettingsInTailor" type="INT">
+      <offset>252</offset>
+    </column>
+    <column name="PerFrameSleep" type="INT">
+      <offset>256</offset>
+    </column>
+    <column name="MaxFPS" type="INT">
+      <offset>260</offset>
+    </column>
+    <column name="LenseFlare" type="INT">
+      <offset>264</offset>
+    </column>
+    <column name="DefaultFov" type="F32">
+      <offset>308</offset>
+    </column>
+    <column name="HWInstancing" type="INT">
+      <offset>312</offset>
+      <default>1</default>
+    </column>
+    <column name="DesiredMatQuality" type="INT">
+      <offset>316</offset>
+    </column>
+    <column name="RecommendedMatQuality" type="INT">
+      <offset>320</offset>
+      <default>2</default>
+    </column>
+    <column name="HasSelectedFullscreenMode" type="INT">
+      <offset>324</offset>
+    </column>
+    <column name="FullScreenWidth" type="INT">
+      <offset>340</offset>
+    </column>
+    <column name="FullScreenHeight" type="INT">
+      <offset>344</offset>
+    </column>
+    <column name="WindowedWidth" type="INT">
+      <offset>332</offset>
+    </column>
+    <column name="WindowedHeight" type="INT">
+      <offset>336</offset>
+    </column>
+  </table>
+</parser>

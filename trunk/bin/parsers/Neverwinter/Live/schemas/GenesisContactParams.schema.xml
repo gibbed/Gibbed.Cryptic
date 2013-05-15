@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisContactParams">
+  <table>
+    <column name="GenesisContactParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContactName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Costume" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

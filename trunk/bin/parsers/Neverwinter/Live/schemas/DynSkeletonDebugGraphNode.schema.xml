@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynSkeletonDebugGraphNode">
+  <table>
+    <column name="DynSkeletonDebugGraphNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="GraphName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="NodeName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="MoveName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Reason" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="reasonDetails" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

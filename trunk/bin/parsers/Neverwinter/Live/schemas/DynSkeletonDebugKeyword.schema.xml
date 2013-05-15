@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynSkeletonDebugKeyword">
+  <table>
+    <column name="DynSkeletonDebugKeyword" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Keyword" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="UID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="TimeSinceTriggered" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

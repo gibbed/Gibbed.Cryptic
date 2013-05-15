@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SuperCritterPetDef">
+  <table>
+    <column name="SuperCritterPetDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CritterDef" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>CritterDef</dictionary_name>
+    </column>
+    <column name="hCachedClassDef" type="REFERENCE">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="AltCostume" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="SCPAltCostumeDef" />
+    </column>
+    <column name="EquipmentSlot" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="SCPEquipSlotDef" />
+    </column>
+    <column name="ContinuingPlayerFX" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>DynFxInfo</dictionary_name>
+    </column>
+    <column name="HeadshotStyle" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="LevelToPlayer" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

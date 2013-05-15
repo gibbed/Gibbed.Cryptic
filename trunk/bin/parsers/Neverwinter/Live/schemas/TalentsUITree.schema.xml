@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TalentsUITree">
+  <table>
+    <column name="TalentsUITree" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TreeName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hTreeDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>PowerTreeDef</dictionary_name>
+    </column>
+    <column name="TalentNodes" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="TalentsUITreeNode" />
+    </column>
+    <column name="NumRows" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="NumCols" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="LowX" type="U8">
+      <offset>14</offset>
+    </column>
+    <column name="HighX" type="U8">
+      <offset>15</offset>
+    </column>
+    <column name="LowY" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="HighY" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="TextureBits" type="INTARRAY">
+      <offset>20</offset>
+    </column>
+    <column name="TextureBitsPathMode" type="INTARRAY">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

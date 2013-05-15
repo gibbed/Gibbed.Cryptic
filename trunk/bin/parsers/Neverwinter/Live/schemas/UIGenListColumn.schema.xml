@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenListColumn">
+  <table>
+    <column name="UIGenListColumn" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>14</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="bf" type="INTFIXEDARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>5</num_elements>
+    </column>
+    <column name="Pos" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="X" type="INT16">
+      <offset>24</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="Y" type="INT16">
+      <offset>26</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="PercentX" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="PercentY" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="Width" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="Height" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="MinimumWidth" type="EMBEDDEDSTRUCT">
+      <offset>52</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="MinimumHeight" type="EMBEDDEDSTRUCT">
+      <offset>60</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="MaximumWidth" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="MaximumHeight" type="EMBEDDEDSTRUCT">
+      <offset>76</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="LeftMargin" type="INT16">
+      <offset>84</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="RightMargin" type="INT16">
+      <offset>86</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="TopMargin" type="INT16">
+      <offset>88</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="BottomMargin" type="INT16">
+      <offset>90</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="Scale" type="F32">
+      <offset>92</offset>
+      <default>1</default>
+    </column>
+    <column name="OffsetFrom" type="U8">
+      <offset>96</offset>
+      <default>10</default>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="ScaleNoGrow" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="ScaleNoShrink" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="ScaleAsIfWithGlobal" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="ResetScale" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="ClipToParent" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="ClipToScreen" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="PositionOnScreen" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="IgnoreParentPadding" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="ScaleAsIf" type="INT16FIXEDARRAY">
+      <offset>98</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Relative" type="OPTIONALSTRUCT">
+      <offset>104</offset>
+      <subtable external="UIGenRelative" />
+    </column>
+    <column name="PostLayoutRelative" type="OPTIONALSTRUCT">
+      <offset>108</offset>
+      <subtable external="UIGenRelative" />
+    </column>
+    <column name="Anchor" type="OPTIONALSTRUCT">
+      <offset>112</offset>
+      <subtable external="UIGenAnchor" />
+    </column>
+    <column name="Child" type="STRUCT">
+      <offset>116</offset>
+      <subtable external="UIGenChild" />
+    </column>
+    <column name="Children" type="STRUCT">
+      <offset>116</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Child</redundant_name>
+      <subtable external="UIGenChild" />
+    </column>
+    <column name="InlineChild" type="STRUCT">
+      <offset>120</offset>
+      <flags>
+        <flag>STRUCT_NORECURSE</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UIGen" />
+    </column>
+    <column name="HideChild" type="STRINGARRAY">
+      <offset>124</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RemoveChild" type="STRINGARRAY">
+      <offset>128</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Assembly" type="OPTIONALSTRUCT">
+      <offset>132</offset>
+      <subtable external="UIGenTextureAssembly" />
+    </column>
+    <column name="OverlayAssembly" type="OPTIONALSTRUCT">
+      <offset>136</offset>
+      <subtable external="UIGenTextureAssembly" />
+    </column>
+    <column name="Alpha" type="F32">
+      <offset>140</offset>
+      <default>1</default>
+    </column>
+    <column name="Tween" type="OPTIONALSTRUCT">
+      <offset>144</offset>
+      <subtable external="UIGenTweenInfo" />
+    </column>
+    <column name="BeforeLayout" type="OPTIONALSTRUCT">
+      <offset>148</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="AfterLayout" type="OPTIONALSTRUCT">
+      <offset>152</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="BeforeTick" type="OPTIONALSTRUCT">
+      <offset>156</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="KeyAction" type="STRUCT">
+      <offset>160</offset>
+      <subtable external="UIGenKeyAction" />
+    </column>
+    <column name="DefaultKeyAction" type="OPTIONALSTRUCT">
+      <offset>164</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="ToolTip" type="OPTIONALSTRUCT">
+      <offset>168</offset>
+      <subtable external="UIGenTooltip" />
+    </column>
+    <column name="Background" type="OPTIONALSTRUCT">
+      <offset>172</offset>
+      <subtable external="UIGenBackgroundImage" />
+    </column>
+    <column name="DragDrop" type="STRUCT">
+      <offset>176</offset>
+      <subtable external="UIGenDragDropAction" />
+    </column>
+    <column name="DragCancelled" type="OPTIONALSTRUCT">
+      <offset>180</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="Message" type="STRUCT">
+      <offset>184</offset>
+      <subtable external="UIGenMessage" />
+    </column>
+    <column name="Transform" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="CenterX" type="EMBEDDEDSTRUCT">
+      <offset>188</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="CenterY" type="EMBEDDEDSTRUCT">
+      <offset>196</offset>
+      <subtable external="UISizeSpec" />
+    </column>
+    <column name="Rotate" type="EMBEDDEDSTRUCT">
+      <offset>204</offset>
+      <subtable external="UIAngle" />
+    </column>
+    <column name="ShearX" type="F32">
+      <offset>212</offset>
+    </column>
+    <column name="ShearY" type="F32">
+      <offset>216</offset>
+    </column>
+    <column name="ScaleX" type="F32">
+      <offset>220</offset>
+      <default>1</default>
+    </column>
+    <column name="ScaleY" type="F32">
+      <offset>224</offset>
+      <default>1</default>
+    </column>
+    <column name="Cursor" type="REFERENCE">
+      <offset>228</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>UICursor</dictionary_name>
+    </column>
+    <column name="Priority" type="U8">
+      <offset>232</offset>
+    </column>
+    <column name="ResetAlpha" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="Clip" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="ResetClip" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="CaptureMouse" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="CaptureMouseWheel" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="FocusOnClick" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="FocusOnCreate" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="KeepFocusOnCreate" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="FocusByDefault" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="FocusEveryFrame" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65553</bit_offset>
+    </column>
+    <column name="ClipInput" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65554</bit_offset>
+    </column>
+    <column name="ResetInputClip" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65555</bit_offset>
+    </column>
+    <column name="CopyChildPriority" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65556</bit_offset>
+    </column>
+    <column name="ClipToPadding" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
+    <column name="SMF" type="REFERENCE">
+      <offset>236</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Text" type="REFERENCE">
+      <offset>236</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <redundant_name>SMF</redundant_name>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="SMFExpr" type="OPTIONALSTRUCT">
+      <offset>240</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="TextExpr" type="OPTIONALSTRUCT">
+      <offset>240</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SMFExpr</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Truncate" type="REFERENCE">
+      <offset>244</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Font" type="REFERENCE">
+      <offset>248</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="CellTemplate" type="REFERENCE">
+      <offset>252</offset>
+      <dictionary_name>UIGen</dictionary_name>
+    </column>
+    <column name="Template" type="REFERENCE">
+      <offset>252</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CellTemplate</redundant_name>
+      <dictionary_name>UIGen</dictionary_name>
+    </column>
+    <column name="TemplateChild" type="STRUCT">
+      <offset>256</offset>
+      <subtable external="UIGenChild" />
+    </column>
+    <column name="TemplateChildren" type="STRUCT">
+      <offset>256</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TemplateChild</redundant_name>
+      <subtable external="UIGenChild" />
+    </column>
+    <column name="TPIField" type="STRING">
+      <offset>260</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OnActivated" type="OPTIONALSTRUCT">
+      <offset>264</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="OnSelected" type="OPTIONALSTRUCT">
+      <offset>268</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="Alignment" type="U8">
+      <offset>272</offset>
+      <default>10</default>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="StretchyRatio" type="U8">
+      <offset>273</offset>
+    </column>
+    <column name="Sortable" type="BIT">
+      <offset>272</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65552</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Resizable" type="BIT">
+      <offset>272</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65553</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ShrinkToFit" type="BIT">
+      <offset>272</offset>
+      <bit_offset>65554</bit_offset>
+    </column>
+    <column name="ScaleToFit" type="BIT">
+      <offset>272</offset>
+      <bit_offset>65555</bit_offset>
+    </column>
+    <column name="NoWrap" type="BIT">
+      <offset>272</offset>
+      <bit_offset>65556</bit_offset>
+    </column>
+    <column name="PlainText" type="BIT">
+      <offset>272</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
+    <column name="SafeMode" type="BIT">
+      <offset>272</offset>
+      <bit_offset>65558</bit_offset>
+    </column>
+    <column name="FilterProfanity" type="BIT">
+      <offset>272</offset>
+      <bit_offset>65559</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

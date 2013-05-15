@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameEvent">
+  <table>
+    <column name="GameEvent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <static_define_list external="EventType" />
+    </column>
+    <column name="EventName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PartitionIdx" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="SourceActorName" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourceCritterName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourceCritterGroupName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourceCritterTags" type="INTARRAY">
+      <offset>32</offset>
+      <static_define_list external="CritterTag" />
+    </column>
+    <column name="SourceEncounterName" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourceStaticEncName" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourceStaticEncExclude" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourceEncGroupName" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourceObjectName" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourceFactionName" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourceAllegianceName" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourceRank" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourceClassName" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourcePowerMode" type="STRING">
+      <offset>72</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SourceRegionType" type="INT">
+      <offset>76</offset>
+      <default>-1</default>
+      <static_define_list external="WorldRegionType" />
+    </column>
+    <column name="MatchSource" type="INT">
+      <offset>80</offset>
+      <static_define_list external="TriState" />
+    </column>
+    <column name="MatchSourceTeam" type="INT">
+      <offset>84</offset>
+      <static_define_list external="TriState" />
+    </column>
+    <column name="SourceIsPlayer" type="INT">
+      <offset>88</offset>
+      <static_define_list external="TriState" />
+    </column>
+    <column name="Sources" type="STRUCT">
+      <offset>96</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="GameEventParticipant" />
+    </column>
+    <column name="TargetActorName" type="STRING">
+      <offset>100</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetCritterName" type="STRING">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetCritterGroupName" type="STRING">
+      <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetCritterTags" type="INTARRAY">
+      <offset>112</offset>
+      <static_define_list external="CritterTag" />
+    </column>
+    <column name="TargetEncounterName" type="STRING">
+      <offset>116</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetStaticEncName" type="STRING">
+      <offset>120</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetStaticEncExclude" type="STRING">
+      <offset>124</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetEncGroupName" type="STRING">
+      <offset>128</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetObjectName" type="STRING">
+      <offset>132</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetFactionName" type="STRING">
+      <offset>136</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetAllegianceName" type="STRING">
+      <offset>140</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetRank" type="STRING">
+      <offset>144</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetClassName" type="STRING">
+      <offset>148</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetPowerMode" type="STRING">
+      <offset>152</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetRegionType" type="INT">
+      <offset>156</offset>
+      <default>-1</default>
+      <static_define_list external="WorldRegionType" />
+    </column>
+    <column name="MatchTarget" type="INT">
+      <offset>160</offset>
+      <static_define_list external="TriState" />
+    </column>
+    <column name="MatchTargetTeam" type="INT">
+      <offset>164</offset>
+      <static_define_list external="TriState" />
+    </column>
+    <column name="TargetIsPlayer" type="INT">
+      <offset>168</offset>
+      <static_define_list external="TriState" />
+    </column>
+    <column name="NemesisType" type="STRING">
+      <offset>176</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Targets" type="STRUCT">
+      <offset>180</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="GameEventParticipant" />
+    </column>
+    <column name="ClickableName" type="STRING">
+      <offset>184</offset>
+    </column>
+    <column name="ClickableGroupName" type="STRING">
+      <offset>192</offset>
+    </column>
+    <column name="VolumeName" type="STRING">
+      <offset>200</offset>
+    </column>
+    <column name="ContactName" type="STRING">
+      <offset>208</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StoreName" type="STRING">
+      <offset>212</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MissionRefString" type="STRING">
+      <offset>216</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MissionCategoryName" type="STRING">
+      <offset>220</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ItemName" type="STRING">
+      <offset>224</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GemName" type="STRING">
+      <offset>228</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CutsceneName" type="STRING">
+      <offset>232</offset>
+    </column>
+    <column name="VideoName" type="STRING">
+      <offset>236</offset>
+    </column>
+    <column name="FSMName" type="STRING">
+      <offset>240</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FsmStateName" type="STRING">
+      <offset>244</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ItemAssignmentName" type="STRING">
+      <offset>248</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ItemAssignmentOutcome" type="STRING">
+      <offset>252</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PowerName" type="STRING">
+      <offset>256</offset>
+    </column>
+    <column name="PowerEventName" type="STRING">
+      <offset>260</offset>
+    </column>
+    <column name="DamageType" type="STRING">
+      <offset>264</offset>
+    </column>
+    <column name="DialogName" type="STRING">
+      <offset>268</offset>
+    </column>
+    <column name="NemesisName" type="STRING">
+      <offset>272</offset>
+    </column>
+    <column name="EmoteName" type="STRING">
+      <offset>276</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Message" type="STRING">
+      <offset>280</offset>
+    </column>
+    <column name="GroupProjectName" type="STRING">
+      <offset>284</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AllegianceName" type="STRING">
+      <offset>288</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ItemCategories" type="INTARRAY">
+      <offset>292</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="bagType" type="INT">
+      <offset>296</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>300</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="NemesisID" type="INT">
+      <offset>312</offset>
+    </column>
+    <column name="ItemAssignmentSpeedBonus" type="F32">
+      <offset>316</offset>
+    </column>
+    <column name="UGCFeaturedCurrently" type="INT">
+      <offset>320</offset>
+      <static_define_list external="TriState" />
+    </column>
+    <column name="UGCFeaturedPreviously" type="INT">
+      <offset>324</offset>
+      <static_define_list external="TriState" />
+    </column>
+    <column name="UGCProjectQualifiesForReward" type="INT">
+      <offset>328</offset>
+      <static_define_list external="TriState" />
+    </column>
+    <column name="IsRootMission" type="U8">
+      <offset>332</offset>
+    </column>
+    <column name="IsTrackedMission" type="U8">
+      <offset>333</offset>
+    </column>
+    <column name="encState" type="INT">
+      <offset>336</offset>
+      <default>-1</default>
+      <static_define_list external="EncounterState" />
+    </column>
+    <column name="Missionstate" type="INT">
+      <offset>340</offset>
+      <default>-1</default>
+      <static_define_list external="MissionState" />
+    </column>
+    <column name="missionType" type="INT">
+      <offset>344</offset>
+      <default>-1</default>
+      <static_define_list external="MissionType" />
+    </column>
+    <column name="missionLockoutState" type="INT">
+      <offset>348</offset>
+      <default>-1</default>
+      <static_define_list external="MissionLockoutState" />
+    </column>
+    <column name="Nemesisstate" type="INT">
+      <offset>352</offset>
+      <default>-1</default>
+      <static_define_list external="NemesisState" />
+    </column>
+    <column name="HealthState" type="INT">
+      <offset>356</offset>
+      <default>-1</default>
+      <static_define_list external="HealthState" />
+    </column>
+    <column name="victoryType" type="INT">
+      <offset>360</offset>
+      <default>-1</default>
+      <static_define_list external="PVPDuelVictoryType" />
+    </column>
+    <column name="MinigameType" type="INT">
+      <offset>364</offset>
+      <default>-1</default>
+      <static_define_list external="MinigameType" />
+    </column>
+    <column name="PvPQueueMatchResult" type="INT">
+      <offset>368</offset>
+      <default>-1</default>
+      <static_define_list external="PvPQueueMatchResult" />
+    </column>
+    <column name="PvPEvent" type="INT">
+      <offset>372</offset>
+      <default>-1</default>
+      <static_define_list external="PvPEvent" />
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>376</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DoorKey" type="STRING">
+      <offset>380</offset>
+    </column>
+    <column name="MatchMapOwner" type="INT">
+      <offset>384</offset>
+      <static_define_list external="TriState" />
+    </column>
+    <column name="Count" type="INT">
+      <offset>392</offset>
+    </column>
+    <column name="Unique" type="U8">
+      <offset>396</offset>
+    </column>
+    <column name="PartOfUGCProject" type="INT">
+      <offset>400</offset>
+      <static_define_list external="TriState" />
+    </column>
+    <column name="ChainEventDef" type="OPTIONALSTRUCT">
+      <offset>408</offset>
+      <subtable external="GameEvent" />
+    </column>
+    <column name="ChainEvent" type="OPTIONALSTRUCT">
+      <offset>412</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="GameEvent" />
+    </column>
+    <column name="chainTime" type="F32">
+      <offset>420</offset>
+      <default>1</default>
+    </column>
+    <column name="IsChainedEvent" type="BIT">
+      <offset>424</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="RewardTier" type="INT">
+      <offset>428</offset>
+    </column>
+    <column name="ScoreboardMetricName" type="STRING">
+      <offset>432</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScoreboardRank" type="INT">
+      <offset>436</offset>
+    </column>
+    <column name="ZoneEventName" type="IGNORE" />
+    <column name="zoneEventState" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

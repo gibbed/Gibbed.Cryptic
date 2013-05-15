@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCKillCreditLimit2">
+  <table>
+    <column name="UGCKillCreditLimit2" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LimitName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="ExpLimitPerLevel" type="INTARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="TimeIntervalPerLevel" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="ExpUpdateRatePerLevel" type="F32ARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

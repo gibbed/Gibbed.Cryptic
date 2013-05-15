@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemSummary">
+  <table>
+    <column name="ItemSummary" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Algo" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="NumericValue" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Quality" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

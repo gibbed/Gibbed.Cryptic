@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCRoomPreviewData">
+  <table>
+    <column name="UGCRoomPreviewData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DoorValue" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="UGCIntData" />
+    </column>
+    <column name="DetailValue" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UGCIntData" />
+    </column>
+    <column name="PopulateValue" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UGCIntData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

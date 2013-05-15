@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CameraDistancePresets">
+  <table>
+    <column name="CameraDistancePresets" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Closest" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Close" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Medium" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Far" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="MaxZoomMin" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MaxZoomMax" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="CloseAdjustDistance" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="DefaultAdjustDistance" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="FadeScale" type="F32">
+      <offset>32</offset>
+      <default>1</default>
+    </column>
+    <column name="FadeDistanceScale" type="F32">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FadeScale</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

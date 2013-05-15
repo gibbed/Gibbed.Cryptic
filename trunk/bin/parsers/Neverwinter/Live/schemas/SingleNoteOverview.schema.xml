@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SingleNoteOverview">
+  <table>
+    <column name="SingleNoteOverview" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="NoteServerStatusString" type="STRING">
+      <offset>0</offset>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+        <format_string name="HTML_NO_HEADER">1</format_string>
+        <format_string name="HTML_CLASS">divWarning2</format_string>
+      </format_strings>
+    </column>
+    <column name="Title" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="NoteName" type="STRING">
+      <offset>8</offset>
+      <format_strings>
+        <format_string name="HTML_SKIP">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Note" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="SingleNote" />
+    </column>
+    <column name="LinkOnNotesServer" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+        <format_string name="HTML_NO_HEADER">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Set" type="COMMAND">
+      <offset>0</offset>
+      <command_string>NotesServer_SetNote $FIELD(NoteName) $SELECT(Scope|Global,Product,System) $INT(Critical?) $STRING(Type new note here)</command_string>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

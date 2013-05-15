@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PTPurchaseRequirements">
+  <table>
+    <column name="PTPurchaseRequirements" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hGroup" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <dictionary_name>PowerTreeGroupDef</dictionary_name>
+    </column>
+    <column name="GroupRequired" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="TableLevel" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="CharacterLevel" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <redundant_name>TableLevel</redundant_name>
+    </column>
+    <column name="DerivedTableLevel" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="PointsSpentInThisTree" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="MinPointsSpentInThisTree" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PointsSpentInThisTree</redundant_name>
+    </column>
+    <column name="MaxPointsSpentInThisTree" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="PointsSpentInAnyTree" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="MinPointsSpentInAnyTree" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PointsSpentInAnyTree</redundant_name>
+    </column>
+    <column name="MaxPointsSpentInAnyTree" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="TableName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <default_string>TreePoints</default_string>
+    </column>
+    <column name="PurchaseExpression" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

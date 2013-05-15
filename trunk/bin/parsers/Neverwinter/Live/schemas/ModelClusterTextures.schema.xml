@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ModelClusterTextures">
+  <table>
+    <column name="ModelClusterTextures" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="gmesh_texture_file_d" type="FIXEDSTRING">
+      <offset>0</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="gmesh_texture_file_n" type="FIXEDSTRING">
+      <offset>260</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="gmesh_texture_file_s" type="FIXEDSTRING">
+      <offset>520</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldDoorInteractionProperties">
+  <table>
+    <column name="WorldDoorInteractionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="DoorType" type="INT">
+      <offset>0</offset>
+      <default>1</default>
+      <static_define_list external="WorldDoorType" />
+    </column>
+    <column name="QueueDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>QueueDef</dictionary_name>
+    </column>
+    <column name="DoorDest" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="Variable" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="WorldVariable" />
+    </column>
+    <column name="VariableDef" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="PerPlayer" type="U8">
+      <offset>76</offset>
+    </column>
+    <column name="SinglePlayer" type="U8">
+      <offset>77</offset>
+    </column>
+    <column name="IncludeTeammates" type="U8">
+      <offset>78</offset>
+    </column>
+    <column name="CollectDestinationStatus" type="U8">
+      <offset>79</offset>
+    </column>
+    <column name="DestinationSameOwner" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="UseChoiceTable" type="U8">
+      <offset>81</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>84</offset>
+    </column>
+    <column name="SpawnTargetName" type="STRING">
+      <offset>88</offset>
+    </column>
+    <column name="ChoiceTable" type="REFERENCE">
+      <offset>92</offset>
+      <dictionary_name>ChoiceTable</dictionary_name>
+    </column>
+    <column name="ChoiceName" type="STRING">
+      <offset>96</offset>
+    </column>
+    <column name="TransitionOverride" type="REFERENCE">
+      <offset>100</offset>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="DoorIdentifier" type="STRING">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DoorKey" type="STRING">
+      <offset>108</offset>
+    </column>
+    <column name="CustomMotion" type="U8">
+      <offset>112</offset>
+    </column>
+    <column name="Rotation" type="F32FIXEDARRAY">
+      <offset>116</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Postion" type="F32FIXEDARRAY">
+      <offset>128</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TranslationTime" type="F32">
+      <offset>140</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

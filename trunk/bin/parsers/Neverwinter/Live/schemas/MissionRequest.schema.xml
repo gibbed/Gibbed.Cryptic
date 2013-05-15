@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MissionRequest">
+  <table>
+    <column name="MissionRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pchRequesterRef" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="RequestedMission" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="hRequestedMission" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>RequestedMission</redundant_name>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="RequestedMissionSet" type="REFERENCE">
+      <offset>12</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>MissionSet</dictionary_name>
+    </column>
+    <column name="hRequestedMissionSet" type="REFERENCE">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>RequestedMissionSet</redundant_name>
+      <dictionary_name>MissionSet</dictionary_name>
+    </column>
+    <column name="eState" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="MissionRequestState" />
+    </column>
+    <column name="uInactiveTime" type="INT">
+      <offset>20</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

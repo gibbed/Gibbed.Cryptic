@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NNOItemInfo">
+  <table>
+    <column name="NNOItemInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Item" />
+    </column>
+    <column name="ItemDef" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ItemDef" />
+    </column>
+    <column name="MinDamage" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="MaxDamage" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="PowerRechargeTime" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="ItemQualityIndex" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="ItemPowerFactor" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="ItemCount" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="ChargesLeft" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="PowerMaxCharges" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="EntUsableExpr" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="ItemIsRecommended" type="U8">
+      <offset>49</offset>
+    </column>
+    <column name="EntHasClass" type="U8">
+      <offset>50</offset>
+    </column>
+    <column name="EntHasPath" type="U8">
+      <offset>51</offset>
+    </column>
+    <column name="IsOwnedByPlayer" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="IsMount" type="U8">
+      <offset>53</offset>
+    </column>
+    <column name="EntMeetsLevelRequirements" type="U8">
+      <offset>54</offset>
+    </column>
+    <column name="BindsOnEquip" type="U8">
+      <offset>55</offset>
+    </column>
+    <column name="BindsOnPickup" type="U8">
+      <offset>56</offset>
+    </column>
+    <column name="BindsToAccount" type="U8">
+      <offset>57</offset>
+    </column>
+    <column name="IsBound" type="U8">
+      <offset>58</offset>
+    </column>
+    <column name="IsGem" type="U8">
+      <offset>59</offset>
+    </column>
+    <column name="IsItemEnchant" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="IsPetEnchant" type="U8">
+      <offset>61</offset>
+    </column>
+    <column name="ItemIdentified" type="U8">
+      <offset>62</offset>
+    </column>
+    <column name="ItemHasBeenDyed" type="U8">
+      <offset>63</offset>
+    </column>
+    <column name="IsTransmutated" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="ItemQuality" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ItemName" type="STRING">
+      <offset>72</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ItemUsable" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ItemPrompt" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ItemMission" type="STRING">
+      <offset>84</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ItemRequiresExprPower" type="STRING">
+      <offset>88</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ItemValue" type="STRING">
+      <offset>92</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="FormattedItemValue" type="STRING">
+      <offset>96</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ItemUsagePrompt" type="STRING">
+      <offset>100</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ItemInnatePowerAutoDesc" type="STRING">
+      <offset>104</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ItemPowerAutoDesc" type="STRING">
+      <offset>108</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ItemFlavorDesc" type="STRING">
+      <offset>112</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ItemCategories" type="STRING">
+      <offset>116</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Itemweapondamage" type="STRING">
+      <offset>120</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ItemDifferences" type="STRING">
+      <offset>124</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ItemWeaponDamageDiff" type="STRING">
+      <offset>128</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ItemSetDesc" type="STRING">
+      <offset>132</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="GemSlots" type="STRING">
+      <offset>136</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="CharClassRequires" type="STRING">
+      <offset>140</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="CharPathRequires" type="STRING">
+      <offset>144</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="rTransmutatedTo" type="STRING">
+      <offset>148</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="GameLifetimeLeft" type="STRING">
+      <offset>152</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

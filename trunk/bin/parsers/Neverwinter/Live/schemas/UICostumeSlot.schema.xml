@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UICostumeSlot">
+  <table>
+    <column name="UICostumeSlot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Entity" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Entity" />
+    </column>
+    <column name="StorageType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="PCCostumeStorageType" />
+    </column>
+    <column name="uContainerID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Index" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="IsHeader" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="SlotID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Costume" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="SlotDef" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCSlotDef" />
+    </column>
+    <column name="SlotType" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCSlotType" />
+    </column>
+    <column name="IsUnlocked" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

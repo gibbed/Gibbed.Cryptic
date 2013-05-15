@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameServerDescription">
+  <table>
+    <column name="GameServerDescription" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DescriptionIsActive" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="baseMapDescription" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="MapDescription" />
+    </column>
+    <column name="MapPort" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="EditMode" type="U8">
+      <offset>84</offset>
+    </column>
+    <column name="AllowInstanceSwitchingBetweenOwnedMaps" type="U8">
+      <offset>85</offset>
+    </column>
+    <column name="ExpectedMaxPlayers" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="ugcStuff" type="EMBEDDEDSTRUCT">
+      <offset>92</offset>
+      <subtable external="GameServerDescription_UgcStuff" />
+    </column>
+    <column name="PatchInfo" type="OPTIONALSTRUCT">
+      <offset>140</offset>
+      <subtable external="DynamicPatchInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynFxPhysicsInfo">
+  <table>
+    <column name="DynFxPhysicsInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>0</offset>
+      <default>-1</default>
+    </column>
+    <column name="SFriction" type="F32">
+      <offset>4</offset>
+      <default>-1</default>
+    </column>
+    <column name="DFriction" type="F32">
+      <offset>8</offset>
+      <default>-1</default>
+    </column>
+    <column name="Density" type="F32">
+      <offset>12</offset>
+      <default>-1</default>
+    </column>
+    <column name="Restitution" type="F32">
+      <offset>16</offset>
+      <default>-1</default>
+    </column>
+    <column name="ForceImmunity" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>24</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="PhysicalProperty" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Debris" type="BOOLFLAG">
+      <offset>32</offset>
+    </column>
+    <column name="StartAsleep" type="BOOLFLAG">
+      <offset>33</offset>
+    </column>
+    <column name="NoCollide" type="U8">
+      <offset>34</offset>
+    </column>
+    <column name="PhysicsAttached" type="BOOLFLAG">
+      <offset>35</offset>
+    </column>
+    <column name="KinematicActor" type="BOOLFLAG">
+      <offset>36</offset>
+    </column>
+    <column name="ParentAttachPoint" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ChildAttachPoint" type="F32FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="jointAxis" type="INT">
+      <offset>64</offset>
+      <static_define_list external="eJointAxis" />
+    </column>
+    <column name="RevoluteJoint" type="BOOLFLAG">
+      <offset>68</offset>
+    </column>
+    <column name="LimitJoint" type="BOOLFLAG">
+      <offset>69</offset>
+    </column>
+    <column name="JointMin" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="JointMax" type="F32">
+      <offset>76</offset>
+    </column>
+    <column name="JointSpringiness" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

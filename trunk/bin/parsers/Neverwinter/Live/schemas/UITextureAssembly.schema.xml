@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UITextureAssembly">
+  <table>
+    <column name="UITextureAssembly" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Texture" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UITextureInstance" />
+    </column>
+    <column name="Textures" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <redundant_name>Texture</redundant_name>
+      <subtable external="UITextureInstance" />
+    </column>
+    <column name="SortedByDependency" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+        <flag>UNKNOWN_32</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UITextureInstance" />
+    </column>
+    <column name="SortedByDrawZ" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+        <flag>UNKNOWN_32</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UITextureInstance" />
+    </column>
+    <column name="PaddingTop" type="U8">
+      <offset>16</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="TopPadding" type="U8">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PaddingTop</redundant_name>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="PaddingBottom" type="U8">
+      <offset>17</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="BottomPadding" type="U8">
+      <offset>17</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PaddingBottom</redundant_name>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="PaddingLeft" type="U8">
+      <offset>18</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="LeftPadding" type="U8">
+      <offset>18</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PaddingLeft</redundant_name>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="PaddingRight" type="U8">
+      <offset>19</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="RightPadding" type="U8">
+      <offset>19</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PaddingRight</redundant_name>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="MarginClipTop" type="U8">
+      <offset>20</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ClipMarginTop" type="U8">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MarginClipTop</redundant_name>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="TopClipMargin" type="U8">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MarginClipTop</redundant_name>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="MarginClipBottom" type="U8">
+      <offset>21</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ClipMarginBottom" type="U8">
+      <offset>21</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MarginClipBottom</redundant_name>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="BottomClipMargin" type="U8">
+      <offset>21</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MarginClipBottom</redundant_name>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="MarginClipLeft" type="U8">
+      <offset>22</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ClipMarginLeft" type="U8">
+      <offset>22</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MarginClipLeft</redundant_name>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="LeftClipMargin" type="U8">
+      <offset>22</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MarginClipLeft</redundant_name>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="MarginClipRight" type="U8">
+      <offset>23</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ClipMarginRight" type="U8">
+      <offset>23</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MarginClipRight</redundant_name>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="RightClipMargin" type="U8">
+      <offset>23</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MarginClipRight</redundant_name>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="HorizontalMultiple" type="U8FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="VerticalMultiple" type="U8FIXEDARRAY">
+      <offset>26</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="MaxZ" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="Colors" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="Color4" />
+    </column>
+    <column name="Color" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Colors</redundant_name>
+      <subtable external="Color4" />
+    </column>
+    <column name="Color4" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Colors</redundant_name>
+      <subtable external="Color4" />
+    </column>
+    <column name="Tint" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Colors</redundant_name>
+      <subtable external="Color4" />
+    </column>
+    <column name="Border" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="UIStyleBorder" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

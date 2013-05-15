@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionZoneDescription">
+  <table>
+    <column name="GenesisMissionZoneDescription" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="UIString" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ShortText" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>UIString</redundant_name>
+    </column>
+    <column name="DescriptionText" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Summary" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ReturnText" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="Category" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>MissionCategory</dictionary_name>
+    </column>
+    <column name="PlayType" type="INT">
+      <offset>28</offset>
+      <static_define_list external="MissionPlayType" />
+    </column>
+    <column name="AuthorSource" type="INT">
+      <offset>32</offset>
+      <static_define_list external="ContentAuthorSource" />
+    </column>
+    <column name="UGCProjectID" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="levelDef" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="LevelType" type="INT">
+      <offset>40</offset>
+      <static_define_list external="MissionLevelType" />
+    </column>
+    <column name="UsePlayerLevel" type="INT">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>LevelType</redundant_name>
+      <static_define_list external="MissionLevelType" />
+    </column>
+    <column name="Level" type="INT">
+      <offset>44</offset>
+      <default>1</default>
+    </column>
+    <column name="Level:" type="INT">
+      <offset>44</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Level</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="MapVariableForLevel" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="LevelClamp" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="MissionLevelClamp" />
+    </column>
+    <column name="Shareable" type="INT">
+      <offset>56</offset>
+      <static_define_list external="MissionShareableType" />
+    </column>
+    <column name="Reward" type="REFERENCE">
+      <offset>60</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="RewardScale" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="Grant" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
+      <subtable external="GenesisMissionGrantDescription" />
+    </column>
+    <column name="GenerationType" type="INT">
+      <offset>116</offset>
+      <static_define_list external="GenesisMissionGenerationType" />
+    </column>
+    <column name="IsOpenMission" type="INT">
+      <offset>116</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>GenerationType</redundant_name>
+      <static_define_list external="GenesisMissionGenerationType" />
+    </column>
+    <column name="OpenMission" type="OPTIONALSTRUCT">
+      <offset>120</offset>
+      <subtable external="GenesisMissionOpenMissionDescription" />
+    </column>
+    <column name="Start" type="EMBEDDEDSTRUCT">
+      <offset>124</offset>
+      <subtable external="GenesisMissionStartDescription" />
+    </column>
+    <column name="Prompt" type="STRUCT">
+      <offset>280</offset>
+      <subtable external="GenesisMissionPrompt" />
+    </column>
+    <column name="FSMs" type="STRUCT">
+      <offset>284</offset>
+      <subtable external="GenesisFSM" />
+    </column>
+    <column name="Portal" type="STRUCT">
+      <offset>288</offset>
+      <subtable external="GenesisMissionPortal" />
+    </column>
+    <column name="DropRewardTable" type="REFERENCE">
+      <offset>292</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="DropChallengeName" type="STRINGARRAY">
+      <offset>296</offset>
+    </column>
+    <column name="Objective" type="STRUCT">
+      <offset>300</offset>
+      <subtable external="GenesisMissionObjective" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

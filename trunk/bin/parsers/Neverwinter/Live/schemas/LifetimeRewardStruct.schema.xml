@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LifetimeRewardStruct">
+  <table>
+    <column name="LifetimeRewardStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LifetimeRequiredDays" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="LifetimeRewardLowLevel" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="LifetimeRewardHighLevel" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="LifetimeRewardModifier" type="F32">
+      <offset>12</offset>
+      <default>1</default>
+    </column>
+    <column name="LifetimeRewardType" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

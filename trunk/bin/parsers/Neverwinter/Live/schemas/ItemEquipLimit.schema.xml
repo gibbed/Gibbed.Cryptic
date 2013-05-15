@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemEquipLimit">
+  <table>
+    <column name="ItemEquipLimit" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MaxEquipCount" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Category" type="INT">
+      <offset>4</offset>
+      <static_define_list external="ItemEquipLimitCategory" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

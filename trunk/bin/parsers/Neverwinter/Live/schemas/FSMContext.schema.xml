@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FSMContext">
+  <table>
+    <column name="FSMContext" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="oldTracker" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="FSMStateTrackerEntry" />
+    </column>
+    <column name="curTracker" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="FSMStateTrackerEntry" />
+    </column>
+    <column name="origFSM" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="timeElapsed" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="Timer" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="debugTransition" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="debugTransitionLevel" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="changedState" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="initialState" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="doFlavorExpr" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="messageRecvd" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

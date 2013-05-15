@@ -1,0 +1,190 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenPaperdollState">
+  <table>
+    <column name="UIGenPaperdollState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>26</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="Texture" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="HeadshotTexture" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <redundant_name>Texture</redundant_name>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="StaleTexture" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="StaleHeadshotTexture" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <redundant_name>StaleTexture</redundant_name>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="Background" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="BackgroundTexture" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <redundant_name>Background</redundant_name>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="hCostume" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>WLCostume</dictionary_name>
+    </column>
+    <column name="hHeadshotStyle" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>HeadshotStyleDef</dictionary_name>
+    </column>
+    <column name="hEntity" type="REFERENCE">
+      <offset>32</offset>
+      <dictionary_name>Entity</dictionary_name>
+    </column>
+    <column name="AnimKeyword" type="STRING">
+      <offset>184</offset>
+    </column>
+    <column name="LastBits" type="STRING">
+      <offset>188</offset>
+    </column>
+    <column name="LastBackground" type="STRING">
+      <offset>192</offset>
+    </column>
+    <column name="uWLCostumeId" type="INT">
+      <offset>196</offset>
+    </column>
+    <column name="WLCostumeName" type="STRING">
+      <offset>200</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uLastUpdateTime" type="INT">
+      <offset>204</offset>
+    </column>
+    <column name="uDisplayDataTime" type="INT">
+      <offset>208</offset>
+    </column>
+    <column name="Redraw" type="BIT">
+      <offset>216</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="UseSkeletonRadius" type="BIT">
+      <offset>216</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Animating" type="BIT">
+      <offset>216</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="WasAnimating" type="BIT">
+      <offset>216</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Created" type="BIT">
+      <offset>216</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="ExtentsInitialized" type="BIT">
+      <offset>216</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="UpdateCamera" type="BIT">
+      <offset>216</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="CachedEntityHeight" type="F32">
+      <offset>220</offset>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>224</offset>
+    </column>
+    <column name="Zoom" type="F32">
+      <offset>228</offset>
+    </column>
+    <column name="ZoomHeight" type="F32">
+      <offset>232</offset>
+    </column>
+    <column name="Pitch" type="F32">
+      <offset>236</offset>
+    </column>
+    <column name="Yaw" type="F32">
+      <offset>240</offset>
+    </column>
+    <column name="HeadshotData" type="STRUCT">
+      <offset>244</offset>
+      <subtable external="PaperdollHeadshotData" />
+    </column>
+    <column name="UsedHeadshotData" type="INT">
+      <offset>248</offset>
+    </column>
+    <column name="ExtraFX" type="STRUCT">
+      <offset>252</offset>
+      <subtable external="PCFXTemp" />
+    </column>
+    <column name="ItemArt" type="OPTIONALSTRUCT">
+      <offset>256</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ItemArt" />
+    </column>
+    <column name="ppchAddedFX" type="STRINGARRAY">
+      <offset>260</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="v3ExtentsMin" type="F32FIXEDARRAY">
+      <offset>264</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3ExtentsMax" type="F32FIXEDARRAY">
+      <offset>276</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3LastCamPos" type="F32FIXEDARRAY">
+      <offset>288</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3LastCamDir" type="F32FIXEDARRAY">
+      <offset>300</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

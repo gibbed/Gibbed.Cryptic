@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PetRowDataID">
+  <table>
+    <column name="PetRowDataID" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Ent" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Entity" />
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="ID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="InternalName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="PetDefName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="PuppetCategorySet" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Len" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="Class" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="CritterID" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="MinActivePuppetLevel" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="CritterName" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="Active" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="Current" type="U8">
+      <offset>49</offset>
+    </column>
+    <column name="PuppetActive" type="U8">
+      <offset>50</offset>
+    </column>
+    <column name="IsExtraPetSlot" type="U8">
+      <offset>51</offset>
+    </column>
+    <column name="IsExtraPuppetSlot" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="IsCritterPet" type="U8">
+      <offset>53</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

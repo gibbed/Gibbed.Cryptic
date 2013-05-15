@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCTextureColorOptions">
+  <table>
+    <column name="PCTextureColorOptions" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="HasDefaultColor0" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="HasDefaultColor1" type="U8">
+      <offset>1</offset>
+    </column>
+    <column name="HasDefaultColor2" type="U8">
+      <offset>2</offset>
+    </column>
+    <column name="HasDefaultColor3" type="U8">
+      <offset>3</offset>
+    </column>
+    <column name="DefaultColor_0" type="U8FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="DefaultColor_1" type="U8FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="DefaultColor_2" type="U8FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="DefaultColor_3" type="U8FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

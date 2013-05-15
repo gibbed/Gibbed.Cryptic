@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DSP_Compressor">
+  <table>
+    <column name="DSP_Compressor" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="compressor_threshold" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="compressor_attack" type="F32">
+      <offset>4</offset>
+      <default>50</default>
+    </column>
+    <column name="compressor_release" type="F32">
+      <offset>8</offset>
+      <default>50</default>
+    </column>
+    <column name="compressor_gainmakeup" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

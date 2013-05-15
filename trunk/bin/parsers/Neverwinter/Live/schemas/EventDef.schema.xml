@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EventDef">
+  <table>
+    <column name="EventDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EventName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Activity" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ActivityDefRef" />
+    </column>
+    <column name="ShardTimingDef" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="EventTime" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="ShardEventTimingEntry" />
+    </column>
+    <column name="TimingEntry" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>EventTime</redundant_name>
+      <subtable external="ShardEventTimingEntry" />
+    </column>
+    <column name="uSeedBase" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="msgDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="msgDisplayShortDesc" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="msgDisplayLongDesc" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Background" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayTag" type="INTARRAY">
+      <offset>64</offset>
+      <static_define_list external="ActivityDisplayTags" />
+    </column>
+    <column name="IncludeMap" type="STRINGARRAY">
+      <offset>68</offset>
+    </column>
+    <column name="ExcludeMap" type="STRINGARRAY">
+      <offset>72</offset>
+    </column>
+    <column name="SpawnMap" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SpawnPoint" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="WarpRequiredLevel" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="TransitionOverride" type="REFERENCE">
+      <offset>88</offset>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="Warp" type="STRUCT">
+      <offset>92</offset>
+      <subtable external="EventWarpDef" />
+    </column>
+    <column name="Contact" type="STRUCT">
+      <offset>96</offset>
+      <subtable external="EventContactDef" />
+    </column>
+    <column name="Bulletin" type="OPTIONALSTRUCT">
+      <offset>100</offset>
+      <subtable external="EventBulletin" />
+    </column>
+    <column name="Queue" type="REFERENCE">
+      <offset>104</offset>
+      <dictionary_name>QueueDef</dictionary_name>
+    </column>
+    <column name="ParentEvent" type="STRING">
+      <offset>108</offset>
+    </column>
+    <column name="EventRunMode" type="INT">
+      <offset>112</offset>
+    </column>
+    <column name="HideEventFromClient" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="uHideEventFromClient" type="BIT">
+      <offset>116</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>HideEventFromClient</redundant_name>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="HideFromExcludedMaps" type="BIT">
+      <offset>116</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="uHideFromExcludedMaps" type="BIT">
+      <offset>116</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>HideFromExcludedMaps</redundant_name>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

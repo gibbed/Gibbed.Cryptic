@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisSoundInfo">
+  <table>
+    <column name="GenesisSoundInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AmbSound" type="STRINGARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="AmbHallwaySound" type="STRINGARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="GlobalGAELayers" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="GlobalGAELayerDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

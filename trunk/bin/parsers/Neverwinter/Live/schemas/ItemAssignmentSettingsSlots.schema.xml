@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentSettingsSlots">
+  <table>
+    <column name="ItemAssignmentSettingsSlots" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MaxActiveAssignmentSlots" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="InitialUnlockedSlots" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="RankNumeric" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="SlotUnlockSchedule" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="ItemAssignmentSlotUnlockSchedule" />
+    </column>
+    <column name="AdditionalSlotsUnlockedNumeric" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="PerkUnlockSlots" type="STRINGARRAY">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="UnlockExpression" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="ItemAssignmentSlotUnlockExpression" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

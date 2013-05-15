@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContactImageMenuItem">
+  <table>
+    <column name="ContactImageMenuItem" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="XPosition" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="YPosition" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="IconImage" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Name" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="VisibleCondition" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="RequiresCondition" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="RecommendedCondition" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="Action" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="WorldGameActionBlock" />
+    </column>
+    <column name="overridingMissionDef" type="REFERENCE">
+      <offset>40</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

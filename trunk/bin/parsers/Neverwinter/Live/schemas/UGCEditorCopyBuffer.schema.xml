@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCEditorCopyBuffer">
+  <table>
+    <column name="UGCEditorCopyBuffer" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="UGCEditorCopyType" />
+    </column>
+    <column name="SourceMapType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="UGCMapType" />
+    </column>
+    <column name="Components" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UGCComponent" />
+    </column>
+    <column name="ChildComponents" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="UGCComponent" />
+    </column>
+    <column name="TimelineComponents" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="UGCComponent" />
+    </column>
+    <column name="eauComponentIDs" type="INTARRAY">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

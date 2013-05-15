@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisObject">
+  <table>
+    <column name="GenesisObject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="obj" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="UID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="StartSpawnUsingTransition" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="ChallengeType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="GenesisChallengeType" />
+    </column>
+    <column name="ExternalName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ChallengeID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="ChallengeCount" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Params" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Facing" type="INT">
+      <offset>28</offset>
+      <static_define_list external="GenesisChallengeFacing" />
+    </column>
+    <column name="Placement" type="INT">
+      <offset>32</offset>
+      <static_define_list external="GenesisChallengePlacement" />
+    </column>
+    <column name="RefPrefabLocation" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="RefChallengeName" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="RefDoorDestName" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="EncounterJitter" type="EMBEDDEDSTRUCT">
+      <offset>48</offset>
+      <subtable external="GenesisEncounterJitter" />
+    </column>
+    <column name="ConstantRotation" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="RotationIncrement" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="RandomRotation" type="F32">
+      <offset>64</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RotationIncrement</redundant_name>
+    </column>
+    <column name="WallObject" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="PivotOnWall" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="CommonRoomRot" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="UseRoomDir" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Mirror" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="FillGrid" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="GridUsesDenstiy" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="PreChallenge" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="StartSpawn" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="GridIgnoresPadding" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="MaxRows" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="MaxCols" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="RowSpacing" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="ColSpacing" type="F32">
+      <offset>84</offset>
+    </column>
+    <column name="RowOffset" type="F32">
+      <offset>88</offset>
+    </column>
+    <column name="ColOffset" type="F32">
+      <offset>92</offset>
+    </column>
+    <column name="MaxPerRoom" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="ExclusionDist" type="F32">
+      <offset>100</offset>
+    </column>
+    <column name="AffinityGroup" type="STRING">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OverridePos" type="F32FIXEDARRAY">
+      <offset>108</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="OverrideRot" type="F32">
+      <offset>120</offset>
+    </column>
+    <column name="AbsolutePosition" type="U8">
+      <offset>124</offset>
+    </column>
+    <column name="SnapRayCast" type="U8">
+      <offset>125</offset>
+    </column>
+    <column name="SnapToGeo" type="U8">
+      <offset>126</offset>
+    </column>
+    <column name="SnapNormal" type="U8">
+      <offset>127</offset>
+    </column>
+    <column name="LegacyHeightCheck" type="U8">
+      <offset>128</offset>
+    </column>
+    <column name="ChildPlacement" type="STRUCT">
+      <offset>132</offset>
+      <subtable external="GenesisPlacementChildParams" />
+    </column>
+    <column name="has_patrol" type="U8">
+      <offset>136</offset>
+    </column>
+    <column name="SpecifiedPatrol" type="OPTIONALSTRUCT">
+      <offset>140</offset>
+      <subtable external="WorldPatrolProperties" />
+    </column>
+    <column name="ChallengeIsUnique" type="U8">
+      <offset>144</offset>
+    </column>
+    <column name="ForceNamedObject" type="U8">
+      <offset>145</offset>
+    </column>
+    <column name="ChallengeSpawnName" type="STRING">
+      <offset>148</offset>
+    </column>
+    <column name="IsTrap" type="U8">
+      <offset>152</offset>
+    </column>
+    <column name="PlatformGroup" type="INT">
+      <offset>156</offset>
+    </column>
+    <column name="PlatformParentGroup" type="INT">
+      <offset>160</offset>
+    </column>
+    <column name="PlatformParentLevel" type="INT">
+      <offset>164</offset>
+    </column>
+    <column name="RoomDetail" type="STRUCT">
+      <offset>168</offset>
+      <subtable external="GenesisRoomDetail" />
+    </column>
+    <column name="RoomDoor" type="STRUCT">
+      <offset>172</offset>
+      <subtable external="GenesisRoomDoorSwitch" />
+    </column>
+    <column name="Volume" type="OPTIONALSTRUCT">
+      <offset>176</offset>
+      <subtable external="GenesisObjectVolume" />
+    </column>
+    <column name="SourceContext" type="OPTIONALSTRUCT">
+      <offset>180</offset>
+      <subtable external="GenesisRuntimeErrorContext" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

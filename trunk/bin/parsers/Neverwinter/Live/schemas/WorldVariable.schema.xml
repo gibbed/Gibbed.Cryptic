@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldVariable">
+  <table>
+    <column name="WorldVariable" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="WorldVariableType" />
+    </column>
+    <column name="ZoneMap" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="IntVal" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="FloatVal" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="StringVal" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="MessageVal" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="CritterDef" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>CritterDef</dictionary_name>
+    </column>
+    <column name="CritterGroup" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>CritterGroup</dictionary_name>
+    </column>
+    <column name="ContainerID" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

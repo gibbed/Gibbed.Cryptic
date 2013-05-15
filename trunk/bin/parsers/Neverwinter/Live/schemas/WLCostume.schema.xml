@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WLCostume">
+  <table>
+    <column name="WLCostume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="CostumePart" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="WLCostumePart" />
+    </column>
+    <column name="CostumePart" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CostumePart</redundant_name>
+      <subtable external="WLCostumePart" />
+    </column>
+    <column name="SubCostume" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="WLSubCostume" />
+    </column>
+    <column name="SubCostumeAttachmentBone" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SkelInfo" type="REFERENCE">
+      <offset>16</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>SkelInfo</dictionary_name>
+    </column>
+    <column name="CollGeo" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NoCollision" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="BodySockInfo" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="BodySockInfo" />
+    </column>
+    <column name="Scale" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="ScaleValue" />
+    </column>
+    <column name="ScaleAnimInterp" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="WLScaleAnimInterp" />
+    </column>
+    <column name="ConstantBits" type="STRINGARRAY">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FX" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="CostumeFX" />
+    </column>
+    <column name="FXSwap" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="CostumeFXSwap" />
+    </column>
+    <column name="BaseFileName" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>72</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FileAge" type="TIMESTAMP">
+      <offset>76</offset>
+    </column>
+    <column name="WorldLighting" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="ShieldGeometry" type="STRING">
+      <offset>144</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ShieldAttachBone" type="STRING">
+      <offset>148</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ShieldScale" type="F32FIXEDARRAY">
+      <offset>152</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ExtentsMin" type="F32FIXEDARRAY">
+      <offset>164</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ExtentsMax" type="F32FIXEDARRAY">
+      <offset>176</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="AutoGlueUp" type="U8">
+      <offset>188</offset>
+    </column>
+    <column name="NoAutoCleanup" type="U8">
+      <offset>189</offset>
+    </column>
+    <column name="Complete" type="U8">
+      <offset>190</offset>
+    </column>
+    <column name="MountRiderScaleBlend" type="F32">
+      <offset>192</offset>
+    </column>
+    <column name="MountScaleOverride" type="F32">
+      <offset>196</offset>
+    </column>
+    <column name="MountClothCollisionInfo" type="STRING">
+      <offset>200</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Mount" type="U8">
+      <offset>204</offset>
+    </column>
+    <column name="Rider" type="U8">
+      <offset>205</offset>
+    </column>
+    <column name="RiderChild" type="U8">
+      <offset>206</offset>
+    </column>
+    <column name="TerrainTiltApply" type="U8">
+      <offset>207</offset>
+    </column>
+    <column name="TerrainTiltModifyRoot" type="U8">
+      <offset>208</offset>
+    </column>
+    <column name="TerrainTiltBaseLength" type="F32">
+      <offset>212</offset>
+    </column>
+    <column name="TerrainTiltStrength" type="F32">
+      <offset>216</offset>
+    </column>
+    <column name="TerrainTiltMaxBlendAngle" type="F32">
+      <offset>220</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

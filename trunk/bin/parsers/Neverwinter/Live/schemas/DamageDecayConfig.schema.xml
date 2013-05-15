@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DamageDecayConfig">
+  <table>
+    <column name="DamageDecayConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DelayDiscard" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="DelayDecay" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="PercentDiscard" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="ScaleDecay" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="RunEveryTick" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

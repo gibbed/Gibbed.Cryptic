@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TPFileListEntry">
+  <table>
+    <column name="TPFileListEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="data" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="TextParserBinaryBlock" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

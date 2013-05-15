@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="HeadshotStyleContactCameraParams">
+  <table>
+    <column name="HeadshotStyleContactCameraParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Forward" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Right" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Above" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Pitch" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Yaw" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="Roll" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="FOV" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

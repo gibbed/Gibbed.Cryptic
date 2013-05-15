@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CachedGlobalObjectList">
+  <table>
+    <column name="CachedGlobalObjectList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="FIXEDSTRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <string_length>12</string_length>
+    </column>
+    <column name="ID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="ContainerType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="ApplyAtransaction" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+        <format_string name="HTML_COMMAND_IN_NEW_WINDOW">1</format_string>
+      </format_strings>
+    </column>
+    <column name="DescriptiveName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_NO_HEADER">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Links" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="CachedGlobalObjectListLink" />
+      <format_strings>
+        <format_string name="HTML_SKIP">1</format_string>
+      </format_strings>
+    </column>
+    <column name="NumObjects" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="MySizeBytes" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

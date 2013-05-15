@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCComponentPatrolPath">
+  <table>
+    <column name="UGCComponentPatrolPath" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PatrolPath" type="INT">
+      <offset>0</offset>
+      <static_define_list external="WorldPatrolRouteType" />
+    </column>
+    <column name="PatrolPoint" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UGCComponentPatrolPoint" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

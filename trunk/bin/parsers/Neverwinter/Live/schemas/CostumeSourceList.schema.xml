@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeSourceList">
+  <table>
+    <column name="CostumeSourceList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Costumes" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CostumeSource" />
+    </column>
+    <column name="Flags" type="INT">
+      <offset>8</offset>
+      <static_define_list external="CostumeSourceFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="MaxSize" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

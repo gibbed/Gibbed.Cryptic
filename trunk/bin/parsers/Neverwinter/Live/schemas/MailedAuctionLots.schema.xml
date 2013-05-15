@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MailedAuctionLots">
+  <table>
+    <column name="MailedAuctionLots" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="OwnerAccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="RecipientEntityID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="shardName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="uLotIds" type="INTARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="ReturnedSubject" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ReturnedBody" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="ReturnedFrom" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

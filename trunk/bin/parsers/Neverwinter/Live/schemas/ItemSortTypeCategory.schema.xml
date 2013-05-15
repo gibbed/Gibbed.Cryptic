@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemSortTypeCategory">
+  <table>
+    <column name="ItemSortTypeCategory" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="NameMsg" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="ItemSortTypes" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EntityBindCommands">
+  <table>
+    <column name="EntityBindCommands" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayName" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Command" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="EntityBindCommand" />
+    </column>
+    <column name="Category" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="EntityBindCommands" />
+    </column>
+    <column name="SchemeRegions" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ControlSchemeRegionType" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Profile" type="STRINGARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="Visible" type="INT">
+      <offset>20</offset>
+      <static_define_list external="EntityBindVisibility" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Hidden" type="U8">
+      <offset>24</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="PrimaryBinds" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="SecondaryBinds" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="GamepadBinds" type="INT">
+      <offset>36</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SurfaceLocalBGFlags">
+  <table>
+    <column name="SurfaceLocalBGFlags" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="inputDirIsCurrent" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="tryingToMove" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="onGroundToFG" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="hasOverrideMaxSpeed" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="hitGroundDuringTranslate" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="autoRun" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="isJumpDisabledOverrideValue" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="isJumpDisabled" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="isStrafingOverrideValue" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="isStrafingOverride" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="scheduledStrafingOverride" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="scheduledDisableJump" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChanceConfig">
+  <table>
+    <column name="ChanceConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AttribChancePos" type="INT">
+      <offset>0</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribHit" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AttribChancePos</redundant_name>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribChanceNeg" type="INT">
+      <offset>4</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribMiss" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AttribChanceNeg</redundant_name>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribMag" type="INT">
+      <offset>8</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="ChanceNeutral" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="ChanceMin" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="ChanceMax" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="Flag" type="INT">
+      <offset>24</offset>
+      <static_define_list external="CombatTrackerFlag" />
+    </column>
+    <column name="PowerCategory" type="INT">
+      <offset>28</offset>
+      <static_define_list external="PowerCategory" />
+    </column>
+    <column name="CritChanceOverflowMulti" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="CritSeverityOverflowMulti" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="Arc" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="Simple" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Defenseless" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="DamageOnly" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="OneTimeCancelOnMiss" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Overflow" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

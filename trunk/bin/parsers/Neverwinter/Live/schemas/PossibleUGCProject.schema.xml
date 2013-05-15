@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PossibleUGCProject">
+  <table>
+    <column name="PossibleUGCProject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="CopyID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="SeriesID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="PatchInfo" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="DynamicPatchInfo" />
+    </column>
+    <column name="PossibleUGCProjectFlags" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="VirtualShardID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="ProjectInfo" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="UGCProjectInfo" />
+    </column>
+    <column name="ProjectReviews" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="UGCProjectReviews" />
+    </column>
+    <column name="ProjectReviewsPageNumber" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="Status" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="UGCProjectStatusQueryInfo" />
+    </column>
+    <column name="EditQueueCookie" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="strEditVersionNamespace" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="EditVersionIsNew" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="strCopyEditVersionNamespace" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="CopyEditVersionIsNew" type="U8">
+      <offset>56</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

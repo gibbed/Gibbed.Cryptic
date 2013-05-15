@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BitFieldTest2">
+  <table>
+    <column name="BitFieldTest2" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="v" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="s1" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="u1" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="u2" type="BIT">
+      <offset>12</offset>
+      <bit_offset>131072</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

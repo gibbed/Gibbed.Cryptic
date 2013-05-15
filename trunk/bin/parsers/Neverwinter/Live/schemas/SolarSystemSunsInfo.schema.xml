@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SolarSystemSunsInfo">
+  <table>
+    <column name="SolarSystemSunsInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SunList" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="SolarSystemSuns" />
+    </column>
+    <column name="FarSystemRep" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SunList</redundant_name>
+      <subtable external="SolarSystemSuns" />
+    </column>
+    <column name="OrbitMin" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="OrbitMax" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

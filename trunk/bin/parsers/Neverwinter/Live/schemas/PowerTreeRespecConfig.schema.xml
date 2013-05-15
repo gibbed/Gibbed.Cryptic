@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerTreeRespecConfig">
+  <table>
+    <column name="PowerTreeRespecConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ExprCostStep" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprCostBase" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprRequiredPointsSpent" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Numeric" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="ForceUseFreeRespec" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PTItemRespecNames" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="PowerTreeRespecName" />
+    </column>
+    <column name="PTGadRespecNames" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="PowerTreeRespecName" />
+    </column>
+    <column name="PTNumericRespecNames" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="PowerTreeRespecName" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

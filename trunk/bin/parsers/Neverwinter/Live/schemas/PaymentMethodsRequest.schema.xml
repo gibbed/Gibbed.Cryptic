@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PaymentMethodsRequest">
+  <table>
+    <column name="PaymentMethodsRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uAccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="uSteamID" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="Proxy" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="CmdID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

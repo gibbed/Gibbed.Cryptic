@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PossibleCharacterChoice">
+  <table>
+    <column name="PossibleCharacterChoice" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="ID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="hEnt" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>CopyDict_ENTITYPLAYER</dictionary_name>
+    </column>
+    <column name="TeamID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="GuildID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="VirtualShardID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="xuid" type="INT64">
+      <offset>24</offset>
+    </column>
+    <column name="PlayerType" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="uiRespecConversions" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="uFixupVersion" type="INT16">
+      <offset>38</offset>
+    </column>
+    <column name="uGameSpecificFixupVersion" type="INT16">
+      <offset>40</offset>
+    </column>
+    <column name="uiLastPlayedTime" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="uiCreatedTime" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="uiDeletedTime" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="Level" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="TotalPlayTime" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="UGCAllowed" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="Minimal" type="U8">
+      <offset>65</offset>
+    </column>
+    <column name="FullRequested" type="U8">
+      <offset>66</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="SafeLoginRecommended" type="U8">
+      <offset>67</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="BadName" type="U8">
+      <offset>68</offset>
+    </column>
+    <column name="esOldName" type="STRING">
+      <offset>72</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="skipTutorial" type="U8">
+      <offset>76</offset>
+    </column>
+    <column name="Info" type="STRUCT">
+      <offset>80</offset>
+      <subtable external="NamedPathQueryAndResult" />
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>84</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PuppetType" type="INT">
+      <offset>88</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="PuppetID" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="PetType" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="Puppet" type="STRUCT">
+      <offset>100</offset>
+      <subtable external="PossibleCharacterChoice" />
+    </column>
+    <column name="Name" type="FIXEDSTRING">
+      <offset>104</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="subName" type="FIXEDSTRING">
+      <offset>232</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="Description" type="FIXEDSTRING">
+      <offset>360</offset>
+      <string_length>2048</string_length>
+    </column>
+    <column name="Costumes" type="STRUCT">
+      <offset>2408</offset>
+      <subtable external="PossibleCharacterCostume" />
+    </column>
+    <column name="Costume" type="STRUCT">
+      <offset>2408</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Costumes</redundant_name>
+      <subtable external="PossibleCharacterCostume" />
+    </column>
+    <column name="hCostume" type="STRUCT">
+      <offset>2408</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Costumes</redundant_name>
+      <subtable external="PossibleCharacterCostume" />
+    </column>
+    <column name="Class" type="REFERENCE">
+      <offset>2412</offset>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="CharacterPath" type="REFERENCE">
+      <offset>2416</offset>
+      <dictionary_name>CharacterPath</dictionary_name>
+    </column>
+    <column name="Mood" type="REFERENCE">
+      <offset>2420</offset>
+      <dictionary_name>PCMood</dictionary_name>
+    </column>
+    <column name="FactionName" type="STRING">
+      <offset>2424</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AllegianceName" type="STRING">
+      <offset>2424</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FactionName</redundant_name>
+    </column>
+    <column name="hCritterFaction" type="STRING">
+      <offset>2424</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FactionName</redundant_name>
+    </column>
+    <column name="Numeric" type="STRUCT">
+      <offset>2428</offset>
+      <subtable external="PossibleCharacterNumeric" />
+    </column>
+    <column name="Preset" type="INT">
+      <offset>2436</offset>
+    </column>
+    <column name="IsCustomSpecies" type="U8">
+      <offset>2440</offset>
+    </column>
+    <column name="ClassName" type="STRING">
+      <offset>2444</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hClass" type="STRING">
+      <offset>2444</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ClassName</redundant_name>
+    </column>
+    <column name="CharacterPathName" type="STRING">
+      <offset>2448</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MoodName" type="STRING">
+      <offset>2452</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hMood" type="STRING">
+      <offset>2452</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MoodName</redundant_name>
+    </column>
+    <column name="SpeciesName" type="STRING">
+      <offset>2456</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hSpecies" type="STRING">
+      <offset>2456</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SpeciesName</redundant_name>
+    </column>
+    <column name="PowerTree" type="STRING">
+      <offset>2460</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hPowerTree" type="STRING">
+      <offset>2460</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PowerTree</redundant_name>
+    </column>
+    <column name="powerNodes" type="STRINGARRAY">
+      <offset>2464</offset>
+    </column>
+    <column name="gameSpecificChoice" type="STRING">
+      <offset>2468</offset>
+    </column>
+    <column name="PetInfo" type="STRUCT">
+      <offset>2472</offset>
+      <subtable external="LoginPetInfo" />
+    </column>
+    <column name="puppetInfo" type="STRUCT">
+      <offset>2476</offset>
+      <subtable external="LoginPuppetInfo" />
+    </column>
+    <column name="StringCostume" type="STRING">
+      <offset>2480</offset>
+    </column>
+    <column name="OwnerType" type="INT">
+      <offset>2484</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="OwnerID" type="INT">
+      <offset>2488</offset>
+    </column>
+    <column name="AssignedStat" type="STRUCT">
+      <offset>2492</offset>
+      <subtable external="AssignedStats" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ResourceSearchResultRow">
+  <table>
+    <column name="ResourceSearchResultRow" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Type" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="ExtraData" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ResRef" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="SearchItemDefRef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

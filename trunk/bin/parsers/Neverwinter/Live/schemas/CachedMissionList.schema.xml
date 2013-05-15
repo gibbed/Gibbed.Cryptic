@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CachedMissionList">
+  <table>
+    <column name="CachedMissionList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="data" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="CachedMissionData" />
+    </column>
+    <column name="RewardData" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CachedMissionReward" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

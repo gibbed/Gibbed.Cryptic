@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynAnimChartMoveRefLoadTime">
+  <table>
+    <column name="DynAnimChartMoveRefLoadTime" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MovementType" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Move" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>DynMove</dictionary_name>
+    </column>
+    <column name="MoveChances" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DynAnimMoveChanceRef" />
+    </column>
+    <column name="StanceWord" type="STRINGARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MovementStance" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Blank" type="BOOLFLAG">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

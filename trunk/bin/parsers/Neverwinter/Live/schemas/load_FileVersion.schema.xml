@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="load_FileVersion">
+  <table>
+    <column name="FileVersion" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Version" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="checksum" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Size" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="modified" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="checkin_idx" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>28</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="header_size" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="header_checksum" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

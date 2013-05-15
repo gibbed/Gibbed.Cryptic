@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCSlotSet">
+  <table>
+    <column name="PCSlotSet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Version" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="EntityType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="RegionType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="PCRegionType" />
+    </column>
+    <column name="Allegiance" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>AllegianceDef</dictionary_name>
+    </column>
+    <column name="IsDefault" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="CostumeSlot" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="PCSlotDef" />
+    </column>
+    <column name="ExtraCostumeSlot" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="PCSlotDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRGrabBG">
+  <table>
+    <column name="MRGrabBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="config" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="MRGrabConfig" />
+    </column>
+    <column name="spcStartApproach" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="spcStartHold" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="MRGrabBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

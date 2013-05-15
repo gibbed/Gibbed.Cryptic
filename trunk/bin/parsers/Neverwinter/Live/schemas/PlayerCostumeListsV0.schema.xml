@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerCostumeListsV0">
+  <table>
+    <column name="PlayerCostumeListsV0" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dirtyBit" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="activeCostumeType" type="U8">
+      <offset>1</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="activePrimaryCostume" type="U8">
+      <offset>2</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="activeSecondaryCostume" type="U8">
+      <offset>3</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eaPrimaryCostumes" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="PlayerCostumeV0" />
+    </column>
+    <column name="eaSecondaryCostumes" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="PlayerCostumeV0" />
+    </column>
+    <column name="eaUnlockedCostumeRefs" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PlayerCostumeRefV0" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

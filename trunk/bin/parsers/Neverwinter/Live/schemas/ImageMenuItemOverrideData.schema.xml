@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ImageMenuItemOverrideData">
+  <table>
+    <column name="ImageMenuItemOverrideData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SourceName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="ContactImageMenuItem" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

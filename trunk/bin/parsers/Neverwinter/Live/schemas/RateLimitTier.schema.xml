@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RateLimitTier">
+  <table>
+    <column name="RateLimitTier" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AlertTokenThreshold" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="BlockTokenThreshold" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="MaximumTokens" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="TokenExpirationInterval" type="INT">
+      <offset>12</offset>
+      <default>1</default>
+    </column>
+    <column name="SecondsPerToken" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TokenExpirationInterval</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="TokensExpiredPerInterval" type="INT">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="TokensPerSecond" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TokensExpiredPerInterval</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="MaximumNumberOfBuckets" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="AlertLevel" type="INT">
+      <offset>24</offset>
+      <default>2</default>
+      <static_define_list external="enumAlertLevel" />
+    </column>
+    <column name="TokenCost" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="RateLimitCost" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

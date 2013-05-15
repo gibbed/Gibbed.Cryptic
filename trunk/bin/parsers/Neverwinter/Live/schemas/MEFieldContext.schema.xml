@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MEFieldContext">
+  <table>
+    <column name="MEFieldContext" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="XPos" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="XPosPercentage" type="F32">
+      <offset>108</offset>
+    </column>
+    <column name="YPos" type="INT">
+      <offset>112</offset>
+    </column>
+    <column name="XLabelStart" type="INT">
+      <offset>116</offset>
+    </column>
+    <column name="YLabelStart" type="INT">
+      <offset>120</offset>
+    </column>
+    <column name="LabelPaddingFromData" type="U8">
+      <offset>124</offset>
+    </column>
+    <column name="XDataStart" type="INT">
+      <offset>128</offset>
+    </column>
+    <column name="YDataStart" type="INT">
+      <offset>132</offset>
+    </column>
+    <column name="XIndentStep" type="INT">
+      <offset>136</offset>
+    </column>
+    <column name="WidgetHeight" type="INT">
+      <offset>140</offset>
+    </column>
+    <column name="YStep" type="INT">
+      <offset>144</offset>
+    </column>
+    <column name="YSpacer" type="INT">
+      <offset>148</offset>
+    </column>
+    <column name="DataWidgetWidth" type="F32">
+      <offset>152</offset>
+    </column>
+    <column name="astrOverrideSkinName" type="STRING">
+      <offset>156</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ErrorIconSpaceWidth" type="INT">
+      <offset>160</offset>
+    </column>
+    <column name="ActionButtonPad" type="INT">
+      <offset>164</offset>
+    </column>
+    <column name="RightPad" type="INT">
+      <offset>168</offset>
+    </column>
+    <column name="LeftPad" type="INT">
+      <offset>172</offset>
+    </column>
+    <column name="TopPad" type="INT">
+      <offset>176</offset>
+    </column>
+    <column name="BottomPad" type="INT">
+      <offset>180</offset>
+    </column>
+    <column name="Disabled" type="U8">
+      <offset>184</offset>
+    </column>
+    <column name="LabelsDisabled" type="U8">
+      <offset>185</offset>
+    </column>
+    <column name="EditableMaxLength" type="INT">
+      <offset>188</offset>
+    </column>
+    <column name="TextAreaHeight" type="INT">
+      <offset>192</offset>
+    </column>
+    <column name="TextEntryTrimWhitespace" type="U8">
+      <offset>196</offset>
+    </column>
+    <column name="DontSortComboEnums" type="U8">
+      <offset>197</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

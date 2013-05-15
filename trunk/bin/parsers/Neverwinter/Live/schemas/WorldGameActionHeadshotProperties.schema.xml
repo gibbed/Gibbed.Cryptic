@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldGameActionHeadshotProperties">
+  <table>
+    <column name="WorldGameActionHeadshotProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="HeadshotStyleDef" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="WorldGameActionHeadshotType" />
+    </column>
+    <column name="Costume" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="PetContactList" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>PetContactList</dictionary_name>
+    </column>
+    <column name="CritterGroupType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="WorldHeadshotMapVarOverrideType" />
+    </column>
+    <column name="CostumeCritterGroup" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>CritterGroup</dictionary_name>
+    </column>
+    <column name="CritterGroupMapVar" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CritterGroupIdentifier" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

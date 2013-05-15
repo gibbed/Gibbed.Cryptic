@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<enum name="ChatServerReturnCodes">
+  <elements type="int">
+    <element name="VOIDRETURN">-1</element>
+    <element name="NONE">0</element>
+    <element name="FWD_NONE">1</element>
+    <element name="FWD_SENDER">2</element>
+    <element name="FWD_ALLLOCAL">3</element>
+    <element name="FWD_ALLLOCAL_MINUSENDER">4</element>
+    <element name="UNSPECIFIED">5</element>
+    <element name="INVALIDNAME">6</element>
+    <element name="USER_OFFLINE">7</element>
+    <element name="USER_DNE">8</element>
+    <element name="USER_PERMISSIONS">9</element>
+    <element name="CHANNEL_ALREADYEXISTS">10</element>
+    <element name="CHANNEL_RESERVEDPREFIX">11</element>
+    <element name="CHANNEL_WATCHINGMAX">12</element>
+    <element name="CHANNEL_FULL">13</element>
+    <element name="CHANNEL_ALREADYMEMBER">14</element>
+    <element name="CHANNEL_NOTMEMBER">15</element>
+    <element name="CHANNEL_DNE">16</element>
+    <element name="USER_IGNORING">17</element>
+    <element name="INVALIDMSG">18</element>
+    <element name="UNKNOWN_COMMAND">19</element>
+    <element name="PROFANITY_NOT_ALLOWED">20</element>
+    <element name="CHANNEL_ALREADYINVITED">21</element>
+    <element name="MAILBOX_FULL">22</element>
+    <element name="NAME_LENGTH_LONG">23</element>
+    <element name="NAME_LENGTH_SHORT">24</element>
+    <element name="CHANNEL_MOTD_LENGTH_LONG">25</element>
+    <element name="CHANNEL_DESCRIPTION_LENGTH_LONG">26</element>
+    <element name="COUNT">27</element>
+    <element name="TIMEOUT">28</element>
+    <element name="DISCONNECTED">29</element>
+  </elements>
+</enum>

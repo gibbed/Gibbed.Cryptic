@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynAnimGraphPath">
+  <table>
+    <column name="DynAnimGraphPath" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Chance" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="EditorPlaybackBias" type="BOOLFLAG">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

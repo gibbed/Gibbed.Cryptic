@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldSpawnProperties">
+  <table>
+    <column name="WorldSpawnProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="SpawnType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="WorldSpawnPointType" />
+    </column>
+    <column name="ActiveCondBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ActiveCond" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ActiveCondBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="SourceVolumeNames" type="STRINGARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="NeedsActivation" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="TransitionOverride" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

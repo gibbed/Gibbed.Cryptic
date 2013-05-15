@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynStrandPoint">
+  <table>
+    <column name="DynStrandPoint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FromNode" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="DynNode" />
+    </column>
+    <column name="ToNode" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="DynNode" />
+    </column>
+    <column name="uiNumJoints" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="SpringK" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="DamperC" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="FromPos" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ToPos" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ProcPos" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ProcVel" type="F32FIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>68</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="vel" type="F32FIXEDARRAY">
+      <offset>80</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Acc" type="F32FIXEDARRAY">
+      <offset>92</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Force" type="F32FIXEDARRAY">
+      <offset>104</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="MassInv" type="F32">
+      <offset>116</offset>
+    </column>
+    <column name="RestLength" type="F32">
+      <offset>120</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

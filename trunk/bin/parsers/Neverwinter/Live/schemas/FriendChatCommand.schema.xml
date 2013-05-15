@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FriendChatCommand">
+  <table>
+    <column name="FriendChatCommand" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="last_online_time" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="friend_request_send_date" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="online_status" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="status_message" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="OnlineGames" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="OnlineGamesChatCommand" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

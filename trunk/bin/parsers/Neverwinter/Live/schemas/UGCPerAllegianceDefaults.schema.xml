@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCPerAllegianceDefaults">
+  <table>
+    <column name="UGCPerAllegianceDefaults" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AllegianceName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="DefaultDoorMap" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Map" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UGCPetContactListMap" />
+    </column>
+    <column name="Relation" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="UGCAllegianceRelation" />
+    </column>
+    <column name="RespecClass" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="UGCRespecClass" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

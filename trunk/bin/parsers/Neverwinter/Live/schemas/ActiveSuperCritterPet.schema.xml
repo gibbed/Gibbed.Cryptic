@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ActiveSuperCritterPet">
+  <table>
+    <column name="ActiveSuperCritterPet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="pEquipment" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="InventoryBag" />
+    </column>
+    <column name="uiTimeFinishTraining" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="uiLastLevelUpTransactionRequest" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="XP" type="IGNORE" />
+    <column name="bSummoned" type="IGNORE" />
+    <column name="bDead" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

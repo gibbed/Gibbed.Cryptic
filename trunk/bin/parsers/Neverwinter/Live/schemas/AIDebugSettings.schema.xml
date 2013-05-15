@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AIDebugSettings">
+  <table>
+    <column name="AIDebugSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Flags" type="INT">
+      <offset>0</offset>
+      <static_define_list external="AIDebugFlags" />
+    </column>
+    <column name="logSettings" type="INTFIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>5</num_elements>
+    </column>
+    <column name="debugEntRef" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="layerFSMName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="pfsmName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="updateSelected" type="BIT">
+      <offset>36</offset>
+      <bit_offset>131072</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

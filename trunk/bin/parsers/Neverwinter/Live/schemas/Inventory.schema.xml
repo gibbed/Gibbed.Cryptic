@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Inventory">
+  <table>
+    <column name="Inventory" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dirtyBit" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="inv_def" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>DefaultInventory</dictionary_name>
+    </column>
+    <column name="ppInventoryBags" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="InventoryBag" />
+    </column>
+    <column name="ppLiteBags" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="InventoryBagLite" />
+    </column>
+    <column name="peaOwnedUniqueItems" type="STRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="OwnedUniqueItem" />
+    </column>
+    <column name="ppSlotSwitchRequest" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <subtable external="InvBagSlotSwitchRequest" />
+    </column>
+    <column name="uiCurrentSlotSwitchID" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="eaiNewItemIDs" type="STRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="NewItemID" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="inhTestSubStruct">
+  <table>
+    <column name="inhTestSubStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Foo" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Bar" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

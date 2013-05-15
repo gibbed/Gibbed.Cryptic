@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCDialogTreeBlock">
+  <table>
+    <column name="UGCDialogTreeBlock" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="BlockIndex" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="initialPrompt" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="UID" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="PromptTitle" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="PromptBody" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Action" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="UGCDialogTreePromptAction" />
+    </column>
+    <column name="PromptButton" type="STRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Action</redundant_name>
+      <subtable external="UGCDialogTreePromptAction" />
+    </column>
+    <column name="PromptCostume" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="PromptPetCostume" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>PetContactList</dictionary_name>
+    </column>
+    <column name="PromptStyle" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="Prompt" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="UGCDialogTreePrompt" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

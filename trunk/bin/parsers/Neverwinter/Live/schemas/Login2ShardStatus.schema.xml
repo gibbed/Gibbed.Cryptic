@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Login2ShardStatus">
+  <table>
+    <column name="Login2ShardStatus" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="shardName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="shardType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="ClusterShardType" />
+    </column>
+    <column name="queueSize" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="IsReady" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="isCurrent" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="creationDisabled" type="U8">
+      <offset>14</offset>
+    </column>
+    <column name="displayOrder" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

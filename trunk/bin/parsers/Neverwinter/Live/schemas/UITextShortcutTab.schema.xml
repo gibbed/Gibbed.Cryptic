@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UITextShortcutTab">
+  <table>
+    <column name="UITextShortcutTab" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Label" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Shortcut" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UITextShortcut" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

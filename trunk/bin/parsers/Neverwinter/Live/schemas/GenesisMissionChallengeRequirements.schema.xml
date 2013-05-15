@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionChallengeRequirements">
+  <table>
+    <column name="GenesisMissionChallengeRequirements" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Params" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="GenesisInstancedObjectParams" />
+    </column>
+    <column name="InteractParams" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="GenesisInteractObjectParams" />
+    </column>
+    <column name="VolumeParams" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisProceduralObjectParams" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

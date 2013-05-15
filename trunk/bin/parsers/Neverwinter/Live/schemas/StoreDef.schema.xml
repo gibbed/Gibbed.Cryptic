@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StoreDef">
+  <table>
+    <column name="StoreDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Notes" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Inventory" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="StoreItemDef" />
+    </column>
+    <column name="RestockDef" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="StoreRestockDef" />
+    </column>
+    <column name="DiscountDef" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="StoreDiscountDef" />
+    </column>
+    <column name="hCurrency" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="BuyMultiplier" type="F32">
+      <offset>32</offset>
+      <default>1</default>
+    </column>
+    <column name="SellMultiplier" type="F32">
+      <offset>36</offset>
+      <default>1</default>
+    </column>
+    <column name="ExprEPConversion" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprBlockRequires" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprRequiresBlock" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockRequires</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprRequires" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockRequires</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Contents" type="INT">
+      <offset>48</offset>
+      <static_define_list external="StoreContents" />
+    </column>
+    <column name="Region" type="INT">
+      <offset>52</offset>
+      <default>-1</default>
+      <static_define_list external="WorldRegionType" />
+    </column>
+    <column name="ItemLevel" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="GroupProjectType" type="INT">
+      <offset>60</offset>
+      <static_define_list external="GroupProjectType" />
+    </column>
+    <column name="provisioningProjectDef" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>GroupProjectDef</dictionary_name>
+    </column>
+    <column name="provisioningNumericDef" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>GroupProjectNumericDef</dictionary_name>
+    </column>
+    <column name="SellEnabled" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="IsPersisted" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="IsResearchStore" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="DisplayStoreCPoints" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="ProvisionFromGroupProject" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="GuildMapOwnerMembersOnly" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="AutoLearn" type="IGNORE" />
+    <column name="TempData" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldRegionFXSwap">
+  <table>
+    <column name="WorldRegionFXSwap" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="OldFx" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>DynFxInfo</dictionary_name>
+    </column>
+    <column name="NewFx" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>DynFxInfo</dictionary_name>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ForceFieldStruct">
+  <table>
+    <column name="ForceFieldStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Ref" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="uiLastUpdateTime" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Health" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="HealthMax" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="HealthPercent" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

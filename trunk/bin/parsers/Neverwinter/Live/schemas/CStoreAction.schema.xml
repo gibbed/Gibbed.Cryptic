@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CStoreAction">
+  <table>
+    <column name="CStoreAction" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="CStoreActionType" />
+    </column>
+    <column name="ProductID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Category" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="PaymentID" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="ExpectedPrice" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Money" />
+    </column>
+    <column name="SteamID" type="INT64">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

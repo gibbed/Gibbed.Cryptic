@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldPatrolRoute">
+  <table>
+    <column name="WorldPatrolRoute" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="common_data" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldEncounterObject" />
+    </column>
+    <column name="Properties" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="WorldPatrolProperties" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

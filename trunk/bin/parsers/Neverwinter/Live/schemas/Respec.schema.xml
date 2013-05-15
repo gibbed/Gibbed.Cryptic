@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Respec">
+  <table>
+    <column name="Respec" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RespecTimeString" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Date" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RespecTimeString</redundant_name>
+    </column>
+    <column name="uiDerivedRespecTime" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="RespecType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="Respec_Type" />
+    </column>
+    <column name="RespecPowers" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="RespecPower" />
+    </column>
+    <column name="RespecPowerTrees" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="RespecPowerTree" />
+    </column>
+    <column name="IsForcedRespec" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

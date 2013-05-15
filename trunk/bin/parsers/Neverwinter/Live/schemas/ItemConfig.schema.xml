@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemConfig">
+  <table>
+    <column name="ItemConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UseUniqueIDsForItemPowerDefRefs" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ItemTypeEquippedFX" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ItemRestrictBagToFxMap" />
+    </column>
+    <column name="ItemTransmuteCost" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ItemTransmuteCurrency" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="HeadshotStyleConfig" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="ItemHeadshotStyleConfig" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

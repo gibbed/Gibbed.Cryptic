@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GfxVisualizationSettings">
+  <table>
+    <column name="GfxVisualizationSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hide_all_volumes" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="hide_occlusion_volumes" type="U8">
+      <offset>1</offset>
+    </column>
+    <column name="hide_audio_volumes" type="U8">
+      <offset>2</offset>
+    </column>
+    <column name="hide_skyfade_volumes" type="U8">
+      <offset>3</offset>
+    </column>
+    <column name="hide_neighborhood_volumes" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="hide_interaction_volumes" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="hide_landmark_volumes" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="hide_power_volumes" type="U8">
+      <offset>7</offset>
+    </column>
+    <column name="hide_warp_volumes" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="hide_genesis_volumes" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="hide_exclusion_volumes" type="U8">
+      <offset>10</offset>
+    </column>
+    <column name="hide_aggro_volumes" type="U8">
+      <offset>11</offset>
+    </column>
+    <column name="hide_untyped_volumes" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

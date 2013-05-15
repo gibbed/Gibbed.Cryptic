@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerQueueMap">
+  <table>
+    <column name="PlayerQueueMap" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="INT64">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="MapState" type="INT">
+      <offset>8</offset>
+      <static_define_list external="QueueMapState" />
+    </column>
+    <column name="uMapLaunchTime" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="GroupPlayerCounts" type="INTARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

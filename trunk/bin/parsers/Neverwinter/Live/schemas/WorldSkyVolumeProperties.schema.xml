@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldSkyVolumeProperties">
+  <table>
+    <column name="WorldSkyVolumeProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="SkyGroup" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Sky" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="SkyInfoOverride" />
+    </column>
+    <column name="SkyWeight" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="FadeInRate" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="FadeOutRate" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="PositionalFade" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

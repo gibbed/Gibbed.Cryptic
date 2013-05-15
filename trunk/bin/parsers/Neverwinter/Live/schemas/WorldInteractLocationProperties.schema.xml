@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldInteractLocationProperties">
+  <table>
+    <column name="WorldInteractLocationProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Anim" type="STRINGARRAY">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="JobAnim" type="STRINGARRAY">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Anim</redundant_name>
+    </column>
+    <column name="FSM" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="SecondaryFSM" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="CombatFSM" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SecondaryFSM</redundant_name>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="IgnoreConditionBlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IgnoreCondition" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IgnoreConditionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Priority" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Orientation" type="QUATPYR">
+      <offset>32</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

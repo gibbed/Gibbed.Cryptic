@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StoreItemDef">
+  <table>
+    <column name="StoreItemDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Item" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="Count" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ForceUseCurrency" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="ReqMission" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="ExprCanBuy" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="cantBuyMessage" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="longFlavorDesc" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RequirementsMessage" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayTex" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ReqMicroTransaction" type="REFERENCE">
+      <offset>60</offset>
+      <dictionary_name>MicroTransactionDef</dictionary_name>
+    </column>
+    <column name="OverrideValueRecipe" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="ItemDefRef" />
+    </column>
+    <column name="OverridePriceAccountKeyValue" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ForceBind" type="U8">
+      <offset>72</offset>
+    </column>
+    <column name="Category" type="INT">
+      <offset>76</offset>
+      <static_define_list external="StoreCategory" />
+    </column>
+    <column name="HighlightCategory" type="INTARRAY">
+      <offset>80</offset>
+      <static_define_list external="StoreHighlightCategory" />
+    </column>
+    <column name="RequiredNumeric" type="REFERENCE">
+      <offset>84</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="RequiredNumericValue" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="RequiredNumericIncr" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="ResearchTime" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="PurchaseTime" type="INT">
+      <offset>96</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ResearchTime</redundant_name>
+    </column>
+    <column name="ExprShowItem" type="OPTIONALSTRUCT">
+      <offset>100</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ActivityName" type="STRING">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RequiredActivity" type="STRING">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ActivityName</redundant_name>
+    </column>
+    <column name="maxAvailable" type="IGNORE" />
+    <column name="rechargeRate" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

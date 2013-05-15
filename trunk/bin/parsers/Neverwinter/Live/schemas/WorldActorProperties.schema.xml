@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldActorProperties">
+  <table>
+    <column name="WorldActorProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OverrideFSM" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="FSM" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="VariableDefs" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="InteractionProperties" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="WorldInteractionProperties" />
+    </column>
+    <column name="CritterGroupDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplaySubName" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="CostumeProperties" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="WorldActorCostumeProperties" />
+    </column>
+    <column name="CritterProperties" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="WorldActorCritterProperties" />
+    </column>
+    <column name="FactionProperties" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="WorldActorFactionProperties" />
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>68</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Rotation" type="F32FIXEDARRAY">
+      <offset>80</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CurrencyExchangeOperationRequest">
+  <table>
+    <column name="CurrencyExchangeOperationRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="operationType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="CurrencyExchangeOperationType" />
+    </column>
+    <column name="AccountID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="characterID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="CharacterName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Orderid" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="orderType" type="INT">
+      <offset>20</offset>
+      <static_define_list external="CurrencyExchangeOrderType" />
+    </column>
+    <column name="quantity" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Price" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="arrivalTime" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="mtcTransferID" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="DebugName" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="gameSpecificLogInfo" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

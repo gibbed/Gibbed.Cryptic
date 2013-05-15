@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenCompassIcon">
+  <table>
+    <column name="UIGenCompassIcon" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="estrOwnedName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="UIColor" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="v3Location" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Visible" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="Hover" type="U8">
+      <offset>45</offset>
+    </column>
+    <column name="Upwards" type="U8">
+      <offset>46</offset>
+    </column>
+    <column name="Downwards" type="U8">
+      <offset>47</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

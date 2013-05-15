@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MinimapWaypoint">
+  <table>
+    <column name="MinimapWaypoint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="MinimapWaypointType" />
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="MissionRefString" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ContactName" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StaticEncName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="IconTexName" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="hDisplayNameMsg" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="DestinationMap" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="XAxisRadius" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="YAxisRadius" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="Rotation" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="HideUnlessRevealed" type="U8">
+      <offset>56</offset>
+    </column>
+    <column name="MapCreatedOn" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="IsDoorWaypoint" type="U8">
+      <offset>68</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemPowerDefRef">
+  <table>
+    <column name="ItemPowerDefRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ItemPowerDef" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>ItemPowerDef</dictionary_name>
+    </column>
+    <column name="hItemPowerDef" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ItemPowerDef</redundant_name>
+      <dictionary_name>ItemPowerDef</dictionary_name>
+    </column>
+    <column name="ScaleFactor" type="F32">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="AppliesToSlot" type="INT">
+      <offset>12</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="eAppliesToSlot" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AppliesToSlot</redundant_name>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="RequiredCategories" type="INTARRAY">
+      <offset>16</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="peRequiredCategories" type="INTARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RequiredCategories</redundant_name>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="ChanceToApply" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="fChanceToApply" type="F32">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ChanceToApply</redundant_name>
+    </column>
+    <column name="iPowerGroup" type="BIT">
+      <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>524288</bit_offset>
+    </column>
+    <column name="GemSlottingApplyChance" type="F32">
+      <offset>28</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="fGemSlottingApplyChance" type="F32">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>GemSlottingApplyChance</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="SetMin" type="BIT">
+      <offset>32</offset>
+      <bit_offset>262144</bit_offset>
+    </column>
+    <column name="uiSetMin" type="BIT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SetMin</redundant_name>
+      <bit_offset>262144</bit_offset>
+    </column>
+    <column name="bGemSlotsAdjustScaleFactor" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

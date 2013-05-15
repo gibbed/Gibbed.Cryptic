@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EncounterActorSpawnInfoProperties">
+  <table>
+    <column name="EncounterActorSpawnInfoProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SpawnAnimType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="EncounterTemplateOverrideType" />
+    </column>
+    <column name="SpawnAnim" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="SpawnLockdownTime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

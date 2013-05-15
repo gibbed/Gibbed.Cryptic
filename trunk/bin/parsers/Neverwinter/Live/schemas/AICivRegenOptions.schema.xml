@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AICivRegenOptions">
+  <table>
+    <column name="AICivRegenOptions" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RegenPos" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="AreaRegen" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="VolumeLegsOnly" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="SkipLegSplit" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="PostPopulate" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AwayTeamMemberData">
+  <table>
+    <column name="AwayTeamMemberData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Ent" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Entity" />
+    </column>
+    <column name="OwnerEnt" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Entity" />
+    </column>
+    <column name="Name" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="OwnerName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="ONLen" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="IsPet" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="Class" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="ClassName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="PetPermission" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="IsReady" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="EntType" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="EntID" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="hCostume" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

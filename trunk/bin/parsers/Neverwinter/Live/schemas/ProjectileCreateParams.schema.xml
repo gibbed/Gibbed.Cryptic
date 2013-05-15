@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ProjectileCreateParams">
+  <table>
+    <column name="ProjectileCreateParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1198</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="ProjectileDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>ProjectileEntityDef</dictionary_name>
+    </column>
+    <column name="CreateDistanceForward" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="CreateDistanceRight" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="CreateDistanceUp" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="DirectionYawOffset" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="DirectionPitchOffset" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="SnapToGroundOnCreate" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="UseAimingTrajectory" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

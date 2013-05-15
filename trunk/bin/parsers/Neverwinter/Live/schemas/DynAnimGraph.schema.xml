@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynAnimGraph">
+  <table>
+    <column name="DynAnimGraph" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Comments" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Template" type="REFERENCE">
+      <offset>16</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>DynAnimTemplate</dictionary_name>
+    </column>
+    <column name="PartialGraph" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="Nodes" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="DynAnimGraphNode" />
+    </column>
+    <column name="Suppress" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="DynAnimGraphSuppress" />
+    </column>
+    <column name="Stance" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="DynAnimGraphStance" />
+    </column>
+    <column name="PowerMovementInfo" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="DynPowerMovementInfo" />
+    </column>
+    <column name="timeout" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="DisableTorsoPointingRate" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="DisableTorsoPointingTimeout" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="DisableGroundRegTimeout" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="DisableUpperBodyGroundRegTimeout" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="OverrideAllBones" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="SnapOverrideAllBones" type="U8">
+      <offset>61</offset>
+    </column>
+    <column name="OverrideMovement" type="U8">
+      <offset>62</offset>
+    </column>
+    <column name="SnapOverrideMovement" type="U8">
+      <offset>63</offset>
+    </column>
+    <column name="OverrideDefaultMove" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="SnapOverrideDefaultMove" type="U8">
+      <offset>65</offset>
+    </column>
+    <column name="ForceVisible" type="U8">
+      <offset>66</offset>
+    </column>
+    <column name="PitchToTarget" type="U8">
+      <offset>67</offset>
+    </column>
+    <column name="DisableTorsoPointing" type="U8">
+      <offset>68</offset>
+    </column>
+    <column name="ResetWhenMovementStops" type="U8">
+      <offset>69</offset>
+    </column>
+    <column name="GeneratePowerMovementInfo" type="U8">
+      <offset>70</offset>
+    </column>
+    <column name="OnEnterFxEvent" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="DynAnimGraphFxEvent" />
+    </column>
+    <column name="OnExitFxEvent" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="DynAnimGraphFxEvent" />
+    </column>
+    <column name="InheritBits" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="DynAnimGraphInheritBits" />
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>88</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

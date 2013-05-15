@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SurfaceToBG">
+  <table>
+    <column name="SurfaceToBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="speedPenalties" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="SurfaceSpeedPenalty" />
+    </column>
+    <column name="spcStrafingOverride" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="spcDisableJump" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="scheduledStrafingOverride" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="scheduledDisableJump" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

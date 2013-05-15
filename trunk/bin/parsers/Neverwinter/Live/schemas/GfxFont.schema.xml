@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GfxFont">
+  <table>
+    <column name="GfxFont" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SizeIsPixels" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">0</format_string>
+      </format_strings>
+    </column>
+    <column name="Italicize" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">0</format_string>
+      </format_strings>
+    </column>
+    <column name="Bold" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">0</format_string>
+      </format_strings>
+    </column>
+    <column name="DropShadow" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">0</format_string>
+      </format_strings>
+    </column>
+    <column name="SoftShadow" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65540</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">0</format_string>
+      </format_strings>
+    </column>
+    <column name="Outline" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65541</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">0</format_string>
+      </format_strings>
+    </column>
+    <column name="SnapToPixels" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65542</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="OutlineWidth" type="U8">
+      <offset>1</offset>
+      <default>1</default>
+    </column>
+    <column name="SoftShadowSpread" type="U8">
+      <offset>2</offset>
+      <default>2</default>
+    </column>
+    <column name="RenderSize" type="F32">
+      <offset>4</offset>
+      <default>16</default>
+    </column>
+    <column name="DropShadowOffset" type="INTFIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Color" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="Color4" />
+    </column>
+    <column name="OutlineColor" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="DropShadowColor" type="INT">
+      <offset>36</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="AspectRatio" type="F32">
+      <offset>40</offset>
+      <default>1</default>
+    </column>
+    <column name="Font" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

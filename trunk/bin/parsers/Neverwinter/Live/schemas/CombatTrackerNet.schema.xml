@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatTrackerNet">
+  <table>
+    <column name="CombatTrackerNet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="erOwner" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="erSource" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Magnitude" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="MagnitudeBase" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>16</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="hDisplayName" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="hSecondaryDisplayName" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>28</offset>
+      <static_define_list external="CombatTrackerFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Delay" type="F32">
+      <offset>32</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="PowerDef" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PowerDef" />
+    </column>
+    <column name="powID" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="AINotifyMiss" type="BIT">
+      <offset>44</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

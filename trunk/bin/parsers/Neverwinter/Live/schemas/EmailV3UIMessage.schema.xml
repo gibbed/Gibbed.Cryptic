@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EmailV3UIMessage">
+  <table>
+    <column name="EmailV3UIMessage" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Message" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="EmailV3Message" />
+    </column>
+    <column name="ChatServerMessage" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ChatMailStruct" />
+    </column>
+    <column name="NPCMessage" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="NPCEMailData" />
+    </column>
+    <column name="subject" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="subjectOwned" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="fromName" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="fromHandle" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Body" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="bodyOwned" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="shardName" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="sent" type="INT">
+      <offset>40</offset>
+      <format_strings>
+        <format_string name="JSON_SECS_TO_RFC822">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Read" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="UID" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="uLotID" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="TypeOfEmail" type="INT">
+      <offset>56</offset>
+      <static_define_list external="EMailV3Type" />
+    </column>
+    <column name="toContainerID" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="NPCEMailID" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="NumAttachedItems" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

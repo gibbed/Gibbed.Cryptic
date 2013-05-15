@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CharacterClassAttrib">
+  <table>
+    <column name="CharacterClassAttrib" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="pfBasic" type="F32ARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="pfStrength" type="F32ARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="pfResist" type="F32ARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="Curves" type="POLYMORPH">
+      <offset>12</offset>
+      <subtable>
+        <table>
+          <column name="AttribCurveMax" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AttribCurveMax" />
+          </column>
+          <column name="AttribCurveQuadraticMax" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AttribCurveQuadraticMax" />
+          </column>
+        </table>
+      </subtable>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

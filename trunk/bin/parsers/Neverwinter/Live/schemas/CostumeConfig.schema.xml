@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeConfig">
+  <table>
+    <column name="CostumeConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ChangeCooldown" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Prices" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CostumePrices" />
+    </column>
+    <column name="MountRiderScaleBlend" type="F32">
+      <offset>8</offset>
+      <default>-1</default>
+    </column>
+    <column name="DisablePlayerActiveChange" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="InvalidCostumesAreFreeToChange" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="EnableItemCategoryAddedBones" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="CostumeGenderPrefixes" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="CostumeGenderPrefix" />
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>20</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

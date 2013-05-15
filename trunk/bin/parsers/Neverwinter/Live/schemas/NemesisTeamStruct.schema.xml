@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NemesisTeamStruct">
+  <table>
+    <column name="NemesisTeamStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="CritterDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>CritterDef</dictionary_name>
+    </column>
+    <column name="CritterGroup" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>CritterGroup</dictionary_name>
+    </column>
+    <column name="NoNemesis" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="NemesisCostumeSet" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NemesisName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="NemesisCostume" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="NemesisType" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="motivation" type="INT">
+      <offset>32</offset>
+      <static_define_list external="NemesisMotivation" />
+    </column>
+    <column name="personality" type="INT">
+      <offset>36</offset>
+      <static_define_list external="NemesisPersonality" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

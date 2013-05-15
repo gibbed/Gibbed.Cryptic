@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyTimeSecondarySun">
+  <table>
+    <column name="SkyTimeSecondarySun" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="DiffuseHSV" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="SpecularHSV" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="SecondaryDiffuseHSV" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>40</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="EndSkySecondarySun" type="END" />
+  </table>
+</parser>

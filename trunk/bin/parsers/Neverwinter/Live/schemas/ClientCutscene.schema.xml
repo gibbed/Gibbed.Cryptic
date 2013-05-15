@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClientCutscene">
+  <table>
+    <column name="ClientCutscene" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Def" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="CutsceneDef" />
+    </column>
+    <column name="WorldVars" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="CutsceneWorldVars" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

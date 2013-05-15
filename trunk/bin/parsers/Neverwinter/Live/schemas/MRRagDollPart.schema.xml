@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRRagDollPart">
+  <table>
+    <column name="MRRagDollPart" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ParentIndex" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ParentAnchor" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="SelfAnchor" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="capsuleUniqueName" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="Capsule" />
+    </column>
+    <column name="xyzSizeBox" type="F32FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="rot_matBox" type="MATPYR">
+      <offset>76</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_matBox" type="F32FIXEDARRAY">
+      <offset>112</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Density" type="F32">
+      <offset>132</offset>
+    </column>
+    <column name="BoneName" type="STRING">
+      <offset>136</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="parentBoneName" type="STRING">
+      <offset>140</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>144</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Rot" type="QUATPYR">
+      <offset>156</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="pose_pos" type="F32FIXEDARRAY">
+      <offset>172</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="pose_rot" type="QUATPYR">
+      <offset>184</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="pose" type="BIT">
+      <offset>204</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="isBox" type="BIT">
+      <offset>204</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

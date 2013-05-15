@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TranslatedMessage">
+  <table>
+    <column name="TranslatedMessage" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MessageKey" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="MessageKeyVer3" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MessageKey</redundant_name>
+    </column>
+    <column name="TranslatedString" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>CASE_SENSITIVE</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="IGNORE" />
+    <column name="Description" type="IGNORE" />
+    <column name="DefaultString" type="IGNORE" />
+    <column name="Updated" type="IGNORE" />
+    <column name="ClientMsg" type="IGNORE" />
+    <column name="CoreMsg" type="IGNORE" />
+    <column name="Duplicate" type="IGNORE" />
+    <column name="MsgFileName" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

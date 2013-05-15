@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynMoveMatchBaseSkelAnim">
+  <table>
+    <column name="DynMoveMatchBaseSkelAnim" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="BoneName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="BlendInTime" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="BlendOutTime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="PlayBlendOutDuringMove" type="BOOLFLAG">
+      <offset>12</offset>
+    </column>
+    <column name="StartFullyBlended" type="BOOLFLAG">
+      <offset>13</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

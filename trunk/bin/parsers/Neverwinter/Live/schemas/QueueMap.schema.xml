@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueMap">
+  <table>
+    <column name="QueueMap" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="iMapKey" type="INT64">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iMapCreateTime" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iMapLaunchTime" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pchMapName" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uiMapCreateRequestID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="eMapState" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="QueueMapState" />
+    </column>
+    <column name="iStateEnteredTime" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iLastServerUpdateTime" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="eaVariables" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="WorldVariable" />
+    </column>
+    <column name="uOfferValidationStartTime" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="eaOfferValidationMemberIDs" type="INTARRAY">
+      <offset>44</offset>
+    </column>
+    <column name="bDirty" type="BIT">
+      <offset>48</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="bGameServerDied" type="BIT">
+      <offset>48</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="bPendingActive" type="BIT">
+      <offset>48</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="bPendingFinished" type="BIT">
+      <offset>48</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="iMapID" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

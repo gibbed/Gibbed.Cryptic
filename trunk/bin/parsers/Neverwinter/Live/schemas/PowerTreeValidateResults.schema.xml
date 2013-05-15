@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerTreeValidateResults">
+  <table>
+    <column name="PowerTreeValidateResults" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="estrFailure" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="FailedSteps" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PowerTreeStep" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

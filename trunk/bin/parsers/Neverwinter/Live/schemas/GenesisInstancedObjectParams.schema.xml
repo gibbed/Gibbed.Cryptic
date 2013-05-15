@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisInstancedObjectParams">
+  <table>
+    <column name="GenesisInstancedObjectParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ModelScale" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="EncounterSpawnWhen" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="EncounterDespawnWhen" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="HasPatrol" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="FSMName" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="ChildParam" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="GenesisInstancedChildParams" />
+    </column>
+    <column name="ActorData" type="STRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ChildParam</redundant_name>
+      <subtable external="GenesisInstancedChildParams" />
+    </column>
+    <column name="ChildParamsAreGroupDefs" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="MissionName" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="Contact" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="GenesisMissionContactRequirements" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

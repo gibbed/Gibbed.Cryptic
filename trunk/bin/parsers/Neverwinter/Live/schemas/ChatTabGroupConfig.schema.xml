@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatTabGroupConfig">
+  <table>
+    <column name="ChatTabGroupConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>POOL_STRING_DB</flag>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pchName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>ALIAS</flag>
+        <flag>POOL_STRING_DB</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Name</redundant_name>
+    </column>
+    <column name="eaChatTabConfigs" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ChatTabConfig" />
+    </column>
+    <column name="CurrentTab" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="iCurrentTab" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>CurrentTab</redundant_name>
+    </column>
+    <column name="Time" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uiTime" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Time</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

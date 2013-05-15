@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldBuildingLayerProperties">
+  <table>
+    <column name="WorldBuildingLayerProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Height" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="GroupRef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>GroupDef</dictionary_name>
+    </column>
+    <column name="Seed" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="SeedDelta" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="groupdeprecated" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="GroupUID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="GroupName" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DamageFloatTemplate">
+  <table>
+    <column name="DamageFloatTemplate" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ColorBlock" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="Color" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ColorBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ScaleBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="Scale" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ScaleBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="VelocityXBlock" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="VelocityX" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>VelocityXBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="VelocityYBlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="VelocityY" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>VelocityYBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="LifetimeBlock" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="Lifetime" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>LifetimeBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="FontBlock" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="Font" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FontBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="TextBlock" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="Text" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TextBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="XBlock" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="X" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>XBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="YBlock" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="Y" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>YBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="OffsetFromBlock" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="OffsetFrom" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>OffsetFromBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="GroupBlock" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="Group" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>GroupBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="BottomColorBlock" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="BottomColor" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>BottomColorBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="PriorityBlock" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Priority" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PriorityBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="PopoutBlock" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Popout" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PopoutBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="IconBlock" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IconName" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IconBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="IconOffsetBlock" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IconOffset" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IconOffsetBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="IconScaleBlock" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IconScale" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IconScaleBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="IconXBlock" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IconX" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IconXBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="IconYBlock" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IconY" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IconYBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="IconColorBlock" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="IconColor" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IconColorBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="MinArcBlock" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="MinArc" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MinArcBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="MaxArcBlock" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="MaxArc" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MaxArcBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="RadiusBlock" type="OPTIONALSTRUCT">
+      <offset>88</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Radius" type="OPTIONALSTRUCT">
+      <offset>88</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RadiusBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="TargetBoxScalar" type="OPTIONALSTRUCT">
+      <offset>92</offset>
+      <subtable external="DamageFloatTargetBoxScalar" />
+    </column>
+    <column name="CombineSimilar" type="U8">
+      <offset>96</offset>
+    </column>
+    <column name="DontAnchorToEntity" type="U8">
+      <offset>97</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

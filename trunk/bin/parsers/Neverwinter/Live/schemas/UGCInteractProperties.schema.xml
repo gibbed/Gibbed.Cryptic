@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCInteractProperties">
+  <table>
+    <column name="UGCInteractProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="InteractText" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="InteractFailureText" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="InteractAnim" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>AIAnimList</dictionary_name>
+    </column>
+    <column name="InteractDuration" type="INT">
+      <offset>12</offset>
+      <default>2</default>
+      <static_define_list external="UGCInteractDuration" />
+    </column>
+    <column name="SucceedCheckedAttrib" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="UGCCheckedAttrib" />
+    </column>
+    <column name="InteractTakesItem" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="DropItem" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

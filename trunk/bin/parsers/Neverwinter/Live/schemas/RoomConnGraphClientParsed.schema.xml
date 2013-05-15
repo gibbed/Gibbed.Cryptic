@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RoomConnGraphClientParsed">
+  <table>
+    <column name="RoomConnGraphClientParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Rooms" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="RoomClientParsed" />
+    </column>
+    <column name="outdoor_portals" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="RoomPortalParsed" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

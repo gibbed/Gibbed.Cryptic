@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TeamRequestCheckResult">
+  <table>
+    <column name="TeamRequestCheckResult" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Status" type="INT">
+      <offset>0</offset>
+      <static_define_list external="TeamRequestCheckStatus" />
+    </column>
+    <column name="uiRequesterID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uiRequestedID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="uiTeamID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

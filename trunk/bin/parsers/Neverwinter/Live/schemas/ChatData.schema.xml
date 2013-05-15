@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatData">
+  <table>
+    <column name="ChatData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Emote" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="LinkInfos" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ChatLinkInfo" />
+    </column>
+    <column name="BubbleData" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="ChatBubbleData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

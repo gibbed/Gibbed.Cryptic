@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CurrencyExchangeGlobalUIData">
+  <table>
+    <column name="CurrencyExchangeGlobalUIData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Enabled" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="maxMTCPrice" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="minMTCPrice" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="maxPlayerOpenOrders" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="maxQuantityPerOrder" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="minQuantityPerOrder" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="sellPrices" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="CurrencyExchangePriceQuantity" />
+    </column>
+    <column name="buyPrices" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="CurrencyExchangePriceQuantity" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxyKeyValueData">
+  <table>
+    <column name="AccountProxyKeyValueData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uAccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="uPlayerID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="List" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="AccountProxyKeyValueInfoList" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

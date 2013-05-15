@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InheritanceData">
+  <table>
+    <column name="InheritanceData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ParentName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="FieldData" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="SingleFieldInheritanceData" />
+    </column>
+    <column name="CurrentFile" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TimeStamp" type="TIMESTAMP">
+      <offset>12</offset>
+    </column>
+    <column name="LineNum" type="LINENUM">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

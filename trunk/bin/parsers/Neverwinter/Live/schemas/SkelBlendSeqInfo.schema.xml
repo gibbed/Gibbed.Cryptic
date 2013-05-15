@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkelBlendSeqInfo">
+  <table>
+    <column name="SkelBlendSeqInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="SeqName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Chart" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>DynAnimChartRunTime</dictionary_name>
+    </column>
+    <column name="MaxLOD" type="INT">
+      <offset>8</offset>
+      <default>10</default>
+    </column>
+    <column name="Bone" type="STRINGARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Overlay" type="BOOLFLAG">
+      <offset>16</offset>
+    </column>
+    <column name="SubOverlay" type="BOOLFLAG">
+      <offset>17</offset>
+    </column>
+    <column name="IgnoreMasterOverlay" type="BOOLFLAG">
+      <offset>18</offset>
+    </column>
+    <column name="NeverOverride" type="BOOLFLAG">
+      <offset>19</offset>
+    </column>
+    <column name="Movement" type="BOOLFLAG">
+      <offset>20</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

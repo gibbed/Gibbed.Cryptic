@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShoeboxPoint">
+  <table>
+    <column name="ShoeboxPoint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Rep" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="SSObjSet" />
+    </column>
+    <column name="Mission" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="SSObjSet" />
+    </column>
+    <column name="DistFromLast" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MinDist" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="MaxDist" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="FacingDir" type="INT">
+      <offset>28</offset>
+      <static_define_list external="PointListFacingDirection" />
+    </column>
+    <column name="FacingOffset" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

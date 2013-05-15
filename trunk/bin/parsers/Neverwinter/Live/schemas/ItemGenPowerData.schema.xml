@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemGenPowerData">
+  <table>
+    <column name="ItemGenPowerData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="InternalName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="itemPowerDefData" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="DisplayName2" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Notes" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>36</offset>
+      <static_define_list external="ItemPowerFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ExprEconomyPoints" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Power" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="PowerReplace" type="REFERENCE">
+      <offset>48</offset>
+      <dictionary_name>PowerReplaceDef</dictionary_name>
+    </column>
+    <column name="PowerSlot" type="REFERENCE">
+      <offset>48</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PowerReplace</redundant_name>
+      <dictionary_name>PowerReplaceDef</dictionary_name>
+    </column>
+    <column name="Restriction" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="UsageRestriction" />
+    </column>
+    <column name="CraftRecipe" type="REFERENCE">
+      <offset>56</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="ValueRecipe" type="REFERENCE">
+      <offset>60</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="PowerConfig" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="CritterPowerConfig" />
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="displayNameMsg2" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="descriptionMsg" type="EMBEDDEDSTRUCT">
+      <offset>92</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="TierMin" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="TierMax" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="Rarity" type="INT">
+      <offset>112</offset>
+      <static_define_list external="ItemGenRarity" />
+    </column>
+    <column name="Category" type="INT">
+      <offset>116</offset>
+    </column>
+    <column name="ItemCategory" type="INTARRAY">
+      <offset>120</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="RestrictBag" type="INTARRAY">
+      <offset>124</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="EquipLimit" type="OPTIONALSTRUCT">
+      <offset>128</offset>
+      <subtable external="ItemEquipLimit" />
+    </column>
+    <column name="NoStack" type="U8">
+      <offset>132</offset>
+    </column>
+    <column name="DisplaySuffix" type="STRING">
+      <offset>136</offset>
+    </column>
+    <column name="DisplayPrefix" type="STRING">
+      <offset>140</offset>
+    </column>
+    <column name="ItemPower" type="REFERENCE">
+      <offset>144</offset>
+      <dictionary_name>ItemPowerDef</dictionary_name>
+    </column>
+    <column name="ScaleFactor" type="F32">
+      <offset>152</offset>
+      <default>1</default>
+    </column>
+    <column name="GemSlotsAdjustScaleFactor" type="U8">
+      <offset>156</offset>
+    </column>
+    <column name="Suffix" type="EMBEDDEDSTRUCT">
+      <offset>160</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Prefix" type="EMBEDDEDSTRUCT">
+      <offset>172</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Costume" type="STRUCT">
+      <offset>184</offset>
+      <subtable external="ItemCostume" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldInteractionCostumePartParsed">
+  <table>
+    <column name="WorldInteractionCostumePartParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="matrix_idx" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="model_idx" type="INT">
+      <offset>4</offset>
+      <default>-1</default>
+    </column>
+    <column name="draw_list_idx" type="INT">
+      <offset>8</offset>
+      <default>-1</default>
+    </column>
+    <column name="instance_param_list_idx" type="INT">
+      <offset>12</offset>
+      <default>-1</default>
+    </column>
+    <column name="Scale" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="tint_color" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="collision" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ExprDebugPolyTestContainer">
+  <table>
+    <column name="ExprDebugPolyTestContainer" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="polyType" type="OPTIONALPOLYMORPH">
+      <offset>0</offset>
+      <subtable>
+        <table>
+          <column name="ExprDebugPolyTestFloat" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="ExprDebugPolyTestFloat" />
+          </column>
+          <column name="ExprDebugPolyTestInt" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="ExprDebugPolyTestInt" />
+          </column>
+        </table>
+      </subtable>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

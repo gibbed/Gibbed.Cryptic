@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PTNodeDef">
+  <table>
+    <column name="PTNodeDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="NameFull" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayMessage" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="msgRequirements" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="hNodeRequire" type="REFERENCE">
+      <offset>32</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <dictionary_name>PowerTreeNodeDef</dictionary_name>
+    </column>
+    <column name="Required" type="INT">
+      <offset>36</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="Clone" type="REFERENCE">
+      <offset>40</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <dictionary_name>PTNodeDef</dictionary_name>
+    </column>
+    <column name="NodePowerSlot" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>PTNodeDef</dictionary_name>
+    </column>
+    <column type="REFERENCE">
+      <offset>48</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <dictionary_name>PowerTreeDef</dictionary_name>
+    </column>
+    <column name="GrantSlot" type="REFERENCE">
+      <offset>52</offset>
+      <dictionary_name>PowerReplaceDef</dictionary_name>
+    </column>
+    <column name="NodeType" type="REFERENCE">
+      <offset>56</offset>
+      <dictionary_name>PTNodeTypeDef</dictionary_name>
+    </column>
+    <column name="Rank" type="STRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="PTNodeRankDef" />
+    </column>
+    <column name="Enhancement" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="PTNodeEnhancementDef" />
+    </column>
+    <column name="CostMaxEnhancement" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="Attrib" type="INT">
+      <offset>72</offset>
+      <default>-1</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribPowerTable" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>80</offset>
+      <static_define_list external="PTNodeFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Purpose" type="INT">
+      <offset>84</offset>
+      <static_define_list external="PowerPurpose" />
+    </column>
+    <column name="IconName" type="STRING">
+      <offset>88</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CloneSystem" type="BIT">
+      <offset>92</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="HasCosts" type="BIT">
+      <offset>92</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="RankCostTablesVary" type="BIT">
+      <offset>92</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="Slave" type="BIT">
+      <offset>92</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="ForcedAutoBuy" type="BIT">
+      <offset>92</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="UICategory" type="INT">
+      <offset>96</offset>
+      <static_define_list external="PTNodeUICategory" />
+    </column>
+    <column name="UIGridRow" type="U8">
+      <offset>100</offset>
+    </column>
+    <column name="UIGridColumn" type="U8">
+      <offset>101</offset>
+    </column>
+    <column name="KeyBind" type="IGNORE" />
+    <column name="GrantInvSlot" type="IGNORE" />
+    <column name="Templates" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

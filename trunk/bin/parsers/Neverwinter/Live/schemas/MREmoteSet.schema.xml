@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MREmoteSet">
+  <table>
+    <column name="MREmoteSet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Handle" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="animToStart" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Stances" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="animBitHandles" type="INTARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="flashAnimBitHandles" type="INTARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="FX" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="MREmoteFX" />
+    </column>
+    <column name="fxHandles" type="INTARRAY">
+      <offset>24</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="MREmoteSetFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

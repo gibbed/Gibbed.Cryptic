@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCPerProjectDefaults">
+  <table>
+    <column name="UGCPerProjectDefaults" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AllegianceRestriction" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DefaultTransitionPrompt" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="UGCDialogTreePrompt" />
+    </column>
+    <column name="NonCombatType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="MissionPlayType" />
+    </column>
+    <column name="CombatType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="MissionPlayType" />
+    </column>
+    <column name="OverrideCategoryName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Allegiance" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="UGCPerAllegianceDefaults" />
+    </column>
+    <column name="Rank" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="UGCPerProjectEncounterRank" />
+    </column>
+    <column name="KillCreditLimit" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="UGCKillCreditLimit" />
+    </column>
+    <column name="KillCreditLimit2" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="UGCKillCreditLimit2" />
+    </column>
+    <column name="MaxActorsInAggroDist" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="MaxEnemyActorsInAggroDist" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="MaxFriendlyActorsInAggroDist" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="VariableDef" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="Behavior" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="NoCombatBehavior" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="TrapObject" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="CustomInteriorMap" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="InteriorSky" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>SkyInfo</dictionary_name>
+    </column>
+    <column name="hInteriorClickyInteractionDef" type="REFERENCE">
+      <offset>72</offset>
+      <dictionary_name>InteractionDef</dictionary_name>
+    </column>
+    <column name="InteriorKillObject" type="STRING">
+      <offset>76</offset>
+    </column>
+    <column name="InteriorDetailObject" type="STRING">
+      <offset>80</offset>
+    </column>
+    <column name="InteriorDestructibleObject" type="STRING">
+      <offset>84</offset>
+    </column>
+    <column name="MaxRoomSize" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="SpaceSky" type="REFERENCE">
+      <offset>92</offset>
+      <dictionary_name>SkyInfo</dictionary_name>
+    </column>
+    <column name="hSpaceClickyInteractionDef" type="REFERENCE">
+      <offset>96</offset>
+      <dictionary_name>InteractionDef</dictionary_name>
+    </column>
+    <column name="SpaceKillObject" type="STRING">
+      <offset>100</offset>
+    </column>
+    <column name="SpaceDetailObject" type="STRING">
+      <offset>104</offset>
+    </column>
+    <column name="SpaceDestructibleObject" type="STRING">
+      <offset>108</offset>
+    </column>
+    <column name="SpacePlanetObject" type="STRING">
+      <offset>112</offset>
+    </column>
+    <column name="SpaceRingObject" type="STRING">
+      <offset>116</offset>
+    </column>
+    <column name="SpaceSunObject" type="STRING">
+      <offset>120</offset>
+    </column>
+    <column name="SpaceAggroDistance" type="F32">
+      <offset>124</offset>
+    </column>
+    <column name="SpaceMaxActorDistance" type="F32">
+      <offset>128</offset>
+    </column>
+    <column name="GroundSky" type="REFERENCE">
+      <offset>132</offset>
+      <dictionary_name>SkyInfo</dictionary_name>
+    </column>
+    <column name="GroundBuildingObject" type="STRING">
+      <offset>136</offset>
+    </column>
+    <column name="GroundAggroDistance" type="F32">
+      <offset>140</offset>
+    </column>
+    <column name="GroundMaxActorDistance" type="F32">
+      <offset>144</offset>
+    </column>
+    <column name="CostumeSkeletonDef" type="STRUCT">
+      <offset>148</offset>
+      <subtable external="UGCCostumeSkeletonSlotDef" />
+    </column>
+    <column name="CostumeRegionDef" type="STRUCT">
+      <offset>152</offset>
+      <subtable external="UGCCostumeRegionDef" />
+    </column>
+    <column name="CostumeRegionScale" type="STRUCT">
+      <offset>152</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CostumeRegionDef</redundant_name>
+      <subtable external="UGCCostumeRegionDef" />
+    </column>
+    <column name="ProgressionNodeTypeProject" type="INT">
+      <offset>156</offset>
+      <static_define_list external="GameProgressionNodeType" />
+    </column>
+    <column name="ProgressionNodeType1" type="INT">
+      <offset>160</offset>
+      <static_define_list external="GameProgressionNodeType" />
+    </column>
+    <column name="ProgressionNodeType2" type="INT">
+      <offset>164</offset>
+      <static_define_list external="GameProgressionNodeType" />
+    </column>
+    <column name="SpecialComponent" type="STRUCT">
+      <offset>168</offset>
+      <subtable external="UGCSpecialComponentDef" />
+    </column>
+    <column name="Budget" type="STRUCT">
+      <offset>172</offset>
+      <subtable external="UGCProjectBudget" />
+    </column>
+    <column name="CostumeNameField" type="STRUCT">
+      <offset>176</offset>
+      <subtable external="UGCCostumeNamingConventionField" />
+    </column>
+    <column name="MapRegion" type="STRUCT">
+      <offset>180</offset>
+      <subtable external="UGCOverworldMapRegion" />
+    </column>
+    <column name="Cutscene" type="STRING">
+      <offset>184</offset>
+    </column>
+    <column name="TetheringAllowed" type="U8">
+      <offset>188</offset>
+    </column>
+    <column name="ExteriorsAllowNormalSnapping" type="U8">
+      <offset>189</offset>
+    </column>
+    <column name="CheckedAttrib" type="STRUCT">
+      <offset>192</offset>
+      <subtable external="UGCCheckedAttribDef" />
+    </column>
+    <column name="BoundsSkyFade" type="OPTIONALSTRUCT">
+      <offset>196</offset>
+      <subtable external="WorldSkyVolumeProperties" />
+    </column>
+    <column name="FallbackPromptText" type="STRING">
+      <offset>200</offset>
+    </column>
+    <column name="DefaultDoorMap" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

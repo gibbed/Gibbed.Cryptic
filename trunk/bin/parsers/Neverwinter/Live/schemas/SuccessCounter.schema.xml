@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SuccessCounter">
+  <table>
+    <column name="SuccessCounter" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RingSize" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="NumInRing" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="NumSucceededInRing" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="IndexOfNextInRing" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Total" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="TotalSuccess" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="TotalFailure" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

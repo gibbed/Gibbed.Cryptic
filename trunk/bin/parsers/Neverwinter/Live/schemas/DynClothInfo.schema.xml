@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynClothInfo">
+  <table>
+    <column name="DynClothInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="InfoName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Stiffness" type="F32">
+      <offset>8</offset>
+      <default>1063675494</default>
+    </column>
+    <column name="Drag" type="F32">
+      <offset>12</offset>
+      <default>1036831949</default>
+    </column>
+    <column name="MinWeight" type="F32">
+      <offset>16</offset>
+      <default>1036831949</default>
+    </column>
+    <column name="MaxWeight" type="F32">
+      <offset>20</offset>
+      <default>1063675494</default>
+    </column>
+    <column name="Tessellate" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="AllowExtraStiffness" type="U8">
+      <offset>25</offset>
+    </column>
+    <column name="WindRippleScale" type="F32">
+      <offset>28</offset>
+      <default>1</default>
+    </column>
+    <column name="WindRippleWaveTimeScale" type="F32">
+      <offset>32</offset>
+      <default>1</default>
+    </column>
+    <column name="WindRippleWavePeriodScale" type="F32">
+      <offset>36</offset>
+      <default>1</default>
+    </column>
+    <column name="WindSpeedScale" type="F32">
+      <offset>40</offset>
+      <default>1</default>
+    </column>
+    <column name="FakeWindFromMovement" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="NormalWindFromMovement" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="GravityScale" type="F32">
+      <offset>52</offset>
+      <default>1</default>
+    </column>
+    <column name="TimeScale" type="F32">
+      <offset>56</offset>
+      <default>1</default>
+    </column>
+    <column name="NumIterations" type="INT">
+      <offset>60</offset>
+      <default>1</default>
+    </column>
+    <column name="WorldMovementScale" type="F32">
+      <offset>64</offset>
+      <default>1</default>
+    </column>
+    <column name="ClothBoneInfluenceExponent" type="F32">
+      <offset>68</offset>
+      <default>2</default>
+    </column>
+    <column name="ParticleCollisionRadius" type="F32">
+      <offset>72</offset>
+      <default>1045220557</default>
+    </column>
+    <column name="ParticleCollisionRadiusMax" type="F32">
+      <offset>76</offset>
+      <default>1045220557</default>
+    </column>
+    <column name="ParticleCollisionMaxSpeed" type="F32">
+      <offset>80</offset>
+      <default>1045220557</default>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

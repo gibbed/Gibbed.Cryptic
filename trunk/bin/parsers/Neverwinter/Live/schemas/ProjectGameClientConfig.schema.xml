@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ProjectGameClientConfig">
+  <table>
+    <column name="ProjectGameClientConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UseCapsuleBounds" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="UseFixedOverHead" type="U8">
+      <offset>1</offset>
+    </column>
+    <column name="HeightResetTime" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="LowHeightHoldTime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="LowHeightThreshold" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="HeightAdjustMentRate" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="BadSkeletonY" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="ChatNormalOffsetY" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="ChatNameOffsetY" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="MapMaxShowY" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="UseObjectCenterAsBoundingBoxForObjectGens" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="UseMapMaxShowY" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="ScreenBoundingAccelConfig" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="EntityScreenBoundingBoxAccelConfig" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

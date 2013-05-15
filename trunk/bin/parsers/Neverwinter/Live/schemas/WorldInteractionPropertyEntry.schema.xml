@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldInteractionPropertyEntry">
+  <table>
+    <column name="WorldInteractionPropertyEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="InteractionClass" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="InteractionDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>InteractionDef</dictionary_name>
+    </column>
+    <column name="OverrideInteract" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="OverrideVisibility" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="OverrideCategoryPriority" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="ExclusiveInteraction" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="UseExclusionFlag" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="AutoExecute" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="DisablePowersInterrupt" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="AllowDuringCombat" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="InteractConditionBlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="InteractCondition" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>InteractConditionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="AttemptableConditionBlock" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="AttemptableCondition" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AttemptableConditionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="SuccessConditionBlock" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="SuccessCondition" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SuccessConditionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Category" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Priority" type="INT">
+      <offset>28</offset>
+      <default>5</default>
+      <static_define_list external="WorldOptionalActionPriority" />
+    </column>
+    <column name="TimeProperties" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="WorldTimeInteractionProperties" />
+    </column>
+    <column name="ActionProperties" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="WorldActionInteractionProperties" />
+    </column>
+    <column name="AnimationProperties" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="WorldAnimationInteractionProperties" />
+    </column>
+    <column name="SoundProperties" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="WorldSoundInteractionProperties" />
+    </column>
+    <column name="TextProperties" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="WorldTextInteractionProperties" />
+    </column>
+    <column name="RewardProperties" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="WorldRewardInteractionProperties" />
+    </column>
+    <column name="MotionProperties" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="WorldMotionInteractionProperties" />
+    </column>
+    <column name="ContactProperties" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="WorldContactInteractionProperties" />
+    </column>
+    <column name="CraftingProperties" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="WorldCraftingInteractionProperties" />
+    </column>
+    <column name="DoorProperties" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <subtable external="WorldDoorInteractionProperties" />
+    </column>
+    <column name="AmbientJobProperties" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <subtable external="WorldAmbientJobInteractionProperties" />
+    </column>
+    <column name="GateProperties" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <subtable external="WorldGateInteractionProperties" />
+    </column>
+    <column name="ChairProperties" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <subtable external="WorldChairInteractionProperties" />
+    </column>
+    <column name="VisibleExpressionBlock" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="VisibleExpression" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>VisibleExpressionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="DestructibleProperties" type="OPTIONALSTRUCT">
+      <offset>88</offset>
+      <subtable external="WorldDestructibleInteractionProperties" />
+    </column>
+    <column name="InteractionCategory" type="IGNORE" />
+    <column name="End" type="END" />
+  </table>
+</parser>

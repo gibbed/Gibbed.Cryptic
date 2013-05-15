@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WLSubCostume">
+  <table>
+    <column name="WLSubCostume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hSubCostume" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>WLCostume</dictionary_name>
+    </column>
+    <column name="AttachmentBone" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

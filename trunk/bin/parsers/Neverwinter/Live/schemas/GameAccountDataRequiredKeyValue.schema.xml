@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameAccountDataRequiredKeyValue">
+  <table>
+    <column name="GameAccountDataRequiredKeyValue" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="SpecificStringValue" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="MinValue" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="MaxValue" type="INT">
+      <offset>12</offset>
+      <default>-1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

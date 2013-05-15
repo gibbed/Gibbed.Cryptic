@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AuctionConfig">
+  <table>
+    <column name="AuctionConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DefaultExpireTimeDays" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="DurationOption" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="AuctionDurationOption" />
+    </column>
+    <column name="AuctionDefaultPostingFee" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="AuctionMinimumPostingFee" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="AuctionDefaultSoldFee" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="DefaultAuctionPostsMaximum" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="BidExpirationExtensionInSeconds" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="BiddingIncrementalMultiplier" type="F32">
+      <offset>28</offset>
+      <default>1008981770</default>
+    </column>
+    <column name="AuctionsUsePostingFee" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="AllowCustomAuctionDurations" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="AuctionsUseSoldFee" type="U8">
+      <offset>34</offset>
+    </column>
+    <column name="BiddingEnabled" type="U8">
+      <offset>35</offset>
+    </column>
+    <column name="MailAllItemsAndCurrency" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="PersistOwnerNameAndHandleWithAuction" type="U8">
+      <offset>37</offset>
+    </column>
+    <column name="PersistItemNameWithAuction" type="U8">
+      <offset>38</offset>
+    </column>
+    <column name="HideOwnAuctionsInSearch" type="U8">
+      <offset>39</offset>
+    </column>
+    <column name="IncludeCurrencyInSoldEmail" type="U8">
+      <offset>40</offset>
+    </column>
+    <column name="ExpiredAuctionsCountTowardMaximum" type="U8">
+      <offset>41</offset>
+    </column>
+    <column name="RequiredCategoryForSearch" type="U8">
+      <offset>42</offset>
+    </column>
+    <column name="EnablePriceHistoryTracking" type="U8">
+      <offset>43</offset>
+    </column>
+    <column name="AllowContactlessAuctionHouse" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="PlayerRoamingFeeMultiplier" type="F32">
+      <offset>48</offset>
+      <default>1</default>
+    </column>
+    <column name="uMaximumAuctionPrice" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="CurrencyNumeric" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SearchableAttribs" type="INTARRAY">
+      <offset>60</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

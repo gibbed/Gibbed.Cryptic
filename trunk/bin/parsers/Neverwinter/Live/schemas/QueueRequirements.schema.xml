@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueRequirements">
+  <table>
+    <column name="QueueRequirements" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RequiredActivity" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RequiredEvent" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Requires" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="pRequires" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Requires</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="RequiredMission" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="MissionReqFlags" type="INT">
+      <offset>16</offset>
+      <static_define_list external="QueueMissionReq" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ClassRequired" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="CharacterClassRef" />
+    </column>
+    <column name="ClassCategoryRequired" type="INTARRAY">
+      <offset>24</offset>
+      <static_define_list external="CharClassCategory" />
+    </column>
+    <column name="RequiredGearRating" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="MissionReqNoAccess" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="RequireSameGuild" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="RequireGuild" type="BIT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RequireSameGuild</redundant_name>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="RequireAnyGuild" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="UnteamedQueuingOnly" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

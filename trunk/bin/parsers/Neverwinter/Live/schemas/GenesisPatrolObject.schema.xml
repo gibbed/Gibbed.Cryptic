@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisPatrolObject">
+  <table>
+    <column name="GenesisPatrolObject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="OwnerChallenge" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="GenesisObject" />
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="GenesisPatrolType" />
+    </column>
+    <column name="PathStartIsChallengePos" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="PathStart" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisPlacementParams" />
+    </column>
+    <column name="PathEnd" type="EMBEDDEDSTRUCT">
+      <offset>120</offset>
+      <subtable external="GenesisPlacementParams" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

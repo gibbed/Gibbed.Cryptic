@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerActivation">
+  <table>
+    <column name="PowerActivation" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Def" type="REFERENCE">
+      <offset>32</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="Period" type="INT">
+      <offset>116</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Pulse" type="INT">
+      <offset>116</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <redundant_name>Period</redundant_name>
+    </column>
+    <column name="CostPaid" type="F32">
+      <offset>144</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="CostPaidSecondary" type="F32">
+      <offset>148</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="PlayedImmuneFX" type="BIT">
+      <offset>224</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="TimerActivate" type="F32">
+      <offset>236</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="TimerRemainInQueue" type="F32">
+      <offset>240</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Charged" type="F32">
+      <offset>244</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ChargedTotal" type="F32">
+      <offset>248</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Maintained" type="F32">
+      <offset>252</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Activated" type="F32">
+      <offset>256</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Finished" type="F32">
+      <offset>260</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ChargeRequired" type="F32">
+      <offset>264</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ChargeRequiredCombo" type="F32">
+      <offset>268</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="LungeDistance" type="F32">
+      <offset>272</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ActHitTime" type="F32">
+      <offset>280</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

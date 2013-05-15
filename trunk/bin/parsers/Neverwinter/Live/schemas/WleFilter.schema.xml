@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WleFilter">
+  <table>
+    <column name="WleFilter" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ignoreNodeState" type="U8">
+      <offset>4</offset>
+      <default>1</default>
+    </column>
+    <column name="affectType" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="filterTargets" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Criteria" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="WleFilterCriterion" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

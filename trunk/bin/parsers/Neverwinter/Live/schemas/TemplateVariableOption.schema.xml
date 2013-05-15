@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TemplateVariableOption">
+  <table>
+    <column name="TemplateVariableOption" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Value" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="TemplateVariable" />
+    </column>
+    <column name="Weight" type="F32">
+      <offset>40</offset>
+      <default>1</default>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

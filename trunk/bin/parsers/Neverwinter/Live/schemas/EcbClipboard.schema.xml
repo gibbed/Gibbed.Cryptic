@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EcbClipboard">
+  <table>
+    <column name="EcbClipboard" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="clips" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="EcbClip" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

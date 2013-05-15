@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="JiraUserList">
+  <table>
+    <column name="JiraUserList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Users" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="JiraUser" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

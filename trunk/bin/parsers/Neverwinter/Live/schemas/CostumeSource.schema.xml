@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeSource">
+  <table>
+    <column name="CostumeSource" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Tag" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Costume" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="PlayerCostume" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="CostumeInput" type="STRINGARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Product" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="MicroTransactionUIProduct" />
+    </column>
+    <column name="ProductID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="CostumeSet" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PCCostumeSet" />
+    </column>
+    <column name="CostumeSetRef" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>PCCostumeSet</dictionary_name>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

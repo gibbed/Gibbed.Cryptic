@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ATRContainerArgDef">
+  <table>
+    <column name="ATRContainerArgDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ArgName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ArgIndex" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="AllowFullLock" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="ExpectedLocks" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Locks" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="ATRFixedUpLock" />
+    </column>
+    <column name="EarrayUses" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="ATRFixedUpEarrayUse" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

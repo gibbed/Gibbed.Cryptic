@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RewardTable">
+  <table>
+    <column name="RewardTable" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Notes" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Algorithm" type="INT">
+      <offset>16</offset>
+      <static_define_list external="RewardAlgorithm" />
+    </column>
+    <column name="NumChoices" type="INT">
+      <offset>20</offset>
+      <default>1</default>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>24</offset>
+      <static_define_list external="RewardFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="KillerType" type="INT">
+      <offset>28</offset>
+      <static_define_list external="RewardKillerType" />
+    </column>
+    <column name="ExecuteType" type="INT">
+      <offset>32</offset>
+      <static_define_list external="RewardExecuteType" />
+    </column>
+    <column name="PickupType" type="INT">
+      <offset>36</offset>
+      <static_define_list external="RewardPickupType" />
+    </column>
+    <column name="OwnerType" type="INT">
+      <offset>40</offset>
+      <default>1</default>
+      <static_define_list external="RewardOwnerType" />
+    </column>
+    <column name="LaunchType" type="INT">
+      <offset>44</offset>
+      <static_define_list external="RewardLaunchType" />
+    </column>
+    <column name="NumPicks" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="LingerTime" type="F32">
+      <offset>52</offset>
+      <default>300</default>
+    </column>
+    <column name="NotYoursCostume" type="REFERENCE">
+      <offset>56</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="YoursCostume" type="REFERENCE">
+      <offset>60</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="RewardEntry" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="RewardEntry" />
+    </column>
+    <column name="dummyVar" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="RewardDiffPowerScale" type="F32">
+      <offset>72</offset>
+      <default>1</default>
+    </column>
+    <column name="RewardTags" type="INTARRAY">
+      <offset>76</offset>
+      <static_define_list external="RewardTag" />
+    </column>
+    <column name="ShowRewardPackUI" type="BIT">
+      <offset>80</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="RewardPackOverallQuality" type="INT">
+      <offset>84</offset>
+      <default>-1</default>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="RewardGatedType" type="INT">
+      <offset>88</offset>
+      <static_define_list external="RewardGatedType" />
+    </column>
+    <column name="Tags" type="IGNORE" />
+    <column name="UGCProperties" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

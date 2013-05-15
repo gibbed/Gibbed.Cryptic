@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenScrollbarState">
+  <table>
+    <column name="UIGenScrollbarState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ScrollPosition" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="TotalHeight" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Top" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UITextureAssembly" />
+    </column>
+    <column name="Bottom" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UITextureAssembly" />
+    </column>
+    <column name="Handle" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UITextureAssembly" />
+    </column>
+    <column name="DraggingOffset" type="INT16">
+      <offset>20</offset>
+    </column>
+    <column name="Hysteresis" type="U8">
+      <offset>22</offset>
+    </column>
+    <column name="HideHandle" type="BIT">
+      <offset>20</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65560</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">0</format_string>
+      </format_strings>
+    </column>
+    <column name="Unneeded" type="BIT">
+      <offset>20</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65561</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">0</format_string>
+      </format_strings>
+    </column>
+    <column name="UseDisabled" type="BIT">
+      <offset>20</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65562</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">0</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

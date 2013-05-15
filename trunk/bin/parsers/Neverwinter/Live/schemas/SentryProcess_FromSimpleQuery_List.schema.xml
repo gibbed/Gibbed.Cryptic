@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SentryProcess_FromSimpleQuery_List">
+  <table>
+    <column name="SentryProcess_FromSimpleQuery_List" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MachineName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="QueryID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Succeeded" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="Processes" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="SentryProcess_FromSimpleQuery" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

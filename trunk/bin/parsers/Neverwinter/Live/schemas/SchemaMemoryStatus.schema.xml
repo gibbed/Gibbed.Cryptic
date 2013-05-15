@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SchemaMemoryStatus">
+  <table>
+    <column name="SchemaMemoryStatus" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="TotalSpace" type="INT64">
+      <offset>8</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
+    </column>
+    <column name="UsedSpace" type="INT64">
+      <offset>16</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
+    </column>
+    <column name="FreeSpace" type="INT64">
+      <offset>24</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
+    </column>
+    <column name="MemoryPools" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="ThreadSafeMemoryPool" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

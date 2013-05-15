@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MicroTrans_ShardConfig">
+  <table>
+    <column name="MicroTrans_ShardConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ShardCategory" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="MicroTrans_ShardCategory" />
+    </column>
+    <column name="Currency" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="ExchangeWithdrawCurrency" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="CurrencyExchangeForSaleBucket" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="CurrencyExchangeReadyToClaimBucket" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="FoundryTipBucket" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="PromoGameCurrencyBucket" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Prefix" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="CategoryPrefix" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Prefix</redundant_name>
+    </column>
+    <column name="MOTD" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="MicroTrans_MOTDConfig" />
+    </column>
+    <column name="PointBuyEnabled" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="SteamWalletEnabled" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

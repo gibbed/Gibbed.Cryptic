@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AIDebugLocRating">
+  <table>
+    <column name="AIDebugLocRating" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="arcDistance" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="clumping" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="softAvoid" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="avoidOccupiedPositions" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="stayTogether" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="flanking" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="targetShields" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="turnWeakShieldTo" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="turnStrongShieldTo" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="turnWeakShieldToMostDamage" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="preferArcLimitedLocations" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="yOffset" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="sameLocPenalty" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="rayCollResult" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="bestThisTick" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="combatPosSlotIndex" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="CombatPosSlot" type="F32FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

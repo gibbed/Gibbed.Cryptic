@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContactDialogOption">
+  <table>
+    <column name="ContactDialogOption" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="DisplayString" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="DialogFormatter" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>ContactDialogFormatterDef</dictionary_name>
+    </column>
+    <column name="Type" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ContactIndicator" />
+    </column>
+    <column name="NeedsConfirm" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="ConfirmHeader" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ConfirmText" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="IconName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="XPos" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="YPos" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="YouAreHere" type="U8">
+      <offset>44</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="WaypointHere" type="U8">
+      <offset>45</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="GoldenPathWaypointHere" type="U8">
+      <offset>46</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Recommended" type="U8">
+      <offset>47</offset>
+    </column>
+    <column name="ShowRewardChooser" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="uCooldownExpireTime" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="IsDefaultBackOption" type="U8">
+      <offset>56</offset>
+    </column>
+    <column name="Visited" type="U8">
+      <offset>57</offset>
+    </column>
+    <column name="CannotChoose" type="U8">
+      <offset>58</offset>
+    </column>
+    <column name="WasAppended" type="U8">
+      <offset>59</offset>
+    </column>
+    <column name="TeamMembersEligibleToSee" type="INTARRAY">
+      <offset>60</offset>
+    </column>
+    <column name="TeamMembersEligibleToInteract" type="INTARRAY">
+      <offset>64</offset>
+    </column>
+    <column name="data" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="ContactDialogOptionData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

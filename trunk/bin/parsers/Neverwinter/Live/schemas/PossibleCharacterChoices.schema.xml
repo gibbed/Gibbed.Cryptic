@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PossibleCharacterChoices">
+  <table>
+    <column name="PossibleCharacterChoices" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Retry" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="Choices" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PossibleCharacterChoice" />
+    </column>
+    <column name="Deleted" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="PossibleCharacterChoice" />
+    </column>
+    <column name="GameAccount" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="GameAccountData" />
+    </column>
+    <column name="hGAD" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>CopyDict_GameAccountData</dictionary_name>
+    </column>
+    <column name="Dirty" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="hasCompletedTutorial" type="U8">
+      <offset>21</offset>
+    </column>
+    <column name="UGCCharactersOnly" type="U8">
+      <offset>22</offset>
+    </column>
+    <column name="NumCharacterSlotsLeft" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="NumCharacterSlotsExtra" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="BaseUGCSlots" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="NumSuperPremiumLeft" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="AvailableCharSlots" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="AvailableCharSlots" />
+    </column>
+    <column name="unlockAllegianceFlags" type="INT">
+      <offset>44</offset>
+      <static_define_list external="UnlockedAllegianceFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="unlockCreateFlags" type="INT">
+      <offset>48</offset>
+      <static_define_list external="UnlockedCreateFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="unlockedSpecies" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="LoginSpeciesUnlockedRef" />
+    </column>
+    <column name="InitialLogin" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="VirtualShardsForNewCharacter" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="PossibleVirtualShard" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

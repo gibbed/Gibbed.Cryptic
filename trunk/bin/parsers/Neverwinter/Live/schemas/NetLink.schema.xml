@@ -1,0 +1,231 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NetLink">
+  <table>
+    <column name="NetLink" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">DebugName, Type, outbox, full_count, curr_sendbuf, stats.send.bytes, stats.recv.bytes</format_string>
+      </format_strings>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>20</offset>
+      <static_define_list external="LinkType" />
+    </column>
+    <column name="PushedType" type="INT">
+      <offset>24</offset>
+      <static_define_list external="LinkType" />
+    </column>
+    <column name="Flags" type="INT">
+      <offset>28</offset>
+      <static_define_list external="LinkFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="IDString" type="FIXEDSTRING">
+      <offset>36</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <string_length>12</string_length>
+    </column>
+    <column name="pak_id" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="protocol" type="BIT">
+      <offset>52</offset>
+      <bit_offset>262144</bit_offset>
+    </column>
+    <column name="Connected" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="Disconnected" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="user_disconnect" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="listening" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="no_compress" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="cleared_user_link_ptr" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="no_timeout" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="auto_ping" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="lost_user_data_ownership" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="notify_on_disconnect" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="not_trustworthy" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="called_linkFree" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="sent_sleep_alert" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="sendbuf_full" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="sendbuf_was_full" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="shuttingDown" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="sentResizeAlert" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="Error" type="STRING">
+      <offset>124</offset>
+    </column>
+    <column name="timeout" type="F32">
+      <offset>128</offset>
+    </column>
+    <column name="keep_alive_interval_seconds" type="INT">
+      <offset>132</offset>
+    </column>
+    <column name="keep_alive_prev_milliseconds" type="INT">
+      <offset>136</offset>
+    </column>
+    <column name="ping_recv_count" type="INT">
+      <offset>140</offset>
+    </column>
+    <column name="ping_ack_recv_count" type="INT">
+      <offset>144</offset>
+    </column>
+    <column name="compressed_bytes_recv_since_ping_ack" type="INT">
+      <offset>148</offset>
+    </column>
+    <column name="uncompressed_bytes_recv_since_ping_ack" type="INT">
+      <offset>152</offset>
+    </column>
+    <column name="max_sendbuf" type="INT">
+      <offset>156</offset>
+    </column>
+    <column name="max_recvbuf" type="INT">
+      <offset>160</offset>
+    </column>
+    <column name="bytesWaitingToRecv" type="INT">
+      <offset>164</offset>
+    </column>
+    <column name="curr_sendbuf" type="INT">
+      <offset>168</offset>
+    </column>
+    <column name="curr_recvbuf" type="INT">
+      <offset>172</offset>
+    </column>
+    <column name="wsaRecvResult" type="INT">
+      <offset>176</offset>
+    </column>
+    <column name="wsaRecvError" type="INT">
+      <offset>180</offset>
+    </column>
+    <column name="sendBytesSent" type="INT">
+      <offset>184</offset>
+    </column>
+    <column name="sendError" type="INT">
+      <offset>188</offset>
+    </column>
+    <column name="noMoreSending" type="INT">
+      <offset>192</offset>
+    </column>
+    <column name="full_count" type="INT">
+      <offset>196</offset>
+    </column>
+    <column name="outbox" type="INT">
+      <offset>200</offset>
+    </column>
+    <column name="flush_limit" type="INT">
+      <offset>204</offset>
+    </column>
+    <column name="Stats" type="EMBEDDEDSTRUCT">
+      <offset>216</offset>
+      <subtable external="LinkStats" />
+    </column>
+    <column name="lag" type="INT">
+      <offset>2340</offset>
+    </column>
+    <column name="lag_vary" type="INT">
+      <offset>2344</offset>
+    </column>
+    <column name="raw_data_left" type="INT">
+      <offset>2348</offset>
+    </column>
+    <column name="recv_seq_id" type="INT">
+      <offset>2352</offset>
+    </column>
+    <column name="sent_seq_id" type="INT">
+      <offset>2356</offset>
+    </column>
+    <column name="disconnect_timer" type="INT">
+      <offset>2360</offset>
+    </column>
+    <column name="disconnect_reason" type="STRING">
+      <offset>2364</offset>
+    </column>
+    <column name="deliberate_data_corruption_freq" type="INT">
+      <offset>2368</offset>
+    </column>
+    <column name="deliberate_packet_disconnect" type="INT">
+      <offset>2372</offset>
+    </column>
+    <column name="pktsize_max" type="INT">
+      <offset>2376</offset>
+    </column>
+    <column name="default_pktsize" type="INT">
+      <offset>2380</offset>
+    </column>
+    <column name="creationFile" type="STRING">
+      <offset>2384</offset>
+    </column>
+    <column name="creationLine" type="INT">
+      <offset>2388</offset>
+    </column>
+    <column name="received_abort_count" type="INT">
+      <offset>2392</offset>
+    </column>
+    <column name="DebugName" type="FIXEDSTRING">
+      <offset>2396</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="proxy_true_host" type="INT">
+      <offset>2548</offset>
+    </column>
+    <column name="proxy_true_port" type="INT16">
+      <offset>2552</offset>
+    </column>
+    <column name="ClientType" type="INT">
+      <offset>2556</offset>
+      <static_define_list external="ClientType" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

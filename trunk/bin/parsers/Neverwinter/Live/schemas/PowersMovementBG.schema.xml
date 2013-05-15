@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowersMovementBG">
+  <table>
+    <column name="PowersMovementBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Dir" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="hasanim" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="hasposition" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="hasrotation" type="U8">
+      <offset>14</offset>
+    </column>
+    <column name="BitsPendingMutable" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="PMBits" />
+    </column>
+    <column name="BitsStickyMutable" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="PMBits" />
+    </column>
+    <column name="ReleaseAnimMutable" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="PMReleaseAnim" />
+    </column>
+    <column name="FxPendingMutable" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="PMFx" />
+    </column>
+    <column name="FxStickyMutable" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="PMFx" />
+    </column>
+    <column name="MoveMutable" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="PMMove" />
+    </column>
+    <column name="IgnoresMutable" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="PMIgnore" />
+    </column>
+    <column name="animStartID" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="vecPush" type="F32FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="uiTimePush" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="erSelectedTarget" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="knockDown" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ignoringInput" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="rooted" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="Moving" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="stoppingMove" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="assumedOwnership" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

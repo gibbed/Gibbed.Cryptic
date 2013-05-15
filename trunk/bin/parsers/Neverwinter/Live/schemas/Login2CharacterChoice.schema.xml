@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Login2CharacterChoice">
+  <table>
+    <column name="Login2CharacterChoice" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContainerID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="AccountID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="OwnerType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="OwnerID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="createdTime" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Level" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="FixupVersion" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="lastPlayedTime" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="VirtualShardID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="shardName" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="pubAccountName" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="privAccountName" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="savedName" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="extraData1" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="extraData2" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="extraData3" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="extraData4" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="extraData5" type="STRING">
+      <offset>68</offset>
+    </column>
+    <column name="oldBadName" type="STRING">
+      <offset>72</offset>
+    </column>
+    <column name="isOffline" type="U8">
+      <offset>76</offset>
+    </column>
+    <column name="isDeleted" type="U8">
+      <offset>77</offset>
+    </column>
+    <column name="isUGCEditAllowed" type="U8">
+      <offset>78</offset>
+    </column>
+    <column name="hasBadName" type="U8">
+      <offset>79</offset>
+    </column>
+    <column name="detailRequested" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="detailReceived" type="U8">
+      <offset>81</offset>
+    </column>
+    <column name="isSaveLoginRecommended" type="U8">
+      <offset>82</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

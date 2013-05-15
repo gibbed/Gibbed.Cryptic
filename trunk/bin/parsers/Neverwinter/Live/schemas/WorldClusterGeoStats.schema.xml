@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldClusterGeoStats">
+  <table>
+    <column name="WorldClusterGeoStats" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="numMaterials" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="numTextures" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="numVertices" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="numTriangles" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="numMeshes" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="numMeshBytes" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

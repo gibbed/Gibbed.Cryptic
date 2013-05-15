@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RemoteContact">
+  <table>
+    <column name="RemoteContact" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContactDef" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="hDisplayNameMsg" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>8</offset>
+      <static_define_list external="ContactFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Priority" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Headshot" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="ContactHeadshotData" />
+    </column>
+    <column name="HeadshotRequested" type="U8">
+      <offset>24</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="IsNew" type="U8">
+      <offset>25</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="estrFormattedContactName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Options" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="RemoteContactOption" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

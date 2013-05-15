@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UgcAchievementsNotifyData">
+  <table>
+    <column name="UgcAchievementsNotifyData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="shardName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="EntContainerID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uUGCAuthorID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="uFromTime" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="uToTime" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

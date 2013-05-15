@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RecruitMods">
+  <table>
+    <column name="RecruitMods" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RecruitOrRecruiter" type="F32">
+      <offset>0</offset>
+      <default>1</default>
+    </column>
+    <column name="NewRecruitOrRecruiter" type="F32">
+      <offset>4</offset>
+      <default>1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

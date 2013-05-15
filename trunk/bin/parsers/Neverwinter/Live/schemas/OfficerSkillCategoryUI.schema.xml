@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OfficerSkillCategoryUI">
+  <table>
+    <column name="OfficerSkillCategoryUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Category" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="PTNodeUICategory" />
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="NodeList" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="PowerListNode" />
+    </column>
+    <column name="ListSize" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="RowCount" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="ColumnCount" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="AnyAvailable" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

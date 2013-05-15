@@ -1,0 +1,154 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCAchievementDef">
+  <table>
+    <column name="UGCAchievementDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NameDisplayMsg" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DescriptionDisplayMsg" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="GrantedNotificationDisplayMsg" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="SubAchievement" type="STRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UGCAchievementDef" />
+    </column>
+    <column name="UGCAchievementFilter" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="UGCAchievementClientFilter" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="MapCreated" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="UGCMapCreatedFilter" />
+    </column>
+    <column name="UGCAchievementServerFilter" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="PlayerReviewer" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="UGCPlayerReviewerFilter" />
+    </column>
+    <column name="ProjectPublished" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="UGCProjectPublishedFilter" />
+    </column>
+    <column name="SeriesPublished" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="UGCSeriesPublishedFilter" />
+    </column>
+    <column name="ProjectPlayed" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <subtable external="UGCProjectPlayedFilter" />
+    </column>
+    <column name="PlayedProject" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <subtable external="UGCPlayedProjectFilter" />
+    </column>
+    <column name="ProjectReviewed" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <subtable external="UGCProjectReviewedFilter" />
+    </column>
+    <column name="ReviewedProject" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <subtable external="UGCReviewedProjectFilter" />
+    </column>
+    <column name="ProjectTipped" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="UGCProjectTippedFilter" />
+    </column>
+    <column name="TippedProject" type="OPTIONALSTRUCT">
+      <offset>88</offset>
+      <subtable external="UGCTippedProjectFilter" />
+    </column>
+    <column name="ProjectFeatured" type="OPTIONALSTRUCT">
+      <offset>92</offset>
+      <subtable external="UGCProjectFeaturedFilter" />
+    </column>
+    <column name="AchievementGranted" type="OPTIONALSTRUCT">
+      <offset>96</offset>
+      <subtable external="UGCAchievementGrantedFilter" />
+    </column>
+    <column name="SeriesReviewed" type="OPTIONALSTRUCT">
+      <offset>100</offset>
+      <subtable external="UGCSeriesReviewedFilter" />
+    </column>
+    <column name="ReviewedSeries" type="OPTIONALSTRUCT">
+      <offset>104</offset>
+      <subtable external="UGCReviewedSeriesFilter" />
+    </column>
+    <column name="Hidden" type="U8">
+      <offset>108</offset>
+    </column>
+    <column name="Target" type="INT">
+      <offset>112</offset>
+      <default>1</default>
+    </column>
+    <column name="OrderedCounting" type="U8">
+      <offset>116</offset>
+    </column>
+    <column name="ConsecutiveHours" type="INT">
+      <offset>120</offset>
+    </column>
+    <column name="ConsecutiveMissCountResetMultiple" type="INT">
+      <offset>124</offset>
+    </column>
+    <column name="Repeatable" type="U8">
+      <offset>128</offset>
+    </column>
+    <column name="RepeatCooldownHours" type="INT">
+      <offset>132</offset>
+    </column>
+    <column name="RepeatCooldownBlockTime" type="U8">
+      <offset>136</offset>
+    </column>
+    <column name="RefString" type="STRING">
+      <offset>140</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

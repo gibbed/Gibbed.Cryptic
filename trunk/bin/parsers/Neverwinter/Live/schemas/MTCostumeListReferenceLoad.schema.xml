@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MTCostumeListReferenceLoad">
+  <table>
+    <column name="MTCostumeListReferenceLoad" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DefName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="uType" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="hMTDef" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>MicroTransactionDef</dictionary_name>
+    </column>
+    <column name="hCostume" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="hItemDef" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="hCostumeSet" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>PCCostumeSet</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisGeotype">
+  <table>
+    <column name="GenesisGeotype" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FileName" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="RoomData" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="GenesisGeotypeRoomData" />
+    </column>
+    <column name="NodeData" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="GenesisGeotypeNodeData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

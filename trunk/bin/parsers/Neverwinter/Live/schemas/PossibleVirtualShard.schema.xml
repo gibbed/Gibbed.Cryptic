@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PossibleVirtualShard">
+  <table>
+    <column name="PossibleVirtualShard" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContainerID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="UGCShard" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="Disabled" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="Available" type="U8">
+      <offset>10</offset>
+    </column>
+    <column name="NumCharacterSlotsLeft" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="NumCharacterSlotsExtra" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

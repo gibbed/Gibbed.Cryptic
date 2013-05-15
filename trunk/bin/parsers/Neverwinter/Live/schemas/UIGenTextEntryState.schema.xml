@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenTextEntryState">
+  <table>
+    <column name="UIGenTextEntryState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>7</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="Buffer" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALWAYS_ALLOC</flag>
+      </flags>
+      <subtable external="TextBuffer" />
+    </column>
+    <column name="ChatData" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="ChatData" />
+    </column>
+    <column name="CursorBundle" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="UIGenBundleTextureState" />
+    </column>
+    <column name="TextOffset" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="Timer" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="Selecting" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="String" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="SelectionStart" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="SelectionEnd" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="Cursor" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="BufferFilled" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="Truncate" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="UIGenBundleTruncateState" />
+    </column>
+    <column name="v2TextSize" type="F32FIXEDARRAY">
+      <offset>68</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="TextFont" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UIStyleFont" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

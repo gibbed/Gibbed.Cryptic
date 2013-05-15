@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MMRFxConstant">
+  <table>
+    <column name="MMRFxConstant" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="pmID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="pmSubID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="pmType" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="FxName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="erSource" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="erTarget" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="vecSource" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="vecTarget" type="F32FIXEDARRAY">
+      <offset>36</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="quatTarget" type="QUATPYR">
+      <offset>48</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Hue" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="Range" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="Arc" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="Yaw" type="F32">
+      <offset>76</offset>
+    </column>
+    <column name="nodeSelectionType" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="triggerID" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="wakeAfterThisManyPCs" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="noSourceEnt" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Miss" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="sendTrigger" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="waitForTrigger" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="triggerIsEntityID" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="useTargetNode" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="alwaysSelectSameNode" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="isFlashedFX" type="BIT">
+      <offset>92</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="fxParams" type="OPTIONALSTRUCT">
+      <offset>96</offset>
+      <subtable external="DynParamBlock" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

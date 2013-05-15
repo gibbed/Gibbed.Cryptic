@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCDialogTreePromptAction">
+  <table>
+    <column name="UGCDialogTreePromptAction" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Text" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="NextPromptID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="DismissAction" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="Style" type="INT">
+      <offset>12</offset>
+      <static_define_list external="UGCDialogTreePromptActionStyle" />
+    </column>
+    <column name="ShowWhen" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="UGCWhen" />
+    </column>
+    <column name="HideWhen" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="UGCWhen" />
+    </column>
+    <column name="EnabledCheckedAttrib" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="UGCCheckedAttrib" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

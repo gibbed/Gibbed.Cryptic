@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynDrawParticle">
+  <table>
+    <column name="DynDrawParticle" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Node" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="DynNode" />
+    </column>
+    <column name="Velocity" type="F32FIXEDARRAY">
+      <offset>128</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Spin" type="F32FIXEDARRAY">
+      <offset>140</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Color" type="F32FIXEDARRAY">
+      <offset>152</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="HSVShift" type="F32FIXEDARRAY">
+      <offset>168</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="SpriteOrientation" type="F32">
+      <offset>180</offset>
+    </column>
+    <column name="SpriteSpin" type="F32">
+      <offset>184</offset>
+    </column>
+    <column name="Drag" type="F32">
+      <offset>188</offset>
+    </column>
+    <column name="Gravity" type="F32">
+      <offset>192</offset>
+    </column>
+    <column name="TightenUp" type="F32">
+      <offset>196</offset>
+    </column>
+    <column name="BlendMode" type="INT">
+      <offset>200</offset>
+    </column>
+    <column name="StreakScale" type="F32">
+      <offset>204</offset>
+    </column>
+    <column name="StreakMode" type="INT">
+      <offset>208</offset>
+    </column>
+    <column name="StreakDir" type="F32FIXEDARRAY">
+      <offset>212</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Scale" type="F32FIXEDARRAY">
+      <offset>224</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TexOffset" type="F32FIXEDARRAY">
+      <offset>236</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="TexScale" type="F32FIXEDARRAY">
+      <offset>244</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="TextureName" type="STRING">
+      <offset>252</offset>
+    </column>
+    <column name="TextureName2" type="STRING">
+      <offset>256</offset>
+    </column>
+    <column name="MaterialName" type="STRING">
+      <offset>260</offset>
+    </column>
+    <column name="GeoDissolveMaterialName" type="STRING">
+      <offset>264</offset>
+    </column>
+    <column name="ppcGeoAddMaterialNames" type="STRINGARRAY">
+      <offset>268</offset>
+    </column>
+    <column name="Material2Name" type="STRING">
+      <offset>272</offset>
+    </column>
+    <column name="ModelName" type="STRING">
+      <offset>276</offset>
+    </column>
+    <column name="ClothName" type="STRING">
+      <offset>280</offset>
+    </column>
+    <column name="ClothInfo" type="STRING">
+      <offset>284</offset>
+    </column>
+    <column name="ClothCollisionInfo" type="STRING">
+      <offset>288</offset>
+    </column>
+    <column name="BoneForCostumeModelGrab" type="STRING">
+      <offset>292</offset>
+    </column>
+    <column name="UseSpriteSpin" type="U8">
+      <offset>368</offset>
+    </column>
+    <column name="BaseSkeleton" type="STRING">
+      <offset>412</offset>
+    </column>
+    <column name="GoToSpeed" type="F32">
+      <offset>420</offset>
+    </column>
+    <column name="GoToGravity" type="F32">
+      <offset>424</offset>
+    </column>
+    <column name="GoToGravityFalloff" type="F32">
+      <offset>428</offset>
+    </column>
+    <column name="GoToApproachSpeed" type="F32">
+      <offset>432</offset>
+    </column>
+    <column name="GoToSpringEquilibrium" type="F32">
+      <offset>436</offset>
+    </column>
+    <column name="GoToSpringConstant" type="F32">
+      <offset>440</offset>
+    </column>
+    <column name="ParentVelocityOffset" type="F32">
+      <offset>444</offset>
+    </column>
+    <column name="HueShift" type="F32">
+      <offset>448</offset>
+    </column>
+    <column name="SaturationShift" type="F32">
+      <offset>452</offset>
+    </column>
+    <column name="ValueShift" type="F32">
+      <offset>456</offset>
+    </column>
+    <column name="Color1" type="F32FIXEDARRAY">
+      <offset>460</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color2" type="F32FIXEDARRAY">
+      <offset>476</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Color3" type="F32FIXEDARRAY">
+      <offset>492</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="EntLightMode" type="INT">
+      <offset>508</offset>
+    </column>
+    <column name="EntMaterial" type="INT">
+      <offset>512</offset>
+    </column>
+    <column name="EntTintMode" type="INT">
+      <offset>516</offset>
+    </column>
+    <column name="EntScaleMode" type="INT">
+      <offset>520</offset>
+    </column>
+    <column name="Oriented" type="INT">
+      <offset>524</offset>
+    </column>
+    <column name="HInvert" type="U8">
+      <offset>528</offset>
+    </column>
+    <column name="VInvert" type="U8">
+      <offset>529</offset>
+    </column>
+    <column name="FixedAspectRatio" type="U8">
+      <offset>530</offset>
+    </column>
+    <column name="LocalOrientation" type="U8">
+      <offset>531</offset>
+    </column>
+    <column name="VelocityDriveOrientation" type="U8">
+      <offset>532</offset>
+    </column>
+    <column name="StreakTile" type="U8">
+      <offset>533</offset>
+    </column>
+    <column name="CastShadows" type="U8">
+      <offset>534</offset>
+    </column>
+    <column name="ClothCollide" type="U8">
+      <offset>535</offset>
+    </column>
+    <column name="ClothCollideSelfOnly" type="U8">
+      <offset>536</offset>
+    </column>
+    <column name="ExplicitlyInstanceable" type="U8">
+      <offset>537</offset>
+    </column>
+    <column name="TexWords" type="STRING">
+      <offset>548</offset>
+    </column>
+    <column name="ClothWindOverride" type="F32FIXEDARRAY">
+      <offset>552</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="UseClothWindOverride" type="U8">
+      <offset>564</offset>
+    </column>
+    <column name="LightModulation" type="F32">
+      <offset>568</offset>
+    </column>
+    <column name="ExtraTextureSwaps" type="STRINGARRAY">
+      <offset>572</offset>
+    </column>
+    <column name="DrawOffset" type="F32FIXEDARRAY">
+      <offset>580</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

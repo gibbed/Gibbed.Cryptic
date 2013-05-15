@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContainerRepositoryInfo">
+  <table>
+    <column name="ContainerRepositoryInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LastSequenceNumber" type="INT64">
+      <offset>0</offset>
+    </column>
+    <column name="LastTimeStamp" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="CurrentSequenceNumber" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="CurrentTimeStamp" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="BaseContainerID" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="MaxContainerID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="RepositoryTypeInfo" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="ContainerRepositoryTypeInfo" />
+    </column>
+    <column name="DeletedContainers" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

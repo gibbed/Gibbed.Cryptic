@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyColorCurve">
+  <table>
+    <column name="SkyColorCurve" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Point_0" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Point_1" type="F32FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Point_2" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Point_3" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="EndCurve" type="END" />
+  </table>
+</parser>

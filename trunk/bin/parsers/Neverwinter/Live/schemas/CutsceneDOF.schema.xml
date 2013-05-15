@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CutsceneDOF">
+  <table>
+    <column name="CutsceneDOF" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="nearDist" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="nearValue" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="focusDist" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="focusValue" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="FarDist" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="farValue" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="fade_in" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="fade_in_rate" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="fade_out" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="fade_out_rate" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="blurSize" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

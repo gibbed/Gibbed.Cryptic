@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Event">
+  <table>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="KeyFrame" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="KeyFrame" />
+    </column>
+    <column name="MatConstRename" type="STRUCT">
+      <offset>136</offset>
+      <subtable external="DynMNCRename" />
+    </column>
+    <column name="ContinuingFX" type="BOOLFLAG">
+      <offset>152</offset>
+    </column>
+    <column name="Loop" type="BOOLFLAG">
+      <offset>155</offset>
+    </column>
+    <column name="TriggerOnce" type="BOOLFLAG">
+      <offset>153</offset>
+    </column>
+    <column name="AutoTriggerTime" type="F32">
+      <offset>148</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

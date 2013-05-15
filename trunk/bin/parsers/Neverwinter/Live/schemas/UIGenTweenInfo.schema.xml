@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenTweenInfo">
+  <table>
+    <column name="UIGenTweenInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <static_define_list external="UITweenType" />
+    </column>
+    <column name="TotalTime" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="TimeBetweenCycles" type="F32">
+      <offset>8</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="TweenBox" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="UIGenTweenBoxInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

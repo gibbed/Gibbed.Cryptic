@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GfxCameraView">
+  <table>
+    <column name="GfxCameraView" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="SkyUpdateTimestamp" type="INT">
+      <offset>708</offset>
+    </column>
+    <column name="ClearColor" type="F32FIXEDARRAY">
+      <offset>712</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="InWaterCompletelyDistance" type="F32">
+      <offset>732</offset>
+    </column>
+    <column name="WaterPlanePosition" type="F32FIXEDARRAY">
+      <offset>736</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="InWaterCompletelyFadeTime" type="F32">
+      <offset>748</offset>
+    </column>
+    <column name="LastLightRangeUpdateTime" type="INT">
+      <offset>752</offset>
+    </column>
+    <column name="ExposureTransform" type="F32FIXEDARRAY">
+      <offset>756</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="DesiredLightRange" type="F32">
+      <offset>772</offset>
+    </column>
+    <column name="AdaptedLightRange" type="F32">
+      <offset>776</offset>
+    </column>
+    <column name="AdaptedLightRangeInited" type="U8">
+      <offset>780</offset>
+    </column>
+    <column name="CanSeeOutdoors" type="U8">
+      <offset>781</offset>
+    </column>
+    <column name="avgluminancequery" type="EMBEDDEDSTRUCT">
+      <offset>784</offset>
+      <subtable external="GfxRunningQuery" />
+    </column>
+    <column name="hdrpointquery" type="EMBEDDEDSTRUCT">
+      <offset>836</offset>
+      <subtable external="GfxRunningQuery" />
+    </column>
+    <column name="EndCameraView" type="END" />
+  </table>
+</parser>

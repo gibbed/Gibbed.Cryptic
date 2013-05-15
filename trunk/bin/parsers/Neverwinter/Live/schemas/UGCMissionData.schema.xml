@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCMissionData">
+  <table>
+    <column name="UGCMissionData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="bCreatedByAccount" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bStatsQualifyForUGCRewards" type="U8">
+      <offset>1</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iNumberOfPlays" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fAverageDurationInMinutes" type="F32">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bProjectIsFeatured" type="U8">
+      <offset>12</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bProjectWasFeatured" type="U8">
+      <offset>13</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bPlayingAsBetaReviewer" type="U8">
+      <offset>14</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fPlayingTimeInMinutes" type="F32">
+      <offset>16</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iFeaturedStartTimestamp" type="IGNORE" />
+    <column name="iFeaturedEndTimestamp" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ModelDraw">
+  <table>
+    <column name="ModelDraw" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="lod_idx" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="ref_count" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="UID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

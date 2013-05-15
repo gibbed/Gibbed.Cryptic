@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TeamUpRequest">
+  <table>
+    <column name="TeamUpRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uTeamID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="msgDisplayMessage" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="State" type="INT">
+      <offset>16</offset>
+      <static_define_list external="TeamUpState" />
+    </column>
+    <column name="GroupIndex" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Groups" type="STRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <subtable external="TeamUpGroup" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

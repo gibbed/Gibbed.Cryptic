@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldCellParsed">
+  <table>
+    <column name="WorldCellParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="is_empty" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="no_drawables" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="no_collision" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="contain_cluster" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="block_range" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="BlockRange" />
+    </column>
+    <column name="draw_min" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="draw_max" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="coll_min" type="F32FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="coll_max" type="F32FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="bounds_min" type="F32FIXEDARRAY">
+      <offset>76</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="bounds_max" type="F32FIXEDARRAY">
+      <offset>88</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="cell_id" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

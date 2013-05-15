@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShieldParams">
+  <table>
+    <column name="ShieldParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1205</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Attrib" type="INT">
+      <offset>4</offset>
+      <default>-1</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="ExprBlockMaxDamageAbsorbed" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="PercentIgnored" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="PercentDamageIgnored" type="F32">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PercentIgnored</redundant_name>
+    </column>
+    <column name="Charges" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Priority" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="HitFX" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScaleMaxAbsorbedByProportion" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="DamageCredit" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="DamageTriggersTrackers" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

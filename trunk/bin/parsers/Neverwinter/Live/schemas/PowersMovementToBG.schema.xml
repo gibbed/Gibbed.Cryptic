@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowersMovementToBG">
+  <table>
+    <column name="PowersMovementToBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="BitsCancels" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PMBits" />
+    </column>
+    <column name="BitsUpdates" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PMBits" />
+    </column>
+    <column name="ReleaseAnim" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="PMReleaseAnim" />
+    </column>
+    <column name="FxCancels" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="PMFx" />
+    </column>
+    <column name="FxUpdates" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="PMFx" />
+    </column>
+    <column name="HitReacts" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="PMHitReact" />
+    </column>
+    <column name="Move" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="PMMove" />
+    </column>
+    <column name="Ignores" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="PMIgnore" />
+    </column>
+    <column name="ConstantForces" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="PMConstantForce" />
+    </column>
+    <column name="vecPush" type="F32FIXEDARRAY">
+      <offset>36</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="uiTimePush" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="erSelectedTarget" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="lurchUpdate" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="PowersMovementLurchUpdate" />
+    </column>
+    <column name="TargetUpdate" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="reset" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

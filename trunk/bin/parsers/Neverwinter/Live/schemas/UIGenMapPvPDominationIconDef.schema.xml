@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMapPvPDominationIconDef">
+  <table>
+    <column name="UIGenMapPvPDominationIconDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="unowned" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="UIGenMapIconDef" />
+    </column>
+    <column name="unownedContestedFriendly" type="EMBEDDEDSTRUCT">
+      <offset>88</offset>
+      <subtable external="UIGenMapIconDef" />
+    </column>
+    <column name="unownedContestedEnemy" type="EMBEDDEDSTRUCT">
+      <offset>176</offset>
+      <subtable external="UIGenMapIconDef" />
+    </column>
+    <column name="ownedFriendly" type="EMBEDDEDSTRUCT">
+      <offset>264</offset>
+      <subtable external="UIGenMapIconDef" />
+    </column>
+    <column name="ownedEnemy" type="EMBEDDEDSTRUCT">
+      <offset>352</offset>
+      <subtable external="UIGenMapIconDef" />
+    </column>
+    <column name="ownedFriendlyContested" type="EMBEDDEDSTRUCT">
+      <offset>440</offset>
+      <subtable external="UIGenMapIconDef" />
+    </column>
+    <column name="ownedEnemyContested" type="EMBEDDEDSTRUCT">
+      <offset>528</offset>
+      <subtable external="UIGenMapIconDef" />
+    </column>
+    <column name="Group1Faction" type="STRING">
+      <offset>616</offset>
+    </column>
+    <column name="Group2Faction" type="STRING">
+      <offset>620</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

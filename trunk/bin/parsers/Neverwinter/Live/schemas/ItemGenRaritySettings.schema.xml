@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemGenRaritySettings">
+  <table>
+    <column name="ItemGenRaritySettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Rarity" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ItemGenRarityData" />
+    </column>
+    <column name="ItemRarityName" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Rarity</redundant_name>
+      <subtable external="ItemGenRarityData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

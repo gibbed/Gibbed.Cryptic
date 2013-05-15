@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Login2CharacterSelectionData">
+  <table>
+    <column name="Login2CharacterSelectionData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="publicAccountName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="privateAccountName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="characterChoices" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Login2CharacterChoices" />
+    </column>
+    <column name="AvailableCharSlots" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="AvailableCharSlots" />
+    </column>
+    <column name="virtualShardInfos" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="PossibleVirtualShard" />
+    </column>
+    <column name="unlockAllegianceFlags" type="INT">
+      <offset>24</offset>
+      <static_define_list external="UnlockedAllegianceFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="unlockCreateFlags" type="INT">
+      <offset>28</offset>
+      <static_define_list external="UnlockedCreateFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="unlockedSpecies" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="LoginSpeciesUnlockedRef" />
+    </column>
+    <column name="hGameAccountData" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>CopyDict_GameAccountData</dictionary_name>
+    </column>
+    <column name="UGCLoginOnly" type="U8">
+      <offset>40</offset>
+    </column>
+    <column name="hasCompletedTutorial" type="U8">
+      <offset>41</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

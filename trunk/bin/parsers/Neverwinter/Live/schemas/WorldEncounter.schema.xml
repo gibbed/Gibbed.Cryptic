@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldEncounter">
+  <table>
+    <column name="WorldEncounter" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="common_data" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldEncounterObject" />
+    </column>
+    <column name="Properties" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="WorldEncounterProperties" />
+    </column>
+    <column name="encounter_pos" type="F32FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="encounter_rot" type="QUATPYR">
+      <offset>64</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

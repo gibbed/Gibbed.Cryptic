@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GeoMemUsageEntry">
+  <table>
+    <column name="GeoMemUsageEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FileName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="vid_mem" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="sys_mem_packed" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="sys_mem_unpacked" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="total_mem" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="verts" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="tris" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="sub_objects" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="countInScene" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="uniqueInScene" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="trisInScene" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="far_dist" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="uv_density" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="recent" type="U8">
+      <offset>56</offset>
+    </column>
+    <column name="Shared" type="U8">
+      <offset>57</offset>
+    </column>
+    <column name="lod_template_name" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionRequirements">
+  <table>
+    <column name="GenesisMissionRequirements" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="messageFilename" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="RoomRequirement" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="GenesisMissionRoomRequirements" />
+    </column>
+    <column name="ChallengeRequirement" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisMissionChallengeRequirements" />
+    </column>
+    <column name="ExtraVolume" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="GenesisMissionExtraVolume" />
+    </column>
+    <column name="Params" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="GenesisProceduralObjectParams" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

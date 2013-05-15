@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RewardBagInfo">
+  <table>
+    <column name="RewardBagInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Flags" type="INT">
+      <offset>0</offset>
+      <static_define_list external="RewardFlag" />
+    </column>
+    <column name="ExecuteType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="RewardExecuteType" />
+    </column>
+    <column name="PickupType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="RewardPickupType" />
+    </column>
+    <column name="OwnerType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="RewardOwnerType" />
+    </column>
+    <column name="LaunchType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="RewardLaunchType" />
+    </column>
+    <column name="LingerTime" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="NumPicks" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="loot_mode" type="INT">
+      <offset>28</offset>
+      <static_define_list external="LootMode" />
+    </column>
+    <column name="LootModeThreshold" type="INT">
+      <offset>32</offset>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="Rank" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RewardTable" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LevelDelta" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="nextID" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="ShowRewardPackUI" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="RewardPackOverallQuality" type="INT">
+      <offset>56</offset>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="peaLootOwners" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="CritterLootOwner" />
+    </column>
+    <column name="NotYoursCostume" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="YoursCostume" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

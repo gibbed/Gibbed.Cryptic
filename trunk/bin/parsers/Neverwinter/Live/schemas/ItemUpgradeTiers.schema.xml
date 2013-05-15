@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemUpgradeTiers">
+  <table>
+    <column name="ItemUpgradeTiers" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Level" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Chance" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="ExprChance" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprChanceBlock" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprChance</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="chanceExpr" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprChance</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ExprUpgradeChance" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprUpgradeChanceBlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprUpgradeChance</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="UpgradeSkillChanceExpr" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprUpgradeChance</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ItemsRequired" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="RankString" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

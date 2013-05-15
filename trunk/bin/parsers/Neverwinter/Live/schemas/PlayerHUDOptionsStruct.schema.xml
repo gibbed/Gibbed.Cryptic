@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerHUDOptionsStruct">
+  <table>
+    <column name="PlayerHUDOptionsStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="HUDOptions" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PlayerHUDOptions" />
+    </column>
+    <column name="PowerModeOptions" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PlayerHUDOptionsPowerMode" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

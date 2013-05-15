@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenBundleTextureState">
+  <table>
+    <column name="UIGenBundleTextureState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="BasicTexture" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="BasicTextureOverride" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <redundant_name>BasicTexture</redundant_name>
+      <subtable external="BasicTexture" />
+    </column>
+    <column name="AnimState" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="UIGenBundleTextureAnimationState" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

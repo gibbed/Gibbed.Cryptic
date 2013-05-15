@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCMissionObjective">
+  <table>
+    <column name="UGCMissionObjective" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="UGCMissionObjectiveType" />
+    </column>
+    <column name="UIString" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="WaypointMode" type="INT">
+      <offset>12</offset>
+      <static_define_list external="UGCWaypointMode" />
+    </column>
+    <column name="ComponentMapName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ComponentIsExternal" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="ComponentID" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="ExtraComponentID" type="INTARRAY">
+      <offset>28</offset>
+    </column>
+    <column name="Children" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="UGCMissionObjective" />
+    </column>
+    <column name="SuccessFloaterText" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="sInteractProps" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="InteractText" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="InteractFailureText" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="InteractAnim" type="REFERENCE">
+      <offset>48</offset>
+      <dictionary_name>AIAnimList</dictionary_name>
+    </column>
+    <column name="InteractDuration" type="INT">
+      <offset>52</offset>
+      <default>2</default>
+      <static_define_list external="UGCInteractDuration" />
+    </column>
+    <column name="SucceedCheckedAttrib" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="UGCCheckedAttrib" />
+    </column>
+    <column name="InteractTakesItem" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="DropItem" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="ParentID" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

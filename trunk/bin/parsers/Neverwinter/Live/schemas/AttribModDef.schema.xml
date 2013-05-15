@@ -1,0 +1,727 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribModDef">
+  <table>
+    <column name="AttribModDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Attrib" type="INT">
+      <offset>0</offset>
+      <default>-1</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Aspect" type="INT">
+      <offset>4</offset>
+      <default>-1</default>
+      <static_define_list external="AttribAspect" />
+    </column>
+    <column name="Params" type="OPTIONALPOLYMORPH">
+      <offset>8</offset>
+      <subtable>
+        <table>
+          <column name="AIAggroTotalScaleParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AIAggroTotalScaleParams" />
+          </column>
+          <column name="AIAvoidParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AIAvoidParams" />
+          </column>
+          <column name="AICommandParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AICommandParams" />
+          </column>
+          <column name="AISoftAvoidParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AISoftAvoidParams" />
+          </column>
+          <column name="ApplyPowerParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="ApplyPowerParams" />
+          </column>
+          <column name="AttribModDamageParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AttribModDamageParams" />
+          </column>
+          <column name="AttribModExpireParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AttribModExpireParams" />
+          </column>
+          <column name="AttribModFragilityScaleParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AttribModFragilityScaleParams" />
+          </column>
+          <column name="AttribModHealParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AttribModHealParams" />
+          </column>
+          <column name="AttribModKnockbackParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AttribModKnockbackParams" />
+          </column>
+          <column name="AttribModKnockupParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AttribModKnockupParams" />
+          </column>
+          <column name="AttribModShareParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AttribModShareParams" />
+          </column>
+          <column name="AttribOverrideParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="AttribOverrideParams" />
+          </column>
+          <column name="BecomeCritterParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="BecomeCritterParams" />
+          </column>
+          <column name="CombatAdvantageParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="CombatAdvantageParams" />
+          </column>
+          <column name="ConstantForceParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="ConstantForceParams" />
+          </column>
+          <column name="DamageTriggerParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="DamageTriggerParams" />
+          </column>
+          <column name="DisableTacticalMovementParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="DisableTacticalMovementParams" />
+          </column>
+          <column name="DynamicAttribParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="DynamicAttribParams" />
+          </column>
+          <column name="EntAttachParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="EntAttachParams" />
+          </column>
+          <column name="EntCreateParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="EntCreateParams" />
+          </column>
+          <column name="EntCreateVanityParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="EntCreateVanityParams" />
+          </column>
+          <column name="FactionParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="FactionParams" />
+          </column>
+          <column name="FlagParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="FlagParams" />
+          </column>
+          <column name="FlightParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="FlightParams" />
+          </column>
+          <column name="GrantPowerParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="GrantPowerParams" />
+          </column>
+          <column name="GrantRewardParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="GrantRewardParams" />
+          </column>
+          <column name="IncludeEnhancementParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="IncludeEnhancementParams" />
+          </column>
+          <column name="InterruptParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="InterruptParams" />
+          </column>
+          <column name="ItemDurabilityParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="ItemDurabilityParams" />
+          </column>
+          <column name="KillParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="KillParams" />
+          </column>
+          <column name="KillTriggerParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="KillTriggerParams" />
+          </column>
+          <column name="KnockToParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="KnockToParams" />
+          </column>
+          <column name="MissionEventParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="MissionEventParams" />
+          </column>
+          <column name="ModifyCostumeParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="ModifyCostumeParams" />
+          </column>
+          <column name="NotifyParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="NotifyParams" />
+          </column>
+          <column name="PVPFlagParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="PVPFlagParams" />
+          </column>
+          <column name="PVPSpecialActionParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="PVPSpecialActionParams" />
+          </column>
+          <column name="PlacateParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="PlacateParams" />
+          </column>
+          <column name="PowerModeParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="PowerModeParams" />
+          </column>
+          <column name="PowerRechargeParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="PowerRechargeParams" />
+          </column>
+          <column name="PowerShieldParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="PowerShieldParams" />
+          </column>
+          <column name="ProjectileCreateParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="ProjectileCreateParams" />
+          </column>
+          <column name="RemovePowerParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="RemovePowerParams" />
+          </column>
+          <column name="RewardModifierParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="RewardModifierParams" />
+          </column>
+          <column name="SetCostumeParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="SetCostumeParams" />
+          </column>
+          <column name="ShieldParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="ShieldParams" />
+          </column>
+          <column name="SpeedCooldownParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="SpeedCooldownParams" />
+          </column>
+          <column name="SubtargetSetParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="SubtargetSetParams" />
+          </column>
+          <column name="SwingingParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="SwingingParams" />
+          </column>
+          <column name="TeleThrowParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="TeleThrowParams" />
+          </column>
+          <column name="TeleportParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="TeleportParams" />
+          </column>
+          <column name="TriggerComplexParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="TriggerComplexParams" />
+          </column>
+          <column name="TriggerSimpleParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="TriggerSimpleParams" />
+          </column>
+          <column name="WarpToParams" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="WarpToParams" />
+          </column>
+        </table>
+      </subtable>
+    </column>
+    <column name="Tags" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="PowerTagsStruct" />
+    </column>
+    <column type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="ApplyPriority" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="Key" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="ExprBlockDuration" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprDurationBlock" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockDuration</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprDuration" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockDuration</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ExprBlockMagnitude" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprMagnitudeBlock" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockMagnitude</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprMagnitude" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockMagnitude</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="TableDefault" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Variance" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="Fragility" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="ModDefFragility" />
+    </column>
+    <column name="Sensitivity" type="INTARRAY">
+      <offset>52</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="SensitivityStrength" type="F32">
+      <offset>56</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="SensitivityResistance" type="F32">
+      <offset>60</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="SensitivityImmune" type="F32">
+      <offset>64</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="Delay" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="Period" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="ExprBlockRequires" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprRequiresBlock" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockRequires</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprRequires" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockRequires</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ExprBlockAffects" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprAffectsBlock" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockAffects</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprAffects" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockAffects</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ArcAffects" type="F32">
+      <offset>84</offset>
+    </column>
+    <column name="Yaw" type="F32">
+      <offset>88</offset>
+    </column>
+    <column name="ExprChanceBlock" type="OPTIONALSTRUCT">
+      <offset>92</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Chance" type="OPTIONALSTRUCT">
+      <offset>92</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprChanceBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="CombatEvents" type="INTARRAY">
+      <offset>96</offset>
+      <static_define_list external="CombatEvent" />
+    </column>
+    <column name="CombatEventTime" type="F32">
+      <offset>100</offset>
+    </column>
+    <column name="Expiration" type="OPTIONALSTRUCT">
+      <offset>104</offset>
+      <subtable external="ModExpiration" />
+    </column>
+    <column name="StackLimit" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="AnimFX" type="OPTIONALSTRUCT">
+      <offset>112</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="AttribModAnimFX" />
+    </column>
+    <column name="ContinuingBits" type="STRINGARRAY">
+      <offset>116</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="StanceWord" type="STRINGARRAY">
+      <offset>120</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="AnimKeyword" type="STRING">
+      <offset>124</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ContinuingFX" type="STRINGARRAY">
+      <offset>128</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ContinuingFXParamBlock" type="STRUCT">
+      <offset>132</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="ContinuingFxParam" type="STRUCT">
+      <offset>132</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <redundant_name>ContinuingFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="ConditionalBits" type="STRINGARRAY">
+      <offset>136</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ConditionalFX" type="STRINGARRAY">
+      <offset>140</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ConditionalFXParamBlock" type="STRUCT">
+      <offset>144</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="PowerFXParam" />
+    </column>
+    <column name="ConditionalFxParam" type="STRUCT">
+      <offset>144</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <redundant_name>ConditionalFXParamBlock</redundant_name>
+      <subtable external="PowerFXParam_StructParam" />
+    </column>
+    <column name="msgAutoDesc" type="EMBEDDEDSTRUCT">
+      <offset>148</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="AutoDescKey" type="BIT">
+      <offset>160</offset>
+      <bit_offset>393216</bit_offset>
+    </column>
+    <column name="Target" type="BIT">
+      <offset>160</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>524294</bit_offset>
+      <static_define_list external="ModTarget" />
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">2</format_string>
+      </format_strings>
+    </column>
+    <column name="Type" type="BIT">
+      <offset>160</offset>
+      <bit_offset>524302</bit_offset>
+      <static_define_list external="ModType" />
+    </column>
+    <column name="HitTest" type="BIT">
+      <offset>160</offset>
+      <bit_offset>196630</bit_offset>
+      <static_define_list external="ModHitTest" />
+    </column>
+    <column name="Flags" type="BIT">
+      <offset>164</offset>
+      <bit_offset>1048576</bit_offset>
+      <static_define_list external="CombatTrackerFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Error" type="BIT">
+      <offset>164</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>1048592</bit_offset>
+      <static_define_list external="PowerError" />
+    </column>
+    <column name="CombatEventResponse" type="BIT">
+      <offset>168</offset>
+      <bit_offset>524288</bit_offset>
+      <static_define_list external="CombatEventResponse" />
+    </column>
+    <column name="StackEntity" type="BIT">
+      <offset>168</offset>
+      <bit_offset>196616</bit_offset>
+      <static_define_list external="StackEntity" />
+    </column>
+    <column name="Stack" type="BIT">
+      <offset>168</offset>
+      <bit_offset>524299</bit_offset>
+      <static_define_list external="StackType" />
+    </column>
+    <column name="StackGroup" type="BIT">
+      <offset>168</offset>
+      <bit_offset>524307</bit_offset>
+      <static_define_list external="ModStackGroup" />
+    </column>
+    <column name="StackGroupPending" type="BIT">
+      <offset>172</offset>
+      <bit_offset>524288</bit_offset>
+      <static_define_list external="ModStackGroup" />
+    </column>
+    <column name="ContinuingFXAsLocation" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="Personal" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="EnhancementExtension" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="EnhancementExtendDef" type="BIT">
+      <offset>172</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>EnhancementExtension</redundant_name>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="IgnoreFirstTick" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="ReplaceKeepsTimer" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="ChanceNormalized" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="CancelOnChance" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="SurviveTargetDeath" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="KeepWhenImmune" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="IgnoreAttribModExpire" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65553</bit_offset>
+    </column>
+    <column name="AutoDescDisabled" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65554</bit_offset>
+    </column>
+    <column name="DerivedInternally" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65555</bit_offset>
+    </column>
+    <column name="IgnoredDuringPVP" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65556</bit_offset>
+    </column>
+    <column name="PowerInstanceStacking" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
+    <column name="ProcessOfflineTimeOnLogin" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65558</bit_offset>
+    </column>
+    <column name="UIShowSpecial" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65559</bit_offset>
+    </column>
+    <column name="NotifyGameEventOnApplication" type="BIT">
+      <offset>172</offset>
+      <bit_offset>65560</bit_offset>
+    </column>
+    <column name="IncludeInEstimatedDamage" type="BIT">
+      <offset>172</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65561</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Forever" type="BIT">
+      <offset>172</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65562</bit_offset>
+    </column>
+    <column name="HasAnimFX" type="BIT">
+      <offset>172</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65563</bit_offset>
+    </column>
+    <column name="SaveApplyStrengths" type="BIT">
+      <offset>172</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65564</bit_offset>
+    </column>
+    <column name="SaveSourceDetails" type="BIT">
+      <offset>172</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65565</bit_offset>
+    </column>
+    <column name="SaveHue" type="BIT">
+      <offset>172</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65566</bit_offset>
+    </column>
+    <column name="PowerIconCFX" type="BIT">
+      <offset>172</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65567</bit_offset>
+    </column>
+    <column name="AttribLinkToSource" type="BIT">
+      <offset>176</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="AffectsOnlyOnFirstModTick" type="BIT">
+      <offset>176</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Resist" type="IGNORE" />
+    <column name="Strength" type="IGNORE" />
+    <column name="Name" type="IGNORE">
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

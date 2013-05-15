@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCEditorDefaults">
+  <table>
+    <column name="UGCEditorDefaults" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CostumeEditorSky" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="SpaceCostumeEditorSky" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="TextShortcutTab" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UITextShortcutTab" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

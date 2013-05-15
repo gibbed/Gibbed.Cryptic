@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SmoothCameraSettings">
+  <table>
+    <column name="SmoothCameraSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SmoothHistory" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="CameraSmoothNode" />
+    </column>
+    <column name="CurveProgress" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="OverrideMouseFilter" type="F32">
+      <offset>8</offset>
+      <default>1056964608</default>
+    </column>
+    <column name="CurveSampleRate" type="F32">
+      <offset>12</offset>
+      <default>1036831949</default>
+    </column>
+    <column name="FilterSampleTime" type="F32">
+      <offset>16</offset>
+      <default>1048576000</default>
+    </column>
+    <column name="UseSplineCurve" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

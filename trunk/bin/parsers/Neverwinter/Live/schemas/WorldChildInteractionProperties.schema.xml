@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldChildInteractionProperties">
+  <table>
+    <column name="WorldChildInteractionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="ChildIndex" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ChildSelectExpressionBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ChildSelectExpression" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ChildSelectExpressionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

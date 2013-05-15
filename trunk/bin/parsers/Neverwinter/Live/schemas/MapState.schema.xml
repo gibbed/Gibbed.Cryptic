@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MapState">
+  <table>
+    <column name="MapState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PartitionIdx" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uServerTimeSecondsSince2000" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Paused" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="BeingDestroyed" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="PVPQueuesDisabled" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="SpeedRecharge" type="F32">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="TimeControlTimer" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="TimeControlList" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="BolsterType" type="INT">
+      <offset>28</offset>
+      <static_define_list external="BolsterType" />
+    </column>
+    <column name="BolsterLevel" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="Difficulty" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="NodeData" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="NodeMapStateData" />
+    </column>
+    <column name="MapValues" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="MapStateValueData" />
+    </column>
+    <column name="PlayerValueData" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="PlayerMapValueData" />
+    </column>
+    <column name="TeamValueData" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="TeamMapValueData" />
+    </column>
+    <column name="PrototypeValues" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="MapStateValueData" />
+    </column>
+    <column name="OpenMissions" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="OpenMission" />
+    </column>
+    <column name="matchState" type="EMBEDDEDSTRUCT">
+      <offset>64</offset>
+      <subtable external="MatchMapState" />
+    </column>
+    <column name="PublicVarData" type="OPTIONALSTRUCT">
+      <offset>100</offset>
+      <subtable external="PublicVariableData" />
+    </column>
+    <column name="SyncDialogs" type="STRUCT">
+      <offset>104</offset>
+      <subtable external="SyncDialog" />
+    </column>
+    <column name="nemesisInfo" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="LeaderIdx" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="NemesisTeam" type="STRUCT">
+      <offset>112</offset>
+      <subtable external="NemesisTeamStruct" />
+    </column>
+    <column name="LeaderSet" type="U8">
+      <offset>116</offset>
+    </column>
+    <column name="LeaderNoNemesis" type="U8">
+      <offset>117</offset>
+    </column>
+    <column name="uTimeFirstChecked" type="INT">
+      <offset>120</offset>
+    </column>
+    <column name="CutscenesPlayed" type="STRINGARRAY">
+      <offset>124</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatDebug">
+  <table>
+    <column name="CombatDebug" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Valid" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="erDebugEnt" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="TimerSleep" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="TimeSlept" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Powers" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="Power" />
+    </column>
+    <column name="Mods" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="AttribMod" />
+    </column>
+    <column name="InnateMods" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="AttribModDef" />
+    </column>
+    <column name="pattrBasic" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="CharacterAttribs" />
+    </column>
+    <column name="pattrStr" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="CharacterAttribs" />
+    </column>
+    <column name="pattrRes" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="CharacterAttribs" />
+    </column>
+    <column name="pActivation" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="PowerActivation" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

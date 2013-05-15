@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CallStackModule">
+  <table>
+    <column name="CallStackModule" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ModuleName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="PDBName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="GUID" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="uBaseAddress" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="uSize" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="uTime" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="uAge" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

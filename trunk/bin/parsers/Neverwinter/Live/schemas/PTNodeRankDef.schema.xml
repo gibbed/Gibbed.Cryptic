@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PTNodeRankDef">
+  <table>
+    <column name="PTNodeRankDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Power" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="Requires" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALWAYS_ALLOC</flag>
+      </flags>
+      <subtable external="PTPurchaseRequirements" />
+    </column>
+    <column name="TrainerUnlockNode" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>PTNodeDef</dictionary_name>
+    </column>
+    <column name="Cost" type="INT">
+      <offset>12</offset>
+      <default>1</default>
+    </column>
+    <column name="CostScaled" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="CostVar" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="CostTable" type="STRING">
+      <offset>24</offset>
+      <default_string>TreePoints</default_string>
+    </column>
+    <column name="Empty" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="ForcedAutoBuy" type="U8">
+      <offset>29</offset>
+    </column>
+    <column name="IgnoreRequires" type="BIT">
+      <offset>32</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="VariableCost" type="BIT">
+      <offset>32</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Scale" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

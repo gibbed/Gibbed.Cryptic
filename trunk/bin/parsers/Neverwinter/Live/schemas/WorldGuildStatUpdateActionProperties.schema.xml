@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldGuildStatUpdateActionProperties">
+  <table>
+    <column name="WorldGuildStatUpdateActionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="StatName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Operation" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Value" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

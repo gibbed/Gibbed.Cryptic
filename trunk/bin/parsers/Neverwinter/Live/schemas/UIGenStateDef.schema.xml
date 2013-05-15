@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenStateDef">
+  <table>
+    <column name="UIGenStateDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="State" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="Override" type="OPTIONALPOLYMORPH">
+      <offset>4</offset>
+      <subtable>
+        <table>
+          <column name="UIGenChatLog" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenChatLog" />
+          </column>
+          <column name="UIGenCompass" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenCompass" />
+          </column>
+          <column name="UIGenEntity" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenEntity" />
+          </column>
+          <column name="UIGenList" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenList" />
+          </column>
+          <column name="UIGenListColumn" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenListColumn" />
+          </column>
+          <column name="UIGenListRow" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenListRow" />
+          </column>
+          <column name="UIGenMap" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenMap" />
+          </column>
+          <column name="UIGenObject" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenObject" />
+          </column>
+          <column name="UIGenPaperdoll" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenPaperdoll" />
+          </column>
+          <column name="UIGenWaypoint" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenWaypoint" />
+          </column>
+          <column name="UIGenBox" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenBox" />
+          </column>
+          <column name="UIGenButton" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenButton" />
+          </column>
+          <column name="UIGenCheckButton" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenCheckButton" />
+          </column>
+          <column name="UIGenColorChooser" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenColorChooser" />
+          </column>
+          <column name="UIGenLayoutBox" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenLayoutBox" />
+          </column>
+          <column name="UIGenMovableBox" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenMovableBox" />
+          </column>
+          <column name="UIGenSMF" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenSMF" />
+          </column>
+          <column name="UIGenScrollView" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenScrollView" />
+          </column>
+          <column name="UIGenSlider" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenSlider" />
+          </column>
+          <column name="UIGenSprite" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenSprite" />
+          </column>
+          <column name="UIGenTabGroup" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenTabGroup" />
+          </column>
+          <column name="UIGenText" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenText" />
+          </column>
+          <column name="UIGenTextArea" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenTextArea" />
+          </column>
+          <column name="UIGenTextEntry" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenTextEntry" />
+          </column>
+          <column name="UIGenWebView" type="EMBEDDEDSTRUCT">
+            <offset>0</offset>
+            <subtable external="UIGenWebView" />
+          </column>
+        </table>
+      </subtable>
+    </column>
+    <column name="OnEnter" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="OnExit" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

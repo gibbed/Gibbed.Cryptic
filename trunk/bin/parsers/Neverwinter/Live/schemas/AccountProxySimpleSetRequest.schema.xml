@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountProxySimpleSetRequest">
+  <table>
+    <column name="AccountProxySimpleSetRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Proxy" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="uAccountID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Key" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Value" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="IntValue" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="Operation" type="INT">
+      <offset>24</offset>
+      <static_define_list external="AccountProxySetOperation" />
+    </column>
+    <column name="RequestID" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

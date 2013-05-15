@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyTimeShadowFade">
+  <table>
+    <column name="SkyTimeShadowFade" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="FadeValue" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="FadeTime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="DarkTime" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="PulseAmount" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="PulseRate" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>24</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="EndSkyShadowFade" type="END" />
+  </table>
+</parser>

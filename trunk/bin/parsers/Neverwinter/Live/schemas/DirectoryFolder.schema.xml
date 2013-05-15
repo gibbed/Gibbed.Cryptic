@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DirectoryFolder">
+  <table>
+    <column name="DirectoryFolder" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="folder_name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Folders" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="DirectoryFolder" />
+    </column>
+    <column name="Entries" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DirectoryEntry" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldUGCProperties">
+  <table>
+    <column name="WorldUGCProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="VisibleName" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Description" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DefaultName" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="ImageOverride" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="NoDescription" type="BOOLFLAG">
+      <offset>40</offset>
+    </column>
+    <column name="SortPriority" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="restrictionProps" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="Faction" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="WorldUGCFactionRestrictionProperties" />
+    </column>
+    <column name="RestrictAllegiance" type="STRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Faction</redundant_name>
+      <subtable external="WorldUGCFactionRestrictionProperties" />
+    </column>
+    <column name="MapDefaultHeight" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="DefaultHeight" type="F32">
+      <offset>60</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MapDefaultHeight</redundant_name>
+    </column>
+    <column name="MapOnlyPlatformsAreLegal" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="groupDefProps" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="RoomDoorsEverywhere" type="U8">
+      <offset>68</offset>
+    </column>
+    <column name="ClickableName" type="STRING">
+      <offset>72</offset>
+    </column>
+    <column name="EncounterActor" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="WorldUGCActorProperties" />
+    </column>
+    <column name="ActorProperties" type="STRUCT">
+      <offset>76</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>EncounterActor</redundant_name>
+      <subtable external="WorldUGCActorProperties" />
+    </column>
+    <column name="Cost" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="DefaultSnapNormal" type="U8">
+      <offset>84</offset>
+    </column>
+    <column name="fsmProps" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="HasPatrol" type="U8">
+      <offset>88</offset>
+    </column>
+    <column name="PatrolType" type="INT">
+      <offset>92</offset>
+      <static_define_list external="WorldPatrolRouteType" />
+    </column>
+    <column name="ExternVar" type="STRUCT">
+      <offset>96</offset>
+      <subtable external="UGCFSMExternVarDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

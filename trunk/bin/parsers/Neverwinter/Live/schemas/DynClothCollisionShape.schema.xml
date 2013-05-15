@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynClothCollisionShape">
+  <table>
+    <column name="DynClothCollisionShape" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list external="CLOTH_COLTYPE" />
+    </column>
+    <column name="Bone" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Offset" type="F32FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Direction" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Point1" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Point2" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="Exten1" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="Exten2" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="Moving" type="BOOLFLAG">
+      <offset>68</offset>
+    </column>
+    <column name="MovingBackwards" type="BOOLFLAG">
+      <offset>69</offset>
+    </column>
+    <column name="MountedOnly" type="BOOLFLAG">
+      <offset>70</offset>
+    </column>
+    <column name="WalkingOnly" type="BOOLFLAG">
+      <offset>71</offset>
+    </column>
+    <column name="InsideVolume" type="BOOLFLAG">
+      <offset>72</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

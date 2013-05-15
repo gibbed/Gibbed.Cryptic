@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentOutcome">
+  <table>
+    <column name="ItemAssignmentOutcome" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Description" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="BaseWeight" type="INT">
+      <offset>28</offset>
+      <static_define_list external="ItemAssignmentWeightType" />
+    </column>
+    <column name="Results" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="ItemAssignmentOutcomeResults" />
+    </column>
+    <column name="ExprBlockScaleAllNumerics" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ScaleAllNumericRewards" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockScaleAllNumerics</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprScaleAllNumerics" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockScaleAllNumerics</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

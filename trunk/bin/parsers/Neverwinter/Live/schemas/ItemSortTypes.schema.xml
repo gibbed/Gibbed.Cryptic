@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemSortTypes">
+  <table>
+    <column name="ItemSortTypes" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ItemSortTypeCategory" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="ItemSortTypeCategory" />
+    </column>
+    <column name="ItemSortType" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="ItemSortType" />
+    </column>
+    <column name="IndexedItemSortTypes" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="ItemSortType" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

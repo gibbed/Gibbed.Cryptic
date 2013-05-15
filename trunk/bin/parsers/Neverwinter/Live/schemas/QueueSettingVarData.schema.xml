@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueSettingVarData">
+  <table>
+    <column name="QueueSettingVarData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="DisplayMessage" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="MinValue" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="MaxValue" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="RewardMinValue" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

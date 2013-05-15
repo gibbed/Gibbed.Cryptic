@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisFSM">
+  <table>
+    <column name="GenesisFSM" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ChallengeLogicalName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="activeWhen" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisWhen" />
+    </column>
+    <column name="VarDef" type="STRUCT">
+      <offset>100</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="FSMName" type="STRING">
+      <offset>104</offset>
+    </column>
+    <column name="ActorIndex" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

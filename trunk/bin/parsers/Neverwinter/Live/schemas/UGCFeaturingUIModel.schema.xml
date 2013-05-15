@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCFeaturingUIModel">
+  <table>
+    <column name="UGCFeaturingUIModel" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="IDString" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="creationTime" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="CreationTime_AsString" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="ProjectName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="OwnerAccountID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="OwnerAccountName" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="SeriesID" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="PreviousShard" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="AverageRating" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="AdjustedRatingUsingConfidence" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="FeaturedStartTimestamp" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="FeaturedStartTimestamp_AsString" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="FeaturedEndTimestamp" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="FeaturedEndTimestamp_AsString" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="FeaturedDetails" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="LastPublishTimestamp" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="LastPublishTimestamp_AsString" type="STRING">
+      <offset>68</offset>
+    </column>
+    <column name="Language" type="INT">
+      <offset>72</offset>
+      <static_define_list external="Language" />
+    </column>
+    <column name="NameSpace" type="STRING">
+      <offset>76</offset>
+    </column>
+    <column name="AverageDuration" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

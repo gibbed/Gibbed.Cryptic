@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MissionOfferParams">
+  <table>
+    <column name="MissionOfferParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SharerType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="uSharerID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uTimerStartTime" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="CreditType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="MissionCreditType" />
+    </column>
+    <column name="ParentMission" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ParentSubMission" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

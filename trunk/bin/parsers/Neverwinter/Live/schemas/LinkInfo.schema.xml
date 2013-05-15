@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LinkInfo">
+  <table>
+    <column name="LinkInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ip" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="port" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Project" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Branch" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="no_upload" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="mirrors" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="MirrorFolder" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

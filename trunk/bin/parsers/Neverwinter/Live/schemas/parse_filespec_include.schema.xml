@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="parse_filespec_include">
+  <table>
+    <column name="doInclude" type="BOOL">
+      <offset>0</offset>
+      <default>1</default>
+    </column>
+    <column name="FileSpec" type="FILENAME">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

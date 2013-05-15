@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisInteriorElement">
+  <table>
+    <column name="GenesisInteriorElement" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Tag" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="primary_object" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Geo" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Offset" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Rotation" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="Geometry" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="GenesisInteriorElementObject" />
+    </column>
+    <column name="Pattern" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="GenesisInteriorPattern" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

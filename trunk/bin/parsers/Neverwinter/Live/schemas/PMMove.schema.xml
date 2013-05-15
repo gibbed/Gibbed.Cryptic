@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PMMove">
+  <table>
+    <column name="PMMove" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Speed" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="erTarget" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="vecTarget" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="MoveDir" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="MoveYawOffset" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="timeStart" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="timeNotify" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="distNotify" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="timeStop" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="distStop" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="entCollisionCapsuleBuffer" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="lurchTraveled" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="AnimGraphName" type="STRING">
+      <offset>72</offset>
+    </column>
+    <column name="Used" type="F32FIXEDARRAY">
+      <offset>76</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Remainder" type="F32FIXEDARRAY">
+      <offset>88</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="RemainderStartFrame" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="RemainderEndFrame" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="DefaultDir" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="started" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="firstLurchTickProcessed" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="faceAway" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="stopLurching" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="FaceActivateSticky" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="UseVecAsDirection" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="Hit" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="IgnoreCollision" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="LungeHorizontal" type="BIT">
+      <offset>108</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="KillCreditTeam">
+  <table>
+    <column name="KillCreditTeam" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TeamID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="TeamUp" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="firstMemberEntRef" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="TotalTeamDamage" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="TotalTeamPercentage" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="TotalLevels" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Members" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="KillCreditEntity" />
+    </column>
+    <column name="HighestDamager" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="TotalCombatValue" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="TeamCombatLevel" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="ValidTeamSize" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

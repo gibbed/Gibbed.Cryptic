@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DefaultCameraModeSettings">
+  <table>
+    <column name="DefaultCameraModeSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AimSettings" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="AimCameraSettings" />
+    </column>
+    <column name="ShooterSettings" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="ShooterCameraSettings" />
+    </column>
+    <column name="ChaseSettings" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="ChaseCameraSettings" />
+    </column>
+    <column name="TargetLockSettings" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="TargetLockCameraSettings" />
+    </column>
+    <column name="AutoTargetSettings" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="AutoTargetSettings" />
+    </column>
+    <column name="TweenTargetSettings" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="TweenCameraSettings" />
+    </column>
+    <column name="GiganticSettings" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="GiganticCameraSettings" />
+    </column>
+    <column name="SmoothSettings" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="SmoothCameraSettings" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

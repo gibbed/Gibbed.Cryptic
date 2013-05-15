@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldStreamingInfo">
+  <table>
+    <column name="WorldStreamingInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="layer_bounds" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="LayerBounds" />
+    </column>
+    <column name="layer_names" type="STRINGARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="zmap_scope_data_offset" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="region_data_offsets" type="INTARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="fx_entry_id_counter" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="animation_entry_id_counter" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="group_id_counter" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="has_errors" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="parse_table_crcs" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="cell_size" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="bin_version_number" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="packed_data_serialize" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="SerializablePackedStructStream" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

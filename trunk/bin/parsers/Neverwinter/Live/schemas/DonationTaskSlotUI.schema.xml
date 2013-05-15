@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DonationTaskSlotUI">
+  <table>
+    <column name="DonationTaskSlotUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Slot" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ActiveTask" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="DonationTaskUI" />
+    </column>
+    <column name="NextTask" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="DonationTaskUI" />
+    </column>
+    <column name="SlotType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="GroupProjectTaskSlotType" />
+    </column>
+    <column name="AvailableTasks" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

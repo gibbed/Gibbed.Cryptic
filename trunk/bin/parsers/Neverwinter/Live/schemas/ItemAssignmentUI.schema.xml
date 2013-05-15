@@ -1,0 +1,289 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentUI">
+  <table>
+    <column name="ItemAssignmentUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hDef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>ItemAssignmentDef</dictionary_name>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ChainDisplayName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ChainDescription" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ChainDepth" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="ChainLength" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="ChainLengthNoRepeats" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="ChainLengthCompleted" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="MapDisplayName" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <redundant_name>MapDisplayName</redundant_name>
+    </column>
+    <column name="OutcomeName" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OutcomeDisplayName" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="OutcomeDescription" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="uOutcomeDestroyed" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="OutcomeDestroyedDescription" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="uOutcomeNewAssignment" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="OutcomeNewAssignmentDescription" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="OutcomeNewAssignmentDef" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>ItemAssignmentDef</dictionary_name>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>72</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Image" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Weight" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="WeightValue" type="F32">
+      <offset>84</offset>
+    </column>
+    <column name="FeaturedActivity" type="STRING">
+      <offset>88</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FailsRequirementsReason" type="STRING">
+      <offset>92</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Category" type="INT">
+      <offset>96</offset>
+      <static_define_list external="ItemAssignmentCategory" />
+    </column>
+    <column name="CategoryNumericXP1" type="STRING">
+      <offset>100</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CategoryNumericXP2" type="STRING">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CategoryNumericRank1" type="STRING">
+      <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CategoryNumericRank2" type="STRING">
+      <offset>112</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CategoryIcon" type="STRING">
+      <offset>116</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uAssignmentID" type="INT">
+      <offset>120</offset>
+    </column>
+    <column name="uTimeStarted" type="INT">
+      <offset>124</offset>
+      <format_strings>
+        <format_string name="JSON_SECS_TO_RFC822">1</format_string>
+      </format_strings>
+    </column>
+    <column name="uDuration" type="INT">
+      <offset>128</offset>
+    </column>
+    <column name="uTimeRemaining" type="INT">
+      <offset>132</offset>
+    </column>
+    <column name="uNextRequirementsUpdateTime" type="INT">
+      <offset>136</offset>
+    </column>
+    <column name="uCompletedTime" type="INT">
+      <offset>140</offset>
+    </column>
+    <column name="RequiredMinimumLevel" type="INT">
+      <offset>144</offset>
+    </column>
+    <column name="RequiredNumericValue" type="INT">
+      <offset>148</offset>
+    </column>
+    <column name="RequiredMission" type="REFERENCE">
+      <offset>152</offset>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="RequiredItemAssignment" type="REFERENCE">
+      <offset>156</offset>
+      <dictionary_name>ItemAssignmentDef</dictionary_name>
+    </column>
+    <column name="SlotRequirement" type="INTFIXEDARRAY">
+      <offset>160</offset>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="FailsRequiresReasons" type="INT">
+      <offset>164</offset>
+      <static_define_list external="ItemAssignmentFailsRequiresReason" />
+    </column>
+    <column name="CompletedAssignmentIndex" type="INT">
+      <offset>168</offset>
+    </column>
+    <column name="uSortCategory" type="U8">
+      <offset>172</offset>
+    </column>
+    <column name="SortOrder" type="INT">
+      <offset>176</offset>
+    </column>
+    <column name="CompletionExperience" type="INT">
+      <offset>180</offset>
+    </column>
+    <column name="QualityRewardBonus" type="F32">
+      <offset>184</offset>
+    </column>
+    <column name="LevelUnlocked" type="INT">
+      <offset>188</offset>
+    </column>
+    <column name="SlotIndex" type="INT">
+      <offset>192</offset>
+    </column>
+    <column name="IsHeader" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="IsPersonalAssignment" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="IsAbortable" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="HasRewards" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="FailsRequirements" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="HasCompleteDetails" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="New" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="Repeatable" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="IsFeatured" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="IsLockedSlot" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="HasRequiredSlots" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="HasOptionalSlots" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="HasItemCosts" type="BIT">
+      <offset>196</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

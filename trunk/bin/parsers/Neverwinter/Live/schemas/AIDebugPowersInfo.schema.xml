@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AIDebugPowersInfo">
+  <table>
+    <column name="AIDebugPowersInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PowerName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="rechargeTime" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="curRating" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="AIMinRange" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="AIMaxRange" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="absWeight" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="modifierWeight" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="lastUsed" type="INT64">
+      <offset>32</offset>
+    </column>
+    <column name="timesUsed" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="Tags" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="aiExpr" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="chainTarget" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

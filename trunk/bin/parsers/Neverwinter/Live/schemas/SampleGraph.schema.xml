@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SampleGraph">
+  <table>
+    <column name="SampleGraph" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Tags" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="graph" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="GenericGraph" />
+    </column>
+    <column name="Nodes" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="SampleGraphNode" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

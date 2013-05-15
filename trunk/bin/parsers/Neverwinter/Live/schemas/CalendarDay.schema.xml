@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CalendarDay">
+  <table>
+    <column name="CalendarDay" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TimestampBegin" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="TimestampEnd" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Year" type="INT16">
+      <offset>8</offset>
+    </column>
+    <column name="month" type="U8">
+      <offset>10</offset>
+    </column>
+    <column name="Day" type="U8">
+      <offset>11</offset>
+    </column>
+    <column name="DayOfWeek" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="WeekOfMonth" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="EventCount" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Events" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="CalendarEntry" />
+    </column>
+    <column name="BackgroundEventCount" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="BackgroundEvents" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="CalendarEntry" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

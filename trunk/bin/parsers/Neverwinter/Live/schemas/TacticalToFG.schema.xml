@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalToFG">
+  <table>
+    <column name="TacticalToFG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="spcRunningStart" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="maxRunDurationSeconds" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="runFuel" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="spcCooldownStart" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="spcAimCooldownStart" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="runCooldownSeconds" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="rollCooldownSeconds" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="aimCooldownSeconds" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="TacticalToFGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

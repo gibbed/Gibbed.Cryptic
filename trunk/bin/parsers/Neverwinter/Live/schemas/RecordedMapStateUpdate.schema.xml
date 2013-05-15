@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RecordedMapStateUpdate">
+  <table>
+    <column name="RecordedMapStateUpdate" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PakID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Full" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="MapState" />
+    </column>
+    <column name="Diff" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Delete" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

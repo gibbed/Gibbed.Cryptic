@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GuildRecruitSearchRequest">
+  <table>
+    <column name="GuildRecruitSearchRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="GuildIncludeSearchCat" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="GuildRecruitSearchCat" />
+    </column>
+    <column name="GuildExcludeSearchCat" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="GuildRecruitSearchCat" />
+    </column>
+    <column name="stringSearch" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="RequesterAccountID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="RequesterEntID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="RequesterLevel" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="RequesterVirtualShardID" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

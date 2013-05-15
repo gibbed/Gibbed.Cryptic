@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="parse_preload_dir">
+  <table>
+    <column name="recursive" type="BOOL">
+      <offset>4</offset>
+      <default>1</default>
+    </column>
+    <column name="templateNameNotPath" type="BOOL">
+      <offset>5</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

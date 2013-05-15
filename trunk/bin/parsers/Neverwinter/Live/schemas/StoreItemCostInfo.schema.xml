@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StoreItemCostInfo">
+  <table>
+    <column name="StoreItemCostInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hItemDef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="PriceAccountKeyValue" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Count" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="OriginalCount" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="AvailableCount" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="ppchDiscounts" type="STRINGARRAY">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TooExpensive" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MicroTransactionUIProduct">
+  <table>
+    <column name="MicroTransactionUIProduct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="LongDescription" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Category" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>MicroTransactionCategory</dictionary_name>
+    </column>
+    <column name="Allegiance" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>AllegianceDef</dictionary_name>
+    </column>
+    <column name="Price" type="INT64">
+      <offset>24</offset>
+    </column>
+    <column name="DefPrice" type="INT64">
+      <offset>32</offset>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Icons" type="STRINGARRAY">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CannotPurchaseReason" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="CannotPurchaseType" type="INT">
+      <offset>52</offset>
+      <static_define_list external="MicroPurchaseErrorType" />
+    </column>
+    <column name="Inventory" type="STRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="InventorySlot" />
+    </column>
+    <column name="Update" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="PrerequisitesMet" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="CannotPurchaseAgain" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="OneTimePurchase" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="UniqueInInv" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Updated" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="ItemRestrictions" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="NewProduct" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="FeaturedProduct" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="OwnedProduct" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="FailsExpression" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="NotEnoughCurrency" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="AlreadyEntitled" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="PremiumEntitlement" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

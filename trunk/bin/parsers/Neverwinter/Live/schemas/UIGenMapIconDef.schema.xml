@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMapIconDef">
+  <table>
+    <column name="UIGenMapIconDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Icon" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Textures</dictionary_name>
+    </column>
+    <column name="Texture" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <redundant_name>Icon</redundant_name>
+      <dictionary_name>Textures</dictionary_name>
+    </column>
+    <column name="FormatIcon" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Textures</dictionary_name>
+    </column>
+    <column name="FormatTexture" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <redundant_name>FormatIcon</redundant_name>
+      <dictionary_name>Textures</dictionary_name>
+    </column>
+    <column name="Color" type="INT">
+      <offset>8</offset>
+      <default>-1</default>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="Label" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="LabelFont" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="HighlightFont" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="LabelAlignment" type="INT">
+      <offset>24</offset>
+      <default>4</default>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="FrameDuration" type="F32">
+      <offset>28</offset>
+      <default>-1</default>
+    </column>
+    <column name="FrameCount" type="INT">
+      <offset>32</offset>
+      <default>1</default>
+    </column>
+    <column name="ScaleMultiplier" type="F32">
+      <offset>36</offset>
+      <default>1</default>
+    </column>
+    <column name="MinScale" type="F32">
+      <offset>40</offset>
+      <default>1045220557</default>
+    </column>
+    <column name="PixelsPerWorldUnit" type="F32">
+      <offset>44</offset>
+      <default>2</default>
+    </column>
+    <column name="BaseScale" type="F32">
+      <offset>48</offset>
+      <default>1</default>
+    </column>
+    <column name="MaxCount" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="OnLeftClick" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="OnRightClick" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="OnLeftDoubleClick" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="Z" type="INT16">
+      <offset>72</offset>
+    </column>
+    <column name="OutOfBounds" type="U8">
+      <offset>74</offset>
+    </column>
+    <column name="ClampToEdge" type="U8">
+      <offset>75</offset>
+    </column>
+    <column name="Rotate" type="U8">
+      <offset>76</offset>
+    </column>
+    <column name="Scale" type="U8">
+      <offset>77</offset>
+    </column>
+    <column name="ScaleToWorld" type="U8">
+      <offset>78</offset>
+    </column>
+    <column name="Clip" type="U8">
+      <offset>79</offset>
+    </column>
+    <column name="Pushable" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="AlwaysShowLabel" type="U8">
+      <offset>81</offset>
+    </column>
+    <column name="IgnoreWorldSize" type="U8">
+      <offset>82</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

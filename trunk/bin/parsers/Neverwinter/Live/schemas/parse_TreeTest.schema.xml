@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="parse_TreeTest">
+  <table>
+    <column name="FileSpec" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Folder" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="parse_TreeTest" />
+    </column>
+    <column name="EndFolder" type="END" />
+  </table>
+</parser>

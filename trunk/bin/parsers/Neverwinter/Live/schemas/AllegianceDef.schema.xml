@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AllegianceDef">
+  <table>
+    <column name="AllegianceDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="LogName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Faction" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>CritterFaction</dictionary_name>
+    </column>
+    <column name="FactionBattleForm" type="REFERENCE">
+      <offset>32</offset>
+      <dictionary_name>CritterFaction</dictionary_name>
+    </column>
+    <column name="Description" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DescriptionLong" type="EMBEDDEDSTRUCT">
+      <offset>48</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="NeedsUnlock" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="DefaultPlayerAllegiance" type="U8">
+      <offset>61</offset>
+    </column>
+    <column name="CanBeSubAllegiance" type="U8">
+      <offset>62</offset>
+    </column>
+    <column name="DeferOfficerToSubAllegiance" type="U8">
+      <offset>63</offset>
+    </column>
+    <column name="RequiredMissionForAllegianceChange" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="AllowedAllegianceChange" type="STRINGARRAY">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StartingSpecies" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="SpeciesDefRef" />
+    </column>
+    <column name="PetGrantSpecies" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="SpeciesDefRef" />
+    </column>
+    <column name="SpeciesChange" type="STRUCT">
+      <offset>80</offset>
+      <subtable external="AllegianceSpeciesChange" />
+    </column>
+    <column name="AllowedClass" type="STRUCT">
+      <offset>84</offset>
+      <subtable external="CharacterClassRef" />
+    </column>
+    <column name="WarpRestrictions" type="OPTIONALSTRUCT">
+      <offset>88</offset>
+      <subtable external="AllegianceWarpRestrict" />
+    </column>
+    <column name="DefaultMap" type="STRUCT">
+      <offset>92</offset>
+      <subtable external="AllegianceDefaultMap" />
+    </column>
+    <column name="NamePrefix" type="STRUCT">
+      <offset>96</offset>
+      <subtable external="AllegianceNamePrefix" />
+    </column>
+    <column name="SubNamePrefix" type="STRUCT">
+      <offset>100</offset>
+      <subtable external="AllegianceNamePrefix" />
+    </column>
+    <column name="NewCharacterMap" type="STRINGARRAY">
+      <offset>104</offset>
+    </column>
+    <column name="SkipTutorialMap" type="STRINGARRAY">
+      <offset>108</offset>
+    </column>
+    <column name="FallbackStaticMap" type="STRING">
+      <offset>112</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

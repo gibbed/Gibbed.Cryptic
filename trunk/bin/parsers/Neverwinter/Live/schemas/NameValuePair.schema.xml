@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NameValuePair">
+  <table>
+    <column name="NameValuePair" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Value" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_DONTUSENAME">1</format_string>
+      </format_strings>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ParsedLog">
+  <table>
+    <column name="ParsedLog" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Time" type="INT">
+      <offset>0</offset>
+      <format_strings>
+        <format_string name="HTML_SECS">1</format_string>
+      </format_strings>
+    </column>
+    <column name="LogID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ServerType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="ServerID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="ServerIP" type="INT">
+      <offset>16</offset>
+      <format_strings>
+        <format_string name="HTML_IP">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ServerPID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ExtraMapInfo" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ParsedLogFlags" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="FileGroup" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="LogFileGroup" />
+    </column>
+    <column name="ObjInfo" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="ParsedLogObjInfo" />
+    </column>
+    <column name="Pairs" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="NameValuePair" />
+    </column>
+    <column name="Message" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ParsingCategory" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="serverIdString" type="FIXEDSTRING">
+      <offset>56</offset>
+      <string_length>64</string_length>
+    </column>
+    <column name="RawLogLine" type="STRING">
+      <offset>120</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

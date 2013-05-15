@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldActionInteractionProperties">
+  <table>
+    <column name="WorldActionInteractionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="AttemptExprBlock" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="AttemptExpr" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AttemptExprBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="SuccessExprBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="SuccessExpr" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SuccessExprBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="FailureExprBlock" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="FailureExpr" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FailureExprBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="InterruptExprBlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="InterruptExpr" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>InterruptExprBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="NoLongerActiveExprBlock" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="NoLongerActiveExpr" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>NoLongerActiveExprBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="CooldownExprBlock" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="CooldownExpr" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CooldownExprBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="SuccessActions" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="WorldGameActionBlock" />
+    </column>
+    <column name="FailureActions" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="WorldGameActionBlock" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

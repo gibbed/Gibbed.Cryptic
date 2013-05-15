@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCPlayResult">
+  <table>
+    <column name="UGCPlayResult" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Status" type="INT">
+      <offset>0</offset>
+      <static_define_list external="UGCPlayStatus" />
+    </column>
+    <column name="ZoneMap" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="ZoneMapInfo" />
+    </column>
+    <column name="FileName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LayerData" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="UGCPlayLayerData" />
+    </column>
+    <column name="IDEntryName" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="UGCPlayIDEntryName" />
+    </column>
+    <column name="SkyDef" type="STRINGARRAY">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

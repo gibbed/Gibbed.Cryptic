@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynParticleEmitter">
+  <table>
+    <column name="DynParticleEmitter" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Particle" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>DynFxFastParticleInfo</dictionary_name>
+    </column>
+    <column name="SoftKill" type="BOOLFLAG">
+      <offset>8</offset>
+    </column>
+    <column name="ApplyCountEvenly" type="BOOLFLAG">
+      <offset>9</offset>
+    </column>
+    <column name="DontHueShift" type="BOOLFLAG">
+      <offset>10</offset>
+    </column>
+    <column name="JumpStart" type="BOOLFLAG">
+      <offset>11</offset>
+    </column>
+    <column name="PatternModel" type="BOOLFLAG">
+      <offset>12</offset>
+    </column>
+    <column name="PatternModelUseTriangles" type="BOOLFLAG">
+      <offset>13</offset>
+    </column>
+    <column name="OverrideSpecialParam" type="BOOLFLAG">
+      <offset>14</offset>
+    </column>
+    <column name="LightModulation" type="BOOLFLAG">
+      <offset>15</offset>
+    </column>
+    <column name="ColorModulation" type="BOOLFLAG">
+      <offset>16</offset>
+    </column>
+    <column name="NormalizeTransformTarget" type="BOOLFLAG">
+      <offset>17</offset>
+    </column>
+    <column name="NormalizeTransformTargetOtherAxes" type="BOOLFLAG">
+      <offset>18</offset>
+    </column>
+    <column name="LocalPlayerOnly" type="BOOLFLAG">
+      <offset>19</offset>
+    </column>
+    <column name="Position" type="INT">
+      <offset>20</offset>
+      <default>1</default>
+      <static_define_list external="DynParticleEmitFlag" />
+    </column>
+    <column name="Rotation" type="INT">
+      <offset>24</offset>
+      <static_define_list external="DynParticleEmitFlag" />
+    </column>
+    <column name="Scale" type="INT">
+      <offset>28</offset>
+      <static_define_list external="DynParticleEmitFlag" />
+    </column>
+    <column name="Priority" type="INT">
+      <offset>32</offset>
+      <default>4</default>
+      <static_define_list external="eDynPriority" />
+    </column>
+    <column name="DrawDistance" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="MinDrawDistance" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="Magnet" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="EmitTarget" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="TransformTarget" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="AtNodes" type="STRINGARRAY">
+      <offset>56</offset>
+    </column>
+    <column name="EmitTargetNodes" type="STRINGARRAY">
+      <offset>60</offset>
+    </column>
+    <column name="Weights" type="F32ARRAY">
+      <offset>64</offset>
+    </column>
+    <column name="CutoutDepthScale" type="F32">
+      <offset>68</offset>
+      <default>1</default>
+    </column>
+    <column name="ScaleSprite" type="F32">
+      <offset>72</offset>
+      <default>1</default>
+    </column>
+    <column name="ScalePosition" type="F32">
+      <offset>76</offset>
+      <default>1</default>
+    </column>
+    <column name="ParticleMass" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

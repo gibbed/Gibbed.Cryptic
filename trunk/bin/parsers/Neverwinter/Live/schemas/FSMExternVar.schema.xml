@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FSMExternVar">
+  <table>
+    <column name="FSMExternVar" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Category" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="enabler" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="scType" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="scTypeCategory" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="LimitName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

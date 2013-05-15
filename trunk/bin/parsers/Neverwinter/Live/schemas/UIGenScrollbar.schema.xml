@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenScrollbar">
+  <table>
+    <column name="UIGenScrollbar" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ScrollbarDef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>UIGenScrollbarDef</dictionary_name>
+    </column>
+    <column name="DisabledScrollbarDef" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>UIGenScrollbarDef</dictionary_name>
+    </column>
+    <column name="ScrollbarTopMargin" type="INT16">
+      <offset>8</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ScrollbarBottomMargin" type="INT16">
+      <offset>10</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ScrollbarLeftMargin" type="INT16">
+      <offset>12</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ScrollbarRightMargin" type="INT16">
+      <offset>14</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ScrollbarOnlyShowWhenNeeded" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ScrollbarCaptureMouse" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="ScrollbarUseWheel" type="BIT">
+      <offset>16</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ScrollbarUseStick" type="BIT">
+      <offset>16</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

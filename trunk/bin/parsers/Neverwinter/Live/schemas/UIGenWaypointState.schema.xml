@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenWaypointState">
+  <table>
+    <column name="UIGenWaypointState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>25</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

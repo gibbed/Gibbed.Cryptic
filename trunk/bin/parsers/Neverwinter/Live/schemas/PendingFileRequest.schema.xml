@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PendingFileRequest">
+  <table>
+    <column name="PendingFileRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RequestID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="TotalFileSize" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="BytesSent" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="ReadHead" type="INT64">
+      <offset>32</offset>
+    </column>
+    <column name="WriteHead" type="INT64">
+      <offset>40</offset>
+    </column>
+    <column name="UpdatesReceived" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="HeaderSent" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="FirstRequestSent" type="U8">
+      <offset>53</offset>
+    </column>
+    <column name="FileName" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="ErrorString" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InteractOption">
+  <table>
+    <column name="InteractOption" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="InteractOptionType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="InteractOptionType" />
+    </column>
+    <column name="hNode" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>WorldInteractionNode</dictionary_name>
+    </column>
+    <column name="entRef" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="VolumeName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Index" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="LootBags" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="InventoryBag" />
+    </column>
+    <column name="InteractString" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="UsabilityString" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="DetailString" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="InteractTexture" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TeammateType" type="INT">
+      <offset>40</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="TeammateID" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="Category" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Priority" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="uNodeInteractDist" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="NodePosFallback" type="F32FIXEDARRAY">
+      <offset>60</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="NodeRadiusFallback" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="Disabled" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="AutoExecute" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="CanPickup" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="CanThrow" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Attemptable" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

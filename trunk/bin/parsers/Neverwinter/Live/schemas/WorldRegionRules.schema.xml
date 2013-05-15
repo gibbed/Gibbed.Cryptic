@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldRegionRules">
+  <table>
+    <column name="WorldRegionRules" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FileName" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RegionType" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="WorldRegionType" />
+    </column>
+    <column name="EffectiveScale" type="F32">
+      <offset>8</offset>
+      <default>1</default>
+    </column>
+    <column name="LODScale" type="F32">
+      <offset>12</offset>
+      <default>1</default>
+    </column>
+    <column name="NoSkyFileSun" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="camLight" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="CamLightRules" />
+    </column>
+    <column name="Shadows" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
+      <subtable external="ShadowRules" />
+    </column>
+    <column name="Wind" type="EMBEDDEDSTRUCT">
+      <offset>120</offset>
+      <subtable external="WorldRegionWindRules" />
+    </column>
+    <column name="LodSettings" type="EMBEDDEDSTRUCT">
+      <offset>124</offset>
+      <subtable external="WorldRegionLODSettings" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StoreSellableItemInfo">
+  <table>
+    <column name="StoreSellableItemInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uItemID" type="INT64">
+      <offset>0</offset>
+    </column>
+    <column name="BagID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Slot" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Cost" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

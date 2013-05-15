@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCTextureValueOptions">
+  <table>
+    <column name="PCTextureValueOptions" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ValueConstant" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ConstValueIndex" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ConstValueDefault" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="ConstValueMin" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="ConstValueMax" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

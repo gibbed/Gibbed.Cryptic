@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MapSearchInfo">
+  <table>
+    <column name="MapSearchInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="baseMapDescription" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="MapDescription" />
+    </column>
+    <column name="PlayerType" type="INT">
+      <offset>76</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="playerID" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="GuildID" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="TeamID" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="PlayerAccountID" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="developerAllStatic" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="debugPosLogin" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="newCharacter" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="ExpectedTrasferFromShardNS" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="requestFallback" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="overSoftCapOK" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="safeLogin" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="NoNewOwned" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="skipTutorial" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="AllVirtualShards" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="ShowFullMapsAsDisabled" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>100</offset>
+      <static_define_list external="enumMapSearchAndPossibilitiesFlags" />
+    </column>
+    <column name="gameServerIDToExclude" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="AccountPermissions" type="OPTIONALSTRUCT">
+      <offset>108</offset>
+      <subtable external="AccountProxyKeyValueInfoList" />
+    </column>
+    <column name="AccessLevel" type="INT">
+      <offset>112</offset>
+    </column>
+    <column name="UGCProjectID" type="INT">
+      <offset>116</offset>
+    </column>
+    <column name="UGCNameSpace" type="STRING">
+      <offset>120</offset>
+    </column>
+    <column name="SearchType" type="INT">
+      <offset>124</offset>
+      <static_define_list external="MapSearchType" />
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>128</offset>
+    </column>
+    <column name="playerName" type="STRING">
+      <offset>132</offset>
+    </column>
+    <column name="Allegiance" type="STRING">
+      <offset>136</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

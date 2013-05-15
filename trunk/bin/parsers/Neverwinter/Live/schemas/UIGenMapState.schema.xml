@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMapState">
+  <table>
+    <column name="UIGenMapState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>24</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="Icons" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UIGenMapIcon" />
+    </column>
+    <column name="MapScale" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="PixelsPerWorldUnit" type="F32">
+      <offset>12</offset>
+      <default>1056964608</default>
+    </column>
+    <column name="SavedPixelsPerWorldUnit" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="v3WorldCenter" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3Target" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3TargetPrev" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3DragStartTarget" type="F32FIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3DelayedTarget" type="F32FIXEDARRAY">
+      <offset>68</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="HasDelayedTarget" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="GrabbedX" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="GrabbedY" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="hTarget" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="Following" type="U8">
+      <offset>96</offset>
+    </column>
+    <column name="FakeZone" type="STRING">
+      <offset>100</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FakeZoneReveal" type="EMBEDDEDSTRUCT">
+      <offset>108</offset>
+      <subtable external="MapRevealInfo" />
+    </column>
+    <column name="eaiRevealBits" type="INTARRAY">
+      <offset>156</offset>
+    </column>
+    <column name="SelectedMissionRefString" type="STRING">
+      <offset>188</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PreviousRegionType" type="INT">
+      <offset>192</offset>
+      <static_define_list external="WorldRegionType" />
+    </column>
+    <column name="QueuedActions" type="STRUCT">
+      <offset>196</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="OldMapName" type="STRING">
+      <offset>200</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OldRegionType" type="INT">
+      <offset>204</offset>
+      <static_define_list external="WorldRegionType" />
+    </column>
+    <column name="SaveScaleTimer" type="F32">
+      <offset>208</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

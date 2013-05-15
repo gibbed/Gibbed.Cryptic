@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisNodeConnectionGroup">
+  <table>
+    <column name="GenesisNodeConnectionGroup" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Connection" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="GenesisNodeConnection" />
+    </column>
+    <column name="SideTrail" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Mission" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisNodeMission" />
+    </column>
+    <column name="SourceContext" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="GenesisRuntimeErrorContext" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

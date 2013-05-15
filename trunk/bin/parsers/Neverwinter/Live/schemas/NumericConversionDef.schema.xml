@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NumericConversionDef">
+  <table>
+    <column name="NumericConversionDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hSourceNumeric" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="hDestNumeric" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="timeIntervalSeconds" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="quantityPerInterval" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="BonusDef" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="NumericConversionBonusDef" />
+    </column>
+    <column name="autoConversionMaxIntervalsToken" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

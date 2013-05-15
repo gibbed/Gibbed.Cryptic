@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DiaryConfig">
+  <table>
+    <column name="DiaryConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DefaultTag" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="DiaryTagString" />
+    </column>
+    <column name="MissionTypeConfig" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="DiaryMissionTypeConfig" />
+    </column>
+    <column name="commentFormatMessage" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="missionHeaderFormatMessage" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="completedMissionHeaderFormatMessage" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="repeatedMissionHeaderFormatMessage" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

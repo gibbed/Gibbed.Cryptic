@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCRewardConfig">
+  <table>
+    <column name="UGCRewardConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MinimumRewardScale" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="MaximumRewardScale" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="MinimumRewardTime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="MaximumRewardTime" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

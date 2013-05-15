@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BeaconGalaxyChange">
+  <table>
+    <column name="BeaconGalaxyChange" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="galaxySet" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="blockIdx" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="galaxyIdx" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAlias">
+  <table>
+    <column name="ItemAlias" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Alias" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Item" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="Choice" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ItemAliasDisplay" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

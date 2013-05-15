@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ActivityLogEntryTypeConfig">
+  <table>
+    <column name="ActivityLogEntryTypeConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EntryType" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="ActivityLogEntryType" />
+    </column>
+    <column name="addToPersonalLog" type="BOOLFLAG">
+      <offset>4</offset>
+    </column>
+    <column name="addToGuildLog" type="BOOLFLAG">
+      <offset>5</offset>
+    </column>
+    <column name="translateArg" type="BOOLFLAG">
+      <offset>6</offset>
+    </column>
+    <column name="translateArg2" type="BOOLFLAG">
+      <offset>7</offset>
+    </column>
+    <column name="splitArgString" type="BOOLFLAG">
+      <offset>8</offset>
+    </column>
+    <column name="DiaryTitleDisplayString" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DiaryBodyDisplayString" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="GuildLogDisplayString" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

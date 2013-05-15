@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CritterLootOwner">
+  <table>
+    <column name="CritterLootOwner" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="OwnerType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="RewardOwnerType" />
+    </column>
+    <column name="peaiOwnerIDs" type="INTARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

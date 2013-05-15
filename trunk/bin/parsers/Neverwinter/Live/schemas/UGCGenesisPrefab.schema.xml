@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCGenesisPrefab">
+  <table>
+    <column name="UGCGenesisPrefab" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Backdrop" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="SkyBase" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>SkyInfo</dictionary_name>
+    </column>
+    <column name="Backdrop" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SkyBase</redundant_name>
+      <dictionary_name>SkyInfo</dictionary_name>
+    </column>
+    <column name="SkyOverride" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UGCGenesisBackdropSkyOverride" />
+    </column>
+    <column name="AmbSoundOverride" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Customizable" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="UGCBackdrop" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

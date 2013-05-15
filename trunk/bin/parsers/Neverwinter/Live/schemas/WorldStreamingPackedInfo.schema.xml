@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldStreamingPackedInfo">
+  <table>
+    <column name="WorldStreamingPackedInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="shared_bounds" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="WorldCellEntrySharedBounds" />
+    </column>
+    <column name="pooled_matrices" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="Mat4Pooled" />
+    </column>
+    <column name="shared_local_mids" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="WorldCellLocalMidParsed" />
+    </column>
+    <column name="material_draws_parsed" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="MaterialDrawParsed" />
+    </column>
+    <column name="model_draws_parsed" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="ModelDrawParsed" />
+    </column>
+    <column name="subobjects_parsed" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="WorldDrawableSubobjectParsed" />
+    </column>
+    <column name="drawable_lists_parsed" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="WorldDrawableListParsed" />
+    </column>
+    <column name="instance_param_lists_parsed" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="WorldInstanceParamListParsed" />
+    </column>
+    <column name="interaction_costumes_parsed" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="WorldInteractionCostumeParsed" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

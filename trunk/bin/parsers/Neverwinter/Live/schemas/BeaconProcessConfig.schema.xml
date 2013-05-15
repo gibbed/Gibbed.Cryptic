@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BeaconProcessConfig">
+  <table>
+    <column name="BeaconProcessConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="public_name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="slopes" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="BeaconProcessSlopeConfig" />
+    </column>
+    <column name="MovementPosTol" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="MovementMinHeight" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="MovementMaxHeight" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MovementDivertTol" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="MovementDivertOpt" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="MovementStuckTol" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="MaxFlatYDiff" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="MaxYDiffS16" type="INT16">
+      <offset>36</offset>
+    </column>
+    <column name="MaxYDiff" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="BetterSlopeYDiff" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="FlatAreaCircleCutoffMin" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="FlatAreaCircleCutoffMax" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="numProcessesPerLoop" type="INT">
+      <offset>56</offset>
+      <default>2</default>
+    </column>
+    <column name="angleProcessIncrement" type="INT">
+      <offset>60</offset>
+      <default>2</default>
+    </column>
+    <column name="noGroundConns" type="BIT">
+      <offset>64</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatLoginData">
+  <table>
+    <column name="ChatLoginData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uAccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="uAccessLevel" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="InitialStatus" type="INT">
+      <offset>16</offset>
+      <static_define_list external="UserStatus" />
+    </column>
+    <column name="PlayerInfo" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="PlayerInfoStruct" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

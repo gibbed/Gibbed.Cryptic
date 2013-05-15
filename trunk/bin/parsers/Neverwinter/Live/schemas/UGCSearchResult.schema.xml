@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCSearchResult">
+  <table>
+    <column name="UGCSearchResult" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="UGCProjectSearchSpecialType" />
+    </column>
+    <column name="ErrorMessage" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Result" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UGCContentInfo" />
+    </column>
+    <column name="ProjectSeriesProject" type="INTARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="Capped" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

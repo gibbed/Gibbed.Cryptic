@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShooterCameraSettings">
+  <table>
+    <column name="ShooterCameraSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MinDistance" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="MaxDistance" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="AimDistance" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="ClosestDistanceOverride" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="PlayerHeightMultiplier" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="AimFOV" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="NearOffsetAim" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="NearOffsetRange" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="HardTargetSnapAngleThreshold" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

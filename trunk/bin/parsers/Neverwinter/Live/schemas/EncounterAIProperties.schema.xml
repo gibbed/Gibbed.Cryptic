@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EncounterAIProperties">
+  <table>
+    <column name="EncounterAIProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="CombatRoles" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>AICombatRolesDef</dictionary_name>
+    </column>
+    <column name="FSMType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="EncounterCritterOverrideType" />
+    </column>
+    <column name="FSM" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="VariableDef" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="OverrideParentValues" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

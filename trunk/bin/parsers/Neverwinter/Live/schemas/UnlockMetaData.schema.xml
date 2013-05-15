@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UnlockMetaData">
+  <table>
+    <column name="UnlockMetaData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Geometry" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>CostumeGeometry</dictionary_name>
+    </column>
+    <column name="Material" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>CostumeMaterial</dictionary_name>
+    </column>
+    <column name="Texture" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="Costumes" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="PlayerCostumeRef" />
+    </column>
+    <column name="Owned" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="MicroTransactionID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Product" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="MicroTransactionUIProduct" />
+    </column>
+    <column name="FullProductList" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="MicroTransactionUIProduct" />
+    </column>
+    <column name="MinimumProductPrice" type="INT64">
+      <offset>32</offset>
+    </column>
+    <column name="MaximumProductPrice" type="INT64">
+      <offset>40</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

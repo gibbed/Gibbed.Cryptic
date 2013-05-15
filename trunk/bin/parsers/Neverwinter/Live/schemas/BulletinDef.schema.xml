@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BulletinDef">
+  <table>
+    <column name="BulletinDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uActivateTime" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="uIgnoreTime" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="DisplayDate" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="IgnoreDate" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Message" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="BulletinMessage" />
+    </column>
+    <column name="Event" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="BulletinEvent" />
+    </column>
+    <column name="MicroTransactionDef" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Link" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="Category" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="hMTDef" type="REFERENCE">
+      <offset>40</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <dictionary_name>MicroTransactionDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

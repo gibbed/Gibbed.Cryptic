@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerStatDef">
+  <table>
+    <column name="PlayerStatDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Notes" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Rank" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="IconName" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Category" type="INT">
+      <offset>24</offset>
+      <static_define_list external="PlayerStatCategory" />
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="descriptionMsg" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Event" type="STRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="GameEvent" />
+    </column>
+    <column name="EventData" type="STRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <redundant_name>Event</redundant_name>
+      <subtable external="GameEvent" />
+    </column>
+    <column name="UpdateType" type="INT">
+      <offset>56</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <static_define_list external="PlayerStatUpdateType" />
+    </column>
+    <column name="EditorData" type="STRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="PlayerStatEventsEditorData" />
+    </column>
+    <column name="PlayerStatTag" type="INTARRAY">
+      <offset>64</offset>
+      <static_define_list external="PlayerStatTag" />
+    </column>
+    <column name="PlayerPerMatchStat" type="U8">
+      <offset>68</offset>
+    </column>
+    <column name="NotifyPlayerOnChange" type="U8">
+      <offset>69</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

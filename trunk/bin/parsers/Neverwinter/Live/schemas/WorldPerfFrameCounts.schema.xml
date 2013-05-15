@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldPerfFrameCounts">
+  <table>
+    <column name="WorldPerfFrameCounts" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="time_misc" type="INT64">
+      <offset>0</offset>
+    </column>
+    <column name="time_draw" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="time_queue" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="time_queue_world" type="INT64">
+      <offset>24</offset>
+    </column>
+    <column name="time_anim" type="INT64">
+      <offset>32</offset>
+    </column>
+    <column name="time_wait_gpu" type="INT64">
+      <offset>40</offset>
+    </column>
+    <column name="time_net" type="INT64">
+      <offset>48</offset>
+    </column>
+    <column name="time_ui" type="INT64">
+      <offset>56</offset>
+    </column>
+    <column name="time_cloth" type="INT64">
+      <offset>64</offset>
+    </column>
+    <column name="time_skel" type="INT64">
+      <offset>72</offset>
+    </column>
+    <column name="time_fx" type="INT64">
+      <offset>80</offset>
+    </column>
+    <column name="time_sound" type="INT64">
+      <offset>88</offset>
+    </column>
+    <column name="time_physics" type="INT64">
+      <offset>96</offset>
+    </column>
+    <column name="time_gpu" type="F32FIXEDARRAY">
+      <offset>104</offset>
+      <num_elements>10</num_elements>
+    </column>
+    <column name="inside_brackets" type="INT64">
+      <offset>144</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

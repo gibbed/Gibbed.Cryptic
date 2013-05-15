@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerCategory">
+  <table>
+    <column name="PowerCategory" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="PreferredTray" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="TimeCooldown" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="TimeCooldownOutOfCombat" type="F32">
+      <offset>12</offset>
+      <default>-1</default>
+    </column>
+    <column name="RequiredItemCategories" type="INTARRAY">
+      <offset>16</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="SortGroup" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="MatchTacticalMode" type="INT">
+      <offset>24</offset>
+      <static_define_list external="PowerTacticalMovementMode" />
+      <format>FLAGS</format>
+    </column>
+    <column name="SlottingRequired" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ToggleExclusive" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="AutoAttackServer" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="AutoAttackEnabler" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="AutoAttackDisabler" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="WeaponBased" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="HasAutoSlotPriority" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="IgnoreTargetPitch" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="DisplayAttribModsAsBaseStat" type="BIT">
+      <offset>28</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

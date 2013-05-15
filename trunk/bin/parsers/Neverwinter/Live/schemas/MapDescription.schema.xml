@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MapDescription">
+  <table>
+    <column name="MapDescription" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapType" type="U8">
+      <offset>0</offset>
+      <static_define_list external="ZoneMapType" />
+    </column>
+    <column name="OwnerType" type="U8">
+      <offset>1</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="SpawnPosSkipBeaconCheck" type="U8">
+      <offset>2</offset>
+    </column>
+    <column name="MapDescription" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="mapDetail" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MapVariables" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="mapInstanceIndex" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="OwnerID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="spawnPos" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="spawnPYR" type="F32FIXEDARRAY">
+      <offset>36</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="SpawnPoint" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="ContainerID" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="UGC" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="UGCEdit" type="U8">
+      <offset>61</offset>
+    </column>
+    <column name="UGCProjectID" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="VirtualShardID" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="PartitionID" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="uPartitionID" type="INT">
+      <offset>72</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PartitionID</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

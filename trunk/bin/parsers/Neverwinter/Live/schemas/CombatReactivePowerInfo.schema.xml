@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatReactivePowerInfo">
+  <table>
+    <column name="CombatReactivePowerInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hCombatBlockDef" type="REFERENCE">
+      <offset>48</offset>
+      <dictionary_name>CombatReactivePowerDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

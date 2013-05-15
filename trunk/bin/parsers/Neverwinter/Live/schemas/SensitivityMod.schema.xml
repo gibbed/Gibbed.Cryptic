@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SensitivityMod">
+  <table>
+    <column name="SensitivityMod" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <default>-1</default>
+      <static_define_list external="SensitivityType" />
+    </column>
+    <column name="Value" type="F32">
+      <offset>8</offset>
+      <default>1</default>
+    </column>
+    <column name="AltType" type="INT">
+      <offset>12</offset>
+      <default>-1</default>
+      <static_define_list external="SensitivityType" />
+    </column>
+    <column name="AltValue" type="F32">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

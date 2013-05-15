@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CritterEncounterData">
+  <table>
+    <column name="CritterEncounterData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hContactDefOverride" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <dictionary_name>ContactDef</dictionary_name>
+    </column>
+    <column name="activeTeamSize" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="activeTeamLevel" type="U8">
+      <offset>21</offset>
+    </column>
+    <column name="LootTracker" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="InteractionLootTracker" />
+    </column>
+    <column name="perInteractingPlayers" type="INTARRAY">
+      <offset>44</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="EnableSpawnAggroDelay" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

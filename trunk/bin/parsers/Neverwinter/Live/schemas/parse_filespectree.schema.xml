@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="parse_filespectree">
+  <table>
+    <column name="FileSpec" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Folder" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="parse_filespectree" />
+    </column>
+    <column name="Incl" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="parse_filespec_include" />
+    </column>
+    <column name="Excl" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Incl</redundant_name>
+      <subtable external="parse_filespec_exclude" />
+    </column>
+    <column name="EndFolder" type="END" />
+  </table>
+</parser>

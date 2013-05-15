@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldUGCFSMProperties">
+  <table>
+    <column name="WorldUGCFSMProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="HasPatrol" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="PatrolType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="WorldPatrolRouteType" />
+    </column>
+    <column name="ExternVar" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UGCFSMExternVarDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

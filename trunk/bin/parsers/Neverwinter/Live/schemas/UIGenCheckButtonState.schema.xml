@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenCheckButtonState">
+  <table>
+    <column name="UIGenCheckButtonState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>6</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="String" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Checked" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="Inconsistent" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="Truncate" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="UIGenBundleTruncateState" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

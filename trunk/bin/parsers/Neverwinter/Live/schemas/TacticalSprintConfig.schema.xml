@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalSprintConfig">
+  <table>
+    <column name="TacticalSprintConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="sprintDef" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="RunMaxDurationSeconds" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="RunMaxDurationSecondsCombat" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="RunCooldown" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="RunCooldownCombat" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="RunFuelRefillRate" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="RunFuelDelay" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="SpeedScaleSprint" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="SpeedScaleSprintCombat" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="SpeedSprint" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="SpeedSprintCombat" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="SprintDisabled" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="AutoSprint" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="SprintToggles" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="CrittersIgnoreRunTimeouts" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="SprintFX" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

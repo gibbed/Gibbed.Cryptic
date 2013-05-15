@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatEventTracker">
+  <table>
+    <column name="CombatEventTracker" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Event" type="INT">
+      <offset>0</offset>
+      <static_define_list external="CombatEvent" />
+    </column>
+    <column name="erOther" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="PowerDef" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PowerDef" />
+    </column>
+    <column name="AttribModDef" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="AttribModDef" />
+    </column>
+    <column name="Mag" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MagPreResist" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="AngleToSource" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

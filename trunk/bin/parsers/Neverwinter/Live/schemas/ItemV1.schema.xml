@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemV1">
+  <table>
+    <column name="ItemV1" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT64">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="hItem" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="fDurability" type="F32">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="fDurabilityMax" type="F32">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ppPowers" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="Power" />
+    </column>
+    <column name="ppInfuseSlots" type="STRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="InfuseSlot" />
+    </column>
+    <column name="NumericValue" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iNumericValue" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>NumericValue</redundant_name>
+    </column>
+    <column name="pchDisplayName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="Quality" type="U8">
+      <offset>36</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="MinLevel" type="U8">
+      <offset>37</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="MinLevel_UseAccessor" type="U8">
+      <offset>37</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MinLevel</redundant_name>
+    </column>
+    <column name="Level" type="U8">
+      <offset>38</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="Level_UseAccessor" type="U8">
+      <offset>38</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Level</redundant_name>
+    </column>
+    <column name="iPowerFactor" type="U8">
+      <offset>39</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="Flags" type="U8">
+      <offset>40</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="ItemFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="numeric_op" type="U8">
+      <offset>41</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="NumericOp" />
+      <format>FLAGS</format>
+    </column>
+    <column name="uSetCount" type="U8">
+      <offset>42</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ppItemPowerDefRefs" type="STRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ItemPowerDefRef" />
+    </column>
+    <column name="Costume" type="REFERENCE">
+      <offset>48</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="hCostumeRef" type="REFERENCE">
+      <offset>48</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Costume</redundant_name>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="pAlgoPet" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="AlgoPet" />
+    </column>
+    <column name="pContainerInfo" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ItemContainerInfo" />
+    </column>
+    <column name="pDoorKey" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ItemDoorKey" />
+    </column>
+    <column name="hMission" type="REFERENCE">
+      <offset>64</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>Mission</dictionary_name>
+    </column>
+    <column name="ppItemGemSlots" type="STRUCT">
+      <offset>68</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="ItemGemSlot" />
+    </column>
+    <column name="uiTimestamp" type="INT">
+      <offset>72</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="owner" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="iWarpChargesUsed" type="U8">
+      <offset>80</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bWarpActive" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="bTrainingFromItem" type="BIT">
+      <offset>84</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="bSlottedOnItemAssignment" type="BIT">
+      <offset>84</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="bAlgo" type="BIT">
+      <offset>84</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="bUnlootable" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="bExemptFromLootMode" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="bTransactionPending" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="bForceBind" type="BIT">
+      <offset>84</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="iPendingTransactionCount" type="U8">
+      <offset>88</offset>
+    </column>
+    <column name="bHide" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

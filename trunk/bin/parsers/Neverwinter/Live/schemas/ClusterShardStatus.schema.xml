@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClusterShardStatus">
+  <table>
+    <column name="ClusterShardStatus" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="shardName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ShardIsLocked" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="Version" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="shardType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ClusterShardType" />
+    </column>
+    <column name="ServersByType" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="ClusterServerTypeStatus" />
+    </column>
+    <column name="periodicStatus" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="ClusterShardPeriodicStatus" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

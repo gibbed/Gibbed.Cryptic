@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCMissionLibraryModel">
+  <table>
+    <column name="UGCMissionLibraryModel" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="UGCMissionLibraryModelType" />
+    </column>
+    <column name="ComponentType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="UGCComponentType" />
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

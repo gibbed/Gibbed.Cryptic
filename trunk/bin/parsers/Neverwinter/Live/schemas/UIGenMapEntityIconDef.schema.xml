@@ -1,0 +1,179 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMapEntityIconDef">
+  <table>
+    <column name="UIGenMapEntityIconDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TargetType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="TargetType" />
+      <format>FLAGS</format>
+    </column>
+    <column name="ContactIndicator" type="INT">
+      <offset>4</offset>
+      <static_define_list external="ContactIndicator" />
+    </column>
+    <column name="ContactFlags" type="INT">
+      <offset>8</offset>
+      <static_define_list external="ContactFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="NotificationTypes" type="INTARRAY">
+      <offset>12</offset>
+      <static_define_list external="MapNotificationType" />
+    </column>
+    <column name="Escort" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="SavedEntity" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="Guildmate" type="U8">
+      <offset>18</offset>
+    </column>
+    <column name="MustPerceive" type="U8">
+      <offset>19</offset>
+    </column>
+    <column name="PlayerPet" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="Def" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Textures</dictionary_name>
+    </column>
+    <column name="Texture" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <redundant_name>Icon</redundant_name>
+      <dictionary_name>Textures</dictionary_name>
+    </column>
+    <column name="FormatIcon" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Textures</dictionary_name>
+    </column>
+    <column name="FormatTexture" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <redundant_name>FormatIcon</redundant_name>
+      <dictionary_name>Textures</dictionary_name>
+    </column>
+    <column name="Color" type="INT">
+      <offset>32</offset>
+      <default>-1</default>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="Label" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="LabelFont" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="HighlightFont" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="LabelAlignment" type="INT">
+      <offset>48</offset>
+      <default>4</default>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="FrameDuration" type="F32">
+      <offset>52</offset>
+      <default>-1</default>
+    </column>
+    <column name="FrameCount" type="INT">
+      <offset>56</offset>
+      <default>1</default>
+    </column>
+    <column name="ScaleMultiplier" type="F32">
+      <offset>60</offset>
+      <default>1</default>
+    </column>
+    <column name="MinScale" type="F32">
+      <offset>64</offset>
+      <default>1045220557</default>
+    </column>
+    <column name="PixelsPerWorldUnit" type="F32">
+      <offset>68</offset>
+      <default>2</default>
+    </column>
+    <column name="BaseScale" type="F32">
+      <offset>72</offset>
+      <default>1</default>
+    </column>
+    <column name="MaxCount" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="OnLeftClick" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="OnRightClick" type="OPTIONALSTRUCT">
+      <offset>88</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="OnLeftDoubleClick" type="OPTIONALSTRUCT">
+      <offset>92</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="Z" type="INT16">
+      <offset>96</offset>
+    </column>
+    <column name="OutOfBounds" type="U8">
+      <offset>98</offset>
+    </column>
+    <column name="ClampToEdge" type="U8">
+      <offset>99</offset>
+    </column>
+    <column name="Rotate" type="U8">
+      <offset>100</offset>
+    </column>
+    <column name="Scale" type="U8">
+      <offset>101</offset>
+    </column>
+    <column name="ScaleToWorld" type="U8">
+      <offset>102</offset>
+    </column>
+    <column name="Clip" type="U8">
+      <offset>103</offset>
+    </column>
+    <column name="Pushable" type="U8">
+      <offset>104</offset>
+    </column>
+    <column name="AlwaysShowLabel" type="U8">
+      <offset>105</offset>
+    </column>
+    <column name="IgnoreWorldSize" type="U8">
+      <offset>106</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

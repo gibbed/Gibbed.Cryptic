@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SingleFieldInheritanceData">
+  <table>
+    <column name="SingleFieldInheritanceData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FieldName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="enumOverrideType" />
+    </column>
+    <column name="NewValue" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ArrayValues" type="STRINGARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="CurrentFile" type="CURRENTFILE">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LineNum" type="LINENUM">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

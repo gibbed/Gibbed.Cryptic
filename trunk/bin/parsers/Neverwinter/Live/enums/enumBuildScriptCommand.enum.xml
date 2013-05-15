@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<enum name="enumBuildScriptCommand">
+  <elements type="int">
+    <element name="WAIT">0</element>
+    <element name="SETVARIABLE">1</element>
+    <element name="SETVAR">1</element>
+    <element name="SET">1</element>
+    <element name="SET_NO_EXPAND">2</element>
+    <element name="SETVARIABLESFROMFILE">3</element>
+    <element name="SYSTEM">4</element>
+    <element name="FOR">5</element>
+    <element name="ENDFOR">6</element>
+    <element name="INCLUDE">7</element>
+    <element name="REQUIREVARIABLES">8</element>
+    <element name="EXECUTE_COMMAND">9</element>
+    <element name="SENDEMAIL">10</element>
+    <element name="ABORT_IF_EXPRESSION_TRUE">11</element>
+    <element name="WAIT_UNTIL_EXPRESSION_TRUE">12</element>
+    <element name="FAIL_IF_EXPRESSION_TRUE">13</element>
+    <element name="FAIL_IF_STRING_NONEMPTY">14</element>
+    <element name="IF">15</element>
+    <element name="ELSE">16</element>
+    <element name="ENDIF">17</element>
+    <element name="ABORT">18</element>
+    <element name="FAIL">19</element>
+    <element name="COMMENT">20</element>
+    <element name="REM">20</element>
+    <element name="SETMULTIPLEVARS">21</element>
+    <element name="EXPORT_VARS_TO_PARENT">22</element>
+    <element name="EXPORT_VARS_TO_ROOT">23</element>
+    <element name="BEGIN_CHILDREN">24</element>
+    <element name="END_CHILDREN">25</element>
+    <element name="BEGIN_CHILD">26</element>
+    <element name="END_CHILD">27</element>
+    <element name="WAIT_FOR_DETACHED_CHILDREN">28</element>
+    <element name="BEGIN_DETACHED_CHILD">29</element>
+    <element name="END_DETACHED_CHILD">30</element>
+    <element name="WAIT_FOR_VARIABLE_IN_ROOT">31</element>
+    <element name="SUBDIVIDE_STRING_INTO_VARS">32</element>
+    <element name="GOTO">33</element>
+  </elements>
+</enum>

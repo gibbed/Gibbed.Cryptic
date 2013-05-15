@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InteractInfo">
+  <table>
+    <column name="InteractInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dirtyBit" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="hRootInteractContact" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>Contact</dictionary_name>
+    </column>
+    <column name="interactItem" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="SharedMission" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="QueuedMissionOffer" />
+    </column>
+    <column name="nearbyContacts" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="ContactInfo" />
+    </column>
+    <column name="InteractableContacts" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <subtable external="ContactInfo" />
+    </column>
+    <column name="uLastVerifyInteractFrame" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="uLastVerifyContactFlags" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="nearbyInteractCritterEnts" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="CritterInteractInfo" />
+    </column>
+    <column name="ContactDialog" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="ContactDialog" />
+    </column>
+    <column name="recentlyCompletedDialogs" type="STRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="ContactDialogInfo" />
+    </column>
+    <column name="recentlyViewedForceOnTeamDialogs" type="STRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="ContactDialogInfo" />
+    </column>
+    <column name="recentlyCompletedInteracts" type="STRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="InteractionInfo" />
+    </column>
+    <column name="QueuedContactDialog" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="QueuedContactDialog" />
+    </column>
+    <column name="QueuedNotInCombatDialog" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="QueuedContactDialog" />
+    </column>
+    <column name="CostumeFallback" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="ContactCostumeFallback" />
+    </column>
+    <column name="Crafting" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="CraftingTable" type="INT">
+      <offset>68</offset>
+      <static_define_list external="SkillType" />
+    </column>
+    <column name="CraftingMaxLevel" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="RemoteContacts" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="RemoteContact" />
+    </column>
+    <column name="uNextRemoteContactUpdateTime" type="INT">
+      <offset>80</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="UpdateRemoteContactsNextTick" type="U8">
+      <offset>84</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="uNextContactDialogOptionsUpdateTime" type="INT">
+      <offset>88</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="UpdateContactDialogOptionsNextTick" type="U8">
+      <offset>92</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="PartialPermissions" type="U8">
+      <offset>93</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="RemotelyAccessing" type="U8">
+      <offset>94</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="AwaitingMapTransfer" type="U8">
+      <offset>95</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="PurchaseInProgress" type="U8">
+      <offset>96</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="BuyBackList" type="STRUCT">
+      <offset>100</offset>
+      <subtable external="StoreItemInfo" />
+    </column>
+    <column name="ppchVisitedSpecialDialogs" type="STRINGARRAY">
+      <offset>104</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

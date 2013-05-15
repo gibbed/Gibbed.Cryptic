@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatTeamToJoin">
+  <table>
+    <column name="ChatTeamToJoin" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Leader" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="ChatPlayerStruct" />
+    </column>
+    <column name="TeamMembers" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ChatTeamMemberStruct" />
+    </column>
+    <column name="HasFriend" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="AverageLevel" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="TeamRating" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

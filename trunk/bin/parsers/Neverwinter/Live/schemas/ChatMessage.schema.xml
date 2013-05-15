@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatMessage">
+  <table>
+    <column name="ChatMessage" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="From" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="ChatUserInfo" />
+    </column>
+    <column name="To" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="ChatUserInfo" />
+    </column>
+    <column name="Type" type="INT">
+      <offset>8</offset>
+      <static_define_list external="ChatLogEntryType" />
+    </column>
+    <column name="Channel" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ChannelDisplay" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="InstanceIndex" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="uVirtualShardID" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="subject" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="XML_ENCODE_BASE64">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Text" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="XML_ENCODE_BASE64">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Thread" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ID" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="data" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="ChatData" />
+    </column>
+    <column name="xmppType" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="BlacklistViolation" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

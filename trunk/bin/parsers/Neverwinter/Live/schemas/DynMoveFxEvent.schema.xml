@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynMoveFxEvent">
+  <table>
+    <column name="DynMoveFxEvent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="FX" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="Frame" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uiFrameTrigger" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="Message" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

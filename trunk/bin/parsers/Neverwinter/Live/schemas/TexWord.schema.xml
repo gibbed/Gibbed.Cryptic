@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TexWord">
+  <table>
+    <column name="TexWord" type="IGNORE" />
+    <column name="Name" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Size" type="INTFIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>2</num_elements>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="Layer" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="Layer" />
+    </column>
+    <column name="EndTexWord" type="END" />
+  </table>
+</parser>

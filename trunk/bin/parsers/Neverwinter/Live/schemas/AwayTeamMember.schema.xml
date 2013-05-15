@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AwayTeamMember">
+  <table>
+    <column name="AwayTeamMember" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EntType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="EntID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uiCritterPetID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="IsReady" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DOFValues">
+  <table>
+    <column name="DOFValues" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="nearDist" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="nearValue" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="focusDist" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="focusValue" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="FarDist" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="farValue" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="skyValue" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="borderColorHSV" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="borderColorScale" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="borderRamp" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="borderBlur" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="depthAdjustFgHSV" type="F32FIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="depthAdjustBgHSV" type="F32FIXEDARRAY">
+      <offset>68</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="depthAdjustSkyHSV" type="F32FIXEDARRAY">
+      <offset>80</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="depthAdjustNearDist" type="F32">
+      <offset>92</offset>
+    </column>
+    <column name="depthAdjustFadeDist" type="F32">
+      <offset>96</offset>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>100</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="blurSize" type="IGNORE" />
+    <column name="EndDOFValues" type="END" />
+  </table>
+</parser>

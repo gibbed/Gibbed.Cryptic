@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCAchievementServerEvent">
+  <table>
+    <column name="UGCAchievementServerEvent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PlayerReviewerd" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="UGCPlayerReviewerEvent" />
+    </column>
+    <column name="ProjectPublished" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="UGCProjectPublishedEvent" />
+    </column>
+    <column name="SeriesPublished" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="UGCSeriesPublishedEvent" />
+    </column>
+    <column name="ProjectPlayed" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="UGCProjectPlayedEvent" />
+    </column>
+    <column name="PlayedProject" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="UGCPlayedProjectEvent" />
+    </column>
+    <column name="ProjectReviewed" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="UGCProjectReviewedEvent" />
+    </column>
+    <column name="ReviewedProject" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="UGCReviewedProjectEvent" />
+    </column>
+    <column name="ProjectTipped" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="UGCProjectTippedEvent" />
+    </column>
+    <column name="TippedProject" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="UGCTippedProjectEvent" />
+    </column>
+    <column name="ProjectFeatured" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="UGCProjectFeaturedEvent" />
+    </column>
+    <column name="AchievementGranted" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="UGCAchievementGrantedEvent" />
+    </column>
+    <column name="SeriesReviewed" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="UGCSeriesReviewedEvent" />
+    </column>
+    <column name="ReviewedSeries" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="UGCReviewedSeriesEvent" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

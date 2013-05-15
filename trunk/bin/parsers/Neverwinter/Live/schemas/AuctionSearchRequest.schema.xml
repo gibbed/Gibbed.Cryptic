@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AuctionSearchRequest">
+  <table>
+    <column name="AuctionSearchRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MinLevel" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ItemQuality" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="minUsageRestrictionCategory" type="INT">
+      <offset>12</offset>
+      <static_define_list external="UsageRestrictionCategory" />
+    </column>
+    <column name="maxUsageRestrictionCategory" type="INT">
+      <offset>16</offset>
+      <static_define_list external="UsageRestrictionCategory" />
+    </column>
+    <column name="OwnerID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="ExcludeOwner" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="sortType" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="ItemSortTypeCategoryName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="eaiAuctionLotContainerIDs" type="INTARRAY">
+      <offset>36</offset>
+    </column>
+    <column name="SortColumn" type="INT">
+      <offset>40</offset>
+      <static_define_list external="AuctionSortColumn" />
+    </column>
+    <column name="stringSearch" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="stringLanguage" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="RequiredClass" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uiPetMinLevel" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="uiPetMaxLevel" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="uiNumGemSlots" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="RequiredGemType" type="INT">
+      <offset>68</offset>
+      <static_define_list external="ItemGemType" />
+    </column>
+    <column name="eaiAttribs" type="INTARRAY">
+      <offset>72</offset>
+    </column>
+    <column name="numResults" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="AuctionBrokerSearchData" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <subtable external="AuctionBrokerLevelInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

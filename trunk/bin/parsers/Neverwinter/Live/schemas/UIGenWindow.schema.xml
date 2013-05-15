@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenWindow">
+  <table>
+    <column name="UIGenWindow" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hDef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>UIGenWindowDef</dictionary_name>
+    </column>
+    <column name="hTemplate" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>UIGen</dictionary_name>
+    </column>
+    <column name="Instance" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="UIGen" />
+    </column>
+    <column name="chClone" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="Visible" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="SetPosition" type="U8">
+      <offset>14</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

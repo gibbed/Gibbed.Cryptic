@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenCodeInterface">
+  <table>
+    <column name="UIGenCodeInterface" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SortColumn" type="INT">
+      <offset>16</offset>
+      <default>-1</default>
+    </column>
+    <column name="Sort" type="INT">
+      <offset>20</offset>
+      <static_define_list external="UISortType" />
+    </column>
+    <column name="uiFrameLastUpdate" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="uiFrameLastBadMemoryError" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="ManagedStructures" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="ManagedPointer" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

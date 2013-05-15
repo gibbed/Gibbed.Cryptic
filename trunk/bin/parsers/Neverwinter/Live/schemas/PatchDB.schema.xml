@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PatchDB">
+  <table>
+    <column name="PatchDB" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="DBVersion" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Root" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DirEntry" />
+    </column>
+    <column name="Checkin" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="Checkin" />
+    </column>
+    <column name="checkins" type="STRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Checkin</redundant_name>
+      <subtable external="Checkin" />
+    </column>
+    <column name="View" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="NamedView" />
+    </column>
+    <column name="namedviews" type="STRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>View</redundant_name>
+      <subtable external="NamedView" />
+    </column>
+    <column name="BranchValidity" type="INTARRAY">
+      <offset>64</offset>
+    </column>
+    <column name="LatestRev" type="INT">
+      <offset>68</offset>
+      <default>-1</default>
+    </column>
+    <column name="patcher_version" type="IGNORE" />
+  </table>
+</parser>

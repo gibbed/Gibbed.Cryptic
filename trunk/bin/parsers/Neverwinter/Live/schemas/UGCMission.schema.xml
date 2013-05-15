@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCMission">
+  <table>
+    <column name="UGCMission" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FN" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="GrantBlock" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="UGCDialogTreePrompt" />
+    </column>
+    <column name="InitialMapName" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="InitialSpawnPoint" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="Objective" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="UGCMissionObjective" />
+    </column>
+    <column name="MapLink" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="UGCMissionMapLink" />
+    </column>
+    <column name="ReturnMapLink" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="UGCMissionMapLink" />
+    </column>
+    <column name="DisplayName" type="IGNORE" />
+    <column name="JournalText" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

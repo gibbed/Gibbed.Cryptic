@@ -1,0 +1,381 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RegionRules">
+  <table>
+    <column name="RegionRules" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FileName" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RegionType" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="WorldRegionType" />
+    </column>
+    <column name="CharClassType" type="INTARRAY">
+      <offset>8</offset>
+      <static_define_list external="CharClassTypes" />
+    </column>
+    <column name="SchemeRegionType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ControlSchemeRegionType" />
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="SchemeToLoad" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CameraDistancePresets" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="CameraDistancePresets" />
+    </column>
+    <column name="SpaceFlight" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="FlightRotationIgnorePitch" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="CameraFlightZoom" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="CameraNearOffset" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="AllowCameraLock" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="AllowAimMode" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="AllowNavThrottleAdjust" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="HandleEntityAvoidance" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="UseOverheadEntityGens" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="AlwaysCollideWithPets" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="CamDistInterpSpeed" type="F32">
+      <offset>40</offset>
+      <default>-1</default>
+    </column>
+    <column name="LoginThrottle" type="F32">
+      <offset>44</offset>
+      <default>1</default>
+    </column>
+    <column name="GravityMulti" type="F32">
+      <offset>48</offset>
+      <default>1</default>
+    </column>
+    <column name="LaunchMultiDistance" type="F32">
+      <offset>52</offset>
+      <default>1</default>
+    </column>
+    <column name="LaunchMultiHeight" type="F32">
+      <offset>56</offset>
+      <default>1</default>
+    </column>
+    <column name="CategoryDoNotAdd" type="INTARRAY">
+      <offset>60</offset>
+      <static_define_list external="PowerCategory" />
+    </column>
+    <column name="CategoryExclude" type="INTARRAY">
+      <offset>64</offset>
+      <static_define_list external="PowerCategory" />
+    </column>
+    <column name="CategoryRequire" type="INTARRAY">
+      <offset>68</offset>
+      <static_define_list external="PowerCategory" />
+    </column>
+    <column name="NoPrediction" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="AllowScanForInteractables" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="ScanForClickiesAllowed" type="BIT">
+      <offset>72</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AllowScanForInteractables</redundant_name>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="ScanForInteractablesCooldown" type="INT">
+      <offset>76</offset>
+      <default>5</default>
+    </column>
+    <column name="ScanForClickiesCooldownSecs" type="INT">
+      <offset>76</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ScanForInteractablesCooldown</redundant_name>
+      <default>5</default>
+    </column>
+    <column name="ScanForInteractablesRange" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="ScanForInteractablesAllegianceFX" type="STRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="RegionAllegianceFXData" />
+    </column>
+    <column name="ScanForClickiesAllegianceFX" type="STRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <redundant_name>ScanForInteractablesAllegianceFX</redundant_name>
+      <subtable external="RegionAllegianceFXData" />
+    </column>
+    <column name="PetType" type="INTARRAY">
+      <offset>88</offset>
+      <static_define_list external="CharClassTypes" />
+    </column>
+    <column name="AllowedPetsPerPlayer" type="INT">
+      <offset>92</offset>
+      <default>-1</default>
+    </column>
+    <column name="DisableDueling" type="BIT">
+      <offset>100</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="EnableDueling" type="BIT">
+      <offset>100</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="RespawnTime" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="MinSendDistance" type="F32">
+      <offset>108</offset>
+    </column>
+    <column name="MaxSendDistance" type="F32">
+      <offset>112</offset>
+    </column>
+    <column name="SendDistanceBaseHeight" type="F32">
+      <offset>116</offset>
+    </column>
+    <column name="WorldCellDistanceScale" type="F32">
+      <offset>120</offset>
+      <default>1</default>
+    </column>
+    <column name="DefaultInteractDist" type="F32">
+      <offset>124</offset>
+      <default>10</default>
+    </column>
+    <column name="DefaultInteractTargetDist" type="F32">
+      <offset>128</offset>
+      <default>50</default>
+    </column>
+    <column name="DefaultInteractDistForEnts" type="F32">
+      <offset>132</offset>
+      <default>40</default>
+    </column>
+    <column name="InteractDistCutoff" type="F32">
+      <offset>136</offset>
+      <default>100</default>
+    </column>
+    <column name="DisableTargetableFX" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ClickablesTargetable" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="UseRoomMapReveal" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="UseGridMapReveal" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="SpawnUnlockRadius" type="F32">
+      <offset>144</offset>
+      <default>150</default>
+    </column>
+    <column name="TeamKillCreditDistance" type="INT">
+      <offset>148</offset>
+    </column>
+    <column name="EncounterSpawnTeamDistance" type="INT">
+      <offset>152</offset>
+      <default>500</default>
+    </column>
+    <column name="EncounterDistance" type="STRUCT">
+      <offset>156</offset>
+      <subtable external="RegionEncounterRadius" />
+    </column>
+    <column name="EncounterTime" type="STRUCT">
+      <offset>160</offset>
+      <subtable external="RegionEncounterTimer" />
+    </column>
+    <column name="EncounterWaveTime" type="STRUCT">
+      <offset>164</offset>
+      <subtable external="RegionEncounterWaveTimer" />
+    </column>
+    <column name="EncounterWaveDelayTime" type="STRUCT">
+      <offset>168</offset>
+      <subtable external="RegionEncounterWaveDelayTimer" />
+    </column>
+    <column name="DefaultMeasurement" type="INT">
+      <offset>172</offset>
+      <static_define_list external="MeasurementType" />
+    </column>
+    <column name="MeasurementSize" type="INT">
+      <offset>176</offset>
+      <static_define_list external="MeasurementSize" />
+    </column>
+    <column name="DisplayDistanceScale" type="F32">
+      <offset>180</offset>
+      <default>1</default>
+    </column>
+    <column name="DefaultDistanceScale" type="F32">
+      <offset>184</offset>
+      <default>1</default>
+    </column>
+    <column name="DisplayDistanceUnits" type="EMBEDDEDSTRUCT">
+      <offset>188</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayDistanceUnitsShort" type="EMBEDDEDSTRUCT">
+      <offset>200</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="EncounterFarDistance" type="F32">
+      <offset>212</offset>
+    </column>
+    <column name="EncounterMaxSeparation" type="F32">
+      <offset>216</offset>
+      <default>50</default>
+    </column>
+    <column name="SocialAggroPrimaryDist" type="F32">
+      <offset>220</offset>
+    </column>
+    <column name="SocialAggroSecondaryDist" type="F32">
+      <offset>224</offset>
+    </column>
+    <column name="FormationSlotScale" type="F32">
+      <offset>228</offset>
+      <default>10</default>
+    </column>
+    <column name="IgnoreNoDraw" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="SpawnBox" type="OPTIONALSTRUCT">
+      <offset>236</offset>
+      <subtable external="SpawnBoxes" />
+    </column>
+    <column name="SpawnRadius" type="F32">
+      <offset>240</offset>
+    </column>
+    <column name="XRelocation" type="OPTIONALSTRUCT">
+      <offset>244</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="YRelocation" type="OPTIONALSTRUCT">
+      <offset>248</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ZRelocation" type="OPTIONALSTRUCT">
+      <offset>252</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="LeashSettings" type="OPTIONALSTRUCT">
+      <offset>256</offset>
+      <subtable external="RegionLeashSettings" />
+    </column>
+    <column name="ArriveSequence" type="STRUCT">
+      <offset>260</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="DoorTransitionSequenceRef" />
+    </column>
+    <column name="DepartSequence" type="STRUCT">
+      <offset>264</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="DoorTransitionSequenceRef" />
+    </column>
+    <column name="PetRequestDepart" type="REFERENCE">
+      <offset>268</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="PetRequestArrive" type="REFERENCE">
+      <offset>272</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <dictionary_name>DoorTransitionSequenceDef</dictionary_name>
+    </column>
+    <column name="AIAmbientDefaults" type="STRING">
+      <offset>276</offset>
+      <default_string>Default</default_string>
+    </column>
+    <column name="AICombatJobDefaults" type="STRING">
+      <offset>280</offset>
+      <default_string>Default</default_string>
+    </column>
+    <column name="AIGroupCombatSettings" type="STRING">
+      <offset>284</offset>
+    </column>
+    <column name="GlobalCritterDropRewardTable" type="STRING">
+      <offset>288</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="KillCreditLimit" type="OPTIONALSTRUCT">
+      <offset>292</offset>
+      <subtable external="KillCreditLimits" />
+    </column>
+    <column name="VehicleRules" type="INT">
+      <offset>296</offset>
+      <default>1</default>
+      <static_define_list external="VehicleRules" />
+    </column>
+    <column name="uiMissionSharingDist" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

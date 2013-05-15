@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TemplateMapSingleZoneInfo">
+  <table>
+    <column name="TemplateMapSingleZoneInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ZoneMinX" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ZoneMaxX" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ZoneMinZ" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="ZoneMaxZ" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="MapMinX" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="MapMaxX" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="MapMinY" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="MapMaxY" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="ZoneName" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="KillCreditEntity">
+  <table>
+    <column name="KillCreditEntity" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="entRef" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ContainerID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="TotalDamageSelf" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="MyTeamDamageShare" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="PercentOfTeamCredit" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="PercentCreditSelf" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="PercentCreditTeam" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="FinalBlow" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="HasCredit" type="U8">
+      <offset>29</offset>
+    </column>
+    <column name="HasTeamCredit" type="U8">
+      <offset>30</offset>
+    </column>
+    <column name="CBIData" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="CharacterBasedIncludeContext" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

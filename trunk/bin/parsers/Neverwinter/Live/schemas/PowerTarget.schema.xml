@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerTarget">
+  <table>
+    <column name="PowerTarget" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Require" type="INT">
+      <offset>4</offset>
+      <static_define_list external="TargetType" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Exclude" type="INT">
+      <offset>8</offset>
+      <static_define_list external="TargetType" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Or" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="TargetTypePair" />
+    </column>
+    <column name="msgDescription" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DoNotTargetUnlessRequired" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="NeverTargetIfNotRequired" type="BIT">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>DoNotTargetUnlessRequired</redundant_name>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="UseLocationHitIfNoTarget" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="FaceActivateSticky" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="FaceDuringPowerActivation" type="BIT">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FaceActivateSticky</redundant_name>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="RequireSelf" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="AllowSelf" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="AllowFoe" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="AllowFriend" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="AllowNearDeath" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="SafeForSelfOnly" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

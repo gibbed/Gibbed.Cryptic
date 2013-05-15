@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerStats">
+  <table>
+    <column name="PowerStats" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PowerStat" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PowerStat" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

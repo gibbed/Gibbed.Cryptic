@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PEInhNode">
+  <table>
+    <column name="PEInhNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Children" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PEInhNode" />
+    </column>
+    <column name="PowerDef" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="PowerDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

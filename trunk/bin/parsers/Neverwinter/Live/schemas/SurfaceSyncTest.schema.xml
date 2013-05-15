@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SurfaceSyncTest">
+  <table>
+    <column name="SurfaceSyncTest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="setVel" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="SurfaceSyncSetVel" />
+    </column>
+    <column name="coll" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="SurfaceSyncCollTest" />
+    </column>
+    <column name="jump" type="EMBEDDEDSTRUCT">
+      <offset>48</offset>
+      <subtable external="SurfaceSyncJumpTest" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

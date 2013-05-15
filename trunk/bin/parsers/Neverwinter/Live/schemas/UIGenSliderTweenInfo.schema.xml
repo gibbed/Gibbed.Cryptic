@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenSliderTweenInfo">
+  <table>
+    <column name="UIGenSliderTweenInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <static_define_list external="UITweenType" />
+    </column>
+    <column name="TweenSpeed" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="Delay" type="F32">
+      <offset>8</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Direction" type="INT">
+      <offset>12</offset>
+      <default>3</default>
+      <static_define_list external="UIStyleBarDirection" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

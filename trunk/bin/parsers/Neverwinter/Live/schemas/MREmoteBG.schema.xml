@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MREmoteBG">
+  <table>
+    <column name="MREmoteBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="sets" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="MREmoteSet" />
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="MREmoteBGFlags" />
+    </column>
+    <column name="handleLastStarted" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

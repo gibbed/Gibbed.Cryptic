@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RoomServerParsed">
+  <table>
+    <column name="RoomServerParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="layer_idx" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="def_name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Partitions" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="RoomPartitionParsed" />
+    </column>
+    <column name="portals" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="RoomPortalParsed" />
+    </column>
+    <column name="bounds_min" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="bounds_max" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="bounds_mid" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="server_volume" type="EMBEDDEDSTRUCT">
+      <offset>52</offset>
+      <subtable external="GroupVolumePropertiesServer" />
+    </column>
+    <column name="volume_type_strings" type="STRINGARRAY">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

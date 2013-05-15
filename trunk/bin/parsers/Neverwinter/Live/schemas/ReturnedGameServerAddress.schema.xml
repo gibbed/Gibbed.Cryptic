@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ReturnedGameServerAddress">
+  <table>
+    <column name="ReturnedGameServerAddress" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContainerID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="uPartitionID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="InstanceIndex" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="IPs" type="INTFIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="portNum" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Cookie" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="ErrorString" type="FIXEDSTRING">
+      <offset>28</offset>
+      <string_length>1024</string_length>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

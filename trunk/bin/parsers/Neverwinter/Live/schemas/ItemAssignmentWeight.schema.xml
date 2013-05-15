@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentWeight">
+  <table>
+    <column name="ItemAssignmentWeight" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Value" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Weight" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Value</redundant_name>
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="AssociatedCategory" type="INT">
+      <offset>24</offset>
+      <static_define_list external="ItemAssignmentCategory" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

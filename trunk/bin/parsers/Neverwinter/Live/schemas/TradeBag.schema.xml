@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TradeBag">
+  <table>
+    <column name="TradeBag" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Finished" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="TradeSlots" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="TradeSlot" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

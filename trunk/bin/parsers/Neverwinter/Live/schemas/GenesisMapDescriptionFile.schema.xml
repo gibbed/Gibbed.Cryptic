@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMapDescriptionFile">
+  <table>
+    <column name="GenesisMapDescriptionFile" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="MapDescription" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="GenesisMapDescription" />
+    </column>
+  </table>
+</parser>

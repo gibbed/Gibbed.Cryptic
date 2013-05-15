@@ -1,0 +1,148 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CharacterPath">
+  <table>
+    <column name="CharacterPath" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Header1" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Header2" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Header3" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Description" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Description1" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Description</redundant_name>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Description2" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Description3" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="FlavorText" type="EMBEDDEDSTRUCT">
+      <offset>92</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="IconName" type="STRING">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LargeImage" type="STRING">
+      <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ExprRequiresBlock" type="OPTIONALSTRUCT">
+      <offset>112</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprRequires" type="OPTIONALSTRUCT">
+      <offset>112</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprRequiresBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="PowerTree" type="REFERENCE">
+      <offset>116</offset>
+      <dictionary_name>PowerTreeDef</dictionary_name>
+    </column>
+    <column name="SuggestedPurchase" type="STRUCT">
+      <offset>120</offset>
+      <subtable external="CharacterPathSuggestedPurchase" />
+    </column>
+    <column name="Purchase" type="STRUCT">
+      <offset>120</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SuggestedPurchase</redundant_name>
+      <subtable external="CharacterPathSuggestedPurchase" />
+    </column>
+    <column name="AssignedStat" type="STRUCT">
+      <offset>124</offset>
+      <subtable external="AssignedStats" />
+    </column>
+    <column name="GrantItem" type="STRUCT">
+      <offset>128</offset>
+      <subtable external="DefaultItemDef" />
+    </column>
+    <column name="RequiredClass" type="STRUCT">
+      <offset>132</offset>
+      <subtable external="CharacterClassRef" />
+    </column>
+    <column name="PreviewItem" type="STRUCT">
+      <offset>136</offset>
+      <subtable external="ItemDefRef" />
+    </column>
+    <column name="Hue" type="F32">
+      <offset>140</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>144</offset>
+      <default>-1</default>
+      <static_define_list external="CharacterPathType" />
+    </column>
+    <column name="GamePermissionValue" type="STRING">
+      <offset>148</offset>
+    </column>
+    <column name="FreeRetrainItems" type="STRUCT">
+      <offset>152</offset>
+      <subtable external="DefaultItemDef" />
+    </column>
+    <column name="Costume" type="STRUCT">
+      <offset>156</offset>
+      <subtable external="PlayerDefaultCostumeRef" />
+    </column>
+    <column name="PlayerPathDevRestricted" type="BIT">
+      <offset>160</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="HideIfCantUse" type="BIT">
+      <offset>160</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GfxFontData">
+  <table>
+    <column name="GfxFontData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Font" type="START" />
+    <column name="FileName" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="CommandLine" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="Texture" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SubstitutionBold" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SubstitutionItalic" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SubstitutionBoldItalic" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SubstitutionMissingGlyphs" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FontSize" type="INT16">
+      <offset>28</offset>
+    </column>
+    <column name="Spread" type="INT16">
+      <offset>30</offset>
+    </column>
+    <column name="Padding" type="INT16FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="TexSize" type="INT16FIXEDARRAY">
+      <offset>36</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="MaxAscent" type="INT16">
+      <offset>40</offset>
+    </column>
+    <column name="MaxDescent" type="INT16">
+      <offset>42</offset>
+    </column>
+    <column name="VerticalShift" type="INT16">
+      <offset>44</offset>
+      <default>-32768</default>
+    </column>
+    <column name="IgnoreBoldStyle" type="BIT">
+      <offset>44</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65552</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">0</format_string>
+      </format_strings>
+    </column>
+    <column name="IgnoreItalicStyle" type="BIT">
+      <offset>44</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65553</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">0</format_string>
+      </format_strings>
+    </column>
+    <column name="DensityOffset" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="OutlineDensityOffset" type="F32">
+      <offset>52</offset>
+      <default>-943501312</default>
+    </column>
+    <column name="Smoothing" type="F32">
+      <offset>56</offset>
+      <default>1</default>
+    </column>
+    <column name="OutlineSmoothing" type="F32">
+      <offset>60</offset>
+      <default>-1</default>
+    </column>
+    <column name="SpacingAdjustment" type="F32">
+      <offset>64</offset>
+      <default>1</default>
+    </column>
+    <column name="ExtraWidthPixels" type="INT16">
+      <offset>68</offset>
+      <default>2</default>
+    </column>
+    <column name="VerticalGradientShift" type="INT16">
+      <offset>70</offset>
+    </column>
+    <column name="VerticalGradientIntensity" type="F32">
+      <offset>72</offset>
+      <default>1</default>
+    </column>
+    <column name="Glyph" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="GfxFontGlyphData" />
+    </column>
+    <column name="EndFont" type="END" />
+  </table>
+</parser>

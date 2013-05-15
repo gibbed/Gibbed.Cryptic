@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ResourceReference">
+  <table>
+    <column name="ResourceReference" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="resourceDict" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ResourceName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="referencePath" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ErrorString" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="referenceType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="ResourceReferenceType" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

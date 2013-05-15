@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCMaterialColorOptions">
+  <table>
+    <column name="PCMaterialColorOptions" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AllowGlow" type="U8FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="AllowReflection" type="U8FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="AllowSpecularity" type="U8FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="SuppressMuscle" type="U8FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="CustomReflection" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="CustomSpecularity" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="defaultReflection" type="U8FIXEDARRAY">
+      <offset>18</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="defaultSpecularity" type="U8FIXEDARRAY">
+      <offset>22</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

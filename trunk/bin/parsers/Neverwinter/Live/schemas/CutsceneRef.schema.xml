@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CutsceneRef">
+  <table>
+    <column name="CutsceneRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hCutsceneDef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>CutsceneDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

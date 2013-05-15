@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatReactivePowerDef">
+  <table>
+    <column name="CombatReactivePowerDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PreactivateTime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="DeactivateTime" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="ActivateSpeedScale" type="F32">
+      <offset>16</offset>
+      <default>-1</default>
+    </column>
+    <column name="PreactivateSpeedScale" type="F32">
+      <offset>20</offset>
+      <default>-1</default>
+    </column>
+    <column name="AnimFX" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="CombatReactivePowerAnimFx" />
+    </column>
+    <column name="ActivatePowerDef" type="REFERENCE">
+      <offset>48</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="AttribPoolName" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AttribPoolPostDelayTimer" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="CombatPowerState" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CostAttrib" type="INT">
+      <offset>64</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="MaxCostAttrib" type="INT">
+      <offset>68</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="RequiredAmountToActivate" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="ExprBlockMovementAttribCost" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="MovementAttribCost" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockMovementAttribCost</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="InitialActivationAttribCost" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="RequiredItemCategory" type="INTARRAY">
+      <offset>84</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="RequiredItemCategoryErrorMessageKey" type="STRING">
+      <offset>88</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisallowedPowerMode" type="INT">
+      <offset>92</offset>
+      <default>-1</default>
+      <static_define_list external="PowerMode" />
+    </column>
+    <column name="CombatLevelLockout" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="Roll" type="OPTIONALSTRUCT">
+      <offset>100</offset>
+      <subtable external="TacticalRequesterRollDef" />
+    </column>
+    <column name="AllowCancelPowerCategory" type="INTARRAY">
+      <offset>104</offset>
+      <static_define_list external="PowerCategory" />
+    </column>
+    <column name="DisablingAttribs" type="INTARRAY">
+      <offset>108</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="InCombatTimer" type="F32">
+      <offset>112</offset>
+    </column>
+    <column name="Cooldown" type="F32">
+      <offset>116</offset>
+    </column>
+    <column name="DisablesJump" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="EnableStrafing" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="IgnoreHitFxDuringActivation" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="DisallowPowerActivation" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="PowerActivationDeactivates" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="CanActivateByDoubleTap" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="ActivatingDisablesAutoAttack" type="BIT">
+      <offset>120</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65542</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldClusterVolumeProperties">
+  <table>
+    <column name="WorldClusterVolumeProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="TargetLOD" type="INT">
+      <offset>0</offset>
+      <static_define_list external="ClusterTargetLOD" />
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>4</offset>
+      <static_define_list external="ClusterMinLevel" />
+    </column>
+    <column name="MaxLODLevel" type="INT">
+      <offset>8</offset>
+      <static_define_list external="ClusterMaxLODLevel" />
+    </column>
+    <column name="TextureHeight" type="INT">
+      <offset>12</offset>
+      <static_define_list external="ClusterTextureResolution" />
+    </column>
+    <column name="TextureWidth" type="INT">
+      <offset>16</offset>
+      <static_define_list external="ClusterTextureResolution" />
+    </column>
+    <column name="TextureSupersample" type="INT">
+      <offset>20</offset>
+      <static_define_list external="ClusterTextureSupersample" />
+    </column>
+    <column name="GeometryResolution" type="INT">
+      <offset>24</offset>
+      <static_define_list external="ClusterGeometryResolution" />
+    </column>
+    <column name="IncludeNormal" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="IncludeSpecular" type="U8">
+      <offset>29</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

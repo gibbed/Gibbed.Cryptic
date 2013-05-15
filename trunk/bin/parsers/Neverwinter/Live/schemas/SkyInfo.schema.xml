@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyInfo">
+  <table>
+    <column name="SkyInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="FN" type="CURRENTFILE">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FNNoPath" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FNNoPathShouldNotBeOverwritten" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Tags" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Notes" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="NoPPFallback" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>SkyInfo</dictionary_name>
+    </column>
+    <column name="Moon" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="Moon" />
+    </column>
+    <column name="IgnoreFogClip" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="FogClip" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="IgnoreFogClipLow" type="U8">
+      <offset>34</offset>
+    </column>
+    <column name="FogClipLow" type="U8">
+      <offset>35</offset>
+    </column>
+    <column name="CloudShadowTexture" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DiffuseWarpTextureCharacter" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DiffuseWarpTextureWorld" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AmbientCube" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ReflectionCube" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SkyOverride" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="SkySun" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="SkyTimeSun" />
+    </column>
+    <column name="SkySecondarySun" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="SkyTimeSecondarySun" />
+    </column>
+    <column name="SkyCharacterLighting" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="SkyTimeCharacterLighting" />
+    </column>
+    <column name="SkyCloudShadows" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="SkyTimeCloudShadows" />
+    </column>
+    <column name="SkyShadowFade" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="SkyTimeShadowFade" />
+    </column>
+    <column name="SkyColorCorrection" type="STRUCT">
+      <offset>80</offset>
+      <subtable external="SkyTimeColorCorrection" />
+    </column>
+    <column name="SkyTint" type="STRUCT">
+      <offset>84</offset>
+      <subtable external="SkyTimeTint" />
+    </column>
+    <column name="SkyOutline" type="STRUCT">
+      <offset>88</offset>
+      <subtable external="SkyTimeOutline" />
+    </column>
+    <column name="SkyFog" type="STRUCT">
+      <offset>92</offset>
+      <subtable external="SkyTimeFog" />
+    </column>
+    <column name="SkyLightBehavior" type="STRUCT">
+      <offset>96</offset>
+      <subtable external="SkyTimeLightBehavior" />
+    </column>
+    <column name="SkyBloom" type="STRUCT">
+      <offset>100</offset>
+      <subtable external="SkyTimeBloom" />
+    </column>
+    <column name="DOFValues" type="STRUCT">
+      <offset>104</offset>
+      <subtable external="DOFValues" />
+    </column>
+    <column name="AmbientOcclusion" type="STRUCT">
+      <offset>108</offset>
+      <subtable external="SkyTimeAmbientOcclusion" />
+    </column>
+    <column name="Wind" type="STRUCT">
+      <offset>112</offset>
+      <subtable external="SkyTimeWind" />
+    </column>
+    <column name="SkyScattering" type="STRUCT">
+      <offset>116</offset>
+      <subtable external="SkyTimeScattering" />
+    </column>
+    <column name="SkyDome" type="STRUCT">
+      <offset>120</offset>
+      <subtable external="SkyDome" />
+    </column>
+    <column name="SkyShadows" type="STRUCT">
+      <offset>124</offset>
+      <subtable external="ShadowRules" />
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>128</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="FogHeightRange" type="IGNORE" />
+    <column name="FogRampColor" type="IGNORE" />
+    <column name="FogRampDistance" type="IGNORE" />
+    <column name="EndSky" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCPlayableNameSpaceData">
+  <table>
+    <column name="UGCPlayableNameSpaceData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">AccountID, NameSpace, Playable, StatsQualifyForUGCRewards, NumberOfPlays, AverageDurationInMinutes, FeaturedStartTimestamp, FeaturedEndTimestamp</format_string>
+      </format_strings>
+    </column>
+    <column name="{" type="START" />
+    <column name="AccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="NameSpace" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Playable" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="StatsQualifyForUGCRewards" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="NumberOfPlays" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="AverageDurationInMinutes" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="FeaturedStartTimestamp" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="FeaturedEndTimestamp" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="ProjectIsFeatured" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="ProjectWasFeatured" type="U8">
+      <offset>29</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

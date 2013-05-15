@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CharSlotRestriction">
+  <table>
+    <column name="CharSlotRestriction" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="numSlots" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>4</offset>
+      <static_define_list external="CharSlotRestrictFlag" />
+    </column>
+    <column name="VirtualShardID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="AllegianceName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisPlacementActorParams">
+  <table>
+    <column name="GenesisPlacementActorParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="world_vars" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="Costume" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="WorldActorCostumeProperties" />
+    </column>
+    <column name="FSMName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ActorName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

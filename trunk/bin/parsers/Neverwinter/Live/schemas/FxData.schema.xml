@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FxData">
+  <table>
+    <column name="FxData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FXDataHue" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="FXDataBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="DynParamBlock" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NamespacedMissionContactData">
+  <table>
+    <column name="NamespacedMissionContactData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MissionDetails" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="hContactCostume" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="hPetContactList" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>PetContactList</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

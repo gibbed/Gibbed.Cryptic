@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SurfaceBG">
+  <table>
+    <column name="SurfaceBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="vel" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="velAdditive" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="velConstantPush" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="surfaceNormalMutable" type="F32FIXEDARRAY">
+      <offset>36</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="yawFaceTarget" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="rotTarget" type="QUATPYR">
+      <offset>52</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="onGroundVelY" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="minOnSteepSlopeY" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="stuckOnSteepSlopePos" type="F32FIXEDARRAY">
+      <offset>76</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="stuckOnSteepSlopeCount" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="speedPenalty" type="F32">
+      <offset>92</offset>
+    </column>
+    <column name="inputMoveYaw" type="F32">
+      <offset>96</offset>
+    </column>
+    <column name="inputFaceYaw" type="F32">
+      <offset>100</offset>
+    </column>
+    <column name="stickingFrameCount" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="storedSpeed" type="F32">
+      <offset>108</offset>
+    </column>
+    <column name="yawStoredSpeed" type="F32">
+      <offset>112</offset>
+    </column>
+    <column name="spcStoredSpeed" type="INT">
+      <offset>116</offset>
+    </column>
+    <column name="spcLastOnGroundUpdate" type="INT">
+      <offset>120</offset>
+    </column>
+    <column name="spcPlayedFlourishAnim" type="INT">
+      <offset>124</offset>
+    </column>
+    <column name="pitchDiffInterpScale" type="F32">
+      <offset>128</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>132</offset>
+      <subtable external="SurfaceBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

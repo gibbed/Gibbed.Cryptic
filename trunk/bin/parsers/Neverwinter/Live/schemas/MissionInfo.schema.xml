@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MissionInfo">
+  <table>
+    <column name="MissionInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="missions" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="Mission" />
+    </column>
+    <column name="completedMissions" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="CompletedMission" />
+    </column>
+    <column name="RecentSecondaryMissions" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="CompletedMission" />
+    </column>
+    <column name="eaRecentSecondaryMissions" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>RecentSecondaryMissions</redundant_name>
+      <subtable external="CompletedMission" />
+    </column>
+    <column name="MissionRequests" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="MissionRequest" />
+    </column>
+    <column name="eaMissionRequests" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>MissionRequests</redundant_name>
+      <subtable external="MissionRequest" />
+    </column>
+    <column name="uNextRequestID" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eaMissionCooldowns" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="MissionCooldown" />
+    </column>
+    <column name="pchPrimarySoloMission" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="ePrimarySoloMission" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>pchPrimarySoloMission</redundant_name>
+    </column>
+    <column name="eaNonPersistedMissions" type="STRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Mission" />
+    </column>
+    <column name="eaDiscoveredMissions" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="Mission" />
+    </column>
+    <column name="pTeamPrimaryMission" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+      </flags>
+      <subtable external="Mission" />
+    </column>
+    <column name="eaTeamMissions" type="STRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="TeamMissionInfo" />
+    </column>
+    <column name="pchTeamCurrentObjective" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="pchLastActiveMission" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uLastActiveMissionTimestamp" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="uLastMissionRatingRequestID" type="INT">
+      <offset>56</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="bLastMissionPlayingAsBetaReviewer" type="U8">
+      <offset>60</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="waypointList" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="MinimapWaypoint" />
+    </column>
+    <column name="clientGameTimers" type="STRUCT">
+      <offset>68</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <subtable external="GameTimer" />
+    </column>
+    <column name="dirtyBit" type="U8">
+      <offset>72</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="eaQueuedMissionOffers" type="STRUCT">
+      <offset>76</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="QueuedMissionOffer" />
+    </column>
+    <column name="pchCurrentOpenMission" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="openMissionVolumeTimestamp" type="INT">
+      <offset>84</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="pLeaderboardInfo" type="OPTIONALSTRUCT">
+      <offset>88</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="OpenMissionLeaderboardInfo" />
+    </column>
+    <column name="pchTrackedMission" type="STRING">
+      <offset>92</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="hTrackedContact" type="REFERENCE">
+      <offset>96</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <dictionary_name>ContactDef</dictionary_name>
+    </column>
+    <column name="iTotalPerkPoints" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="eaiEscorting" type="INTARRAY">
+      <offset>104</offset>
+    </column>
+    <column name="bHasTeamCorral" type="U8">
+      <offset>108</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="uLastTeamCorralUpdateTime" type="INT">
+      <offset>112</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="eaRequests" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

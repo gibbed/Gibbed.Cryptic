@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="JoystickMappingEntry">
+  <table>
+    <column name="JoystickMappingEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CategoryName" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Def" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="JoystickLogicalIdentifier" />
+    </column>
+    <column name="Primary" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="JoystickMapping" />
+    </column>
+    <column name="Secondary" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="JoystickMapping" />
+    </column>
+    <column name="IsCategory" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

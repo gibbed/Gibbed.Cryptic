@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="worldCellClusterGenerateCellClusterData">
+  <table>
+    <column name="worldCellClusterGenerateCellClusterData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="source_models" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="ModelClusterSource" />
+    </column>
+    <column name="unprocessedChildrenRemaining" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="remeshState" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="timeTaskRequestIssued" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="timeTaskAutoRetry" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="WroteClientBins" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="remeshClusterMaterial" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="RemeshMaterial" />
+    </column>
+    <column name="buildStats" type="EMBEDDEDSTRUCT">
+      <offset>48</offset>
+      <subtable external="WorldClusterStats" />
+    </column>
+    <column name="clusterBaseName" type="FIXEDSTRING">
+      <offset>568</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="remeshGMeshName" type="FIXEDSTRING">
+      <offset>828</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="diffuseTexName" type="FIXEDSTRING">
+      <offset>1088</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="normalTexName" type="FIXEDSTRING">
+      <offset>1348</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="specularTexName" type="FIXEDSTRING">
+      <offset>1608</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="taskParameterHoggFile" type="FIXEDSTRING">
+      <offset>1868</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="taskResultHoggFile" type="FIXEDSTRING">
+      <offset>2128</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentSlot">
+  <table>
+    <column name="ItemAssignmentSlot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RequiredItemCategory" type="INTARRAY">
+      <offset>0</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="RestrictItemCategory" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="OutcomeModifier" type="STRINGARRAY">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="IsOptional" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

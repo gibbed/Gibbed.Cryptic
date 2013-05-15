@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameAccountDataNumericPurchaseDef">
+  <table>
+    <column name="GameAccountDataNumericPurchaseDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Description" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="NumericItemDef" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NumericCost" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="PurchaseKeyValue" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="GameAccountDataPurchaseKeyValue" />
+    </column>
+    <column name="Require" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="GameAccountDataRequiredValues" />
+    </column>
+    <column name="OrRequire" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="GameAccountDataRequiredValues" />
+    </column>
+    <column name="Category" type="INT">
+      <offset>48</offset>
+      <static_define_list external="GameAccountDataNumericPurchaseCategory" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

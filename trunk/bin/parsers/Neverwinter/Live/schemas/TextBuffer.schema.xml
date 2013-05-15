@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TextBuffer">
+  <table>
+    <column name="TextBuffer" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UndoStackSize" type="INT">
+      <offset>0</offset>
+      <default>20</default>
+    </column>
+    <column name="State" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALWAYS_ALLOC</flag>
+      </flags>
+      <subtable external="TextBufferState" />
+    </column>
+    <column name="Undo" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="TextBufferState" />
+    </column>
+    <column name="Redo" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="TextBufferState" />
+    </column>
+    <column name="Clipboard" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <default_string />
+    </column>
+    <column name="MaxLength" type="INT">
+      <offset>20</offset>
+      <default>-1</default>
+    </column>
+    <column name="PrivateClipboard" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="LastOpWasSimpleInsert" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

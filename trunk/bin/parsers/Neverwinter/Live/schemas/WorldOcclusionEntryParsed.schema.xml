@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldOcclusionEntryParsed">
+  <table>
+    <column name="WorldOcclusionEntryParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="base_data" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldCellEntryParsed" />
+    </column>
+    <column name="gmesh" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <subtable external="GMeshParsed" />
+    </column>
+    <column name="model_idx" type="INT">
+      <offset>76</offset>
+      <default>-1</default>
+    </column>
+    <column name="type_flags" type="BIT">
+      <offset>80</offset>
+      <bit_offset>1966080</bit_offset>
+    </column>
+    <column name="occluder" type="BIT">
+      <offset>80</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65566</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="double_sided_occluder" type="BIT">
+      <offset>80</offset>
+      <bit_offset>65567</bit_offset>
+    </column>
+    <column name="volume_faces" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="volume_radius" type="F32">
+      <offset>88</offset>
+      <float_rounding>TENTHS</float_rounding>
+    </column>
+    <column name="volume_min" type="F32FIXEDARRAY">
+      <offset>92</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="volume_max" type="F32FIXEDARRAY">
+      <offset>104</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

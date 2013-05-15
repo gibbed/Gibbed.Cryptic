@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldTerrainProperties">
+  <table>
+    <column name="WorldTerrainProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ExcludeOthersBegin" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ExcludeOthersEnd" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ExcludePriority" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="ExcludePriorityScale" type="F32">
+      <offset>12</offset>
+      <default>1</default>
+    </column>
+    <column name="ExcludeSame" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MultiExclusionVolumesDensity" type="F32">
+      <offset>20</offset>
+      <default>1</default>
+    </column>
+    <column name="MultiExclusionVolumesRequired" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="MultiExclusionVolumesRotation" type="INT">
+      <offset>28</offset>
+      <static_define_list external="GenesisMultiExcludeRotType" />
+    </column>
+    <column name="ScaleMin" type="F32">
+      <offset>32</offset>
+      <default>1063675494</default>
+    </column>
+    <column name="ScaleMax" type="F32">
+      <offset>36</offset>
+      <default>1</default>
+    </column>
+    <column name="SnapToTerrainNormal" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="VaccuFormBrush" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="VaccuFormFalloff" type="F32">
+      <offset>48</offset>
+      <default>20</default>
+    </column>
+    <column name="IntensityVariation" type="F32">
+      <offset>52</offset>
+      <default>1036831949</default>
+    </column>
+    <column name="VolumeName" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="ShowPanel" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="TerrainObject" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="SnapToTerrainHeight" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="SnapToNormal" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="VaccuFormMe" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="GetTerrainColor" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

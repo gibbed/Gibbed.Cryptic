@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ProjectileEntity">
+  <table>
+    <column name="ProjectileEntity" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hProjectileDef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>ProjectileEntityDef</dictionary_name>
+    </column>
+    <column name="erGotoEnt" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="NumEntitiesHit" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="uiLastProcessHitTime" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="TimeToLinger" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="muQueueDieTime" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="mfResetHitEntsTime" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="miOnExpireIndex" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="miOnQueueDeathIndex" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="miOnCollideWorldIndex" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="miOnHitEntityIndex" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="miOnHitGotoEnt" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="QueuedDie" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RewardGatedInfo">
+  <table>
+    <column name="RewardGatedInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RewardGateType" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="RewardGatedType" />
+    </column>
+    <column name="uHoursPerBlock" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uNumberOfTimesToIncrement" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="uResetAt" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="GateFromPlayerGrantTime" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

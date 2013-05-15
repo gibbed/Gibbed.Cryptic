@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PatchProcessStats">
+  <table>
+    <column name="PatchProcessStats" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="received" type="INT64">
+      <offset>0</offset>
+    </column>
+    <column name="Total" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="received_files" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="total_files" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="xfers" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="buffered" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="actual_transferred" type="INT64">
+      <offset>32</offset>
+    </column>
+    <column name="overlay_bytes" type="INT64">
+      <offset>40</offset>
+    </column>
+    <column name="written_bytes" type="INT64">
+      <offset>48</offset>
+    </column>
+    <column name="http_actual_transferred" type="INT64">
+      <offset>56</offset>
+    </column>
+    <column name="http_errors" type="INT64">
+      <offset>64</offset>
+    </column>
+    <column name="http_header_bytes" type="INT64">
+      <offset>72</offset>
+    </column>
+    <column name="http_mime_bytes" type="INT64">
+      <offset>80</offset>
+    </column>
+    <column name="http_body_bytes" type="INT64">
+      <offset>88</offset>
+    </column>
+    <column name="http_extra_bytes" type="INT64">
+      <offset>96</offset>
+    </column>
+    <column name="seconds" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="loops" type="INT64">
+      <offset>112</offset>
+    </column>
+    <column name="state_info" type="STRUCT">
+      <offset>120</offset>
+      <subtable external="XferStateInfo" />
+    </column>
+    <column name="elapsed" type="F32">
+      <offset>124</offset>
+    </column>
+    <column name="Error" type="INT">
+      <offset>128</offset>
+      <static_define_list external="PCL_ErrorCode" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

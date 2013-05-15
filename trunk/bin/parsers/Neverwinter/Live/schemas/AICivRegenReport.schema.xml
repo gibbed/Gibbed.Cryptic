@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AICivRegenReport">
+  <table>
+    <column name="AICivRegenReport" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="totalLegsCreated" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="problemAreaRequest" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ProblemLocs" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="AICivProblemLocation" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

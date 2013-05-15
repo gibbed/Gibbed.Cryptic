@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCPlayLayerData">
+  <table>
+    <column name="UGCPlayLayerData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FileName" type="FILENAME">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LayerData" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="GroupDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

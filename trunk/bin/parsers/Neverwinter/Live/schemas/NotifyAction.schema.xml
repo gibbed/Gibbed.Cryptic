@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NotifyAction">
+  <table>
+    <column name="NotifyAction" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="NotifyType" />
+    </column>
+    <column name="LogicalStringFilter" type="STRINGARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LogicalStringIsTutorial" type="U8">
+      <offset>8</offset>
+      <default>-1</default>
+    </column>
+    <column name="Command" type="STRINGARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GenEnterGlobalState" type="INTARRAY">
+      <offset>16</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="GenExitGlobalState" type="INTARRAY">
+      <offset>20</offset>
+      <static_define_list external="UIGenState" />
+    </column>
+    <column name="GenEnterState" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="NotifyActionGenState" />
+    </column>
+    <column name="GenExitState" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="NotifyActionGenState" />
+    </column>
+    <column name="GenMessage" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="NotifyActionGenMessage" />
+    </column>
+    <column name="Queue" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="NotifyActionEnqueue" />
+    </column>
+    <column name="TutorialGen" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="NotifyTutorialGen" />
+    </column>
+    <column name="Sound" type="STRINGARRAY">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FloatTo" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="NotifyActionFloatToGen" />
+    </column>
+    <column name="PopUpDialog" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="NotifyActionDialog" />
+    </column>
+    <column name="Chat" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="NotifyActionChat" />
+    </column>
+    <column name="ChainNotify" type="INTARRAY">
+      <offset>60</offset>
+      <static_define_list external="NotifyType" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

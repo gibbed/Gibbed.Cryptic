@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerGrab">
+  <table>
+    <column name="PowerGrab" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TimeChase" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="DistStart" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="DistHold" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="FramesHold" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="SourceBits" type="STRINGARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TargetBits" type="STRINGARRAY">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

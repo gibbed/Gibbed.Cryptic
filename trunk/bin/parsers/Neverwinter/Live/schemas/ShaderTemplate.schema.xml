@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShaderTemplate">
+  <table>
+    <column name="ShaderTemplate" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="FN" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ShaderGraph" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="ShaderGraph" />
+    </column>
+    <column name="Guide" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="ShaderGuide" />
+    </column>
+    <column name="ShaderTemplateLink" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="ShaderTemplateLink" />
+    </column>
+    <column name="IsAutosave" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="score" type="INT">
+      <offset>68</offset>
+      <default>-1</default>
+    </column>
+    <column name="ShaderTemplateLOD" type="IGNORE" />
+    <column name="EndShaderTemplateLOD" type="IGNORE" />
+    <column name="FarDist" type="IGNORE" />
+    <column name="FarFade" type="IGNORE" />
+    <column name="EndShaderTemplate" type="END" />
+  </table>
+</parser>

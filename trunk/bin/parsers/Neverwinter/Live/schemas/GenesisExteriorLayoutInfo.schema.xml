@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisExteriorLayoutInfo">
+  <table>
+    <column name="GenesisExteriorLayoutInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="GeotypeSpecifier" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GenesisTagOrName" />
+    </column>
+    <column name="GeotypeTags2" type="STRINGARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="GeotypeTags" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="GeoType" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>GenesisGeotype</dictionary_name>
+    </column>
+    <column name="EcosystemSpecifier" type="INT">
+      <offset>16</offset>
+      <static_define_list external="GenesisTagOrName" />
+    </column>
+    <column name="EcosystemTags2" type="STRINGARRAY">
+      <offset>20</offset>
+    </column>
+    <column name="EcosystemTags" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Ecosystem" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>GenesisEcosystem</dictionary_name>
+    </column>
+    <column name="ColorShift" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

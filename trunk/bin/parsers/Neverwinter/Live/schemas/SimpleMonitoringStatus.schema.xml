@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SimpleMonitoringStatus">
+  <table>
+    <column name="SimpleMonitoringStatus" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">Connected, LastConnectionTime, status.status.fps</format_string>
+      </format_strings>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Connected" type="U8">
+      <offset>4</offset>
+      <format_strings>
+        <format_string name="HTML_CLASS_IFEXPR">$ = 0 ; divRed</format_string>
+      </format_strings>
+    </column>
+    <column name="LastConnectionTime" type="INT">
+      <offset>8</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Status" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="StatusReporting_Wrapper" />
+    </column>
+    <column name="ip" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="MachineName" type="STRING">
+      <offset>76</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

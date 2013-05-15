@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMapIcon">
+  <table>
+    <column name="UIGenMapIcon" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Entity" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Node" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Mission" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Texture" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="WorldPos" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="WorldSize" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v2DesiredScreenPos" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Rotation" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="Z" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="MouseOver" type="U8">
+      <offset>56</offset>
+    </column>
+    <column name="PushX" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="PushY" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="Label" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="LabelAlignment" type="INT">
+      <offset>72</offset>
+      <default>4</default>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="Def" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UIGenMapIconDef" />
+    </column>
+    <column name="MouseDistanceSqd" type="F32">
+      <offset>112</offset>
+    </column>
+    <column name="HideUnlessRevealed" type="U8">
+      <offset>116</offset>
+    </column>
+    <column name="KeyIndex" type="INT">
+      <offset>124</offset>
+    </column>
+    <column name="IndexLabel" type="STRING">
+      <offset>128</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Indices" type="INTARRAY">
+      <offset>132</offset>
+    </column>
+    <column name="Visited" type="U8">
+      <offset>136</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

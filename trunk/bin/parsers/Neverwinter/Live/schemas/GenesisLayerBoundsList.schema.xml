@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisLayerBoundsList">
+  <table>
+    <column name="GenesisLayerBoundsList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="sol_sys_bounds" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="GenesisLayerBounds" />
+    </column>
+    <column name="interior_bounds" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="GenesisLayerBounds" />
+    </column>
+    <column name="exterior_bounds" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="GenesisLayerBounds" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

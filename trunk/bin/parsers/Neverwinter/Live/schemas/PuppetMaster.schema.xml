@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PuppetMaster">
+  <table>
+    <column name="PuppetMaster" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="mainRef" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <format_strings>
+        <format_string name="FIXUP_CONTAINER_TYPE">EntityPlayer</format_string>
+      </format_strings>
+    </column>
+    <column name="curID" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <format_strings>
+        <format_string name="FIXUP_CONTAINER_TYPE">.curType</format_string>
+      </format_strings>
+    </column>
+    <column name="curType" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="curTempID" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="lastActiveID" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="expectedID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="expectedType" type="INT">
+      <offset>24</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="curPuppetName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>PUPPET_NO_COPY</flag>
+      </flags>
+    </column>
+    <column name="ppPuppets" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PuppetEntity" />
+    </column>
+    <column name="ppTempPuppets" type="STRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>SELF_AND_TEAM_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="TempPuppetEntity" />
+    </column>
+    <column name="ppPuppetRequests" type="STRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PuppetRequest" />
+    </column>
+    <column name="hPreferredCategorySet" type="REFERENCE">
+      <offset>44</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CharClassCategorySet</dictionary_name>
+    </column>
+    <column name="uPuppetSwapVersion" type="INT">
+      <offset>48</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uSavedModsVersion" type="INT">
+      <offset>52</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bPuppetTransformFailed" type="BIT">
+      <offset>56</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerQueueInfo">
+  <table>
+    <column name="PlayerQueueInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Queues" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PlayerQueue" />
+    </column>
+    <column name="FailsAllReqs" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="QueueFailRequirementsData" />
+    </column>
+    <column name="PenaltyData" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="PlayerQueuePenaltyData" />
+    </column>
+    <column name="uLeaverPenaltyDuration" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="QueueInstantiationInfo" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="QueueInstantiationInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

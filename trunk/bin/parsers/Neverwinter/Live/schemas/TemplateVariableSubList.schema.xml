@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TemplateVariableSubList">
+  <table>
+    <column name="TemplateVariableSubList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="parentValue" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="TemplateVariable" />
+    </column>
+    <column name="ParentValueMin" type="INT">
+      <offset>4</offset>
+      <default>1</default>
+    </column>
+    <column name="ParentValueMax" type="INT">
+      <offset>8</offset>
+      <default>1</default>
+    </column>
+    <column name="childValues" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="TemplateVariableOption" />
+    </column>
+    <column name="hRewardTable" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BuildScriptingContext">
+  <table>
+    <column name="BuildScriptingContext" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContextName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="BuildScriptingFailTime" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="FailAfterDelayCalled" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="SkipCurrentStep" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="FailureLinkString" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="InternalIncludeDepth" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="CurForDepth" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="InSpecialFailingModeWaitingForUninterruptibleChildContexts" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="ForceAbort" type="U8">
+      <offset>25</offset>
+    </column>
+    <column name="TestingOnly" type="U8">
+      <offset>26</offset>
+    </column>
+    <column name="AbortAndCloseInstantly" type="U8">
+      <offset>27</offset>
+    </column>
+    <column name="ScriptState" type="INT">
+      <offset>32</offset>
+      <static_define_list external="enumBuildScriptState" />
+    </column>
+    <column name="CommandList" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="BuildScriptCommandList" />
+    </column>
+    <column name="CurCommandNum" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="ThereWereErrors" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="FramesInState" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="TimeEnteredState" type="INT64">
+      <offset>56</offset>
+    </column>
+    <column name="ScriptStartTime" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="CurDisplayString" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="CurStepString" type="STRING">
+      <offset>72</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="FailureMessage" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="DefaultDirectories" type="STRINGARRAY">
+      <offset>80</offset>
+    </column>
+    <column name="compileLogFileName" type="FIXEDSTRING">
+      <offset>84</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="MostRecentSystemCommandOutputFileName" type="STRING">
+      <offset>344</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Variables" type="EMBEDDEDSTRUCT">
+      <offset>348</offset>
+      <subtable external="BuildScriptingVariableList" />
+    </column>
+    <column name="NumStartingVariables" type="INT">
+      <offset>360</offset>
+    </column>
+    <column name="Disabled" type="U8">
+      <offset>364</offset>
+    </column>
+    <column name="Children" type="STRUCT">
+      <offset>372</offset>
+      <subtable external="BuildScriptingContext" />
+    </column>
+    <column name="DetachedChildren" type="STRUCT">
+      <offset>376</offset>
+      <subtable external="BuildScriptingContext" />
+    </column>
+    <column name="Failing" type="U8">
+      <offset>380</offset>
+    </column>
+    <column name="ChildBehaviorFlags" type="INT">
+      <offset>384</offset>
+      <static_define_list external="BuildScriptingContextChildBehaviorFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

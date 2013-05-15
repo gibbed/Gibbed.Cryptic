@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyTimeBloom">
+  <table>
+    <column name="SkyTimeBloom" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="BloomOffsetValue" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="BloomRate" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="BloomRange" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="BloomBlurAmount" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LowQualityBloomStart" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="LowQualityBloomMultiplier" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="LowQualityBloomPower" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="GlareAmount" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>44</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="LensName" type="IGNORE" />
+    <column name="BloomHighpass" type="IGNORE" />
+    <column name="BloomAmount" type="IGNORE" />
+    <column name="BloomBlurSize" type="IGNORE" />
+    <column name="EndSkyBloom" type="END" />
+  </table>
+</parser>

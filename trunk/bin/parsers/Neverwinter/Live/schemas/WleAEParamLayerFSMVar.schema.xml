@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WleAEParamLayerFSMVar">
+  <table>
+    <column name="WleAEParamLayerFSMVar" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="floatVar" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="WleAEParamFloat" />
+    </column>
+    <column name="intVar" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="WleAEParamInt" />
+    </column>
+    <column name="pointVar" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="WleAEParamText" />
+    </column>
+    <column name="StringVar" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="WleAEParamText" />
+    </column>
+    <column name="messageVar" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="WleAEParamMessage" />
+    </column>
+    <column name="animationVar" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="WleAEParamDictionary" />
+    </column>
+    <column name="CritterDef" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="WleAEParamDictionary" />
+    </column>
+    <column name="CritterGroup" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="WleAEParamDictionary" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

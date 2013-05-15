@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="InventoryBagSummary">
+  <table>
+    <column name="InventoryBagSummary" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TargetRank" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ItemSummaries" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ItemSummary" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

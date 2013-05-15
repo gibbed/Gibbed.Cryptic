@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectReviewedFilter">
+  <table>
+    <column name="UGCProjectReviewedFilter" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Rating" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="CountRatingStars" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="TotalReviews" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="TotalStars" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="AverageRating" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="AdjustedRating" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="BetaReviewing" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

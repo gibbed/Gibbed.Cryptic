@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AccountSaltRequest">
+  <table>
+    <column name="AccountSaltRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LoginField" type="FIXEDSTRING">
+      <offset>0</offset>
+      <string_length>1024</string_length>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

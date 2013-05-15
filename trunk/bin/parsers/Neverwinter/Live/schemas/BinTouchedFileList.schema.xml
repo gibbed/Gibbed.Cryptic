@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BinTouchedFileList">
+  <table>
+    <column name="BinTouchedFileList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TimeStamp" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="FileNames" type="FIXEDFILENAME">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>EARRAY</flag>
+        <flag>INDIRECT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

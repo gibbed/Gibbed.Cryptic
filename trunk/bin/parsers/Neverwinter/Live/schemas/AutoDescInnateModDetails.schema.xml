@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AutoDescInnateModDetails">
+  <table>
+    <column name="AutoDescInnateModDetails" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Magnitude" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="AttribBoolean" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="Percent" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="DamageAttribAspect" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="offAttrib" type="INT">
+      <offset>8</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="offAspect" type="INT">
+      <offset>12</offset>
+      <static_define_list external="AttribAspect" />
+    </column>
+    <column name="DefaultMessage" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="AttribName" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Desc" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="DescLong" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="PowerDef" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RequiredGemSlot" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="KeyedAlertList">
+  <table>
+    <column name="KeyedAlertList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">iTotalCount, iLast15Minutes, iLastHour</format_string>
+      </format_strings>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CurActiveBySeverity" type="INTFIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TotalBySeverity" type="INTFIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="TotalCount" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="LastMinute" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="Last15Minutes" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="LastHour" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="LastDay" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="ExtraStuff" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable>
+        <table>
+          <column name="{" type="START" />
+          <column name="}" type="END" />
+        </table>
+      </subtable>
+    </column>
+    <column name="Alerts" type="STRUCT">
+      <offset>56</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="Alert" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

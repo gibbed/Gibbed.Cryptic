@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShardInfo_Perf">
+  <table>
+    <column name="ShardInfo_Perf" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="players" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Entities" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="GameServers" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Alerts" type="INT">
+      <offset>12</offset>
+      <format_strings>
+        <format_string name="HTML_CLASS_IFEXPR">$ &gt; 10 ; divWarning2 ; $ &gt; 0 ; divWarning1</format_string>
+      </format_strings>
+    </column>
+    <column name="Machines" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="LoggingIn" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="NumNotResponding" type="INT">
+      <offset>24</offset>
+      <format_strings>
+        <format_string name="HTML_CLASS_IFEXPR">$ &gt; 5 ; divWarning2 ; $ &gt; 0 ; divWarning1</format_string>
+      </format_strings>
+    </column>
+    <column name="NumCrashed" type="INT">
+      <offset>28</offset>
+      <format_strings>
+        <format_string name="HTML_CLASS_IFEXPR">$ &gt; 5 ; divWarning2 ; $ &gt; 0 ; divWarning1</format_string>
+      </format_strings>
+    </column>
+    <column name="AvgCPU60" type="INT">
+      <offset>32</offset>
+      <format_strings>
+        <format_string name="HTML_CLASS_IFEXPR">$ &gt; 95 ; divWarning2 ; $ &gt; 80 ; divWarning1</format_string>
+      </format_strings>
+    </column>
+    <column name="MaxCPU60" type="INT">
+      <offset>36</offset>
+      <format_strings>
+        <format_string name="HTML_CLASS_IFEXPR">$ &gt; 95 ; divWarning2 ; $ &gt; 80 ; divWarning1</format_string>
+      </format_strings>
+    </column>
+    <column name="MinVirtAvail" type="INT64">
+      <offset>40</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+        <format_string name="HTML_CLASS_IFEXPR">$ &lt; 5000000 ; divWarning2 ; $ &lt; 50000000 ; divWarning1</format_string>
+      </format_strings>
+    </column>
+    <column name="MinPhysAvail" type="INT64">
+      <offset>48</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+        <format_string name="HTML_CLASS_IFEXPR">$ &lt; 5000000 ; divWarning2 ; $ &lt; 50000000 ; divWarning1</format_string>
+      </format_strings>
+    </column>
+    <column name="AvgPhysAvail" type="INT64">
+      <offset>56</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+        <format_string name="HTML_CLASS_IFEXPR">$ &lt; 5000000 ; divWarning2 ; $ &lt; 50000000 ; divWarning1</format_string>
+      </format_strings>
+    </column>
+    <column name="dbUpdPerSec" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="creationTime" type="INT">
+      <offset>68</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO_SHORT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="LastUpdateTime" type="INT">
+      <offset>72</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO_SHORT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="NumDiedAtStartup" type="INT">
+      <offset>76</offset>
+      <format_strings>
+        <format_string name="HTML_CLASS_IFEXPR">$ &gt; 5 ; divWarning2 ; $ &gt; 0 ; divWarning1</format_string>
+      </format_strings>
+    </column>
+    <column name="MaxCrashes" type="INT">
+      <offset>80</offset>
+      <format_strings>
+        <format_string name="HTML_CLASS_IFEXPR">$ &gt; 10 ; divWarning2 ; $ &gt; 5 ; divWarning1</format_string>
+      </format_strings>
+    </column>
+    <column name="RunningSlow" type="INT">
+      <offset>84</offset>
+      <format_strings>
+        <format_string name="HTML_CLASS_IFEXPR">$ &gt; 5 ; divWarning2 ; $ &gt; 0 ; divWarning1</format_string>
+      </format_strings>
+    </column>
+    <column name="LongestStall" type="INT">
+      <offset>88</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_DURATION_SHORT">1</format_string>
+        <format_string name="HTML_CLASS_IFEXPR">$ &gt; 240 ; divWarning2 ; $ &gt; 30 ; divWarning1</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

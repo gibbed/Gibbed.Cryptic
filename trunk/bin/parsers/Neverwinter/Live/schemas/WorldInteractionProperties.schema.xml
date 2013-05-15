@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldInteractionProperties">
+  <table>
+    <column name="WorldInteractionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="InteractDist" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ChildProperties" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="WorldChildInteractionProperties" />
+    </column>
+    <column name="InteractLocation" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="WorldInteractLocationProperties" />
+    </column>
+    <column name="AllowExplicitHide" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="StartsHidden" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="EvalVisPerEnt" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="TabSelect" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Untargetable" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="TargetDist" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="InteractionTypeTag" type="STRINGARRAY">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OverrideFX" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AdditionalUniqueFX" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Entry" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="WorldInteractionPropertyEntry" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

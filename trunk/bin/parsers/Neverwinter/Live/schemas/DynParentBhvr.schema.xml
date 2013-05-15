@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynParentBhvr">
+  <table>
+    <column name="DynParentBhvr" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="At" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GoTo" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="To" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>GoTo</redundant_name>
+    </column>
+    <column name="OrientTo" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Orient" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>OrientTo</redundant_name>
+    </column>
+    <column name="ScaleTo" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Near" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="DynParentNearEvent" />
+    </column>
+    <column name="Inherit" type="INT">
+      <offset>20</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>FLAGS</format>
+    </column>
+    <column name="Update" type="INT">
+      <offset>24</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>FLAGS</format>
+    </column>
+    <column name="SetFlags" type="INT">
+      <offset>28</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>FLAGS</format>
+    </column>
+    <column name="Param" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="DynApplyParam" />
+    </column>
+    <column name="JitterList" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="DynJitterList" />
+    </column>
+    <column name="SeverWithBone" type="BOOLFLAG">
+      <offset>40</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

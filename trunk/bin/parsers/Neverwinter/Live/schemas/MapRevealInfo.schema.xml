@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MapRevealInfo">
+  <table>
+    <column name="MapRevealInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>Name</redundant_name>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <static_define_list external="MapRevealType" />
+    </column>
+    <column name="eType" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>Type</redundant_name>
+      <static_define_list external="MapRevealType" />
+    </column>
+    <column name="RoomCount" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="uiRoomCount" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>RoomCount</redundant_name>
+    </column>
+    <column name="RegionBoundsMin" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3RegionMin" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>RegionBoundsMin</redundant_name>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="RegionBoundsMax" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3RegionMax" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>RegionBoundsMax</redundant_name>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="fGroundFocusHeight" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="eaiRevealed" type="INTARRAY">
+      <offset>40</offset>
+    </column>
+    <column name="RevealedString" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchRevealedString" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>RevealedString</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

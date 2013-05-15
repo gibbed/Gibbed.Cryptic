@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIWidget">
+  <table>
+    <column name="UIWidget" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OffsetFrom" type="INT">
+      <offset>8</offset>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="X" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Y" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="xPOffset" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="yPOffset" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="Width" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="Height" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="widthUnit" type="INT">
+      <offset>36</offset>
+      <static_define_list external="UIUnitType" />
+    </column>
+    <column name="heightUnit" type="INT">
+      <offset>40</offset>
+      <static_define_list external="UIUnitType" />
+    </column>
+    <column name="TopPad" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="BottomPad" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="LeftPad" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="RightPad" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="Scale" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="Font" type="REFERENCE">
+      <offset>224</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="text_USEACCESSOR" type="STRING">
+      <offset>228</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>268</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="bf" type="INTFIXEDARRAY">
+      <offset>272</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="uClickThrough" type="BIT">
+      <offset>276</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="uFocusWhenDisabled" type="BIT">
+      <offset>276</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="uUIGenWidget" type="BIT">
+      <offset>276</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="ConsumesEscape" type="BIT">
+      <offset>276</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="NoScrollX" type="BIT">
+      <offset>276</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="NoScrollY" type="BIT">
+      <offset>276</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="NoScrollScale" type="BIT">
+      <offset>276</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="create_filename" type="STRING">
+      <offset>280</offset>
+    </column>
+    <column name="create_line" type="INT">
+      <offset>284</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

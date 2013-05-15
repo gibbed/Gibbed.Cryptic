@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MinigameData">
+  <table>
+    <column name="MinigameData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DaboBets" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="DaboBet" />
+    </column>
+    <column name="pDaboBet" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>DaboBets</redundant_name>
+      <subtable external="DaboBet" />
+    </column>
+    <column name="eaDaboBets" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>DaboBets</redundant_name>
+      <subtable external="DaboBet" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MedianTracker">
+  <table>
+    <column name="MedianTracker" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MaxSize" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Sorted" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="Vals" type="F32ARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenTextState">
+  <table>
+    <column name="UIGenTextState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>2</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="String" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="StaticString" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Truncate" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="UIGenBundleTruncateState" />
+    </column>
+    <column name="v2TextSize" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

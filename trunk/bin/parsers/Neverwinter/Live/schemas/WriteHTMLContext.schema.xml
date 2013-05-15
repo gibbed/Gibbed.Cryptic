@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WriteHTMLContext">
+  <table>
+    <column name="WriteHTMLContext" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="internalState" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WriteHTMLContextInternalState" />
+    </column>
+    <column name="UrlArgs" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="UrlArgumentList" />
+    </column>
+    <column name="MaxDepth" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="ArrayContext" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="NeedToDoAccessLevelChecks" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

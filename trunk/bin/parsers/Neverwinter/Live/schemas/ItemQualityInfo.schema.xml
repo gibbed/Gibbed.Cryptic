@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemQualityInfo">
+  <table>
+    <column name="ItemQualityInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="NeedBeforeGreedDelay" type="INT">
+      <offset>4</offset>
+      <default>60</default>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>8</offset>
+      <static_define_list external="ItemQualityFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="WeaponDamageMultiplier" type="F32">
+      <offset>12</offset>
+      <default>1</default>
+    </column>
+    <column name="LootFX" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RolloverLootFX" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ChatLinkColorName" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="ItemEPValue" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

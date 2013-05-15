@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BuildScriptCommand">
+  <table>
+    <column name="BuildScriptCommand" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Command" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list external="enumBuildScriptCommand" />
+    </column>
+    <column name="SubType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="enumBuildScriptCommandSubType" />
+    </column>
+    <column name="ScriptString" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ScriptString_Use" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayString" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="DisplayString_Use" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="WorkingDir" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="WorkingDirectory_Use" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="FailureExpression" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="FailureExpression_Use" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="IfExpression" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="If" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>IfExpression</redundant_name>
+    </column>
+    <column name="IfExpression_Use" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="VariableForSystemOutput" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="VariableForEscapedSystemOutput" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="VariableForSystemResult" type="STRING">
+      <offset>56</offset>
+    </column>
+    <column name="NumTries" type="INT">
+      <offset>60</offset>
+      <default>1</default>
+    </column>
+    <column name="ScriptInt" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="ScriptFloat" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="FailureTime" type="INT">
+      <offset>72</offset>
+      <default>120</default>
+    </column>
+    <column name="CompileErrors" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="NoScriptStringInErrorReport" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="SetVariableRaw" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="IsCrypticAppWithOwnConsole" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Break" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="NonInterruptible" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="IsExpectingCBComments" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="ResetTimeoutOnAnyUpdate" type="BIT">
+      <offset>88</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="FileName_internal" type="CURRENTFILE">
+      <offset>96</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LineNum" type="LINENUM">
+      <offset>100</offset>
+    </column>
+    <column name="SimpleMacro" type="STRUCT">
+      <offset>104</offset>
+      <subtable external="BuildScriptingSimpleIncludeMacro" />
+    </column>
+    <column name="OutputFile" type="STRING">
+      <offset>108</offset>
+    </column>
+    <column name="OutputFile_Use" type="STRING">
+      <offset>112</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="AppendFile" type="STRING">
+      <offset>116</offset>
+    </column>
+    <column name="AppendFile_Use" type="STRING">
+      <offset>120</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="outputFileName" type="FIXEDSTRING">
+      <offset>124</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="outputFileName_short" type="FIXEDSTRING">
+      <offset>384</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="IfIndex" type="INT">
+      <offset>644</offset>
+      <default>-1</default>
+    </column>
+    <column name="ElseIndex" type="INT">
+      <offset>648</offset>
+      <default>-1</default>
+    </column>
+    <column name="EndIfIndex" type="INT">
+      <offset>652</offset>
+      <default>-1</default>
+    </column>
+    <column name="InternalStrs" type="STRINGARRAY">
+      <offset>656</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="BufferedFORTokens" type="STRINGARRAY">
+      <offset>664</offset>
+    </column>
+    <column name="ExtendedErrorType" type="STRING">
+      <offset>668</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="SetsCBStringsByItself" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

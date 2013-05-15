@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TicketRequestInternalStruct">
+  <table>
+    <column name="TicketRequestInternalStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="start_tick" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Status" type="INT">
+      <offset>8</offset>
+      <static_define_list external="TicketSendStatus" />
+    </column>
+    <column name="RequestString" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="MyTicketRequest" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="categoryKey" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Label" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="TicketStatusString" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

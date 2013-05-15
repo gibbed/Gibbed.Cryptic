@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynRaycastHitEvent">
+  <table>
+    <column name="DynRaycastHitEvent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="HitTypes" type="STRINGARRAY">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="childCallCollection" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="CallParam" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="DynChildCall" />
+    </column>
+    <column name="Call" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CallParam</redundant_name>
+      <subtable external="Call" />
+    </column>
+    <column name="CallList" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DynChildCallList" />
+    </column>
+    <column name="SendMessage" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="DynFxMessage" />
+    </column>
+    <column name="SelfMessage" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SendMessage</redundant_name>
+      <subtable external="SelfMessage" />
+    </column>
+    <column name="Message" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SendMessage</redundant_name>
+      <subtable external="SelfMessage" />
+    </column>
+    <column name="LoopStart" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="DynLoopRef" />
+    </column>
+    <column name="EmitterStart" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="DynParticleEmitterRef" />
+    </column>
+    <column name="SoundStart" type="STRINGARRAY">
+      <offset>24</offset>
+    </column>
+    <column name="FireOnce" type="BOOLFLAG">
+      <offset>28</offset>
+    </column>
+    <column name="MissEvent" type="BOOLFLAG">
+      <offset>29</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

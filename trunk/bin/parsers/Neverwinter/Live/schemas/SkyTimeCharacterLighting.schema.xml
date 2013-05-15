@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyTimeCharacterLighting">
+  <table>
+    <column name="SkyTimeCharacterLighting" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="AmbientHSVOffset" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+      <format_raw>6</format_raw>
+    </column>
+    <column name="SkyLightHSVOffset" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+      <format_raw>6</format_raw>
+    </column>
+    <column name="GroundLightHSVOffset" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+      <format_raw>6</format_raw>
+    </column>
+    <column name="SideLightHSVOffset" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+      <format_raw>6</format_raw>
+    </column>
+    <column name="DiffuseHSVOffset" type="F32FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>3</num_elements>
+      <format_raw>6</format_raw>
+    </column>
+    <column name="SpecularHSVOffset" type="F32FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>3</num_elements>
+      <format_raw>6</format_raw>
+    </column>
+    <column name="SecondaryDiffuseHSVOffset" type="F32FIXEDARRAY">
+      <offset>76</offset>
+      <num_elements>3</num_elements>
+      <format_raw>6</format_raw>
+    </column>
+    <column name="ShadowColorHSVOffset" type="F32FIXEDARRAY">
+      <offset>88</offset>
+      <num_elements>3</num_elements>
+      <format_raw>6</format_raw>
+    </column>
+    <column name="BacklightHSV" type="F32FIXEDARRAY">
+      <offset>100</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>112</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="EndSkyCharacterLighting" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AIDebugTeamMemberAssignment">
+  <table>
+    <column name="AIDebugTeamMemberAssignment" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="targetName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="AIDebugTeamAssignmentType" />
+    </column>
+    <column name="assigneeName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="PowerName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

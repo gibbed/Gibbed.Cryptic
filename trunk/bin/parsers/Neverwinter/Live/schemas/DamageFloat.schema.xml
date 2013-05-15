@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DamageFloat">
+  <table>
+    <column name="DamageFloat" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="OffsetFrom" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="MaxLifetime" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Lifetime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="Delay" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="v2Pos" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="v2Velocity" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="v2DestPos" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Color" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="Color2" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="Scale" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="MaxPopout" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="Priority" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="Message" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="Angle" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="IconOffsetFrom" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="v2IconPos" type="F32FIXEDARRAY">
+      <offset>76</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="v2IconPosOffset" type="F32FIXEDARRAY">
+      <offset>84</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="IconColor" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="IconScale" type="F32">
+      <offset>96</offset>
+    </column>
+    <column name="IconFade" type="F32">
+      <offset>100</offset>
+    </column>
+    <column name="hFont" type="REFERENCE">
+      <offset>104</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="v2PosOffset" type="F32FIXEDARRAY">
+      <offset>108</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="v2VelocityBase" type="F32FIXEDARRAY">
+      <offset>116</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="v2Size" type="F32FIXEDARRAY">
+      <offset>124</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="uiPowID" type="INT">
+      <offset>132</offset>
+    </column>
+    <column name="combatTrackerFlags" type="INT">
+      <offset>136</offset>
+    </column>
+    <column name="Crit" type="U8">
+      <offset>140</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

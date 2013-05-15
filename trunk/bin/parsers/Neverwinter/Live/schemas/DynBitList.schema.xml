@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynBitList">
+  <table>
+    <column name="DynBitList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ModeBit" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DynBitString" />
+    </column>
+    <column name="DetailBit" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="DynBitString" />
+    </column>
+    <column name="bitGroup" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="DynBitGroup" />
+    </column>
+    <column name="CriticalBit" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DynBitFieldStatic" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

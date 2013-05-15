@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldDrawableListPool">
+  <table>
+    <column name="WorldDrawableListPool" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="model_draw_list" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="ModelDraw" />
+    </column>
+    <column name="subobject_list" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="WorldDrawableSubobject" />
+    </column>
+    <column name="material_draw_list" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="MaterialDraw" />
+    </column>
+    <column name="total_material_draw_count" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="total_model_draw_count" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="total_subobject_count" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="total_draw_list_count" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="total_instance_data_count" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="material_draw_uid_counter" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="model_draw_uid_counter" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="subobject_uid_counter" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="draw_list_uid_counter" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="instance_data_uid_counter" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

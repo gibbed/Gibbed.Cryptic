@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumePrices">
+  <table>
+    <column name="CostumePrices" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="StorageType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="PCCostumeStorageType" />
+    </column>
+    <column name="Base" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Geometry" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Material" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Pattern" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Detail" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Specular" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Diffuse" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="Movable" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="Color0" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="Color1" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="Color2" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="Color3" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="SkinColor" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="BodyScale" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="BoneScale" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="LevelMultipliers" type="F32FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>70</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

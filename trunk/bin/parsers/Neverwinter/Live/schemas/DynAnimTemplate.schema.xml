@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynAnimTemplate">
+  <table>
+    <column name="DynAnimTemplate" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Comments" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>16</offset>
+      <static_define_list external="eAnimTemplateType" />
+    </column>
+    <column name="DefaultsGraph" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="DynAnimGraph" />
+    </column>
+    <column name="Nodes" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="DynAnimTemplateNode" />
+    </column>
+    <column name="Flags" type="STRINGARRAY">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

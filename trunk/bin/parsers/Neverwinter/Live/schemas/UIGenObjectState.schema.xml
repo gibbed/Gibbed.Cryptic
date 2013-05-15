@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenObjectState">
+  <table>
+    <column name="UIGenObjectState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>21</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="Key" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>WorldInteractionNode</dictionary_name>
+    </column>
+    <column name="hEntity" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="ObjectFxState" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="UIGen3DFxState" />
+    </column>
+    <column name="ScreenDist" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CooldownRateModifier">
+  <table>
+    <column name="CooldownRateModifier" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PowerCategory" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="BasicAbs" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="BasicPos" type="F32">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="BasicNeg" type="F32">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="Value" type="F32">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="Dirty" type="BIT">
+      <offset>20</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

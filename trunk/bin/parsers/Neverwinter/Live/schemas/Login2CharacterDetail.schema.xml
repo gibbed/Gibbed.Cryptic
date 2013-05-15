@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Login2CharacterDetail">
+  <table>
+    <column name="Login2CharacterDetail" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="playerID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="playerEnt" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Entity" />
+    </column>
+    <column name="activePuppetEnts" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="Entity" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

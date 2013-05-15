@@ -1,0 +1,177 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldLightProperties">
+  <table>
+    <column name="WorldLightProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LightType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="WleAELightType" />
+    </column>
+    <column name="LightAffects" type="INT">
+      <offset>4</offset>
+      <static_define_list external="LightAffectType" />
+    </column>
+    <column name="LightProjectedTexture" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LightCloudTexture" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LightCloudMultiplier1" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="LightCloudScale1" type="F32">
+      <offset>20</offset>
+      <default>100</default>
+    </column>
+    <column name="LightCloudScrollX1" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="LightCloudScrollY1" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="LightCloudMultiplier2" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="LightCloudScale2" type="F32">
+      <offset>36</offset>
+      <default>100</default>
+    </column>
+    <column name="LightCloudScrollX2" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="LightCloudScrollY2" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="LightAmbientHSV" type="F32FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightAmbientMultiplier" type="F32FIXEDARRAY">
+      <offset>60</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightAmbientOffset" type="F32FIXEDARRAY">
+      <offset>72</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightDiffuseHSV" type="F32FIXEDARRAY">
+      <offset>84</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightDiffuseMultiplier" type="F32FIXEDARRAY">
+      <offset>96</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightDiffuseOffset" type="F32FIXEDARRAY">
+      <offset>108</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightSecondaryDiffuseHSV" type="F32FIXEDARRAY">
+      <offset>120</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightSecondaryDiffuseMultiplier" type="F32FIXEDARRAY">
+      <offset>132</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightSecondaryDiffuseOffset" type="F32FIXEDARRAY">
+      <offset>144</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightSpecularHSV" type="F32FIXEDARRAY">
+      <offset>156</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightSpecularMultiplier" type="F32FIXEDARRAY">
+      <offset>168</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightSpecularOffset" type="F32FIXEDARRAY">
+      <offset>180</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightShadowColorHSV" type="F32FIXEDARRAY">
+      <offset>192</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightShadowColorMultiplier" type="F32FIXEDARRAY">
+      <offset>204</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightShadowColorOffset" type="F32FIXEDARRAY">
+      <offset>216</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="LightConeInner" type="F32">
+      <offset>228</offset>
+      <default>45</default>
+    </column>
+    <column name="LightConeOuter" type="F32">
+      <offset>232</offset>
+      <default>55</default>
+    </column>
+    <column name="LightCone2Inner" type="F32">
+      <offset>236</offset>
+      <default>45</default>
+    </column>
+    <column name="LightCone2Outer" type="F32">
+      <offset>240</offset>
+      <default>55</default>
+    </column>
+    <column name="LightRadius" type="F32">
+      <offset>244</offset>
+      <default>10</default>
+    </column>
+    <column name="LightRadiusInner" type="F32">
+      <offset>248</offset>
+      <default>1</default>
+    </column>
+    <column name="LightShadowNearDist" type="F32">
+      <offset>252</offset>
+    </column>
+    <column name="LightVisualLODScale" type="F32">
+      <offset>256</offset>
+      <default>1</default>
+    </column>
+    <column name="LightCastsShadows" type="BIT">
+      <offset>260</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="LightInfiniteShadows" type="BIT">
+      <offset>260</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="LightIsKey" type="BIT">
+      <offset>260</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="LightIsSun" type="BIT">
+      <offset>260</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="SetField" type="STRINGARRAY">
+      <offset>264</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenEntityState">
+  <table>
+    <column name="UIGenEntityState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>20</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="EntityRef" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="EntityFxState" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UIGen3DFxState" />
+    </column>
+    <column name="ScreenDist" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

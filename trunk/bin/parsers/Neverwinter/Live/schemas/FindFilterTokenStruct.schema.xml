@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FindFilterTokenStruct">
+  <table>
+    <column name="FindFilterTokenStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Token" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="RangeLow" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="RangeHigh" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="AcceptableTokens" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="FindFilterTokenStruct" />
+    </column>
+    <column name="Flag" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="CheckName" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="CheckHandle" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="CheckMap" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="CheckNeighborhood" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="CheckInstance" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="CheckGuild" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="CheckStatus" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="CheckRank" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="CheckOpen" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="CheckRequestOnly" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="CheckClosed" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="CheckPlayingStyles" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="Exact" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="Soft" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

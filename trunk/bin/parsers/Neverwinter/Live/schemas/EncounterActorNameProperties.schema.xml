@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EncounterActorNameProperties">
+  <table>
+    <column name="EncounterActorNameProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CritterGroupDisplayNameType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="EncounterCritterOverrideType" />
+    </column>
+    <column name="CritterGroupDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplayNameType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="EncounterCritterOverrideType" />
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DisplaySubNameType" type="INT">
+      <offset>32</offset>
+      <static_define_list external="EncounterCritterOverrideType" />
+    </column>
+    <column name="DisplaySubName" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Comments" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Comments:" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <redundant_name>Comments</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

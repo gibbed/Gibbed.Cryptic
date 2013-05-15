@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerCostumeV0">
+  <table>
+    <column name="PlayerCostumeV0" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pcName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Name</redundant_name>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="pcFileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FileName</redundant_name>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pcScope" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Scope</redundant_name>
+    </column>
+    <column name="CostumeType" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="PCCostumeType" />
+    </column>
+    <column name="eCostumeType" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>CostumeType</redundant_name>
+      <static_define_list external="PCCostumeType" />
+    </column>
+    <column name="AccountUnlock" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="bAccountWideUnlock" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AccountUnlock</redundant_name>
+    </column>
+    <column name="Skeleton" type="REFERENCE">
+      <offset>20</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CostumeSkeleton</dictionary_name>
+    </column>
+    <column name="hSkeleton" type="REFERENCE">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Skeleton</redundant_name>
+      <dictionary_name>CostumeSkeleton</dictionary_name>
+    </column>
+    <column name="Species" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>Species</dictionary_name>
+    </column>
+    <column name="hSpecies" type="REFERENCE">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Species</redundant_name>
+      <dictionary_name>Species</dictionary_name>
+    </column>
+    <column name="Gender" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="Gender" />
+    </column>
+    <column name="eGender" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Gender</redundant_name>
+      <static_define_list external="Gender" />
+    </column>
+    <column name="RegionCategory" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCRegionCategory" />
+    </column>
+    <column name="eaRegionCategories" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>RegionCategory</redundant_name>
+      <subtable external="PCRegionCategory" />
+    </column>
+    <column name="SkinColor" type="F32FIXEDARRAY">
+      <offset>36</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="SkinColor" type="F32FIXEDARRAY">
+      <offset>36</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>SkinColor</redundant_name>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="DefaultColorLinkAll" type="U8">
+      <offset>52</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="eDefaultColorLinkAll" type="U8">
+      <offset>52</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>DefaultColorLinkAll</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="DefaultMaterialLinkAll" type="U8">
+      <offset>53</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eDefaultMaterialLinkAll" type="U8">
+      <offset>53</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>DefaultMaterialLinkAll</redundant_name>
+    </column>
+    <column name="BodyScale" type="F32ARRAY">
+      <offset>56</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eafBodyScales" type="F32ARRAY">
+      <offset>56</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>BodyScale</redundant_name>
+    </column>
+    <column name="Muscle" type="F32">
+      <offset>60</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fMuscle" type="F32">
+      <offset>60</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Muscle</redundant_name>
+    </column>
+    <column name="Height" type="F32">
+      <offset>64</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fHeight" type="F32">
+      <offset>64</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Height</redundant_name>
+    </column>
+    <column name="Transparency" type="F32">
+      <offset>68</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fTransparency" type="F32">
+      <offset>68</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Transparency</redundant_name>
+    </column>
+    <column name="ScaleValues" type="STRUCT">
+      <offset>72</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCScaleValue" />
+    </column>
+    <column name="eaScaleValues" type="STRUCT">
+      <offset>72</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ScaleValues</redundant_name>
+      <subtable external="PCScaleValue" />
+    </column>
+    <column name="Stance" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pcStance" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Stance</redundant_name>
+    </column>
+    <column name="TexWords" type="STRUCT">
+      <offset>80</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCTexWords" />
+    </column>
+    <column name="eaTexWords" type="STRUCT">
+      <offset>80</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>TexWords</redundant_name>
+      <subtable external="PCTexWords" />
+    </column>
+    <column name="NoCollision" type="U8">
+      <offset>84</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bNoCollision" type="U8">
+      <offset>84</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>NoCollision</redundant_name>
+    </column>
+    <column name="NoBodySock" type="U8">
+      <offset>85</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bNoBodySock" type="U8">
+      <offset>85</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>NoBodySock</redundant_name>
+    </column>
+    <column name="NoRagdoll" type="U8">
+      <offset>86</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bNoRagdoll" type="U8">
+      <offset>86</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>NoRagdoll</redundant_name>
+    </column>
+    <column name="ShellColl" type="U8">
+      <offset>87</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bShellColl" type="U8">
+      <offset>87</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ShellColl</redundant_name>
+    </column>
+    <column name="CollisionGeo" type="STRING">
+      <offset>88</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pcCollisionGeo" type="STRING">
+      <offset>88</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>CollisionGeo</redundant_name>
+    </column>
+    <column name="FX" type="STRUCT">
+      <offset>92</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCFX" />
+    </column>
+    <column name="eaFX" type="STRUCT">
+      <offset>92</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>FX</redundant_name>
+      <subtable external="PCFX" />
+    </column>
+    <column name="FXSwap" type="STRUCT">
+      <offset>96</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCFXSwap" />
+    </column>
+    <column name="eaFXSwap" type="STRUCT">
+      <offset>96</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>FXSwap</redundant_name>
+      <subtable external="PCFXSwap" />
+    </column>
+    <column name="ConstantBits" type="STRUCT">
+      <offset>100</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCBitName" />
+    </column>
+    <column name="eaConstantBits" type="STRUCT">
+      <offset>100</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>ConstantBits</redundant_name>
+      <subtable external="PCBitName" />
+    </column>
+    <column name="Part" type="STRUCT">
+      <offset>104</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCPartV0" />
+    </column>
+    <column name="eaParts" type="STRUCT">
+      <offset>104</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Part</redundant_name>
+      <subtable external="PCPartV0" />
+    </column>
+    <column name="Capsule" type="STRUCT">
+      <offset>108</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="SavedCapsule" />
+    </column>
+    <column name="ppCollCapsules" type="STRUCT">
+      <offset>108</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Capsule</redundant_name>
+      <subtable external="SavedCapsule" />
+    </column>
+    <column name="CollRadius" type="F32">
+      <offset>112</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fCollRadius" type="F32">
+      <offset>112</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>CollRadius</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

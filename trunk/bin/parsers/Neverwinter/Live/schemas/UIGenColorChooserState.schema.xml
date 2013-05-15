@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenColorChooserState">
+  <table>
+    <column name="UIGenColorChooserState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>16</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="SelectedIndex" type="INT16">
+      <offset>4</offset>
+    </column>
+    <column name="EventIndex" type="INT16">
+      <offset>6</offset>
+      <default>-1</default>
+    </column>
+    <column name="MouseX" type="INT16">
+      <offset>8</offset>
+    </column>
+    <column name="MouseY" type="INT16">
+      <offset>10</offset>
+    </column>
+    <column name="eaiModel" type="INTARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="eaiRecentModel" type="INTARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="ModelSize" type="INT16">
+      <offset>20</offset>
+    </column>
+    <column name="DrawRows" type="INT16">
+      <offset>22</offset>
+    </column>
+    <column name="RecentRows" type="INT16">
+      <offset>24</offset>
+    </column>
+    <column name="DrawCols" type="INT16">
+      <offset>26</offset>
+    </column>
+    <column name="TextureState" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="UIGenBundleTextureState" />
+    </column>
+    <column name="HoveredOverlayTextureState" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="UIGenBundleTextureState" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

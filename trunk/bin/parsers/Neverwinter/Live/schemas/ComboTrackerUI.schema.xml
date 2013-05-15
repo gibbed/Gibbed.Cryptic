@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ComboTrackerUI">
+  <table>
+    <column name="ComboTrackerUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="QueuedEntry" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="ComboTrackerEntry" />
+    </column>
+    <column name="Entries" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ComboTrackerEntry" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

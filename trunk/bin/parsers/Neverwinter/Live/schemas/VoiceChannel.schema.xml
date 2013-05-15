@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="VoiceChannel">
+  <table>
+    <column name="VoiceChannel" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="internName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="externName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Handle" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ext_state" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="VoiceChannelState" />
+    </column>
+    <column name="allUsers" type="STRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="VoiceChannelUser" />
+    </column>
+    <column name="Group" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="VoiceChannelGroup" />
+    </column>
+    <column name="active_font" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="VoiceFont" />
+    </column>
+    <column name="connectState" type="INT">
+      <offset>40</offset>
+      <static_define_list external="RequestState" />
+    </column>
+    <column name="disconnectState" type="INT">
+      <offset>44</offset>
+      <static_define_list external="RequestState" />
+    </column>
+    <column name="timeToWait" type="INT64">
+      <offset>48</offset>
+    </column>
+    <column name="connectFailures" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="transmitting" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="destroyOnLeave" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="transmitOnJoin" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="adchannel" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="has_spoken" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="has_listened" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

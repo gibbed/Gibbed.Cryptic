@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContactOverrideData">
+  <table>
+    <column name="ContactOverrideData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Contact" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="SpecialDialogOverrides" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="SpecialDialogOverrideData" />
+    </column>
+    <column name="SpecialActionBlockOverrides" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="SpecialActionBlockOverrideData" />
+    </column>
+    <column name="MissionOfferOverrides" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="MissionOfferOverrideData" />
+    </column>
+    <column name="ImageMenuItemOverrides" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="ImageMenuItemOverrideData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

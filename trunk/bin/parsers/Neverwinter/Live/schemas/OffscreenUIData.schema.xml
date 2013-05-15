@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OffscreenUIData">
+  <table>
+    <column name="OffscreenUIData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="erEnt" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Combined" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Edge" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Position" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="DistanceIndex" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>24</offset>
+      <static_define_list external="OffscreenType" />
+    </column>
+    <column name="EncData" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="EncounterUIData" />
+    </column>
+    <column name="Same" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="Encounter" type="U8">
+      <offset>33</offset>
+    </column>
+    <column name="GenName" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

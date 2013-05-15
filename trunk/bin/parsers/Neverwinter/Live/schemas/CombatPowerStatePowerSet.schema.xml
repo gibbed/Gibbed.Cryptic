@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatPowerStatePowerSet">
+  <table>
+    <column name="CombatPowerStatePowerSet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Power" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="CombatPowerStatePower" />
+    </column>
+    <column name="BasePower" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

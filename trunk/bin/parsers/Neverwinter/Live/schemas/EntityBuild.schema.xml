@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EntityBuild">
+  <table>
+    <column name="EntityBuild" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dirtyBit" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="achName" type="FIXEDSTRING">
+      <offset>1</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <string_length>20</string_length>
+    </column>
+    <column name="hClass" type="REFERENCE">
+      <offset>24</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="hFaction" type="REFERENCE">
+      <offset>28</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CritterFaction</dictionary_name>
+    </column>
+    <column name="chCostumeType" type="U8">
+      <offset>32</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="chCostume" type="U8">
+      <offset>33</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ppItems" type="STRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="EntityBuildItem" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

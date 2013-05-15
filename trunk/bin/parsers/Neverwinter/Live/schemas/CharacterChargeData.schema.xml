@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CharacterChargeData">
+  <table>
+    <column name="CharacterChargeData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hMsgName" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="TimeCharge" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="uiTimestamp" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

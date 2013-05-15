@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIStyleBar">
+  <table>
+    <column name="UIStyleBar" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="EmptyAssembly" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>UITextureAssembly</dictionary_name>
+    </column>
+    <column name="FilledAssembly" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>UITextureAssembly</dictionary_name>
+    </column>
+    <column name="MovingOverlayAssembly" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>UITextureAssembly</dictionary_name>
+    </column>
+    <column name="DynamicOverlayAssembly" type="REFERENCE">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MovingOverlayAssembly</redundant_name>
+      <dictionary_name>UITextureAssembly</dictionary_name>
+    </column>
+    <column name="StaticOverlayAssembly" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>UITextureAssembly</dictionary_name>
+    </column>
+    <column name="NotchAssembly" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>UITextureAssembly</dictionary_name>
+    </column>
+    <column name="FillFrom" type="INT">
+      <offset>24</offset>
+      <default>2</default>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="NotchForceInside" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="MovingOverlayDirection" type="INT">
+      <offset>32</offset>
+      <static_define_list external="UIStyleBarDirection" />
+    </column>
+    <column name="MovingOverlayFadeIn" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="MovingOverlayFadeOut" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="Tick" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TickFilled" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TickColor" type="INT">
+      <offset>52</offset>
+      <default>-1</default>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
+    </column>
+    <column name="TickFilledColor" type="INT">
+      <offset>56</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
+    </column>
+    <column name="TickCount" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="Font" type="REFERENCE">
+      <offset>72</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="ClipFilledArea" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="TickSnapToPixel" type="BIT">
+      <offset>76</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ScaleTick" type="BIT">
+      <offset>76</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="StretchTick" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

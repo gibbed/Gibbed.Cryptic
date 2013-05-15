@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatConfigTabFilterDef">
+  <table>
+    <column name="ChatConfigTabFilterDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ChatWindowName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="TabID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="FilterDisplayName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FilterSystemName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="kMessageType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="ChatLogEntryType" />
+    </column>
+    <column name="Color" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="ColorVec" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Filtered" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="MayUnsubscribe" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="IsChannel" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

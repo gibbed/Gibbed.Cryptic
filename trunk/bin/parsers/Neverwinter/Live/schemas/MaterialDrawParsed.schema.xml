@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MaterialDrawParsed">
+  <table>
+    <column name="MaterialDrawParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="material_name_idx" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="fallback_idx" type="BIT">
+      <offset>4</offset>
+      <bit_offset>393216</bit_offset>
+    </column>
+    <column name="has_swaps" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="is_occluder" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="texture_idxs" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="constants" type="F32ARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="constant_mappings" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="MaterialConstantMappingFake" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

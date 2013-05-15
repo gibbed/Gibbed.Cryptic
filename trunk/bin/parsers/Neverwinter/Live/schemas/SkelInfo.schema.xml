@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkelInfo">
+  <table>
+    <column name="SkelInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Skeleton" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>BaseSkeleton</dictionary_name>
+    </column>
+    <column name="RegSkeleton" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>BaseSkeleton</dictionary_name>
+    </column>
+    <column name="Sequencer" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SeqType" type="STRINGARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ScaleInfo" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>SkelScaleInfo</dictionary_name>
+    </column>
+    <column name="BlendInfo" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>SkelBlendInfo</dictionary_name>
+    </column>
+    <column name="RagdollHD" type="REFERENCE">
+      <offset>32</offset>
+      <dictionary_name>DynRagdollData</dictionary_name>
+    </column>
+    <column name="Ragdoll" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>DynRagdollData</dictionary_name>
+    </column>
+    <column name="HeadshotInfo" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>SkelHeadshotInfo</dictionary_name>
+    </column>
+    <column name="BouncerInfo" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>DynBouncerGroupInfo</dictionary_name>
+    </column>
+    <column name="DefaultChart" type="REFERENCE">
+      <offset>48</offset>
+      <dictionary_name>DynAnimChartRunTime</dictionary_name>
+    </column>
+    <column name="MountedChart" type="REFERENCE">
+      <offset>52</offset>
+      <dictionary_name>DynAnimChartRunTime</dictionary_name>
+    </column>
+    <column name="StrandInfo" type="REFERENCE">
+      <offset>56</offset>
+      <dictionary_name>DynStrandDataSet</dictionary_name>
+    </column>
+    <column name="GroundRegInfo" type="REFERENCE">
+      <offset>60</offset>
+      <dictionary_name>DynGroundRegData</dictionary_name>
+    </column>
+    <column name="CriticalNodeList" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>DynCriticalNodeList</dictionary_name>
+    </column>
+    <column name="NodeExpressions" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>DynAnimExpressionSet</dictionary_name>
+    </column>
+    <column name="AnimNodeAliases" type="REFERENCE">
+      <offset>72</offset>
+      <dictionary_name>DynAnimNodeAliasList</dictionary_name>
+    </column>
+    <column name="BodySockInfo" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="BodySockGeo" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="BodySockPose" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="BodySockMin" type="F32FIXEDARRAY">
+      <offset>84</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="BodySockMax" type="F32FIXEDARRAY">
+      <offset>96</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="AltBankingNodeAlias" type="STRING">
+      <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LOD" type="BOOLFLAG">
+      <offset>112</offset>
+    </column>
+    <column name="Static" type="BOOLFLAG">
+      <offset>113</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

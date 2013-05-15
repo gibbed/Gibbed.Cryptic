@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AwayTeamData">
+  <table>
+    <column name="AwayTeamData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="IsReady" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="Changed" type="U8">
+      <offset>1</offset>
+    </column>
+    <column name="AllInCircle" type="U8">
+      <offset>2</offset>
+    </column>
+    <column name="Timer" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="PlayerCount" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="AwayTeamMembers" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="AwayTeamMembers" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

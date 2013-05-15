@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ModifyCostumeParams">
+  <table>
+    <column name="ModifyCostumeParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1192</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Area" type="INT">
+      <offset>4</offset>
+      <static_define_list external="kCostumeValueArea" />
+    </column>
+    <column name="Mode" type="INT">
+      <offset>8</offset>
+      <static_define_list external="kCostumeValueMode" />
+    </column>
+    <column name="Value" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="MinValue" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MaxValue" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="Priority" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

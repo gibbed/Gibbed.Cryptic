@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BeaconProcessDebugState">
+  <table>
+    <column name="BeaconProcessDebugState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="debug_pos" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="debug_dist" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="send_gen_lines" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="send_gen_edge" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="send_combat" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="send_walk_res" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="send_prune" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="send_pre_rebuild" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="send_post_rebuild" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

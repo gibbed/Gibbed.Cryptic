@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ErrorMessage">
+  <table>
+    <column name="ErrorMessage" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="errorType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="ErrorMessageType" />
+    </column>
+    <column name="estrFormattedMsg" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="estrMsg" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="estrDetails" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="File" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="line" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Group" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Author" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="days" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="curday" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="curmon" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="curyear" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="Relevant" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="ForceSendStack" type="U8">
+      <offset>53</offset>
+    </column>
+    <column name="ForceShow" type="U8">
+      <offset>54</offset>
+    </column>
+    <column name="Report" type="U8">
+      <offset>55</offset>
+    </column>
+    <column name="Reported" type="U8">
+      <offset>56</offset>
+    </column>
+    <column name="NotLatestData" type="U8">
+      <offset>57</offset>
+    </column>
+    <column name="CheckedOut" type="U8">
+      <offset>58</offset>
+    </column>
+    <column name="errorCount" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="sent" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

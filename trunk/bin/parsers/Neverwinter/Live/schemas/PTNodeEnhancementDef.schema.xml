@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PTNodeEnhancementDef">
+  <table>
+    <column name="PTNodeEnhancementDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Power" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="LevelMax" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Cost" type="INT">
+      <offset>8</offset>
+      <default>1</default>
+    </column>
+    <column name="EnhType" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>PTEnhTypeDef</dictionary_name>
+    </column>
+    <column name="CostTable" type="STRING">
+      <offset>16</offset>
+      <default_string>EnhPoints</default_string>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

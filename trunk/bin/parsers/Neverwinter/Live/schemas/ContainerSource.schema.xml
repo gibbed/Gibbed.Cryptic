@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContainerSource">
+  <table>
+    <column name="ContainerSource" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="sourceInfo" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="ContainerRepositoryInfo" />
+    </column>
+    <column name="sourcePath" type="FIXEDSTRING">
+      <offset>4</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="incrementalPath" type="FIXEDSTRING">
+      <offset>268</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="offlinePath" type="FIXEDSTRING">
+      <offset>532</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="thread_initialized" type="U8">
+      <offset>796</offset>
+    </column>
+    <column name="incrementalMinutes" type="INT">
+      <offset>844</offset>
+    </column>
+    <column name="incrementalHoursToKeep" type="INT">
+      <offset>848</offset>
+    </column>
+    <column name="snapshotMinutesToKeep" type="INT">
+      <offset>852</offset>
+    </column>
+    <column name="snapshotHoursToKeep" type="INT">
+      <offset>856</offset>
+    </column>
+    <column name="snapshotDaysToKeep" type="INT">
+      <offset>860</offset>
+    </column>
+    <column name="pendingHoursToKeep" type="INT">
+      <offset>864</offset>
+    </column>
+    <column name="journalHoursToKeep" type="INT">
+      <offset>868</offset>
+    </column>
+    <column name="skipperiodiccontainersaves" type="INT">
+      <offset>872</offset>
+    </column>
+    <column name="savecontainerflushperiod" type="INT">
+      <offset>876</offset>
+    </column>
+    <column name="savecontainernextflush" type="INT">
+      <offset>880</offset>
+    </column>
+    <column name="nextRotateTime" type="INT">
+      <offset>884</offset>
+    </column>
+    <column name="lastRotateTime" type="INT">
+      <offset>888</offset>
+    </column>
+    <column name="scanSnapshotTime" type="INT">
+      <offset>892</offset>
+    </column>
+    <column name="scanSnapshotSeq" type="INT64">
+      <offset>896</offset>
+    </column>
+    <column name="validSource" type="U8">
+      <offset>904</offset>
+    </column>
+    <column name="useHogs" type="U8">
+      <offset>905</offset>
+    </column>
+    <column name="ignoreContainerSource" type="U8">
+      <offset>906</offset>
+    </column>
+    <column name="forceSnapshot" type="U8">
+      <offset>907</offset>
+    </column>
+    <column name="createSnapshot" type="U8">
+      <offset>908</offset>
+    </column>
+    <column name="generateLogReport" type="U8">
+      <offset>909</offset>
+    </column>
+    <column name="strictMerge" type="U8">
+      <offset>910</offset>
+    </column>
+    <column name="unloadOnHeaderCreate" type="U8">
+      <offset>911</offset>
+      <default>1</default>
+    </column>
+    <column name="dumpWebData" type="STRING">
+      <offset>912</offset>
+    </column>
+    <column name="hogUseDiskOrder" type="INT">
+      <offset>916</offset>
+    </column>
+    <column name="containerPreloadThresholdHours" type="INT">
+      <offset>920</offset>
+      <default>4</default>
+    </column>
+    <column name="containerPlayedUnloadThresholdHours" type="INT">
+      <offset>924</offset>
+      <default>5</default>
+    </column>
+    <column name="containerAccessUnloadThresholdHours" type="INT">
+      <offset>928</offset>
+      <default>1</default>
+    </column>
+    <column name="enableStaleContainerCleanup" type="U8">
+      <offset>932</offset>
+      <default>1</default>
+    </column>
+    <column name="forceUnpackThreshold" type="INT">
+      <offset>936</offset>
+    </column>
+    <column name="loadThreads" type="INT">
+      <offset>944</offset>
+    </column>
+    <column name="dumpload" type="INT">
+      <offset>948</offset>
+    </column>
+    <column name="dumpContainerType" type="INT">
+      <offset>952</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="purgeHogOnFailedContainer" type="INT">
+      <offset>960</offset>
+    </column>
+    <column name="needsRotate" type="U8">
+      <offset>964</offset>
+    </column>
+    <column name="rotateQueued" type="U8">
+      <offset>965</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

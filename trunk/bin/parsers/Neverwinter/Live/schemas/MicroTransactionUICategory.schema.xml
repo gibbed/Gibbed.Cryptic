@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MicroTransactionUICategory">
+  <table>
+    <column name="MicroTransactionUICategory" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ParentName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>8</offset>
+      <static_define_list external="MTCategoryType" />
+    </column>
+    <column name="estrDisplayName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="estrDescription" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="SortIndex" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="HideUnusable" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="MinDiscountPercent" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="MaxDiscountPercent" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

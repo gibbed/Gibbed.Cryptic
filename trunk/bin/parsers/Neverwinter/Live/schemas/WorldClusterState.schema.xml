@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldClusterState">
+  <table>
+    <column name="WorldClusterState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="start_i" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="end_i" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="start_j" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="end_j" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="start_y" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="end_y" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="worldCellsChangedFlag" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="gatherFromLeafLevel" type="U8">
+      <offset>29</offset>
+    </column>
+    <column name="cluster_all_levels" type="U8">
+      <offset>30</offset>
+    </column>
+    <column name="_cluster_buckets" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="ModelClusterSource" />
+    </column>
+    <column name="timeClusteringStart" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="timeClusteringComplete" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="numDistributedRemeshes" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="processed_blocks" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="total_blocks" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="current_region_idx" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="total_regions" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="clusterTempBinPath" type="FIXEDSTRING">
+      <offset>68</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="clusterBinPath" type="FIXEDSTRING">
+      <offset>328</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="clusterTempImagePath" type="FIXEDSTRING">
+      <offset>588</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="clusterTempImageFullPath" type="FIXEDSTRING">
+      <offset>848</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="clusterCacheHoggFile" type="FIXEDSTRING">
+      <offset>1108</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="clusterClientRegionBinFile" type="FIXEDSTRING">
+      <offset>1368</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="clusterClientRegionBinFileFullPath" type="FIXEDSTRING">
+      <offset>1628</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="cluster_volumes" type="STRUCT">
+      <offset>1888</offset>
+      <subtable external="ModelClusterVolume" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

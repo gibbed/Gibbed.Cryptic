@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenChatLogEntryPoint">
+  <table>
+    <column name="UIGenChatLogEntryPoint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Entry" type="INT">
+      <offset>0</offset>
+      <default>-1</default>
+    </column>
+    <column name="Span" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Pos" type="INT16">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

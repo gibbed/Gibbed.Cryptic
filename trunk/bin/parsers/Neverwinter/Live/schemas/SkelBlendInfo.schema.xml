@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkelBlendInfo">
+  <table>
+    <column name="SkelBlendInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="BlendInfoName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="MainSequencer" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Sequencer" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="SkelBlendSeqInfo" />
+    </column>
+    <column name="uiMaxWeightIndex" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="DynAnimOverrideList" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>DynAnimOverrideList</dictionary_name>
+    </column>
+    <column name="DefaultChart" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>DynAnimChartRunTime</dictionary_name>
+    </column>
+    <column name="MountedChart" type="REFERENCE">
+      <offset>32</offset>
+      <dictionary_name>DynAnimChartRunTime</dictionary_name>
+    </column>
+    <column name="RunAndGunBone" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="SkelBlendRunAndGunBone" />
+    </column>
+    <column name="PreventRunAndGunFootShuffle" type="BOOLFLAG">
+      <offset>40</offset>
+    </column>
+    <column name="PreventRunAndGunUpperBody" type="BOOLFLAG">
+      <offset>41</offset>
+    </column>
+    <column name="TorsoPointing" type="BOOLFLAG">
+      <offset>42</offset>
+    </column>
+    <column name="TorsoDirections" type="BOOLFLAG">
+      <offset>43</offset>
+    </column>
+    <column name="MovementBlending" type="BOOLFLAG">
+      <offset>44</offset>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

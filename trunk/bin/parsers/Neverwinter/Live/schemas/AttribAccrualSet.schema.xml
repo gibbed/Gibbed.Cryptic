@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribAccrualSet">
+  <table>
+    <column name="AttribAccrualSet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CharacterAttribs" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="AttribAccrualSetBasic" />
+    </column>
+    <column name="SpeedCooldown" type="STRUCT">
+      <offset>17280</offset>
+      <subtable external="CooldownRateModifier" />
+    </column>
+    <column name="dirtyBit" type="U8">
+      <offset>17284</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldEncounterProperties">
+  <table>
+    <column name="WorldEncounterProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Template" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>EncounterTemplate</dictionary_name>
+    </column>
+    <column name="SpawnProperties" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="WorldEncounterSpawnProperties" />
+    </column>
+    <column name="EventProperties" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="WorldEncounterEventProperties" />
+    </column>
+    <column name="RewardProperties" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="WorldEncounterRewardProperties" />
+    </column>
+    <column name="PatrolRoute" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Actor" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="WorldActorProperties" />
+    </column>
+    <column name="FillActorsInOrder" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="Point" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="WorldEncounterPointProperties" />
+    </column>
+    <column name="PresenceCondition" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="OverrideSendDistance" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

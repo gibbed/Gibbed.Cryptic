@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GlobalTypeMapping">
+  <table>
+    <column name="GlobalTypeMapping" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="Name" type="FIXEDSTRING">
+      <offset>4</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="shortname" type="FIXEDSTRING">
+      <offset>132</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="SchemaType" type="INT">
+      <offset>260</offset>
+      <static_define_list external="SchemaType" />
+    </column>
+    <column name="Parent" type="INT">
+      <offset>264</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

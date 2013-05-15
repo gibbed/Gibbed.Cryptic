@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynChildCallCollection">
+  <table>
+    <column name="DynChildCallCollection" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CallParam" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="DynChildCall" />
+    </column>
+    <column name="Call" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CallParam</redundant_name>
+      <subtable external="Call" />
+    </column>
+    <column name="CallList" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="DynChildCallList" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

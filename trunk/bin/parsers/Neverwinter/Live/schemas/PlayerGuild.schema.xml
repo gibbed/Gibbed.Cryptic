@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerGuild">
+  <table>
+    <column name="PlayerGuild" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="iGuildID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="hGuild" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>CopyDict_GUILD</dictionary_name>
+    </column>
+    <column name="hGuildBank" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>CopyDict_EntityGuildBank</dictionary_name>
+    </column>
+    <column name="iTimeSinceHandleInit" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="iTimeSinceLastUpdate" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="eState" type="INT">
+      <offset>20</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="GuildState" />
+    </column>
+    <column name="pcInviterName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pcInviterHandle" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iVersion" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="bJoinedGuild" type="U8">
+      <offset>36</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="iGuildChat" type="INT">
+      <offset>40</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="iOfficerChat" type="INT">
+      <offset>44</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="fLastUpdate" type="F32">
+      <offset>48</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="uiDisplayedMotD" type="INT">
+      <offset>52</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="uiDisplayedEvent" type="INT">
+      <offset>56</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="eaBankLog" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="PlayerGuildLog" />
+    </column>
+    <column name="iBankLogSize" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="iUpdated" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="eaGuildCostumes" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="PlayerCostumeHolder" />
+    </column>
+    <column name="bUpdatedOfficerComments" type="U8">
+      <offset>76</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="iOCVersion" type="INT">
+      <offset>80</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="eaOfficerComments" type="STRUCT">
+      <offset>84</offset>
+      <subtable external="PlayerGuildOfficerComments" />
+    </column>
+    <column name="hGroupProjectContainer" type="REFERENCE">
+      <offset>88</offset>
+      <dictionary_name>CopyDict_GroupProjectContainerGuild</dictionary_name>
+    </column>
+    <column name="dirtyBit" type="U8">
+      <offset>92</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

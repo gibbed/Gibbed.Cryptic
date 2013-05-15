@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentCachedStruct">
+  <table>
+    <column name="ItemAssignmentCachedStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Slots" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ItemAssignmentSlotUI" />
+    </column>
+    <column name="WaitingAssignments" type="STRINGARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="ItemAssignmentUIs" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ItemAssignmentEquippedUI" />
+    </column>
+    <column name="ItemCategories" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="ItemAssignmentCategoryUI" />
+    </column>
+    <column name="RewardRequestData" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="ItemAssignmentRewardRequestData" />
+    </column>
+    <column name="hCurrentDef" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>ItemAssignmentDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

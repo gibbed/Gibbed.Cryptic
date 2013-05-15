@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShaderInputOneLine">
+  <table>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="_TypeDefault" type="INT">
+      <offset>8</offset>
+      <static_define_list external="ShaderDataType" />
+    </column>
+    <column name="_FloatDefault" type="INT">
+      <offset>12</offset>
+      <default>4</default>
+    </column>
+    <column name="_TextureDefault" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="_DefaultDefault" type="INT">
+      <offset>32</offset>
+      <static_define_list external="ShaderInputDefaultType" />
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

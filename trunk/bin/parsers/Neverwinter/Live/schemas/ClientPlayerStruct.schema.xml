@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClientPlayerStruct">
+  <table>
+    <column name="ClientPlayerStruct" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="onlineCharacterID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="loginServerID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Handle" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Location" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="MapNameAndInstance" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="PlayerLevel" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="PlayerTeam" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="PlayerRank" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="PlayerAllegiance" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ClassName" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ClassDispName" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="PathName" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GuildName" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Comment" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Status" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Activity" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="LFGMode" type="INT">
+      <offset>72</offset>
+      <static_define_list external="TeamMode" />
+    </column>
+    <column name="LFGDifficultyMode" type="INT">
+      <offset>76</offset>
+      <static_define_list external="LFGDifficultyMode" />
+    </column>
+    <column name="Difficulty" type="STRING">
+      <offset>80</offset>
+    </column>
+    <column name="DifficultyIdx" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="TeamStatusMessage" type="STRING">
+      <offset>88</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="SameInstance" type="U8">
+      <offset>92</offset>
+    </column>
+    <column name="OnlineStatus" type="INT">
+      <offset>96</offset>
+      <static_define_list external="UserStatus" />
+    </column>
+    <column name="PlayingStyles" type="STRING">
+      <offset>100</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="TeamMembers" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="ExtraMembers" type="STRUCT">
+      <offset>108</offset>
+      <subtable external="ClientTeamMemberStruct" />
+    </column>
+    <column name="Ignored" type="U8">
+      <offset>112</offset>
+    </column>
+    <column name="Friend" type="U8">
+      <offset>113</offset>
+    </column>
+    <column name="Guildmate" type="U8">
+      <offset>114</offset>
+    </column>
+    <column name="Buddy" type="U8">
+      <offset>115</offset>
+    </column>
+    <column name="Afk" type="U8">
+      <offset>116</offset>
+    </column>
+    <column name="Dnd" type="U8">
+      <offset>117</offset>
+    </column>
+    <column name="DifferentGame" type="U8">
+      <offset>118</offset>
+    </column>
+    <column name="DifferentVShard" type="U8">
+      <offset>119</offset>
+    </column>
+    <column name="UGCShard" type="U8">
+      <offset>120</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

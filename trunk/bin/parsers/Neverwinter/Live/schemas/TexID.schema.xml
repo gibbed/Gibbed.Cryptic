@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TexID">
+  <table>
+    <column name="TexID" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT16">
+      <offset>0</offset>
+    </column>
+    <column name="Count" type="INT16">
+      <offset>2</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ContactLogEntry">
+  <table>
+    <column name="ContactLogEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Text" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="HeadshotStyleDef" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hHeadshotCostumeRef" type="REFERENCE">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="HeadshotCostume" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="erHeadshotEntity" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="HeadshotPetID" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="uiTimestamp" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

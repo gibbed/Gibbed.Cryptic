@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynStrandData">
+  <table>
+    <column name="DynStrandData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="StartNodeName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="BreakNodeName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="EndNodeName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="axis" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="StablizeSpringK" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="StablizeDamperC" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="DynModelSpringK" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="DynModelDamperC" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="BreakPointMass" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="EndPointMass" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="ApplicationStrength" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="MaxJointAngle" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="WindResistance" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="Gravity" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="TorsionRatio" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="AxisIsInWorldSpace" type="BOOLFLAG">
+      <offset>68</offset>
+    </column>
+    <column name="PrealignStrandToProceduralAxis" type="BOOLFLAG">
+      <offset>69</offset>
+    </column>
+    <column name="FullGroundReg" type="BOOLFLAG">
+      <offset>70</offset>
+    </column>
+    <column name="PartialGroundReg" type="BOOLFLAG">
+      <offset>71</offset>
+    </column>
+    <column name="UseEulerIntegration" type="BOOLFLAG">
+      <offset>72</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

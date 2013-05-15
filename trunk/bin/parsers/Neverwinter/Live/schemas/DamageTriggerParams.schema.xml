@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DamageTriggerParams">
+  <table>
+    <column name="DamageTriggerParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1175</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Attrib" type="INT">
+      <offset>4</offset>
+      <default>-1</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Def" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="Target" type="INT">
+      <offset>12</offset>
+      <static_define_list external="DamageTriggerEntity" />
+    </column>
+    <column name="ExprChanceBlock" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Chance" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprChanceBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Heal" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Outgoing" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="MagnitudeIsCharges" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="OwnedByDamager" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

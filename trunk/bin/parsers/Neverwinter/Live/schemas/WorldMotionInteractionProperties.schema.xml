@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldMotionInteractionProperties">
+  <table>
+    <column name="WorldMotionInteractionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="MoveDescriptor" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="WorldMoveDescriptorProperties" />
+    </column>
+    <column name="TransitionTime" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="DestinationTime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="ReturnTime" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="TransDuringUse" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

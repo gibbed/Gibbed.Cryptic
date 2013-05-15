@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisNode">
+  <table>
+    <column name="GenesisNode" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Seed" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="UID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="OffMapUID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ActualSize" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="DrawSize" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="NodeType" type="INT">
+      <offset>36</offset>
+      <static_define_list external="GenesisNodeType" />
+    </column>
+    <column name="Object" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="GenesisObject" />
+    </column>
+    <column name="Mission" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="GenesisRoomMission" />
+    </column>
+    <column name="detail_kit_1" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Details" type="REFERENCE">
+      <offset>48</offset>
+      <dictionary_name>GenesisDetailKit</dictionary_name>
+    </column>
+    <column name="DetailKit" type="REFERENCE">
+      <offset>48</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Details</redundant_name>
+      <dictionary_name>GenesisDetailKit</dictionary_name>
+    </column>
+    <column name="DetailDensity" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="Detail2" type="EMBEDDEDSTRUCT">
+      <offset>60</offset>
+      <subtable external="GenesisDetailKitAndDensity" />
+    </column>
+    <column name="DoNotPopulate" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="SourceContext" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <subtable external="GenesisRuntimeErrorContext" />
+    </column>
+    <column name="BoarderType" type="IGNORE" />
+    <column name="NonPlayArea" type="IGNORE" />
+    <column name="SideTrail" type="IGNORE" />
+    <column name="TerrainType" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="PriorityObject" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="LightDetail" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

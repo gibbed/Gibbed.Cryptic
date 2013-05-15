@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MissionJournalRow">
+  <table>
+    <column name="MissionJournalRow" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="MissionJournalRowType" />
+    </column>
+    <column name="Mission" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Mission" />
+    </column>
+    <column name="CompletedMission" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="CompletedMission" />
+    </column>
+    <column name="ProgressionData" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="ProgressionMissionData" />
+    </column>
+    <column name="TeamMissions" type="STRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="TeammateMission" />
+    </column>
+    <column name="Completed" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="TranslatedCategoryName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="TranslatedUITypeName" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="IconName" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="PerkPoints" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="Target" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="Level" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="LevelDelta" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="TeamSize" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="ScalesForTeam" type="U8">
+      <offset>68</offset>
+    </column>
+    <column name="CanDrop" type="U8">
+      <offset>69</offset>
+    </column>
+    <column name="hDef" type="REFERENCE">
+      <offset>72</offset>
+      <dictionary_name>Mission</dictionary_name>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Detail" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Indent" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="UIType" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="Ent" type="OPTIONALSTRUCT">
+      <offset>92</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Entity" />
+    </column>
+    <column name="MissionNumber" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

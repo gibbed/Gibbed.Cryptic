@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RecordedEntityPos">
+  <table>
+    <column name="RecordedEntityPos" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Rot" type="QUATPYR">
+      <offset>12</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="pyFace" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="animBits" type="STRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="RecordedAnimBit" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

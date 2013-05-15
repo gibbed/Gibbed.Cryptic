@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisZoneMapInfo">
+  <table>
+    <column name="GenesisZoneMapInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="FILENAME">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="VistaMap" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="IsVistaTerrain" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="ExternalMap" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MissionLevel" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="LevelType" type="INT">
+      <offset>20</offset>
+      <static_define_list external="MissionLevelType" />
+    </column>
+    <column name="EncounterOverride" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="GenesisProceduralEncounterProperties" />
+    </column>
+    <column name="SolSysLayerInfo" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="GenesisZoneMapInfoLayer" />
+    </column>
+    <column name="InteriorLayerInfo" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="GenesisZoneMapInfoLayer" />
+    </column>
+    <column name="ExteriorLayerInfo" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="GenesisZoneMapInfoLayer" />
+    </column>
+    <column name="SkyGroup" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="SkyInfoGroup" />
+    </column>
+    <column name="Type" type="IGNORE" />
+    <column name="ExternalRegion" type="IGNORE" />
+    <column name="OverrideCubeMap" type="IGNORE" />
+    <column name="SolarSystemShoeboxes" type="IGNORE" />
+    <column name="End" type="END" />
+  </table>
+</parser>

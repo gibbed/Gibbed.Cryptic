@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ShaderRuntimeInput">
+  <table>
+    <column name="ShaderRuntimeInput" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="input_name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="input_register" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="input_swizzle_start" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="input_swizzle_count" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="input_instance_param" type="U8">
+      <offset>7</offset>
+    </column>
+    <column name="input_index" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

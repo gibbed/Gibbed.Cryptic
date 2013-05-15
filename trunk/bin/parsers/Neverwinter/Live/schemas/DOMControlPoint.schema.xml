@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DOMControlPoint">
+  <table>
+    <column name="DOMControlPoint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PointNumber" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Status" type="INT">
+      <offset>4</offset>
+      <static_define_list external="DOMPointStatus" />
+    </column>
+    <column name="AttackingEnts" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="Life" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="Location" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Tick" type="F32">
+      <offset>28</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="AttackingGroup" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="OwningGroup" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="X" type="F32">
+      <offset>40</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Y" type="F32">
+      <offset>44</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

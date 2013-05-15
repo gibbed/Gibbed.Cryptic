@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectSearchInfo">
+  <table>
+    <column name="UGCProjectSearchInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="AccessLevel" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="MaxProjectSlots" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="MaxSeriesSlots" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="IsReviewer" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="UGCProjects" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="UGCSeries" type="U8">
+      <offset>14</offset>
+    </column>
+    <column name="OwnerAccountID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Simple_Raw" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="Simple_SSSTree" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="filters" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="UGCProjectSearchFilter" />
+    </column>
+    <column name="TempFilters" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UGCProjectSearchFilter" />
+    </column>
+    <column name="VirtualShardID" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="PlayerAllegiance" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PlayerLevel" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="PlayerLevelMin" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="PlayerLevelMax" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="Lang" type="INT">
+      <offset>56</offset>
+      <static_define_list external="Language" />
+    </column>
+    <column name="Location" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PublishedInLastNDays" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="FeaturedIncludeArchives" type="U8">
+      <offset>68</offset>
+    </column>
+    <column name="Subscription" type="OPTIONALSTRUCT">
+      <offset>72</offset>
+      <subtable external="UGCSubscriptionSearchInfo" />
+    </column>
+    <column name="SpecialType" type="INT">
+      <offset>76</offset>
+      <static_define_list external="UGCProjectSearchSpecialType" />
+    </column>
+    <column name="loginServerID" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="loginCookie" type="INT64">
+      <offset>88</offset>
+    </column>
+    <column name="PossibleUGCProjects" type="OPTIONALSTRUCT">
+      <offset>96</offset>
+      <subtable external="PossibleUGCProjects" />
+    </column>
+    <column name="shardName" type="STRING">
+      <offset>100</offset>
+    </column>
+    <column name="EntContainerID" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="UGCSearchResult" type="OPTIONALSTRUCT">
+      <offset>108</offset>
+      <subtable external="UGCSearchResult" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

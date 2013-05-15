@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AIDebug">
+  <table>
+    <column name="AIDebug" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Settings" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="AIDebugSettings" />
+    </column>
+    <column name="attackTargetRef" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="basicInfo" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="AIDebugBasicInfo" />
+    </column>
+    <column name="AggroTableHeaders" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="AIDebugAggroTableHeader" />
+    </column>
+    <column name="debugStatusEntries" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="AIDebugStatusTableEntry" />
+    </column>
+    <column name="debugStatusExternEntries" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="AIDebugStatusTableEntry" />
+    </column>
+    <column name="entInfo" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="AIDebugPerEntity" />
+    </column>
+    <column name="logEntries" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="AIDebugLogEntryClient" />
+    </column>
+    <column name="powerBasicInfo" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="AIDebugBasicInfo" />
+    </column>
+    <column name="powersInfo" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="AIDebugPowersInfo" />
+    </column>
+    <column name="teamInfo" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <subtable external="AIDebugTeamInfo" />
+    </column>
+    <column name="combatTeamInfo" type="OPTIONALSTRUCT">
+      <offset>80</offset>
+      <subtable external="AIDebugTeamInfo" />
+    </column>
+    <column name="varInfo" type="STRUCT">
+      <offset>84</offset>
+      <subtable external="AIDebugVarEntry" />
+    </column>
+    <column name="exVarInfo" type="STRUCT">
+      <offset>88</offset>
+      <subtable external="AIDebugVarEntry" />
+    </column>
+    <column name="msgInfo" type="STRUCT">
+      <offset>92</offset>
+      <subtable external="AIDebugMsgEntry" />
+    </column>
+    <column name="movementInfo" type="OPTIONALSTRUCT">
+      <offset>96</offset>
+      <subtable external="AIDebugMovementInfo" />
+    </column>
+    <column name="locRatings" type="STRUCT">
+      <offset>100</offset>
+      <subtable external="AIDebugLocRating" />
+    </column>
+    <column name="formation" type="OPTIONALSTRUCT">
+      <offset>104</offset>
+      <subtable external="AIDebugFormation" />
+    </column>
+    <column name="configMods" type="STRUCT">
+      <offset>108</offset>
+      <subtable external="AIDebugStringStringEntry" />
+    </column>
+    <column name="avoidInfo" type="OPTIONALSTRUCT">
+      <offset>112</offset>
+      <subtable external="AIDebugAvoid" />
+    </column>
+    <column name="aggroInfo" type="OPTIONALSTRUCT">
+      <offset>116</offset>
+      <subtable external="AIDebugAggro" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

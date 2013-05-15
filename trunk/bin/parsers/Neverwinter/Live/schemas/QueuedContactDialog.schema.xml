@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueuedContactDialog">
+  <table>
+    <column name="QueuedContactDialog" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContactDialog" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="ContactDialogInfo" />
+    </column>
+    <column name="PartialPermissions" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="RemotelyAccessing" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="CostumeFallback" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="ContactCostumeFallback" />
+    </column>
+    <column name="OptionData" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="ContactDialogOptionData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

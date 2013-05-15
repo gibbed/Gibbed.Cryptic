@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ModDefFragility">
+  <table>
+    <column name="ModDefFragility" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ExprBlockHealth" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="TableHealth" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Pool" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="CombatPoolDef" />
+    </column>
+    <column name="Proportion" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="ScaleIn" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>FragileScaleSet</dictionary_name>
+    </column>
+    <column name="ScaleOut" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>FragileScaleSet</dictionary_name>
+    </column>
+    <column name="TagsExclude" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="PowerTagsStruct" />
+    </column>
+    <column name="MagnitudeIsHealth" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="SourceOnlyIn" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="SourceOnlyOut" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="UseResistIn" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="UseResistOut" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="FragileWhileDelayed" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="FragileToSameApply" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="Unkillable" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="ReplaceKeepsHealth" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

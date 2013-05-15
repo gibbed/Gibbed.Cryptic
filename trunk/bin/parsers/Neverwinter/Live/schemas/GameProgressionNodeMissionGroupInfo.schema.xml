@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameProgressionNodeMissionGroupInfo">
+  <table>
+    <column name="GameProgressionNodeMissionGroupInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Major" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="TimeToComplete" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="RequiredPlayerLevel" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SpawnPoint" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OverworldMapPos" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="OverworldMapIcon" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Mission" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="GameProgressionMission" />
+    </column>
+    <column name="MissionRequired" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Mission</redundant_name>
+      <subtable external="GameProgressionMission" />
+    </column>
+    <column name="RequiredMission" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Mission</redundant_name>
+      <subtable external="GameProgressionMission" />
+    </column>
+    <column name="AllowedMissionMap" type="STRINGARRAY">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DontAutoGrantMissionOnSetProgression" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ShowRewardsInUI" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

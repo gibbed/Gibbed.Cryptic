@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="StatusReporting_Wrapper">
+  <table>
+    <column name="StatusReporting_Wrapper" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MyName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="MyType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="MyID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="MyProduct" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MyShortProduct" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MyMainMonitoringPort" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="MyGenericMonitoringPort" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="MyMachineName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Version" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="Status" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="StatusReporting_GenericServerStatus" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

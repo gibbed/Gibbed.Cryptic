@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EMMapLayerType">
+  <table>
+    <column name="EMMapLayerType" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="layer_name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="layer_type" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Visible" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="menu_item_names" type="STRINGARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

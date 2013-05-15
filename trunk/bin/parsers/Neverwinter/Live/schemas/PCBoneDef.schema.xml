@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PCBoneDef">
+  <table>
+    <column name="PCBoneDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="geometryFieldDispName" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="materialFieldDispName" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="patternFieldDispName" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="detailFieldDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="specularFieldDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="diffuseFieldDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="movableFieldDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>92</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Region" type="REFERENCE">
+      <offset>104</offset>
+      <dictionary_name>CostumeRegion</dictionary_name>
+    </column>
+    <column name="BoneName" type="STRING">
+      <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ClickBoneName" type="STRING">
+      <offset>112</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DefaultGeo" type="REFERENCE">
+      <offset>116</offset>
+      <dictionary_name>CostumeGeometry</dictionary_name>
+    </column>
+    <column name="MirrorBone" type="REFERENCE">
+      <offset>120</offset>
+      <dictionary_name>CostumeBone</dictionary_name>
+    </column>
+    <column name="SelfLayer" type="REFERENCE">
+      <offset>124</offset>
+      <dictionary_name>CostumeLayer</dictionary_name>
+    </column>
+    <column name="MergeLayer" type="REFERENCE">
+      <offset>128</offset>
+      <dictionary_name>CostumeLayer</dictionary_name>
+    </column>
+    <column name="mergeNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>132</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="ChildBoneEntry" type="STRUCT">
+      <offset>144</offset>
+      <subtable external="PCChildBone" />
+    </column>
+    <column name="IsChildBone" type="U8">
+      <offset>148</offset>
+    </column>
+    <column name="IsGuildEmblemBone" type="U8">
+      <offset>149</offset>
+    </column>
+    <column name="MainLayer" type="REFERENCE">
+      <offset>152</offset>
+      <dictionary_name>CostumeLayer</dictionary_name>
+    </column>
+    <column name="MainLayerBack" type="REFERENCE">
+      <offset>156</offset>
+      <dictionary_name>CostumeLayer</dictionary_name>
+    </column>
+    <column name="MainLayerBoth" type="REFERENCE">
+      <offset>160</offset>
+      <dictionary_name>CostumeLayer</dictionary_name>
+    </column>
+    <column name="BodyColorSet0" type="REFERENCE">
+      <offset>164</offset>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="BodyColorSet" type="REFERENCE">
+      <offset>164</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>BodyColorSet0</redundant_name>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="BodyColorSet1" type="REFERENCE">
+      <offset>168</offset>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="BodyColorSet2" type="REFERENCE">
+      <offset>172</offset>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="BodyColorSet3" type="REFERENCE">
+      <offset>176</offset>
+      <dictionary_name>CostumeColors</dictionary_name>
+    </column>
+    <column name="ColorChoices" type="INT">
+      <offset>180</offset>
+      <default>15</default>
+      <static_define_list external="PCColorFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="DefaultBoneColorQuad" type="OPTIONALSTRUCT">
+      <offset>184</offset>
+      <subtable external="PCColorQuad" />
+    </column>
+    <column name="ColorQuadSet" type="REFERENCE">
+      <offset>188</offset>
+      <dictionary_name>CostumeColorQuads</dictionary_name>
+    </column>
+    <column name="Order" type="F32">
+      <offset>192</offset>
+    </column>
+    <column name="RandomChance" type="F32">
+      <offset>196</offset>
+    </column>
+    <column name="LOD" type="INT">
+      <offset>200</offset>
+      <default>10</default>
+      <static_define_list external="CostumeLODLevel" />
+    </column>
+    <column name="RestrictedTo" type="INT">
+      <offset>204</offset>
+      <static_define_list external="PCRestriction" />
+      <format>FLAGS</format>
+    </column>
+    <column name="PowerFX" type="U8">
+      <offset>208</offset>
+    </column>
+    <column name="Raycastable" type="U8">
+      <offset>209</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

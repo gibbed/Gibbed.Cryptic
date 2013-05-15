@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MicroTransactionPart">
+  <table>
+    <column name="MicroTransactionPart" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PartType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="MicroPartType" />
+    </column>
+    <column name="SpecialPartType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="SpecialPartType" />
+    </column>
+    <column name="ItemDef" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="Costume" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="PowerDef" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="Species" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>SpeciesDef</dictionary_name>
+    </column>
+    <column name="RewardTable" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="Permission" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Attrib" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="AttribValuePairChange" />
+    </column>
+    <column name="Count" type="INT">
+      <offset>36</offset>
+      <default>1</default>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AddToBestBag" type="BIT">
+      <offset>44</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="AllowOverflowBag" type="BIT">
+      <offset>44</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="IgnoreUsageRestrictions" type="BIT">
+      <offset>44</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

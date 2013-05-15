@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerLurch">
+  <table>
+    <column name="PowerLurch" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SlideFrameStart" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="MovementFrameStart" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SlideFrameStart</redundant_name>
+    </column>
+    <column name="SlideFrameCount" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="MovementFrameCount" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SlideFrameCount</redundant_name>
+    </column>
+    <column name="SlideDistance" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="MovementDistance" type="F32">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SlideDistance</redundant_name>
+    </column>
+    <column name="MovementSpeed" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="LurchCapsuleBufferRadius" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="MovementGraph" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>DynAnimGraph</dictionary_name>
+    </column>
+    <column name="LurchIgnoreCollision" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="LurchSlideInMovementDirection" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

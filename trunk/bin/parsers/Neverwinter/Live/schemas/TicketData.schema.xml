@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TicketData">
+  <table>
+    <column name="TicketData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PlatformName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ProductName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="VersionString" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="uAccountID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="pwAccountName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="uCharacterID" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="CharacterName" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="MainCategory" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Category" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Summary" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="UserDescription" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="TriviaList" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="TriviaList" />
+    </column>
+    <column name="ProductionMode" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="EntityPTIStr" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="EntityStr" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="uImageSize" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="UserDataStr" type="STRING">
+      <offset>72</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="UserDataPTIStr" type="STRING">
+      <offset>76</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="UserDataList" type="STRINGARRAY">
+      <offset>80</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="UserDataPTIList" type="STRINGARRAY">
+      <offset>84</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="TicketLabel" type="STRING">
+      <offset>88</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Language" type="INT">
+      <offset>92</offset>
+      <static_define_list external="Language" />
+    </column>
+    <column name="ShardInfoString" type="STRING">
+      <offset>96</offset>
+    </column>
+    <column name="ServerContainerID" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="MergeID" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="Visibility" type="INT">
+      <offset>108</offset>
+      <default>-1</default>
+      <static_define_list external="TicketVisibility" />
+    </column>
+    <column name="uIsInternal" type="BIT">
+      <offset>112</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

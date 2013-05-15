@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AlgoPetPowerDef">
+  <table>
+    <column name="AlgoPetPowerDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PowerNode" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <dictionary_name>PowerTreeNodeDef</dictionary_name>
+    </column>
+    <column name="Category" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list external="AlgoCategory" />
+    </column>
+    <column name="ExclusiveCategory" type="INTARRAY">
+      <offset>8</offset>
+      <static_define_list external="AlgoCategory" />
+    </column>
+    <column name="Weight" type="F32">
+      <offset>12</offset>
+      <default>1</default>
+    </column>
+    <column name="ExprWeightMulti" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

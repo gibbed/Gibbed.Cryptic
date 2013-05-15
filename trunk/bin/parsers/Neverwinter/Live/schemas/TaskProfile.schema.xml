@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TaskProfile">
+  <table>
+    <column name="TaskProfile" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="totalTaskTime" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="TaskProfileTime" />
+    </column>
+    <column name="BytesRead" type="INT64">
+      <offset>16</offset>
+    </column>
+    <column name="bytesWrite" type="INT64">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribModBuffData">
+  <table>
+    <column name="AttribModBuffData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ModNetIdx" type="INTARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="StackGroup" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UIStackGroupData" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

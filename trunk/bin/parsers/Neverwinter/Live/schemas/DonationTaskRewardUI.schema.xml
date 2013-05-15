@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DonationTaskRewardUI">
+  <table>
+    <column name="DonationTaskRewardUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Unlock" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="GroupProjectUnlockUI" />
+    </column>
+    <column name="Numeric" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="GroupProjectNumericUI" />
+    </column>
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Item" />
+    </column>
+    <column name="NumericSet" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

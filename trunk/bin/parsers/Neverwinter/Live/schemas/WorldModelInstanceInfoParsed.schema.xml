@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldModelInstanceInfoParsed">
+  <table>
+    <column name="WorldModelInstanceInfoParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="world_matrix_x" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="world_matrix_y" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="world_matrix_z" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="tint_color" type="F32FIXEDARRAY">
+      <offset>48</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="local_mid_idx" type="INT">
+      <offset>64</offset>
+      <default>-1</default>
+    </column>
+    <column name="inst_radius" type="BIT">
+      <offset>68</offset>
+      <bit_offset>1966080</bit_offset>
+    </column>
+    <column name="camera_facing" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65566</bit_offset>
+    </column>
+    <column name="axis_camera_facing" type="BIT">
+      <offset>68</offset>
+      <bit_offset>65567</bit_offset>
+    </column>
+    <column name="instance_param_list_idx" type="INT">
+      <offset>72</offset>
+      <default>-1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

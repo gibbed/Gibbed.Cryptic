@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynSeqData">
+  <table>
+    <column name="DynSeqData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="requiresBits" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DynBitFieldStatic" />
+    </column>
+    <column name="optionalBits" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="DynBitFieldStatic" />
+    </column>
+    <column name="DynAction" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="DynAction" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Member" type="STRINGARRAY">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Priority" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="OnExitFXMessage" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="DynAnimFXMessage" />
+    </column>
+    <column name="Core" type="U8">
+      <offset>58</offset>
+    </column>
+    <column name="DefaultSequence" type="BOOLFLAG">
+      <offset>59</offset>
+    </column>
+    <column name="InterruptEverything" type="BOOLFLAG">
+      <offset>60</offset>
+    </column>
+    <column name="DisableTorsoPointing" type="BOOLFLAG">
+      <offset>61</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

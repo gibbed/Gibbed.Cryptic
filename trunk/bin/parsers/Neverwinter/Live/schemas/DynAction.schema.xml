@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynAction">
+  <table>
+    <column name="DynAction" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="DynMove" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="DynActionMove" />
+    </column>
+    <column name="interpBlock" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Interpolation" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="EaseIn" type="INT">
+      <offset>16</offset>
+      <static_define_list external="eEaseType" />
+    </column>
+    <column name="EaseOut" type="INT">
+      <offset>20</offset>
+      <static_define_list external="eEaseType" />
+    </column>
+    <column name="NextAction" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="NextActionChance" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="DynNextActionChance" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="InterruptibleBy" type="STRINGARRAY">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Suppress" type="STRINGARRAY">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="If" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="DynActIfBlock" />
+    </column>
+    <column name="Cycle" type="BOOLFLAG">
+      <offset>60</offset>
+    </column>
+    <column name="OverrideSeqs" type="BOOLFLAG">
+      <offset>61</offset>
+    </column>
+    <column name="OverrideLegs" type="BOOLFLAG">
+      <offset>61</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>OverrideSeqs</redundant_name>
+    </column>
+    <column name="OverrideAll" type="BOOLFLAG">
+      <offset>62</offset>
+    </column>
+    <column name="SnapOverrideAll" type="BOOLFLAG">
+      <offset>63</offset>
+    </column>
+    <column name="ForceLowerBody" type="BOOLFLAG">
+      <offset>64</offset>
+    </column>
+    <column name="PitchToTarget" type="BOOLFLAG">
+      <offset>65</offset>
+    </column>
+    <column name="DefaultFirst" type="BOOLFLAG">
+      <offset>66</offset>
+    </column>
+    <column name="NoSelfInterp" type="BOOLFLAG">
+      <offset>67</offset>
+    </column>
+    <column name="ForceEndFreeze" type="BOOLFLAG">
+      <offset>68</offset>
+    </column>
+    <column name="AllowRandomRepeats" type="BOOLFLAG">
+      <offset>69</offset>
+    </column>
+    <column name="SeqRestartAllowed" type="BOOLFLAG">
+      <offset>70</offset>
+    </column>
+    <column name="LoopUntilInterrupted" type="BOOLFLAG">
+      <offset>71</offset>
+    </column>
+    <column name="ForceVisible" type="BOOLFLAG">
+      <offset>72</offset>
+    </column>
+    <column name="FirstIf" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="DynActFirstIfBlock" />
+    </column>
+    <column name="CallFx" type="STRUCT">
+      <offset>80</offset>
+      <subtable external="DynActCallFx" />
+    </column>
+    <column name="Impact" type="STRUCT">
+      <offset>84</offset>
+      <subtable external="DynActTriggerImpact" />
+    </column>
+    <column name="setBits" type="EMBEDDEDSTRUCT">
+      <offset>88</offset>
+      <subtable external="DynBitFieldStatic" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

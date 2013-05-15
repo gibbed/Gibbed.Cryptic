@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CommandOverview">
+  <table>
+    <column name="CommandOverview" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CommandName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="NotesLink" type="STRING">
+      <offset>4</offset>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+      </format_strings>
+    </column>
+    <column name="CommandComment" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Execute" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="AccessLevel" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Privacy" type="INT">
+      <offset>20</offset>
+      <static_define_list external="enumCommandPrivacy" />
+    </column>
+    <column name="ReturnTypeName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ReturnTypeStructName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Categories" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Args" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="CommandArgOverview" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

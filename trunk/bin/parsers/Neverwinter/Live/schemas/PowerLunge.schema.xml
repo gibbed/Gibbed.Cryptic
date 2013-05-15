@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerLunge">
+  <table>
+    <column name="PowerLunge" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Speed" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="RangeMin" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Range" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="StopDistance" type="F32">
+      <offset>12</offset>
+      <default>-1</default>
+    </column>
+    <column name="FrameStart" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="FramesOfActivate" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Direction" type="INT">
+      <offset>24</offset>
+      <static_define_list external="PowerLungeDirection" />
+    </column>
+    <column name="StrictFrameDuration" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="UseRootDistance" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RemoteContactOption">
+  <table>
+    <column name="RemoteContactOption" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Description1" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Description2" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Option" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="ContactDialogOption" />
+    </column>
+    <column name="hMissionDisplayName" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="hMissionCategory" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>MissionCategory</dictionary_name>
+    </column>
+    <column name="MissionName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="New" type="U8">
+      <offset>28</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="DescriptionRequested" type="U8">
+      <offset>29</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

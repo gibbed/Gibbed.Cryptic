@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalToFGFlags">
+  <table>
+    <column name="TacticalToFGFlags" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Enabled" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="runningUpdated" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="isRunning" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="runUsesFuel" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="aimingUpdated" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="isAiming" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="aimWhenAvailable" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="crouchUpdated" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="isCrouching" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="crouchWhenAvailable" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="rollingUpdated" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="isRolling" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="waitingToRoll" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="waitingToRollUpdated" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="cooldownUpdated" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="cooldownIsFromRunning" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="cooldownIsFromAiming" type="BIT">
+      <offset>0</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

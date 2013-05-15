@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DragonMovementDef">
+  <table>
+    <column name="DragonMovementDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1</default>
+      <static_define_list external="MovementRequesterType" />
+    </column>
+    <column name="TurnRate" type="F32">
+      <offset>4</offset>
+      <default>120</default>
+    </column>
+    <column name="MaxTurnRate" type="F32">
+      <offset>8</offset>
+      <default>180</default>
+    </column>
+    <column name="MinTurnRate" type="F32">
+      <offset>12</offset>
+      <default>30</default>
+    </column>
+    <column name="TurnRateBasis" type="F32">
+      <offset>16</offset>
+      <default>18</default>
+    </column>
+    <column name="MovementFacingAngleThreshold" type="F32">
+      <offset>20</offset>
+      <default>30</default>
+    </column>
+    <column name="ReadjustFacingAngleThreshold" type="F32">
+      <offset>24</offset>
+      <default>30</default>
+    </column>
+    <column name="HeadTurnRate" type="F32">
+      <offset>28</offset>
+      <default>120</default>
+    </column>
+    <column name="HeadTurnBasis" type="F32">
+      <offset>32</offset>
+      <default>30</default>
+    </column>
+    <column name="HeadTurnRateMin" type="F32">
+      <offset>36</offset>
+      <default>30</default>
+    </column>
+    <column name="HeadTurnRateMax" type="F32">
+      <offset>40</offset>
+      <default>180</default>
+    </column>
+    <column name="HeadVsRootMaxDelta" type="F32">
+      <offset>44</offset>
+      <default>30</default>
+    </column>
+    <column name="HeadVsRootMaxDeltaOnOverride" type="F32">
+      <offset>48</offset>
+      <default>60</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ResourceInfoHolder">
+  <table>
+    <column name="ResourceInfoHolder" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Resource" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="ResourceInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

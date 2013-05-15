@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MapSummary">
+  <table>
+    <column name="MapSummary" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="MapVars" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="Nodes" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <subtable external="MapDoorNodeRef" />
+    </column>
+    <column name="PropIndex" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+    </column>
+    <column name="NumInstances" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="NumNonFullInstances" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="NumPlayers" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="NumEnabledOpenInstancing" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

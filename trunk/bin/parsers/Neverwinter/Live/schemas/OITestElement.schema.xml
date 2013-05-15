@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OITestElement">
+  <table>
+    <column name="OITestElement" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="ID" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="classnum" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="sub" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="OITestSubElement" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

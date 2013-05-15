@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionGrantDescription">
+  <table>
+    <column name="GenesisMissionGrantDescription" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="GrantType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GenesisMissionGrantType" />
+    </column>
+    <column name="GrantContact" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="GenesisMissionGrant_Contact" />
+    </column>
+    <column name="TurnInType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="GenesisMissionTurnInType" />
+    </column>
+    <column name="TurnInContact" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="GenesisMissionTurnIn_Contact" />
+    </column>
+    <column name="FailType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="GenesisMissionFailType" />
+    </column>
+    <column name="FailTimeoutSeconds" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="CanRepeat" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="RepeatCooldownHours" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="RepeatCooldownHoursFromStart" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="RepeatCooldownCount" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="RepeatCooldownBlockTime" type="U8">
+      <offset>40</offset>
+    </column>
+    <column name="RequiresMission" type="STRINGARRAY">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenCompassState">
+  <table>
+    <column name="UIGenCompassState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>23</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="Icons" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UIGenCompassIcon" />
+    </column>
+    <column name="Flagged" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UIGenCompassFlagged" />
+    </column>
+    <column name="Offset" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

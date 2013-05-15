@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FSMPickerFolder">
+  <table>
+    <column name="FSMPickerFolder" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FolderName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="folderPath" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="fsmFolders" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="FSMPickerFolder" />
+    </column>
+    <column name="rootGroup" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="FSMGroup" />
+    </column>
+    <column name="FSMs" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="FSM" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

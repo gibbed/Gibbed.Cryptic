@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GoldenPathFXConnection">
+  <table>
+    <column name="GoldenPathFXConnection" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="IsSame" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="IsTeleport" type="U8">
+      <offset>1</offset>
+    </column>
+    <column name="IsObstructed" type="U8">
+      <offset>2</offset>
+    </column>
+    <column name="IsArea" type="U8">
+      <offset>3</offset>
+    </column>
+    <column name="v3ObstructedTarget" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3Source" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="v3Target" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="FX" type="INTARRAY">
+      <offset>40</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

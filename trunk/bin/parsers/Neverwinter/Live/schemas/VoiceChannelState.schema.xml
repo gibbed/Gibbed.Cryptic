@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="VoiceChannelState">
+  <table>
+    <column name="VoiceChannelState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Volume" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="fontID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="transmitting" type="BIT">
+      <offset>8</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Muted" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

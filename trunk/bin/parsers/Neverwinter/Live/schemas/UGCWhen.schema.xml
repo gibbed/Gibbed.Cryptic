@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCWhen">
+  <table>
+    <column name="UGCWhen" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list external="UGCWhenType" />
+    </column>
+    <column name="ComponentID" type="INTARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="ObjectiveID" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="ItemName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="DialogPrompt" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="UGCWhenDialogPrompt" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

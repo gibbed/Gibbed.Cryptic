@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BeaconProject">
+  <table>
+    <column name="BeaconProject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ProjName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="histories" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="BeaconServerHistory" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRRagDollToBG">
+  <table>
+    <column name="MRRagDollToBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Parts" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="MRRagDollParts" />
+    </column>
+    <column name="vel" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="angVel" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="spcStart" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="material_index" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="deathDirectionBit" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="addVel" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Dead" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="update_dead_state" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="endRequestApproved" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="update_deathDirectionBit" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

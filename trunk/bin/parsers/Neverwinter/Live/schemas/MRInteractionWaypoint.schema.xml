@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRInteractionWaypoint">
+  <table>
+    <column name="MRInteractionWaypoint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Rot" type="QUATPYR">
+      <offset>12</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="seconds" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="animBitHandles" type="INTARRAY">
+      <offset>32</offset>
+    </column>
+    <column name="animToStart" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="Stances" type="INTARRAY">
+      <offset>40</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="MRInteractionWaypointFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FrameCounts">
+  <table>
+    <column name="FrameCounts" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="cell_hits" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="cell_tests" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="cell_fog_culls" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="cell_culls" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="cell_zoculls" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="entry_hits" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="entry_tests" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="entry_dist_culls" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="entry_fog_culls" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="entry_culls" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="entry_zoculls" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="welded_entry_hits" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="welded_instance_hits" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="welded_instance_dist_culls" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="welded_instance_tests" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="welded_instance_culls" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="welded_instance_draws" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="terrain_hits" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="terrain_tests" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="terrain_culls" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="terrain_zoculls" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="terrain_draw_hits" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="binned_entry_hits" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="binned_entry_tests" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="binned_entry_culls" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="binned_entry_zoculls" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="world_animation_updates" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="draw_list_stats" type="EMBEDDEDSTRUCT">
+      <offset>108</offset>
+      <subtable external="RdrDrawListStats" />
+    </column>
+    <column name="sprites_drawn" type="INT">
+      <offset>792</offset>
+    </column>
+    <column name="sprite_primitives_drawn" type="INT">
+      <offset>796</offset>
+    </column>
+    <column name="unique_shader_graphs_referenced" type="INT">
+      <offset>800</offset>
+    </column>
+    <column name="unique_shaders_referenced" type="INT">
+      <offset>804</offset>
+    </column>
+    <column name="unique_materials_referenced" type="INT">
+      <offset>808</offset>
+    </column>
+    <column name="lights_drawn" type="INT">
+      <offset>812</offset>
+    </column>
+    <column name="device_locks" type="INT">
+      <offset>816</offset>
+    </column>
+    <column name="ms" type="F32">
+      <offset>820</offset>
+    </column>
+    <column name="FPS" type="F32">
+      <offset>824</offset>
+    </column>
+    <column name="cpu_ms" type="F32">
+      <offset>828</offset>
+    </column>
+    <column name="gpu_ms" type="F32">
+      <offset>832</offset>
+    </column>
+    <column name="total_skeletons" type="INT">
+      <offset>836</offset>
+    </column>
+    <column name="drawn_skeletons" type="INT">
+      <offset>840</offset>
+    </column>
+    <column name="drawn_skeleton_shadows" type="INT">
+      <offset>844</offset>
+    </column>
+    <column name="postprocess_calls" type="INT">
+      <offset>848</offset>
+    </column>
+    <column name="world_perf_counts" type="EMBEDDEDSTRUCT">
+      <offset>856</offset>
+      <subtable external="WorldPerfFrameCounts" />
+    </column>
+    <column name="zo_occluders" type="INT">
+      <offset>1008</offset>
+    </column>
+    <column name="zo_cull_tests" type="INT">
+      <offset>1012</offset>
+    </column>
+    <column name="zo_culls" type="INT">
+      <offset>1016</offset>
+    </column>
+    <column name="gpu_bound" type="INT">
+      <offset>1020</offset>
+    </column>
+    <column name="over_budget_mem" type="INT">
+      <offset>1024</offset>
+    </column>
+    <column name="over_budget_perf" type="INT">
+      <offset>1028</offset>
+    </column>
+    <column name="mem_usage_mbs" type="INT">
+      <offset>1032</offset>
+    </column>
+    <column name="stalled" type="INT">
+      <offset>1036</offset>
+    </column>
+    <column name="stall_time" type="F32">
+      <offset>1040</offset>
+    </column>
+    <column name="triangles_in_scene" type="INT64">
+      <offset>1048</offset>
+    </column>
+    <column name="opaque_triangles_drawn" type="INT64">
+      <offset>1056</offset>
+    </column>
+    <column name="alpha_triangles_drawn" type="INT64">
+      <offset>1064</offset>
+    </column>
+    <column name="objects_in_scene" type="INT">
+      <offset>1072</offset>
+    </column>
+    <column name="opaque_objects_drawn" type="INT">
+      <offset>1076</offset>
+    </column>
+    <column name="alpha_objects_drawn" type="INT">
+      <offset>1080</offset>
+    </column>
+    <column name="cam_pos" type="F32FIXEDARRAY">
+      <offset>1084</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="cam_pyr" type="F32FIXEDARRAY">
+      <offset>1096</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

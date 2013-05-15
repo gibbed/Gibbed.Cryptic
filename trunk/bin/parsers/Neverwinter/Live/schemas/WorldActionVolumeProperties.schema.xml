@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldActionVolumeProperties">
+  <table>
+    <column name="WorldActionVolumeProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="EnteredActionCondBlock" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="EnteredActionCond" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>EnteredActionCondBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="EnteredActionBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="EnteredAction" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>EnteredActionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ExitedActionCondBlock" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExitedActionCond" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExitedActionCondBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ExitedActionBlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExitedAction" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExitedActionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

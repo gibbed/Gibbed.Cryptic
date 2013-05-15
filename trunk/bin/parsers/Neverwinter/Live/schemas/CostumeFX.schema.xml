@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeFX">
+  <table>
+    <column name="CostumeFX" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hFX" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>DynFxInfo</dictionary_name>
+    </column>
+    <column name="Hue" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Params" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="DynParamBlock" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

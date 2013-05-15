@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EncounterActorSpawnProperties">
+  <table>
+    <column name="EncounterActorSpawnProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SpawnAtTeamSize" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list external="TeamSizeFlags" />
+      <format>FLAGS</format>
+    </column>
+    <column name="SpawnAtDifficulty" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="EncounterDifficulty" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

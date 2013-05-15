@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectReviews">
+  <table>
+    <column name="UGCProjectReviews" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ppReviews" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCSingleReview" />
+    </column>
+    <column name="fAverageRating" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fAdjustedRatingUsingConfidence" type="F32">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fRatingSum" type="F32">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="piNumRatings" type="INTARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iNumRatings" type="INTARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>piNumRatings</redundant_name>
+    </column>
+    <column name="iNumReviewPagesCached" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="iNumRatingsCached" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="iTimeBecameReviewed" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iNumPagesCached" type="IGNORE" />
+    <column name="iNumPages" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

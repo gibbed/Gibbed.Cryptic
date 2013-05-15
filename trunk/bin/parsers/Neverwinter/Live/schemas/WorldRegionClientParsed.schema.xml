@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldRegionClientParsed">
+  <table>
+    <column name="WorldRegionClientParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="common" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="region_name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="cell_extents" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="BlockRange" />
+    </column>
+    <column name="world_min" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="world_max" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="cell_count" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="Cells" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="WorldCellParsed" />
+    </column>
+    <column name="tag_locations" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="WorldTagLocation" />
+    </column>
+    <column name="conn_graph" type="OPTIONALSTRUCT">
+      <offset>76</offset>
+      <subtable external="RoomConnGraphClientParsed" />
+    </column>
+    <column name="mapsnap_data" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
+      <subtable external="MapSnapRegionData" />
+    </column>
+    <column name="world_path_nodes" type="STRUCT">
+      <offset>84</offset>
+      <subtable external="WorldPathNode" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

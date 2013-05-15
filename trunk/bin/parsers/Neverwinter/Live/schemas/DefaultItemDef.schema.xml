@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DefaultItemDef">
+  <table>
+    <column name="DefaultItemDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Order" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Item" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="BagID" type="INT">
+      <offset>12</offset>
+      <default>2</default>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="Count" type="INT">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="ModifierInfo" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="aiModifierDef" />
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>24</offset>
+      <default>-1</default>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>28</offset>
+      <default>-1</default>
+    </column>
+    <column name="Chance" type="F32">
+      <offset>32</offset>
+      <default>1</default>
+    </column>
+    <column name="Group" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="Slot" type="INT">
+      <offset>40</offset>
+      <default>-1</default>
+    </column>
+    <column name="Weight" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="Disabled" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

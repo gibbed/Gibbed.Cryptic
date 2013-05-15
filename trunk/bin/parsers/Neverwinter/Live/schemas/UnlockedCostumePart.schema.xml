@@ -1,0 +1,126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UnlockedCostumePart">
+  <table>
+    <column name="UnlockedCostumePart" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Skeleton" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>CostumeSkeleton</dictionary_name>
+    </column>
+    <column name="Region" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>CostumeRegion</dictionary_name>
+    </column>
+    <column name="Bone" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>CostumeBone</dictionary_name>
+    </column>
+    <column name="Usable" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Both" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="GeoUnlock" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="MatUnlock" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="TexPatternUnlock" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="TexDetailUnlock" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="TexSpecularUnlock" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="TexDiffuseUnlock" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="TexMovableUnlock" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="UnlockedGeometry" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>CostumeGeometry</dictionary_name>
+    </column>
+    <column name="UnlockedMaterial" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>CostumeMaterial</dictionary_name>
+    </column>
+    <column name="UnlockedPatternTexture" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="UnlockedDetailTexture" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="UnlockedSpecularTexture" type="REFERENCE">
+      <offset>32</offset>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="UnlockedDiffuseTexture" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="UnlockedMovableTexture" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>CostumeTexture</dictionary_name>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="Location" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="UnlockData" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UnlockMetaData" />
+    </column>
+    <column name="UnlockOrder" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="CostumeUnlock" type="REFERENCE">
+      <offset>60</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="IncludedCategories" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="PCCategoryRef" />
+    </column>
+    <column name="UnavailableCategories" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="PCCategoryRef" />
+    </column>
+    <column name="ExcludedCategories" type="STRUCT">
+      <offset>72</offset>
+      <subtable external="PCCategoryRef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

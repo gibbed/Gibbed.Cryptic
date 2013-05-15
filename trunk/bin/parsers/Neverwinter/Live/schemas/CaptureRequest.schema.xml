@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CaptureRequest">
+  <table>
+    <column name="CaptureRequest" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uAccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="uPurchaseID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Proxy" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="RequestID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="uLockContainerID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Capture" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="Orderid" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

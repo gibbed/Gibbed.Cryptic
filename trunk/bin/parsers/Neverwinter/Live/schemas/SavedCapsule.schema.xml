@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SavedCapsule">
+  <table>
+    <column name="SavedCapsule" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Start" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="vStart" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Start</redundant_name>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Dir" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="vDir" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Dir</redundant_name>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Length" type="F32">
+      <offset>24</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fLength" type="F32">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Length</redundant_name>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>28</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fRadius" type="F32">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Radius</redundant_name>
+    </column>
+    <column name="Type" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iType" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>Type</redundant_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

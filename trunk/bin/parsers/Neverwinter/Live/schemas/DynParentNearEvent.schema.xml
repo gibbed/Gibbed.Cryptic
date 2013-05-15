@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynParentNearEvent">
+  <table>
+    <column name="DynParentNearEvent" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Distance" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="SendMessage" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="DynFxMessage" />
+    </column>
+    <column name="SelfMessage" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SendMessage</redundant_name>
+      <subtable external="SelfMessage" />
+    </column>
+    <column name="Message" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SendMessage</redundant_name>
+      <subtable external="SelfMessage" />
+    </column>
+    <column name="childCallCollection" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="CallParam" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DynChildCall" />
+    </column>
+    <column name="Call" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CallParam</redundant_name>
+      <subtable external="Call" />
+    </column>
+    <column name="CallList" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="DynChildCallList" />
+    </column>
+    <column name="Lock" type="BOOLFLAG">
+      <offset>16</offset>
+    </column>
+    <column name="LockKeepsOrientation" type="BOOLFLAG">
+      <offset>17</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TestClientObject">
+  <table>
+    <column name="TestClientObject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Ref" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Distance" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="Destructible" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="Clickable" type="U8">
+      <offset>29</offset>
+    </column>
+    <column name="Door" type="U8">
+      <offset>30</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

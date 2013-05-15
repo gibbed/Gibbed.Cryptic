@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatAuthRequestData">
+  <table>
+    <column name="ChatAuthRequestData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uAccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="uCharacterID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uAccountAccessLevel" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="SocialRestricted" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldWindSourceProperties">
+  <table>
+    <column name="WorldWindSourceProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="EffectType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="WorldWindEffectType" />
+    </column>
+    <column name="Speed" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="SpeedVariation" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="DirectionVariation" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Turbulence" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="RadiusInner" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

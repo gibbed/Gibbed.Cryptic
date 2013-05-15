@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AutoTargetSettings">
+  <table>
+    <column name="AutoTargetSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SnapToTarget" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="SnapToData" />
+    </column>
+    <column name="SnapToCombat" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="SnapToData" />
+    </column>
+    <column name="SnapToMinimum" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="SnapToData" />
+    </column>
+    <column name="SnapToFollow" type="EMBEDDEDSTRUCT">
+      <offset>60</offset>
+      <subtable external="SnapToData" />
+    </column>
+    <column name="FollowCloseAngle" type="F32">
+      <offset>80</offset>
+      <default>5</default>
+    </column>
+    <column name="MouseDelayTarget" type="F32">
+      <offset>84</offset>
+    </column>
+    <column name="MouseDelayNoTarget" type="F32">
+      <offset>88</offset>
+    </column>
+    <column name="CenterMultiplier" type="F32">
+      <offset>92</offset>
+      <default>1059481190</default>
+    </column>
+    <column name="AutoFocusTime" type="F32">
+      <offset>96</offset>
+      <default>1056964608</default>
+    </column>
+    <column name="AutoFocusSpeed" type="F32">
+      <offset>100</offset>
+      <default>5</default>
+    </column>
+    <column name="AutoFocusMinThrottle" type="F32">
+      <offset>104</offset>
+      <default>1036831949</default>
+    </column>
+    <column name="AutoFocusMinMoveTarget" type="F32">
+      <offset>108</offset>
+      <default>1036831949</default>
+    </column>
+    <column name="AutoFocusAngle" type="F32">
+      <offset>112</offset>
+      <default>1</default>
+    </column>
+    <column name="AutoFocusOffscreenSpeedMultiplier" type="F32">
+      <offset>116</offset>
+      <default>1</default>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>120</offset>
+      <static_define_list external="AutoCamLockFlags" />
+    </column>
+    <column name="Delay" type="F32">
+      <offset>124</offset>
+    </column>
+    <column name="RotatePY" type="F32FIXEDARRAY">
+      <offset>128</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="InitialTargetPY" type="F32FIXEDARRAY">
+      <offset>136</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="AutoFocusTimeleft" type="F32">
+      <offset>144</offset>
+    </column>
+    <column name="SetInitialTargetPY" type="U8">
+      <offset>148</offset>
+    </column>
+    <column name="FarFromDesiredPY" type="U8">
+      <offset>149</offset>
+    </column>
+    <column name="SnapTo" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="data" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="HistorySampleTime" type="F32">
+      <offset>152</offset>
+    </column>
+    <column name="HistoryMultiplier" type="F32">
+      <offset>156</offset>
+      <default>1</default>
+    </column>
+    <column name="MinSpeed" type="F32">
+      <offset>160</offset>
+      <default>5</default>
+    </column>
+    <column name="MaxSpeed" type="F32">
+      <offset>164</offset>
+      <default>30</default>
+    </column>
+    <column name="MaxAngle" type="F32">
+      <offset>168</offset>
+      <default>120</default>
+    </column>
+    <column name="History" type="STRUCT">
+      <offset>172</offset>
+      <subtable external="CameraSmoothNode" />
+    </column>
+    <column name="Accum" type="F32">
+      <offset>176</offset>
+    </column>
+    <column name="SnappedToTarget" type="U8">
+      <offset>180</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

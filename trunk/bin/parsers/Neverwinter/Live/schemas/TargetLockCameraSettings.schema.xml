@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TargetLockCameraSettings">
+  <table>
+    <column name="TargetLockCameraSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MaxOffset" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="AdjustSpeed" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="TargetLockOffset" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

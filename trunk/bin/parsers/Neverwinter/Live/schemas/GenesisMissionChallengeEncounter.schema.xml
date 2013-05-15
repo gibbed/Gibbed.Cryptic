@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisMissionChallengeEncounter">
+  <table>
+    <column name="GenesisMissionChallengeEncounter" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PatrolType" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GenesisPatrolType" />
+    </column>
+    <column name="PatOtherRoom" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="PatPlacement" type="INT">
+      <offset>8</offset>
+      <static_define_list external="GenesisChallengePlacement" />
+    </column>
+    <column name="PatRefChallengeName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="SpacePatrolType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="GenesisSpacePatrolType" />
+    </column>
+    <column name="SpacePatRefChallengeName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

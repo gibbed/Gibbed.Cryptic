@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TeleportParams">
+  <table>
+    <column name="TeleportParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1209</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="TeleportTarget" type="INT">
+      <offset>4</offset>
+      <static_define_list external="AttibModTeleportTarget" />
+    </column>
+    <column name="ExprBlockTeleportTarget" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprBlock" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockTeleportTarget</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="FacingType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="TeleportFaceType" />
+    </column>
+    <column name="ProjectileTags" type="INTARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list external="PowerTag" />
+    </column>
+    <column name="TeleportOffsetOrientation" type="INT">
+      <offset>20</offset>
+      <static_define_list external="TeleportOffsetOrientation" />
+    </column>
+    <column name="OffsetForward" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="OffsetRight" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="OffsetUp" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="ExprBlockDistanceFront" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprBlockDistanceRight" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprBlockDistanceAbove" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="FacingYawOffset" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="OffsetUsesPitch" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="OffsetUsesRoll" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="ClientViewTeleport" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="FacingUsePitch" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="DontAttemptGroundSnap" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

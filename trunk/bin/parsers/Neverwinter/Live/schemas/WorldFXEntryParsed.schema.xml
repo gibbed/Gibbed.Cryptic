@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldFXEntryParsed">
+  <table>
+    <column name="WorldFXEntryParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="base_data" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldCellEntryParsed" />
+    </column>
+    <column name="ID" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="fx_name_idx" type="INT">
+      <offset>76</offset>
+      <default>-1</default>
+    </column>
+    <column name="fx_hue" type="F32">
+      <offset>80</offset>
+      <float_rounding>HUNDREDTHS</float_rounding>
+    </column>
+    <column name="fx_condition_idx" type="INT">
+      <offset>84</offset>
+      <default>-1</default>
+    </column>
+    <column name="fx_params_idx" type="INT">
+      <offset>88</offset>
+      <default>-1</default>
+    </column>
+    <column name="fx_faction_idx" type="INT">
+      <offset>92</offset>
+      <default>-1</default>
+    </column>
+    <column name="Debris" type="OPTIONALSTRUCT">
+      <offset>96</offset>
+      <subtable external="WorldFXDebrisParsed" />
+    </column>
+    <column name="interaction_node_owned" type="BIT">
+      <offset>100</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="low_detail" type="BIT">
+      <offset>100</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="high_detail" type="BIT">
+      <offset>100</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="high_fill_detail" type="BIT">
+      <offset>100</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="has_target_node" type="BIT">
+      <offset>100</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="target_no_anim" type="BIT">
+      <offset>100</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="rot_target_node_mat" type="MATPYR">
+      <offset>104</offset>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_target_node_mat" type="F32FIXEDARRAY">
+      <offset>140</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="animation_entry_id" type="INT">
+      <offset>152</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

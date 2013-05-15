@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ColorWidget">
+  <table>
+    <column name="ColorWidget" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="typeofwidget" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+    </column>
+    <column name="red" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="blue" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="green" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

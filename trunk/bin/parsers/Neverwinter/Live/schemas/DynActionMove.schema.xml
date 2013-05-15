@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynActionMove">
+  <table>
+    <column name="DynActionMove" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="hMove" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>NON_NULL_REF</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>DynMove</dictionary_name>
+    </column>
+    <column name="Chance" type="F32">
+      <offset>4</offset>
+      <default>1</default>
+    </column>
+    <column name="UseIf" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DynLogicBlock" />
+    </column>
+    <column name="setBits" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DynBitFieldStatic" />
+    </column>
+    <column name="FXMessage" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="DynAnimFXMessage" />
+    </column>
+    <column name="CallFx" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="DynActCallFx" />
+    </column>
+    <column name="Impact" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="DynActTriggerImpact" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

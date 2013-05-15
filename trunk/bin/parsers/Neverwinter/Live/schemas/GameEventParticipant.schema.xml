@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameEventParticipant">
+  <table>
+    <column name="GameEventParticipant" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ActorName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CritterName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CritterGroupName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CritterTags" type="INTARRAY">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="EncounterName" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ObjectName" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Rank" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RegionType" type="INT">
+      <offset>36</offset>
+      <default>-1</default>
+      <static_define_list external="WorldRegionType" />
+    </column>
+    <column name="NemesisType" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="IsPlayer" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="FactionName" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AllegianceName" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ClassName" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="HasCredit" type="U8">
+      <offset>60</offset>
+    </column>
+    <column name="CreditPercentage" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="HasTeamCredit" type="U8">
+      <offset>68</offset>
+    </column>
+    <column name="TeamCreditPercentage" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="ContainerType" type="INT">
+      <offset>76</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="ContainerID" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="DebugName" type="STRING">
+      <offset>84</offset>
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>88</offset>
+    </column>
+    <column name="LogString" type="STRING">
+      <offset>92</offset>
+    </column>
+    <column name="LevelReal" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="LevelCombat" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

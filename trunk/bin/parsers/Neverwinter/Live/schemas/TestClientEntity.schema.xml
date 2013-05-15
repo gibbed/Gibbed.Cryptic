@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TestClientEntity">
+  <table>
+    <column name="TestClientEntity" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Ref" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="RefIfTeamed" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Key" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="HP" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="MaxHP" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="Shields" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Level" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="PYR" type="F32FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Distance" type="F32">
+      <offset>76</offset>
+    </column>
+    <column name="Dead" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="Hostile" type="U8">
+      <offset>81</offset>
+    </column>
+    <column name="Casting" type="U8">
+      <offset>82</offset>
+    </column>
+    <column name="Target" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="NearbyFriends" type="INTARRAY">
+      <offset>88</offset>
+    </column>
+    <column name="NearbyHostiles" type="INTARRAY">
+      <offset>92</offset>
+    </column>
+    <column name="NearbyObjects" type="STRINGARRAY">
+      <offset>96</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

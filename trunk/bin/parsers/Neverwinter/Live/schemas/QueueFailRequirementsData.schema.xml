@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueFailRequirementsData">
+  <table>
+    <column name="QueueFailRequirementsData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapType" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Reason" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="FailsAnyReqs" type="BIT">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="FailsAllReqs" type="BIT">
+      <offset>8</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

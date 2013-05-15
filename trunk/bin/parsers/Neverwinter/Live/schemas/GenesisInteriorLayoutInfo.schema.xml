@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisInteriorLayoutInfo">
+  <table>
+    <column name="GenesisInteriorLayoutInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="InteriorKitSpecifier" type="INT">
+      <offset>0</offset>
+      <static_define_list external="GenesisTagOrName" />
+    </column>
+    <column name="InteriorKitTags2" type="STRINGARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="InteriorKitTags" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="InteriorKit" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>GenesisInteriorKit</dictionary_name>
+    </column>
+    <column name="LightKitSpecifier" type="INT">
+      <offset>16</offset>
+      <static_define_list external="GenesisTagOrName" />
+    </column>
+    <column name="LightKitTags2" type="STRINGARRAY">
+      <offset>20</offset>
+    </column>
+    <column name="LightKitTags" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="LightKit" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>GenesisInteriorKit</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

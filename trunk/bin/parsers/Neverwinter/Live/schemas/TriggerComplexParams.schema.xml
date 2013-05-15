@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TriggerComplexParams">
+  <table>
+    <column name="TriggerComplexParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>1211</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Events" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list external="CombatEvent" />
+    </column>
+    <column name="Def" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="Source" type="INT">
+      <offset>12</offset>
+      <static_define_list external="TriggerComplexEntity" />
+    </column>
+    <column name="Target" type="INT">
+      <offset>16</offset>
+      <static_define_list external="TriggerComplexEntity" />
+    </column>
+    <column name="ExprChanceBlock" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Chance" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprChanceBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="MagnitudeIsCharges" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="QueueSettings">
+  <table>
+    <column name="QueueSettings" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LeaverPenaltyMinGroupMemberCount" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="PlayerLimboTimeout" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="PenaltyDuration" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="MissionReturnLogoutTime" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="KickLogoutTime" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MissionReturnLogoutTime</redundant_name>
+    </column>
+    <column name="QueueKickLogoutTime" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>MissionReturnLogoutTime</redundant_name>
+    </column>
+    <column name="Public" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="AlwaysCreate" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Debug" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="StayInQueueOnMapLeave" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="DestroyEmptyMaps" type="BIT">
+      <offset>16</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65540</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="RandomMap" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="SplitTeams" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="IgnoreLevelBandsForTeams" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="EnableLeaverPenalty" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

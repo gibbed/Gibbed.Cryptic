@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerQueueInstance">
+  <table>
+    <column name="PlayerQueueInstance" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uiID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="OfferedMapKey" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="uiOrigOwnerID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="uSecondsRemaining" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="uTimelimit" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="uAverageWaitTime" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="GroupIndex" type="INT">
+      <offset>32</offset>
+      <default>-1</default>
+    </column>
+    <column name="GroupPlayerCounts" type="INTARRAY">
+      <offset>36</offset>
+    </column>
+    <column name="QueueState" type="INT">
+      <offset>40</offset>
+      <static_define_list external="PlayerQueueState" />
+    </column>
+    <column name="Settings" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="QueueGameSetting" />
+    </column>
+    <column name="Params" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="QueueInstanceParams" />
+    </column>
+    <column name="PlayerQueueMaps" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="PlayerQueueMap" />
+    </column>
+    <column name="Members" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="PlayerQueueMember" />
+    </column>
+    <column name="Overtime" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="NewMapLoading" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="HasPassword" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="IgnoreLevelRestrictions" type="BIT">
+      <offset>60</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

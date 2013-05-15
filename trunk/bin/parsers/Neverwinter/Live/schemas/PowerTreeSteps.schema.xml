@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerTreeSteps">
+  <table>
+    <column name="PowerTreeSteps" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Steps" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="PowerTreeStep" />
+    </column>
+    <column name="uiPowerTreeModCount" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="RespecSkillpointSpentMin" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="UpdatePointsSpent" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="IsTraining" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="OnlyLowerPoints" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

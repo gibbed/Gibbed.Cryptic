@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ByteCopyGroup">
+  <table>
+    <column name="ByteCopyGroup" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="NumByteBlocks" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="ByteBlocks" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="ByteBlock" />
+    </column>
+    <column name="NumMaskedBytes" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="MaskedBytes" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="MaskedByte" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

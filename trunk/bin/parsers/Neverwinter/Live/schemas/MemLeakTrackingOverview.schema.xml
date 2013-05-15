@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MemLeakTrackingOverview">
+  <table>
+    <column name="MemLeakTrackingOverview" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Summary" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_PREFORMATTED">1</format_string>
+      </format_strings>
+    </column>
+    <column name="NumAlertsGenerated" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="CheckFrequency" type="INT">
+      <offset>8</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_DURATION">1</format_string>
+      </format_strings>
+    </column>
+    <column name="IncreaseAmountThatIsALeak" type="INT64">
+      <offset>16</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
+    </column>
+    <column name="FirstIncreaseAllowance" type="INT64">
+      <offset>24</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
+    </column>
+    <column name="MostRecentAnalysis" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_PREFORMATTED">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ForceAnalysisNow" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="BeginMemLeakTracking" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

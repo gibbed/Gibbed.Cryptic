@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemCategoryInfo">
+  <table>
+    <column name="ItemCategoryInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Hint" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Hint2" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LargeIcon" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SortOrder" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="GemSlotPowerPortion" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="StanceWords" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="PrimaryAddedBone" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="ItemCategoryAdditionalCostumeBone" />
+    </column>
+    <column name="SecondaryAddedBone" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="ItemCategoryAdditionalCostumeBone" />
+    </column>
+    <column name="CostumeFXScale" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="OverrideBaseCostumeFXAtBone" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OverrideCostumeFXAtBone" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerAccountData">
+  <table>
+    <column name="PlayerAccountData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="iAccountID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iVersion" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eaPendingKeys" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="AttribValuePair" />
+    </column>
+    <column name="hData" type="REFERENCE">
+      <offset>12</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <dictionary_name>CopyDict_GameAccountData</dictionary_name>
+      <format_strings>
+        <format_string name="EXPORT_CONTAINER_TYPE">GameAccountData</format_string>
+      </format_strings>
+    </column>
+    <column name="hTempData" type="REFERENCE">
+      <offset>16</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <dictionary_name>CopyDict_GameAccountData</dictionary_name>
+    </column>
+    <column name="eaGamePermissionMaxValueNumerics" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="GamePermissionNumerics" />
+    </column>
+    <column name="uExtractLastUpdated" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="pExtract" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <subtable external="GameAccountDataExtract" />
+    </column>
+    <column name="bSteamLogin" type="BIT">
+      <offset>32</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

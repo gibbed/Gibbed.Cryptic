@@ -1,0 +1,146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PMFx">
+  <table>
+    <column name="PMFx" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="subid" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>8</offset>
+      <static_define_list external="PowerAnimFXType" />
+    </column>
+    <column name="ahFX" type="INTFIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>6</num_elements>
+    </column>
+    <column name="timeStart" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="timeStop" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="apchNames_0" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="apchNames_1" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="apchNames_2" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="apchNames_3" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="apchNames_4" type="STRING">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="apchNames_5" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Block" type="OPTIONALSTRUCT">
+      <offset>68</offset>
+      <subtable external="DynParamBlock" />
+    </column>
+    <column name="Source" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="Target" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="vecSource" type="F32FIXEDARRAY">
+      <offset>80</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="vecTarget" type="F32FIXEDARRAY">
+      <offset>92</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="quatTarget" type="QUATPYR">
+      <offset>104</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="Hue" type="F32">
+      <offset>120</offset>
+    </column>
+    <column name="Range" type="F32">
+      <offset>124</offset>
+    </column>
+    <column name="Arc" type="F32">
+      <offset>128</offset>
+    </column>
+    <column name="Yaw" type="F32">
+      <offset>132</offset>
+    </column>
+    <column name="nodeSelectionType" type="INT">
+      <offset>136</offset>
+      <static_define_list external="PowerAnimNodeSelectionType" />
+    </column>
+    <column name="Start" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="stop" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="flash" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="Miss" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Trigger" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="triggerIsEntityID" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="triggerMultiHit" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="useTargetNode" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="alwaysSelectSameNode" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="doNotTrackFlashed" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

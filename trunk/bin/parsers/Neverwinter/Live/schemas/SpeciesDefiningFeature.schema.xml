@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SpeciesDefiningFeature">
+  <table>
+    <column name="SpeciesDefiningFeature" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MatchName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>16</offset>
+      <static_define_list external="SpeciesDefiningType" />
+    </column>
+    <column name="ExcludeOption" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>CostumeBone</dictionary_name>
+    </column>
+    <column name="Skeleton" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>CostumeSkeleton</dictionary_name>
+    </column>
+    <column name="SpeciesDefault" type="REFERENCE">
+      <offset>28</offset>
+      <dictionary_name>Species</dictionary_name>
+    </column>
+    <column name="AllowedCategory" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="CategoryLimits" />
+    </column>
+    <column name="AllowedGeometry" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="GeometryLimits" />
+    </column>
+    <column name="BodyScaleLimits" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="BodyScaleLimit" />
+    </column>
+    <column name="BoneScaleLimits" type="STRUCT">
+      <offset>44</offset>
+      <subtable external="BoneScaleLimit" />
+    </column>
+    <column name="MinHeight" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="MaxHeight" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="MinMuscle" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="MaxMuscle" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

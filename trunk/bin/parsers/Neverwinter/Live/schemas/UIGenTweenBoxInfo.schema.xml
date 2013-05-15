@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenTweenBoxInfo">
+  <table>
+    <column name="UIGenTweenBoxInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="X" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>131072</bit_offset>
+      <static_define_list external="UIGenTweenBoxMode" />
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">3</format_string>
+      </format_strings>
+    </column>
+    <column name="Y" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>131074</bit_offset>
+      <static_define_list external="UIGenTweenBoxMode" />
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">3</format_string>
+      </format_strings>
+    </column>
+    <column name="Width" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>131076</bit_offset>
+      <static_define_list external="UIGenTweenBoxMode" />
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">3</format_string>
+      </format_strings>
+    </column>
+    <column name="Height" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>131078</bit_offset>
+      <static_define_list external="UIGenTweenBoxMode" />
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">3</format_string>
+      </format_strings>
+    </column>
+    <column name="OffsetFrom" type="BIT">
+      <offset>0</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>327688</bit_offset>
+      <static_define_list external="UIDirection" />
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">10</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

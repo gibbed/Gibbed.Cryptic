@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DoorDestinationData">
+  <table>
+    <column name="DoorDestinationData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Node" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="WorldInteractionNode" />
+    </column>
+    <column name="MapDisplayName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="MapType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="ZoneMapType" />
+    </column>
+    <column name="NumInstances" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="NumNonFullInstances" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="NumPlayers" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="NumEnabledOpenInstancing" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="NumTeammates" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="NumGuildmates" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="NumFriends" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="NumMissions" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="HasUsefulInfo" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

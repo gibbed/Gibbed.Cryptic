@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisNodePathPoint">
+  <table>
+    <column name="GenesisNodePathPoint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Offset" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Radius" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="RelativePosition" type="F32FIXEDARRAY">
+      <offset>8</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

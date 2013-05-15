@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ATR_FuncDef">
+  <table>
+    <column name="ATR_FuncDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FuncName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Args" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="ATRContainerArgDef" />
+    </column>
+    <column name="HelperFuncWhichReturnsLogging" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Get ATR_LOCKS string" type="COMMAND">
+      <offset>0</offset>
+      <command_string>GetATRLocksString $FIELD(FuncName)</command_string>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

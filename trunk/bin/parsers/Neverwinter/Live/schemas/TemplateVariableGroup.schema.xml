@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TemplateVariableGroup">
+  <table>
+    <column name="TemplateVariableGroup" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="GroupName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Variable" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="TemplateVariable" />
+    </column>
+    <column name="subGroups" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="TemplateVariableGroup" />
+    </column>
+    <column name="instructions" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="List" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="listPrototype" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="TemplateVariableGroup" />
+    </column>
+    <column name="startsOpen" type="U8">
+      <offset>24</offset>
+      <default>1</default>
+    </column>
+    <column name="Hidden" type="U8">
+      <offset>25</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

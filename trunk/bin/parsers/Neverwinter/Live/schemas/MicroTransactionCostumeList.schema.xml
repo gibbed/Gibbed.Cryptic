@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MicroTransactionCostumeList">
+  <table>
+    <column name="MicroTransactionCostumeList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Costumes" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="MicroTransactionCostume" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

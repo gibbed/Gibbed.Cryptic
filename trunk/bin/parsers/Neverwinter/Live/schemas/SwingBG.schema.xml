@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SwingBG">
+  <table>
+    <column name="SwingBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Anchor" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="vel" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="mmrDrawHandle" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="mmrFxRope" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="yawFace" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="SwingBGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

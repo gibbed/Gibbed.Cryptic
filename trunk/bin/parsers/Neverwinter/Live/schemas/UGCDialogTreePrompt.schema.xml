@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCDialogTreePrompt">
+  <table>
+    <column name="UGCDialogTreePrompt" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="PromptTitle" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="PromptBody" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Action" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="UGCDialogTreePromptAction" />
+    </column>
+    <column name="PromptButton" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Action</redundant_name>
+      <subtable external="UGCDialogTreePromptAction" />
+    </column>
+    <column name="PromptCostume" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="PromptPetCostume" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>PetContactList</dictionary_name>
+    </column>
+    <column name="PromptStyle" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="CameraPos" type="IGNORE" />
+    <column name="PromptType" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

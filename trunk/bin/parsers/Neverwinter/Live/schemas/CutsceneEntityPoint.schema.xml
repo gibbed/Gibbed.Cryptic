@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CutsceneEntityPoint">
+  <table>
+    <column name="CutsceneEntityPoint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="common" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Length" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="FixedLength" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="ActionType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="CutsceneEntityActionType" />
+    </column>
+    <column name="AnimList" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>AIAnimList</dictionary_name>
+    </column>
+    <column name="StanceWord" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FxName" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="FlashFX" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>32</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Rotation" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="HeadshotRequestParams">
+  <table>
+    <column name="HeadshotRequestParams" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FileName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="RequestID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="ContainerType" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="ContainerID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="CostumeString" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Size" type="F32FIXEDARRAY">
+      <offset>20</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Style" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="BGTextureName" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="PoseString" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="animDelta" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="Frame" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="camPos" type="F32FIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="camDir" type="F32FIXEDARRAY">
+      <offset>68</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="ForceBodyshot" type="U8">
+      <offset>80</offset>
+    </column>
+    <column name="Transparent" type="U8">
+      <offset>81</offset>
+    </column>
+    <column name="CostumeV0" type="U8">
+      <offset>82</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

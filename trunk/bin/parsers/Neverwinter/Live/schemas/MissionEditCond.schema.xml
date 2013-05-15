@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MissionEditCond">
+  <table>
+    <column name="MissionEditCond" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <static_define_list external="MissionCondType" />
+    </column>
+    <column name="valStr" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="When" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="MissionEditCond" />
+    </column>
+    <column name="ShowCount" type="INT">
+      <offset>12</offset>
+      <static_define_list external="MDEShowCount" />
+    </column>
+    <column name="Count" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Expression" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RoomInstanceMapSnapAction">
+  <table>
+    <column name="RoomInstanceMapSnapAction" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="ActionType" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="minsel" type="F32FIXEDARRAY">
+      <offset>4</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="maxsel" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="nearplane" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="farplane" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="Points" type="F32ARRAY">
+      <offset>28</offset>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

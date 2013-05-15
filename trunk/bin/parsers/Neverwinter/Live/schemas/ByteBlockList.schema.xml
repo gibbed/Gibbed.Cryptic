@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ByteBlockList">
+  <table>
+    <column name="ByteBlockList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Blocks" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="ByteBlock" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyDomeTime">
+  <table>
+    <column name="SkyDomeTime" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Alpha" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Scale" type="F32">
+      <offset>8</offset>
+      <default>1008981770</default>
+    </column>
+    <column name="Angle" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="TintHSV" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="AmbientHSV" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+      <format>HSV</format>
+    </column>
+    <column name="AmbientWeight" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="MaterialProperty" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="MaterialNamedConstant" />
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>60</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="EndSkyDomeTime" type="END" />
+  </table>
+</parser>

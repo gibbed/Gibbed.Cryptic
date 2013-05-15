@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MapPartitionSummary">
+  <table>
+    <column name="MapPartitionSummary" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uPartitionID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="MapVariables" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="VirtualShardID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="PublicIndex" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="OwnerType" type="INT">
+      <offset>16</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="OwnerID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="NumPlayers" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="NumPlayersRecentlyLoggingIn" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="LastTimeSendPlayerThere" type="INT">
+      <offset>36</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO_SHORT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="AssignedOpenInstance" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

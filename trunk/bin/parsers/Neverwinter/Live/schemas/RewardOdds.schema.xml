@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RewardOdds">
+  <table>
+    <column name="RewardOdds" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uDepth" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Partition" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="TotalItemsGiven" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="TotalNumericsGiven" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="Entries" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="RewardOddsEntry" />
+    </column>
+    <column name="Items" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="RewardOddsItem" />
+    </column>
+    <column name="RewardTables" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="RewardOddsTable" />
+    </column>
+    <column name="Initialized" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="UnableToCalculate" type="U8">
+      <offset>45</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

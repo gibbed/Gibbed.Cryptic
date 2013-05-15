@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ADebugFmodEventTreeData">
+  <table>
+    <column name="ADebugFmodEventTreeData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Children" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="ADebugFmodEventTreeData" />
+    </column>
+    <column name="Parent" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="ADebugFmodEventTreeData" />
+    </column>
+    <column name="isVisible" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

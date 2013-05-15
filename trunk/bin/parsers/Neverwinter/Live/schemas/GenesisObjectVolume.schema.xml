@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisObjectVolume">
+  <table>
+    <column name="GenesisObjectVolume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="IsSquare" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="IsRelative" type="U8">
+      <offset>1</offset>
+    </column>
+    <column name="Size" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="VolumeProperties" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="GroupVolumeProperties" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

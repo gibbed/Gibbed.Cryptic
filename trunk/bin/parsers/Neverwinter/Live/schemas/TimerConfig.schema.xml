@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TimerConfig">
+  <table>
+    <column name="TimerConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TimerUse" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="TimerAttack" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="TimerAttacked" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="TimerAssist" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="TimerAggro" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="TimerTacticalRoll" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="TimerTacticalAim" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="TimerUseVisual" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="TimerAggroDistance" type="F32">
+      <offset>32</offset>
+      <default>80</default>
+    </column>
+    <column name="DisallowPlayerTeamAggro" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

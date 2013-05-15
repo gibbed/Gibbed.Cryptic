@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMapTexture">
+  <table>
+    <column name="UIGenMapTexture" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RoomIndex" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="DistFromCenterSq" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

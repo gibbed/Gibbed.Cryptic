@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Layer">
+  <table>
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="Stretch" type="INT">
+      <offset>8</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="TextKey" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Text" type="STRING">
+      <offset>100</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+    </column>
+    <column name="Image" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Color" type="INTARRAY">
+      <offset>36</offset>
+    </column>
+    <column name="Color0" type="INTARRAY">
+      <offset>40</offset>
+    </column>
+    <column name="Color1" type="INTARRAY">
+      <offset>44</offset>
+    </column>
+    <column name="Color2" type="INTARRAY">
+      <offset>48</offset>
+    </column>
+    <column name="Color3" type="INTARRAY">
+      <offset>52</offset>
+    </column>
+    <column name="Size" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Rot" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="Hidden" type="BOOLFLAG">
+      <offset>60</offset>
+    </column>
+    <column name="Font" type="EMBEDDEDSTRUCT">
+      <offset>64</offset>
+      <subtable external="Font" />
+    </column>
+    <column name="Filter" type="STRUCT">
+      <offset>84</offset>
+      <subtable external="Filter" />
+    </column>
+    <column name="SubLayer" type="STRUCT">
+      <offset>88</offset>
+      <subtable external="Layer" />
+    </column>
+    <column name="SubBlend" type="INT">
+      <offset>92</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="SubBlendWeight" type="F32">
+      <offset>96</offset>
+      <default>1</default>
+    </column>
+    <column name="EndLayer" type="END" />
+    <column name="EndSubLayer" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TraySlot">
+  <table>
+    <column name="TraySlot" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Tray" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Slot" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uiPowID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="AutoAttack" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PATrigger">
+  <table>
+    <column name="PATrigger" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Mag" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="MagScale" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="MagPreResist" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="CombatEventTracker" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="CombatEventTracker" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

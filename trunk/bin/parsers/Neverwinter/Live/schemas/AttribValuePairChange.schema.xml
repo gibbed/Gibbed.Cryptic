@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribValuePairChange">
+  <table>
+    <column name="AttribValuePairChange" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Attribute" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="AVChangeType" />
+    </column>
+    <column name="MinVal" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="MaxVal" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Val" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="ClampValues" type="BIT">
+      <offset>20</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="StringVal" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

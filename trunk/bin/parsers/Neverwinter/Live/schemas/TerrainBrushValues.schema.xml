@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TerrainBrushValues">
+  <table>
+    <column name="TerrainBrushValues" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Strength" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="float_1" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="float_2" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="float_3" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="float_4" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="float_5" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="float_6" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="float_7" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="int_1" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="int_2" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="bool_1" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="bool_2" type="U8">
+      <offset>49</offset>
+    </column>
+    <column name="bool_3" type="U8">
+      <offset>50</offset>
+    </column>
+    <column name="bool_4" type="U8">
+      <offset>51</offset>
+    </column>
+    <column name="Color_1" type="U8FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="Color_2" type="U8FIXEDARRAY">
+      <offset>56</offset>
+      <num_elements>4</num_elements>
+      <format>COLOR</format>
+    </column>
+    <column name="string_1" type="STRING">
+      <offset>60</offset>
+    </column>
+    <column name="string_2" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="object_1" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
+      <subtable external="TerrainObjectRef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

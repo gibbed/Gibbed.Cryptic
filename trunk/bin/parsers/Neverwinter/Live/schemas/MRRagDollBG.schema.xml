@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MRRagDollBG">
+  <table>
+    <column name="MRRagDollBG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Parts" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="MRRagDollParts" />
+    </column>
+    <column name="material_index" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="partStates" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="MRRagDollPartStates" />
+    </column>
+    <column name="vel" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="angVel" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="spcStart" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="last_root_pos" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="posOffsetToAnimRoot" type="F32FIXEDARRAY">
+      <offset>52</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="pyrOffsetToAnimRoot" type="F32FIXEDARRAY">
+      <offset>64</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="initial_pc" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="root_pos_update_pc" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="end_pc" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="mmrSkeletonHandle" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="deathDirectionBit" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="setOffsetToAnimRoot" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="addVel" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="ragdollOver" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="skippedGetupOneStep" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="snappedToGround" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="getupOnBack" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="flashedGetupBits" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="setGetupRotation" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="didNoInterp" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="Dead" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="endRequestApproved" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="playAnimDeath" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="playAnimRevive" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

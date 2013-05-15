@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCSearchCacheResult">
+  <table>
+    <column name="UGCSearchCacheResult" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LastRefreshSeconds" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="UGCProjectSearchInfo" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="UGCProjectSearchInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

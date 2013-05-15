@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="objPathTestStruct1">
+  <table>
+    <column name="objPathTestStruct1" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="X" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="F" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="String" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Foo" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable>
+        <table>
+          <column name="{" type="START" />
+          <column name="}" type="END" />
+        </table>
+      </subtable>
+    </column>
+    <column name="testBit1" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="testBit2" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

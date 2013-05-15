@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ChatMap">
+  <table>
+    <column name="ChatMap" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MapName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MapNameMsgKey" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MapVars" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="NeighborhoodNameMsgKey" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MapInstance" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="MapType" type="INT">
+      <offset>20</offset>
+      <static_define_list external="ZoneMapType" />
+    </column>
+    <column name="Key" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="uNumPlayers" type="INT">
+      <offset>28</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

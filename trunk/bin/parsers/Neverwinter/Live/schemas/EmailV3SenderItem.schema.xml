@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EmailV3SenderItem">
+  <table>
+    <column name="EmailV3SenderItem" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT64">
+      <offset>0</offset>
+    </column>
+    <column name="LiteItemName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Count" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="PetID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+      <subtable external="Item" />
+    </column>
+    <column name="DestroyNextFrame" type="U8">
+      <offset>24</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

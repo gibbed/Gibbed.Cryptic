@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerActivity">
+  <table>
+    <column name="PlayerActivity" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Disabled" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PlayerActivityEntry" />
+    </column>
+    <column name="enrollment" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PlayerActivityEnrollment" />
+    </column>
+    <column name="verbosity" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PlayerActivityVerbosity" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

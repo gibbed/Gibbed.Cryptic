@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SharedBankConfig">
+  <table>
+    <column name="SharedBankConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="RequireContact" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="KeyPermissions" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="SharedBankKeys" />
+    </column>
+    <column name="uMaximumSlots" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="SharedBankNumerics" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="SharedBankNumeric" />
+    </column>
+    <column name="CanAlwaysBuy" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="uMaxInboxSize" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="uMaxInboxAttachments" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

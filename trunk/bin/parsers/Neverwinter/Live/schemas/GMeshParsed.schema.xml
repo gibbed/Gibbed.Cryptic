@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GMeshParsed">
+  <table>
+    <column name="GMeshParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="positions" type="F32ARRAY">
+      <offset>0</offset>
+    </column>
+    <column name="positions2" type="F32ARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="normals" type="F32ARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="normals2" type="F32ARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="binormals" type="F32ARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="tangents" type="F32ARRAY">
+      <offset>20</offset>
+    </column>
+    <column name="tex1s" type="F32ARRAY">
+      <offset>24</offset>
+    </column>
+    <column name="tex2s" type="F32ARRAY">
+      <offset>28</offset>
+    </column>
+    <column name="boneweights" type="F32ARRAY">
+      <offset>32</offset>
+    </column>
+    <column name="bonemats" type="INTARRAY">
+      <offset>36</offset>
+    </column>
+    <column name="Colors" type="INTARRAY">
+      <offset>40</offset>
+    </column>
+    <column name="tris" type="INTARRAY">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

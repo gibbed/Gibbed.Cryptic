@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Alert">
+  <table>
+    <column name="Alert" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">Command1, Command2, Command3, Command4, VNC, String, Level, Category, MostRecentHappenedTime, ErrorLink</format_string>
+      </format_strings>
+    </column>
+    <column name="{" type="START" />
+    <column name="VNC" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Key" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="String" type="STRING">
+      <offset>8</offset>
+      <format_strings>
+        <format_string name="HTML_PREFORMATTED">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Level" type="INT">
+      <offset>12</offset>
+      <static_define_list external="enumAlertLevel" />
+    </column>
+    <column name="Category" type="INT">
+      <offset>16</offset>
+      <static_define_list external="enumAlertCategory" />
+    </column>
+    <column name="MostRecentHappenedTime" type="INT">
+      <offset>20</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO_SHORT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="LifeSpan" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="ContainerTypeOfObject" type="INT">
+      <offset>28</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="IDOfObject" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="ContainerTypeOfServer" type="INT">
+      <offset>36</offset>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="IDOfServer" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="PidOfServer" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="MachineName" type="STRING">
+      <offset>48</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="ErrorID" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="AlertUID" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="AlertUIDStringed" type="FIXEDSTRING">
+      <offset>64</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <string_length>16</string_length>
+    </column>
+    <column name="ErrorLink" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Command1" type="STRING">
+      <offset>84</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Command2" type="STRING">
+      <offset>88</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Command3" type="STRING">
+      <offset>92</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Command4" type="STRING">
+      <offset>96</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="PatchVersion" type="STRING">
+      <offset>104</offset>
+    </column>
+    <column name="WasSentByCriticalSystems" type="U8">
+      <offset>108</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

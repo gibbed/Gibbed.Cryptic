@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenesisLayoutRoom">
+  <table>
+    <column name="GenesisLayoutRoom" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="DetailSeed" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="RoomSpecifier" type="INT">
+      <offset>8</offset>
+      <static_define_list external="GenesisTagOrName" />
+    </column>
+    <column name="RoomTags2" type="STRINGARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="RoomTags" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="RoomDef" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>GenesisRoomDef</dictionary_name>
+    </column>
+    <column name="OffMap" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="detail_kit_1" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="DetailSpecifier" type="INT">
+      <offset>28</offset>
+      <static_define_list external="GenesisTagNameDefault" />
+    </column>
+    <column name="DetailTags2" type="STRINGARRAY">
+      <offset>32</offset>
+    </column>
+    <column name="DetailTags" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="DetailKit" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>GenesisDetailKit</dictionary_name>
+    </column>
+    <column name="DetailDensityOverride" type="U8">
+      <offset>44</offset>
+    </column>
+    <column name="DetailDensity" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="Detail2" type="EMBEDDEDSTRUCT">
+      <offset>52</offset>
+      <subtable external="GenesisRoomDetailKitLayout" />
+    </column>
+    <column name="LightDensityOverride" type="IGNORE" />
+    <column name="LightDensity" type="IGNORE" />
+    <column name="LightDetail" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

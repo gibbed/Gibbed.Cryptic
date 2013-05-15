@@ -1,0 +1,654 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MissionDef">
+  <table>
+    <column name="MissionDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Version" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="parentDef" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="genesisZonemap" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="missionType" type="INT">
+      <offset>24</offset>
+      <static_define_list external="MissionType" />
+    </column>
+    <column name="ObjectiveMap" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="MissionMap" />
+    </column>
+    <column name="ReturnMap" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="WarpToMissionDoor" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <subtable external="MissionMapWarpData" />
+    </column>
+    <column name="Category" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>MissionCategory</dictionary_name>
+    </column>
+    <column name="OpenMissionVolume" type="STRINGARRAY">
+      <offset>44</offset>
+    </column>
+    <column name="TeamUpName" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TeamUpDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>52</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="MissionTemplate" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="MissionTemplate" />
+    </column>
+    <column name="Comments" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Comments:" type="STRING">
+      <offset>68</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <redundant_name>Comments</redundant_name>
+    </column>
+    <column name="SoundOnContactOffer" type="STRING">
+      <offset>72</offset>
+    </column>
+    <column name="SoundOnStart" type="STRING">
+      <offset>76</offset>
+    </column>
+    <column name="SoundCombat" type="STRING">
+      <offset>80</offset>
+    </column>
+    <column name="SoundAmbient" type="STRING">
+      <offset>84</offset>
+    </column>
+    <column name="SoundOnComplete" type="STRING">
+      <offset>88</offset>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>92</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="uiStringMsg" type="EMBEDDEDSTRUCT">
+      <offset>104</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="detailStringMsg" type="EMBEDDEDSTRUCT">
+      <offset>116</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="summaryMsg" type="EMBEDDEDSTRUCT">
+      <offset>128</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="failureMsg" type="EMBEDDEDSTRUCT">
+      <offset>140</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="failReturnMsg" type="EMBEDDEDSTRUCT">
+      <offset>152</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="splatDisplayMsg" type="EMBEDDEDSTRUCT">
+      <offset>164</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="SplatFX" type="STRING">
+      <offset>176</offset>
+    </column>
+    <column name="IconName" type="STRING">
+      <offset>180</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="levelDef" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="LevelType" type="INT">
+      <offset>184</offset>
+      <static_define_list external="MissionLevelType" />
+    </column>
+    <column name="UsePlayerLevel" type="INT">
+      <offset>184</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>LevelType</redundant_name>
+      <static_define_list external="MissionLevelType" />
+    </column>
+    <column name="Level" type="INT">
+      <offset>188</offset>
+      <default>1</default>
+    </column>
+    <column name="Level:" type="INT">
+      <offset>188</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Level</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="MapVariableForLevel" type="STRING">
+      <offset>192</offset>
+    </column>
+    <column name="LevelClamp" type="OPTIONALSTRUCT">
+      <offset>196</offset>
+      <subtable external="MissionLevelClamp" />
+    </column>
+    <column name="SuggestedTeamSize" type="INT">
+      <offset>200</offset>
+    </column>
+    <column name="ScalesForTeamSize" type="U8">
+      <offset>204</offset>
+    </column>
+    <column name="TimeToComplete" type="INT">
+      <offset>208</offset>
+    </column>
+    <column name="TimeToComplete:" type="INT">
+      <offset>208</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>TimeToComplete</redundant_name>
+    </column>
+    <column name="GrantOnMap" type="STRING">
+      <offset>212</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="GrantOnMap:" type="STRING">
+      <offset>212</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <redundant_name>GrantOnMap</redundant_name>
+    </column>
+    <column name="RequiresBlock" type="OPTIONALSTRUCT">
+      <offset>216</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="Requires:" type="OPTIONALSTRUCT">
+      <offset>216</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <redundant_name>RequiresBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="MapRequiresBlock" type="OPTIONALSTRUCT">
+      <offset>220</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="MapSuccessBlock" type="OPTIONALSTRUCT">
+      <offset>224</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="MapFailureBlock" type="OPTIONALSTRUCT">
+      <offset>228</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="RequiresActivityAnd" type="STRINGARRAY">
+      <offset>232</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RequiresActivityOr" type="STRINGARRAY">
+      <offset>236</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RelatedEvent" type="STRING">
+      <offset>240</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CanRepeat" type="U8">
+      <offset>244</offset>
+    </column>
+    <column name="CanRepeat:" type="U8">
+      <offset>244</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>CanRepeat</redundant_name>
+    </column>
+    <column name="RepeatCooldownHours" type="F32">
+      <offset>248</offset>
+    </column>
+    <column name="RepeatCooldownHoursFromStart" type="F32">
+      <offset>252</offset>
+    </column>
+    <column name="RepeatCooldownCount" type="INT">
+      <offset>256</offset>
+    </column>
+    <column name="RepeatCooldownBlockTime" type="U8">
+      <offset>260</offset>
+    </column>
+    <column name="CooldownOnlyOnSuccess" type="U8">
+      <offset>261</offset>
+    </column>
+    <column name="NeedsReturn" type="U8">
+      <offset>262</offset>
+      <default>1</default>
+    </column>
+    <column name="NeedsReturn:" type="U8">
+      <offset>262</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>NeedsReturn</redundant_name>
+      <default>1</default>
+    </column>
+    <column name="lockoutType" type="INT">
+      <offset>264</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <static_define_list external="MissionLockoutType" />
+    </column>
+    <column name="Parameters" type="OPTIONALSTRUCT">
+      <offset>268</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="MissionDefParams" />
+    </column>
+    <column name="Parameters:" type="OPTIONALSTRUCT">
+      <offset>268</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <redundant_name>Parameters</redundant_name>
+      <subtable external="MissionDefParams" />
+    </column>
+    <column name="SuccessWhen" type="OPTIONALSTRUCT">
+      <offset>272</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="MissionEditCond" />
+    </column>
+    <column name="FailureWhen" type="OPTIONALSTRUCT">
+      <offset>276</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="MissionEditCond" />
+    </column>
+    <column name="ResetWhen" type="OPTIONALSTRUCT">
+      <offset>280</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="MissionEditCond" />
+    </column>
+    <column name="OnStartAction" type="STRUCT">
+      <offset>284</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="WorldGameActionProperties" />
+    </column>
+    <column name="OnSuccessAction" type="STRUCT">
+      <offset>288</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="WorldGameActionProperties" />
+    </column>
+    <column name="OnFailureAction" type="STRUCT">
+      <offset>292</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="WorldGameActionProperties" />
+    </column>
+    <column name="OnReturnAction" type="STRUCT">
+      <offset>296</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="WorldGameActionProperties" />
+    </column>
+    <column name="InteractableOverrides" type="STRUCT">
+      <offset>300</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="InteractableOverride" />
+    </column>
+    <column name="SpecialDialogOverrides" type="STRUCT">
+      <offset>304</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="SpecialDialogOverride" />
+    </column>
+    <column name="SpecialActionBlockOverrides" type="STRUCT">
+      <offset>308</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="ActionBlockOverride" />
+    </column>
+    <column name="MissionOfferOverrides" type="STRUCT">
+      <offset>312</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="MissionOfferOverride" />
+    </column>
+    <column name="ImageMenuItemOverrides" type="STRUCT">
+      <offset>316</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="ImageMenuItemOverride" />
+    </column>
+    <column name="SubMission" type="STRUCT">
+      <offset>320</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="MissionDef" />
+    </column>
+    <column name="SubMission:" type="STRUCT">
+      <offset>320</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <redundant_name>SubMission</redundant_name>
+      <subtable external="MissionDef" />
+    </column>
+    <column name="Waypoint" type="STRUCT">
+      <offset>324</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="MissionWaypoint" />
+    </column>
+    <column name="ReturnType" type="INT">
+      <offset>328</offset>
+      <static_define_list external="MissionReturnType" />
+    </column>
+    <column name="msgReturnStringMsg" type="EMBEDDEDSTRUCT">
+      <offset>332</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="DiscoverCond" type="OPTIONALSTRUCT">
+      <offset>344</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="TrackedEvents" type="STRUCT">
+      <offset>348</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="GameEvent" />
+    </column>
+    <column name="OpenMissionScoreEvents" type="STRUCT">
+      <offset>352</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="OpenMissionScoreEvent" />
+    </column>
+    <column name="ppchProgressionNodes" type="STRINGARRAY">
+      <offset>356</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>360</offset>
+    </column>
+    <column name="RequiredAllegiance" type="STRUCT">
+      <offset>364</offset>
+      <subtable external="AllegianceRef" />
+    </column>
+    <column name="RequireAllAllegiances" type="U8">
+      <offset>368</offset>
+    </column>
+    <column name="RelatedMission" type="STRING">
+      <offset>372</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Misison</dictionary_name>
+    </column>
+    <column name="RelatedMission:" type="STRING">
+      <offset>372</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <redundant_name>RelatedMission</redundant_name>
+      <dictionary_name>Misison</dictionary_name>
+    </column>
+    <column name="Requests" type="STRUCT">
+      <offset>376</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="MissionDefRequest" />
+    </column>
+    <column name="PerkPoints" type="INT">
+      <offset>380</offset>
+    </column>
+    <column name="SortPriority" type="INT">
+      <offset>384</offset>
+    </column>
+    <column name="IsHandoff" type="U8">
+      <offset>388</offset>
+    </column>
+    <column name="doNotUncomplete" type="U8">
+      <offset>389</offset>
+    </column>
+    <column name="doNotAllowDrop" type="U8">
+      <offset>390</offset>
+    </column>
+    <column name="Shareable" type="INT">
+      <offset>392</offset>
+      <static_define_list external="MissionShareableType" />
+    </column>
+    <column name="RequestGrantType" type="INT">
+      <offset>396</offset>
+      <static_define_list external="MissionRequestGrantType" />
+    </column>
+    <column name="VariableDefs" type="STRUCT">
+      <offset>400</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="WorldVariableDef" />
+    </column>
+    <column name="DisableCompletionTracking" type="U8">
+      <offset>404</offset>
+    </column>
+    <column name="AuthorSource" type="INT">
+      <offset>408</offset>
+      <static_define_list external="ContentAuthorSource" />
+    </column>
+    <column name="PlayType" type="INT">
+      <offset>412</offset>
+      <static_define_list external="MissionPlayType" />
+    </column>
+    <column name="UGCProjectID" type="INT">
+      <offset>416</offset>
+    </column>
+    <column name="RefString" type="STRING">
+      <offset>420</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="varMessageList" type="EMBEDDEDSTRUCT">
+      <offset>424</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="DisplayMessageList" />
+    </column>
+    <column name="successCount" type="OPTIONALSTRUCT">
+      <offset>428</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="successTarget" type="OPTIONALSTRUCT">
+      <offset>432</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="ShowCount" type="INT">
+      <offset>436</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <static_define_list external="MDEShowCount" />
+    </column>
+    <column name="isRequired" type="BIT">
+      <offset>440</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="TrackedEventsNoSave" type="STRUCT">
+      <offset>444</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="GameEvent" />
+    </column>
+    <column name="TrackedStats" type="STRINGARRAY">
+      <offset>448</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="TrackedMission" type="STRING">
+      <offset>452</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="RefreshCharacterPowersOnComplete" type="U8">
+      <offset>456</offset>
+    </column>
+    <column name="OmitFromMissionTracker" type="U8">
+      <offset>457</offset>
+    </column>
+    <column name="MissionTag" type="INTARRAY">
+      <offset>460</offset>
+      <static_define_list external="MissionTag" />
+    </column>
+    <column name="MissionUIType" type="INT">
+      <offset>464</offset>
+      <static_define_list external="MissionUIType" />
+    </column>
+    <column name="IsTutorialPerk" type="U8">
+      <offset>468</offset>
+    </column>
+    <column name="OnlyRewardIfScored" type="U8">
+      <offset>469</offset>
+    </column>
+    <column name="SuppressUnreliableOpenRewardErrors" type="U8">
+      <offset>470</offset>
+    </column>
+    <column name="TutorialScreenRegion" type="INT">
+      <offset>472</offset>
+      <static_define_list external="TutorialScreenRegion" />
+    </column>
+    <column name="IconString:" type="IGNORE" />
+    <column name="NextActionUniqueID" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

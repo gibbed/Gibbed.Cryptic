@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalRollConfig">
+  <table>
+    <column name="TacticalRollConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="rollDef" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="RollDistance" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="RollSpeed" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="RollFrameStart" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="RollAccelNumberOfFrames" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="RollDecelNumberOfFrames" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="RollPostHoldSeconds" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="RollCooldown" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="RollFuelCost" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="AllowInAir" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="RollDisabled" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="RollFacesInRollDirection" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="RollDisableDuringRootAttrib" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="RollNoCostDistPercentThreshold" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="RollCostAttrib" type="INT">
+      <offset>40</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="RollCostAttribMax" type="INT">
+      <offset>44</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="RollCostAttribCost" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="RollImmediateWhenMovingWhenAiming" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="DisableDoubleTapRoll" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="RollWhileCrouching" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="RollIgnoresGlobalCooldown" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="RollOnlyWithDirectionInput" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="QueueTacticalRolls" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

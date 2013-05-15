@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalAimConfig">
+  <table>
+    <column name="TacticalAimConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="aimDef" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="SpeedScaleCrouch" type="F32">
+      <offset>0</offset>
+      <default>1</default>
+    </column>
+    <column name="Speed" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="AimMinDurationSeconds" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="AimCooldown" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="AimDisabled" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="CrouchEntityHeightRatio" type="F32">
+      <offset>20</offset>
+      <default>1058642330</default>
+    </column>
+    <column name="AimRequiredItemCategory" type="INTARRAY">
+      <offset>24</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="AimCostAttrib" type="INT">
+      <offset>28</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="SplitAimAndCrouch" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="MovementCancelsCrouch" type="BIT">
+      <offset>32</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="CrouchModeToggles" type="BIT">
+      <offset>32</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="NoStanceTransitionsWhileAiming" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="AimIgnoresGlobalCooldown" type="BIT">
+      <offset>32</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65540</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="AimStrafes" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="AimDisablesJump" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

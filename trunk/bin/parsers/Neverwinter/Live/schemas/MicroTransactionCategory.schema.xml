@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MicroTransactionCategory">
+  <table>
+    <column name="MicroTransactionCategory" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="ParentCategory" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Type" type="INT">
+      <offset>12</offset>
+      <static_define_list external="MTCategoryType" />
+    </column>
+    <column name="Allegiance" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>Allegiance</dictionary_name>
+    </column>
+    <column name="DisplayAllegiance" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>Allegiance</dictionary_name>
+    </column>
+    <column name="displayNameMesg" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="SortIndex" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="SortValue" type="INT">
+      <offset>36</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SortIndex</redundant_name>
+    </column>
+    <column name="HideUnusable" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

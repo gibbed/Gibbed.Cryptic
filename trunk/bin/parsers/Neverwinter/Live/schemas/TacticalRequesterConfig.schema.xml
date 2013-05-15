@@ -1,0 +1,317 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TacticalRequesterConfig">
+  <table>
+    <column name="TacticalRequesterConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Roll" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="rollDef" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="RollDistance" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="RollSpeed" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="RollFrameStart" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="RollAccelNumberOfFrames" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="RollDecelNumberOfFrames" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="RollPostHoldSeconds" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="RollCooldown" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="RollFuelCost" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="AllowInAir" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="RollDisabled" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="RollFacesInRollDirection" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="RollDisableDuringRootAttrib" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="RollNoCostDistPercentThreshold" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="RollCostAttrib" type="INT">
+      <offset>40</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="RollCostAttribMax" type="INT">
+      <offset>44</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="RollCostAttribCost" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="RollImmediateWhenMovingWhenAiming" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="DisableDoubleTapRoll" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="RollWhileCrouching" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="RollIgnoresGlobalCooldown" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="RollOnlyWithDirectionInput" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="QueueTacticalRolls" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="sprint" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="sprintDef" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="RunMaxDurationSeconds" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="RunMaxDurationSecondsCombat" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="RunCooldown" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="RunCooldownCombat" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="RunFuelRefillRate" type="F32">
+      <offset>72</offset>
+    </column>
+    <column name="RunFuelDelay" type="F32">
+      <offset>76</offset>
+    </column>
+    <column name="SpeedScaleSprint" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="SpeedScaleSprintCombat" type="F32">
+      <offset>84</offset>
+    </column>
+    <column name="SpeedSprint" type="F32">
+      <offset>88</offset>
+    </column>
+    <column name="SpeedSprintCombat" type="F32">
+      <offset>92</offset>
+    </column>
+    <column name="SprintDisabled" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="AutoSprint" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="SprintToggles" type="BIT">
+      <offset>100</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="CrittersIgnoreRunTimeouts" type="BIT">
+      <offset>100</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="SprintFX" type="STRING">
+      <offset>104</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="aim" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="aimDef" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="SpeedScaleCrouch" type="F32">
+      <offset>108</offset>
+      <default>1</default>
+    </column>
+    <column name="Speed" type="F32">
+      <offset>112</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="AimMinDurationSeconds" type="F32">
+      <offset>116</offset>
+    </column>
+    <column name="AimCooldown" type="F32">
+      <offset>120</offset>
+    </column>
+    <column name="AimDisabled" type="BIT">
+      <offset>124</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="CrouchEntityHeightRatio" type="F32">
+      <offset>128</offset>
+      <default>1058642330</default>
+    </column>
+    <column name="AimRequiredItemCategory" type="INTARRAY">
+      <offset>132</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="AimCostAttrib" type="INT">
+      <offset>136</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="SplitAimAndCrouch" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="MovementCancelsCrouch" type="BIT">
+      <offset>140</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="CrouchModeToggles" type="BIT">
+      <offset>140</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65538</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="NoStanceTransitionsWhileAiming" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="AimIgnoresGlobalCooldown" type="BIT">
+      <offset>140</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65540</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="AimStrafes" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="AimDisablesJump" type="BIT">
+      <offset>140</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="TacticalMoveGlobalCooldown" type="F32">
+      <offset>144</offset>
+    </column>
+    <column name="TacticalSpecialFallbackPowerSlot" type="INT">
+      <offset>148</offset>
+      <default>-1</default>
+    </column>
+    <column name="AllowedCategoriesWhileAimIsHeld" type="INTARRAY">
+      <offset>152</offset>
+      <static_define_list external="PowerCategory" />
+    </column>
+    <column name="RollDisableDuringPowers" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="AimDisableDuringPowers" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="SprintDisableDuringPowers" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="RollDisableDuringCombat" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="AimDisableDuringCombat" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="SprintDisableDuringCombat" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="AimCancelsPowersBeforeHitFrame" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="AimDisableDuringPowerDisableAttrib" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="RollDisableDuringPowerDisableAttrib" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="TacticalAimCancelsQueuedPowers" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="TacticalSprintCancelsQueuedPowers" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="TacticalRollCancelsQueuedPowers" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="DisablePowersUsageWhileAimIsHeld" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="IgnoreAllTacticalInput" type="BIT">
+      <offset>156</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

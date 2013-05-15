@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SkyTimeAmbientOcclusion">
+  <table>
+    <column name="SkyTimeAmbientOcclusion" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="WorldSampleRadius" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="WorldSampleFalloff" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="WorldSampleScale" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="OverallScale" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="OverallOffset" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="LitAmount" type="F32">
+      <offset>24</offset>
+      <default>1056964608</default>
+    </column>
+    <column name="bfParamsSpecified" type="INTFIXEDARRAY">
+      <offset>28</offset>
+      <flags>
+        <flag>USEDFIELD</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
+      <num_elements>1</num_elements>
+    </column>
+    <column name="PixelSampleRadius" type="IGNORE" />
+    <column name="PixelSampleFalloff" type="IGNORE" />
+    <column name="PixelSampleScale" type="IGNORE" />
+    <column name="EndAmbientOcclusion" type="END" />
+  </table>
+</parser>

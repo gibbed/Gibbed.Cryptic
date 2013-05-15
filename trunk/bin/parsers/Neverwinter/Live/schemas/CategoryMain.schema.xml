@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CategoryMain">
+  <table>
+    <column name="CategoryMain" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Category" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Key" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="hDisplayName" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>DisplayName</redundant_name>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Description" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="hDescriptionRef" type="REFERENCE">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Description</redundant_name>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="SubCategoryNames" type="STRINGARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="ShowTicketsDefault" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="SubCategories" type="STRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Category" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

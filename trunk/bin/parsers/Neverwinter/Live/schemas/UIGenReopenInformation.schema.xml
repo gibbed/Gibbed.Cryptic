@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenReopenInformation">
+  <table>
+    <column name="UIGenReopenInformation" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="FIXEDSTRING">
+      <offset>4</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="loginCharacterName" type="FIXEDSTRING">
+      <offset>132</offset>
+      <string_length>128</string_length>
+    </column>
+    <column name="Jailed" type="U8">
+      <offset>260</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

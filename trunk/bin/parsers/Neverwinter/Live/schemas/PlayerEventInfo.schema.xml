@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PlayerEventInfo">
+  <table>
+    <column name="PlayerEventInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="dirtyBit" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+        <flag>DIRTY_BIT</flag>
+      </flags>
+    </column>
+    <column name="uLastRequestTime" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="uRequestStartDate" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="uRequestEndDate" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="eaRequestedEvents" type="STRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="CalendarEvent" />
+    </column>
+    <column name="eaActiveEvents" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="CalendarEvent" />
+    </column>
+    <column name="pServerCalendar" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="CalendarRequest" />
+    </column>
+    <column name="eaPendingRequests" type="STRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="PendingCalendarRequest" />
+    </column>
+    <column name="eaSubscribedEvents" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <subtable external="PlayerSubscribedEvent" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

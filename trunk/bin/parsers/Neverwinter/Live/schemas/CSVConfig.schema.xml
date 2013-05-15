@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CSVConfig">
+  <table>
+    <column name="CSVConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Columns" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="CSVColumn" />
+    </column>
+    <column name="RefList" type="STRINGARRAY">
+      <offset>4</offset>
+    </column>
+    <column name="StructName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="ScopeColumnName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="FileName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="Dictionary" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="MicrotransactionExport" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

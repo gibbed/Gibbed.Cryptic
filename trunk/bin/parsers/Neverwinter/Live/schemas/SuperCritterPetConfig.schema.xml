@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SuperCritterPetConfig">
+  <table>
+    <column name="SuperCritterPetConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="TrainingDuration" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="PetUnbindCost" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="GemUnslotCost" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="RequiredXPTable" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>RewardValTable</dictionary_name>
+    </column>
+    <column name="hRushTrainingCurrency" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="RushCostPerTrainingSecond" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="MinRushTrainingCost" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="RenameCost" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="hRenamingCurrency" type="REFERENCE">
+      <offset>32</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="hUnbindingCurrency" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="hGemUnslottingCurrency" type="REFERENCE">
+      <offset>40</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="MaxLevelsPerQuality" type="F32ARRAY">
+      <offset>44</offset>
+    </column>
+    <column name="LevelScalingStartsAtPlayerLevel" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="LevelsPerPlayerLevel" type="F32">
+      <offset>52</offset>
+      <default>1</default>
+    </column>
+    <column name="PetXPGainMultiplier" type="F32">
+      <offset>56</offset>
+      <default>1</default>
+    </column>
+    <column name="GemSlotUnlockLevels" type="INTARRAY">
+      <offset>60</offset>
+    </column>
+    <column name="EquipSlotUnlockLevels" type="INTARRAY">
+      <offset>64</offset>
+    </column>
+    <column name="FakeEntStatsPassiveCategories" type="INTARRAY">
+      <offset>68</offset>
+      <static_define_list external="PowerCategory" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

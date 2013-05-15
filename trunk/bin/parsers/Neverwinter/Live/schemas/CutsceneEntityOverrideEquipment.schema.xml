@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CutsceneEntityOverrideEquipment">
+  <table>
+    <column name="CutsceneEntityOverrideEquipment" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Item" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="Costumes" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CostumeRefWrapper" />
+    </column>
+    <column name="eaiCategories" type="INTARRAY">
+      <offset>8</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="Slot" type="INT">
+      <offset>12</offset>
+      <static_define_list external="SlotType" />
+    </column>
+    <column name="Mode" type="INT">
+      <offset>16</offset>
+      <static_define_list external="kCostumeDisplayMode" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

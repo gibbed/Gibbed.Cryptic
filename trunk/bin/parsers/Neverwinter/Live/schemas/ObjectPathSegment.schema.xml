@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ObjectPathSegment">
+  <table>
+    <column name="ObjectPathSegment" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="fieldOffset" type="INT16">
+      <offset>0</offset>
+    </column>
+    <column name="fieldSize" type="INT16">
+      <offset>2</offset>
+    </column>
+    <column name="Column" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Offset" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Index" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Key" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="descend" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="isPoly" type="U8">
+      <offset>21</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

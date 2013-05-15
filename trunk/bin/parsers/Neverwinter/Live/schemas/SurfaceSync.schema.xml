@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SurfaceSync">
+  <table>
+    <column name="SurfaceSync" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="FlourishTimer" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Traction" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="backScale" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="pitchDiffMult" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="TurnRateScale" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="turnRateScaleFast" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="jump" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="SurfaceSyncJump" />
+    </column>
+    <column name="test" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="SurfaceSyncTest" />
+    </column>
+    <column name="turn" type="EMBEDDEDSTRUCT">
+      <offset>108</offset>
+      <subtable external="SurfaceMovementTurnDef" />
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>120</offset>
+      <subtable external="SurfaceSyncFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

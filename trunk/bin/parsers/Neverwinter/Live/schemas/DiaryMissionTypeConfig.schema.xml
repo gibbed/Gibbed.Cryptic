@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DiaryMissionTypeConfig">
+  <table>
+    <column name="DiaryMissionTypeConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="missionType" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="MissionType" />
+    </column>
+    <column name="AutoAddCurrent" type="BOOLFLAG">
+      <offset>4</offset>
+    </column>
+    <column name="AutoAddComplete" type="BOOLFLAG">
+      <offset>5</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

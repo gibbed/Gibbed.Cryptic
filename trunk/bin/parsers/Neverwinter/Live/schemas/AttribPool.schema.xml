@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribPool">
+  <table>
+    <column name="AttribPool" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="combatPool" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Init" type="INT">
+      <offset>4</offset>
+      <static_define_list external="CombatPoolPoint" />
+    </column>
+    <column name="Bound" type="INT">
+      <offset>8</offset>
+      <static_define_list external="CombatPoolBound" />
+    </column>
+    <column name="Target" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="CombatPoolTarget" />
+    </column>
+    <column name="AttribCur" type="INT">
+      <offset>16</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribMin" type="INT">
+      <offset>20</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribMax" type="INT">
+      <offset>24</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribTarget" type="INT">
+      <offset>28</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribRegenRate" type="INT">
+      <offset>32</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribRegen" type="INT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AttribRegenRate</redundant_name>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribRegenMag" type="INT">
+      <offset>36</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribDecayRate" type="INT">
+      <offset>40</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribDecay" type="INT">
+      <offset>40</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>AttribDecayRate</redundant_name>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribDecayMag" type="INT">
+      <offset>44</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribDamage" type="INTARRAY">
+      <offset>48</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="AttribHeal" type="INTARRAY">
+      <offset>52</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="TargetClamp" type="INT">
+      <offset>56</offset>
+      <static_define_list external="AttribPoolTargetClamping" />
+    </column>
+    <column name="Persist" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="TargetNotCalculated" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="AutoFill" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="DoNotEmpty" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="TickWhileDead" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="TickDisabledInCombat" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="AbsorbsBasicDamage" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="FillOnRespawn" type="BIT">
+      <offset>60</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

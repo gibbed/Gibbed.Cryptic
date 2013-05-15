@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Call">
+  <table>
+    <column type="LINENUM">
+      <offset>8</offset>
+    </column>
+    <column type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>DynFxInfo</dictionary_name>
+    </column>
+    <column type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="&#xA;" type="END" />
+  </table>
+</parser>

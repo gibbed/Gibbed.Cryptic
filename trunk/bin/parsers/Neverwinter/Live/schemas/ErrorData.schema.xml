@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ErrorData">
+  <table>
+    <column name="ErrorData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="ErrorDataType" />
+    </column>
+    <column name="PlatformName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="ExecutableName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ProductName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="VersionString" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="ErrorString" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="UserWhoGotIt" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="SourceFile" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="SourceFileLine" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="DataFile" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="Author" type="STRING">
+      <offset>40</offset>
+    </column>
+    <column name="DataFileModificationTime" type="INT">
+      <offset>44</offset>
+      <format>DATESS2000</format>
+    </column>
+    <column name="ClientCount" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="Trivia" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="TriviaList" type="OPTIONALSTRUCT">
+      <offset>56</offset>
+      <subtable external="TriviaList" />
+    </column>
+    <column name="ProductionMode" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="StackData" type="STRING">
+      <offset>64</offset>
+    </column>
+    <column name="Expression" type="STRING">
+      <offset>68</offset>
+    </column>
+    <column name="EntityPTIStr" type="STRING">
+      <offset>72</offset>
+    </column>
+    <column name="EntityStr" type="STRING">
+      <offset>76</offset>
+    </column>
+    <column name="ErrorSummary" type="STRING">
+      <offset>80</offset>
+    </column>
+    <column name="SVNBranch" type="STRING">
+      <offset>84</offset>
+    </column>
+    <column name="ProductionBuildName" type="STRING">
+      <offset>88</offset>
+    </column>
+    <column name="uImageSize" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="UserDataStr" type="STRING">
+      <offset>100</offset>
+    </column>
+    <column name="UserDataPTIStr" type="STRING">
+      <offset>104</offset>
+    </column>
+    <column name="ShardInfoString" type="STRING">
+      <offset>108</offset>
+    </column>
+    <column name="AppGlobalType" type="STRING">
+      <offset>112</offset>
+    </column>
+    <column name="lastMemItem" type="STRING">
+      <offset>116</offset>
+    </column>
+    <column name="uCEPId" type="INT">
+      <offset>120</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

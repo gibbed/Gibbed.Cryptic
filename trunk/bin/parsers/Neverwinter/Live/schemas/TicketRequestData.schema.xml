@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TicketRequestData">
+  <table>
+    <column name="TicketRequestData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Product" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="pwAccountName" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="CharacterName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="MainCategory" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="Category" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Label" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="shardName" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="Keyword" type="STRING">
+      <offset>36</offset>
+    </column>
+    <column name="DebugPosString" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="AccessLevel" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

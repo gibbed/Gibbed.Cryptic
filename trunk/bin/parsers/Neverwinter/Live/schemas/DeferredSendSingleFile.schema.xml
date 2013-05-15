@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DeferredSendSingleFile">
+  <table>
+    <column name="DeferredSendSingleFile" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LocalFileName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Targets" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="DeferredSendSingleTarget" />
+    </column>
+    <column name="QueriesOutstanding" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="CRC" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Zipping" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="ZippingFailed" type="U8">
+      <offset>21</offset>
+    </column>
+    <column name="ZippedBufferSize" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="UnzippedBufferSize" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

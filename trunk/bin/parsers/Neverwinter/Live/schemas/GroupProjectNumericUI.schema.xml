@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GroupProjectNumericUI">
+  <table>
+    <column name="GroupProjectNumericUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="ToolTip" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Image" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GroupProjectNumeric" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>GroupProjectNumericDef</dictionary_name>
+    </column>
+    <column name="CurrentValue" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="MaximumValue" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="AdjustValue" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="ProjectType" type="INT">
+      <offset>32</offset>
+      <static_define_list external="GroupProjectType" />
+    </column>
+    <column name="GroupName" type="REFERENCE">
+      <offset>36</offset>
+      <dictionary_name>GroupProjectDef</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

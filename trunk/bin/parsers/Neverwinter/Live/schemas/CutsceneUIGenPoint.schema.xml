@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CutsceneUIGenPoint">
+  <table>
+    <column name="CutsceneUIGenPoint" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="common" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Time" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Length" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="FixedLength" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="ActionType" type="INT">
+      <offset>12</offset>
+      <static_define_list external="CutsceneUIGenActionType" />
+    </column>
+    <column name="Message" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="Variable" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="StringValue" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="FloatValue" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="MessageValue" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="MessageValueVariable" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="TranslatedMessage" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

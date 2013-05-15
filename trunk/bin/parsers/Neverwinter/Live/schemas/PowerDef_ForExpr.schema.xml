@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PowerDef_ForExpr">
+  <table>
+    <column name="PowerDef_ForExpr" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Tags" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="PowerTagsStruct" />
+    </column>
+    <column name="MaxTargetsHit" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="Range" type="F32">
+      <offset>100</offset>
+    </column>
+    <column name="TimeCharge" type="F32">
+      <offset>116</offset>
+    </column>
+    <column name="TimeMaintain" type="F32">
+      <offset>136</offset>
+    </column>
+    <column name="TotalCastPeriod" type="F32">
+      <offset>156</offset>
+    </column>
+    <column name="TimeActivate" type="F32">
+      <offset>120</offset>
+    </column>
+    <column name="TimeActivatePeriod" type="F32">
+      <offset>124</offset>
+    </column>
+    <column name="TimeRecharge" type="F32">
+      <offset>140</offset>
+    </column>
+    <column name="TimeOverride" type="F32">
+      <offset>144</offset>
+    </column>
+    <column name="TimeAllowQueue" type="F32">
+      <offset>152</offset>
+    </column>
+    <column name="ChargeRefillInterval" type="F32">
+      <offset>200</offset>
+    </column>
+    <column name="AIMinRange" type="INT">
+      <offset>396</offset>
+    </column>
+    <column name="AIMaxRange" type="INT">
+      <offset>400</offset>
+    </column>
+    <column name="RechargeDisabled" type="BIT">
+      <offset>456</offset>
+      <bit_offset>65565</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

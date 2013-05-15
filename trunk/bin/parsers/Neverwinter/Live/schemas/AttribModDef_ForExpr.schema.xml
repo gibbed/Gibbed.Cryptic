@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AttribModDef_ForExpr">
+  <table>
+    <column name="AttribModDef_ForExpr" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Tags" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="PowerTagsStruct" />
+    </column>
+    <column name="Attrib" type="INT">
+      <offset>0</offset>
+      <default>-1</default>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Aspect" type="INT">
+      <offset>4</offset>
+      <default>-1</default>
+      <static_define_list external="AttribAspect" />
+    </column>
+    <column name="ArcAffects" type="F32">
+      <offset>84</offset>
+    </column>
+    <column name="Yaw" type="F32">
+      <offset>88</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

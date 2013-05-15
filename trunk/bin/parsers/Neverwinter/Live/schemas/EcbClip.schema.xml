@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="EcbClip">
+  <table>
+    <column name="EcbClip" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>4</offset>
+      <static_define_list external="EcbClipTypeEnum" />
+    </column>
+    <column name="cbExpr" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="cbExprLine" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="ExprLine" />
+    </column>
+    <column name="cbState" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="FSMState" />
+    </column>
+    <column name="cbStates" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="FSMStates" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RewardConfig">
+  <table>
+    <column name="RewardConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Modifications" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="RewardModifications" />
+    </column>
+    <column name="MissionMods" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="MissionMods" />
+    </column>
+    <column name="TeamMods" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
+      <subtable external="TeamMods" />
+    </column>
+    <column name="RecruitMods" type="EMBEDDEDSTRUCT">
+      <offset>88</offset>
+      <subtable external="RecruitMods" />
+    </column>
+    <column name="UGCRewardConfig" type="EMBEDDEDSTRUCT">
+      <offset>96</offset>
+      <subtable external="UGCRewardConfig" />
+    </column>
+    <column name="UGCNonQualifyingRewardConfig" type="EMBEDDEDSTRUCT">
+      <offset>112</offset>
+      <subtable external="UGCNonQualifyingRewardConfig" />
+    </column>
+    <column name="OriginMappings" type="EMBEDDEDSTRUCT">
+      <offset>128</offset>
+      <subtable external="OriginToPickupTypeMappings" />
+    </column>
+    <column name="TypeCostumeMappings" type="EMBEDDEDSTRUCT">
+      <offset>132</offset>
+      <subtable external="TypeToCostumeMappings" />
+    </column>
+    <column name="IgnoreSubRank" type="U8">
+      <offset>148</offset>
+    </column>
+    <column name="ComputeRewardQuality" type="U8">
+      <offset>149</offset>
+    </column>
+    <column name="lifetimeRewards" type="EMBEDDEDSTRUCT">
+      <offset>152</offset>
+      <subtable external="LifetimeRewardsInfo" />
+    </column>
+    <column name="LifetimeRewardsList" type="STRUCT">
+      <offset>156</offset>
+      <subtable external="LifetimeRewardsInfo" />
+    </column>
+    <column name="NumericsNotGivenToWholeTeam" type="STRINGARRAY">
+      <offset>160</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GiftData" type="EMBEDDEDSTRUCT">
+      <offset>164</offset>
+      <subtable external="ExperienceGift" />
+    </column>
+    <column name="RewardGateInfo" type="STRUCT">
+      <offset>176</offset>
+      <subtable external="RewardGatedInfo" />
+    </column>
+    <column name="BlockRegionTables" type="STRUCT">
+      <offset>180</offset>
+      <subtable external="RewardBlockRegionTable" />
+    </column>
+    <column name="RoundRobinEachKill" type="BIT">
+      <offset>184</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ShareLootedNumericsWithTeamMembers" type="BIT">
+      <offset>184</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="BlockRewardPackClientSend" type="BIT">
+      <offset>184</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="NoDeathPenaltyInPowerHouse" type="BIT">
+      <offset>184</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="LootEntsAlwaysAutoLoot" type="BIT">
+      <offset>184</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="UseEntryWeightsOnly" type="BIT">
+      <offset>184</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="CheckMinMaxLevelForAllEntries" type="BIT">
+      <offset>184</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="UseUGCRewardConfig" type="BIT">
+      <offset>184</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="UseNonQualifyingUGCRewardConfig" type="BIT">
+      <offset>184</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="UseRewardGatingMissions" type="BIT">
+      <offset>184</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="AllowOneItemNoWeightTable" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

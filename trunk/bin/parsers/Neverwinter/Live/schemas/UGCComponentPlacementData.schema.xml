@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCComponentPlacementData">
+  <table>
+    <column name="UGCComponentPlacementData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="XPos" type="F32">
+      <offset>32</offset>
+    </column>
+    <column name="YPos" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="ZPos" type="F32">
+      <offset>40</offset>
+    </column>
+    <column name="RotPitch" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="RotYaw" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="RotRoll" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

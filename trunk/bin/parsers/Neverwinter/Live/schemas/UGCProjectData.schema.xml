@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectData">
+  <table>
+    <column name="UGCProjectData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="NameSpace" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ProjectPrefix" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Project" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="UGCProjectInfo" />
+    </column>
+    <column name="Map" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="UGCMap" />
+    </column>
+    <column name="Mission" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="UGCMission" />
+    </column>
+    <column name="Components" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="UGCComponentList" />
+    </column>
+    <column name="Costume" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="UGCCostume" />
+    </column>
+    <column name="Item" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="UGCItem" />
+    </column>
+    <column name="DeleteRes" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

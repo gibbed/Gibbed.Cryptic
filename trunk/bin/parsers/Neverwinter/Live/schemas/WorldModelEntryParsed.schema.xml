@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WorldModelEntryParsed">
+  <table>
+    <column name="WorldModelEntryParsed" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="base_drawable" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="WorldDrawableEntryParsed" />
+    </column>
+    <column name="model_scale" type="F32FIXEDARRAY">
+      <offset>124</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="wind_params" type="F32FIXEDARRAY">
+      <offset>136</offset>
+      <num_elements>4</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

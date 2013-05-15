@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynAnimGraphInheritBits">
+  <table>
+    <column name="DynAnimGraphInheritBits" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="InheritTimeout" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="InheritOverrideAllBones" type="U8">
+      <offset>1</offset>
+    </column>
+    <column name="InheritOverrideMovement" type="U8">
+      <offset>2</offset>
+    </column>
+    <column name="InheritOverrideDefaultMove" type="U8">
+      <offset>3</offset>
+    </column>
+    <column name="InheritForceVisible" type="U8">
+      <offset>4</offset>
+    </column>
+    <column name="InheritPitchToTarget" type="U8">
+      <offset>5</offset>
+    </column>
+    <column name="InheritDisableTorsoPointing" type="U8">
+      <offset>6</offset>
+    </column>
+    <column name="InheritDisableGroundReg" type="U8">
+      <offset>7</offset>
+    </column>
+    <column name="InheritDisableUpperBodyGroundReg" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="InheritOnEnterFxEvent" type="U8">
+      <offset>9</offset>
+    </column>
+    <column name="InheritOnExitFxEvent" type="U8">
+      <offset>10</offset>
+    </column>
+    <column name="InheritSuppress" type="U8">
+      <offset>11</offset>
+    </column>
+    <column name="InheritStance" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="InheritGeneratePowerMovementInfo" type="U8">
+      <offset>13</offset>
+    </column>
+    <column name="InheritResetWhenMovementStops" type="U8">
+      <offset>14</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

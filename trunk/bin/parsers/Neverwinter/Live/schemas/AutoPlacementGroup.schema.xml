@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AutoPlacementGroup">
+  <table>
+    <column name="AutoPlacementGroup" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="GroupName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Weight" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="ObjectList" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="AutoPlacementObject" />
+    </column>
+    <column name="PlacementConditionBlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="PlacementCondition" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PlacementConditionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="RequiredConditionBlock" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="RequiredCondition" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RequiredConditionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

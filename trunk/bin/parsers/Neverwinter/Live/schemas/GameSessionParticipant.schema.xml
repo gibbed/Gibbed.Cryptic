@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GameSessionParticipant">
+  <table>
+    <column name="GameSessionParticipant" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="EntID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="AccountName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Leader" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="MapName" type="STRING">
+      <offset>16</offset>
+    </column>
+    <column name="MapMsgKey" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="MapVars" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="uiMapInstanceNumber" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="MapContainerID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="PartitionID" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="Ready" type="U8">
+      <offset>40</offset>
+    </column>
+    <column name="hClass" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="hPath" type="REFERENCE">
+      <offset>48</offset>
+      <dictionary_name>CharacterPath</dictionary_name>
+    </column>
+    <column name="SecondaryPaths" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="AdditionalCharacterPath" />
+    </column>
+    <column name="hSpecies" type="REFERENCE">
+      <offset>56</offset>
+      <dictionary_name>Species</dictionary_name>
+    </column>
+    <column name="ExpLevel" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="Costume" type="OPTIONALSTRUCT">
+      <offset>64</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="ppchCompletedNodes" type="STRINGARRAY">
+      <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

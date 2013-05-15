@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SurfaceFG">
+  <table>
+    <column name="SurfaceFG" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="surfaceImpactSpeed" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="toBG" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="SurfaceFGToBG" />
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="SurfaceFGFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

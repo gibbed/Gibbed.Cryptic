@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FlightSync">
+  <table>
+    <column name="FlightSync" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MaxSpeed" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="Traction" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="Friction" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="TurnRate" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="throttle" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="gravityUp" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="gravityDown" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="glideDown" type="F32">
+      <offset>28</offset>
+    </column>
+    <column name="rotPDIgnorePitch" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="rotAllIgnorePitch" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="playJumpBit" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="avoids" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="FlightAvoid" />
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
+      <subtable external="FlightSyncFlags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

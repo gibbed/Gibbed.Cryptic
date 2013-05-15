@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MapDoorNodeRef">
+  <table>
+    <column name="MapDoorNodeRef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hNode" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>InteractionDictionary</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

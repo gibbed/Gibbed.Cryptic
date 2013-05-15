@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CritterDef">
+  <table>
+    <column name="CritterDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Inheritance" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+        <flag>INHERITANCE_STRUCT</flag>
+      </flags>
+      <subtable external="InheritanceData" />
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Comment" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="Scope" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>20</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="noCrossFade" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="KeyBlock" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="Index" type="INT">
+      <offset>44</offset>
+      <default>-1</default>
+    </column>
+    <column name="RandomCivilianName" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="hGroupOverrideDisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>52</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Faction" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>CritterFaction</dictionary_name>
+    </column>
+    <column name="Species" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>SpeciesDef</dictionary_name>
+    </column>
+    <column name="Gang" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="GroupName" type="REFERENCE">
+      <offset>76</offset>
+      <dictionary_name>CritterGroup</dictionary_name>
+    </column>
+    <column name="Class" type="STRING">
+      <offset>80</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>CharacterClassInfo</dictionary_name>
+    </column>
+    <column name="CritterTags" type="INTARRAY">
+      <offset>84</offset>
+      <static_define_list external="CritterTag" />
+    </column>
+    <column name="SpawnLimit" type="INT">
+      <offset>88</offset>
+      <static_define_list external="CritterSpawnLimit" />
+    </column>
+    <column name="Rank" type="STRING">
+      <offset>92</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SubRank" type="STRING">
+      <offset>96</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PvPFlagged" type="U8">
+      <offset>100</offset>
+    </column>
+    <column name="Template" type="U8">
+      <offset>101</offset>
+      <flags>
+        <flag>NO_INHERIT</flag>
+      </flags>
+    </column>
+    <column name="DisabledForContacts" type="U8">
+      <offset>102</offset>
+    </column>
+    <column name="SkillType" type="INT">
+      <offset>104</offset>
+      <static_define_list external="SkillType" />
+    </column>
+    <column name="refCount" type="INT">
+      <offset>108</offset>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>112</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="displaySubNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>124</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="descriptionMsg" type="EMBEDDEDSTRUCT">
+      <offset>136</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Costume" type="STRUCT">
+      <offset>148</offset>
+      <subtable external="CritterCostume" />
+    </column>
+    <column name="CostumeWeight" type="STRUCT">
+      <offset>148</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Costume</redundant_name>
+      <subtable external="CritterCostume" />
+    </column>
+    <column name="GenerateRandomCostume" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="RandomDefaultStance" type="BIT">
+      <offset>152</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="DefaultStanceDef" type="REFERENCE">
+      <offset>156</offset>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="OverrideCostume" type="REFERENCE">
+      <offset>160</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="StanceWords" type="STRINGARRAY">
+      <offset>164</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="RewardTable" type="REFERENCE">
+      <offset>168</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="AddRewardTable" type="REFERENCE">
+      <offset>172</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="PreferredMinRange" type="F32">
+      <offset>176</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="PreferedMinRange" type="F32">
+      <offset>176</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>NO_WRITE</flag>
+      </flags>
+      <redundant_name>PreferredMinRange</redundant_name>
+    </column>
+    <column name="PreferredMaxRange" type="F32">
+      <offset>180</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="PreferedMaxRange" type="F32">
+      <offset>180</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>NO_WRITE</flag>
+      </flags>
+      <redundant_name>PreferredMaxRange</redundant_name>
+    </column>
+    <column name="Leash" type="F32">
+      <offset>184</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+    </column>
+    <column name="AIConfig" type="STRING">
+      <offset>188</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>AIConfig</dictionary_name>
+    </column>
+    <column name="AI" type="STRING">
+      <offset>188</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <redundant_name>AIConfig</redundant_name>
+      <dictionary_name>AIConfig</dictionary_name>
+    </column>
+    <column name="FSM" type="REFERENCE">
+      <offset>192</offset>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="AIFSM" type="REFERENCE">
+      <offset>192</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>FSM</redundant_name>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="CombatFSM" type="REFERENCE">
+      <offset>196</offset>
+      <dictionary_name>FSM</dictionary_name>
+    </column>
+    <column name="SpawnAnim" type="STRING">
+      <offset>200</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>AnimationLibrary</dictionary_name>
+    </column>
+    <column name="SpawnLockdownTime" type="F32">
+      <offset>204</offset>
+    </column>
+    <column name="SpawnAnimAlternate" type="STRING">
+      <offset>208</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>AnimationLibrary</dictionary_name>
+    </column>
+    <column name="SpawnLockdownTimeAlternate" type="F32">
+      <offset>212</offset>
+    </column>
+    <column name="SpawnWeight" type="F32">
+      <offset>216</offset>
+      <default>1</default>
+    </column>
+    <column name="PowerConfigs" type="STRUCT">
+      <offset>220</offset>
+      <subtable external="CritterPowerConfig" />
+    </column>
+    <column name="lingerDuration" type="F32">
+      <offset>224</offset>
+      <default>15</default>
+    </column>
+    <column name="Hue" type="F32">
+      <offset>228</offset>
+    </column>
+    <column name="Untargetable" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Unselectable" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Invulnerable" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="Unstoppable" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Unkillable" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="LevelAdjusting" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="PseudoPlayer" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="DisableTurnToFace" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="IgnoreCombatMods" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="NonCombat" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="NoPowersAllowed" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="IgnoreExternalInnates" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65547</bit_offset>
+    </column>
+    <column name="IgnoreEntCreateHue" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65548</bit_offset>
+    </column>
+    <column name="DropMyInventory" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65549</bit_offset>
+    </column>
+    <column name="NoInterpAlphaOnSpawn" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65550</bit_offset>
+    </column>
+    <column name="UseCapsuleForPowerArcChecks" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65551</bit_offset>
+    </column>
+    <column name="UseClosestPowerAnimNode" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
+    <column name="SpecialLargeMonster" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65553</bit_offset>
+    </column>
+    <column name="IgnoreExternalAnimBits" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65554</bit_offset>
+    </column>
+    <column name="AlwaysHaveWeaponsReady" type="BIT">
+      <offset>232</offset>
+      <bit_offset>65555</bit_offset>
+    </column>
+    <column name="Interaction" type="EMBEDDEDSTRUCT">
+      <offset>236</offset>
+      <subtable external="OldInteractionProperties" />
+    </column>
+    <column name="InteractionDef" type="REFERENCE">
+      <offset>296</offset>
+      <dictionary_name>InteractionDef</dictionary_name>
+    </column>
+    <column name="InteractRange" type="INT">
+      <offset>300</offset>
+    </column>
+    <column name="Mass" type="F32">
+      <offset>304</offset>
+    </column>
+    <column name="InteractionFlags" type="INT">
+      <offset>308</offset>
+      <static_define_list external="kCritterOverrideFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="Underlings" type="STRINGARRAY">
+      <offset>312</offset>
+      <flags>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>CritterDef</dictionary_name>
+    </column>
+    <column name="EntityMinSeeAtDistance" type="F32">
+      <offset>316</offset>
+    </column>
+    <column name="RidableBlock" type="OPTIONALSTRUCT">
+      <offset>320</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="Ridable" type="OPTIONALSTRUCT">
+      <offset>320</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RidableBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="RidingPower" type="STRING">
+      <offset>324</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>PowerDef</dictionary_name>
+    </column>
+    <column name="RidingItem" type="STRING">
+      <offset>328</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="RidingBit" type="STRING">
+      <offset>332</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CritterVars" type="STRUCT">
+      <offset>336</offset>
+      <subtable external="CritterVar" />
+    </column>
+    <column name="CritterItems" type="STRUCT">
+      <offset>340</offset>
+      <subtable external="DefaultItemDef" />
+    </column>
+    <column name="CritterLoreEntries" type="STRUCT">
+      <offset>344</offset>
+      <subtable external="CritterLore" />
+    </column>
+    <column name="OverrideMovementRequesterDef" type="REFERENCE">
+      <offset>348</offset>
+      <dictionary_name>MovementRequesterDef</dictionary_name>
+    </column>
+    <column name="Deprecated" type="U8">
+      <offset>352</offset>
+    </column>
+    <column name="Gender" type="INT">
+      <offset>356</offset>
+      <static_define_list external="Gender" />
+    </column>
+    <column name="Latebind" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

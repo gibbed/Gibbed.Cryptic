@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PTNodeEnhHelper">
+  <table>
+    <column name="PTNodeEnhHelper" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="PTNodeEnhHelperType" />
+    </column>
+    <column name="Attribs" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="Def" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="PTNodeEnhancementDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

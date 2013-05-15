@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GuildEventData">
+  <table>
+    <column name="GuildEventData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uiID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Title" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Description" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="StartTimeTime" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Duration" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="RecurType" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="RecurrenceCount" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="MinGuildRank" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="MinGuildEditRank" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="MinLevel" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="MinAccepts" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="MaxAccepts" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

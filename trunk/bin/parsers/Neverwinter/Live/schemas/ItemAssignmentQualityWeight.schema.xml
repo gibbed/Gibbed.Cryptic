@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentQualityWeight">
+  <table>
+    <column name="ItemAssignmentQualityWeight" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Quality" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="Value" type="INT">
+      <offset>4</offset>
+      <static_define_list external="ItemAssignmentWeightType" />
+    </column>
+    <column name="Weight" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>Value</redundant_name>
+      <static_define_list external="ItemAssignmentWeightType" />
+    </column>
+    <column name="Outcome" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ItemAssignmentOutcomeWeight" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

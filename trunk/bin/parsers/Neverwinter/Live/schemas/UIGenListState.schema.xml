@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenListState">
+  <table>
+    <column name="UIGenListState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>9</default>
+      <static_define_list external="UIGenType" />
+    </column>
+    <column name="SelectedRow" type="INT">
+      <offset>4</offset>
+      <default>-1</default>
+    </column>
+    <column name="ResizeCol" type="INT16">
+      <offset>8</offset>
+      <default>-1</default>
+    </column>
+    <column name="MoveCol" type="INT16">
+      <offset>10</offset>
+      <default>-1</default>
+    </column>
+    <column name="DestCol" type="INT16">
+      <offset>12</offset>
+      <default>-1</default>
+    </column>
+    <column name="SortCol" type="INT16">
+      <offset>14</offset>
+      <default>-1</default>
+    </column>
+    <column name="SortMode" type="INT">
+      <offset>16</offset>
+      <static_define_list external="UISortType" />
+    </column>
+    <column name="MouseInsideRow" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="MouseInsideCol" type="INT16">
+      <offset>24</offset>
+    </column>
+    <column name="LastMouseInsideRow" type="INT">
+      <offset>28</offset>
+      <default>-1</default>
+    </column>
+    <column name="LastMouseInsideCol" type="INT16">
+      <offset>32</offset>
+    </column>
+    <column name="SortAscIndicatorBundleTexture" type="EMBEDDEDSTRUCT">
+      <offset>36</offset>
+      <subtable external="UIGenBundleTexture" />
+    </column>
+    <column name="SortDesIndicatorBundleTexture" type="EMBEDDEDSTRUCT">
+      <offset>96</offset>
+      <subtable external="UIGenBundleTexture" />
+    </column>
+    <column name="SortAscIndicatorBundle" type="EMBEDDEDSTRUCT">
+      <offset>156</offset>
+      <subtable external="UIGenBundleTextureState" />
+    </column>
+    <column name="SortDesIndicatorBundle" type="EMBEDDEDSTRUCT">
+      <offset>168</offset>
+      <subtable external="UIGenBundleTextureState" />
+    </column>
+    <column name="Scrollbar" type="EMBEDDEDSTRUCT">
+      <offset>180</offset>
+      <subtable external="UIGenScrollbarState" />
+    </column>
+    <column name="BadTemplateNames" type="STRINGARRAY">
+      <offset>208</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Rows" type="STRUCT">
+      <offset>212</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+        <flag>STRUCT_NORECURSE</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UIGen" />
+    </column>
+    <column name="OwnedRows" type="STRUCT">
+      <offset>216</offset>
+      <flags>
+        <flag>STRUCT_NORECURSE</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UIGen" />
+    </column>
+    <column name="TemplateGens" type="STRUCT">
+      <offset>220</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UIGenChild" />
+    </column>
+    <column name="ColumnOrder" type="STRUCT">
+      <offset>224</offset>
+      <flags>
+        <flag>STRUCT_NORECURSE</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UIColumn" />
+    </column>
+    <column name="Cols" type="STRUCT">
+      <offset>228</offset>
+      <flags>
+        <flag>STRUCT_NORECURSE</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="UIGen" />
+    </column>
+    <column name="DestDrawHigh" type="U8">
+      <offset>232</offset>
+    </column>
+    <column name="ForceShowSelectedRow" type="U8">
+      <offset>233</offset>
+    </column>
+    <column name="SelectedRowNotSelected" type="U8">
+      <offset>234</offset>
+    </column>
+    <column name="Unselected" type="U8">
+      <offset>235</offset>
+    </column>
+    <column name="DesiredRowSelection" type="INT">
+      <offset>236</offset>
+      <default>-1</default>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentPlayerData">
+  <table>
+    <column name="ItemAssignmentPlayerData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="VolumeAvailableAssignments" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="ItemAssignmentDefRef" />
+    </column>
+    <column name="GrantedPersonalAssignments" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="ItemAssignmentDefRef" />
+    </column>
+    <column name="AutograntedPersonalAssignments" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="ItemAssignmentDefRef" />
+    </column>
+    <column name="PersonalAssignmentBuckets" type="STRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="ItemAssignmentPersonalAssignmentBucket" />
+    </column>
+    <column name="uNextAutograntUpdateTime" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="UnfilterExpression" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="UnfilterAllegiance" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="UnfilterMaximumLevel" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="UnfilterActive" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="UnfilterNotRepeatable" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="UnfilterCooldown" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="UnfilterRequiredMission" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="UnfilterRequiredAssignment" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="UnfilterLocation" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OldInteractionProperties">
+  <table>
+    <column name="OldInteractionProperties" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="InteractConditionBlock" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="InteractCondition" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>InteractConditionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="SuccessConditionBlock" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="SuccessCondition" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SuccessConditionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="InteractActionBlock" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="InteractAction" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>InteractActionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="InteractGameActionBlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="WorldGameActionBlock" />
+    </column>
+    <column name="InteractType" type="INT">
+      <offset>16</offset>
+      <default>5</default>
+      <static_define_list external="InteractType" />
+      <format>FLAGS</format>
+    </column>
+    <column name="uInteractTime" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="uInteractActiveFor" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="uInteractCoolDown" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="interactTextMsg" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="interactFailedTextMsg" type="EMBEDDEDSTRUCT">
+      <offset>44</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="InteractAnim" type="REFERENCE">
+      <offset>56</offset>
+      <dictionary_name>AIAnimList</dictionary_name>
+    </column>
+    <column name="InteractPlayerFX" type="IGNORE" />
+    <column name="InteractGameActions" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

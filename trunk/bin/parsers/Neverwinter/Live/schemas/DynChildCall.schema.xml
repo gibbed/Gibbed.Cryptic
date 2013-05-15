@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynChildCall">
+  <table>
+    <column name="DynChildCall" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="hChildFx" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+      <dictionary_name>DynFxInfo</dictionary_name>
+    </column>
+    <column name="TimesToCall" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <default>1</default>
+    </column>
+    <column name="LineNum" type="LINENUM">
+      <offset>8</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="paramBlock" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="PassParam" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="DynDefineParam" />
+    </column>
+    <column name="PassThrough" type="STRINGARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="PassThroughAlias" type="STRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <subtable external="DynParamRedirect" />
+    </column>
+    <column name="Reason" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GroupTag" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ParentToLastChild" type="BOOLFLAG">
+      <offset>40</offset>
+    </column>
+    <column name="GroupTextures" type="BOOLFLAG">
+      <offset>41</offset>
+    </column>
+    <column name="Priority" type="INT">
+      <offset>44</offset>
+      <default>4</default>
+      <static_define_list external="eDynPriority" />
+    </column>
+    <column name="SortAsBlock" type="BOOLFLAG">
+      <offset>48</offset>
+    </column>
+    <column name="CallIf" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="DynParamConditional" />
+    </column>
+    <column name="Chance" type="F32">
+      <offset>56</offset>
+      <default>1</default>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

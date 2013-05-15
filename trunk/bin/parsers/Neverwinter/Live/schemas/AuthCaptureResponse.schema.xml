@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="AuthCaptureResponse">
+  <table>
+    <column name="AuthCaptureResponse" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uAccountID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="CmdID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Result" type="INT">
+      <offset>8</offset>
+      <static_define_list external="PurchaseResult" />
+    </column>
+    <column name="RequestID" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="uPurchaseID" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="uLockContainerID" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="Currency" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Orderid" type="STRING">
+      <offset>28</offset>
+    </column>
+    <column name="Lock" type="STRING">
+      <offset>32</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

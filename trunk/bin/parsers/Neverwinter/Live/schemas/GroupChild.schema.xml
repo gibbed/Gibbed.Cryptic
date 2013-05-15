@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GroupChild">
+  <table>
+    <column name="GroupChild" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="nameuid" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DebugName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Pos" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Rot" type="F32FIXEDARRAY">
+      <offset>24</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="Scale" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="Seed" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="UidInParent" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="UseSeed" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="Weight" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="simpleData" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Param" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="GroupChildParameter" />
+    </column>
+    <column name="rot_mat" type="MATPYR">
+      <offset>60</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <num_elements>9</num_elements>
+    </column>
+    <column name="pos_mat" type="F32FIXEDARRAY">
+      <offset>96</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="childmodtime" type="INT">
+      <offset>108</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

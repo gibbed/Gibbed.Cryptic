@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MaterialGraphicPropertiesLoadTime">
+  <table>
+    <column name="MaterialGraphicPropertiesLoadTime" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="default_fallback" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="Template" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="InputMapping" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ShaderInputMapping" />
+    </column>
+    <column name="OperationValue" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ShaderOperationValues" />
+    </column>
+    <column name="Fallback" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="MaterialFallback" />
+    </column>
+    <column name="FallbacksOverriden" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="GfxFlags" type="INT">
+      <offset>32</offset>
+      <min_bits>5</min_bits>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>FLAGS</format>
+    </column>
+    <column name="UnlitContribution" type="F32">
+      <offset>36</offset>
+      <float_rounding>HUNDREDTHS</float_rounding>
+    </column>
+    <column name="DiffuseContribution" type="F32">
+      <offset>40</offset>
+      <float_rounding>HUNDREDTHS</float_rounding>
+    </column>
+    <column name="SpecularContribution" type="F32">
+      <offset>44</offset>
+      <float_rounding>HUNDREDTHS</float_rounding>
+    </column>
+    <column name="MaxReflectResolution" type="BIT">
+      <offset>48</offset>
+      <bit_offset>262144</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

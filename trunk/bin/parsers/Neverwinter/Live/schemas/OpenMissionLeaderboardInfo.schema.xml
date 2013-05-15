@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="OpenMissionLeaderboardInfo">
+  <table>
+    <column name="OpenMissionLeaderboardInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="OpenMissionDisplayName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Leaders" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="OpenMissionScoreEntry" />
+    </column>
+    <column name="TotalParticipants" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="PlayerIndex" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="RewardTier" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="RelatedEvent" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hRelatedEvent" type="REFERENCE">
+      <offset>24</offset>
+      <dictionary_name>EventDef</dictionary_name>
+    </column>
+    <column name="IsRelatedEventActive" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

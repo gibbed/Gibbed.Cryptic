@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GenericServerInfoForHttpXpath">
+  <table>
+    <column name="GenericServerInfoForHttpXpath" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Summary" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_NO_HEADER">1</format_string>
+        <format_string name="HTML_CLASS">structheader</format_string>
+      </format_strings>
+    </column>
+    <column name="ServerType" type="FIXEDSTRING">
+      <offset>4</offset>
+      <string_length>256</string_length>
+      <format_strings>
+        <format_string name="HTML_SKIP">1</format_string>
+      </format_strings>
+    </column>
+    <column name="ID" type="INT">
+      <offset>260</offset>
+      <format_strings>
+        <format_string name="HTML_SKIP">1</format_string>
+      </format_strings>
+    </column>
+    <column name="CommandLine" type="STRING">
+      <offset>264</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="DomainLinks" type="STRING">
+      <offset>268</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML">1</format_string>
+        <format_string name="HTML_NO_HEADER">1</format_string>
+      </format_strings>
+    </column>
+    <column name="LoggingStatus" type="STRING">
+      <offset>272</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="CommandCategories" type="STRUCT">
+      <offset>276</offset>
+      <subtable external="CommandCategoryWrapper" />
+    </column>
+    <column name="MiscObjects" type="STRUCT">
+      <offset>280</offset>
+      <subtable external="GlobObjWrapper" />
+    </column>
+    <column name="SystemObjects" type="STRUCT">
+      <offset>284</offset>
+      <subtable external="GlobObjWrapper" />
+    </column>
+    <column name="Containers" type="STRUCT">
+      <offset>288</offset>
+      <subtable external="GlobObjWrapper" />
+    </column>
+    <column name="RefDicts" type="STRUCT">
+      <offset>292</offset>
+      <subtable external="GlobObjWrapper" />
+    </column>
+    <column name="Command1" type="STRING">
+      <offset>296</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Command2" type="STRING">
+      <offset>300</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Command3" type="STRING">
+      <offset>304</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Command4" type="STRING">
+      <offset>308</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Command5" type="STRING">
+      <offset>312</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Command6" type="STRING">
+      <offset>316</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Command7" type="STRING">
+      <offset>320</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Command8" type="STRING">
+      <offset>324</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="command">1</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>
