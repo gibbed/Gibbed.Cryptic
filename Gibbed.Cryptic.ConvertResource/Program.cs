@@ -282,13 +282,19 @@ namespace Gibbed.Cryptic.ConvertResource
                         {
                             var serializer = new DataContractSerializer(listType);
 
-                            var fileNameField = type.GetField("FileName",
+                            var fileNameFieldName = "FileName";
+                            if (string.IsNullOrEmpty(target.FileNameKey) == false)
+                            {
+                                fileNameFieldName = target.FileNameKey;
+                            }
+
+                            var fileNameField = type.GetField(fileNameFieldName,
                                                               BindingFlags.Public | BindingFlags.Instance);
                             if (fileNameField == null)
                             {
                                 Console.WriteLine("Class '{0}' does not expose '{1}'!",
                                                   target.Class,
-                                                  "FileName");
+                                                  fileNameFieldName);
                                 return;
                             }
 
@@ -406,13 +412,19 @@ namespace Gibbed.Cryptic.ConvertResource
                         {
                             var serializer = new DataContractSerializer(type);
 
-                            var fileNameField = type.GetField("FileName",
+                            var fileNameFieldName = "FileName";
+                            if (string.IsNullOrEmpty(target.FileNameKey) == false)
+                            {
+                                fileNameFieldName = target.FileNameKey;
+                            }
+
+                            var fileNameField = type.GetField(fileNameFieldName,
                                                               BindingFlags.Public | BindingFlags.Instance);
                             if (fileNameField == null)
                             {
                                 Console.WriteLine("Class '{0}' does not expose '{1}'!",
                                                   target.Class,
-                                                  "FileName");
+                                                  fileNameFieldName);
                                 return;
                             }
 

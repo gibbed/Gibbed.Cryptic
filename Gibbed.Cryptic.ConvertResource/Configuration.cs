@@ -129,6 +129,9 @@ namespace Gibbed.Cryptic.ConvertResource
             [JsonProperty(PropertyName = "key", Required = Required.Default)]
             public string Key;
 
+            [JsonProperty(PropertyName = "file_key", Required = Required.Default)]
+            public string FileNameKey;
+
             [JsonProperty(PropertyName = "class", Required = Required.Always)]
             public string Class;
 
