@@ -1149,7 +1149,7 @@ namespace Gibbed.Cryptic.ExportParserTables
                 return;
             }
 
-            var outputPath = Path.Combine("parsers", projectName);
+            var outputPath = Path.Combine("schemas", projectName);
             Directory.CreateDirectory(outputPath);
 
             string[] dontHash =

@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2013 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Serialization;
@@ -30,7 +31,6 @@ using System.Xml.Serialization;
 using System.Xml.XPath;
 using Gibbed.Cryptic.FileFormats;
 using NDesk.Options;
-using Newtonsoft.Json;
 using Blob = Gibbed.Cryptic.FileFormats.Blob;
 
 namespace Gibbed.Cryptic.ConvertObject
@@ -39,12 +39,12 @@ namespace Gibbed.Cryptic.ConvertObject
     {
         private static string GetExecutablePath()
         {
-            return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         }
 
         private static string GetExecutableName()
         {
-            return Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            return Path.GetFileName(Assembly.GetExecutingAssembly().Location);
         }
 
         public static void Main(string[] args)
@@ -56,24 +56,8 @@ namespace Gibbed.Cryptic.ConvertObject
                 NewLineHandling = NewLineHandling.Replace,
             };
 
-            var configPath = Path.Combine(
-                GetExecutablePath(), "parsers", "objects.json");
-
-            Configuration config;
-            if (File.Exists(configPath) == false)
-            {
-                config = new Configuration();
-            }
-            else
-            {
-                string configText;
-                using (var input = File.OpenRead(configPath))
-                {
-                    var reader = new StreamReader(input);
-                    configText = reader.ReadToEnd();
-                }
-                config = JsonConvert.DeserializeObject<Configuration>(configText);
-            }
+            var configBasePath = Path.Combine(GetExecutablePath(), "serializers", "objects");
+            var config = Configuration.Load(configBasePath);
 
             string schemaName = null;
             var mode = Mode.Unknown;
@@ -81,26 +65,10 @@ namespace Gibbed.Cryptic.ConvertObject
 
             var options = new OptionSet()
             {
-                {
-                    "b|xml2bin",
-                    "convert xml to bin",
-                    v => mode = v != null ? Mode.Import : mode
-                    },
-                {
-                    "x|bin2xml",
-                    "convert bin to xml",
-                    v => mode = v != null ? Mode.Export : mode
-                    },
-                {
-                    "s|schema=",
-                    "override schema name",
-                    v => schemaName = v
-                    },
-                {
-                    "h|help",
-                    "show this message and exit",
-                    v => showHelp = v != null
-                    },
+                { "b|xml2bin", "convert xml to bin", v => mode = v != null ? Mode.Import : mode },
+                { "x|bin2xml", "convert bin to xml", v => mode = v != null ? Mode.Export : mode },
+                { "s|schema=", "override schema name", v => schemaName = v },
+                { "h|help", "show this message and exit", v => showHelp = v != null },
             };
 
             List<string> extras;
@@ -188,11 +156,10 @@ namespace Gibbed.Cryptic.ConvertObject
                         return;
                     }
 
-                    var assemblyPath = Path.Combine(
-                        GetExecutablePath(),
-                        "parsers",
-                        "assemblies",
-                        version + ".dll");
+                    var assemblyPath = Path.Combine(GetExecutablePath(),
+                                                    "serializers",
+                                                    "assemblies",
+                                                    version + ".dll");
                     if (File.Exists(assemblyPath) == false)
                     {
                         Console.WriteLine("Assembly '{0}' appears to be missing!",
@@ -210,9 +177,11 @@ namespace Gibbed.Cryptic.ConvertObject
                         return;
                     }
 
-                    var resource = new Resource();
-                    resource.Schema = schemaName;
-                    resource.ParserHash = blob.ParserHash;
+                    var resource = new Resource
+                    {
+                        Schema = schemaName,
+                        ParserHash = blob.ParserHash,
+                    };
 
                     foreach (var file in blob.Files)
                     {
@@ -237,7 +206,8 @@ namespace Gibbed.Cryptic.ConvertObject
                     {
                         if (i < 0 || i >= resource.Files.Count)
                         {
-                            throw new KeyNotFoundException("file index " + i.ToString() + " is out of range");
+                            throw new KeyNotFoundException("file index " + i.ToString(CultureInfo.InvariantCulture) +
+                                                           " is out of range");
                         }
 
                         return resource.Files[i].Name;
@@ -260,22 +230,22 @@ namespace Gibbed.Cryptic.ConvertObject
                         writer.WriteStartElement("object");
 
                         writer.WriteStartElement("data");
-                        var objectWriter = XmlDictionaryWriter.Create(writer, xmlSettings);
+                        var objectWriter = XmlWriter.Create(writer, xmlSettings);
                         var objectSerializer = new DataContractSerializer(type);
                         objectSerializer.WriteStartObject(objectWriter, type);
-                        objectWriter.WriteAttributeString("xmlns", "c", null, "http://datacontract.gib.me/cryptic");
-                        //objectWriter.WriteAttributeString("xmlns", "i", null, "http://www.w3.org/2001/XMLSchema-instance");
+                        objectWriter.WriteAttributeString("xmlns", "c", "", "http://datacontract.gib.me/cryptic");
+                        //objectWriter.WriteAttributeString("xmlns", "i", "", "http://www.w3.org/2001/XMLSchema-instance");
                         objectWriter.WriteAttributeString("xmlns",
                                                           "a",
-                                                          null,
+                                                          "",
                                                           "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
-                        //objectWriter.WriteAttributeString("xmlns", "s", null, "http://datacontract.gib.me/startrekonline");
+                        //objectWriter.WriteAttributeString("xmlns", "s", "", "http://datacontract.gib.me/startrekonline");
                         objectSerializer.WriteObjectContent(objectWriter, data);
                         objectSerializer.WriteEndObject(objectWriter);
                         objectWriter.Flush();
                         writer.WriteEndElement();
 
-                        var resourceWriter = XmlDictionaryWriter.Create(writer, xmlSettings);
+                        var resourceWriter = XmlWriter.Create(writer, xmlSettings);
                         var resourceSerializer = new XmlSerializer(typeof(Resource));
                         resourceSerializer.Serialize(resourceWriter, resource);
                         resourceWriter.Flush();
@@ -293,10 +263,6 @@ namespace Gibbed.Cryptic.ConvertObject
 
                 Console.WriteLine("Loading XML...");
 
-                Type type;
-                Resource resource;
-                object data;
-
                 var blob = new BlobFile();
 
                 using (var input = File.OpenRead(inputPath))
@@ -305,8 +271,12 @@ namespace Gibbed.Cryptic.ConvertObject
                     var nav = doc.CreateNavigator();
 
                     var resourceNode = nav.SelectSingleNode("/object/resource");
+                    if (resourceNode == null)
+                    {
+                        throw new InvalidOperationException();
+                    }
                     var resourceSerializer = new XmlSerializer(typeof(Resource));
-                    resource = (Resource)resourceSerializer.Deserialize(resourceNode.ReadSubtree());
+                    var resource = (Resource)resourceSerializer.Deserialize(resourceNode.ReadSubtree());
 
                     var schema = config.GetSchema(resource.Schema);
                     if (schema == null)
@@ -333,11 +303,10 @@ namespace Gibbed.Cryptic.ConvertObject
                         return;
                     }
 
-                    var assemblyPath = Path.Combine(
-                        GetExecutablePath(),
-                        "parsers",
-                        "assemblies",
-                        version + ".dll");
+                    var assemblyPath = Path.Combine(GetExecutablePath(),
+                                                    "serializers",
+                                                    "assemblies",
+                                                    version + ".dll");
                     if (File.Exists(assemblyPath) == false)
                     {
                         Console.WriteLine("Assembly '{0}' appears to be missing!",
@@ -346,7 +315,7 @@ namespace Gibbed.Cryptic.ConvertObject
                     }
 
                     var assembly = Assembly.LoadFrom(assemblyPath);
-                    type = assembly.GetType(target.Class);
+                    var type = assembly.GetType(target.Class);
                     if (type == null)
                     {
                         Console.WriteLine("Assembly '{0}' does not expose '{1}'!",
@@ -377,12 +346,17 @@ namespace Gibbed.Cryptic.ConvertObject
                     }
 
                     var objectNode = nav.SelectSingleNode("/object/data");
+                    if (objectNode == null)
+                    {
+                        throw new InvalidOperationException();
+                    }
+
                     objectNode.MoveToFirstChild();
 
                     var subtree = objectNode.ReadSubtree();
 
                     var objectSerializer = new DataContractSerializer(type);
-                    data = objectSerializer.ReadObject(subtree);
+                    var data = objectSerializer.ReadObject(subtree);
 
                     Func<string, int> getIndexFromFileName = s => blob.Files.FindIndex(fe => fe.Name == s);
 

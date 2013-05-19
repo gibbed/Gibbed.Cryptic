@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2013 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -20,7 +20,9 @@
  *    distribution.
  */
 
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 
@@ -29,35 +31,77 @@ namespace Gibbed.Cryptic.ConvertObject
     [JsonObject(MemberSerialization.OptIn)]
     internal class Configuration
     {
-        public Schema GetSchema(string name)
+        private readonly Dictionary<string, Schema> _Schemas = new Dictionary<string, Schema>();
+        private readonly Dictionary<string, string> _Aliases = new Dictionary<string, string>();
+
+        public Dictionary<string, Schema> Schemas
         {
-            if (this.Schemas.ContainsKey(name) == true)
+            get { return _Schemas; }
+        }
+
+        public Dictionary<string, string> Aliases
+        {
+            get { return _Aliases; }
+        }
+
+        public static Configuration Load(string basePath)
+        {
+            var config = new Configuration();
+
+            if (Directory.Exists(basePath) == true)
             {
-                return this.Schemas[name];
-            }
-            else if (this.SchemaAliases.ContainsKey(name) == true)
-            {
-                var alias = this.SchemaAliases[name];
-                if (alias != name)
+                var paths = Directory.GetFiles(basePath, "*.serializer.json", SearchOption.AllDirectories);
+                foreach (var path in paths)
                 {
-                    return this.GetSchema(alias);
+                    string text;
+                    using (var input = File.OpenRead(path))
+                    {
+                        var reader = new StreamReader(input);
+                        text = reader.ReadToEnd();
+                    }
+                    var schema = JsonConvert.DeserializeObject<Schema>(text);
+
+                    config._Schemas.Add(schema.Name.ToLowerInvariant(), schema);
+                    if (schema.Aliases != null)
+                    {
+                        foreach (var alias in schema.Aliases)
+                        {
+                            config._Aliases.Add(alias.ToLowerInvariant(), schema.Name.ToLowerInvariant());
+                        }
+                    }
                 }
             }
 
-            return null;
+            return config;
         }
 
-        [JsonProperty(PropertyName = "schemas", Required = Required.Always)]
-        public Dictionary<string, Schema> Schemas
-            = new Dictionary<string, Schema>();
+        public Schema GetSchema(string name)
+        {
+            if (name == null)
+            {
+                throw new ArgumentNullException("name");
+            }
 
-        [JsonProperty(PropertyName = "schema_aliases", Required = Required.AllowNull)]
-        public Dictionary<string, string> SchemaAliases
-            = new Dictionary<string, string>();
+            name = name.ToLowerInvariant();
+
+            var alias = this._Aliases.FirstOrDefault(s => s.Key == name).Value;
+            if (string.IsNullOrEmpty(alias) == false)
+            {
+                name = alias;
+            }
+
+            return this._Schemas.FirstOrDefault(s => s.Key == name).Value;
+        }
 
         [JsonObject(MemberSerialization.OptIn)]
         public class Schema
         {
+            [JsonProperty(PropertyName = "name", Required = Required.Always)]
+            public string Name;
+
+            [JsonProperty(PropertyName = "aliases", Required = Required.Default)]
+            public List<string> Aliases = new List<string>();
+
             [JsonProperty(PropertyName = "is_client", Required = Required.Default)]
             public bool IsClient;
 

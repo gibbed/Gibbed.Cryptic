@@ -120,7 +120,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
             var parserLoader = new ParserLoader(inputPath);
             var enumLoader = new EnumLoader(inputPath);
 
-            var outputPath = extras.Count > 0 ? extras[0] : "Gibbed.StarTrekOnline.Serialization.dll";
+            Func<string> defaultName = () => "Gibbed." + targetGame.ToString() + ".Serialization.dll";
+            var outputPath = extras.Count > 0 ? extras[0] : defaultName();
             new Generator(targetGame, parserLoader, enumLoader).ExportAssembly(outputPath, version);
         }
     }
