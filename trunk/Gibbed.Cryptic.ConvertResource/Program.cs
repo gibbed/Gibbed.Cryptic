@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2013 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -23,6 +23,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -31,7 +32,6 @@ using System.Xml;
 using System.Xml.Serialization;
 using Gibbed.Cryptic.FileFormats;
 using NDesk.Options;
-using Newtonsoft.Json;
 using Blob = Gibbed.Cryptic.FileFormats.Blob;
 
 namespace Gibbed.Cryptic.ConvertResource
@@ -40,12 +40,12 @@ namespace Gibbed.Cryptic.ConvertResource
     {
         private static string GetExecutablePath()
         {
-            return Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            return Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
         }
 
         private static string GetExecutableName()
         {
-            return Path.GetFileName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            return Path.GetFileName(Assembly.GetExecutingAssembly().Location);
         }
 
         public static void Main(string[] args)
@@ -57,24 +57,8 @@ namespace Gibbed.Cryptic.ConvertResource
                 NewLineHandling = NewLineHandling.Replace,
             };
 
-            var configPath = Path.Combine(
-                GetExecutablePath(), "parsers", "resources.json");
-
-            Configuration config;
-            if (File.Exists(configPath) == false)
-            {
-                config = new Configuration();
-            }
-            else
-            {
-                string configText;
-                using (var input = File.OpenRead(configPath))
-                {
-                    var reader = new StreamReader(input);
-                    configText = reader.ReadToEnd();
-                }
-                config = JsonConvert.DeserializeObject<Configuration>(configText);
-            }
+            var configBasePath = Path.Combine(GetExecutablePath(), "serializers", "resources");
+            var config = Configuration.Load(configBasePath);
 
             string schemaName = null;
             var mode = Mode.Unknown;
@@ -82,26 +66,10 @@ namespace Gibbed.Cryptic.ConvertResource
 
             var options = new OptionSet()
             {
-                {
-                    "b|xml2bin",
-                    "convert xml to bin",
-                    v => mode = v != null ? Mode.Import : mode
-                    },
-                {
-                    "x|bin2xml",
-                    "convert bin to xml",
-                    v => mode = v != null ? Mode.Export : mode
-                    },
-                {
-                    "s|schema=",
-                    "override schema name",
-                    v => schemaName = v
-                    },
-                {
-                    "h|help",
-                    "show this message and exit",
-                    v => showHelp = v != null
-                    },
+                { "b|xml2bin", "convert xml to bin", v => mode = v != null ? Mode.Import : mode },
+                { "x|bin2xml", "convert bin to xml", v => mode = v != null ? Mode.Export : mode },
+                { "s|schema=", "override schema name", v => schemaName = v },
+                { "h|help", "show this message and exit", v => showHelp = v != null },
             };
 
             List<string> extras;
@@ -190,11 +158,10 @@ namespace Gibbed.Cryptic.ConvertResource
                         return;
                     }
 
-                    var assemblyPath = Path.Combine(
-                        GetExecutablePath(),
-                        "parsers",
-                        "assemblies",
-                        version + ".dll");
+                    var assemblyPath = Path.Combine(GetExecutablePath(),
+                                                    "serializers",
+                                                    "assemblies",
+                                                    version + ".dll");
                     if (File.Exists(assemblyPath) == false)
                     {
                         Console.WriteLine("Assembly '{0}' appears to be missing!",
@@ -212,9 +179,11 @@ namespace Gibbed.Cryptic.ConvertResource
                         return;
                     }
 
-                    var resource = new Resource();
-                    resource.Schema = schemaName;
-                    resource.ParserHash = blob.ParserHash;
+                    var resource = new Resource
+                    {
+                        Schema = schemaName,
+                        ParserHash = blob.ParserHash,
+                    };
 
                     foreach (var file in blob.Files)
                     {
@@ -245,7 +214,8 @@ namespace Gibbed.Cryptic.ConvertResource
                     {
                         if (i < 0 || i >= resource.Files.Count)
                         {
-                            throw new KeyNotFoundException("file index " + i.ToString() + " is out of range");
+                            throw new KeyNotFoundException("file index " + i.ToString(CultureInfo.InvariantCulture) +
+                                                           " is out of range");
                         }
 
                         return resource.Files[i].Name;
@@ -254,7 +224,8 @@ namespace Gibbed.Cryptic.ConvertResource
                     var list = (IList)loadResource.Invoke(null,
                                                           new object[]
                                                           {
-                                                              input, schema.IsClient, schema.IsServer, getFileNameFromIndex
+                                                              input, schema.IsClient, schema.IsServer,
+                                                              getFileNameFromIndex
                                                           });
 
                     var entries = list.Cast<object>();
@@ -267,15 +238,19 @@ namespace Gibbed.Cryptic.ConvertResource
                         {
                             var serializer = new DataContractSerializer(listType);
 
-                            var entryName = "entries.xml";
+                            const string entryName = "entries.xml";
                             resource.Entries.Add(entryName);
 
                             var entryPath = Path.Combine(outputPath, entryName);
-                            Directory.CreateDirectory(Path.GetDirectoryName(entryPath));
-
                             if (File.Exists(entryPath) == true)
                             {
                                 throw new InvalidOperationException();
+                            }
+
+                            var entryParentPath = Path.GetDirectoryName(entryPath);
+                            if (string.IsNullOrEmpty(entryParentPath) == false)
+                            {
+                                Directory.CreateDirectory(entryParentPath);
                             }
 
                             using (var output = File.Create(entryPath))
@@ -286,15 +261,15 @@ namespace Gibbed.Cryptic.ConvertResource
                                     localList.Add(entry);
                                 }
 
-                                var writer = XmlDictionaryWriter.Create(output, xmlSettings);
+                                var writer = XmlWriter.Create(output, xmlSettings);
                                 serializer.WriteStartObject(writer, listType);
-                                writer.WriteAttributeString("xmlns", "c", null, "http://datacontract.gib.me/cryptic");
-                                //writer.WriteAttributeString("xmlns", "i", null, "http://www.w3.org/2001/XMLSchema-instance");
+                                writer.WriteAttributeString("xmlns", "c", "", "http://datacontract.gib.me/cryptic");
+                                //writer.WriteAttributeString("xmlns", "i", "", "http://www.w3.org/2001/XMLSchema-instance");
                                 writer.WriteAttributeString("xmlns",
                                                             "a",
-                                                            null,
+                                                            "",
                                                             "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
-                                //writer.WriteAttributeString("xmlns", "s", null, "http://datacontract.gib.me/startrekonline");
+                                //writer.WriteAttributeString("xmlns", "s", "", "http://datacontract.gib.me/startrekonline");
                                 serializer.WriteObjectContent(writer, localList);
                                 serializer.WriteEndObject(writer);
                                 writer.Flush();
@@ -328,31 +303,36 @@ namespace Gibbed.Cryptic.ConvertResource
                                 resource.Entries.Add(entryName);
 
                                 var entryPath = Path.Combine(outputPath, entryName);
-                                Directory.CreateDirectory(Path.GetDirectoryName(entryPath));
-
                                 if (File.Exists(entryPath) == true)
                                 {
                                     throw new InvalidOperationException();
                                 }
 
+                                var entryParentPath = Path.GetDirectoryName(entryPath);
+                                if (string.IsNullOrEmpty(entryParentPath) == false)
+                                {
+                                    Directory.CreateDirectory(entryParentPath);
+                                }
+
                                 using (var output = File.Create(entryPath))
                                 {
                                     var localEntries = (IList)Activator.CreateInstance(listType);
+                                    string name = fileName;
                                     foreach (var entry in entries
-                                        .Where(e => (string)(fileNameField.GetValue(e)) == fileName))
+                                        .Where(e => (string)(fileNameField.GetValue(e)) == name))
                                     {
                                         localEntries.Add(entry);
                                     }
 
-                                    var writer = XmlDictionaryWriter.Create(output, xmlSettings);
+                                    var writer = XmlWriter.Create(output, xmlSettings);
                                     serializer.WriteStartObject(writer, listType);
-                                    writer.WriteAttributeString("xmlns", "c", null, "http://datacontract.gib.me/cryptic");
-                                    //writer.WriteAttributeString("xmlns", "i", null, "http://www.w3.org/2001/XMLSchema-instance");
+                                    writer.WriteAttributeString("xmlns", "c", "", "http://datacontract.gib.me/cryptic");
+                                    //writer.WriteAttributeString("xmlns", "i", "", "http://www.w3.org/2001/XMLSchema-instance");
                                     writer.WriteAttributeString("xmlns",
                                                                 "a",
-                                                                null,
+                                                                "",
                                                                 "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
-                                    //writer.WriteAttributeString("xmlns", "s", null, "http://datacontract.gib.me/startrekonline");
+                                    //writer.WriteAttributeString("xmlns", "s", "", "http://datacontract.gib.me/startrekonline");
                                     serializer.WriteObjectContent(writer, localEntries);
                                     serializer.WriteEndObject(writer);
                                     writer.Flush();
@@ -391,24 +371,28 @@ namespace Gibbed.Cryptic.ConvertResource
                                 resource.Entries.Add(entryName);
 
                                 var entryPath = Path.Combine(outputPath, entryName);
-                                Directory.CreateDirectory(Path.GetDirectoryName(entryPath));
-
                                 if (File.Exists(entryPath) == true)
                                 {
                                     throw new InvalidOperationException();
                                 }
 
+                                var entryParentPath = Path.GetDirectoryName(entryPath);
+                                if (string.IsNullOrEmpty(entryParentPath) == false)
+                                {
+                                    Directory.CreateDirectory(entryParentPath);
+                                }
+
                                 using (var output = File.Create(entryPath))
                                 {
-                                    var writer = XmlDictionaryWriter.Create(output, xmlSettings);
+                                    var writer = XmlWriter.Create(output, xmlSettings);
                                     serializer.WriteStartObject(writer, entry);
-                                    writer.WriteAttributeString("xmlns", "c", null, "http://datacontract.gib.me/cryptic");
-                                    //writer.WriteAttributeString("xmlns", "i", null, "http://www.w3.org/2001/XMLSchema-instance");
+                                    writer.WriteAttributeString("xmlns", "c", "", "http://datacontract.gib.me/cryptic");
+                                    //writer.WriteAttributeString("xmlns", "i", "", "http://www.w3.org/2001/XMLSchema-instance");
                                     writer.WriteAttributeString("xmlns",
                                                                 "a",
-                                                                null,
+                                                                "",
                                                                 "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
-                                    //writer.WriteAttributeString("xmlns", "s", null, "http://datacontract.gib.me/startrekonline");
+                                    //writer.WriteAttributeString("xmlns", "s", "", "http://datacontract.gib.me/startrekonline");
                                     serializer.WriteObjectContent(writer, entry);
                                     serializer.WriteEndObject(writer);
                                     writer.Flush();
@@ -460,24 +444,28 @@ namespace Gibbed.Cryptic.ConvertResource
                                 resource.Entries.Add(entryName);
 
                                 var entryPath = Path.Combine(outputPath, entryName);
-                                Directory.CreateDirectory(Path.GetDirectoryName(entryPath));
-
                                 if (File.Exists(entryPath) == true)
                                 {
                                     throw new InvalidOperationException();
                                 }
 
+                                var entryParentPath = Path.GetDirectoryName(entryPath);
+                                if (string.IsNullOrEmpty(entryParentPath) == false)
+                                {
+                                    Directory.CreateDirectory(entryParentPath);
+                                }
+
                                 using (var output = File.Create(entryPath))
                                 {
-                                    var writer = XmlDictionaryWriter.Create(output, xmlSettings);
+                                    var writer = XmlWriter.Create(output, xmlSettings);
                                     serializer.WriteStartObject(writer, entry);
-                                    writer.WriteAttributeString("xmlns", "c", null, "http://datacontract.gib.me/cryptic");
-                                    //writer.WriteAttributeString("xmlns", "i", null, "http://www.w3.org/2001/XMLSchema-instance");
+                                    writer.WriteAttributeString("xmlns", "c", "", "http://datacontract.gib.me/cryptic");
+                                    //writer.WriteAttributeString("xmlns", "i", "", "http://www.w3.org/2001/XMLSchema-instance");
                                     writer.WriteAttributeString("xmlns",
                                                                 "a",
-                                                                null,
+                                                                "",
                                                                 "http://schemas.microsoft.com/2003/10/Serialization/Arrays");
-                                    //writer.WriteAttributeString("xmlns", "s", null, "http://datacontract.gib.me/startrekonline");
+                                    //writer.WriteAttributeString("xmlns", "s", "", "http://datacontract.gib.me/startrekonline");
                                     serializer.WriteObjectContent(writer, entry);
                                     serializer.WriteEndObject(writer);
                                     writer.Flush();
@@ -496,7 +484,7 @@ namespace Gibbed.Cryptic.ConvertResource
                     Console.WriteLine("Saving index...");
                     using (var output = File.Create(Path.Combine(outputPath, "@resource.xml")))
                     {
-                        var writer = XmlDictionaryWriter.Create(output, xmlSettings);
+                        var writer = XmlWriter.Create(output, xmlSettings);
                         var serializer = new XmlSerializer(typeof(Resource));
                         serializer.Serialize(writer, resource);
                         writer.Flush();
@@ -512,7 +500,7 @@ namespace Gibbed.Cryptic.ConvertResource
                 Resource resource;
                 using (var input = File.OpenRead(Path.Combine(inputPath, "@resource.xml")))
                 {
-                    var reader = XmlDictionaryReader.Create(input);
+                    var reader = XmlReader.Create(input);
                     var serializer = new XmlSerializer(typeof(Resource));
                     resource = (Resource)serializer.Deserialize(reader);
                 }
@@ -542,11 +530,10 @@ namespace Gibbed.Cryptic.ConvertResource
                     return;
                 }
 
-                var assemblyPath = Path.Combine(
-                    GetExecutablePath(),
-                    "parsers",
-                    "assemblies",
-                    version + ".dll");
+                var assemblyPath = Path.Combine(GetExecutablePath(),
+                                                "serializers",
+                                                "assemblies",
+                                                version + ".dll");
                 if (File.Exists(assemblyPath) == false)
                 {
                     Console.WriteLine("Assembly '{0}' appears to be missing!",
@@ -564,8 +551,10 @@ namespace Gibbed.Cryptic.ConvertResource
                     return;
                 }
 
-                var blob = new BlobFile();
-                blob.ParserHash = resource.ParserHash;
+                var blob = new BlobFile
+                {
+                    ParserHash = resource.ParserHash,
+                };
 
                 foreach (var file in resource.Files)
                 {
@@ -605,7 +594,7 @@ namespace Gibbed.Cryptic.ConvertResource
 
                             using (var input = File.OpenRead(entryPath))
                             {
-                                var reader = XmlDictionaryReader.Create(input);
+                                var reader = XmlReader.Create(input);
                                 var localEntries = (IList)serializer.ReadObject(reader);
                                 foreach (var entry in localEntries)
                                 {
@@ -630,7 +619,7 @@ namespace Gibbed.Cryptic.ConvertResource
 
                             using (var input = File.OpenRead(entryPath))
                             {
-                                var reader = XmlDictionaryReader.Create(input);
+                                var reader = XmlReader.Create(input);
                                 var entry = serializer.ReadObject(reader);
                                 entries.Add(entry);
                             }
@@ -660,7 +649,7 @@ namespace Gibbed.Cryptic.ConvertResource
                     Console.WriteLine("Sorting entries...");
                     var sortedEntries = entries
                         .Cast<object>()
-                        .OrderBy(e => keyField.GetValue(e))
+                        .OrderBy(keyField.GetValue)
                         .ToList();
                     entries.Clear();
                     foreach (var entry in sortedEntries)
