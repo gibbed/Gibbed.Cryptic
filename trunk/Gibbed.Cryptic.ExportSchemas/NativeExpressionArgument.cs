@@ -20,31 +20,21 @@
  *    distribution.
  */
 
+using System;
 using System.Runtime.InteropServices;
+using Parser = Gibbed.Cryptic.FileFormats.Parser;
 
-namespace Gibbed.Cryptic.ExportParserTables
+namespace Gibbed.Cryptic.ExportSchemas
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct NativeExpressionFunction
+    public struct NativeExpressionArgument
     {
-        public int argc;
-        public int ExprCodeEnum;
-        public uint handler;
-        public uint Unknown00C;
-        public uint FuncNamePointer;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]
-        public NativeExpressionArgument[] args;
-        
-        public NativeExpressionArgument ReturnType;
-
-        [MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]
-        public uint[] tags;
-        
-        public float Cost;
-        public uint ExprCodeNamePointer;
-        public uint Unknown1B8;
-        public uint funcFlags;
-        public uint parsedTags;
+        public int Type;
+        public uint NamePointer;
+        public uint staticCheckTypePointer;
+        public uint field_C;
+        public int allowNULLPtr;
+        public int scTypeCategory;
+        public uint ptrTypeNamePointer;
     }
 }

@@ -22,7 +22,7 @@
 
 using System;
 
-namespace Gibbed.Cryptic.ExportParserTables
+namespace Gibbed.Cryptic.ExportSchemas
 {
     public class NativeException : InvalidOperationException
     {

@@ -26,7 +26,7 @@ using System.Diagnostics;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
-namespace Gibbed.Cryptic.ExportParserTables
+namespace Gibbed.Cryptic.ExportSchemas
 {
     /// <summary>
     /// Allows for searching of patterns in an array of bytes.

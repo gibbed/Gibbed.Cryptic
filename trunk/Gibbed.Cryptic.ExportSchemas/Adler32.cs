@@ -23,7 +23,7 @@
 using System;
 using System.Text;
 
-namespace Gibbed.Cryptic.ExportParserTables
+namespace Gibbed.Cryptic.ExportSchemas
 {
     internal static class Adler32
     {

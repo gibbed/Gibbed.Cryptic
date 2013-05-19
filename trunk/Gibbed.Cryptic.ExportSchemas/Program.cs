@@ -30,7 +30,7 @@ using System.Xml;
 using Gibbed.IO;
 using Parser = Gibbed.Cryptic.FileFormats.Parser;
 
-namespace Gibbed.Cryptic.ExportParserTables
+namespace Gibbed.Cryptic.ExportSchemas
 {
     internal class Program
     {

@@ -26,7 +26,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace Gibbed.Cryptic.ExportParserTables
+namespace Gibbed.Cryptic.ExportSchemas
 {
     public class ProcessMemory : IDisposable
     {
