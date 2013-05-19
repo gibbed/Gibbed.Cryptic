@@ -25,7 +25,7 @@ using System.Globalization;
 using System.Runtime.InteropServices;
 using Parser = Gibbed.Cryptic.FileFormats.Parser;
 
-namespace Gibbed.Cryptic.ExportParserTables
+namespace Gibbed.Cryptic.ExportSchemas
 {
     [StructLayout(LayoutKind.Sequential)]
     public class NativeColumn
