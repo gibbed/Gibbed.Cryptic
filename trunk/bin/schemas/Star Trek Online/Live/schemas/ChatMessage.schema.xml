@@ -37,7 +37,7 @@
     <column name="uVirtualShardID" type="INT">
       <offset>24</offset>
     </column>
-    <column name="subject" type="STRING">
+    <column name="Subject" type="STRING">
       <offset>28</offset>
       <flags>
         <flag>ESTRING</flag>
@@ -55,7 +55,7 @@
         <format_string name="XML_ENCODE_BASE64">1</format_string>
       </format_strings>
     </column>
-    <column name="thread" type="STRING">
+    <column name="Thread" type="STRING">
       <offset>36</offset>
       <flags>
         <flag>ESTRING</flag>
@@ -73,6 +73,9 @@
     </column>
     <column name="xmppType" type="INT">
       <offset>48</offset>
+    </column>
+    <column name="BlacklistViolation" type="U8">
+      <offset>52</offset>
     </column>
     <column name="}" type="END" />
   </table>

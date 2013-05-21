@@ -7,19 +7,18 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="CurrentGameType" type="INT">
+    <column name="PartitionIdx" type="INT">
       <offset>0</offset>
-      <static_define_list external="PVPGameType" />
     </column>
     <column name="Timer" type="F32">
-      <offset>28</offset>
+      <offset>44</offset>
     </column>
     <column name="TimerCountDown" type="BIT">
-      <offset>32</offset>
+      <offset>48</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="InOvertime" type="BIT">
-      <offset>32</offset>
+      <offset>48</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />

@@ -46,45 +46,75 @@
       <offset>48</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="DefaultPlayerAllegiance" type="U8">
+    <column name="RequiredPermission" type="STRING">
       <offset>60</offset>
     </column>
-    <column name="StartingSpecies" type="STRUCT">
+    <column name="DefaultPlayerAllegiance" type="U8">
       <offset>64</offset>
+    </column>
+    <column name="CanBeSubAllegiance" type="U8">
+      <offset>65</offset>
+    </column>
+    <column name="DeferOfficerToSubAllegiance" type="U8">
+      <offset>66</offset>
+    </column>
+    <column name="CannotPlayUGC" type="U8">
+      <offset>67</offset>
+    </column>
+    <column name="RequiredMissionForAllegianceChange" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>MissionDef</dictionary_name>
+    </column>
+    <column name="AllowedAllegianceChange" type="STRINGARRAY">
+      <offset>72</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StartingSpecies" type="STRUCT">
+      <offset>76</offset>
       <subtable external="SpeciesDefRef" />
     </column>
     <column name="PetGrantSpecies" type="STRUCT">
-      <offset>68</offset>
+      <offset>80</offset>
       <subtable external="SpeciesDefRef" />
     </column>
+    <column name="SpeciesChange" type="STRUCT">
+      <offset>84</offset>
+      <subtable external="AllegianceSpeciesChange" />
+    </column>
     <column name="AllowedClass" type="STRUCT">
-      <offset>72</offset>
+      <offset>88</offset>
       <subtable external="CharacterClassRef" />
     </column>
     <column name="WarpRestrictions" type="OPTIONALSTRUCT">
-      <offset>76</offset>
+      <offset>92</offset>
       <subtable external="AllegianceWarpRestrict" />
     </column>
     <column name="DefaultMap" type="STRUCT">
-      <offset>80</offset>
+      <offset>96</offset>
       <subtable external="AllegianceDefaultMap" />
     </column>
     <column name="NamePrefix" type="STRUCT">
-      <offset>84</offset>
+      <offset>100</offset>
       <subtable external="AllegianceNamePrefix" />
     </column>
     <column name="SubNamePrefix" type="STRUCT">
-      <offset>88</offset>
+      <offset>104</offset>
       <subtable external="AllegianceNamePrefix" />
     </column>
     <column name="NewCharacterMap" type="STRINGARRAY">
-      <offset>92</offset>
+      <offset>108</offset>
     </column>
     <column name="SkipTutorialMap" type="STRINGARRAY">
-      <offset>96</offset>
+      <offset>112</offset>
     </column>
     <column name="FallbackStaticMap" type="STRING">
-      <offset>100</offset>
+      <offset>116</offset>
+    </column>
+    <column name="FXSwap" type="STRUCT">
+      <offset>120</offset>
+      <subtable external="PCFXSwap" />
     </column>
     <column name="}" type="END" />
   </table>

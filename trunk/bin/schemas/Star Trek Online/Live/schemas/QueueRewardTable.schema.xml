@@ -11,22 +11,42 @@
       <offset>0</offset>
       <static_define_list external="PVPGameType" />
     </column>
+    <column name="RewardCondition" type="INT">
+      <offset>4</offset>
+      <static_define_list external="EQueueRewardTableCondition" />
+    </column>
     <column name="Victory" type="INT">
       <offset>4</offset>
-      <static_define_list external="QueueVictoryType" />
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>RewardCondition</redundant_name>
+      <static_define_list external="EQueueRewardTableCondition" />
+    </column>
+    <column name="ExprRewardConditionBlock" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="RewardCondition" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprRewardConditionBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
     </column>
     <column name="RewardTable" type="REFERENCE">
-      <offset>8</offset>
+      <offset>12</offset>
       <flags>
         <flag>STRUCT_NORECURSE</flag>
       </flags>
       <dictionary_name>RewardTable</dictionary_name>
     </column>
     <column name="Event" type="STRING">
-      <offset>12</offset>
+      <offset>16</offset>
     </column>
     <column name="ScaleReward" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />

@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIStyleColorPaletteTweenState">
+  <table>
+    <column name="UIStyleColorPaletteTweenState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Tween" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UIStyleColorPaletteTween" />
+    </column>
+    <column name="TweenTime" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="InitialPalette" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="UIStyleColorPalette" />
+    </column>
+    <column name="Initial" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UIStyleColorPalette" />
+    </column>
+    <column name="FinalPalette" type="EMBEDDEDSTRUCT">
+      <offset>28</offset>
+      <subtable external="UIStyleColorPalette" />
+    </column>
+    <column name="Final" type="OPTIONALSTRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="UIStyleColorPalette" />
+    </column>
+    <column name="Output" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="UIStyleColorPalette" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

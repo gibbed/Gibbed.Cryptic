@@ -15,6 +15,16 @@
       <offset>4</offset>
       <static_define_list external="PowerMode" />
     </column>
+    <column name="SecondsCooldownAfterSlotting" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="ModeToDisableCooldown" type="INT">
+      <offset>12</offset>
+      <static_define_list external="PowerMode" />
+    </column>
+    <column name="DisableSlottingIfCooldown" type="U8">
+      <offset>16</offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

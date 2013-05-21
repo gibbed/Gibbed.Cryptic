@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCSearchData">
+  <table>
+    <column name="UGCSearchData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="shardName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="EntContainerID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Search" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="UGCProjectSearchInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

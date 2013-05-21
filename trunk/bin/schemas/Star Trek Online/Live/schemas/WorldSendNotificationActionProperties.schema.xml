@@ -12,22 +12,25 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="Sound" type="STRING">
+    <column name="LogicalString" type="STRING">
       <offset>4</offset>
+    </column>
+    <column name="Sound" type="STRING">
+      <offset>8</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="NotifyMsg" type="EMBEDDEDSTRUCT">
-      <offset>8</offset>
+      <offset>12</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="HeadshotProperties" type="OPTIONALSTRUCT">
-      <offset>20</offset>
+      <offset>24</offset>
       <subtable external="WorldGameActionHeadshotProperties" />
     </column>
     <column name="SplatFX" type="STRING">
-      <offset>24</offset>
+      <offset>28</offset>
     </column>
     <column name="End" type="END" />
   </table>

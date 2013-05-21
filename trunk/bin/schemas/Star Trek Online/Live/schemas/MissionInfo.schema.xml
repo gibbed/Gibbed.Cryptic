@@ -144,68 +144,86 @@
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
-    <column name="waypointList" type="STRUCT">
+    <column name="bLastMissionPlayingAsBetaReviewer" type="U8">
       <offset>60</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="waypointList" type="STRUCT">
+      <offset>64</offset>
       <subtable external="MinimapWaypoint" />
     </column>
     <column name="clientGameTimers" type="STRUCT">
-      <offset>64</offset>
+      <offset>68</offset>
       <flags>
         <flag>CLIENT_ONLY</flag>
       </flags>
       <subtable external="GameTimer" />
     </column>
     <column name="dirtyBit" type="U8">
-      <offset>68</offset>
+      <offset>72</offset>
       <flags>
         <flag>NO_NETSEND</flag>
         <flag>DIRTY_BIT</flag>
       </flags>
     </column>
     <column name="eaQueuedMissionOffers" type="STRUCT">
-      <offset>72</offset>
+      <offset>76</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="QueuedMissionOffer" />
     </column>
     <column name="pchCurrentOpenMission" type="STRING">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="openMissionVolumeTimestamp" type="INT">
-      <offset>80</offset>
+      <offset>84</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="pLeaderboardInfo" type="OPTIONALSTRUCT">
-      <offset>84</offset>
+      <offset>88</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="OpenMissionLeaderboardInfo" />
     </column>
     <column name="pchTrackedMission" type="STRING">
-      <offset>88</offset>
+      <offset>92</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="hTrackedContact" type="REFERENCE">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <dictionary_name>ContactDef</dictionary_name>
     </column>
     <column name="iTotalPerkPoints" type="INT">
-      <offset>96</offset>
+      <offset>100</offset>
     </column>
     <column name="eaiEscorting" type="INTARRAY">
-      <offset>100</offset>
+      <offset>104</offset>
+    </column>
+    <column name="bHasTeamCorral" type="U8">
+      <offset>108</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+    </column>
+    <column name="uLastTeamCorralUpdateTime" type="INT">
+      <offset>112</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
     </column>
     <column name="eaRequests" type="IGNORE">
       <flags>

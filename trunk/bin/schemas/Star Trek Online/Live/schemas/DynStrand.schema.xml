@@ -26,58 +26,70 @@
       <offset>16</offset>
       <num_elements>3</num_elements>
     </column>
-    <column name="strongPoint" type="EMBEDDEDSTRUCT">
+    <column name="AxisDuringSim" type="F32FIXEDARRAY">
       <offset>28</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="strongPoint" type="EMBEDDEDSTRUCT">
+      <offset>40</offset>
       <subtable external="DynStrandPoint" />
     </column>
     <column name="weakPoint" type="EMBEDDEDSTRUCT">
-      <offset>152</offset>
+      <offset>164</offset>
       <subtable external="DynStrandPoint" />
     </column>
     <column name="RootPos" type="F32FIXEDARRAY">
-      <offset>276</offset>
-      <num_elements>3</num_elements>
-    </column>
-    <column name="EndPos" type="F32FIXEDARRAY">
       <offset>288</offset>
       <num_elements>3</num_elements>
     </column>
-    <column name="SelfSpringK" type="F32">
+    <column name="EndPos" type="F32FIXEDARRAY">
       <offset>300</offset>
+      <num_elements>3</num_elements>
     </column>
-    <column name="SelfDamperC" type="F32">
-      <offset>304</offset>
-    </column>
-    <column name="Strength" type="F32">
-      <offset>308</offset>
-    </column>
-    <column name="MaxJointAngle" type="F32">
+    <column name="SelfSpringK" type="F32">
       <offset>312</offset>
     </column>
-    <column name="WindResistance" type="F32">
+    <column name="SelfDamperC" type="F32">
       <offset>316</offset>
     </column>
-    <column name="Gravity" type="F32">
+    <column name="Strength" type="F32">
       <offset>320</offset>
     </column>
-    <column name="TorsionRatio" type="F32">
+    <column name="MaxJointAngle" type="F32">
       <offset>324</offset>
     </column>
-    <column name="HasWeakPoint" type="BIT">
+    <column name="WindResistance" type="F32">
       <offset>328</offset>
+    </column>
+    <column name="Gravity" type="F32">
+      <offset>332</offset>
+    </column>
+    <column name="TorsionRatio" type="F32">
+      <offset>336</offset>
+    </column>
+    <column name="AxisIsInWorldSpace" type="BIT">
+      <offset>340</offset>
       <bit_offset>65536</bit_offset>
     </column>
-    <column name="FullGroundReg" type="BIT">
-      <offset>328</offset>
+    <column name="PrealignToProceduralAxis" type="BIT">
+      <offset>340</offset>
       <bit_offset>65537</bit_offset>
     </column>
-    <column name="PartialGroundReg" type="BIT">
-      <offset>328</offset>
+    <column name="HasWeakPoint" type="BIT">
+      <offset>340</offset>
       <bit_offset>65538</bit_offset>
     </column>
-    <column name="UseEulerIntegration" type="BIT">
-      <offset>328</offset>
+    <column name="FullGroundReg" type="BIT">
+      <offset>340</offset>
       <bit_offset>65539</bit_offset>
+    </column>
+    <column name="PartialGroundReg" type="BIT">
+      <offset>340</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="UseEulerIntegration" type="BIT">
+      <offset>340</offset>
+      <bit_offset>65541</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

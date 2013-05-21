@@ -22,23 +22,12 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="uProductID" type="INT">
-      <offset>12</offset>
-    </column>
-    <column name="ActivityType" type="INT">
-      <offset>16</offset>
-      <static_define_list external="AccountProxyActivityType" />
-    </column>
     <column name="TransactionType" type="INT">
-      <offset>20</offset>
+      <offset>12</offset>
       <static_define_list external="TransactionLogType" />
     </column>
-    <column name="Activation" type="OPTIONALSTRUCT">
-      <offset>24</offset>
-      <subtable external="AccountProxyProductActivationContainer" />
-    </column>
     <column name="ContainerID" type="INT">
-      <offset>28</offset>
+      <offset>16</offset>
     </column>
     <column name="}" type="END" />
   </table>

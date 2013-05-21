@@ -9,6 +9,9 @@
     <column name="{" type="START" />
     <column name="chatAccounts" type="STRUCT">
       <offset>0</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
       <subtable external="ChatPlayerStruct" />
     </column>
     <column name="}" type="END" />

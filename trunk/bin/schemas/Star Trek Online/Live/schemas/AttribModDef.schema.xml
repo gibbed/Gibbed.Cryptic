@@ -393,18 +393,38 @@
       <redundant_name>ExprBlockAffects</redundant_name>
       <subtable external="Expression_StructParam" />
     </column>
-    <column name="ArcAffects" type="F32">
+    <column name="ExprBlockIgnores" type="OPTIONALSTRUCT">
       <offset>84</offset>
+      <subtable external="Expression" />
     </column>
-    <column name="Yaw" type="F32">
+    <column name="ExprIgnoresBlock" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockIgnores</redundant_name>
+      <subtable external="Expression" />
+    </column>
+    <column name="ExprIgnores" type="OPTIONALSTRUCT">
+      <offset>84</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprBlockIgnores</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="ArcAffects" type="F32">
       <offset>88</offset>
     </column>
-    <column name="ExprChanceBlock" type="OPTIONALSTRUCT">
+    <column name="Yaw" type="F32">
       <offset>92</offset>
+    </column>
+    <column name="ExprChanceBlock" type="OPTIONALSTRUCT">
+      <offset>96</offset>
       <subtable external="Expression" />
     </column>
     <column name="Chance" type="OPTIONALSTRUCT">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -412,63 +432,63 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="CombatEvents" type="INTARRAY">
-      <offset>96</offset>
+      <offset>100</offset>
       <static_define_list external="CombatEvent" />
     </column>
     <column name="CombatEventTime" type="F32">
-      <offset>100</offset>
+      <offset>104</offset>
     </column>
     <column name="Expiration" type="OPTIONALSTRUCT">
-      <offset>104</offset>
+      <offset>108</offset>
       <subtable external="ModExpiration" />
     </column>
     <column name="StackLimit" type="INT">
-      <offset>108</offset>
+      <offset>112</offset>
     </column>
     <column name="AnimFX" type="OPTIONALSTRUCT">
-      <offset>112</offset>
+      <offset>116</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="AttribModAnimFX" />
     </column>
     <column name="ContinuingBits" type="STRINGARRAY">
-      <offset>116</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-    </column>
-    <column name="StanceWord" type="STRINGARRAY">
       <offset>120</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="AnimKeyword" type="STRING">
+    <column name="StanceWord" type="STRINGARRAY">
       <offset>124</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="ContinuingFX" type="STRINGARRAY">
+    <column name="AnimKeyword" type="STRING">
       <offset>128</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="ContinuingFXParamBlock" type="STRUCT">
+    <column name="ContinuingFX" type="STRINGARRAY">
       <offset>132</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ContinuingFXParamBlock" type="STRUCT">
+      <offset>136</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="PowerFXParam" />
     </column>
     <column name="ContinuingFxParam" type="STRUCT">
-      <offset>132</offset>
+      <offset>136</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -477,28 +497,28 @@
       <subtable external="PowerFXParam_StructParam" />
     </column>
     <column name="ConditionalBits" type="STRINGARRAY">
-      <offset>136</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-    </column>
-    <column name="ConditionalFX" type="STRINGARRAY">
       <offset>140</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="ConditionalFXParamBlock" type="STRUCT">
+    <column name="ConditionalFX" type="STRINGARRAY">
       <offset>144</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+    </column>
+    <column name="ConditionalFXParamBlock" type="STRUCT">
+      <offset>148</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="PowerFXParam" />
     </column>
     <column name="ConditionalFxParam" type="STRUCT">
-      <offset>144</offset>
+      <offset>148</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -507,42 +527,48 @@
       <subtable external="PowerFXParam_StructParam" />
     </column>
     <column name="msgAutoDesc" type="EMBEDDEDSTRUCT">
-      <offset>148</offset>
+      <offset>152</offset>
       <subtable external="DisplayMessage" />
     </column>
+    <column name="AutoDescOrder" type="INT">
+      <offset>164</offset>
+    </column>
     <column name="AutoDescKey" type="BIT">
-      <offset>160</offset>
+      <offset>168</offset>
       <bit_offset>393216</bit_offset>
     </column>
+    <column name="AutoDescMagnitudeScale" type="F32">
+      <offset>172</offset>
+    </column>
     <column name="Target" type="BIT">
-      <offset>160</offset>
+      <offset>176</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>524294</bit_offset>
+      <bit_offset>524288</bit_offset>
       <static_define_list external="ModTarget" />
       <format_strings>
         <format_string name="SPECIAL_DEFAULT">2</format_string>
       </format_strings>
     </column>
     <column name="Type" type="BIT">
-      <offset>160</offset>
-      <bit_offset>524302</bit_offset>
+      <offset>176</offset>
+      <bit_offset>524296</bit_offset>
       <static_define_list external="ModType" />
     </column>
     <column name="HitTest" type="BIT">
-      <offset>160</offset>
-      <bit_offset>196630</bit_offset>
+      <offset>176</offset>
+      <bit_offset>196624</bit_offset>
       <static_define_list external="ModHitTest" />
     </column>
     <column name="Flags" type="BIT">
-      <offset>164</offset>
+      <offset>180</offset>
       <bit_offset>1048576</bit_offset>
       <static_define_list external="CombatTrackerFlag" />
       <format>FLAGS</format>
     </column>
     <column name="Error" type="BIT">
-      <offset>164</offset>
+      <offset>180</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
@@ -550,44 +576,44 @@
       <static_define_list external="PowerError" />
     </column>
     <column name="CombatEventResponse" type="BIT">
-      <offset>168</offset>
+      <offset>184</offset>
       <bit_offset>524288</bit_offset>
       <static_define_list external="CombatEventResponse" />
     </column>
     <column name="StackEntity" type="BIT">
-      <offset>168</offset>
+      <offset>184</offset>
       <bit_offset>196616</bit_offset>
       <static_define_list external="StackEntity" />
     </column>
     <column name="Stack" type="BIT">
-      <offset>168</offset>
+      <offset>184</offset>
       <bit_offset>524299</bit_offset>
       <static_define_list external="StackType" />
     </column>
     <column name="StackGroup" type="BIT">
-      <offset>168</offset>
+      <offset>184</offset>
       <bit_offset>524307</bit_offset>
       <static_define_list external="ModStackGroup" />
     </column>
     <column name="StackGroupPending" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>524288</bit_offset>
       <static_define_list external="ModStackGroup" />
     </column>
     <column name="ContinuingFXAsLocation" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="Personal" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="EnhancementExtension" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="EnhancementExtendDef" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -595,63 +621,63 @@
       <bit_offset>65546</bit_offset>
     </column>
     <column name="IgnoreFirstTick" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="ReplaceKeepsTimer" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="ChanceNormalized" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="CancelOnChance" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65550</bit_offset>
     </column>
     <column name="SurviveTargetDeath" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="KeepWhenImmune" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65552</bit_offset>
     </column>
     <column name="IgnoreAttribModExpire" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65553</bit_offset>
     </column>
     <column name="AutoDescDisabled" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65554</bit_offset>
     </column>
     <column name="DerivedInternally" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65555</bit_offset>
     </column>
     <column name="IgnoredDuringPVP" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65556</bit_offset>
     </column>
     <column name="PowerInstanceStacking" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65557</bit_offset>
     </column>
     <column name="ProcessOfflineTimeOnLogin" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65558</bit_offset>
     </column>
     <column name="UIShowSpecial" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65559</bit_offset>
     </column>
     <column name="NotifyGameEventOnApplication" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <bit_offset>65560</bit_offset>
     </column>
     <column name="IncludeInEstimatedDamage" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -661,14 +687,14 @@
       </format_strings>
     </column>
     <column name="Forever" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65562</bit_offset>
     </column>
     <column name="HasAnimFX" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
@@ -676,7 +702,7 @@
       <bit_offset>65563</bit_offset>
     </column>
     <column name="SaveApplyStrengths" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
@@ -684,7 +710,7 @@
       <bit_offset>65564</bit_offset>
     </column>
     <column name="SaveSourceDetails" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
@@ -692,7 +718,7 @@
       <bit_offset>65565</bit_offset>
     </column>
     <column name="SaveHue" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
@@ -700,7 +726,7 @@
       <bit_offset>65566</bit_offset>
     </column>
     <column name="PowerIconCFX" type="BIT">
-      <offset>172</offset>
+      <offset>188</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>SERVER_ONLY</flag>
@@ -708,8 +734,12 @@
       <bit_offset>65567</bit_offset>
     </column>
     <column name="AttribLinkToSource" type="BIT">
-      <offset>176</offset>
+      <offset>192</offset>
       <bit_offset>65536</bit_offset>
+    </column>
+    <column name="AffectsOnlyOnFirstModTick" type="BIT">
+      <offset>192</offset>
+      <bit_offset>65537</bit_offset>
     </column>
     <column name="Resist" type="IGNORE" />
     <column name="Strength" type="IGNORE" />

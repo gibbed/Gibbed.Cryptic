@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClusterShardSummary">
+  <table>
+    <column name="ClusterShardSummary" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">ShardName, ShardType, ControllerHostName, State</format_string>
+      </format_strings>
+    </column>
+    <column name="{" type="START" />
+    <column name="shardName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="shardType" type="INT">
+      <offset>4</offset>
+      <static_define_list external="ClusterShardType" />
+    </column>
+    <column name="ControllerHostName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="ControllerIP" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="State" type="INT">
+      <offset>16</offset>
+      <static_define_list external="ClusterShardState" />
+    </column>
+    <column name="MostRecentStatus" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <subtable external="ClusterShardStatus" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

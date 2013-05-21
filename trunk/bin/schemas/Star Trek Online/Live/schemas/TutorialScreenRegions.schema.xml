@@ -7,8 +7,9 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="TutorialScreenRegion" type="STRINGARRAY">
+    <column name="TutorialScreenRegion" type="STRUCT">
       <offset>0</offset>
+      <subtable external="TutorialScreenRegionInfo" />
     </column>
     <column name="}" type="END" />
   </table>

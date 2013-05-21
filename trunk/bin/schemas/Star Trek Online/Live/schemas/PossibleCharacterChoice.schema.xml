@@ -84,7 +84,7 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="SkipTutorial" type="U8">
+    <column name="skipTutorial" type="U8">
       <offset>76</offset>
     </column>
     <column name="Info" type="STRUCT">
@@ -249,17 +249,17 @@
       </flags>
       <redundant_name>PowerTree</redundant_name>
     </column>
-    <column name="PowerNodes" type="STRINGARRAY">
+    <column name="powerNodes" type="STRINGARRAY">
       <offset>2464</offset>
     </column>
-    <column name="GameSpecificChoice" type="STRING">
+    <column name="gameSpecificChoice" type="STRING">
       <offset>2468</offset>
     </column>
     <column name="PetInfo" type="STRUCT">
       <offset>2472</offset>
       <subtable external="LoginPetInfo" />
     </column>
-    <column name="PuppetInfo" type="STRUCT">
+    <column name="puppetInfo" type="STRUCT">
       <offset>2476</offset>
       <subtable external="LoginPuppetInfo" />
     </column>

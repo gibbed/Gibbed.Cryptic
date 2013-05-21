@@ -16,6 +16,15 @@
     <column name="XPathSegments" type="STRINGARRAY">
       <offset>8</offset>
     </column>
+    <column name="OverrideLink" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="XpathDepthOfOverrideLink" type="INT">
+      <offset>16</offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

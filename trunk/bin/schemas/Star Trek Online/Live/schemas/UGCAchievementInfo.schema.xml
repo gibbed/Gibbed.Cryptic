@@ -7,16 +7,8 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="projectID" type="INT">
+    <column name="eaAchievements" type="STRUCT">
       <offset>0</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>KEY</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="ugcAchievements" type="STRUCT">
-      <offset>4</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>

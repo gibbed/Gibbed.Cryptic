@@ -11,21 +11,25 @@
       <offset>0</offset>
       <static_define_list external="ResourceSearchMode" />
     </column>
-    <column name="SearchDetails" type="STRING">
+    <column name="TagsDetails" type="OPTIONALSTRUCT">
       <offset>4</offset>
+      <subtable external="ResourceSearchRequestTags" />
     </column>
-    <column name="Name" type="STRING">
+    <column name="SearchDetails" type="STRING">
       <offset>8</offset>
     </column>
-    <column name="Type" type="STRING">
+    <column name="Name" type="STRING">
       <offset>12</offset>
     </column>
+    <column name="Type" type="STRING">
+      <offset>16</offset>
+    </column>
     <column name="one_result" type="BIT">
-      <offset>24</offset>
+      <offset>28</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Request" type="INT">
-      <offset>28</offset>
+      <offset>32</offset>
     </column>
     <column name="}" type="END" />
   </table>

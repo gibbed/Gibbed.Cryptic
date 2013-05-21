@@ -48,6 +48,15 @@
     <column name="ColorModulation" type="BOOLFLAG">
       <offset>16</offset>
     </column>
+    <column name="NormalizeTransformTarget" type="BOOLFLAG">
+      <offset>17</offset>
+    </column>
+    <column name="NormalizeTransformTargetOtherAxes" type="BOOLFLAG">
+      <offset>18</offset>
+    </column>
+    <column name="LocalPlayerOnly" type="BOOLFLAG">
+      <offset>19</offset>
+    </column>
     <column name="Position" type="INT">
       <offset>20</offset>
       <default>1</default>
@@ -78,29 +87,35 @@
     <column name="EmitTarget" type="STRING">
       <offset>48</offset>
     </column>
-    <column name="AtNodes" type="STRINGARRAY">
+    <column name="TransformTarget" type="STRING">
       <offset>52</offset>
     </column>
-    <column name="EmitTargetNodes" type="STRINGARRAY">
+    <column name="AtNodes" type="STRINGARRAY">
       <offset>56</offset>
     </column>
-    <column name="Weights" type="F32ARRAY">
+    <column name="EmitTargetNodes" type="STRINGARRAY">
       <offset>60</offset>
     </column>
-    <column name="CutoutDepthScale" type="F32">
+    <column name="Weights" type="F32ARRAY">
       <offset>64</offset>
-      <default>1</default>
     </column>
-    <column name="ScaleSprite" type="F32">
+    <column name="CutoutDepthScale" type="F32">
       <offset>68</offset>
       <default>1</default>
     </column>
-    <column name="ScalePosition" type="F32">
+    <column name="ScaleSprite" type="F32">
       <offset>72</offset>
       <default>1</default>
     </column>
-    <column name="ParticleMass" type="F32">
+    <column name="ScalePosition" type="F32">
       <offset>76</offset>
+      <default>1</default>
+    </column>
+    <column name="ParticleMass" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="SystemAlphaFromFx" type="F32">
+      <offset>84</offset>
     </column>
     <column name="End" type="END" />
   </table>

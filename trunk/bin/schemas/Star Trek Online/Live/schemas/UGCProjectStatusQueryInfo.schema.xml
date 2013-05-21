@@ -10,36 +10,43 @@
     <column name="strPublishedName" type="STRING">
       <offset>0</offset>
     </column>
-    <column name="LastPublishTime" type="INT">
+    <column name="PublishedMapLocation" type="OPTIONALSTRUCT">
       <offset>4</offset>
+      <subtable external="UGCMapLocation" />
     </column>
-    <column name="LastSaveTime" type="INT">
+    <column name="LastPublishTime" type="INT">
       <offset>8</offset>
     </column>
-    <column name="LastPublishSucceeded" type="U8">
+    <column name="LastSaveTime" type="INT">
       <offset>12</offset>
     </column>
-    <column name="CurrentlyPublishing" type="U8">
-      <offset>13</offset>
-    </column>
-    <column name="CurPlaceInQueue" type="INT">
+    <column name="LastPublishSucceeded" type="U8">
       <offset>16</offset>
     </column>
-    <column name="PublishPercentage" type="F32">
+    <column name="CurrentlyPublishing" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="PublishingDisabled" type="U8">
+      <offset>18</offset>
+    </column>
+    <column name="CurPlaceInQueue" type="INT">
       <offset>20</offset>
     </column>
-    <column name="EntityRef" type="INT">
+    <column name="PublishPercentage" type="F32">
       <offset>24</offset>
     </column>
-    <column name="CanBeWithdrawn" type="U8">
+    <column name="EntityRef" type="INT">
       <offset>28</offset>
     </column>
-    <column name="Featured" type="OPTIONALSTRUCT">
+    <column name="CanBeWithdrawn" type="U8">
       <offset>32</offset>
+    </column>
+    <column name="Featured" type="OPTIONALSTRUCT">
+      <offset>36</offset>
       <subtable external="UGCFeaturedData" />
     </column>
     <column name="AuthorAllowsFeatured" type="U8">
-      <offset>36</offset>
+      <offset>40</offset>
     </column>
     <column name="}" type="END" />
   </table>

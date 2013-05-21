@@ -12,23 +12,35 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="MusicName" type="STRING">
+    <column name="EventNameOverrideParam" type="STRING">
       <offset>4</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="DSPName" type="STRING">
+    <column name="MusicName" type="STRING">
       <offset>8</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="Multiplier" type="F32">
+    <column name="DSPName" type="STRING">
       <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DSPNameOverrideParam" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Multiplier" type="F32">
+      <offset>20</offset>
     </column>
     <column name="Priority" type="F32">
-      <offset>16</offset>
+      <offset>24</offset>
     </column>
     <column name="End" type="END" />
   </table>

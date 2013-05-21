@@ -19,8 +19,14 @@
     <column name="CurrentTimeStamp" type="INT">
       <offset>24</offset>
     </column>
-    <column name="RepositoryTypeInfo" type="STRUCT">
+    <column name="BaseContainerID" type="INT">
       <offset>28</offset>
+    </column>
+    <column name="MaxContainerID" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="RepositoryTypeInfo" type="STRUCT">
+      <offset>36</offset>
       <subtable external="ContainerRepositoryTypeInfo" />
     </column>
     <column name="DeletedContainers" type="IGNORE">

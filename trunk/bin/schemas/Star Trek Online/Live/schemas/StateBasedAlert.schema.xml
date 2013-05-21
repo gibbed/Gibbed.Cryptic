@@ -40,6 +40,12 @@
     <column name="AlertString" type="STRING">
       <offset>32</offset>
     </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

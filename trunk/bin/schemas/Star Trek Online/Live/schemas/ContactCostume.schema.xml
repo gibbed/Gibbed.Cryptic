@@ -39,6 +39,30 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="HeadshotStyleDef" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="HeadshotStyleOverride" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>HeadshotStyleDef</redundant_name>
+    </column>
+    <column name="CostumeStyleOverrides" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="ContactCostumeStyle" />
+    </column>
+    <column name="HeadshotBorderFrame" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

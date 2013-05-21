@@ -30,8 +30,14 @@
       </flags>
       <subtable external="PlayerCostume" />
     </column>
+    <column name="KeyInt" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="KeyFloat" type="F32">
+      <offset>32</offset>
+    </column>
     <column name="Result" type="OPTIONALSTRUCT">
-      <offset>20</offset>
+      <offset>36</offset>
       <subtable external="PlayerCostume" />
     </column>
     <column name="}" type="END" />

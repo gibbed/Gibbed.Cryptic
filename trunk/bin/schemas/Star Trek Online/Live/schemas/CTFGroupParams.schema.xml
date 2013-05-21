@@ -18,29 +18,32 @@
     <column name="CTFScore" type="INT">
       <offset>4</offset>
     </column>
-    <column name="FlagStatus" type="INT">
+    <column name="NumMembers" type="INT">
       <offset>8</offset>
+    </column>
+    <column name="FlagStatus" type="INT">
+      <offset>12</offset>
       <static_define_list external="CTFFlagStatus" />
     </column>
     <column name="TimeDropped" type="F32">
-      <offset>12</offset>
+      <offset>16</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="vecFlagLocation" type="F32FIXEDARRAY">
-      <offset>16</offset>
+      <offset>20</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <num_elements>3</num_elements>
     </column>
     <column name="vecCapLocation" type="F32FIXEDARRAY">
-      <offset>28</offset>
+      <offset>32</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="FlagHolder" type="INT">
-      <offset>40</offset>
+      <offset>44</offset>
     </column>
     <column name="}" type="END" />
   </table>

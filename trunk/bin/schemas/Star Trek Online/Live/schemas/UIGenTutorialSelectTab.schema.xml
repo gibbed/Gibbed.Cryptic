@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenTutorialSelectTab">
+  <table>
+    <column name="UIGenTutorialSelectTab" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>OBJECTTYPE</flag>
+      </flags>
+      <default>5</default>
+      <static_define_list external="UIGenTutorialSelectType" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LineNumber" type="LINENUM">
+      <offset>8</offset>
+    </column>
+    <column name="FilterBlock" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="FilterExpr" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+      <redundant_name>FilterBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="Name" type="STRINGARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

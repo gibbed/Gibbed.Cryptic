@@ -14,14 +14,8 @@
       </flags>
       <static_define_list external="InvBagIDs" />
     </column>
-    <column name="Locked" type="U8">
-      <offset>4</offset>
-      <flags>
-        <flag>STRUCTPARAM</flag>
-      </flags>
-    </column>
     <column name="RestrictCategories" type="INTARRAY">
-      <offset>8</offset>
+      <offset>4</offset>
       <static_define_list external="ItemCategory" />
     </column>
     <column name="}" type="END" />

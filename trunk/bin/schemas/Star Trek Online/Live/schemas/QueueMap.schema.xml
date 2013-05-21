@@ -67,23 +67,27 @@
       <offset>36</offset>
       <subtable external="WorldVariable" />
     </column>
-    <column name="ePendingState" type="INT">
-      <offset>40</offset>
-      <static_define_list external="QueueMapState" />
-    </column>
     <column name="uOfferValidationStartTime" type="INT">
-      <offset>44</offset>
+      <offset>40</offset>
     </column>
     <column name="eaOfferValidationMemberIDs" type="INTARRAY">
-      <offset>48</offset>
+      <offset>44</offset>
     </column>
     <column name="bDirty" type="BIT">
-      <offset>52</offset>
+      <offset>48</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bGameServerDied" type="BIT">
-      <offset>52</offset>
+      <offset>48</offset>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="bPendingActive" type="BIT">
+      <offset>48</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="bPendingFinished" type="BIT">
+      <offset>48</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="iMapID" type="IGNORE" />
     <column name="}" type="END" />

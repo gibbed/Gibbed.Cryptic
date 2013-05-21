@@ -12,18 +12,18 @@
       <subtable external="WriteHTMLContextInternalState" />
     </column>
     <column name="UrlArgs" type="OPTIONALSTRUCT">
-      <offset>24</offset>
+      <offset>32</offset>
       <subtable external="UrlArgumentList" />
     </column>
     <column name="MaxDepth" type="INT">
-      <offset>28</offset>
+      <offset>36</offset>
     </column>
     <column name="ArrayContext" type="BIT">
-      <offset>32</offset>
+      <offset>40</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="NeedToDoAccessLevelChecks" type="BIT">
-      <offset>32</offset>
+      <offset>40</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />

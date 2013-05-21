@@ -36,22 +36,28 @@
     <column name="CurrentCostumeHeight" type="F32">
       <offset>36</offset>
     </column>
-    <column name="CameraSpeed" type="F32">
+    <column name="CurrentTargetHeight" type="F32">
       <offset>40</offset>
+    </column>
+    <column name="CameraSpeed" type="F32">
+      <offset>44</offset>
       <default>3</default>
     </column>
     <column name="MaxCameraSpeed" type="F32">
-      <offset>44</offset>
+      <offset>48</offset>
       <default>5</default>
     </column>
-    <column name="ResetCamera" type="U8">
-      <offset>48</offset>
+    <column name="ResetCamera" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65536</bit_offset>
     </column>
-    <column name="FOVSet" type="U8">
-      <offset>49</offset>
+    <column name="FOVSet" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65537</bit_offset>
     </column>
-    <column name="FOVHack" type="U8">
-      <offset>50</offset>
+    <column name="UseHorizontalFOV" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65538</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

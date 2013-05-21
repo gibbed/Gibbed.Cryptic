@@ -29,13 +29,22 @@
     <column name="model_matrix" type="F32FIXEDARRAY">
       <offset>20</offset>
       <num_elements>16</num_elements>
+      <format_strings>
+        <format_string name="HIGH_PREC_FLOAT">1</format_string>
+      </format_strings>
     </column>
     <column name="Radius" type="F32">
       <offset>84</offset>
+      <format_strings>
+        <format_string name="HIGH_PREC_FLOAT">1</format_string>
+      </format_strings>
     </column>
     <column name="Position" type="F32FIXEDARRAY">
       <offset>88</offset>
       <num_elements>3</num_elements>
+      <format_strings>
+        <format_string name="HIGH_PREC_FLOAT">1</format_string>
+      </format_strings>
     </column>
     <column name="tex_stamps" type="STRUCT">
       <offset>100</offset>

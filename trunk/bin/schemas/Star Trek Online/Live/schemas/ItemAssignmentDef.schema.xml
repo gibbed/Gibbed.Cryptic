@@ -91,32 +91,41 @@
       <offset>100</offset>
       <subtable external="ItemAssignmentOutcome" />
     </column>
-    <column name="Slot" type="STRUCT">
+    <column name="CompletionExperience" type="INT">
       <offset>104</offset>
+    </column>
+    <column name="Slot" type="STRUCT">
+      <offset>108</offset>
       <subtable external="ItemAssignmentSlot" />
     </column>
     <column name="OutcomeModifier" type="STRUCT">
-      <offset>108</offset>
+      <offset>112</offset>
       <subtable external="ItemAssignmentOutcomeModifier" />
     </column>
     <column name="NumericDurationScaleCategory" type="INT">
-      <offset>112</offset>
+      <offset>116</offset>
       <static_define_list external="ItemAssignmentDurationScaleCategory" />
     </column>
+    <column name="UniqueAssignmentCount" type="INT">
+      <offset>120</offset>
+    </column>
+    <column name="SortOrder" type="INT">
+      <offset>124</offset>
+    </column>
     <column name="IsAbortable" type="BIT">
-      <offset>116</offset>
+      <offset>128</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Disabled" type="BIT">
-      <offset>116</offset>
+      <offset>128</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="AllowItemUnslotting" type="BIT">
-      <offset>116</offset>
+      <offset>128</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="Repeatable" type="BIT">
-      <offset>116</offset>
+      <offset>128</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -126,18 +135,25 @@
       </format_strings>
     </column>
     <column name="CanStartRemotely" type="BIT">
-      <offset>116</offset>
+      <offset>128</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="HasOptionalSlots" type="BIT">
-      <offset>116</offset>
+      <offset>128</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65541</bit_offset>
     </column>
+    <column name="HasRequiredSlots" type="BIT">
+      <offset>128</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65542</bit_offset>
+    </column>
     <column name="Dependencies" type="STRUCT">
-      <offset>120</offset>
+      <offset>132</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>

@@ -11,39 +11,32 @@
       <offset>0</offset>
       <subtable external="PlayerQueue" />
     </column>
-    <column name="PlayerRematch" type="OPTIONALSTRUCT">
-      <offset>4</offset>
-      <flags>
-        <flag>SELF_ONLY</flag>
-      </flags>
-      <subtable external="PlayerRematchInfo" />
-    </column>
     <column name="FailsAllReqs" type="STRUCT">
-      <offset>8</offset>
+      <offset>4</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="QueueFailRequirementsData" />
     </column>
     <column name="PenaltyData" type="OPTIONALSTRUCT">
-      <offset>12</offset>
+      <offset>8</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
       <subtable external="PlayerQueuePenaltyData" />
     </column>
     <column name="uLeaverPenaltyDuration" type="INT">
-      <offset>16</offset>
+      <offset>12</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
-    <column name="MapReturn" type="OPTIONALSTRUCT">
-      <offset>20</offset>
+    <column name="QueueInstantiationInfo" type="OPTIONALSTRUCT">
+      <offset>16</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
-      <subtable external="QueueMapTransferData" />
+      <subtable external="QueueInstantiationInfo" />
     </column>
     <column name="}" type="END" />
   </table>

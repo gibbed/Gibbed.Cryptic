@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ResourceSearchRequestTags">
+  <table>
+    <column name="ResourceSearchRequestTags" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="ResourceSearchRequestTagsType" />
+    </column>
+    <column name="strTag" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="Children" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="ResourceSearchRequestTags" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

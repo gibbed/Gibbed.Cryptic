@@ -25,20 +25,36 @@
       <offset>8</offset>
       <dictionary_name>CritterDef</dictionary_name>
     </column>
-    <column name="AltCostume" type="STRUCT">
+    <column name="hCachedClassDef" type="REFERENCE">
       <offset>12</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="AltCostume" type="STRUCT">
+      <offset>16</offset>
       <subtable external="SCPAltCostumeDef" />
     </column>
     <column name="EquipmentSlot" type="STRUCT">
-      <offset>16</offset>
+      <offset>20</offset>
       <subtable external="SCPEquipSlotDef" />
     </column>
     <column name="ContinuingPlayerFX" type="REFERENCE">
-      <offset>20</offset>
+      <offset>24</offset>
       <dictionary_name>DynFxInfo</dictionary_name>
     </column>
     <column name="HeadshotStyle" type="STRING">
-      <offset>24</offset>
+      <offset>28</offset>
+    </column>
+    <column name="LevelToPlayer" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

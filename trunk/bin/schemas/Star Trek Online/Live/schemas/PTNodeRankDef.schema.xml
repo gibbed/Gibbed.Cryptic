@@ -39,23 +39,25 @@
       <offset>24</offset>
       <default_string>TreePoints</default_string>
     </column>
-    <column name="Empty" type="BIT">
+    <column name="Empty" type="U8">
       <offset>28</offset>
-      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ForcedAutoBuy" type="U8">
+      <offset>29</offset>
     </column>
     <column name="IgnoreRequires" type="BIT">
-      <offset>28</offset>
+      <offset>32</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="VariableCost" type="BIT">
+      <offset>32</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65537</bit_offset>
-    </column>
-    <column name="VariableCost" type="BIT">
-      <offset>28</offset>
-      <flags>
-        <flag>NO_TEXT_SAVE</flag>
-      </flags>
-      <bit_offset>65538</bit_offset>
     </column>
     <column name="Scale" type="IGNORE" />
     <column name="}" type="END" />

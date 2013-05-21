@@ -35,9 +35,9 @@
       <offset>4</offset>
       <bit_offset>65541</bit_offset>
     </column>
-    <column name="ExcludeFromClustering" type="BIT">
-      <offset>4</offset>
-      <bit_offset>65542</bit_offset>
+    <column name="ClusteringOverride" type="INT">
+      <offset>8</offset>
+      <static_define_list external="WleClusterOverride" />
     </column>
     <column name="}" type="END" />
   </table>

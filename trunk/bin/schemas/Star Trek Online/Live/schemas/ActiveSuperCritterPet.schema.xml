@@ -15,39 +15,22 @@
       </flags>
       <subtable external="InventoryBag" />
     </column>
-    <column name="XP" type="INT">
+    <column name="uiTimeFinishTraining" type="INT">
       <offset>4</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="uiTimeFinishTraining" type="INT">
+    <column name="uiLastLevelUpTransactionRequest" type="INT">
       <offset>8</offset>
       <flags>
-        <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
+        <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="bSummoned" type="BIT">
-      <offset>12</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-      <bit_offset>65536</bit_offset>
-    </column>
-    <column name="bDead" type="BIT">
-      <offset>12</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-      <bit_offset>65537</bit_offset>
-    </column>
-    <column name="erPet" type="INT">
-      <offset>16</offset>
-    </column>
+    <column name="XP" type="IGNORE" />
+    <column name="bSummoned" type="IGNORE" />
+    <column name="bDead" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

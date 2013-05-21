@@ -7,24 +7,27 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="yawRoll" type="F32">
-      <offset>0</offset>
-    </column>
     <column name="Flags" type="EMBEDDEDSTRUCT">
-      <offset>4</offset>
+      <offset>0</offset>
       <subtable external="TacticalToBGFlags" />
     </column>
     <column name="spcDisableRunning" type="INT">
-      <offset>8</offset>
+      <offset>4</offset>
     </column>
     <column name="spcEnableRunning" type="INT">
-      <offset>12</offset>
+      <offset>8</offset>
     </column>
     <column name="spcClearAllOverrides" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="spcStartRoll" type="INT">
       <offset>16</offset>
     </column>
-    <column name="Overrides" type="STRUCT">
+    <column name="scheduledRollYaw" type="F32">
       <offset>20</offset>
+    </column>
+    <column name="Overrides" type="STRUCT">
+      <offset>24</offset>
       <subtable external="TacticalOverrides" />
     </column>
     <column name="}" type="END" />

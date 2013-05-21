@@ -32,43 +32,52 @@
       <offset>32</offset>
       <default>-1</default>
     </column>
-    <column name="GroupPlayerCounts" type="INTARRAY">
+    <column name="QueuedPlayerCount" type="INT">
       <offset>36</offset>
     </column>
-    <column name="QueueState" type="INT">
+    <column name="OfferedPlayerCount" type="INT">
       <offset>40</offset>
+    </column>
+    <column name="AcceptedPlayerCount" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="InMapPlayerCount" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="QueueState" type="INT">
+      <offset>52</offset>
       <static_define_list external="PlayerQueueState" />
     </column>
     <column name="Settings" type="STRUCT">
-      <offset>44</offset>
+      <offset>56</offset>
       <subtable external="QueueGameSetting" />
     </column>
     <column name="Params" type="OPTIONALSTRUCT">
-      <offset>48</offset>
+      <offset>60</offset>
       <subtable external="QueueInstanceParams" />
     </column>
-    <column name="Maps" type="STRUCT">
-      <offset>52</offset>
+    <column name="PlayerQueueMaps" type="STRUCT">
+      <offset>64</offset>
       <subtable external="PlayerQueueMap" />
     </column>
     <column name="Members" type="STRUCT">
-      <offset>56</offset>
+      <offset>68</offset>
       <subtable external="PlayerQueueMember" />
     </column>
     <column name="Overtime" type="BIT">
-      <offset>60</offset>
+      <offset>72</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="NewMapLoading" type="BIT">
-      <offset>60</offset>
+      <offset>72</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="HasPassword" type="BIT">
-      <offset>60</offset>
+      <offset>72</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="IgnoreLevelRestrictions" type="BIT">
-      <offset>60</offset>
+      <offset>72</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>

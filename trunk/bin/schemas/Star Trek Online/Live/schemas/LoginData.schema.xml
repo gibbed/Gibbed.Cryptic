@@ -28,11 +28,17 @@
     <column name="ShardInfoString" type="STRING">
       <offset>24</offset>
     </column>
-    <column name="uiLastTermsOfUse" type="INT">
+    <column name="ShardClusterName" type="STRING">
       <offset>28</offset>
     </column>
-    <column name="uiServerTimeSS2000" type="INT">
+    <column name="UgcShardName" type="STRING">
       <offset>32</offset>
+    </column>
+    <column name="uiLastTermsOfUse" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="uiServerTimeSS2000" type="INT">
+      <offset>40</offset>
     </column>
     <column name="}" type="END" />
   </table>

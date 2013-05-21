@@ -23,8 +23,11 @@
     <column name="timeTaskAutoRetry" type="INT">
       <offset>28</offset>
     </column>
+    <column name="WroteClientBins" type="U8">
+      <offset>36</offset>
+    </column>
     <column name="remeshClusterMaterial" type="OPTIONALSTRUCT">
-      <offset>40</offset>
+      <offset>44</offset>
       <subtable external="RemeshMaterial" />
     </column>
     <column name="buildStats" type="EMBEDDEDSTRUCT">
@@ -32,27 +35,31 @@
       <subtable external="WorldClusterStats" />
     </column>
     <column name="clusterBaseName" type="FIXEDSTRING">
-      <offset>528</offset>
+      <offset>568</offset>
       <string_length>260</string_length>
     </column>
     <column name="remeshGMeshName" type="FIXEDSTRING">
-      <offset>788</offset>
+      <offset>828</offset>
       <string_length>260</string_length>
     </column>
     <column name="diffuseTexName" type="FIXEDSTRING">
-      <offset>1048</offset>
+      <offset>1088</offset>
       <string_length>260</string_length>
     </column>
     <column name="normalTexName" type="FIXEDSTRING">
-      <offset>1308</offset>
+      <offset>1348</offset>
       <string_length>260</string_length>
     </column>
     <column name="specularTexName" type="FIXEDSTRING">
-      <offset>1568</offset>
+      <offset>1608</offset>
+      <string_length>260</string_length>
+    </column>
+    <column name="taskParameterHoggFile" type="FIXEDSTRING">
+      <offset>1868</offset>
       <string_length>260</string_length>
     </column>
     <column name="taskResultHoggFile" type="FIXEDSTRING">
-      <offset>1828</offset>
+      <offset>2128</offset>
       <string_length>260</string_length>
     </column>
     <column name="}" type="END" />

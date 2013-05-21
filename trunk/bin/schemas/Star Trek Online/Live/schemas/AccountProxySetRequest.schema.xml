@@ -28,28 +28,21 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="Operation" type="INT">
+    <column name="IntValue" type="INT64">
       <offset>16</offset>
+    </column>
+    <column name="Operation" type="INT">
+      <offset>24</offset>
       <static_define_list external="AccountProxySetOperation" />
     </column>
-    <column name="uProductID" type="INT">
-      <offset>20</offset>
-    </column>
-    <column name="ActivityType" type="INT">
-      <offset>24</offset>
-      <static_define_list external="AccountProxyActivityType" />
-    </column>
-    <column name="VerifyPrice" type="U8">
+    <column name="RequestID" type="INT">
       <offset>28</offset>
     </column>
-    <column name="RequestID" type="INT">
+    <column name="ContainerID" type="INT">
       <offset>32</offset>
     </column>
-    <column name="ContainerID" type="INT">
-      <offset>36</offset>
-    </column>
     <column name="ProductInternalName" type="STRING">
-      <offset>40</offset>
+      <offset>36</offset>
     </column>
     <column name="}" type="END" />
   </table>

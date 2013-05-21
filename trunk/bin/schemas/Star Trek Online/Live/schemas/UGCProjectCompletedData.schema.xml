@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCProjectCompletedData">
+  <table>
+    <column name="UGCProjectCompletedData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UGCProjectID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="shardName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="GameServerID" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="PartitionIdx" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="EntContainerIDs" type="INTARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

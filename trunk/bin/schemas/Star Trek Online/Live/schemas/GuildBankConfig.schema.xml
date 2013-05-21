@@ -13,6 +13,21 @@
     <column name="LazyCreateBank" type="INT">
       <offset>4</offset>
     </column>
+    <column name="bankTabPurchaseNumericName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="bankTabUnlockNumericName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TabCost" type="INTARRAY">
+      <offset>16</offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

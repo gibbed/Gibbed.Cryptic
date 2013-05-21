@@ -28,8 +28,12 @@
       <offset>12</offset>
       <subtable external="GameTokenText" />
     </column>
-    <column name="Type" type="INT">
+    <column name="LevelRestrictedTokens" type="STRUCT">
       <offset>16</offset>
+      <subtable external="LevelRestrictedTokens" />
+    </column>
+    <column name="Type" type="INT">
+      <offset>20</offset>
       <static_define_list external="GamePermissionType" />
     </column>
     <column name="}" type="END" />

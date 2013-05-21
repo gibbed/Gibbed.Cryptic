@@ -33,8 +33,18 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="ChatLinkColorName" type="STRING">
+    <column name="RolloverLootFX" type="STRING">
       <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ChatLinkColorName" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="ItemEPValue" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="Expression" />
     </column>
     <column name="}" type="END" />
   </table>

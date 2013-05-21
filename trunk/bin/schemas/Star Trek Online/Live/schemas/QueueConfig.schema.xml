@@ -188,15 +188,15 @@
       <offset>124</offset>
       <bit_offset>65547</bit_offset>
     </column>
-    <column name="CanLeaveTeam" type="BIT">
+    <column name="AllowQueueAbandonment" type="BIT">
       <offset>124</offset>
       <bit_offset>65548</bit_offset>
     </column>
-    <column name="AutoJoinQueueRequiresPlayerAccept" type="BIT">
+    <column name="MaintainQueueTrackingOnMapFinish" type="BIT">
       <offset>124</offset>
       <bit_offset>65549</bit_offset>
     </column>
-    <column name="ServerCreatesNormalTeams" type="BIT">
+    <column name="AutoJoinQueueRequiresPlayerAccept" type="BIT">
       <offset>124</offset>
       <bit_offset>65550</bit_offset>
     </column>
@@ -211,6 +211,18 @@
     <column name="EnablePrivateQueueLevelLimit" type="BIT">
       <offset>124</offset>
       <bit_offset>65553</bit_offset>
+    </column>
+    <column name="UseGuildAllegianceForAffiliation" type="BIT">
+      <offset>124</offset>
+      <bit_offset>65554</bit_offset>
+    </column>
+    <column name="RoleClassSmartGroups" type="BIT">
+      <offset>124</offset>
+      <bit_offset>65555</bit_offset>
+    </column>
+    <column name="AutoReleaseOnFinishedMapExit" type="BIT">
+      <offset>124</offset>
+      <bit_offset>65556</bit_offset>
     </column>
     <column name="ShowClientsInvalidQueuesWithReason" type="IGNORE" />
     <column name="}" type="END" />

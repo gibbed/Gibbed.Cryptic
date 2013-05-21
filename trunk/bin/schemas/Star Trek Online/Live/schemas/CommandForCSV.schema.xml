@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CommandForCSV">
+  <table>
+    <column name="CommandForCSV" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">Name, AccessLevel, SourceFile, LineNum, ExistsOnClient, ExistsOnServer, ChatAutoComplete, Hidden, Private, ExistsInCurrentProduct</format_string>
+      </format_strings>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="AccessLevel" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="SourceFile" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LineNum" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="ExistsOnClient" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="ExistsOnServer" type="U8">
+      <offset>17</offset>
+    </column>
+    <column name="ChatAutoComplete" type="U8">
+      <offset>18</offset>
+    </column>
+    <column name="Hidden" type="U8">
+      <offset>19</offset>
+    </column>
+    <column name="Private" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="ExistsInCurrentProduct" type="U8">
+      <offset>21</offset>
+    </column>
+    <column name="CommandLineOnly" type="U8">
+      <offset>22</offset>
+    </column>
+    <column name="EarlyCommandLine" type="U8">
+      <offset>23</offset>
+    </column>
+    <column name="ProductString" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Comment" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

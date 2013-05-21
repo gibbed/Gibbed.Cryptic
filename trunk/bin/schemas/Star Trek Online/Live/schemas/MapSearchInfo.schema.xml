@@ -59,6 +59,18 @@
       <offset>96</offset>
       <bit_offset>65543</bit_offset>
     </column>
+    <column name="skipTutorial" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="AllVirtualShards" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="ShowFullMapsAsDisabled" type="BIT">
+      <offset>96</offset>
+      <bit_offset>65546</bit_offset>
+    </column>
     <column name="Flags" type="INT">
       <offset>100</offset>
       <static_define_list external="enumMapSearchAndPossibilitiesFlags" />
@@ -70,33 +82,27 @@
       <offset>108</offset>
       <subtable external="AccountProxyKeyValueInfoList" />
     </column>
-    <column name="SkipTutorial" type="U8">
+    <column name="AccessLevel" type="INT">
       <offset>112</offset>
     </column>
-    <column name="AccessLevel" type="INT">
+    <column name="UGCProjectID" type="INT">
       <offset>116</offset>
     </column>
-    <column name="UGCProjectID" type="INT">
+    <column name="UGCNameSpace" type="STRING">
       <offset>120</offset>
     </column>
-    <column name="UGCNameSpace" type="STRING">
-      <offset>124</offset>
-    </column>
-    <column name="AllVirtualShards" type="U8">
-      <offset>128</offset>
-    </column>
     <column name="SearchType" type="INT">
-      <offset>132</offset>
+      <offset>124</offset>
       <static_define_list external="MapSearchType" />
     </column>
     <column name="AccountName" type="STRING">
-      <offset>136</offset>
+      <offset>128</offset>
     </column>
     <column name="playerName" type="STRING">
-      <offset>140</offset>
+      <offset>132</offset>
     </column>
     <column name="Allegiance" type="STRING">
-      <offset>144</offset>
+      <offset>136</offset>
     </column>
     <column name="}" type="END" />
   </table>

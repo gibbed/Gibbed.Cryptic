@@ -129,15 +129,33 @@
       </flags>
       <redundant_name>Transparency</redundant_name>
     </column>
-    <column name="NoCollision" type="U8">
+    <column name="DismountFX" type="OPTIONALSTRUCT">
       <offset>28</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCFX" />
+    </column>
+    <column name="pDismountFX" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>DismountFX</redundant_name>
+      <subtable external="PCFX" />
+    </column>
+    <column name="NoCollision" type="U8">
+      <offset>32</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bNoCollision" type="U8">
-      <offset>28</offset>
+      <offset>32</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -146,14 +164,14 @@
       <redundant_name>NoCollision</redundant_name>
     </column>
     <column name="NoBodySock" type="U8">
-      <offset>29</offset>
+      <offset>33</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bNoBodySock" type="U8">
-      <offset>29</offset>
+      <offset>33</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -162,14 +180,14 @@
       <redundant_name>NoBodySock</redundant_name>
     </column>
     <column name="NoRagdoll" type="U8">
-      <offset>30</offset>
+      <offset>34</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bNoRagdoll" type="U8">
-      <offset>30</offset>
+      <offset>34</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -178,14 +196,14 @@
       <redundant_name>NoRagdoll</redundant_name>
     </column>
     <column name="ShellColl" type="U8">
-      <offset>31</offset>
+      <offset>35</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bShellColl" type="U8">
-      <offset>31</offset>
+      <offset>35</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -194,14 +212,14 @@
       <redundant_name>ShellColl</redundant_name>
     </column>
     <column name="hasOneWayCollision" type="U8">
-      <offset>32</offset>
+      <offset>36</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bHasOneWayCollision" type="U8">
-      <offset>32</offset>
+      <offset>36</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -210,30 +228,30 @@
       <redundant_name>hasOneWayCollision</redundant_name>
     </column>
     <column name="UnlockAll" type="U8">
-      <offset>33</offset>
+      <offset>37</offset>
     </column>
     <column name="bUnlockAll" type="U8">
-      <offset>33</offset>
+      <offset>37</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>UnlockAll</redundant_name>
     </column>
     <column name="UnlockAllCmat" type="U8">
-      <offset>34</offset>
+      <offset>38</offset>
     </column>
     <column name="bUnlockAllCMat" type="U8">
-      <offset>34</offset>
+      <offset>38</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>UnlockAllCmat</redundant_name>
     </column>
     <column name="UnlockAllCTex" type="U8">
-      <offset>35</offset>
+      <offset>39</offset>
     </column>
     <column name="bUnlockAllCTex" type="U8">
-      <offset>35</offset>
+      <offset>39</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>

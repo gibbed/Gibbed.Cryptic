@@ -31,16 +31,12 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="ActivityType" type="INT">
-      <offset>20</offset>
-      <static_define_list external="AccountProxyActivityType" />
-    </column>
     <column name="TransactionType" type="INT">
-      <offset>24</offset>
+      <offset>20</offset>
       <static_define_list external="TransactionLogType" />
     </column>
     <column name="uLockContainerID" type="INT">
-      <offset>28</offset>
+      <offset>24</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -39,6 +39,13 @@
       <offset>36</offset>
       <subtable external="DisplayMessage" />
     </column>
+    <column name="SampleRewards" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="InvRewardRequest" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ReturnedPossibleUGCProject">
+  <table>
+    <column name="ReturnedPossibleUGCProject" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PossibleUGCProject" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="PossibleUGCProject" />
+    </column>
+    <column name="strError" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

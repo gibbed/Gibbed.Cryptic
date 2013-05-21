@@ -50,30 +50,36 @@
     <column name="distRolledSQR" type="F32">
       <offset>60</offset>
     </column>
-    <column name="overridesActive" type="STRUCT">
+    <column name="gravityVel" type="F32">
       <offset>64</offset>
+    </column>
+    <column name="overridesActive" type="STRUCT">
+      <offset>68</offset>
       <subtable external="TacticalOverrides" />
     </column>
-    <column name="spcDisableRollEnd" type="INT">
-      <offset>68</offset>
-    </column>
-    <column name="spcDisableAimEnd" type="INT">
+    <column name="spcScheduledRoll" type="INT">
       <offset>72</offset>
     </column>
-    <column name="spcDisableCrouchEnd" type="INT">
+    <column name="spcDisableRollEnd" type="INT">
       <offset>76</offset>
     </column>
-    <column name="spcDisableSprintEnd" type="INT">
+    <column name="spcDisableAimEnd" type="INT">
       <offset>80</offset>
     </column>
-    <column name="spcRollWaitingEnd" type="INT">
+    <column name="spcDisableCrouchEnd" type="INT">
       <offset>84</offset>
     </column>
-    <column name="mmrFxSprint" type="INT">
+    <column name="spcDisableSprintEnd" type="INT">
       <offset>88</offset>
     </column>
-    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+    <column name="spcRollWaitingEnd" type="INT">
       <offset>92</offset>
+    </column>
+    <column name="mmrFxSprint" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>100</offset>
       <subtable external="TacticalBGFlags" />
     </column>
     <column name="}" type="END" />

@@ -78,15 +78,21 @@
     <column name="Color2" type="INT">
       <offset>72</offset>
     </column>
-    <column name="Members" type="STRUCT">
+    <column name="GuildAllegiance" type="STRING">
       <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Members" type="STRUCT">
+      <offset>80</offset>
       <subtable external="GuildRecruitMember" />
     </column>
     <column name="MinLevelRecruit" type="INT">
-      <offset>80</offset>
+      <offset>84</offset>
     </column>
     <column name="RecruitCat" type="STRUCT">
-      <offset>84</offset>
+      <offset>88</offset>
       <subtable external="GuildRecruitSearchCat" />
     </column>
     <column name="}" type="END" />

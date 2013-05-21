@@ -18,8 +18,11 @@
     <column name="CTFScore" type="INT">
       <offset>4</offset>
     </column>
-    <column name="OwnedPoints" type="STRUCT">
+    <column name="NumMembers" type="INT">
       <offset>8</offset>
+    </column>
+    <column name="OwnedPoints" type="STRUCT">
+      <offset>12</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>

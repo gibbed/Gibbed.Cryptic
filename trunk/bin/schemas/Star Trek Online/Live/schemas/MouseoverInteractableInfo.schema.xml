@@ -25,38 +25,44 @@
         <flag>UNKNOWN_32</flag>
       </flags>
     </column>
-    <column name="Valid" type="INT">
+    <column name="UsabilityString" type="STRING">
       <offset>12</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="Valid" type="INT">
+      <offset>16</offset>
       <static_define_list external="InteractValidity" />
     </column>
     <column name="Type" type="INT">
-      <offset>16</offset>
+      <offset>20</offset>
       <static_define_list external="UIInteractType" />
     </column>
     <column name="LootBags" type="STRUCT">
-      <offset>20</offset>
+      <offset>24</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="InventoryBag" />
     </column>
     <column name="CursorTexture" type="STRING">
-      <offset>24</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
-    </column>
-    <column name="CursorName" type="STRING">
       <offset>28</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="CursorHotSpotX" type="INT16">
+    <column name="CursorName" type="STRING">
       <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CursorHotSpotX" type="INT16">
+      <offset>36</offset>
     </column>
     <column name="CursorHotSpotY" type="INT16">
-      <offset>34</offset>
+      <offset>38</offset>
     </column>
     <column name="}" type="END" />
   </table>

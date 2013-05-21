@@ -67,23 +67,27 @@
       <offset>68</offset>
       <dictionary_name>AllegianceDef</dictionary_name>
     </column>
-    <column name="RequiredNode" type="REFERENCE">
+    <column name="RequiredSubAllegiance" type="REFERENCE">
       <offset>72</offset>
-      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+      <dictionary_name>AllegianceDef</dictionary_name>
     </column>
-    <column name="NodeToWindBack" type="REFERENCE">
+    <column name="RequiredNode" type="REFERENCE">
       <offset>76</offset>
       <dictionary_name>GameProgressionNodeDef</dictionary_name>
     </column>
-    <column name="ChildNode" type="STRUCT">
+    <column name="NodeToWindBack" type="REFERENCE">
       <offset>80</offset>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="ChildNode" type="STRUCT">
+      <offset>84</offset>
       <flags>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="GameProgressionNodeRef" />
     </column>
     <column name="DependentNodes" type="STRUCT">
-      <offset>84</offset>
+      <offset>88</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>NO_INDEX</flag>
@@ -91,47 +95,47 @@
       <subtable external="GameProgressionNodeRef" />
     </column>
     <column name="hNextSibling" type="REFERENCE">
-      <offset>88</offset>
-      <flags>
-        <flag>NO_TEXT_SAVE</flag>
-      </flags>
-      <dictionary_name>GameProgressionNodeDef</dictionary_name>
-    </column>
-    <column name="hPrevSibling" type="REFERENCE">
       <offset>92</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <dictionary_name>GameProgressionNodeDef</dictionary_name>
     </column>
-    <column name="hParent" type="REFERENCE">
+    <column name="hPrevSibling" type="REFERENCE">
       <offset>96</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <dictionary_name>GameProgressionNodeDef</dictionary_name>
     </column>
-    <column name="SortOrder" type="INT">
+    <column name="hParent" type="REFERENCE">
       <offset>100</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <dictionary_name>GameProgressionNodeDef</dictionary_name>
+    </column>
+    <column name="SortOrder" type="INT">
+      <offset>104</offset>
     </column>
     <column name="Debug" type="BIT">
-      <offset>104</offset>
+      <offset>108</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="BranchStory" type="BIT">
-      <offset>104</offset>
+      <offset>108</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="MissionGroupsAreUnlockedByDefault" type="BIT">
-      <offset>104</offset>
+      <offset>108</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="DontAdvanceStoryAutomatically" type="BIT">
-      <offset>104</offset>
+      <offset>108</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="SetProgressionOnMissionAccept" type="BIT">
-      <offset>104</offset>
+      <offset>108</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="}" type="END" />

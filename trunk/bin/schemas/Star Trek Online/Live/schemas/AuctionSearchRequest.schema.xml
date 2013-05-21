@@ -52,11 +52,33 @@
     <column name="stringLanguage" type="INT">
       <offset>48</offset>
     </column>
-    <column name="numResults" type="INT">
+    <column name="RequiredClass" type="STRING">
       <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uiPetMinLevel" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="uiPetMaxLevel" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="uiNumGemSlots" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="RequiredGemType" type="INT">
+      <offset>68</offset>
+      <static_define_list external="ItemGemType" />
+    </column>
+    <column name="eaiAttribs" type="INTARRAY">
+      <offset>72</offset>
+    </column>
+    <column name="numResults" type="INT">
+      <offset>76</offset>
     </column>
     <column name="AuctionBrokerSearchData" type="OPTIONALSTRUCT">
-      <offset>56</offset>
+      <offset>80</offset>
       <subtable external="AuctionBrokerLevelInfo" />
     </column>
     <column name="}" type="END" />

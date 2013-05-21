@@ -31,28 +31,34 @@
     <column name="CurrencyExchangeReadyToClaimBucket" type="STRING">
       <offset>16</offset>
     </column>
-    <column name="Prefix" type="STRING">
+    <column name="FoundryTipBucket" type="STRING">
       <offset>20</offset>
+    </column>
+    <column name="PromoGameCurrencyBucket" type="STRING">
+      <offset>24</offset>
+    </column>
+    <column name="Prefix" type="STRING">
+      <offset>28</offset>
       <flags>
         <flag>REQUIRED</flag>
       </flags>
     </column>
     <column name="CategoryPrefix" type="STRING">
-      <offset>20</offset>
+      <offset>28</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>Prefix</redundant_name>
     </column>
     <column name="MOTD" type="OPTIONALSTRUCT">
-      <offset>24</offset>
+      <offset>32</offset>
       <subtable external="MicroTrans_MOTDConfig" />
     </column>
     <column name="PointBuyEnabled" type="U8">
-      <offset>28</offset>
+      <offset>36</offset>
     </column>
     <column name="SteamWalletEnabled" type="BIT">
-      <offset>28</offset>
+      <offset>36</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="}" type="END" />

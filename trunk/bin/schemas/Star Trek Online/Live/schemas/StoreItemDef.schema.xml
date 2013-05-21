@@ -51,49 +51,55 @@
       <offset>64</offset>
       <subtable external="ItemDefRef" />
     </column>
-    <column name="ForceBind" type="U8">
+    <column name="OverridePriceAccountKeyValue" type="STRING">
       <offset>68</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ForceBind" type="U8">
+      <offset>72</offset>
     </column>
     <column name="Category" type="INT">
-      <offset>72</offset>
+      <offset>76</offset>
       <static_define_list external="StoreCategory" />
     </column>
     <column name="HighlightCategory" type="INTARRAY">
-      <offset>76</offset>
+      <offset>80</offset>
       <static_define_list external="StoreHighlightCategory" />
     </column>
     <column name="RequiredNumeric" type="REFERENCE">
-      <offset>80</offset>
+      <offset>84</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
     <column name="RequiredNumericValue" type="INT">
-      <offset>84</offset>
-    </column>
-    <column name="RequiredNumericIncr" type="INT">
       <offset>88</offset>
     </column>
-    <column name="ResearchTime" type="INT">
+    <column name="RequiredNumericIncr" type="INT">
       <offset>92</offset>
     </column>
+    <column name="ResearchTime" type="INT">
+      <offset>96</offset>
+    </column>
     <column name="PurchaseTime" type="INT">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>ResearchTime</redundant_name>
     </column>
     <column name="ExprShowItem" type="OPTIONALSTRUCT">
-      <offset>96</offset>
+      <offset>100</offset>
       <subtable external="Expression" />
     </column>
     <column name="ActivityName" type="STRING">
-      <offset>100</offset>
+      <offset>104</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="RequiredActivity" type="STRING">
-      <offset>100</offset>
+      <offset>104</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>ALIAS</flag>

@@ -131,17 +131,22 @@
         <flag>FLATEMBED</flag>
       </flags>
     </column>
+    <column name="publicRules" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
     <column name="GameType" type="INT">
       <offset>60</offset>
       <static_define_list external="PVPGameType" />
     </column>
-    <column name="Scoreboard" type="STRING">
+    <column name="PointMax" type="INT">
       <offset>64</offset>
     </column>
-    <column name="Leaderboard" type="STRINGARRAY">
+    <column name="Scoreboard" type="STRING">
       <offset>68</offset>
     </column>
-    <column name="PointMax" type="INT">
+    <column name="Leaderboard" type="STRINGARRAY">
       <offset>72</offset>
     </column>
     <column name="DisableNaturalRespawn" type="U8">
@@ -344,20 +349,11 @@
       <offset>228</offset>
       <bit_offset>65536</bit_offset>
     </column>
-    <column name="ReplaySettings" type="IGNORE">
-      <flags>
-        <flag>FLATEMBED</flag>
-      </flags>
-    </column>
     <column name="CooldownDef" type="STRING">
       <offset>232</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
-    </column>
-    <column name="EnableReplay" type="BIT">
-      <offset>236</offset>
-      <bit_offset>65536</bit_offset>
     </column>
     <column name="Requirements" type="IGNORE">
       <flags>
@@ -365,23 +361,23 @@
       </flags>
     </column>
     <column name="RequiredActivity" type="STRING">
-      <offset>240</offset>
+      <offset>236</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="RequiredEvent" type="STRING">
-      <offset>244</offset>
+      <offset>240</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Requires" type="OPTIONALSTRUCT">
-      <offset>248</offset>
+      <offset>244</offset>
       <subtable external="Expression" />
     </column>
     <column name="pRequires" type="OPTIONALSTRUCT">
-      <offset>248</offset>
+      <offset>244</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -389,32 +385,32 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="RequiredMission" type="REFERENCE">
-      <offset>252</offset>
+      <offset>248</offset>
       <dictionary_name>MissionDef</dictionary_name>
     </column>
     <column name="MissionReqFlags" type="INT">
-      <offset>256</offset>
+      <offset>252</offset>
       <static_define_list external="QueueMissionReq" />
       <format>FLAGS</format>
     </column>
     <column name="ClassRequired" type="STRUCT">
-      <offset>260</offset>
+      <offset>256</offset>
       <subtable external="CharacterClassRef" />
     </column>
     <column name="ClassCategoryRequired" type="INTARRAY">
-      <offset>264</offset>
+      <offset>260</offset>
       <static_define_list external="CharClassCategory" />
     </column>
     <column name="MissionReqNoAccess" type="BIT">
-      <offset>268</offset>
+      <offset>264</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="RequireSameGuild" type="BIT">
-      <offset>268</offset>
+      <offset>264</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="RequireGuild" type="BIT">
-      <offset>268</offset>
+      <offset>264</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -422,7 +418,7 @@
       <bit_offset>65537</bit_offset>
     </column>
     <column name="RequireAnyGuild" type="BIT">
-      <offset>268</offset>
+      <offset>264</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="QueueMaps" type="IGNORE">
@@ -431,28 +427,28 @@
       </flags>
     </column>
     <column name="MapName" type="STRINGARRAY">
-      <offset>272</offset>
+      <offset>268</offset>
     </column>
     <column name="pchMapName" type="STRINGARRAY">
-      <offset>272</offset>
+      <offset>268</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>MapName</redundant_name>
     </column>
     <column name="MapChoiceTable" type="REFERENCE">
-      <offset>276</offset>
+      <offset>272</offset>
       <dictionary_name>ChoiceTable</dictionary_name>
     </column>
     <column name="TableEntry" type="STRING">
-      <offset>280</offset>
+      <offset>276</offset>
     </column>
     <column name="QueueCustomMapData" type="STRUCT">
-      <offset>284</offset>
+      <offset>280</offset>
       <subtable external="QueueCustomMapData" />
     </column>
     <column name="QueueCustomMapType" type="STRUCT">
-      <offset>284</offset>
+      <offset>280</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -460,7 +456,7 @@
       <subtable external="QueueCustomMapData" />
     </column>
     <column name="QueueMapType" type="STRUCT">
-      <offset>284</offset>
+      <offset>280</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -468,60 +464,64 @@
       <subtable external="QueueCustomMapData" />
     </column>
     <column name="GroupDefs" type="STRUCT">
-      <offset>288</offset>
+      <offset>284</offset>
       <subtable external="QueueGroupDef" />
     </column>
     <column name="Category" type="INT">
-      <offset>292</offset>
+      <offset>288</offset>
       <static_define_list external="QueueCategory" />
     </column>
     <column name="Reward" type="INT">
-      <offset>296</offset>
+      <offset>292</offset>
       <static_define_list external="QueueReward" />
     </column>
     <column name="Difficulty" type="INT">
-      <offset>300</offset>
+      <offset>296</offset>
       <static_define_list external="QueueDifficulty" />
     </column>
     <column name="ExpectedGameTime" type="INT">
-      <offset>304</offset>
+      <offset>300</offset>
     </column>
     <column name="LevelBand" type="STRUCT">
-      <offset>308</offset>
+      <offset>304</offset>
       <subtable external="QueueLevelBand" />
     </column>
     <column name="TrackedEvent" type="STRUCT">
-      <offset>312</offset>
+      <offset>308</offset>
       <subtable external="QueueTrackedEvent" />
     </column>
     <column name="QueueRewardTables" type="STRUCT">
-      <offset>316</offset>
+      <offset>312</offset>
       <subtable external="QueueRewardTable" />
     </column>
     <column name="EnableStrictTeamRules" type="BIT">
-      <offset>320</offset>
+      <offset>316</offset>
       <bit_offset>65536</bit_offset>
     </column>
+    <column name="UnteamedQueuingOnly" type="BIT">
+      <offset>316</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
     <column name="EditorData" type="STRUCT">
-      <offset>324</offset>
+      <offset>320</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <subtable external="QueueLevelBandEditorData" />
     </column>
     <column name="BaseDef" type="REFERENCE">
-      <offset>328</offset>
+      <offset>324</offset>
       <dictionary_name>QueueDef</dictionary_name>
     </column>
     <column name="ChoiceTable" type="REFERENCE">
-      <offset>332</offset>
+      <offset>328</offset>
       <dictionary_name>ChoiceTable</dictionary_name>
     </column>
     <column name="MarkAsPublic" type="U8">
-      <offset>336</offset>
+      <offset>332</offset>
     </column>
     <column name="QueueCategoryChange" type="INT">
-      <offset>340</offset>
+      <offset>336</offset>
       <static_define_list external="QueueCategory" />
     </column>
     <column name="}" type="END" />

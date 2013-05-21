@@ -67,11 +67,14 @@
     <column name="spcLastOnGroundUpdate" type="INT">
       <offset>120</offset>
     </column>
-    <column name="pitchDiffInterpScale" type="F32">
+    <column name="spcPlayedFlourishAnim" type="INT">
       <offset>124</offset>
     </column>
-    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+    <column name="pitchDiffInterpScale" type="F32">
       <offset>128</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>132</offset>
       <subtable external="SurfaceBGFlags" />
     </column>
     <column name="}" type="END" />

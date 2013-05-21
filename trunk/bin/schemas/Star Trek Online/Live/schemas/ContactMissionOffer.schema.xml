@@ -144,8 +144,11 @@
       <offset>156</offset>
       <subtable external="AllegianceRef" />
     </column>
-    <column name="RemoteFlags" type="INT">
+    <column name="RequireAllAllegiances" type="U8">
       <offset>160</offset>
+    </column>
+    <column name="RemoteFlags" type="INT">
+      <offset>164</offset>
       <static_define_list external="ContactMissionRemoteFlags" />
       <format>FLAGS</format>
     </column>

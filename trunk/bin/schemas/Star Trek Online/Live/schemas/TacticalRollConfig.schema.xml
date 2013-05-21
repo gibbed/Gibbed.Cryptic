@@ -36,17 +36,21 @@
     <column name="RollFuelCost" type="F32">
       <offset>28</offset>
     </column>
-    <column name="RollDisabled" type="BIT">
+    <column name="AllowInAir" type="BIT">
       <offset>32</offset>
       <bit_offset>65536</bit_offset>
     </column>
-    <column name="RollFacesInRollDirection" type="BIT">
+    <column name="RollDisabled" type="BIT">
       <offset>32</offset>
       <bit_offset>65537</bit_offset>
     </column>
-    <column name="RollDisableDuringRootAttrib" type="BIT">
+    <column name="RollFacesInRollDirection" type="BIT">
       <offset>32</offset>
       <bit_offset>65538</bit_offset>
+    </column>
+    <column name="RollDisableDuringRootAttrib" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="RollNoCostDistPercentThreshold" type="F32">
       <offset>36</offset>

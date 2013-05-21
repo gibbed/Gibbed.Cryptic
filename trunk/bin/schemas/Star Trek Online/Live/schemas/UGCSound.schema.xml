@@ -18,8 +18,15 @@
     <column name="Tags" type="STRING">
       <offset>4</offset>
     </column>
+    <column name="SoundName" type="STRING">
+      <offset>8</offset>
+    </column>
     <column name="AmbSound" type="STRING">
       <offset>8</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>SoundName</redundant_name>
     </column>
     <column name="}" type="END" />
   </table>

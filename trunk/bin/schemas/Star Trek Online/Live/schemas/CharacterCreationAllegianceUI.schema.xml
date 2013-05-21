@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CharacterCreationAllegianceUI">
+  <table>
+    <column name="CharacterCreationAllegianceUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Allegiance" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="TextureName" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Creatable" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="Selected" type="U8">
+      <offset>21</offset>
+    </column>
+    <column name="CurrentSpecies" type="STRING">
+      <offset>24</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Species" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="CharacterCreationSpeciesUI" />
+    </column>
+    <column name="AllegianceDef" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="AllegianceDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

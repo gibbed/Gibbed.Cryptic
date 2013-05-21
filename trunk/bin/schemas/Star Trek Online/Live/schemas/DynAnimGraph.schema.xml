@@ -75,54 +75,60 @@
     <column name="DisableGroundRegTimeout" type="F32">
       <offset>52</offset>
     </column>
-    <column name="OverrideAllBones" type="U8">
+    <column name="DisableUpperBodyGroundRegTimeout" type="F32">
       <offset>56</offset>
     </column>
-    <column name="SnapOverrideAllBones" type="U8">
-      <offset>57</offset>
-    </column>
-    <column name="OverrideMovement" type="U8">
-      <offset>58</offset>
-    </column>
-    <column name="SnapOverrideMovement" type="U8">
-      <offset>59</offset>
-    </column>
-    <column name="OverrideDefaultMove" type="U8">
+    <column name="OverrideAllBones" type="U8">
       <offset>60</offset>
     </column>
-    <column name="SnapOverrideDefaultMove" type="U8">
+    <column name="SnapOverrideAllBones" type="U8">
       <offset>61</offset>
     </column>
-    <column name="ForceVisible" type="U8">
+    <column name="OverrideMovement" type="U8">
       <offset>62</offset>
     </column>
-    <column name="PitchToTarget" type="U8">
+    <column name="SnapOverrideMovement" type="U8">
       <offset>63</offset>
     </column>
-    <column name="DisableTorsoPointing" type="U8">
+    <column name="OverrideDefaultMove" type="U8">
       <offset>64</offset>
     </column>
-    <column name="GeneratePowerMovementInfo" type="U8">
+    <column name="SnapOverrideDefaultMove" type="U8">
       <offset>65</offset>
     </column>
-    <column name="OnEnterFxEvent" type="STRUCT">
-      <offset>68</offset>
-      <subtable external="DynAnimGraphFxEvent" />
+    <column name="ForceVisible" type="U8">
+      <offset>66</offset>
     </column>
-    <column name="OnExitFxEvent" type="STRUCT">
+    <column name="PitchToTarget" type="U8">
+      <offset>67</offset>
+    </column>
+    <column name="DisableTorsoPointing" type="U8">
+      <offset>68</offset>
+    </column>
+    <column name="ResetWhenMovementStops" type="U8">
+      <offset>69</offset>
+    </column>
+    <column name="GeneratePowerMovementInfo" type="U8">
+      <offset>70</offset>
+    </column>
+    <column name="OnEnterFxEvent" type="STRUCT">
       <offset>72</offset>
       <subtable external="DynAnimGraphFxEvent" />
     </column>
+    <column name="OnExitFxEvent" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="DynAnimGraphFxEvent" />
+    </column>
     <column name="InheritBits" type="OPTIONALSTRUCT">
-      <offset>80</offset>
+      <offset>84</offset>
       <subtable external="DynAnimGraphInheritBits" />
     </column>
     <column name="bfParamsSpecified" type="INTFIXEDARRAY">
-      <offset>84</offset>
+      <offset>88</offset>
       <flags>
         <flag>USEDFIELD</flag>
       </flags>
-      <num_elements>1</num_elements>
+      <num_elements>2</num_elements>
     </column>
     <column name="}" type="END" />
   </table>

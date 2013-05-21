@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClusterServerTypeStatus">
+  <table>
+    <column name="ClusterServerTypeStatus" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="GlobalType" />
+    </column>
+    <column name="Servers" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ClusterServerStatus" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

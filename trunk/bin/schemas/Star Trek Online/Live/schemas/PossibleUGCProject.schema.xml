@@ -13,7 +13,7 @@
     <column name="CopyID" type="INT">
       <offset>4</offset>
     </column>
-    <column name="seriesID" type="INT">
+    <column name="SeriesID" type="INT">
       <offset>8</offset>
     </column>
     <column name="PatchInfo" type="OPTIONALSTRUCT">
@@ -43,6 +43,18 @@
     </column>
     <column name="EditQueueCookie" type="INT">
       <offset>40</offset>
+    </column>
+    <column name="strEditVersionNamespace" type="STRING">
+      <offset>44</offset>
+    </column>
+    <column name="EditVersionIsNew" type="U8">
+      <offset>48</offset>
+    </column>
+    <column name="strCopyEditVersionNamespace" type="STRING">
+      <offset>52</offset>
+    </column>
+    <column name="CopyEditVersionIsNew" type="U8">
+      <offset>56</offset>
     </column>
     <column name="}" type="END" />
   </table>

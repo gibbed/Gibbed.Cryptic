@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatPowerStatePowerslotSet">
+  <table>
+    <column name="CombatPowerStatePowerslotSet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="PowerSlot" type="STRUCT">
+      <offset>0</offset>
+      <subtable external="CombatPowerStatePowerSlot" />
+    </column>
+    <column name="BasePowerSlot" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -44,20 +44,23 @@
       <offset>24</offset>
       <subtable external="AllegianceRef" />
     </column>
-    <column name="ClassAllowed" type="STRUCT">
+    <column name="RequireAllAllegiances" type="U8">
       <offset>28</offset>
+    </column>
+    <column name="ClassAllowed" type="STRUCT">
+      <offset>32</offset>
       <subtable external="CharacterClassRef" />
     </column>
     <column name="ClassCategoryAllowed" type="INTARRAY">
-      <offset>32</offset>
+      <offset>36</offset>
       <static_define_list external="CharClassCategory" />
     </column>
     <column name="PathAllowed" type="STRUCT">
-      <offset>36</offset>
+      <offset>40</offset>
       <subtable external="CharacterPathRef" />
     </column>
     <column name="RequiredGemSlotType" type="INT">
-      <offset>40</offset>
+      <offset>44</offset>
       <static_define_list external="ItemGemType" />
     </column>
     <column name="}" type="END" />

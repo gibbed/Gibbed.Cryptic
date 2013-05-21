@@ -65,6 +65,23 @@
     <column name="defaultsversionnumber" type="INT">
       <offset>72</offset>
     </column>
+    <column name="fillclusterlow" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="fillclustermid" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="fillscattering" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="fillmax" type="INT">
+      <offset>88</offset>
+      <default>21000</default>
+    </column>
+    <column name="shaderquality" type="EMBEDDEDSTRUCT">
+      <offset>92</offset>
+      <subtable external="ShaderQualityRule" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

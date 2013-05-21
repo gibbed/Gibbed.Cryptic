@@ -29,12 +29,18 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="IsGM" type="BIT">
+    <column name="Text2" type="STRING">
       <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="IsGM" type="BIT">
+      <offset>20</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="IsDev" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />

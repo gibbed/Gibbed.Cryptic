@@ -31,41 +31,51 @@
     <column name="shardName" type="STRING">
       <offset>12</offset>
     </column>
-    <column name="ShardLoginServerAddress" type="STRING">
+    <column name="ClusterName" type="STRING">
       <offset>16</offset>
     </column>
-    <column name="ShardControllerAddress" type="STRING">
+    <column name="ShardLoginServerAddress" type="STRING">
       <offset>20</offset>
     </column>
-    <column name="VersionString" type="STRING">
+    <column name="ShardControllerAddress" type="STRING">
       <offset>24</offset>
     </column>
-    <column name="PatchCommandLine" type="STRING">
+    <column name="VersionString" type="STRING">
       <offset>28</offset>
     </column>
-    <column name="AutoClientCommandLine" type="STRING">
+    <column name="Languages" type="STRINGARRAY">
       <offset>32</offset>
     </column>
-    <column name="PrePatchCommandLine" type="STRING">
+    <column name="PatchCommandLine" type="STRING">
       <offset>36</offset>
     </column>
-    <column name="UniqueID" type="INT">
+    <column name="AutoClientCommandLine" type="STRING">
       <offset>40</offset>
     </column>
-    <column name="HasLocalMontiringMCP" type="U8">
+    <column name="PrePatchCommandLine" type="STRING">
       <offset>44</offset>
+    </column>
+    <column name="UniqueID" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="HasLocalMontiringMCP" type="U8">
+      <offset>52</offset>
       <format_strings>
         <format_string name="HTML_SKIP">1</format_string>
       </format_strings>
     </column>
     <column name="allLoginServerIPs" type="INTARRAY">
-      <offset>48</offset>
+      <offset>56</offset>
+    </column>
+    <column name="LoginServerPortsAndIPs" type="OPTIONALSTRUCT">
+      <offset>60</offset>
+      <subtable external="PortIPPairList" />
     </column>
     <column name="NotReallyThere" type="U8">
-      <offset>52</offset>
+      <offset>64</offset>
     </column>
     <column name="AccountServer" type="STRING">
-      <offset>56</offset>
+      <offset>68</offset>
     </column>
     <column name="}" type="END" />
   </table>

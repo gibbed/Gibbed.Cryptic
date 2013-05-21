@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCMissionData">
+  <table>
+    <column name="UGCMissionData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="bCreatedByAccount" type="U8">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bStatsQualifyForUGCRewards" type="U8">
+      <offset>1</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="fAverageDurationInMinutes" type="F32">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bProjectIsFeatured" type="U8">
+      <offset>8</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bPlayingAsBetaReviewer" type="U8">
+      <offset>9</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iFeaturedStartTimestamp" type="IGNORE" />
+    <column name="iFeaturedEndTimestamp" type="IGNORE" />
+    <column name="}" type="END" />
+  </table>
+</parser>

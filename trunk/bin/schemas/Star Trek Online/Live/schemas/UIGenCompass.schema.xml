@@ -174,52 +174,56 @@
       <offset>132</offset>
       <subtable external="UIGenTextureAssembly" />
     </column>
-    <column name="Alpha" type="F32">
+    <column name="OverlayAssembly" type="OPTIONALSTRUCT">
       <offset>136</offset>
+      <subtable external="UIGenTextureAssembly" />
+    </column>
+    <column name="Alpha" type="F32">
+      <offset>140</offset>
       <default>1</default>
     </column>
     <column name="Tween" type="OPTIONALSTRUCT">
-      <offset>140</offset>
+      <offset>144</offset>
       <subtable external="UIGenTweenInfo" />
     </column>
     <column name="BeforeLayout" type="OPTIONALSTRUCT">
-      <offset>144</offset>
-      <subtable external="UIGenAction" />
-    </column>
-    <column name="AfterLayout" type="OPTIONALSTRUCT">
       <offset>148</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="BeforeTick" type="OPTIONALSTRUCT">
+    <column name="AfterLayout" type="OPTIONALSTRUCT">
       <offset>152</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="KeyAction" type="STRUCT">
+    <column name="BeforeTick" type="OPTIONALSTRUCT">
       <offset>156</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="KeyAction" type="STRUCT">
+      <offset>160</offset>
       <subtable external="UIGenKeyAction" />
     </column>
     <column name="DefaultKeyAction" type="OPTIONALSTRUCT">
-      <offset>160</offset>
+      <offset>164</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="ToolTip" type="OPTIONALSTRUCT">
-      <offset>164</offset>
+      <offset>168</offset>
       <subtable external="UIGenTooltip" />
     </column>
     <column name="Background" type="OPTIONALSTRUCT">
-      <offset>168</offset>
+      <offset>172</offset>
       <subtable external="UIGenBackgroundImage" />
     </column>
     <column name="DragDrop" type="STRUCT">
-      <offset>172</offset>
+      <offset>176</offset>
       <subtable external="UIGenDragDropAction" />
     </column>
     <column name="DragCancelled" type="OPTIONALSTRUCT">
-      <offset>176</offset>
+      <offset>180</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="Message" type="STRUCT">
-      <offset>180</offset>
+      <offset>184</offset>
       <subtable external="UIGenMessage" />
     </column>
     <column name="Transform" type="IGNORE">
@@ -228,110 +232,102 @@
       </flags>
     </column>
     <column name="CenterX" type="EMBEDDEDSTRUCT">
-      <offset>184</offset>
+      <offset>188</offset>
       <subtable external="UISizeSpec" />
     </column>
     <column name="CenterY" type="EMBEDDEDSTRUCT">
-      <offset>192</offset>
+      <offset>196</offset>
       <subtable external="UISizeSpec" />
     </column>
     <column name="Rotate" type="EMBEDDEDSTRUCT">
-      <offset>200</offset>
+      <offset>204</offset>
       <subtable external="UIAngle" />
     </column>
     <column name="ShearX" type="F32">
-      <offset>208</offset>
-    </column>
-    <column name="ShearY" type="F32">
       <offset>212</offset>
     </column>
-    <column name="ScaleX" type="F32">
+    <column name="ShearY" type="F32">
       <offset>216</offset>
-      <default>1</default>
     </column>
-    <column name="ScaleY" type="F32">
+    <column name="ScaleX" type="F32">
       <offset>220</offset>
       <default>1</default>
     </column>
-    <column name="Cursor" type="REFERENCE">
+    <column name="ScaleY" type="F32">
       <offset>224</offset>
+      <default>1</default>
+    </column>
+    <column name="Cursor" type="REFERENCE">
+      <offset>228</offset>
       <flags>
         <flag>NON_NULL_REF</flag>
       </flags>
       <dictionary_name>UICursor</dictionary_name>
     </column>
     <column name="Priority" type="U8">
-      <offset>228</offset>
+      <offset>232</offset>
     </column>
     <column name="ResetAlpha" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="Clip" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="ResetClip" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="CaptureMouse" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="CaptureMouseWheel" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="FocusOnClick" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="FocusOnCreate" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65550</bit_offset>
     </column>
     <column name="KeepFocusOnCreate" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="FocusByDefault" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65552</bit_offset>
     </column>
     <column name="FocusEveryFrame" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65553</bit_offset>
     </column>
     <column name="ClipInput" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65554</bit_offset>
     </column>
     <column name="ResetInputClip" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65555</bit_offset>
     </column>
     <column name="CopyChildPriority" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65556</bit_offset>
     </column>
     <column name="ClipToPadding" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65557</bit_offset>
     </column>
     <column name="TooltipFont" type="REFERENCE">
-      <offset>232</offset>
+      <offset>236</offset>
       <dictionary_name>UIStyleFont</dictionary_name>
     </column>
     <column name="TeammateColor" type="INT">
-      <offset>236</offset>
-      <default>-1</default>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
-    </column>
-    <column name="TeamLeaderColor" type="INT">
       <offset>240</offset>
       <default>-1</default>
       <static_define_list>
@@ -339,7 +335,7 @@
       </static_define_list>
       <format>COLOR</format>
     </column>
-    <column name="ContactColor" type="INT">
+    <column name="TeamLeaderColor" type="INT">
       <offset>244</offset>
       <default>-1</default>
       <static_define_list>
@@ -347,7 +343,7 @@
       </static_define_list>
       <format>COLOR</format>
     </column>
-    <column name="MissionColor" type="INT">
+    <column name="ContactColor" type="INT">
       <offset>248</offset>
       <default>-1</default>
       <static_define_list>
@@ -355,7 +351,7 @@
       </static_define_list>
       <format>COLOR</format>
     </column>
-    <column name="ActiveMissionColor" type="INT">
+    <column name="MissionColor" type="INT">
       <offset>252</offset>
       <default>-1</default>
       <static_define_list>
@@ -363,7 +359,7 @@
       </static_define_list>
       <format>COLOR</format>
     </column>
-    <column name="SavedWaypointColor" type="INT">
+    <column name="ActiveMissionColor" type="INT">
       <offset>256</offset>
       <default>-1</default>
       <static_define_list>
@@ -371,7 +367,7 @@
       </static_define_list>
       <format>COLOR</format>
     </column>
-    <column name="FlaggedEntityColor" type="INT">
+    <column name="SavedWaypointColor" type="INT">
       <offset>260</offset>
       <default>-1</default>
       <static_define_list>
@@ -379,8 +375,16 @@
       </static_define_list>
       <format>COLOR</format>
     </column>
-    <column name="CompassBackground" type="STRING">
+    <column name="FlaggedEntityColor" type="INT">
       <offset>264</offset>
+      <default>-1</default>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
+    </column>
+    <column name="CompassBackground" type="STRING">
+      <offset>268</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -388,7 +392,7 @@
       <dictionary_name>Texture</dictionary_name>
     </column>
     <column name="CompassBackgroundColor" type="INT">
-      <offset>268</offset>
+      <offset>272</offset>
       <default>-1</default>
       <static_define_list>
         <!-- dynamic enum? -->
@@ -396,7 +400,7 @@
       <format>COLOR</format>
     </column>
     <column name="CompassNotch" type="STRING">
-      <offset>272</offset>
+      <offset>276</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -404,7 +408,7 @@
       <dictionary_name>Texture</dictionary_name>
     </column>
     <column name="CompassNotchColor" type="INT">
-      <offset>276</offset>
+      <offset>280</offset>
       <default>-1</default>
       <static_define_list>
         <!-- dynamic enum? -->
@@ -412,14 +416,6 @@
       <format>COLOR</format>
     </column>
     <column name="TeammateIcon" type="STRING">
-      <offset>280</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>GLOBAL_NAME</flag>
-      </flags>
-      <dictionary_name>Texture</dictionary_name>
-    </column>
-    <column name="TeamLeaderIcon" type="STRING">
       <offset>284</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -427,7 +423,7 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="ContactIcon" type="STRING">
+    <column name="TeamLeaderIcon" type="STRING">
       <offset>288</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -435,7 +431,7 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="MissionIcon" type="STRING">
+    <column name="ContactIcon" type="STRING">
       <offset>292</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -443,7 +439,7 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="ActiveMissionIcon" type="STRING">
+    <column name="MissionIcon" type="STRING">
       <offset>296</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -451,7 +447,7 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="SavedWaypointIcon" type="STRING">
+    <column name="ActiveMissionIcon" type="STRING">
       <offset>300</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -459,7 +455,7 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="FlaggedIcon" type="STRING">
+    <column name="SavedWaypointIcon" type="STRING">
       <offset>304</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -467,7 +463,7 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="UpwardIcon" type="STRING">
+    <column name="FlaggedIcon" type="STRING">
       <offset>308</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -475,7 +471,7 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="DownwardIcon" type="STRING">
+    <column name="UpwardIcon" type="STRING">
       <offset>312</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -483,11 +479,19 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="ShowClosestMissionIconOnly" type="U8">
+    <column name="DownwardIcon" type="STRING">
       <offset>316</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="ShowClosestMissionIconOnly" type="U8">
+      <offset>320</offset>
     </column>
     <column name="ClampIcons" type="U8">
-      <offset>317</offset>
+      <offset>321</offset>
     </column>
     <column name="}" type="END" />
   </table>

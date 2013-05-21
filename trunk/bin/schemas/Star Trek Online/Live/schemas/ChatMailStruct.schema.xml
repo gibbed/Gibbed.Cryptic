@@ -24,8 +24,11 @@
     </column>
     <column name="shardName" type="STRING">
       <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="subject" type="STRING">
+    <column name="Subject" type="STRING">
       <offset>20</offset>
     </column>
     <column name="Body" type="STRING">

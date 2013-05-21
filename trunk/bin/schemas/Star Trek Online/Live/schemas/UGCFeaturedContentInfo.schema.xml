@@ -12,19 +12,11 @@
         <flag>FLATEMBED</flag>
       </flags>
     </column>
-    <column name="GameProgressionNode" type="REFERENCE">
-      <offset>0</offset>
-      <dictionary_name>GameProgressionNodeDef</dictionary_name>
-    </column>
-    <column name="hQueueDef" type="REFERENCE">
-      <offset>4</offset>
-      <dictionary_name>QueueDef</dictionary_name>
-    </column>
     <column name="UGCProjectID" type="INT">
-      <offset>8</offset>
+      <offset>0</offset>
     </column>
     <column name="UGCProjectSeriesID" type="INT">
-      <offset>12</offset>
+      <offset>4</offset>
     </column>
     <column name="sFeaturedData" type="IGNORE">
       <flags>
@@ -32,21 +24,21 @@
       </flags>
     </column>
     <column name="iStartTimestamp" type="INT">
-      <offset>16</offset>
+      <offset>8</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="iEndTimestamp" type="INT">
-      <offset>20</offset>
+      <offset>12</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="strDetails" type="STRING">
-      <offset>24</offset>
+      <offset>16</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>

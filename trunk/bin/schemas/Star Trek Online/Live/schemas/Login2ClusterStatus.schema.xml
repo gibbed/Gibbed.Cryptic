@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="Login2ClusterStatus">
+  <table>
+    <column name="Login2ClusterStatus" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="isCluster" type="U8">
+      <offset>0</offset>
+    </column>
+    <column name="shardStatus" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="Login2ShardStatus" />
+    </column>
+    <column name="shardPlayerStatus" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="Login2ShardPlayerStatus" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

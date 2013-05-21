@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIStyleColorPaletteLoading">
+  <table>
+    <column name="UIStyleColorPaletteLoading" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Color" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+      <subtable external="UIStyleColorPaletteEntryDef" />
+    </column>
+    <column name="State" type="STRINGARRAY">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Palette" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="UIStyleColorPaletteDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

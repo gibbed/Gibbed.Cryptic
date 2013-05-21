@@ -15,6 +15,16 @@
       </flags>
       <static_define_list external="UGCProjectVersionState" />
     </column>
+    <column name="eState_USEACCESSOR" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>eState</redundant_name>
+      <static_define_list external="UGCProjectVersionState" />
+    </column>
     <column name="pUUID" type="STRING">
       <offset>4</offset>
       <flags>
@@ -216,7 +226,7 @@
       <offset>0</offset>
       <command_string>GetProjectToImport $FIELD(pNameSpace) $NOCONFIRM</command_string>
       <format_strings>
-        <format_string name="commandExpr">\q$SERVERTYPE\q = \qMapManager\q</format_string>
+        <format_string name="commandExpr">\q$SERVERTYPE\q = \qUGCDataManager\q</format_string>
       </format_strings>
     </column>
     <column name="}" type="END" />

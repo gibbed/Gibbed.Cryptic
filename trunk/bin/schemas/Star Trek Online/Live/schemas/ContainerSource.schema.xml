@@ -27,43 +27,43 @@
       <offset>796</offset>
     </column>
     <column name="incrementalMinutes" type="INT">
-      <offset>840</offset>
-    </column>
-    <column name="incrementalHoursToKeep" type="INT">
       <offset>844</offset>
     </column>
-    <column name="snapshotMinutesToKeep" type="INT">
+    <column name="incrementalHoursToKeep" type="INT">
       <offset>848</offset>
     </column>
-    <column name="snapshotHoursToKeep" type="INT">
+    <column name="snapshotMinutesToKeep" type="INT">
       <offset>852</offset>
     </column>
-    <column name="snapshotDaysToKeep" type="INT">
+    <column name="snapshotHoursToKeep" type="INT">
       <offset>856</offset>
     </column>
-    <column name="pendingHoursToKeep" type="INT">
+    <column name="snapshotDaysToKeep" type="INT">
       <offset>860</offset>
     </column>
-    <column name="journalHoursToKeep" type="INT">
+    <column name="pendingHoursToKeep" type="INT">
       <offset>864</offset>
     </column>
-    <column name="skipperiodiccontainersaves" type="INT">
+    <column name="journalHoursToKeep" type="INT">
       <offset>868</offset>
     </column>
-    <column name="savecontainerflushperiod" type="INT">
+    <column name="skipperiodiccontainersaves" type="INT">
       <offset>872</offset>
     </column>
-    <column name="savecontainernextflush" type="INT">
+    <column name="savecontainerflushperiod" type="INT">
       <offset>876</offset>
     </column>
-    <column name="nextRotateTime" type="INT">
+    <column name="savecontainernextflush" type="INT">
       <offset>880</offset>
     </column>
-    <column name="lastRotateTime" type="INT">
+    <column name="nextRotateTime" type="INT">
       <offset>884</offset>
     </column>
-    <column name="scanSnapshotTime" type="INT">
+    <column name="lastRotateTime" type="INT">
       <offset>888</offset>
+    </column>
+    <column name="scanSnapshotTime" type="INT">
+      <offset>892</offset>
     </column>
     <column name="scanSnapshotSeq" type="INT64">
       <offset>896</offset>
@@ -118,30 +118,24 @@
     <column name="forceUnpackThreshold" type="INT">
       <offset>936</offset>
     </column>
-    <column name="mtload" type="INT">
+    <column name="loadThreads" type="INT">
       <offset>944</offset>
     </column>
-    <column name="loadThreads" type="INT">
+    <column name="dumpload" type="INT">
       <offset>948</offset>
     </column>
-    <column name="mtsave" type="INT">
-      <offset>952</offset>
-    </column>
-    <column name="dumpload" type="INT">
-      <offset>956</offset>
-    </column>
     <column name="dumpContainerType" type="INT">
-      <offset>960</offset>
+      <offset>952</offset>
       <static_define_list external="GlobalType" />
     </column>
     <column name="purgeHogOnFailedContainer" type="INT">
-      <offset>968</offset>
+      <offset>960</offset>
     </column>
     <column name="needsRotate" type="U8">
-      <offset>972</offset>
+      <offset>964</offset>
     </column>
     <column name="rotateQueued" type="U8">
-      <offset>973</offset>
+      <offset>965</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -46,8 +46,12 @@
     <column name="time_physics" type="INT64">
       <offset>96</offset>
     </column>
-    <column name="inside_brackets" type="INT64">
+    <column name="time_gpu" type="F32FIXEDARRAY">
       <offset>104</offset>
+      <num_elements>10</num_elements>
+    </column>
+    <column name="inside_brackets" type="INT64">
+      <offset>144</offset>
     </column>
     <column name="}" type="END" />
   </table>

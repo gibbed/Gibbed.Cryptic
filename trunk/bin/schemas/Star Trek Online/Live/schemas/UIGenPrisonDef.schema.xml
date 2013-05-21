@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenPrisonDef">
+  <table>
+    <column name="UIGenPrisonDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="JailSet" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UIGenPrisonJailSet" />
+    </column>
+    <column name="DefaultJailSet" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="UIGenPrisonDefaultJailSet" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

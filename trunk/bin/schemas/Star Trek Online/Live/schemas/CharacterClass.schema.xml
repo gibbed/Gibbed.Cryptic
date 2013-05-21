@@ -127,41 +127,45 @@
       <offset>72</offset>
       <subtable external="PowerSlot" />
     </column>
-    <column name="msgDisplayName" type="EMBEDDEDSTRUCT">
+    <column name="ExamplePower" type="STRUCT">
       <offset>76</offset>
+      <subtable external="CharacterClassPower" />
+    </column>
+    <column name="msgDisplayName" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="msgDescription" type="EMBEDDEDSTRUCT">
-      <offset>88</offset>
+      <offset>92</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="msgDescriptionLong" type="EMBEDDEDSTRUCT">
-      <offset>100</offset>
+      <offset>104</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="IconName" type="STRING">
-      <offset>112</offset>
+      <offset>116</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
       <default_string>CharacterClass_Icon_Default</default_string>
     </column>
     <column name="PortraitName" type="STRING">
-      <offset>116</offset>
+      <offset>120</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
       <default_string>CharacterClass_Portrait_Default</default_string>
     </column>
     <column name="LevelRequired" type="INT">
-      <offset>120</offset>
+      <offset>124</offset>
     </column>
     <column name="ExprRequiresBlock" type="OPTIONALSTRUCT">
-      <offset>124</offset>
+      <offset>128</offset>
       <subtable external="Expression" />
     </column>
     <column name="ExprRequires" type="OPTIONALSTRUCT">
-      <offset>124</offset>
+      <offset>128</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -169,104 +173,110 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="PlayerClass" type="BIT">
-      <offset>128</offset>
+      <offset>132</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="PlayerClassRestricted" type="BIT">
-      <offset>128</offset>
+      <offset>132</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="IgnoreItemRestriction" type="BIT">
-      <offset>128</offset>
+      <offset>132</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="Strafing" type="BIT">
-      <offset>128</offset>
+      <offset>132</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="UseProximityTargetingAssistEnt" type="BIT">
-      <offset>128</offset>
+      <offset>132</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="InventorySet" type="REFERENCE">
-      <offset>132</offset>
+      <offset>136</offset>
       <dictionary_name>DefaultInventory</dictionary_name>
     </column>
     <column name="DefaultTray" type="REFERENCE">
-      <offset>136</offset>
+      <offset>140</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <dictionary_name>DefaultTray</dictionary_name>
     </column>
     <column name="NearDeathConfig" type="OPTIONALSTRUCT">
-      <offset>140</offset>
+      <offset>144</offset>
       <subtable external="NearDeathConfig" />
     </column>
     <column name="Art" type="REFERENCE">
-      <offset>144</offset>
+      <offset>148</offset>
       <dictionary_name>ItemArt</dictionary_name>
     </column>
     <column name="FX" type="STRING">
-      <offset>148</offset>
+      <offset>152</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>STRUCTPARAM</flag>
       </flags>
     </column>
     <column name="AutoItemDamageChance" type="F32">
-      <offset>152</offset>
-    </column>
-    <column name="AutoItemDamageProportion" type="F32">
       <offset>156</offset>
     </column>
-    <column name="BasicFactBonusHitPointsMaxLevel" type="INT">
+    <column name="AutoItemDamageProportion" type="F32">
       <offset>160</offset>
     </column>
-    <column name="Type" type="INT">
+    <column name="BasicFactBonusHitPointsMaxLevel" type="INT">
       <offset>164</offset>
+    </column>
+    <column name="NativeSpeedRunning" type="F32">
+      <offset>168</offset>
+    </column>
+    <column name="Type" type="INT">
+      <offset>172</offset>
       <static_define_list external="CharClassTypes" />
     </column>
     <column name="Category" type="INT">
-      <offset>168</offset>
+      <offset>176</offset>
       <static_define_list external="CharClassCategory" />
     </column>
     <column name="DefaultPlayingStyle" type="STRING">
-      <offset>172</offset>
+      <offset>180</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="PermittedSpecies" type="STRUCT">
-      <offset>176</offset>
+      <offset>184</offset>
       <subtable external="SpeciesDefRef" />
     </column>
     <column name="TacticalRollDef" type="OPTIONALSTRUCT">
-      <offset>180</offset>
+      <offset>188</offset>
       <subtable external="TacticalRequesterRollDef" />
     </column>
     <column name="TacticalSprintDef" type="OPTIONALSTRUCT">
-      <offset>184</offset>
+      <offset>192</offset>
       <subtable external="TacticalRequesterSprintDef" />
     </column>
     <column name="TacticalAimDef" type="OPTIONALSTRUCT">
-      <offset>188</offset>
+      <offset>196</offset>
       <subtable external="TacticalRequesterAimDef" />
     </column>
     <column name="CombatReactivePowerDef" type="STRING">
-      <offset>192</offset>
-    </column>
-    <column name="CombatPowerStateSwitchingDef" type="STRING">
-      <offset>196</offset>
-    </column>
-    <column name="ReticleDef" type="STRING">
       <offset>200</offset>
     </column>
-    <column name="File" type="CURRENTFILE">
+    <column name="CombatPowerStateSwitchingDef" type="STRING">
       <offset>204</offset>
+    </column>
+    <column name="ReticleDef" type="STRING">
+      <offset>208</offset>
+    </column>
+    <column name="File" type="CURRENTFILE">
+      <offset>212</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
+    </column>
+    <column name="StanceWords" type="STRING">
+      <offset>216</offset>
     </column>
     <column name="exprKPM" type="IGNORE" />
     <column name="}" type="END" />

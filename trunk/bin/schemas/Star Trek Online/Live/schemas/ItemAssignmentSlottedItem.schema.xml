@@ -10,6 +10,7 @@
     <column name="ItemID" type="INT64">
       <offset>0</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
@@ -18,6 +19,7 @@
       <offset>0</offset>
       <flags>
         <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
@@ -26,6 +28,7 @@
     <column name="Slot" type="INT">
       <offset>8</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
@@ -34,6 +37,7 @@
       <offset>8</offset>
       <flags>
         <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>

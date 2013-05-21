@@ -93,6 +93,14 @@
       <offset>56</offset>
       <bit_offset>65540</bit_offset>
     </column>
+    <column name="HitsOwner" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="IgnoreHitWhileStationary" type="BIT">
+      <offset>56</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
     <column name="PowerOnHitEnt" type="REFERENCE">
       <offset>60</offset>
       <dictionary_name>PowerDef</dictionary_name>
@@ -176,15 +184,19 @@
     <column name="ResetHitEntsTimer" type="F32">
       <offset>100</offset>
     </column>
-    <column name="InitialEntityHitDelay" type="F32">
+    <column name="DecrementNumEntitiesHitCounterOnReset" type="U8">
       <offset>104</offset>
+      <default>1</default>
+    </column>
+    <column name="InitialEntityHitDelay" type="F32">
+      <offset>108</offset>
     </column>
     <column name="ProjectileType" type="INT">
-      <offset>108</offset>
+      <offset>112</offset>
       <static_define_list external="EProjectileType" />
     </column>
     <column name="AttachOnCreate" type="INT">
-      <offset>112</offset>
+      <offset>116</offset>
       <static_define_list external="EProjectileAttachOnCreate" />
     </column>
     <column name="}" type="END" />

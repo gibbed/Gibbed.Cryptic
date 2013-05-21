@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ModelClusterVolume">
+  <table>
+    <column name="ModelClusterVolume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="volume_min" type="F32FIXEDARRAY">
+      <offset>0</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="volume_max" type="F32FIXEDARRAY">
+      <offset>12</offset>
+      <num_elements>3</num_elements>
+    </column>
+    <column name="lod_max" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="lod_min" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="target_lod_level" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="texture_height" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="texture_width" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="texture_super_sample" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="geo_resolution" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="include_specular" type="U8">
+      <offset>52</offset>
+    </column>
+    <column name="include_normal" type="U8">
+      <offset>53</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

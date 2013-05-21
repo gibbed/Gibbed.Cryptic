@@ -2,26 +2,26 @@
 <parser name="Value">
   <table>
     <column name="ParamBitfield" type="INTFIXEDARRAY">
-      <offset>748</offset>
+      <offset>752</offset>
       <flags>
         <flag>USEDFIELD</flag>
       </flags>
       <num_elements>5</num_elements>
     </column>
     <column name="Apply" type="STRUCT">
-      <offset>732</offset>
+      <offset>736</offset>
       <subtable external="Apply" />
     </column>
     <column name="Param" type="STRUCT">
-      <offset>736</offset>
+      <offset>740</offset>
       <subtable external="DynApplyParam" />
     </column>
     <column name="Interp" type="STRUCT">
-      <offset>740</offset>
+      <offset>744</offset>
       <subtable external="Interp" />
     </column>
     <column name="JitterList" type="STRUCT">
-      <offset>744</offset>
+      <offset>748</offset>
       <subtable external="DynJitterList" />
     </column>
     <column name="StartOfValueToks" type="IGNORE" />
@@ -110,13 +110,13 @@
       </flags>
     </column>
     <column name="SkyName" type="STRINGARRAY">
-      <offset>672</offset>
+      <offset>676</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="SkyFalloff" type="INT">
-      <offset>688</offset>
+      <offset>692</offset>
       <static_define_list external="eSkyFalloffType" />
     </column>
     <column name="BlendMode" type="INT">
@@ -205,33 +205,33 @@
       </static_define_list>
     </column>
     <column name="SplatType" type="INT">
-      <offset>632</offset>
+      <offset>636</offset>
       <static_define_list external="eDynSplatType" />
     </column>
     <column name="FlareType" type="INT">
-      <offset>692</offset>
+      <offset>696</offset>
       <static_define_list external="eDynFlareType" />
     </column>
     <column name="FlareSize" type="F32ARRAY">
-      <offset>696</offset>
+      <offset>700</offset>
     </column>
     <column name="FlarePosition" type="F32ARRAY">
-      <offset>712</offset>
+      <offset>716</offset>
     </column>
     <column name="FlareMaterial" type="STRINGARRAY">
-      <offset>716</offset>
+      <offset>720</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="SplatForceDown" type="BOOLFLAG">
-      <offset>648</offset>
+      <offset>652</offset>
     </column>
     <column name="SplatUpdateScale" type="BOOLFLAG">
-      <offset>649</offset>
+      <offset>653</offset>
     </column>
     <column name="SplatCenter" type="BOOLFLAG">
-      <offset>650</offset>
+      <offset>654</offset>
     </column>
     <column name="TrailCurve" type="BOOLFLAG">
       <offset>565</offset>
@@ -249,10 +249,10 @@
       <offset>364</offset>
     </column>
     <column name="TimeScaleChildren" type="BOOLFLAG">
-      <offset>724</offset>
+      <offset>728</offset>
     </column>
     <column name="AttachCamera" type="BOOL">
-      <offset>608</offset>
+      <offset>612</offset>
     </column>
     <column name="GetModelFromCostumeBone" type="STRING">
       <offset>52</offset>
@@ -264,25 +264,25 @@
       <offset>329</offset>
     </column>
     <column name="CameraDelayDistanceBasis" type="F32">
-      <offset>620</offset>
+      <offset>624</offset>
     </column>
     <column name="CameraLookAt" type="STRING">
-      <offset>624</offset>
+      <offset>628</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="CameraLookAtSpeed" type="F32">
-      <offset>628</offset>
+      <offset>632</offset>
     </column>
     <column name="SplatBoneNameForProjection" type="STRING">
-      <offset>660</offset>
+      <offset>664</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="SplatDisableCulling" type="BOOLFLAG">
-      <offset>668</offset>
+      <offset>672</offset>
     </column>
     <column name="StartOfDynamicToks" type="IGNORE" />
     <column name="Position" type="F32FIXEDARRAY">
@@ -477,55 +477,58 @@
     <column name="TrailSpeedThreshold" type="F32">
       <offset>548</offset>
     </column>
-    <column name="ShakePower" type="F32">
+    <column name="TrailShiftSpeed" type="F32">
       <offset>584</offset>
     </column>
-    <column name="ShakeRadius" type="F32">
+    <column name="ShakePower" type="F32">
       <offset>588</offset>
     </column>
-    <column name="ShakeVertical" type="F32">
+    <column name="ShakeRadius" type="F32">
       <offset>592</offset>
     </column>
-    <column name="ShakePan" type="F32">
+    <column name="ShakeVertical" type="F32">
       <offset>596</offset>
     </column>
-    <column name="ShakeSpeed" type="F32">
+    <column name="ShakePan" type="F32">
       <offset>600</offset>
+    </column>
+    <column name="ShakeSpeed" type="F32">
+      <offset>604</offset>
       <default>1</default>
     </column>
     <column name="FOV" type="F32">
-      <offset>604</offset>
+      <offset>608</offset>
     </column>
     <column name="CameraControlInfluence" type="F32">
-      <offset>612</offset>
+      <offset>616</offset>
       <default>1</default>
     </column>
     <column name="CameraDelaySpeed" type="F32">
-      <offset>616</offset>
+      <offset>620</offset>
     </column>
     <column name="SplatRadius" type="F32">
-      <offset>636</offset>
-    </column>
-    <column name="SplatInnerRadius" type="F32">
       <offset>640</offset>
     </column>
-    <column name="SplatLength" type="F32">
+    <column name="SplatInnerRadius" type="F32">
       <offset>644</offset>
     </column>
+    <column name="SplatLength" type="F32">
+      <offset>648</offset>
+    </column>
     <column name="SplatFadePlane" type="F32">
-      <offset>656</offset>
+      <offset>660</offset>
     </column>
     <column name="SkyRadius" type="F32">
-      <offset>676</offset>
-    </column>
-    <column name="SkyLength" type="F32">
       <offset>680</offset>
     </column>
-    <column name="SkyWeight" type="F32">
+    <column name="SkyLength" type="F32">
       <offset>684</offset>
     </column>
+    <column name="SkyWeight" type="F32">
+      <offset>688</offset>
+    </column>
     <column name="FlareColor" type="F32FIXEDARRAY">
-      <offset>700</offset>
+      <offset>704</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="ClothWindOverride" type="F32FIXEDARRAY">
@@ -536,7 +539,7 @@
       <offset>368</offset>
     </column>
     <column name="TimeScale" type="F32">
-      <offset>720</offset>
+      <offset>724</offset>
       <default>1</default>
     </column>
     <column name="End" type="END" />

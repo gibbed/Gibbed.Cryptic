@@ -10,8 +10,12 @@
     <column name="Value" type="INT">
       <offset>0</offset>
     </column>
-    <column name="MessageKey" type="STRING">
+    <column name="EnumValue" type="INT">
       <offset>4</offset>
+      <static_define_list external="AuctionSortColumn" />
+    </column>
+    <column name="MessageKey" type="STRING">
+      <offset>8</offset>
     </column>
     <column name="}" type="END" />
   </table>

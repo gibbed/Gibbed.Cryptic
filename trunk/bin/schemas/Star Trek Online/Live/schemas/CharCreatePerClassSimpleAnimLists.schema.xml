@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CharCreatePerClassSimpleAnimLists">
+  <table>
+    <column name="CharCreatePerClassSimpleAnimLists" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ClassType" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>REQUIRED</flag>
+        <flag>KEY</flag>
+      </flags>
+      <static_define_list external="CharClassTypes" />
+    </column>
+    <column name="SimpleAnimList" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="CharCreateSimpleAnimList" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

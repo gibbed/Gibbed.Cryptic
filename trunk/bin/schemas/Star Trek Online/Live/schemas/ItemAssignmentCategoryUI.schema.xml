@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemAssignmentCategoryUI">
+  <table>
+    <column name="ItemAssignmentCategoryUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Category" type="INT">
+      <offset>0</offset>
+      <static_define_list external="ItemAssignmentCategory" />
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="HeaderDisplayName" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+    </column>
+    <column name="CurrentRank" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="NextRank" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="CurrentXP" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="NextXP" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="PercentageThroughCurrentLevel" type="F32">
+      <offset>36</offset>
+    </column>
+    <column name="Index" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="SortOrder" type="INT">
+      <offset>44</offset>
+    </column>
+    <column name="IsHeader" type="BIT">
+      <offset>48</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

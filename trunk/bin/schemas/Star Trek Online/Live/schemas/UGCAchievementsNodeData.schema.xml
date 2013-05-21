@@ -7,11 +7,14 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="projectID" type="INT">
+    <column name="ProjectID" type="INT">
       <offset>0</offset>
     </column>
-    <column name="UGCAchievementName" type="STRING">
+    <column name="SeriesID" type="INT">
       <offset>4</offset>
+    </column>
+    <column name="UGCAchievementName" type="STRING">
+      <offset>8</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

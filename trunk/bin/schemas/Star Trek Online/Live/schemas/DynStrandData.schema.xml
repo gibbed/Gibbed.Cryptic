@@ -52,14 +52,20 @@
     <column name="TorsionRatio" type="F32">
       <offset>64</offset>
     </column>
-    <column name="FullGroundReg" type="BOOLFLAG">
+    <column name="AxisIsInWorldSpace" type="BOOLFLAG">
       <offset>68</offset>
     </column>
-    <column name="PartialGroundReg" type="BOOLFLAG">
+    <column name="PrealignStrandToProceduralAxis" type="BOOLFLAG">
       <offset>69</offset>
     </column>
-    <column name="UseEulerIntegration" type="BOOLFLAG">
+    <column name="FullGroundReg" type="BOOLFLAG">
       <offset>70</offset>
+    </column>
+    <column name="PartialGroundReg" type="BOOLFLAG">
+      <offset>71</offset>
+    </column>
+    <column name="UseEulerIntegration" type="BOOLFLAG">
+      <offset>72</offset>
     </column>
     <column name="End" type="END" />
   </table>

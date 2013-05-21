@@ -67,6 +67,9 @@
     </column>
     <column name="ConstantBits" type="STRINGARRAY">
       <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
     <column name="FX" type="STRUCT">
       <offset>60</offset>
@@ -127,29 +130,44 @@
     <column name="Complete" type="U8">
       <offset>190</offset>
     </column>
-    <column name="Mount" type="U8">
-      <offset>191</offset>
-    </column>
-    <column name="Rider" type="U8">
+    <column name="MountRiderScaleBlend" type="F32">
       <offset>192</offset>
     </column>
-    <column name="RiderChild" type="U8">
-      <offset>193</offset>
-    </column>
-    <column name="TerrainTiltApply" type="U8">
-      <offset>194</offset>
-    </column>
-    <column name="TerrainTiltModifyRoot" type="U8">
-      <offset>195</offset>
-    </column>
-    <column name="TerrainTiltBaseLength" type="F32">
+    <column name="MountScaleOverride" type="F32">
       <offset>196</offset>
     </column>
-    <column name="TerrainTiltStrength" type="F32">
+    <column name="MountClothCollisionInfo" type="STRING">
       <offset>200</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Mount" type="U8">
+      <offset>204</offset>
+    </column>
+    <column name="Rider" type="U8">
+      <offset>205</offset>
+    </column>
+    <column name="RiderChild" type="U8">
+      <offset>206</offset>
+    </column>
+    <column name="TerrainTiltApply" type="U8">
+      <offset>207</offset>
+    </column>
+    <column name="TerrainTiltModifyRoot" type="U8">
+      <offset>208</offset>
+    </column>
+    <column name="TerrainTiltBaseLength" type="F32">
+      <offset>212</offset>
+    </column>
+    <column name="TerrainTiltStrength" type="F32">
+      <offset>216</offset>
     </column>
     <column name="TerrainTiltMaxBlendAngle" type="F32">
-      <offset>204</offset>
+      <offset>220</offset>
+    </column>
+    <column name="HasNodeAliases" type="U8">
+      <offset>224</offset>
     </column>
     <column name="}" type="END" />
   </table>

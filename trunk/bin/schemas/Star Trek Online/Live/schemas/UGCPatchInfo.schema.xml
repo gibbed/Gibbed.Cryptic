@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCPatchInfo">
+  <table>
+    <column name="UGCPatchInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Server" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="port" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Project" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Shard" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

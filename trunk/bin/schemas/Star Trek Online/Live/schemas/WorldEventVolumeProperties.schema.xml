@@ -14,6 +14,10 @@
       <offset>4</offset>
       <subtable external="Expression" />
     </column>
+    <column name="FirstEnteredAction" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="WorldGameActionBlock" />
+    </column>
     <column name="End" type="END" />
   </table>
 </parser>

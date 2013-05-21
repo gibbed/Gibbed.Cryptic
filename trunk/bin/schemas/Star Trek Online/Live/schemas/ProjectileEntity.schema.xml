@@ -17,32 +17,35 @@
     <column name="NumEntitiesHit" type="INT">
       <offset>8</offset>
     </column>
-    <column name="TimeToLinger" type="F32">
+    <column name="uiLastProcessHitTime" type="INT">
       <offset>16</offset>
     </column>
-    <column name="muQueueDieTime" type="INT">
+    <column name="TimeToLinger" type="F32">
       <offset>20</offset>
     </column>
-    <column name="muResetHitEntsTime" type="INT">
+    <column name="muQueueDieTime" type="INT">
       <offset>24</offset>
     </column>
-    <column name="miOnExpireIndex" type="INT">
+    <column name="mfResetHitEntsTime" type="F32">
       <offset>28</offset>
     </column>
-    <column name="miOnQueueDeathIndex" type="INT">
+    <column name="miOnExpireIndex" type="INT">
       <offset>32</offset>
     </column>
-    <column name="miOnCollideWorldIndex" type="INT">
+    <column name="miOnQueueDeathIndex" type="INT">
       <offset>36</offset>
     </column>
-    <column name="miOnHitEntityIndex" type="INT">
+    <column name="miOnCollideWorldIndex" type="INT">
       <offset>40</offset>
     </column>
-    <column name="miOnHitGotoEnt" type="INT">
+    <column name="miOnHitEntityIndex" type="INT">
       <offset>44</offset>
     </column>
+    <column name="miOnHitGotoEnt" type="INT">
+      <offset>48</offset>
+    </column>
     <column name="QueuedDie" type="BIT">
-      <offset>56</offset>
+      <offset>60</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenTutorialState">
+  <table>
+    <column name="UIGenTutorialState" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hTutorial" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>UIGenTutorial</dictionary_name>
+    </column>
+    <column name="InfoState" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="UIGenTutorialInfoState" />
+    </column>
+    <column name="Step" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="Version" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="Dirty" type="U8">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

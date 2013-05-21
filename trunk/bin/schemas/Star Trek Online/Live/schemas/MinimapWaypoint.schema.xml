@@ -43,23 +43,35 @@
       <offset>36</offset>
       <dictionary_name>Message</dictionary_name>
     </column>
-    <column name="XAxisRadius" type="F32">
+    <column name="DestinationMap" type="STRING">
       <offset>40</offset>
-    </column>
-    <column name="YAxisRadius" type="F32">
-      <offset>44</offset>
-    </column>
-    <column name="Rotation" type="F32">
-      <offset>48</offset>
-    </column>
-    <column name="HideUnlessRevealed" type="U8">
-      <offset>52</offset>
-    </column>
-    <column name="MapCreatedOn" type="STRING">
-      <offset>60</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
+    </column>
+    <column name="XAxisRadius" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="YAxisRadius" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="Rotation" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="HideUnlessRevealed" type="U8">
+      <offset>56</offset>
+    </column>
+    <column name="Hidden" type="U8">
+      <offset>57</offset>
+    </column>
+    <column name="MapCreatedOn" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="IsDoorWaypoint" type="U8">
+      <offset>68</offset>
     </column>
     <column name="}" type="END" />
   </table>

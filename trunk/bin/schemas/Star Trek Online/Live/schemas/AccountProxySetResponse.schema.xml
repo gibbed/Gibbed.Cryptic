@@ -26,18 +26,17 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="Activation" type="OPTIONALSTRUCT">
-      <offset>16</offset>
-      <subtable external="AccountProxyProductActivationContainer" />
-    </column>
     <column name="RequestID" type="INT">
-      <offset>20</offset>
+      <offset>16</offset>
     </column>
     <column name="ContainerID" type="INT">
-      <offset>24</offset>
+      <offset>20</offset>
     </column>
     <column name="Value" type="STRING">
-      <offset>28</offset>
+      <offset>24</offset>
+    </column>
+    <column name="IntValue" type="INT64">
+      <offset>32</offset>
     </column>
     <column name="}" type="END" />
   </table>

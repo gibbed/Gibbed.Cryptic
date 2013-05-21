@@ -174,52 +174,56 @@
       <offset>132</offset>
       <subtable external="UIGenTextureAssembly" />
     </column>
-    <column name="Alpha" type="F32">
+    <column name="OverlayAssembly" type="OPTIONALSTRUCT">
       <offset>136</offset>
+      <subtable external="UIGenTextureAssembly" />
+    </column>
+    <column name="Alpha" type="F32">
+      <offset>140</offset>
       <default>1</default>
     </column>
     <column name="Tween" type="OPTIONALSTRUCT">
-      <offset>140</offset>
+      <offset>144</offset>
       <subtable external="UIGenTweenInfo" />
     </column>
     <column name="BeforeLayout" type="OPTIONALSTRUCT">
-      <offset>144</offset>
-      <subtable external="UIGenAction" />
-    </column>
-    <column name="AfterLayout" type="OPTIONALSTRUCT">
       <offset>148</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="BeforeTick" type="OPTIONALSTRUCT">
+    <column name="AfterLayout" type="OPTIONALSTRUCT">
       <offset>152</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="KeyAction" type="STRUCT">
+    <column name="BeforeTick" type="OPTIONALSTRUCT">
       <offset>156</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="KeyAction" type="STRUCT">
+      <offset>160</offset>
       <subtable external="UIGenKeyAction" />
     </column>
     <column name="DefaultKeyAction" type="OPTIONALSTRUCT">
-      <offset>160</offset>
+      <offset>164</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="ToolTip" type="OPTIONALSTRUCT">
-      <offset>164</offset>
+      <offset>168</offset>
       <subtable external="UIGenTooltip" />
     </column>
     <column name="Background" type="OPTIONALSTRUCT">
-      <offset>168</offset>
+      <offset>172</offset>
       <subtable external="UIGenBackgroundImage" />
     </column>
     <column name="DragDrop" type="STRUCT">
-      <offset>172</offset>
+      <offset>176</offset>
       <subtable external="UIGenDragDropAction" />
     </column>
     <column name="DragCancelled" type="OPTIONALSTRUCT">
-      <offset>176</offset>
+      <offset>180</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="Message" type="STRUCT">
-      <offset>180</offset>
+      <offset>184</offset>
       <subtable external="UIGenMessage" />
     </column>
     <column name="Transform" type="IGNORE">
@@ -228,103 +232,103 @@
       </flags>
     </column>
     <column name="CenterX" type="EMBEDDEDSTRUCT">
-      <offset>184</offset>
+      <offset>188</offset>
       <subtable external="UISizeSpec" />
     </column>
     <column name="CenterY" type="EMBEDDEDSTRUCT">
-      <offset>192</offset>
+      <offset>196</offset>
       <subtable external="UISizeSpec" />
     </column>
     <column name="Rotate" type="EMBEDDEDSTRUCT">
-      <offset>200</offset>
+      <offset>204</offset>
       <subtable external="UIAngle" />
     </column>
     <column name="ShearX" type="F32">
-      <offset>208</offset>
-    </column>
-    <column name="ShearY" type="F32">
       <offset>212</offset>
     </column>
-    <column name="ScaleX" type="F32">
+    <column name="ShearY" type="F32">
       <offset>216</offset>
-      <default>1</default>
     </column>
-    <column name="ScaleY" type="F32">
+    <column name="ScaleX" type="F32">
       <offset>220</offset>
       <default>1</default>
     </column>
-    <column name="Cursor" type="REFERENCE">
+    <column name="ScaleY" type="F32">
       <offset>224</offset>
+      <default>1</default>
+    </column>
+    <column name="Cursor" type="REFERENCE">
+      <offset>228</offset>
       <flags>
         <flag>NON_NULL_REF</flag>
       </flags>
       <dictionary_name>UICursor</dictionary_name>
     </column>
     <column name="Priority" type="U8">
-      <offset>228</offset>
+      <offset>232</offset>
     </column>
     <column name="ResetAlpha" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="Clip" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="ResetClip" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="CaptureMouse" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="CaptureMouseWheel" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="FocusOnClick" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="FocusOnCreate" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65550</bit_offset>
     </column>
     <column name="KeepFocusOnCreate" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="FocusByDefault" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65552</bit_offset>
     </column>
     <column name="FocusEveryFrame" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65553</bit_offset>
     </column>
     <column name="ClipInput" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65554</bit_offset>
     </column>
     <column name="ResetInputClip" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65555</bit_offset>
     </column>
     <column name="CopyChildPriority" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65556</bit_offset>
     </column>
     <column name="ClipToPadding" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65557</bit_offset>
     </column>
     <column name="ModelBlock" type="OPTIONALSTRUCT">
-      <offset>232</offset>
+      <offset>236</offset>
       <subtable external="Expression" />
     </column>
     <column name="Model" type="OPTIONALSTRUCT">
-      <offset>232</offset>
+      <offset>236</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -332,11 +336,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="FilterBlock" type="OPTIONALSTRUCT">
-      <offset>236</offset>
+      <offset>240</offset>
       <subtable external="Expression" />
     </column>
     <column name="Filter" type="OPTIONALSTRUCT">
-      <offset>236</offset>
+      <offset>240</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -349,39 +353,39 @@
       </flags>
     </column>
     <column name="ScrollbarDef" type="REFERENCE">
-      <offset>240</offset>
-      <dictionary_name>UIGenScrollbarDef</dictionary_name>
-    </column>
-    <column name="DisabledScrollbarDef" type="REFERENCE">
       <offset>244</offset>
       <dictionary_name>UIGenScrollbarDef</dictionary_name>
     </column>
-    <column name="ScrollbarTopMargin" type="INT16">
+    <column name="DisabledScrollbarDef" type="REFERENCE">
       <offset>248</offset>
-      <static_define_list external="UISize" />
+      <dictionary_name>UIGenScrollbarDef</dictionary_name>
     </column>
-    <column name="ScrollbarBottomMargin" type="INT16">
-      <offset>250</offset>
-      <static_define_list external="UISize" />
-    </column>
-    <column name="ScrollbarLeftMargin" type="INT16">
+    <column name="ScrollbarTopMargin" type="INT16">
       <offset>252</offset>
       <static_define_list external="UISize" />
     </column>
-    <column name="ScrollbarRightMargin" type="INT16">
+    <column name="ScrollbarBottomMargin" type="INT16">
       <offset>254</offset>
       <static_define_list external="UISize" />
     </column>
-    <column name="ScrollbarOnlyShowWhenNeeded" type="BIT">
+    <column name="ScrollbarLeftMargin" type="INT16">
       <offset>256</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ScrollbarRightMargin" type="INT16">
+      <offset>258</offset>
+      <static_define_list external="UISize" />
+    </column>
+    <column name="ScrollbarOnlyShowWhenNeeded" type="BIT">
+      <offset>260</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ScrollbarCaptureMouse" type="BIT">
-      <offset>256</offset>
+      <offset>260</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="ScrollbarUseWheel" type="BIT">
-      <offset>256</offset>
+      <offset>260</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -391,7 +395,7 @@
       </format_strings>
     </column>
     <column name="ScrollbarUseStick" type="BIT">
-      <offset>256</offset>
+      <offset>260</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -400,20 +404,7 @@
         <format_string name="SPECIAL_DEFAULT">1</format_string>
       </format_strings>
     </column>
-    <column name="SortAscIndicatorBundle" type="IGNORE">
-      <flags>
-        <flag>FLATEMBED</flag>
-      </flags>
-    </column>
     <column name="SortAscIndicatorTexture" type="STRING">
-      <offset>260</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>GLOBAL_NAME</flag>
-      </flags>
-      <dictionary_name>Texture</dictionary_name>
-    </column>
-    <column name="SortAscIndicatorMask" type="STRING">
       <offset>264</offset>
       <flags>
         <flag>POOL_STRING</flag>
@@ -421,207 +412,24 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="SortAscIndicatorTopLeftColor" type="INT">
+    <column name="SortAscIndicatorAlignment" type="INT">
       <offset>268</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
-    </column>
-    <column name="SortAscIndicatorColor" type="INT">
-      <offset>268</offset>
-      <flags>
-        <flag>ALIAS</flag>
-      </flags>
-      <redundant_name>SortAscIndicatorTopLeftColor</redundant_name>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
-    </column>
-    <column name="SortAscIndicatorTopRightColor" type="INT">
-      <offset>272</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
-    </column>
-    <column name="SortAscIndicatorBottomLeftColor" type="INT">
-      <offset>276</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
-    </column>
-    <column name="SortAscIndicatorBottomRightColor" type="INT">
-      <offset>280</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
-    </column>
-    <column name="SortAscIndicatorRotation" type="EMBEDDEDSTRUCT">
-      <offset>284</offset>
-      <subtable external="UIAngle" />
-    </column>
-    <column name="SortAscIndicatorAnimation" type="OPTIONALSTRUCT">
-      <offset>292</offset>
-      <subtable external="UIGenBundleTextureAnimation" />
-    </column>
-    <column name="TextureCoordinateData" type="IGNORE">
-      <flags>
-        <flag>FLATEMBED</flag>
-      </flags>
-    </column>
-    <column name="SortAscIndicatorOffsetU" type="F32">
-      <offset>296</offset>
-    </column>
-    <column name="SortAscIndicatorOffsetV" type="F32">
-      <offset>300</offset>
-    </column>
-    <column name="SortAscIndicatorScaleU" type="F32">
-      <offset>304</offset>
-      <default>1</default>
-    </column>
-    <column name="SortAscIndicatorScaleV" type="F32">
-      <offset>308</offset>
-      <default>1</default>
-    </column>
-    <column name="SortAscIndicatorMode" type="BIT">
-      <offset>312</offset>
-      <bit_offset>327680</bit_offset>
-      <static_define_list external="UITextureMode" />
-    </column>
-    <column name="SortAscIndicatorEffect" type="BIT">
-      <offset>312</offset>
-      <bit_offset>262149</bit_offset>
-      <static_define_list external="RdrSpriteEffect" />
-    </column>
-    <column name="SortAscIndicatorAlignment" type="BIT">
-      <offset>312</offset>
-      <bit_offset>327689</bit_offset>
       <static_define_list external="UIDirection" />
-    </column>
-    <column name="SortAscIndicatorAdditive" type="BIT">
-      <offset>316</offset>
-      <bit_offset>65536</bit_offset>
-    </column>
-    <column name="SortAscIndicatorForceBottomLayer" type="BIT">
-      <offset>316</offset>
-      <bit_offset>65537</bit_offset>
-    </column>
-    <column name="SortDesIndicatorBundle" type="IGNORE">
-      <flags>
-        <flag>FLATEMBED</flag>
-      </flags>
     </column>
     <column name="SortDesIndicatorTexture" type="STRING">
-      <offset>320</offset>
+      <offset>272</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="SortDesIndicatorMask" type="STRING">
-      <offset>324</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-        <flag>GLOBAL_NAME</flag>
-      </flags>
-      <dictionary_name>Texture</dictionary_name>
-    </column>
-    <column name="SortDesIndicatorTopLeftColor" type="INT">
-      <offset>328</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
-    </column>
-    <column name="SortDesIndicatorColor" type="INT">
-      <offset>328</offset>
-      <flags>
-        <flag>ALIAS</flag>
-      </flags>
-      <redundant_name>SortDesIndicatorTopLeftColor</redundant_name>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
-    </column>
-    <column name="SortDesIndicatorTopRightColor" type="INT">
-      <offset>332</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
-    </column>
-    <column name="SortDesIndicatorBottomLeftColor" type="INT">
-      <offset>336</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
-    </column>
-    <column name="SortDesIndicatorBottomRightColor" type="INT">
-      <offset>340</offset>
-      <static_define_list>
-        <!-- dynamic enum? -->
-      </static_define_list>
-      <format>COLOR</format>
-    </column>
-    <column name="SortDesIndicatorRotation" type="EMBEDDEDSTRUCT">
-      <offset>344</offset>
-      <subtable external="UIAngle" />
-    </column>
-    <column name="SortDesIndicatorAnimation" type="OPTIONALSTRUCT">
-      <offset>352</offset>
-      <subtable external="UIGenBundleTextureAnimation" />
-    </column>
-    <column name="TextureCoordinateData" type="IGNORE">
-      <flags>
-        <flag>FLATEMBED</flag>
-      </flags>
-    </column>
-    <column name="SortDesIndicatorOffsetU" type="F32">
-      <offset>356</offset>
-    </column>
-    <column name="SortDesIndicatorOffsetV" type="F32">
-      <offset>360</offset>
-    </column>
-    <column name="SortDesIndicatorScaleU" type="F32">
-      <offset>364</offset>
-      <default>1</default>
-    </column>
-    <column name="SortDesIndicatorScaleV" type="F32">
-      <offset>368</offset>
-      <default>1</default>
-    </column>
-    <column name="SortDesIndicatorMode" type="BIT">
-      <offset>372</offset>
-      <bit_offset>327680</bit_offset>
-      <static_define_list external="UITextureMode" />
-    </column>
-    <column name="SortDesIndicatorEffect" type="BIT">
-      <offset>372</offset>
-      <bit_offset>262149</bit_offset>
-      <static_define_list external="RdrSpriteEffect" />
-    </column>
-    <column name="SortDesIndicatorAlignment" type="BIT">
-      <offset>372</offset>
-      <bit_offset>327689</bit_offset>
+    <column name="SortDesIndicatorAlignment" type="INT">
+      <offset>276</offset>
       <static_define_list external="UIDirection" />
     </column>
-    <column name="SortDesIndicatorAdditive" type="BIT">
-      <offset>376</offset>
-      <bit_offset>65536</bit_offset>
-    </column>
-    <column name="SortDesIndicatorForceBottomLayer" type="BIT">
-      <offset>376</offset>
-      <bit_offset>65537</bit_offset>
-    </column>
     <column name="MoveColor" type="INT">
-      <offset>380</offset>
+      <offset>280</offset>
       <default>3368703</default>
       <static_define_list>
         <!-- dynamic enum? -->
@@ -629,7 +437,7 @@
       <format>COLOR</format>
     </column>
     <column name="MoveColColor" type="INT">
-      <offset>380</offset>
+      <offset>280</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -641,11 +449,11 @@
       <format>COLOR</format>
     </column>
     <column name="Columns" type="STRUCT">
-      <offset>384</offset>
+      <offset>284</offset>
       <subtable external="UIGenChild" />
     </column>
     <column name="Column" type="STRUCT">
-      <offset>384</offset>
+      <offset>284</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -653,11 +461,11 @@
       <subtable external="UIGenChild" />
     </column>
     <column name="RowTemplate" type="REFERENCE">
-      <offset>388</offset>
+      <offset>288</offset>
       <dictionary_name>UIGen</dictionary_name>
     </column>
     <column name="Template" type="REFERENCE">
-      <offset>388</offset>
+      <offset>288</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -665,11 +473,11 @@
       <dictionary_name>UIGen</dictionary_name>
     </column>
     <column name="RowTemplateExprBlock" type="OPTIONALSTRUCT">
-      <offset>392</offset>
+      <offset>292</offset>
       <subtable external="Expression" />
     </column>
     <column name="RowTemplateExpr" type="OPTIONALSTRUCT">
-      <offset>392</offset>
+      <offset>292</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -677,11 +485,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="TemplateChild" type="STRUCT">
-      <offset>396</offset>
+      <offset>296</offset>
       <subtable external="UIGenChild" />
     </column>
     <column name="TemplateChildren" type="STRUCT">
-      <offset>396</offset>
+      <offset>296</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -689,46 +497,46 @@
       <subtable external="UIGenChild" />
     </column>
     <column name="SelectionGroup" type="STRING">
-      <offset>400</offset>
+      <offset>300</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="NextList" type="REFERENCE">
-      <offset>404</offset>
+      <offset>304</offset>
       <dictionary_name>UIGen</dictionary_name>
     </column>
     <column name="PreviousList" type="REFERENCE">
-      <offset>408</offset>
+      <offset>308</offset>
       <dictionary_name>UIGen</dictionary_name>
     </column>
     <column name="RowSpacing" type="INT16">
-      <offset>412</offset>
+      <offset>312</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="ListTopMargin" type="INT16">
-      <offset>414</offset>
+      <offset>314</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="ListBottomMargin" type="INT16">
-      <offset>416</offset>
+      <offset>316</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="DefaultSortCol" type="INT16">
-      <offset>418</offset>
+      <offset>318</offset>
       <default>-1</default>
     </column>
     <column name="DefaultSortMode" type="INT">
-      <offset>420</offset>
+      <offset>320</offset>
       <default>2</default>
       <static_define_list external="UISortType" />
     </column>
     <column name="AllowSelectBlock" type="OPTIONALSTRUCT">
-      <offset>424</offset>
+      <offset>324</offset>
       <subtable external="Expression" />
     </column>
     <column name="AllowSelect" type="OPTIONALSTRUCT">
-      <offset>424</offset>
+      <offset>324</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -736,15 +544,15 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="FitParentMode" type="EMBEDDEDSTRUCT">
-      <offset>428</offset>
+      <offset>328</offset>
       <subtable external="UIGenListFitParent" />
     </column>
     <column name="SlowSync" type="BIT">
-      <offset>436</offset>
+      <offset>336</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="PreserveOrder" type="BIT">
-      <offset>436</offset>
+      <offset>336</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -754,7 +562,7 @@
       </format_strings>
     </column>
     <column name="ShowSelectedRow" type="BIT">
-      <offset>436</offset>
+      <offset>336</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -764,11 +572,11 @@
       </format_strings>
     </column>
     <column name="UpdateParentScrollBar" type="BIT">
-      <offset>436</offset>
+      <offset>336</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="MovableColumns" type="BIT">
-      <offset>436</offset>
+      <offset>336</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -778,11 +586,11 @@
       </format_strings>
     </column>
     <column name="AppendTemplateChildren" type="BIT">
-      <offset>436</offset>
+      <offset>336</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="Version" type="INT">
-      <offset>440</offset>
+      <offset>340</offset>
     </column>
     <column name="}" type="END" />
   </table>

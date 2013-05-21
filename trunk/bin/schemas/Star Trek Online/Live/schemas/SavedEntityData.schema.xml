@@ -143,13 +143,13 @@
       </flags>
       <subtable external="CritterPetRelationship" />
     </column>
-    <column name="ppSuperCritterPets" type="STRUCT">
+    <column name="pSCPData" type="OPTIONALSTRUCT">
       <offset>172</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
-      <subtable external="ActiveSuperCritterPet" />
+      <subtable external="EntitySavedSCPData" />
     </column>
     <column name="ppRequestedPetIDs" type="INTARRAY">
       <offset>176</offset>
@@ -230,21 +230,28 @@
       <subtable external="PetRequest" />
     </column>
     <column name="bCheckPets" type="BIT">
-      <offset>212</offset>
+      <offset>216</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bPowerPropFail" type="BIT">
-      <offset>212</offset>
+      <offset>216</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
-    <column name="pPuppetMaster" type="OPTIONALSTRUCT">
+    <column name="bSubscribeAllPets" type="BIT">
       <offset>216</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="pPuppetMaster" type="OPTIONALSTRUCT">
+      <offset>220</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
@@ -253,7 +260,7 @@
       <subtable external="PuppetMaster" />
     </column>
     <column name="ppBuilds" type="STRUCT">
-      <offset>220</offset>
+      <offset>224</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -261,35 +268,35 @@
       <subtable external="EntityBuild" />
     </column>
     <column name="uiIndexBuild" type="INT">
-      <offset>224</offset>
-      <flags>
-        <flag>SELF_ONLY</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="uiTimestampBuildSet" type="INT">
       <offset>228</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="uiTimestampCostumeSet" type="INT">
+    <column name="uiTimestampBuildSet" type="INT">
       <offset>232</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="uiBuildValidateTag" type="INT">
+    <column name="uiTimestampCostumeSet" type="INT">
       <offset>236</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uiBuildValidateTag" type="INT">
+      <offset>240</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="Tray" type="OPTIONALSTRUCT">
-      <offset>240</offset>
+      <offset>244</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -298,7 +305,7 @@
       <subtable external="SavedTray" />
     </column>
     <column name="pSavedTray" type="OPTIONALSTRUCT">
-      <offset>240</offset>
+      <offset>244</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SELF_ONLY</flag>
@@ -309,7 +316,7 @@
       <subtable external="SavedTray" />
     </column>
     <column name="pTray" type="OPTIONALSTRUCT">
-      <offset>240</offset>
+      <offset>244</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SELF_ONLY</flag>
@@ -320,7 +327,7 @@
       <subtable external="SavedTray" />
     </column>
     <column name="CostumeData" type="EMBEDDEDSTRUCT">
-      <offset>252</offset>
+      <offset>256</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_AND_TEAM_ONLY</flag>
@@ -329,7 +336,7 @@
       <subtable external="PlayerCostumeData" />
     </column>
     <column name="CostumeData" type="EMBEDDEDSTRUCT">
-      <offset>252</offset>
+      <offset>256</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -340,7 +347,7 @@
       <subtable external="PlayerCostumeData" />
     </column>
     <column name="Costumes" type="OPTIONALSTRUCT">
-      <offset>272</offset>
+      <offset>276</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -348,7 +355,7 @@
       <subtable external="PlayerCostumeListsV0" />
     </column>
     <column name="obsolete_costumeData" type="OPTIONALSTRUCT">
-      <offset>272</offset>
+      <offset>276</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SELF_ONLY</flag>
@@ -358,16 +365,6 @@
       <subtable external="PlayerCostumeListsV0" />
     </column>
     <column name="lastStaticMap" type="OPTIONALSTRUCT">
-      <offset>276</offset>
-      <flags>
-        <flag>PUPPET_NO_COPY</flag>
-        <flag>SUBSCRIBE</flag>
-        <flag>SELF_ONLY</flag>
-        <flag>PERSIST</flag>
-      </flags>
-      <subtable external="SavedMapDescription" />
-    </column>
-    <column name="lastNonStaticMap" type="OPTIONALSTRUCT">
       <offset>280</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
@@ -377,15 +374,25 @@
       </flags>
       <subtable external="SavedMapDescription" />
     </column>
-    <column name="transferDestinationMapID" type="INT">
+    <column name="lastNonStaticMap" type="OPTIONALSTRUCT">
       <offset>284</offset>
+      <flags>
+        <flag>PUPPET_NO_COPY</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="SavedMapDescription" />
+    </column>
+    <column name="transferDestinationMapID" type="INT">
+      <offset>288</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="transferDestinationSpawnPoint" type="STRING">
-      <offset>288</offset>
+      <offset>292</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>PUPPET_NO_COPY</flag>
@@ -393,7 +400,7 @@
       </flags>
     </column>
     <column name="transferDestinationSpawnPos" type="F32FIXEDARRAY">
-      <offset>292</offset>
+      <offset>296</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>PERSIST</flag>
@@ -401,7 +408,7 @@
       <num_elements>3</num_elements>
     </column>
     <column name="transferDestinationSpawnPYR" type="F32FIXEDARRAY">
-      <offset>304</offset>
+      <offset>308</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>PERSIST</flag>
@@ -409,21 +416,21 @@
       <num_elements>3</num_elements>
     </column>
     <column name="forceTransferDestinationSpawnPoint" type="U8">
-      <offset>316</offset>
+      <offset>320</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bSpawnPosSkipBeaconCheck" type="U8">
-      <offset>317</offset>
+      <offset>321</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bLastMapStatic" type="U8">
-      <offset>318</offset>
+      <offset>322</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
@@ -432,7 +439,7 @@
       </flags>
     </column>
     <column name="Maphistory" type="STRUCT">
-      <offset>320</offset>
+      <offset>324</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SELF_ONLY</flag>
@@ -441,7 +448,7 @@
       <subtable external="obsolete_SavedMapDescription" />
     </column>
     <column name="obsolete_mapHistory" type="STRUCT">
-      <offset>320</offset>
+      <offset>324</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>PUPPET_NO_COPY</flag>
@@ -452,7 +459,7 @@
       <subtable external="obsolete_SavedMapDescription" />
     </column>
     <column name="bBadName" type="U8">
-      <offset>324</offset>
+      <offset>328</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
@@ -460,7 +467,7 @@
       </flags>
     </column>
     <column name="esOldName" type="STRING">
-      <offset>328</offset>
+      <offset>332</offset>
       <flags>
         <flag>ESTRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -469,7 +476,7 @@
       </flags>
     </column>
     <column name="hDiary" type="REFERENCE">
-      <offset>332</offset>
+      <offset>336</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
@@ -483,7 +490,7 @@
       </format_strings>
     </column>
     <column name="activityLogEntries" type="STRUCT">
-      <offset>336</offset>
+      <offset>340</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
@@ -493,7 +500,7 @@
       <subtable external="ActivityLogEntry" />
     </column>
     <column name="nextActivityLogID" type="INT">
-      <offset>340</offset>
+      <offset>344</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
@@ -502,7 +509,7 @@
       </flags>
     </column>
     <column name="InteriorData" type="OPTIONALSTRUCT">
-      <offset>344</offset>
+      <offset>348</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
@@ -512,7 +519,7 @@
       <subtable external="EntityInteriorData" />
     </column>
     <column name="pPermissionsOnMostRecentLogin" type="OPTIONALSTRUCT">
-      <offset>348</offset>
+      <offset>352</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
         <flag>SERVER_ONLY</flag>
@@ -522,7 +529,7 @@
       <subtable external="AccountProxyKeyValueInfoListContainer" />
     </column>
     <column name="piUITrayIndex" type="INTARRAY">
-      <offset>352</offset>
+      <offset>356</offset>
       <flags>
         <flag>SELF_ONLY</flag>
         <flag>PERSIST</flag>
@@ -530,7 +537,7 @@
       </flags>
     </column>
     <column name="piUITrayIndex_Obsolete" type="INTARRAY">
-      <offset>352</offset>
+      <offset>356</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SELF_ONLY</flag>
@@ -540,7 +547,7 @@
       <redundant_name>piUITrayIndex</redundant_name>
     </column>
     <column name="ppTrayElems" type="STRUCT">
-      <offset>356</offset>
+      <offset>360</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
@@ -549,7 +556,7 @@
       <subtable external="TrayElemOld" />
     </column>
     <column name="ppTrayElems_Obsolete" type="STRUCT">
-      <offset>356</offset>
+      <offset>360</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -560,7 +567,7 @@
       <subtable external="TrayElemOld" />
     </column>
     <column name="ppAutoAttackElems" type="STRUCT">
-      <offset>360</offset>
+      <offset>364</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_ONLY</flag>
@@ -569,7 +576,7 @@
       <subtable external="TrayElemOld" />
     </column>
     <column name="ppAutoAttackElems_Obsolete" type="STRUCT">
-      <offset>360</offset>
+      <offset>364</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -580,7 +587,7 @@
       <subtable external="TrayElemOld" />
     </column>
     <column name="LeaderboardStats" type="STRUCT">
-      <offset>364</offset>
+      <offset>368</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
@@ -589,7 +596,7 @@
       <subtable external="LeaderboardStats" />
     </column>
     <column name="ppLeaderboardStats" type="STRUCT">
-      <offset>364</offset>
+      <offset>368</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -600,14 +607,6 @@
       <subtable external="LeaderboardStats" />
     </column>
     <column name="timeLastImported" type="INT">
-      <offset>368</offset>
-      <flags>
-        <flag>PUPPET_NO_COPY</flag>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="timeLastRestored" type="INT">
       <offset>372</offset>
       <flags>
         <flag>PUPPET_NO_COPY</flag>
@@ -615,23 +614,47 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="bDisablePersistStanceInactive" type="U8">
+    <column name="timeLastRestored" type="INT">
       <offset>376</offset>
+      <flags>
+        <flag>PUPPET_NO_COPY</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bDisablePersistStanceInactive" type="U8">
+      <offset>380</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="uNewPetID" type="INT">
-      <offset>380</offset>
+      <offset>384</offset>
       <flags>
         <flag>SELF_ONLY</flag>
       </flags>
     </column>
+    <column name="iCostumeSetIndexToShow" type="U8">
+      <offset>393</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SELF_ONLY</flag>
+        <flag>LOGIN_SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="iSummonedSCP" type="IGNORE" />
     <column name="rotOffset" type="IGNORE" />
     <column name="uFreeCostumeChange" type="IGNORE" />
     <column name="curPuppetName" type="IGNORE" />
     <column name="bFixupTray" type="IGNORE" />
+    <column name="ppSuperCritterPets" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

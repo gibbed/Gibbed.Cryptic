@@ -64,18 +64,17 @@
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fLifetimeGameUsed" type="F32">
+    <column name="iChargesUsedTransact" type="INT">
       <offset>32</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
-        <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
-        <flag>SOMETIMES_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fLifetimeUsageUsed" type="F32">
+    <column name="fLifetimeGameUsed" type="F32">
       <offset>36</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
@@ -84,7 +83,7 @@
         <flag>SOMETIMES_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fTimeRecharge" type="F32">
+    <column name="fLifetimeUsageUsed" type="F32">
       <offset>40</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
@@ -93,7 +92,7 @@
         <flag>SOMETIMES_TRANSACT</flag>
       </flags>
     </column>
-    <column name="fTimeChargeRefill" type="F32">
+    <column name="fTimeRecharge" type="F32">
       <offset>44</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
@@ -102,61 +101,81 @@
         <flag>SOMETIMES_TRANSACT</flag>
       </flags>
     </column>
+    <column name="fTimeChargeRefill" type="F32">
+      <offset>48</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+        <flag>SOMETIMES_TRANSACT</flag>
+      </flags>
+    </column>
     <column name="ppSubPowers" type="STRUCT">
-      <offset>52</offset>
+      <offset>60</offset>
       <flags>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="Power" />
     </column>
+    <column name="ppSubCombatStatePowers" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="Power" />
+    </column>
     <column name="iLevelAdjustment" type="INT">
-      <offset>56</offset>
+      <offset>76</offset>
       <flags>
         <flag>NO_NETSEND</flag>
       </flags>
     </column>
     <column name="fYaw" type="F32">
-      <offset>60</offset>
+      <offset>80</offset>
       <flags>
         <flag>NO_NETSEND</flag>
       </flags>
     </column>
     <column name="uiReplacementID" type="INT">
-      <offset>64</offset>
+      <offset>84</offset>
       <flags>
         <flag>NO_NETSEND</flag>
       </flags>
     </column>
     <column name="uiSrcEquipSlot" type="INT">
-      <offset>68</offset>
+      <offset>88</offset>
       <flags>
         <flag>NO_NETSEND</flag>
       </flags>
     </column>
     <column name="uiPowerSlotReplacementID" type="INT">
-      <offset>72</offset>
+      <offset>92</offset>
       <flags>
         <flag>NO_NETSEND</flag>
       </flags>
     </column>
     <column name="fTableScale" type="F32">
-      <offset>76</offset>
+      <offset>96</offset>
       <default>1</default>
     </column>
     <column name="puiEnhancementIDs" type="INTARRAY">
-      <offset>92</offset>
+      <offset>112</offset>
+    </column>
+    <column name="ppAttribEnhancements" type="STRUCT">
+      <offset>116</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="PowerAttribEnhancements" />
     </column>
     <column name="fEnhancedRange" type="F32">
-      <offset>100</offset>
+      <offset>124</offset>
       <flags>
         <flag>NO_NETSEND</flag>
       </flags>
     </column>
     <column name="fEnhancedRadius" type="F32">
-      <offset>104</offset>
+      <offset>128</offset>
     </column>
     <column name="bHideInUI" type="BIT">
-      <offset>108</offset>
+      <offset>132</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -164,7 +183,7 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bActive" type="BIT">
-      <offset>108</offset>
+      <offset>132</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>

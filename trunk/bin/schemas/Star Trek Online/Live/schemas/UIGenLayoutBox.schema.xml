@@ -174,52 +174,56 @@
       <offset>132</offset>
       <subtable external="UIGenTextureAssembly" />
     </column>
-    <column name="Alpha" type="F32">
+    <column name="OverlayAssembly" type="OPTIONALSTRUCT">
       <offset>136</offset>
+      <subtable external="UIGenTextureAssembly" />
+    </column>
+    <column name="Alpha" type="F32">
+      <offset>140</offset>
       <default>1</default>
     </column>
     <column name="Tween" type="OPTIONALSTRUCT">
-      <offset>140</offset>
+      <offset>144</offset>
       <subtable external="UIGenTweenInfo" />
     </column>
     <column name="BeforeLayout" type="OPTIONALSTRUCT">
-      <offset>144</offset>
-      <subtable external="UIGenAction" />
-    </column>
-    <column name="AfterLayout" type="OPTIONALSTRUCT">
       <offset>148</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="BeforeTick" type="OPTIONALSTRUCT">
+    <column name="AfterLayout" type="OPTIONALSTRUCT">
       <offset>152</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="KeyAction" type="STRUCT">
+    <column name="BeforeTick" type="OPTIONALSTRUCT">
       <offset>156</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="KeyAction" type="STRUCT">
+      <offset>160</offset>
       <subtable external="UIGenKeyAction" />
     </column>
     <column name="DefaultKeyAction" type="OPTIONALSTRUCT">
-      <offset>160</offset>
+      <offset>164</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="ToolTip" type="OPTIONALSTRUCT">
-      <offset>164</offset>
+      <offset>168</offset>
       <subtable external="UIGenTooltip" />
     </column>
     <column name="Background" type="OPTIONALSTRUCT">
-      <offset>168</offset>
+      <offset>172</offset>
       <subtable external="UIGenBackgroundImage" />
     </column>
     <column name="DragDrop" type="STRUCT">
-      <offset>172</offset>
+      <offset>176</offset>
       <subtable external="UIGenDragDropAction" />
     </column>
     <column name="DragCancelled" type="OPTIONALSTRUCT">
-      <offset>176</offset>
+      <offset>180</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="Message" type="STRUCT">
-      <offset>180</offset>
+      <offset>184</offset>
       <subtable external="UIGenMessage" />
     </column>
     <column name="Transform" type="IGNORE">
@@ -228,107 +232,107 @@
       </flags>
     </column>
     <column name="CenterX" type="EMBEDDEDSTRUCT">
-      <offset>184</offset>
+      <offset>188</offset>
       <subtable external="UISizeSpec" />
     </column>
     <column name="CenterY" type="EMBEDDEDSTRUCT">
-      <offset>192</offset>
+      <offset>196</offset>
       <subtable external="UISizeSpec" />
     </column>
     <column name="Rotate" type="EMBEDDEDSTRUCT">
-      <offset>200</offset>
+      <offset>204</offset>
       <subtable external="UIAngle" />
     </column>
     <column name="ShearX" type="F32">
-      <offset>208</offset>
-    </column>
-    <column name="ShearY" type="F32">
       <offset>212</offset>
     </column>
-    <column name="ScaleX" type="F32">
+    <column name="ShearY" type="F32">
       <offset>216</offset>
-      <default>1</default>
     </column>
-    <column name="ScaleY" type="F32">
+    <column name="ScaleX" type="F32">
       <offset>220</offset>
       <default>1</default>
     </column>
-    <column name="Cursor" type="REFERENCE">
+    <column name="ScaleY" type="F32">
       <offset>224</offset>
+      <default>1</default>
+    </column>
+    <column name="Cursor" type="REFERENCE">
+      <offset>228</offset>
       <flags>
         <flag>NON_NULL_REF</flag>
       </flags>
       <dictionary_name>UICursor</dictionary_name>
     </column>
     <column name="Priority" type="U8">
-      <offset>228</offset>
+      <offset>232</offset>
     </column>
     <column name="ResetAlpha" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="Clip" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="ResetClip" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="CaptureMouse" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="CaptureMouseWheel" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="FocusOnClick" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="FocusOnCreate" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65550</bit_offset>
     </column>
     <column name="KeepFocusOnCreate" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="FocusByDefault" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65552</bit_offset>
     </column>
     <column name="FocusEveryFrame" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65553</bit_offset>
     </column>
     <column name="ClipInput" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65554</bit_offset>
     </column>
     <column name="ResetInputClip" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65555</bit_offset>
     </column>
     <column name="CopyChildPriority" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65556</bit_offset>
     </column>
     <column name="ClipToPadding" type="BIT">
-      <offset>228</offset>
+      <offset>232</offset>
       <bit_offset>65557</bit_offset>
     </column>
     <column name="Template" type="REFERENCE">
-      <offset>232</offset>
+      <offset>236</offset>
       <dictionary_name>UIGen</dictionary_name>
     </column>
     <column name="TemplateExprBlock" type="OPTIONALSTRUCT">
-      <offset>236</offset>
+      <offset>240</offset>
       <subtable external="Expression" />
     </column>
     <column name="TemplateExpr" type="OPTIONALSTRUCT">
-      <offset>236</offset>
+      <offset>240</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -336,11 +340,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="TemplateChild" type="STRUCT">
-      <offset>240</offset>
+      <offset>244</offset>
       <subtable external="UIGenChild" />
     </column>
     <column name="TemplateChildren" type="STRUCT">
-      <offset>240</offset>
+      <offset>244</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -348,14 +352,14 @@
       <subtable external="UIGenChild" />
     </column>
     <column name="AspectRatio" type="F32">
-      <offset>244</offset>
+      <offset>248</offset>
     </column>
     <column name="ColumnsBlock" type="OPTIONALSTRUCT">
-      <offset>248</offset>
+      <offset>252</offset>
       <subtable external="Expression" />
     </column>
     <column name="Columns" type="OPTIONALSTRUCT">
-      <offset>248</offset>
+      <offset>252</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -363,7 +367,7 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="MaxColumns" type="OPTIONALSTRUCT">
-      <offset>248</offset>
+      <offset>252</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -371,46 +375,46 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="Rows" type="U8">
-      <offset>252</offset>
+      <offset>256</offset>
     </column>
     <column name="MaxRows" type="U8">
-      <offset>252</offset>
+      <offset>256</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>Rows</redundant_name>
     </column>
     <column name="LayoutDirection" type="U8">
-      <offset>253</offset>
+      <offset>257</offset>
       <static_define_list external="UIDirection" />
     </column>
     <column name="LayoutOrder" type="U8">
-      <offset>254</offset>
+      <offset>258</offset>
       <default>6</default>
       <static_define_list external="UIDirection" />
     </column>
     <column name="VariableSize" type="BIT">
-      <offset>252</offset>
+      <offset>256</offset>
       <bit_offset>65560</bit_offset>
     </column>
     <column name="AppendTemplateChildren" type="BIT">
-      <offset>252</offset>
+      <offset>256</offset>
       <bit_offset>65561</bit_offset>
     </column>
     <column name="HorizontalSpacing" type="U8">
-      <offset>256</offset>
+      <offset>260</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="VerticalSpacing" type="U8">
-      <offset>257</offset>
+      <offset>261</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="CalculateXBlock" type="OPTIONALSTRUCT">
-      <offset>260</offset>
+      <offset>264</offset>
       <subtable external="Expression" />
     </column>
     <column name="CalculateX" type="OPTIONALSTRUCT">
-      <offset>260</offset>
+      <offset>264</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -418,11 +422,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="CalculateYBlock" type="OPTIONALSTRUCT">
-      <offset>264</offset>
+      <offset>268</offset>
       <subtable external="Expression" />
     </column>
     <column name="CalculateY" type="OPTIONALSTRUCT">
-      <offset>264</offset>
+      <offset>268</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -430,11 +434,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="ModelBlock" type="OPTIONALSTRUCT">
-      <offset>268</offset>
+      <offset>272</offset>
       <subtable external="Expression" />
     </column>
     <column name="Model" type="OPTIONALSTRUCT">
-      <offset>268</offset>
+      <offset>272</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -442,11 +446,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="FilterBlock" type="OPTIONALSTRUCT">
-      <offset>272</offset>
+      <offset>276</offset>
       <subtable external="Expression" />
     </column>
     <column name="Filter" type="OPTIONALSTRUCT">
-      <offset>272</offset>
+      <offset>276</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>

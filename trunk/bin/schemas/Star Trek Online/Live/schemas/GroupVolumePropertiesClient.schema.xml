@@ -15,16 +15,20 @@
       <offset>4</offset>
       <subtable external="WorldWaterVolumeProperties" />
     </column>
-    <column name="IndoorVolume" type="OPTIONALSTRUCT">
+    <column name="ClusterVolume" type="OPTIONALSTRUCT">
       <offset>8</offset>
+      <subtable external="WorldClusterVolumeProperties" />
+    </column>
+    <column name="IndoorVolume" type="OPTIONALSTRUCT">
+      <offset>12</offset>
       <subtable external="WorldIndoorVolumeProperties" />
     </column>
     <column name="SoundVolume" type="OPTIONALSTRUCT">
-      <offset>12</offset>
+      <offset>16</offset>
       <subtable external="WorldSoundVolumeProperties" />
     </column>
     <column name="FXVolume" type="OPTIONALSTRUCT">
-      <offset>16</offset>
+      <offset>20</offset>
       <subtable external="WorldFXVolumeProperties" />
     </column>
     <column name="}" type="END" />

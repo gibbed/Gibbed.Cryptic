@@ -20,6 +20,15 @@
     <column name="ArrayValues" type="STRINGARRAY">
       <offset>12</offset>
     </column>
+    <column name="CurrentFile" type="CURRENTFILE">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="LineNum" type="LINENUM">
+      <offset>20</offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

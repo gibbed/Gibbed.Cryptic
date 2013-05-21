@@ -50,49 +50,55 @@
       <offset>20</offset>
       <subtable external="QueueMap" />
     </column>
-    <column name="eaOrderedMembers" type="STRUCT">
+    <column name="eaUnorderedMembers" type="STRUCT">
       <offset>24</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
         <flag>PERSIST</flag>
-        <flag>NO_INDEX</flag>
       </flags>
       <subtable external="QueueMember" />
     </column>
-    <column name="iOldestMemberTstamp" type="INT">
+    <column name="eaOrderedMemberEntIds" type="INTARRAY">
       <offset>28</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_INDEX</flag>
+      </flags>
     </column>
-    <column name="iFailedMatchCount" type="INT">
+    <column name="iOldestMemberTstamp" type="INT">
       <offset>32</offset>
     </column>
-    <column name="iAverageWaitTime" type="INT">
+    <column name="iFailedMatchCount" type="INT">
       <offset>36</offset>
+    </column>
+    <column name="iAverageWaitTime" type="INT">
+      <offset>40</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="piHistoricalWaits" type="INTARRAY">
-      <offset>40</offset>
-    </column>
-    <column name="uiTimeoutStartTime" type="INT">
       <offset>44</offset>
     </column>
-    <column name="uiExpireStartTime" type="INT">
+    <column name="uiTimeoutStartTime" type="INT">
       <offset>48</offset>
     </column>
-    <column name="uiFailedMapLaunchCount" type="INT">
+    <column name="uiExpireStartTime" type="INT">
       <offset>52</offset>
     </column>
-    <column name="uiNextMapLaunchTime" type="INT">
+    <column name="uiFailedMapLaunchCount" type="INT">
       <offset>56</offset>
     </column>
-    <column name="uiPlayersPreventingMapLaunch" type="U8">
+    <column name="uiNextMapLaunchTime" type="INT">
       <offset>60</offset>
     </column>
-    <column name="bNewMap" type="BIT">
+    <column name="uiPlayersPreventingMapLaunch" type="U8">
       <offset>64</offset>
+    </column>
+    <column name="bNewMap" type="BIT">
+      <offset>68</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -100,7 +106,7 @@
       <bit_offset>65536</bit_offset>
     </column>
     <column name="bOvertime" type="BIT">
-      <offset>64</offset>
+      <offset>68</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -108,32 +114,29 @@
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bEnableLeaverPenalty" type="BIT">
-      <offset>64</offset>
+      <offset>68</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
-    <column name="bOpenMap" type="BIT">
-      <offset>64</offset>
+    <column name="bAutoFill" type="BIT">
+      <offset>68</offset>
       <bit_offset>65539</bit_offset>
     </column>
-    <column name="bAutoFill" type="BIT">
-      <offset>64</offset>
-      <bit_offset>65540</bit_offset>
-    </column>
-    <column name="bReplay" type="BIT">
-      <offset>64</offset>
-      <bit_offset>65541</bit_offset>
-    </column>
     <column name="eaTeams" type="STRUCT">
-      <offset>68</offset>
+      <offset>72</offset>
       <subtable external="QueueMemberTeam" />
     </column>
     <column name="eaForceLeaves" type="STRUCT">
-      <offset>72</offset>
+      <offset>76</offset>
       <subtable external="QueueMemberForceLeave" />
+    </column>
+    <column name="eaOrderedMembers" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

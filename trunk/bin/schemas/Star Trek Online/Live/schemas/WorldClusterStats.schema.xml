@@ -63,19 +63,29 @@
       <offset>392</offset>
       <subtable external="TaskProfile" />
     </column>
-    <column name="inputGeo" type="EMBEDDEDSTRUCT">
+    <column name="clientClusterBinSize" type="EMBEDDEDSTRUCT">
       <offset>424</offset>
+      <subtable external="TaskProfile" />
+    </column>
+    <column name="inputGeo" type="EMBEDDEDSTRUCT">
+      <offset>456</offset>
       <subtable external="WorldClusterGeoStats" />
     </column>
     <column name="outputGeo" type="EMBEDDEDSTRUCT">
-      <offset>448</offset>
+      <offset>480</offset>
       <subtable external="WorldClusterGeoStats" />
     </column>
     <column name="numBuilds" type="INT">
-      <offset>472</offset>
+      <offset>504</offset>
     </column>
     <column name="numReuse" type="INT">
-      <offset>476</offset>
+      <offset>508</offset>
+    </column>
+    <column name="numCrashes" type="INT">
+      <offset>512</offset>
+    </column>
+    <column name="numDisconnects" type="INT">
+      <offset>516</offset>
     </column>
     <column name="}" type="END" />
   </table>

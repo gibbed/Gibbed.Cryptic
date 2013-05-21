@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatPowerStateSwitchingDef">
+  <table>
+    <column name="CombatPowerStateSwitchingDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="State" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="CombatPowerStateDef" />
+    </column>
+    <column name="PowerSet" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="CombatPowerStatePowerSet" />
+    </column>
+    <column name="PowerSlotSet" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="CombatPowerStatePowerslotSet" />
+    </column>
+    <column name="SpecialPowerSwitchedSlot" type="INT">
+      <offset>20</offset>
+      <default>-1</default>
+    </column>
+    <column name="SwitchCooldown" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="CombatLevelLockout" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="DisallowStateCycling" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="DismountOnStateSwitch" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="DisableActivationAttribs" type="INTARRAY">
+      <offset>36</offset>
+      <static_define_list external="AttribType" />
+    </column>
+    <column name="DisableActivationWhileKnocked" type="BIT">
+      <offset>40</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

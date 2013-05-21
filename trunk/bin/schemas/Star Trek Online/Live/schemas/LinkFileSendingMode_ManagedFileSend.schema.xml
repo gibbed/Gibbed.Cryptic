@@ -7,20 +7,36 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Handle" type="INT">
+    <column name="UID" type="INT">
       <offset>0</offset>
     </column>
-    <column name="LocalFileName" type="STRING">
+    <column name="LinkName" type="STRING">
       <offset>4</offset>
     </column>
-    <column name="BytesPerTick" type="INT">
+    <column name="Handle" type="INT">
       <offset>8</offset>
     </column>
-    <column name="FileSize" type="INT64">
+    <column name="cmd" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="LocalFileName" type="STRING">
       <offset>16</offset>
     </column>
-    <column name="BytesSent" type="INT64">
+    <column name="RemoteFileName" type="STRING">
+      <offset>20</offset>
+    </column>
+    <column name="BytesPerTick" type="INT">
       <offset>24</offset>
+    </column>
+    <column name="FileSize" type="INT64">
+      <offset>32</offset>
+    </column>
+    <column name="BytesSent" type="INT64">
+      <offset>40</offset>
+    </column>
+    <column name="Flags" type="INT">
+      <offset>48</offset>
+      <static_define_list external="ManagedSendFlags" />
     </column>
     <column name="}" type="END" />
   </table>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CharCreateCameraInterpolation">
+  <table>
+    <column name="CharCreateCameraInterpolation" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Numerator" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="CharCreateCameraFactor" />
+    </column>
+    <column name="Denominator" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>REQUIRED</flag>
+      </flags>
+      <subtable external="CharCreateCameraFactor" />
+    </column>
+    <column name="X" type="STRUCT">
+      <offset>48</offset>
+      <subtable external="CharCreateCameraPolynomial" />
+    </column>
+    <column name="Y" type="STRUCT">
+      <offset>52</offset>
+      <subtable external="CharCreateCameraPolynomial" />
+    </column>
+    <column name="Z" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="CharCreateCameraPolynomial" />
+    </column>
+    <column name="Pitch" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="CharCreateCameraPolynomial" />
+    </column>
+    <column name="Yaw" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="CharCreateCameraPolynomial" />
+    </column>
+    <column name="Roll" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="CharCreateCameraPolynomial" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

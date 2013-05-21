@@ -17,6 +17,7 @@
     <column name="ActiveCostume" type="U8">
       <offset>1</offset>
       <flags>
+        <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_AND_TEAM_ONLY</flag>
         <flag>PERSIST</flag>
@@ -26,6 +27,7 @@
       <offset>1</offset>
       <flags>
         <flag>ALIAS</flag>
+        <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_AND_TEAM_ONLY</flag>
         <flag>PERSIST</flag>
@@ -73,6 +75,7 @@
     <column name="CostumeSlot" type="STRUCT">
       <offset>8</offset>
       <flags>
+        <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_AND_TEAM_ONLY</flag>
         <flag>PERSIST</flag>
@@ -84,6 +87,7 @@
       <offset>8</offset>
       <flags>
         <flag>ALIAS</flag>
+        <flag>PUPPET_NO_COPY</flag>
         <flag>SUBSCRIBE</flag>
         <flag>SELF_AND_TEAM_ONLY</flag>
         <flag>PERSIST</flag>

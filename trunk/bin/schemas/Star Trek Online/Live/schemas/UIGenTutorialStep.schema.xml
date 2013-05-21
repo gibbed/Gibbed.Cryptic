@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenTutorialStep">
+  <table>
+    <column name="UIGenTutorialStep" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="DisplayName" type="REFERENCE">
+      <offset>0</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Description" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>NON_NULL_REF</flag>
+      </flags>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="OnEnter" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="OnExit" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="TutorialGen" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="UIGenTutorialInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

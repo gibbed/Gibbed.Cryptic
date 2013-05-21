@@ -74,31 +74,55 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iLevel" type="INT">
+    <column name="pchAffiliation" type="STRING">
+      <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>pchAllegiance</redundant_name>
+    </column>
+    <column name="iGroupRole" type="INT">
       <offset>44</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iRank" type="INT">
+    <column name="iGroupClass" type="INT">
       <offset>48</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iLastMapUpdate" type="INT">
+    <column name="iLevel" type="INT">
       <offset>52</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
     </column>
-    <column name="iTeamSize" type="INT">
+    <column name="iRank" type="INT">
       <offset>56</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
     </column>
-    <column name="uFirstUpdateTimeInState" type="INT">
+    <column name="iLastMapUpdate" type="INT">
       <offset>60</offset>
     </column>
-    <column name="eJoinFlags" type="INT">
+    <column name="iTeamSize" type="INT">
       <offset>64</offset>
+    </column>
+    <column name="uFirstUpdateTimeInState" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="eJoinFlags" type="INT">
+      <offset>72</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -106,7 +130,7 @@
       <static_define_list external="QueueJoinFlags" />
     </column>
     <column name="pJoinPrefs" type="OPTIONALSTRUCT">
-      <offset>68</offset>
+      <offset>76</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>

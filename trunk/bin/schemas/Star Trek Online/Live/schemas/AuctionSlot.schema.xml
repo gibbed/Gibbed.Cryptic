@@ -84,6 +84,25 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
+    <column name="uiNumGemSlots" type="INT">
+      <offset>36</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uiCachedMinLevel" type="INT">
+      <offset>40</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ppSearchableAttribMagnitudes" type="STRUCT">
+      <offset>44</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="AuctionLotSearchableStat" />
+    </column>
     <column name="ppTranslatedTokens" type="IGNORE" />
     <column name="}" type="END" />
   </table>

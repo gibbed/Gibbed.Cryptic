@@ -17,8 +17,14 @@
     <column name="IntValue" type="INT">
       <offset>4</offset>
     </column>
-    <column name="InheritValue" type="STRING">
+    <column name="StringValue" type="STRING">
       <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="InheritValue" type="STRING">
+      <offset>12</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

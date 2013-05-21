@@ -19,19 +19,23 @@
       <offset>8</offset>
       <subtable external="GameToken" />
     </column>
-    <column name="DaysSubscribed" type="INT">
+    <column name="AccountKeyValues" type="STRUCT">
       <offset>12</offset>
+      <subtable external="AccountProxyKeyValueInfoContainer" />
+    </column>
+    <column name="DaysSubscribed" type="INT">
+      <offset>16</offset>
     </column>
     <column name="LevelUnrestricted" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="LinkedAccount" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="ShadowAccount" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="}" type="END" />

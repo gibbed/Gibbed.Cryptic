@@ -11,23 +11,29 @@
       <offset>0</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
-    <column name="Count" type="INT">
+    <column name="PriceAccountKeyValue" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="OriginalCount" type="INT">
+    <column name="Count" type="INT">
       <offset>8</offset>
     </column>
-    <column name="AvailableCount" type="INT">
+    <column name="OriginalCount" type="INT">
       <offset>12</offset>
     </column>
-    <column name="ppchDiscounts" type="STRINGARRAY">
+    <column name="AvailableCount" type="INT">
       <offset>16</offset>
+    </column>
+    <column name="ppchDiscounts" type="STRINGARRAY">
+      <offset>20</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="TooExpensive" type="U8">
-      <offset>20</offset>
+      <offset>24</offset>
     </column>
     <column name="}" type="END" />
   </table>

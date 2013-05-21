@@ -68,27 +68,42 @@
       </flags>
       <dictionary_name>Texture</dictionary_name>
     </column>
-    <column name="TickColor" type="INT">
+    <column name="TickFilled" type="STRING">
       <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Texture</dictionary_name>
+    </column>
+    <column name="TickColor" type="INT">
+      <offset>52</offset>
       <default>-1</default>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
       <format>COLOR</format>
     </column>
-    <column name="TickCount" type="INT">
+    <column name="TickFilledColor" type="INT">
       <offset>56</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+      <format>COLOR</format>
+    </column>
+    <column name="TickCount" type="INT">
+      <offset>68</offset>
     </column>
     <column name="Font" type="REFERENCE">
-      <offset>60</offset>
+      <offset>72</offset>
       <dictionary_name>UIStyleFont</dictionary_name>
     </column>
     <column name="ClipFilledArea" type="BIT">
-      <offset>64</offset>
+      <offset>76</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="TickSnapToPixel" type="BIT">
-      <offset>64</offset>
+      <offset>76</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -98,7 +113,7 @@
       </format_strings>
     </column>
     <column name="ScaleTick" type="BIT">
-      <offset>64</offset>
+      <offset>76</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -107,8 +122,12 @@
         <format_string name="SPECIAL_DEFAULT">1</format_string>
       </format_strings>
     </column>
+    <column name="StretchTick" type="BIT">
+      <offset>76</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
     <column name="FileName" type="CURRENTFILE">
-      <offset>68</offset>
+      <offset>80</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

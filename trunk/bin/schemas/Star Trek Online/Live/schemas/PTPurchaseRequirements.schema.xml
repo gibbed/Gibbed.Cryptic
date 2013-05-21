@@ -54,15 +54,28 @@
     <column name="MaxPointsSpentInThisTree" type="INT">
       <offset>20</offset>
     </column>
-    <column name="TableName" type="STRING">
+    <column name="PointsSpentInAnyTree" type="INT">
       <offset>24</offset>
+    </column>
+    <column name="MinPointsSpentInAnyTree" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>PointsSpentInAnyTree</redundant_name>
+    </column>
+    <column name="MaxPointsSpentInAnyTree" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="TableName" type="STRING">
+      <offset>32</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
       </flags>
       <default_string>TreePoints</default_string>
     </column>
     <column name="PurchaseExpression" type="OPTIONALSTRUCT">
-      <offset>28</offset>
+      <offset>36</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
       </flags>

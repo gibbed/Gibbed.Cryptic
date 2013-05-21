@@ -23,8 +23,11 @@
         <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="uiSrcEquipSlot" type="INT">
+    <column name="uiSrcEquipSlot" type="INT16">
       <offset>8</offset>
+    </column>
+    <column name="iLinkedSub" type="INT16">
+      <offset>10</offset>
     </column>
     <column name="hDef" type="REFERENCE">
       <offset>12</offset>

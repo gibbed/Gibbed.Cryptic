@@ -80,27 +80,30 @@
     <column name="DisableGroundRegTimeout" type="F32">
       <offset>56</offset>
     </column>
-    <column name="FxEvent" type="STRUCT">
+    <column name="DisableUpperBodyGroundRegTimeout" type="F32">
       <offset>60</offset>
+    </column>
+    <column name="FxEvent" type="STRUCT">
+      <offset>64</offset>
       <subtable external="DynAnimGraphFxEvent" />
     </column>
     <column name="GraphImpact" type="STRUCT">
-      <offset>64</offset>
+      <offset>68</offset>
       <subtable external="DynAnimGraphTriggerImpact" />
     </column>
     <column name="InheritBits" type="OPTIONALSTRUCT">
-      <offset>68</offset>
+      <offset>72</offset>
       <subtable external="DynAnimGraphNodeInheritBits" />
     </column>
     <column name="bfParamsSpecified" type="INTFIXEDARRAY">
-      <offset>72</offset>
+      <offset>76</offset>
       <flags>
         <flag>USEDFIELD</flag>
       </flags>
       <num_elements>1</num_elements>
     </column>
     <column name="BoneVisSet" type="INT">
-      <offset>76</offset>
+      <offset>80</offset>
       <default>-1</default>
       <static_define_list external="SkelBoneVisibilitySet" />
     </column>

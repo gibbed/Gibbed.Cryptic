@@ -7,7 +7,7 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Namespace" type="STRING">
+    <column name="NameSpace" type="STRING">
       <offset>0</offset>
     </column>
     <column name="ProjectPrefix" type="STRING">
@@ -33,12 +33,8 @@
       <offset>24</offset>
       <subtable external="UGCCostume" />
     </column>
-    <column name="FSMs" type="STRUCT">
-      <offset>28</offset>
-      <subtable external="UGCFSM" />
-    </column>
     <column name="Item" type="STRUCT">
-      <offset>32</offset>
+      <offset>28</offset>
       <subtable external="UGCItem" />
     </column>
     <column name="DeleteRes" type="IGNORE">

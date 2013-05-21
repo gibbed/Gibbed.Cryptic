@@ -44,22 +44,15 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="bRematch" type="U8">
+    <column name="pchPrivateName" type="STRING">
       <offset>20</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pchPrivateName" type="STRING">
-      <offset>24</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
     <column name="pchPassword" type="STRING">
-      <offset>28</offset>
+      <offset>24</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>
@@ -68,6 +61,7 @@
     </column>
     <column name="bPrivate" type="IGNORE" />
     <column name="iMapIndex" type="IGNORE" />
+    <column name="bRematch" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

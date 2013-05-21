@@ -19,23 +19,29 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="StartsHidden" type="BIT">
+    <column name="AdditionalUniqueFX" type="STRING">
       <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StartsHidden" type="BIT">
+      <offset>16</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="VisiblePerEnt" type="BIT">
-      <offset>12</offset>
+      <offset>16</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="TabSelect" type="BIT">
-      <offset>12</offset>
+      <offset>16</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="uInteractDist" type="INT">
-      <offset>16</offset>
+      <offset>20</offset>
     </column>
     <column name="uTargetDist" type="INT">
-      <offset>20</offset>
+      <offset>24</offset>
     </column>
     <column name="End" type="END" />
   </table>

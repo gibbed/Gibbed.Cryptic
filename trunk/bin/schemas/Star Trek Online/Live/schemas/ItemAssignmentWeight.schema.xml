@@ -24,6 +24,14 @@
       </flags>
       <redundant_name>Value</redundant_name>
     </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="AssociatedCategory" type="INT">
+      <offset>24</offset>
+      <static_define_list external="ItemAssignmentCategory" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

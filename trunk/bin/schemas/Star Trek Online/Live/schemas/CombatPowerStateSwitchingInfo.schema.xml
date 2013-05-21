@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CombatPowerStateSwitchingInfo">
+  <table>
+    <column name="CombatPowerStateSwitchingInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Cooldown" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="hCombatPowerStateSwitchingDef" type="REFERENCE">
+      <offset>12</offset>
+      <dictionary_name>CombatPowerStateSwitchingDef</dictionary_name>
+    </column>
+    <column name="SpecialPowerSwitchedSlot" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

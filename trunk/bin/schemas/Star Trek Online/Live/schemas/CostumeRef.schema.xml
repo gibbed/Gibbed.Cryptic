@@ -43,8 +43,17 @@
       <offset>28</offset>
       <subtable external="PlayerCostume" />
     </column>
-    <column name="hMood" type="REFERENCE">
+    <column name="fMountScaleOverride" type="F32">
       <offset>32</offset>
+    </column>
+    <column name="bPredictDismount" type="U8">
+      <offset>36</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="hMood" type="REFERENCE">
+      <offset>40</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -52,11 +61,11 @@
       <dictionary_name>PCMood</dictionary_name>
     </column>
     <column name="eaAdditionalFX" type="STRUCT">
-      <offset>36</offset>
+      <offset>44</offset>
       <subtable external="PCFXNoPersist" />
     </column>
     <column name="pTransformation" type="OPTIONALSTRUCT">
-      <offset>40</offset>
+      <offset>48</offset>
       <subtable external="CostumeTransformation" />
     </column>
     <column name="hReferencedCostume" type="IGNORE" />

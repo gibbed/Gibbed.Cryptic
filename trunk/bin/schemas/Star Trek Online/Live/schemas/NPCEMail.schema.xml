@@ -10,12 +10,14 @@
     <column name="iLastUsedID" type="INT">
       <offset>0</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="mail" type="STRUCT">
       <offset>4</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
       <subtable external="NPCEMailData" />
@@ -23,6 +25,7 @@
     <column name="uLastSyncTime" type="INT">
       <offset>8</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
@@ -30,6 +33,7 @@
     <column name="bReadAll" type="U8">
       <offset>12</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>

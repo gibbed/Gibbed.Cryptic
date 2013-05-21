@@ -308,8 +308,14 @@
       </flags>
       <subtable external="AutoDescAttribMod" />
     </column>
-    <column name="PowerTags" type="INTARRAY">
+    <column name="RequiredGemType" type="INT">
       <offset>224</offset>
+    </column>
+    <column name="Active" type="U8">
+      <offset>228</offset>
+    </column>
+    <column name="PowerTags" type="INTARRAY">
+      <offset>232</offset>
     </column>
     <column name="}" type="END" />
   </table>

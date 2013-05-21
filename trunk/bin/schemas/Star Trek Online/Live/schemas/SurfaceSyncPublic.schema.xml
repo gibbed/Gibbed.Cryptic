@@ -19,11 +19,15 @@
       <offset>24</offset>
       <subtable external="SurfaceSyncSpeedRange" />
     </column>
-    <column name="Friction" type="F32">
+    <column name="speeds_3" type="EMBEDDEDSTRUCT">
       <offset>36</offset>
+      <subtable external="SurfaceSyncSpeedRange" />
+    </column>
+    <column name="Friction" type="F32">
+      <offset>48</offset>
     </column>
     <column name="Gravity" type="F32">
-      <offset>40</offset>
+      <offset>52</offset>
     </column>
     <column name="}" type="END" />
   </table>

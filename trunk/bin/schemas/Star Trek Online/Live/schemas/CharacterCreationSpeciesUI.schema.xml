@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CharacterCreationSpeciesUI">
+  <table>
+    <column name="CharacterCreationSpeciesUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SpeciesName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CurrentSpecies" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayNameMsg" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="TextureName" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Creatable" type="U8">
+      <offset>24</offset>
+    </column>
+    <column name="Selected" type="U8">
+      <offset>25</offset>
+    </column>
+    <column name="SpeciesCount" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="eapchRelatedSpecies" type="STRINGARRAY">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uCostumeSeed" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="SpeciesDef" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="SpeciesDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

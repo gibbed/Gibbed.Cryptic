@@ -17,6 +17,9 @@
     <column name="boolAccel" type="U8">
       <offset>16</offset>
     </column>
+    <column name="NeedsWakeup" type="U8">
+      <offset>17</offset>
+    </column>
     <column name="ContactPairs" type="STRUCT">
       <offset>20</offset>
       <subtable external="DynContactPair" />

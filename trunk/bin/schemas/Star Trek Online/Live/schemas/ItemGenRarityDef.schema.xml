@@ -95,13 +95,32 @@
       </flags>
       <subtable external="CostumeRefEditor" />
     </column>
-    <column name="Suffix" type="EMBEDDEDSTRUCT">
+    <column name="GenerateAtLevel" type="STRUCT">
       <offset>80</offset>
+      <subtable external="ItemGenRarityGenerateAtLevel" />
+    </column>
+    <column name="GemSlotSet" type="STRUCT">
+      <offset>84</offset>
+      <subtable external="ItemGenGemSlotData" />
+    </column>
+    <column name="Suffix" type="EMBEDDEDSTRUCT">
+      <offset>88</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="Prefix" type="EMBEDDEDSTRUCT">
-      <offset>92</offset>
+      <offset>100</offset>
       <subtable external="DisplayMessage" />
+    </column>
+    <column name="PowerFactor" type="INT">
+      <offset>112</offset>
+      <default>-1</default>
+    </column>
+    <column name="RequiresExpr" type="OPTIONALSTRUCT">
+      <offset>116</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="GenerateWithUnidentifiedWrappers" type="U8">
+      <offset>120</offset>
     </column>
     <column name="}" type="END" />
   </table>

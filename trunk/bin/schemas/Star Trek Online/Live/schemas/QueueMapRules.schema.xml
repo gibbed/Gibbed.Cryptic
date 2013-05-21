@@ -12,17 +12,22 @@
         <flag>FLATEMBED</flag>
       </flags>
     </column>
+    <column name="publicRules" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
     <column name="GameType" type="INT">
       <offset>0</offset>
       <static_define_list external="PVPGameType" />
     </column>
-    <column name="Scoreboard" type="STRING">
+    <column name="PointMax" type="INT">
       <offset>4</offset>
     </column>
-    <column name="Leaderboard" type="STRINGARRAY">
+    <column name="Scoreboard" type="STRING">
       <offset>8</offset>
     </column>
-    <column name="PointMax" type="INT">
+    <column name="Leaderboard" type="STRINGARRAY">
       <offset>12</offset>
     </column>
     <column name="DisableNaturalRespawn" type="U8">

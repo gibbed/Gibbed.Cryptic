@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynSubCostumeInfo">
+  <table>
+    <column name="DynSubCostumeInfo" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="SkelInfo" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="AttachmentBone" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>REQUIRED</flag>
+      </flags>
+    </column>
+    <column name="CostumePart" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="DynCostumePart" />
+    </column>
+    <column name="ScaleSetting" type="STRUCT">
+      <offset>12</offset>
+      <subtable external="DynCostumeScaleSetting" />
+    </column>
+    <column name="End" type="END" />
+  </table>
+</parser>

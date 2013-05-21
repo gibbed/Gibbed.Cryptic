@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SuggestedContentClientData">
+  <table>
+    <column name="SuggestedContentClientData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ListTagName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="uDataRequestTimestamp" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="uDataReceiveTimestamp" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="SuggestedContentInfo" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="SuggestedContentInfo" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

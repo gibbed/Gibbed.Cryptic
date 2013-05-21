@@ -44,20 +44,34 @@
       <offset>28</offset>
       <subtable external="DisplayMessage" />
     </column>
-    <column name="InteractionTypeTag" type="STRINGARRAY">
+    <column name="OverrideDisplayNameMsg" type="EMBEDDEDSTRUCT">
       <offset>40</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="OverrideDisplayNameExpr" type="OPTIONALSTRUCT">
+      <offset>52</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="InteractionTypeTag" type="STRINGARRAY">
+      <offset>56</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="OverrideFX" type="STRING">
-      <offset>44</offset>
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AdditionalUniqueFX" type="STRING">
+      <offset>64</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Entry" type="STRUCT">
-      <offset>48</offset>
+      <offset>68</offset>
       <subtable external="WorldInteractionPropertyEntry" />
     </column>
     <column name="End" type="END" />

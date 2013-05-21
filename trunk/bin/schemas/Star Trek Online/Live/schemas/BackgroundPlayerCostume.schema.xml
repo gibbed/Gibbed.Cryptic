@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="BackgroundPlayerCostume">
+  <table>
+    <column name="BackgroundPlayerCostume" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Type" type="INT">
+      <offset>0</offset>
+      <static_define_list external="BackgroundPlayerCostumeEntityType" />
+    </column>
+    <column name="Name" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="hCostume" type="REFERENCE">
+      <offset>8</offset>
+      <dictionary_name>PlayerCostume</dictionary_name>
+    </column>
+    <column name="SlotType" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="hMood" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>PCMood</dictionary_name>
+    </column>
+    <column name="hClass" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>CharacterClass</dictionary_name>
+    </column>
+    <column name="uLoginID" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="LoginType" type="INT">
+      <offset>28</offset>
+      <static_define_list external="CharClassTypes" />
+    </column>
+    <column name="hClassCategorySet" type="REFERENCE">
+      <offset>32</offset>
+      <dictionary_name>CharClassCategorySet</dictionary_name>
+    </column>
+    <column name="AwayTeamIndex" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="Dirty" type="U8">
+      <offset>40</offset>
+    </column>
+    <column name="v2ScreenSize" type="F32FIXEDARRAY">
+      <offset>44</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

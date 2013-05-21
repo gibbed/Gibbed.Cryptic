@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DynGroundRegLimb">
+  <table>
+    <column name="DynGroundRegLimb" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="StaticLimbData" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="DynGroundRegDataLimb" />
+    </column>
+    <column name="HeightFixupNode" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="DynNode" />
+    </column>
+    <column name="EndEffectorNode" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="DynNode" />
+    </column>
+    <column name="xPerFrame_TargetPosition" type="EMBEDDEDSTRUCT">
+      <offset>12</offset>
+      <subtable external="DynTransform" />
+    </column>
+    <column name="PerFrame_HyperExtension" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="PerFrame_RelWeight" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="PerFrame_DiffPosition" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="PerFrame_IsSafe" type="U8">
+      <offset>64</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

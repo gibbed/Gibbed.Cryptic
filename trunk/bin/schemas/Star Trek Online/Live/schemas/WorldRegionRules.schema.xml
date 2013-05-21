@@ -32,16 +32,20 @@
     <column name="NoSkyFileSun" type="U8">
       <offset>16</offset>
     </column>
-    <column name="Shadows" type="EMBEDDEDSTRUCT">
+    <column name="camLight" type="EMBEDDEDSTRUCT">
       <offset>20</offset>
+      <subtable external="CamLightRules" />
+    </column>
+    <column name="Shadows" type="EMBEDDEDSTRUCT">
+      <offset>80</offset>
       <subtable external="ShadowRules" />
     </column>
     <column name="Wind" type="EMBEDDEDSTRUCT">
-      <offset>60</offset>
+      <offset>120</offset>
       <subtable external="WorldRegionWindRules" />
     </column>
     <column name="LodSettings" type="EMBEDDEDSTRUCT">
-      <offset>64</offset>
+      <offset>124</offset>
       <subtable external="WorldRegionLODSettings" />
     </column>
     <column name="}" type="END" />

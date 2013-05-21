@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="CostumeCloneForItemCat">
+  <table>
+    <column name="CostumeCloneForItemCat" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Costume" type="OPTIONALSTRUCT">
+      <offset>0</offset>
+      <subtable external="PlayerCostume" />
+    </column>
+    <column name="Bones" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="ItemCategoryAdditionalCostumeBone" />
+    </column>
+    <column name="Name" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

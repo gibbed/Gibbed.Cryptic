@@ -64,23 +64,29 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="HeadshotFX" type="STRUCT">
+    <column name="Stance" type="STRING">
       <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="HeadshotFX" type="STRUCT">
+      <offset>40</offset>
       <subtable external="HeadshotStyleFX" />
     </column>
     <column name="UseBackgroundOnly" type="U8">
-      <offset>40</offset>
+      <offset>44</offset>
     </column>
     <column name="FOV" type="INT">
-      <offset>44</offset>
+      <offset>48</offset>
       <static_define_list external="HeadshotStyleFOV" />
     </column>
     <column name="ContactCameraParams" type="OPTIONALSTRUCT">
-      <offset>48</offset>
+      <offset>52</offset>
       <subtable external="HeadshotStyleContactCameraParams" />
     </column>
     <column name="IgnoreFrame" type="U8">
-      <offset>52</offset>
+      <offset>56</offset>
     </column>
     <column name="OverrideFOV" type="IGNORE" />
     <column name="Forward" type="IGNORE" />

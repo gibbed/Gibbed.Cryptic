@@ -66,43 +66,65 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="HeadshotStyleOverride" type="STRING">
+    <column name="HeadshotStyleDef" type="STRING">
       <offset>56</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="CutsceneDef" type="REFERENCE">
+    <column name="HeadshotStyleOverride" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>HeadshotStyleDef</redundant_name>
+    </column>
+    <column name="CostumeStyleOverrides" type="OPTIONALSTRUCT">
       <offset>60</offset>
+      <subtable external="ContactCostumeStyle" />
+    </column>
+    <column name="HeadshotBorderFrame" type="STRING">
+      <offset>64</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ExtraCostume" type="STRUCT">
+      <offset>68</offset>
+      <subtable external="ContactCostume" />
+    </column>
+    <column name="CutsceneDef" type="REFERENCE">
+      <offset>72</offset>
       <dictionary_name>CutScene</dictionary_name>
     </column>
     <column name="Flags" type="INT">
-      <offset>64</offset>
+      <offset>76</offset>
       <static_define_list external="SpecialDialogFlags" />
       <format>FLAGS</format>
     </column>
     <column name="DelayIfInCombat" type="BOOLFLAG">
-      <offset>68</offset>
+      <offset>80</offset>
     </column>
     <column name="dialogActions" type="STRUCT">
-      <offset>72</offset>
+      <offset>84</offset>
       <subtable external="SpecialDialogAction" />
     </column>
     <column name="SpecialDialogAppendName" type="STRING">
-      <offset>76</offset>
+      <offset>88</offset>
     </column>
     <column name="UsesLocalCondExpression" type="U8">
-      <offset>80</offset>
+      <offset>92</offset>
     </column>
     <column name="Condition" type="OPTIONALSTRUCT">
-      <offset>84</offset>
+      <offset>96</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="Expression" />
     </column>
     <column name="Condition:" type="OPTIONALSTRUCT">
-      <offset>84</offset>
+      <offset>96</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SERVER_ONLY</flag>
@@ -111,20 +133,20 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="SourceType" type="INT">
-      <offset>88</offset>
+      <offset>100</offset>
       <static_define_list external="ContactSourceType" />
     </column>
     <column name="SourceName" type="STRING">
-      <offset>92</offset>
+      <offset>104</offset>
     </column>
     <column name="SourceSecondaryName" type="STRING">
-      <offset>96</offset>
+      <offset>108</offset>
     </column>
     <column name="SortOrder" type="INT">
-      <offset>100</offset>
+      <offset>112</offset>
     </column>
     <column name="overridingMissionDef" type="REFERENCE">
-      <offset>104</offset>
+      <offset>116</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>

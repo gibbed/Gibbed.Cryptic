@@ -31,9 +31,17 @@
       <offset>16</offset>
       <static_define_list external="TriggerComplexEntity" />
     </column>
-    <column name="Chance" type="F32">
+    <column name="ExprChanceBlock" type="OPTIONALSTRUCT">
       <offset>20</offset>
-      <default>1</default>
+      <subtable external="Expression" />
+    </column>
+    <column name="Chance" type="OPTIONALSTRUCT">
+      <offset>20</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>ExprChanceBlock</redundant_name>
+      <subtable external="Expression_StructParam" />
     </column>
     <column name="MagnitudeIsCharges" type="BIT">
       <offset>24</offset>

@@ -80,36 +80,58 @@
       <offset>56</offset>
       <dictionary_name>DynStrandDataSet</dictionary_name>
     </column>
+    <column name="GroundRegInfo" type="REFERENCE">
+      <offset>60</offset>
+      <dictionary_name>DynGroundRegData</dictionary_name>
+    </column>
+    <column name="CriticalNodeList" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>DynCriticalNodeList</dictionary_name>
+    </column>
+    <column name="NodeExpressions" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>DynAnimExpressionSet</dictionary_name>
+    </column>
+    <column name="AnimNodeAliases" type="REFERENCE">
+      <offset>72</offset>
+      <dictionary_name>DynAnimNodeAliasList</dictionary_name>
+    </column>
     <column name="BodySockInfo" type="IGNORE">
       <flags>
         <flag>FLATEMBED</flag>
       </flags>
     </column>
     <column name="BodySockGeo" type="STRING">
-      <offset>60</offset>
+      <offset>76</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="BodySockPose" type="STRING">
-      <offset>64</offset>
+      <offset>80</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="BodySockMin" type="F32FIXEDARRAY">
-      <offset>68</offset>
+      <offset>84</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="BodySockMax" type="F32FIXEDARRAY">
-      <offset>80</offset>
+      <offset>96</offset>
       <num_elements>3</num_elements>
     </column>
+    <column name="AltBankingNodeAlias" type="STRING">
+      <offset>108</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
     <column name="LOD" type="BOOLFLAG">
-      <offset>92</offset>
+      <offset>112</offset>
     </column>
     <column name="Static" type="BOOLFLAG">
-      <offset>93</offset>
+      <offset>113</offset>
     </column>
     <column name="End" type="END" />
   </table>

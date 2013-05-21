@@ -93,24 +93,30 @@
       <offset>72</offset>
       <static_define_list external="ItemAssignmentFailsRequiresReason" />
     </column>
-    <column name="Destroyed" type="BIT">
+    <column name="OutcomeModifyValue" type="F32">
       <offset>76</offset>
+    </column>
+    <column name="DurationModifyValue" type="F32">
+      <offset>80</offset>
+    </column>
+    <column name="Destroyed" type="BIT">
+      <offset>84</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="NewAssignment" type="BIT">
-      <offset>76</offset>
+      <offset>84</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="Unslottable" type="BIT">
-      <offset>76</offset>
+      <offset>84</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="OptionalSlot" type="BIT">
-      <offset>76</offset>
+      <offset>84</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="Updated" type="BIT">
-      <offset>76</offset>
+      <offset>84</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="}" type="END" />

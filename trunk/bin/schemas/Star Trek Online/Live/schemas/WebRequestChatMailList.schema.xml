@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="WebRequestChatMailList">
+  <table>
+    <column name="WebRequestChatMailList" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="UID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="mail" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="WebRequestChatMailStruct" />
+    </column>
+    <column name="uTotalMail" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="uPage" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="uPageSize" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

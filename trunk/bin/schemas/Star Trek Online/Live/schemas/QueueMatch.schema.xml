@@ -18,15 +18,14 @@
       <offset>8</offset>
       <bit_offset>65536</bit_offset>
     </column>
-    <column name="FillingNewMap" type="BIT">
-      <offset>8</offset>
-      <bit_offset>65537</bit_offset>
-    </column>
     <column name="Fitness" type="F32">
       <offset>12</offset>
     </column>
     <column name="uUpdateID" type="INT64">
       <offset>16</offset>
+    </column>
+    <column name="HasNewGroupData" type="U8">
+      <offset>24</offset>
     </column>
     <column name="}" type="END" />
   </table>

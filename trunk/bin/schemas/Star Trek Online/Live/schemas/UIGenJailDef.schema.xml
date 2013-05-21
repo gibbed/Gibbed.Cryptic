@@ -16,51 +16,57 @@
         <flag>KEY</flag>
       </flags>
     </column>
-    <column name="CellBlock" type="STRUCT">
+    <column name="PrisonName" type="STRING">
       <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="CellBlock" type="STRUCT">
+      <offset>8</offset>
       <flags>
         <flag>REQUIRED</flag>
       </flags>
       <subtable external="UIGenJailCellBlock" />
     </column>
     <column name="Font" type="REFERENCE">
-      <offset>8</offset>
+      <offset>12</offset>
       <flags>
         <flag>NON_NULL_REF</flag>
       </flags>
       <dictionary_name>UIStyleFont</dictionary_name>
     </column>
     <column name="Version" type="INT">
-      <offset>12</offset>
+      <offset>16</offset>
     </column>
     <column name="StateDef" type="STRUCT">
-      <offset>16</offset>
+      <offset>20</offset>
       <subtable external="UIGenStateDef" />
     </column>
     <column name="ComplexStateDef" type="STRUCT">
-      <offset>20</offset>
+      <offset>24</offset>
       <subtable external="UIGenComplexStateDef" />
     </column>
     <column name="BeforeCreate" type="OPTIONALSTRUCT">
-      <offset>24</offset>
-      <subtable external="UIGenAction" />
-    </column>
-    <column name="BeforeHide" type="OPTIONALSTRUCT">
       <offset>28</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="ScaleAsIf" type="INT16FIXEDARRAY">
+    <column name="BeforeHide" type="OPTIONALSTRUCT">
       <offset>32</offset>
+      <subtable external="UIGenAction" />
+    </column>
+    <column name="ScaleAsIf" type="INT16FIXEDARRAY">
+      <offset>36</offset>
       <num_elements>2</num_elements>
     </column>
     <column name="ScaleNoShrink" type="U8">
-      <offset>36</offset>
+      <offset>40</offset>
     </column>
     <column name="ScaleNoGrow" type="U8">
-      <offset>37</offset>
+      <offset>41</offset>
     </column>
     <column name="FileName" type="CURRENTFILE">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

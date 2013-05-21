@@ -14,13 +14,13 @@
       </flags>
     </column>
     <column name="FileName" type="CURRENTFILE">
-      <offset>144</offset>
+      <offset>148</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="TS" type="TIMESTAMP">
-      <offset>148</offset>
+      <offset>152</offset>
     </column>
     <column name="Loop" type="STRUCT">
       <offset>0</offset>
@@ -72,7 +72,7 @@
       <offset>131</offset>
     </column>
     <column name="SortAsBlock" type="BOOLFLAG">
-      <offset>142</offset>
+      <offset>146</offset>
     </column>
     <column name="ForwardMessages" type="BOOLFLAG">
       <offset>121</offset>
@@ -152,11 +152,17 @@
     <column name="DontLeakTest" type="BOOLFLAG">
       <offset>130</offset>
     </column>
+    <column name="PlayOnCostumeTag" type="STRING">
+      <offset>140</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
     <column name="KillOnEmpty" type="BOOLFLAG">
-      <offset>141</offset>
+      <offset>145</offset>
     </column>
     <column name="DontAutoKill" type="BOOLFLAG">
-      <offset>140</offset>
+      <offset>144</offset>
     </column>
     <column name="Hibernate" type="BOOLFLAG">
       <offset>132</offset>
@@ -169,7 +175,7 @@
       <subtable external="Event" />
     </column>
     <column name="DefaultParam" type="STRUCT">
-      <offset>152</offset>
+      <offset>156</offset>
       <subtable external="DynDefineParam" />
     </column>
     <column name="EditorParam" type="STRUCT">

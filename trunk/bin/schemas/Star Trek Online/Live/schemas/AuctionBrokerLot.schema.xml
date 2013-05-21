@@ -11,18 +11,29 @@
       <offset>0</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
-    <column name="CheapestLot" type="OPTIONALSTRUCT">
+    <column name="Item" type="OPTIONALSTRUCT">
       <offset>4</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Item" />
+    </column>
+    <column name="OwnedItem" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="Item" />
+    </column>
+    <column name="CheapestLot" type="OPTIONALSTRUCT">
+      <offset>12</offset>
       <subtable external="AuctionLot" />
     </column>
     <column name="CheapestPrice" type="INT">
-      <offset>8</offset>
+      <offset>16</offset>
     </column>
     <column name="LotCountAtAnyPrice" type="INT">
-      <offset>12</offset>
+      <offset>20</offset>
     </column>
     <column name="WhereFrom" type="STRING">
-      <offset>16</offset>
+      <offset>24</offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -51,32 +51,59 @@
     <column name="YPos" type="F32">
       <offset>36</offset>
     </column>
-    <column name="ShowRewardChooser" type="U8">
+    <column name="MapName" type="STRING">
       <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="uCooldownExpireTime" type="INT">
+    <column name="YouAreHere" type="U8">
       <offset>44</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
     </column>
-    <column name="IsDefaultBackOption" type="U8">
+    <column name="WaypointHere" type="U8">
+      <offset>45</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="GoldenPathWaypointHere" type="U8">
+      <offset>46</offset>
+      <flags>
+        <flag>CLIENT_ONLY</flag>
+      </flags>
+    </column>
+    <column name="Recommended" type="U8">
+      <offset>47</offset>
+    </column>
+    <column name="ShowRewardChooser" type="U8">
       <offset>48</offset>
     </column>
-    <column name="Visited" type="U8">
-      <offset>49</offset>
-    </column>
-    <column name="CannotChoose" type="U8">
-      <offset>50</offset>
-    </column>
-    <column name="WasAppended" type="U8">
-      <offset>51</offset>
-    </column>
-    <column name="TeamMembersEligibleToSee" type="INTARRAY">
+    <column name="uCooldownExpireTime" type="INT">
       <offset>52</offset>
     </column>
-    <column name="TeamMembersEligibleToInteract" type="INTARRAY">
+    <column name="IsDefaultBackOption" type="U8">
       <offset>56</offset>
     </column>
-    <column name="data" type="OPTIONALSTRUCT">
+    <column name="Visited" type="U8">
+      <offset>57</offset>
+    </column>
+    <column name="CannotChoose" type="U8">
+      <offset>58</offset>
+    </column>
+    <column name="WasAppended" type="U8">
+      <offset>59</offset>
+    </column>
+    <column name="TeamMembersEligibleToSee" type="INTARRAY">
       <offset>60</offset>
+    </column>
+    <column name="TeamMembersEligibleToInteract" type="INTARRAY">
+      <offset>64</offset>
+    </column>
+    <column name="data" type="OPTIONALSTRUCT">
+      <offset>68</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>

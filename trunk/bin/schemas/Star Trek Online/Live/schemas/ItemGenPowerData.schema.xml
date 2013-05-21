@@ -147,13 +147,24 @@
       <offset>144</offset>
       <dictionary_name>ItemPowerDef</dictionary_name>
     </column>
-    <column name="Suffix" type="EMBEDDEDSTRUCT">
+    <column name="ScaleFactor" type="F32">
       <offset>152</offset>
+      <default>1</default>
+    </column>
+    <column name="GemSlotsAdjustScaleFactor" type="U8">
+      <offset>156</offset>
+    </column>
+    <column name="Suffix" type="EMBEDDEDSTRUCT">
+      <offset>160</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="Prefix" type="EMBEDDEDSTRUCT">
-      <offset>164</offset>
+      <offset>172</offset>
       <subtable external="DisplayMessage" />
+    </column>
+    <column name="Costume" type="STRUCT">
+      <offset>184</offset>
+      <subtable external="ItemCostume" />
     </column>
     <column name="}" type="END" />
   </table>

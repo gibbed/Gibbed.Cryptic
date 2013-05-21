@@ -359,12 +359,16 @@
       <offset>372</offset>
       <bit_offset>65539</bit_offset>
     </column>
+    <column name="LogForTracking" type="BIT">
+      <offset>372</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
     <column name="ItemSetMembersUnique" type="BIT">
       <offset>372</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65540</bit_offset>
+      <bit_offset>65541</bit_offset>
       <format_strings>
         <format_string name="SPECIAL_DEFAULT">1</format_string>
       </format_strings>
@@ -376,36 +380,36 @@
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
       <redundant_name>ItemSetMembersUnique</redundant_name>
-      <bit_offset>65540</bit_offset>
+      <bit_offset>65541</bit_offset>
       <format_strings>
         <format_string name="SPECIAL_DEFAULT">1</format_string>
       </format_strings>
     </column>
     <column name="CostumeIgnoreSkeletonMatching" type="BIT">
       <offset>372</offset>
-      <bit_offset>65541</bit_offset>
+      <bit_offset>65542</bit_offset>
     </column>
     <column name="TrainingDestroysItem" type="BIT">
       <offset>372</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65542</bit_offset>
+      <bit_offset>65543</bit_offset>
       <format_strings>
         <format_string name="SPECIAL_DEFAULT">1</format_string>
       </format_strings>
     </column>
     <column name="CouponUsesItemLevel" type="BIT">
       <offset>372</offset>
-      <bit_offset>65543</bit_offset>
+      <bit_offset>65544</bit_offset>
     </column>
     <column name="ExtraSafeRemove" type="BIT">
       <offset>372</offset>
-      <bit_offset>65544</bit_offset>
+      <bit_offset>65545</bit_offset>
     </column>
     <column name="MessageOnTrayActivateFailure" type="BIT">
       <offset>372</offset>
-      <bit_offset>65545</bit_offset>
+      <bit_offset>65546</bit_offset>
     </column>
     <column name="AttribModifyValues" type="OPTIONALSTRUCT">
       <offset>376</offset>
@@ -423,23 +427,35 @@
       <offset>388</offset>
       <static_define_list external="SpecialPartType" />
     </column>
-    <column name="SpecialPartCount" type="INT">
+    <column name="GemAddedCostumeFX" type="STRING">
       <offset>392</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="GamePermission" type="STRING">
+    <column name="GemAddedCostumeBone" type="STRING">
       <offset>396</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="uExperienceGift" type="INT">
+    <column name="SpecialPartCount" type="INT">
       <offset>400</offset>
     </column>
-    <column name="uCouponDiscount" type="INT">
+    <column name="GamePermission" type="STRING">
       <offset>404</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uExperienceGift" type="INT">
+      <offset>408</offset>
+    </column>
+    <column name="uCouponDiscount" type="INT">
+      <offset>412</offset>
     </column>
     <column name="MTCategories" type="STRINGARRAY">
-      <offset>408</offset>
+      <offset>416</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -447,7 +463,7 @@
       <dictionary_name>MicroTransactionCategory</dictionary_name>
     </column>
     <column name="MTItem" type="STRINGARRAY">
-      <offset>412</offset>
+      <offset>420</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -455,14 +471,14 @@
       <dictionary_name>MicroTransaction</dictionary_name>
     </column>
     <column name="BonusNumerics" type="STRUCT">
-      <offset>416</offset>
+      <offset>424</offset>
       <subtable external="ItemDefBonus" />
     </column>
     <column name="BonusPercent" type="INT">
-      <offset>420</offset>
+      <offset>428</offset>
     </column>
     <column name="PowerHue" type="F32">
-      <offset>424</offset>
+      <offset>432</offset>
     </column>
     <column name="Slot" type="IGNORE" />
     <column name="SubType" type="IGNORE" />

@@ -7,33 +7,36 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="RequestingServerType" type="INT">
+    <column name="RequestingShardName" type="STRING">
       <offset>0</offset>
+    </column>
+    <column name="RequestingServerType" type="INT">
+      <offset>4</offset>
       <static_define_list external="GlobalType" />
     </column>
     <column name="RequestingServerID" type="INT">
-      <offset>4</offset>
-    </column>
-    <column name="EntContainerID" type="INT">
       <offset>8</offset>
     </column>
-    <column name="RequestingTeamID" type="INT">
+    <column name="EntContainerID" type="INT">
       <offset>12</offset>
     </column>
-    <column name="playerName" type="STRING">
+    <column name="RequestingTeamID" type="INT">
       <offset>16</offset>
     </column>
-    <column name="PlayerAccountID" type="INT">
+    <column name="playerName" type="STRING">
       <offset>20</offset>
     </column>
-    <column name="PlayerAccountName" type="STRING">
+    <column name="PlayerAccountID" type="INT">
       <offset>24</offset>
     </column>
-    <column name="PlayerLangID" type="INT">
+    <column name="PlayerAccountName" type="STRING">
       <offset>28</offset>
     </column>
-    <column name="PlayerIdentificationCookie" type="INT">
+    <column name="PlayerLangID" type="INT">
       <offset>32</offset>
+    </column>
+    <column name="PlayerIdentificationCookie" type="INT">
+      <offset>36</offset>
     </column>
     <column name="}" type="END" />
   </table>

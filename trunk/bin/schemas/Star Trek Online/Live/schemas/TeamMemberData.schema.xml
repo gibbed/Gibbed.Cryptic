@@ -44,35 +44,41 @@
         <flag>UNKNOWN_32</flag>
       </flags>
     </column>
-    <column name="ExpLevel" type="INT">
+    <column name="ClassName" type="STRING">
       <offset>32</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
     </column>
-    <column name="Sidekicked" type="U8">
+    <column name="ExpLevel" type="INT">
       <offset>36</offset>
     </column>
-    <column name="Dead" type="U8">
-      <offset>37</offset>
-    </column>
-    <column name="Disconnected" type="U8">
-      <offset>38</offset>
-    </column>
-    <column name="NonLocal" type="U8">
-      <offset>39</offset>
-    </column>
-    <column name="IsPet" type="U8">
+    <column name="Sidekicked" type="U8">
       <offset>40</offset>
     </column>
-    <column name="AiState" type="INT">
+    <column name="Dead" type="U8">
+      <offset>41</offset>
+    </column>
+    <column name="Disconnected" type="U8">
+      <offset>42</offset>
+    </column>
+    <column name="NonLocal" type="U8">
+      <offset>43</offset>
+    </column>
+    <column name="IsPet" type="U8">
       <offset>44</offset>
     </column>
-    <column name="AiStance" type="INT">
+    <column name="AiState" type="INT">
       <offset>48</offset>
     </column>
-    <column name="EntID" type="INT">
+    <column name="AiStance" type="INT">
       <offset>52</offset>
     </column>
-    <column name="IsTalking" type="U8">
+    <column name="EntID" type="INT">
       <offset>56</offset>
+    </column>
+    <column name="IsTalking" type="U8">
+      <offset>60</offset>
     </column>
     <column name="}" type="END" />
   </table>

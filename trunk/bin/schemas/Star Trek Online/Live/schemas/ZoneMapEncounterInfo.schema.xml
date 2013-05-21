@@ -45,6 +45,11 @@
     <column name="VolumeLogicalName" type="STRINGARRAY">
       <offset>32</offset>
     </column>
+    <column name="SecondaryMap" type="STRUCT">
+      <offset>36</offset>
+      <subtable external="SecondaryZoneMap" />
+    </column>
+    <column name="v2" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

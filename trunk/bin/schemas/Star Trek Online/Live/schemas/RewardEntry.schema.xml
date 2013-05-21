@@ -35,65 +35,69 @@
       <offset>24</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
-    <column name="MinLevel" type="INT">
+    <column name="hUnidentifiedResultDef" type="REFERENCE">
       <offset>28</offset>
+      <dictionary_name>ItemDef</dictionary_name>
     </column>
-    <column name="MaxLevel" type="INT">
+    <column name="MinLevel" type="INT">
       <offset>32</offset>
     </column>
-    <column name="RewardTable" type="REFERENCE">
+    <column name="MaxLevel" type="INT">
       <offset>36</offset>
+    </column>
+    <column name="RewardTable" type="REFERENCE">
+      <offset>40</offset>
       <flags>
         <flag>STRUCT_NORECURSE</flag>
       </flags>
       <dictionary_name>RewardTable</dictionary_name>
     </column>
     <column name="RewardValTableOverride" type="REFERENCE">
-      <offset>40</offset>
+      <offset>44</offset>
       <dictionary_name>RewardValTable</dictionary_name>
     </column>
     <column name="Value" type="F32">
-      <offset>44</offset>
-    </column>
-    <column name="BaseItemsOnly" type="U8">
       <offset>48</offset>
     </column>
+    <column name="BaseItemsOnly" type="U8">
+      <offset>52</offset>
+    </column>
     <column name="ScaleNumeric" type="U8">
-      <offset>49</offset>
+      <offset>53</offset>
     </column>
     <column name="HideInUI" type="U8">
-      <offset>50</offset>
+      <offset>54</offset>
     </column>
     <column name="ItemPowerDef" type="REFERENCE">
-      <offset>52</offset>
+      <offset>56</offset>
       <dictionary_name>ItemPowerDef</dictionary_name>
     </column>
     <column name="CostumeDef" type="REFERENCE">
-      <offset>56</offset>
+      <offset>60</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
     <column name="RequiresExpression" type="OPTIONALSTRUCT">
-      <offset>60</offset>
+      <offset>64</offset>
       <subtable external="Expression" />
     </column>
     <column name="RequiredGamePermissionToken" type="STRINGARRAY">
-      <offset>64</offset>
+      <offset>68</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Quality" type="INT">
-      <offset>68</offset>
+      <offset>72</offset>
       <static_define_list external="ItemQuality" />
     </column>
     <column name="ActivityName" type="STRING">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="RequiredActivity" type="STRING">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>ALIAS</flag>
@@ -101,36 +105,43 @@
       <redundant_name>ActivityName</redundant_name>
     </column>
     <column name="ShardVariable" type="STRING">
-      <offset>80</offset>
+      <offset>84</offset>
     </column>
     <column name="CharacterBasedIncludeType" type="INT">
-      <offset>84</offset>
+      <offset>88</offset>
       <default>1</default>
       <static_define_list external="CharacterBasedIncludeType" />
     </column>
     <column name="CharacterBasedIncludePrefix" type="STRING">
-      <offset>88</offset>
+      <offset>92</offset>
     </column>
     <column name="BroadcastChatMessage" type="EMBEDDEDSTRUCT">
-      <offset>92</offset>
+      <offset>96</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="RewardDiffPowerScaleMult" type="F32">
-      <offset>104</offset>
+      <offset>108</offset>
       <default>1</default>
     </column>
     <column name="ResetGatedTable" type="U8">
-      <offset>108</offset>
+      <offset>112</offset>
     </column>
     <column name="GatedForNumeric" type="INT">
-      <offset>112</offset>
+      <offset>116</offset>
       <static_define_list external="RewardGatedType" />
     </column>
     <column name="GatedPercentChange" type="INT">
-      <offset>116</offset>
+      <offset>120</offset>
     </column>
     <column name="MaxGatedPercentChange" type="INT">
-      <offset>120</offset>
+      <offset>124</offset>
+    </column>
+    <column name="Scale" type="F32">
+      <offset>128</offset>
+      <default>1</default>
+    </column>
+    <column name="UnidentifiedResultLevel" type="INT">
+      <offset>132</offset>
     </column>
     <column name="DisableCostume" type="IGNORE" />
     <column name="DisplayNameMsg" type="IGNORE" />

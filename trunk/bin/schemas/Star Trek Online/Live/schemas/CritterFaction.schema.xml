@@ -27,6 +27,9 @@
     <column name="DefaultPlayerFaction" type="U8">
       <offset>9</offset>
     </column>
+    <column name="CanBeSubFaction" type="U8">
+      <offset>10</offset>
+    </column>
     <column name="relationship" type="STRUCT">
       <offset>12</offset>
       <subtable external="CritterFactionRelationship" />

@@ -57,14 +57,34 @@
     <column name="HideOwnAuctionsInSearch" type="U8">
       <offset>39</offset>
     </column>
-    <column name="uMaximumAuctionPrice" type="INT">
+    <column name="IncludeCurrencyInSoldEmail" type="U8">
       <offset>40</offset>
     </column>
-    <column name="CurrencyNumeric" type="STRING">
+    <column name="ExpiredAuctionsCountTowardMaximum" type="U8">
+      <offset>41</offset>
+    </column>
+    <column name="RequiredCategoryForSearch" type="U8">
+      <offset>42</offset>
+    </column>
+    <column name="EnablePriceHistoryTracking" type="U8">
+      <offset>43</offset>
+    </column>
+    <column name="PlayerRoamingFeeMultiplier" type="F32">
       <offset>44</offset>
+      <default>1</default>
+    </column>
+    <column name="uMaximumAuctionPrice" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="CurrencyNumeric" type="STRING">
+      <offset>52</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
+    </column>
+    <column name="SearchableAttribs" type="INTARRAY">
+      <offset>56</offset>
+      <static_define_list external="AttribType" />
     </column>
     <column name="}" type="END" />
   </table>

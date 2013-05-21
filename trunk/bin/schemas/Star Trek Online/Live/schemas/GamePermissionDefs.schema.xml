@@ -22,6 +22,15 @@
     <column name="UseFreeBag" type="U8">
       <offset>12</offset>
     </column>
+    <column name="LoadingComment" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_PREFORMATTED">1</format_string>
+      </format_strings>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

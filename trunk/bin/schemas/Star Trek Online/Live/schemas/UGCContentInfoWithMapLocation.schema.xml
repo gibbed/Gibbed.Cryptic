@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCContentInfoWithMapLocation">
+  <table>
+    <column name="UGCContentInfoWithMapLocation" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ContentInfo" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="UGCContentInfo" />
+    </column>
+    <column name="MapLocation" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="UGCMapLocation" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>
