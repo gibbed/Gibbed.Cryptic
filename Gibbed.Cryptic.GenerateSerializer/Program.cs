@@ -43,31 +43,15 @@ namespace Gibbed.Cryptic.GenerateSerializer
         {
             var showHelp = false;
             string version = null;
-            string inputPath = Path.Combine(GetExecutablePath(), "parsers", "Star Trek Online");
+            string inputPath = Path.Combine(GetExecutablePath(), "schemas", "Star Trek Online", "Live");
             string targetGameName = "";
 
             var options = new OptionSet()
             {
-                {
-                    "g|game=",
-                    "set target game",
-                    v => targetGameName = v
-                    },
-                {
-                    "p|path=",
-                    "set input path",
-                    v => inputPath = v
-                },
-                {
-                    "v|version=",
-                    "set version",
-                    v => version = v
-                },
-                {
-                    "h|help",
-                    "show this message and exit", 
-                    v => showHelp = v != null
-                },
+                { "g|game=", "set target game", v => targetGameName = v },
+                { "p|path=", "set input path", v => inputPath = v },
+                { "v|version=", "set version", v => version = v },
+                { "h|help", "show this message and exit", v => showHelp = v != null },
             };
 
             List<string> extras;
