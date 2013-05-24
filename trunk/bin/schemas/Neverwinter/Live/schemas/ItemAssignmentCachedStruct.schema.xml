@@ -30,6 +30,13 @@
       <offset>20</offset>
       <dictionary_name>ItemAssignmentDef</dictionary_name>
     </column>
+    <column name="RequirementsCache" type="STRUCT">
+      <offset>24</offset>
+      <subtable external="ItemAssignmentUI" />
+    </column>
+    <column name="uLastRequirementsFlush" type="INT">
+      <offset>28</offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

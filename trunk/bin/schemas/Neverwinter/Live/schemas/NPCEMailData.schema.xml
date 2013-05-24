@@ -69,6 +69,22 @@
       </flags>
       <static_define_list external="NPCEmailType" />
     </column>
+    <column name="pReason" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="pDetail" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>
