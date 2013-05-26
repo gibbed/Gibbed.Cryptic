@@ -288,7 +288,7 @@ namespace Gibbed.Cryptic.ConvertObject
                     var target = schema.GetTarget(resource.ParserHash);
                     if (target == null)
                     {
-                        Console.WriteLine("Don't know how to handle '{0}' with a hash of {1:X8}.",
+                        Console.WriteLine("Don't know how to handle '{0}' with a hash of {1}.",
                                           resource.Schema,
                                           resource.ParserHash);
                         return;
