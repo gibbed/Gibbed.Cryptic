@@ -53,36 +53,18 @@ namespace Gibbed.Cryptic.Unpack
 
             var options = new OptionSet()
             {
+                { "o|overwrite", "overwrite existing files", v => overwriteFiles = v != null },
                 {
-                    "o|overwrite",
-                    "overwrite existing files",
-                    v => overwriteFiles = v != null
-                },
-                {
-                    "nu|no-unknowns",
-                    "don't extract unknown files",
+                    "nu|no-unknowns", "don't extract unknown files",
                     v => extractUnknowns = v != null ? false : extractUnknowns
                 },
                 {
-                    "ou|only-unknowns",
-                    "only extract unknown files",
+                    "ou|only-unknowns", "only extract unknown files",
                     v => extractUnknowns = v != null ? true : extractUnknowns
                 },
-                {
-                    "v|verbose",
-                    "be verbose",
-                    v => verbose = v != null
-                },
-                {
-                    "x|exclude=",
-                    "exclude files using pattern",
-                    v => excludePattern = v
-                },
-                {
-                    "h|help",
-                    "show this message and exit", 
-                    v => showHelp = v != null
-                },
+                { "v|verbose", "be verbose", v => verbose = v != null },
+                { "x|exclude=", "exclude files using pattern", v => excludePattern = v },
+                { "h|help", "show this message and exit", v => showHelp = v != null },
             };
 
             List<string> extras;
@@ -126,7 +108,7 @@ namespace Gibbed.Cryptic.Unpack
 
                 var dataList = new Dictionary<int, byte[]>();
                 var dataListEntry = hog.Files
-                    .SingleOrDefault(e => e.AttributeId == 0 && e.Size != -1);
+                                       .SingleOrDefault(e => e.AttributeId == 0 && e.Size != -1);
                 if (dataListEntry != null)
                 {
                     using (var data = ReadFileData(hog, dataListEntry, input))
@@ -180,8 +162,8 @@ namespace Gibbed.Cryptic.Unpack
 
                 var consumedAttributes = new List<int>();
                 var files = hog.Files
-                    .Where(e => e.Size != -1 && e.AttributeId != 0)
-                    .ToArray();
+                               .Where(e => e.Size != -1 && e.AttributeId != 0)
+                               .ToArray();
 
                 long current = 0;
                 long total = files.Count();
@@ -237,9 +219,8 @@ namespace Gibbed.Cryptic.Unpack
                             }
                         }
 
-                        name = name.Replace('/', '\\');
-
-                        if (name.StartsWith(@"\") == true)
+                        name = name.Replace('/', Path.DirectorySeparatorChar);
+                        if (name.StartsWith(Path.DirectorySeparatorChar.ToString()) == true)
                         {
                             name = name.Substring(1);
                         }
@@ -268,7 +249,9 @@ namespace Gibbed.Cryptic.Unpack
                     if (verbose == true)
                     {
                         Console.WriteLine("[{0}/{1}] {2}",
-                            current, total, name);
+                                          current,
+                                          total,
+                                          name);
                     }
 
                     using (var output = File.Create(entryPath))
@@ -279,9 +262,9 @@ namespace Gibbed.Cryptic.Unpack
             }
         }
 
-        private static MemoryStream ReadFileData(
-            HogFile hog, Hog.FileEntry entry,
-            Stream input)
+        private static MemoryStream ReadFileData(HogFile hog,
+                                                 Hog.FileEntry entry,
+                                                 Stream input)
         {
             var data = new MemoryStream();
             ReadFileData(hog, entry, input, data);
@@ -290,8 +273,10 @@ namespace Gibbed.Cryptic.Unpack
         }
 
         private static void ReadFileData(
-            HogFile hog, Hog.FileEntry entry,
-            Stream input, Stream output)
+            HogFile hog,
+            Hog.FileEntry entry,
+            Stream input,
+            Stream output)
         {
             if (hog.Files.Contains(entry) == false)
             {
