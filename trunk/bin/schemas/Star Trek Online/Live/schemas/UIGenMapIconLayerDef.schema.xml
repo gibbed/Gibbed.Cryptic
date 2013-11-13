@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIGenMapIconLayerDef">
+  <table>
+    <column name="UIGenMapIconLayerDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Icon" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Textures</dictionary_name>
+    </column>
+    <column name="Texture" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <redundant_name>Icon</redundant_name>
+      <dictionary_name>Textures</dictionary_name>
+    </column>
+    <column name="FormatIcon" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>Textures</dictionary_name>
+    </column>
+    <column name="FormatTexture" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>ALIAS</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <redundant_name>FormatIcon</redundant_name>
+      <dictionary_name>Textures</dictionary_name>
+    </column>
+    <column name="Color" type="INT">
+      <offset>8</offset>
+      <static_define_list>
+        <!-- dynamic enum? -->
+      </static_define_list>
+    </column>
+    <column name="FrameDuration" type="F32">
+      <offset>12</offset>
+      <default>-1</default>
+    </column>
+    <column name="FrameCount" type="INT">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="PercentX" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="PercentY" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="OffsetFrom" type="INT">
+      <offset>28</offset>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="AbovePlayer" type="F32">
+      <offset>32</offset>
+      <default>-8388609</default>
+    </column>
+    <column name="BelowPlayer" type="F32">
+      <offset>36</offset>
+      <default>2139095039</default>
+    </column>
+    <column name="Region" type="INT">
+      <offset>40</offset>
+      <default>-1</default>
+      <static_define_list external="WorldRegionType" />
+    </column>
+    <column name="Z" type="INT16">
+      <offset>44</offset>
+    </column>
+    <column name="Priority" type="INT16">
+      <offset>46</offset>
+    </column>
+    <column name="LayerScale" type="F32">
+      <offset>48</offset>
+      <default>1</default>
+    </column>
+    <column name="ClampToEdge" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Rotate" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Scale" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="ScaleToWorld" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Clip" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="Pushable" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="IgnoreWorldSize" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="SkinningOverride" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="ShowUpwardsAndDownwards" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="ShrinkToFit" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

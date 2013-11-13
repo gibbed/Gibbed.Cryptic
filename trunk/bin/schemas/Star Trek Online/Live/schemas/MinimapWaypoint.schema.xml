@@ -58,20 +58,26 @@
     <column name="Rotation" type="F32">
       <offset>52</offset>
     </column>
-    <column name="HideUnlessRevealed" type="U8">
+    <column name="Shape" type="INT">
       <offset>56</offset>
     </column>
+    <column name="HideUnlessRevealed" type="U8">
+      <offset>60</offset>
+    </column>
     <column name="Hidden" type="U8">
-      <offset>57</offset>
+      <offset>61</offset>
+    </column>
+    <column name="ZOrder" type="INT">
+      <offset>64</offset>
     </column>
     <column name="MapCreatedOn" type="STRING">
-      <offset>64</offset>
+      <offset>72</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="IsDoorWaypoint" type="U8">
-      <offset>68</offset>
+      <offset>76</offset>
     </column>
     <column name="}" type="END" />
   </table>

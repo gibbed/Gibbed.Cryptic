@@ -21,41 +21,44 @@
       </flags>
       <subtable external="Entity" />
     </column>
-    <column name="Name" type="STRING">
+    <column name="SlotID" type="INT">
       <offset>8</offset>
     </column>
-    <column name="OwnerName" type="STRING">
+    <column name="Name" type="STRING">
       <offset>12</offset>
     </column>
-    <column name="ONLen" type="INT">
+    <column name="OwnerName" type="STRING">
       <offset>16</offset>
     </column>
-    <column name="IsPet" type="U8">
+    <column name="ONLen" type="INT">
       <offset>20</offset>
     </column>
-    <column name="Class" type="INT">
+    <column name="IsPet" type="U8">
       <offset>24</offset>
     </column>
-    <column name="ClassName" type="STRING">
+    <column name="Class" type="INT">
       <offset>28</offset>
+    </column>
+    <column name="ClassName" type="STRING">
+      <offset>32</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
     </column>
     <column name="PetPermission" type="U8">
-      <offset>32</offset>
-    </column>
-    <column name="IsReady" type="U8">
-      <offset>33</offset>
-    </column>
-    <column name="EntType" type="INT">
       <offset>36</offset>
     </column>
-    <column name="EntID" type="INT">
+    <column name="IsReady" type="U8">
+      <offset>37</offset>
+    </column>
+    <column name="EntType" type="INT">
       <offset>40</offset>
     </column>
-    <column name="hCostume" type="REFERENCE">
+    <column name="EntID" type="INT">
       <offset>44</offset>
+    </column>
+    <column name="hCostume" type="REFERENCE">
+      <offset>48</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
     <column name="}" type="END" />

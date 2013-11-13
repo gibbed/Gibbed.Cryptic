@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="SpeciesGroupUI">
+  <table>
+    <column name="SpeciesGroupUI" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="SpeciesGroup" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="SpeciesList" type="STRUCT">
+      <offset>4</offset>
+      <flags>
+        <flag>NO_INDEX</flag>
+      </flags>
+      <subtable external="SpeciesDef" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

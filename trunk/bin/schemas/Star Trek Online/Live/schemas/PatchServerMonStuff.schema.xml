@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="PatchServerMonStuff">
+  <table>
+    <column name="PatchServerMonStuff" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ProductName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Versions" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="PatchVersionInfoForServerMon" />
+    </column>
+    <column name="RecentVersions" type="STRUCT">
+      <offset>8</offset>
+      <subtable external="PatchVersionInfoForServerMon" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

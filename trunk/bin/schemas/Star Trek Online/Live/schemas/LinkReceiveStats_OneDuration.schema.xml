@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LinkReceiveStats_OneDuration">
+  <table>
+    <column name="LinkReceiveStats_OneDuration" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Count" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="TotalDuration" type="INT64">
+      <offset>16</offset>
+      <format_strings>
+        <format_string name="HTML_TICKS_DURATION">1</format_string>
+      </format_strings>
+    </column>
+    <column name="TotalSize" type="INT64">
+      <offset>24</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
+    </column>
+    <column name="AverageSize" type="INT64">
+      <offset>32</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

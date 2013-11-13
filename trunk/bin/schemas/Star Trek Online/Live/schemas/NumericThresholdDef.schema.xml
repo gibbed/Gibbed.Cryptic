@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="NumericThresholdDef">
+  <table>
+    <column name="NumericThresholdDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="astrThresholdName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Alert" type="BIT">
+      <offset>4</offset>
+      <flags>
+        <flag>SPECIAL_DEFAULT</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+      <format_strings>
+        <format_string name="SPECIAL_DEFAULT">1</format_string>
+      </format_strings>
+    </column>
+    <column name="OnlyUGC" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="OnlyKillCredit" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="KillCreditLimiter" type="BIT">
+      <offset>4</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="ThresholdPerLevel" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="DurationPerLevel" type="INTARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="pfCooldownRatePerLevel" type="F32ARRAY">
+      <offset>16</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

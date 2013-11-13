@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemSalvageRewardRequestData">
+  <table>
+    <column name="ItemSalvageRewardRequestData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="hDef" type="REFERENCE">
+      <offset>0</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="ItemID" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="data" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="InvRewardRequest" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

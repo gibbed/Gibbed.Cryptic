@@ -181,58 +181,73 @@
       <offset>164</offset>
       <subtable external="WorldRespawnData" />
     </column>
-    <column name="Level" type="INT">
+    <column name="AmbientMusic" type="STRING">
       <offset>168</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="ForceTeamSize" type="INT">
+    <column name="CombatMusic" type="STRING">
       <offset>172</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="Difficulty" type="INT">
+    <column name="DisableAutoMusic" type="BOOLFLAG">
       <offset>176</offset>
     </column>
-    <column name="Variable" type="STRUCT">
+    <column name="Level" type="INT">
       <offset>180</offset>
+    </column>
+    <column name="ForceTeamSize" type="INT">
+      <offset>184</offset>
+    </column>
+    <column name="Difficulty" type="INT">
+      <offset>188</offset>
+    </column>
+    <column name="Variable" type="STRUCT">
+      <offset>192</offset>
       <subtable external="WorldVariableDef" />
     </column>
     <column name="IgnoreTeamSizeBonusXP" type="U8">
-      <offset>184</offset>
+      <offset>196</offset>
     </column>
     <column name="ConfirmPurchasesOnExit" type="U8">
-      <offset>185</offset>
+      <offset>197</offset>
     </column>
     <column name="CollectDoorDestStatus" type="U8">
-      <offset>186</offset>
+      <offset>198</offset>
     </column>
     <column name="DisableDuels" type="U8">
-      <offset>187</offset>
+      <offset>199</offset>
     </column>
     <column name="DisableInstanceChanging" type="U8">
-      <offset>188</offset>
+      <offset>200</offset>
     </column>
     <column name="TeamNotRequired" type="U8">
-      <offset>189</offset>
+      <offset>201</offset>
     </column>
     <column name="TerrainStaticLighting" type="U8">
-      <offset>190</offset>
+      <offset>202</offset>
     </column>
     <column name="ShardVariables" type="U8">
-      <offset>191</offset>
+      <offset>203</offset>
     </column>
     <column name="DisableVisitedTracking" type="U8">
-      <offset>192</offset>
+      <offset>204</offset>
     </column>
     <column name="PowersRequireValidTarget" type="U8">
-      <offset>193</offset>
+      <offset>205</offset>
     </column>
     <column name="EnableUpsellFeatures" type="U8">
-      <offset>194</offset>
+      <offset>206</offset>
     </column>
     <column name="ParentMap" type="OPTIONALSTRUCT">
-      <offset>196</offset>
+      <offset>208</offset>
       <subtable external="ParentZoneMap" />
     </column>
     <column name="MastermindDef" type="STRING">
-      <offset>200</offset>
+      <offset>212</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -240,7 +255,7 @@
       <dictionary_name>AIMastermindDef</dictionary_name>
     </column>
     <column name="CivilianMapDef" type="STRING">
-      <offset>204</offset>
+      <offset>216</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -248,7 +263,7 @@
       <dictionary_name>AICivilianMapDef</dictionary_name>
     </column>
     <column name="PlayerFSM" type="STRINGARRAY">
-      <offset>208</offset>
+      <offset>220</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -256,30 +271,32 @@
       <dictionary_name>FSM</dictionary_name>
     </column>
     <column name="LightOverride" type="INT">
-      <offset>212</offset>
+      <offset>224</offset>
       <static_define_list external="ZoneMapLightOverrideType" />
     </column>
     <column name="RecordPlayerMatchStats" type="U8">
-      <offset>216</offset>
+      <offset>228</offset>
     </column>
     <column name="GuildOwned" type="U8">
-      <offset>217</offset>
+      <offset>229</offset>
     </column>
     <column name="GuildNotRequired" type="U8">
-      <offset>218</offset>
+      <offset>230</offset>
     </column>
-    <column name="UsedInUGC" type="U8">
-      <offset>219</offset>
+    <column name="UsedInUGC" type="INT">
+      <offset>232</offset>
+      <static_define_list external="ZoneMapUGCUsage" />
     </column>
-    <column name="GenerateMapSnapMini" type="U8">
-      <offset>219</offset>
+    <column name="GenerateMapSnapMini" type="INT">
+      <offset>232</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>UsedInUGC</redundant_name>
+      <static_define_list external="ZoneMapUGCUsage" />
     </column>
     <column name="bfParamsSpecified" type="INTFIXEDARRAY">
-      <offset>220</offset>
+      <offset>236</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
         <flag>USEDFIELD</flag>
@@ -287,7 +304,7 @@
       <num_elements>3</num_elements>
     </column>
     <column name="saving" type="U8">
-      <offset>236</offset>
+      <offset>252</offset>
       <flags>
         <flag>NO_WRITE</flag>
       </flags>

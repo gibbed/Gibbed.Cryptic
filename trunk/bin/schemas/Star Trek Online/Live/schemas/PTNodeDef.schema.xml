@@ -61,105 +61,109 @@
       <offset>44</offset>
       <dictionary_name>PTNodeDef</dictionary_name>
     </column>
-    <column type="REFERENCE">
+    <column name="AltTrainerNode" type="REFERENCE">
       <offset>48</offset>
+      <dictionary_name>PTNodeDef</dictionary_name>
+    </column>
+    <column type="REFERENCE">
+      <offset>52</offset>
       <flags>
         <flag>USEROPTIONBIT_1</flag>
       </flags>
       <dictionary_name>PowerTreeDef</dictionary_name>
     </column>
     <column name="GrantSlot" type="REFERENCE">
-      <offset>52</offset>
+      <offset>56</offset>
       <dictionary_name>PowerReplaceDef</dictionary_name>
     </column>
     <column name="NodeType" type="REFERENCE">
-      <offset>56</offset>
+      <offset>60</offset>
       <dictionary_name>PTNodeTypeDef</dictionary_name>
     </column>
     <column name="Rank" type="STRUCT">
-      <offset>60</offset>
+      <offset>64</offset>
       <flags>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="PTNodeRankDef" />
     </column>
     <column name="Enhancement" type="STRUCT">
-      <offset>64</offset>
+      <offset>68</offset>
       <subtable external="PTNodeEnhancementDef" />
     </column>
     <column name="CostMaxEnhancement" type="INT">
-      <offset>68</offset>
+      <offset>72</offset>
     </column>
     <column name="Attrib" type="INT">
-      <offset>72</offset>
+      <offset>76</offset>
       <default>-1</default>
       <static_define_list external="AttribType" />
     </column>
     <column name="AttribPowerTable" type="STRING">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Flags" type="INT">
-      <offset>80</offset>
+      <offset>84</offset>
       <static_define_list external="PTNodeFlag" />
       <format>FLAGS</format>
     </column>
     <column name="Purpose" type="INT">
-      <offset>84</offset>
+      <offset>88</offset>
       <static_define_list external="PowerPurpose" />
     </column>
     <column name="IconName" type="STRING">
-      <offset>88</offset>
+      <offset>92</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="CloneSystem" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="HasCosts" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="RankCostTablesVary" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="Slave" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="ForcedAutoBuy" type="BIT">
-      <offset>92</offset>
+      <offset>96</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="UICategory" type="INT">
-      <offset>96</offset>
+      <offset>100</offset>
       <static_define_list external="PTNodeUICategory" />
     </column>
     <column name="UIGridRow" type="U8">
-      <offset>100</offset>
+      <offset>104</offset>
     </column>
     <column name="UIGridColumn" type="U8">
-      <offset>101</offset>
+      <offset>105</offset>
     </column>
     <column name="KeyBind" type="IGNORE" />
     <column name="GrantInvSlot" type="IGNORE" />

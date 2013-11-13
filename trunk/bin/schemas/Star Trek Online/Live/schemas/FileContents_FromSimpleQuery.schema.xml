@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="FileContents_FromSimpleQuery">
+  <table>
+    <column name="FileContents_FromSimpleQuery" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="QueryID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="MachineName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="FileName" type="STRING">
+      <offset>8</offset>
+    </column>
+    <column name="Contents" type="OPTIONALSTRUCT">
+      <offset>12</offset>
+      <subtable external="TextParserBinaryBlock" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

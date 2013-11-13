@@ -30,16 +30,12 @@
       <offset>20</offset>
       <bit_offset>65536</bit_offset>
     </column>
-    <column name="ShowMapChoice" type="BIT">
-      <offset>20</offset>
-      <bit_offset>65537</bit_offset>
-    </column>
     <column name="AutoSideKick" type="BIT">
       <offset>20</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65538</bit_offset>
+      <bit_offset>65537</bit_offset>
       <format_strings>
         <format_string name="SPECIAL_DEFAULT">1</format_string>
       </format_strings>
@@ -49,7 +45,7 @@
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65539</bit_offset>
+      <bit_offset>65538</bit_offset>
       <format_strings>
         <format_string name="SPECIAL_DEFAULT">1</format_string>
       </format_strings>
@@ -59,7 +55,7 @@
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65540</bit_offset>
+      <bit_offset>65539</bit_offset>
       <format_strings>
         <format_string name="SPECIAL_DEFAULT">1</format_string>
       </format_strings>
@@ -69,7 +65,7 @@
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65541</bit_offset>
+      <bit_offset>65540</bit_offset>
       <format_strings>
         <format_string name="SPECIAL_DEFAULT">1</format_string>
       </format_strings>
@@ -79,7 +75,7 @@
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
-      <bit_offset>65542</bit_offset>
+      <bit_offset>65541</bit_offset>
       <format_strings>
         <format_string name="SPECIAL_DEFAULT">1</format_string>
       </format_strings>
@@ -99,6 +95,7 @@
     <column name="uiPowerLevelsMode" type="U8">
       <offset>33</offset>
     </column>
+    <column name="ShowMapChoice" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

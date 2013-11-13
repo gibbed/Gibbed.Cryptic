@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RewardGatedRewardTable">
+  <table>
+    <column name="RewardGatedRewardTable" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="eRewardGateType" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <static_define_list external="RewardGatedType" />
+    </column>
+    <column name="RewardTable" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="hRewardTable" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <redundant_name>RewardTable</redundant_name>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -158,6 +158,13 @@
       </flags>
       <subtable external="NodeSummary" />
     </column>
+    <column name="InteractVolumeStatus" type="STRUCT">
+      <offset>180</offset>
+      <flags>
+        <flag>SELF_ONLY</flag>
+      </flags>
+      <subtable external="InteractVolumeStatus" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

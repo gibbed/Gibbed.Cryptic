@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<enum name="TransClientPacketType">
+  <elements type="int">
+    <element name="REQUEST_NEW_TRANSACTION">10</element>
+    <element name="TRANSACTIONFAILED">11</element>
+    <element name="TRANSACTIONSUCCEEDED">12</element>
+    <element name="TRANSACTIONBLOCKED">13</element>
+    <element name="TRANSACTIONCANCELCONFIRMED">14</element>
+    <element name="TRANSACTIONPOSSIBLE">15</element>
+    <element name="TRANSACTIONPOSSIBLEANDCONFIRMED">16</element>
+    <element name="REGISTERCLIENTINFO">17</element>
+    <element name="SENDTRANSSERVERCOMMANDANDCOMMENT">18</element>
+    <element name="UPDATESFROMLOCALTRANS">19</element>
+    <element name="SETTRANSVARIABLE">20</element>
+    <element name="SEND_PACKET_SIMPLE">21</element>
+    <element name="DBG_REQUESTCONTAINEROWNER">22</element>
+    <element name="DBG_LAGGEDTRANSACTION">23</element>
+    <element name="REGISTER_SLOW_TRANSCALLBACK_WITH_TRACKER">24</element>
+    <element name="SEND_PACKET_SIMPLE_OTHER_SHARD">25</element>
+  </elements>
+</enum>

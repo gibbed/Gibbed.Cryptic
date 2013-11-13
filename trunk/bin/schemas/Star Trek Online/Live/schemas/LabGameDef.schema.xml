@@ -7,19 +7,81 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="FileName" type="CURRENTFILE">
+    <column name="Name" type="STRING">
       <offset>0</offset>
       <flags>
         <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
       </flags>
     </column>
     <column name="MinigameType" type="INT">
       <offset>4</offset>
       <static_define_list external="MinigameType" />
     </column>
-    <column name="Difficulty" type="STRUCT">
+    <column name="AlwaysSendMinigameJackpotEvent" type="U8">
       <offset>8</offset>
-      <subtable external="LabGameDifficulty" />
+    </column>
+    <column name="TimeoutTime" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="UIGen" type="STRING">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="GameTime" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="GameGenerations" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="GameSymbols" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="TargetTime" type="INT">
+      <offset>32</offset>
+      <default>1000</default>
+    </column>
+    <column name="GenerationTime" type="INT">
+      <offset>36</offset>
+      <default>1000</default>
+    </column>
+    <column name="BeatTime" type="INT">
+      <offset>40</offset>
+    </column>
+    <column name="ChanceOfGap" type="F32">
+      <offset>44</offset>
+    </column>
+    <column name="ChanceOfDouble" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="ChanceOfTriple" type="F32">
+      <offset>52</offset>
+    </column>
+    <column name="ChanceOfQuad" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="InputMethod" type="INT">
+      <offset>60</offset>
+      <static_define_list external="LabGameInputMethod" />
+    </column>
+    <column name="CursorAdjustInterval" type="INT">
+      <offset>64</offset>
+      <default>100</default>
+    </column>
+    <column name="CursorAdjustRate" type="INT">
+      <offset>68</offset>
+      <default>1</default>
+    </column>
+    <column name="CursorAcceptTolerance" type="INT">
+      <offset>72</offset>
+      <default>100</default>
+    </column>
+    <column name="score" type="STRUCT">
+      <offset>76</offset>
+      <subtable external="LabGameAcceptScore" />
     </column>
     <column name="}" type="END" />
   </table>

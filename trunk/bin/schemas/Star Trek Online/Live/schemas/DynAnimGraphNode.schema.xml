@@ -23,12 +23,26 @@
       <offset>12</offset>
       <subtable external="DynAnimGraphMove" />
     </column>
-    <column name="PostIdle" type="REFERENCE">
+    <column name="DirectionalData" type="STRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="DynAnimGraphDirectionalData" />
+    </column>
+    <column name="NumDirections" type="INT">
       <offset>20</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <static_define_list external="DynMovementNumDirections" />
+    </column>
+    <column name="PostIdle" type="REFERENCE">
+      <offset>28</offset>
       <dictionary_name>DynAnimGraph</dictionary_name>
     </column>
     <column name="Path" type="STRUCT">
-      <offset>24</offset>
+      <offset>32</offset>
       <subtable external="DynAnimGraphPath" />
     </column>
     <column name="interpBlock" type="IGNORE">
@@ -37,73 +51,73 @@
       </flags>
     </column>
     <column name="Interpolation" type="F32">
-      <offset>28</offset>
+      <offset>36</offset>
     </column>
     <column name="EaseIn" type="INT">
-      <offset>32</offset>
+      <offset>40</offset>
       <static_define_list external="eEaseType" />
     </column>
     <column name="EaseOut" type="INT">
-      <offset>36</offset>
+      <offset>44</offset>
       <static_define_list external="eEaseType" />
     </column>
     <column name="NoSelfInterp" type="U8">
-      <offset>40</offset>
-    </column>
-    <column name="ForceEndFreeze" type="U8">
-      <offset>41</offset>
-    </column>
-    <column name="OverrideAllBones" type="U8">
-      <offset>42</offset>
-    </column>
-    <column name="SnapOverrideAllBones" type="U8">
-      <offset>43</offset>
-    </column>
-    <column name="OverrideMovement" type="U8">
-      <offset>44</offset>
-    </column>
-    <column name="SnapOverrideMovement" type="U8">
-      <offset>45</offset>
-    </column>
-    <column name="OverrideDefaultMove" type="U8">
-      <offset>46</offset>
-    </column>
-    <column name="SnapOverrideDefaultMove" type="U8">
-      <offset>47</offset>
-    </column>
-    <column name="AllowRandomMoveRepeats" type="U8">
       <offset>48</offset>
     </column>
-    <column name="DisableTorsoPointingTimeout" type="F32">
+    <column name="ForceEndFreeze" type="U8">
+      <offset>49</offset>
+    </column>
+    <column name="OverrideAllBones" type="U8">
+      <offset>50</offset>
+    </column>
+    <column name="SnapOverrideAllBones" type="U8">
+      <offset>51</offset>
+    </column>
+    <column name="OverrideMovement" type="U8">
       <offset>52</offset>
     </column>
-    <column name="DisableGroundRegTimeout" type="F32">
+    <column name="SnapOverrideMovement" type="U8">
+      <offset>53</offset>
+    </column>
+    <column name="OverrideDefaultMove" type="U8">
+      <offset>54</offset>
+    </column>
+    <column name="SnapOverrideDefaultMove" type="U8">
+      <offset>55</offset>
+    </column>
+    <column name="AllowRandomMoveRepeats" type="U8">
       <offset>56</offset>
     </column>
-    <column name="DisableUpperBodyGroundRegTimeout" type="F32">
+    <column name="DisableTorsoPointingTimeout" type="F32">
       <offset>60</offset>
     </column>
-    <column name="FxEvent" type="STRUCT">
+    <column name="DisableGroundRegTimeout" type="F32">
       <offset>64</offset>
+    </column>
+    <column name="DisableUpperBodyGroundRegTimeout" type="F32">
+      <offset>68</offset>
+    </column>
+    <column name="FxEvent" type="STRUCT">
+      <offset>72</offset>
       <subtable external="DynAnimGraphFxEvent" />
     </column>
     <column name="GraphImpact" type="STRUCT">
-      <offset>68</offset>
+      <offset>76</offset>
       <subtable external="DynAnimGraphTriggerImpact" />
     </column>
     <column name="InheritBits" type="OPTIONALSTRUCT">
-      <offset>72</offset>
+      <offset>80</offset>
       <subtable external="DynAnimGraphNodeInheritBits" />
     </column>
     <column name="bfParamsSpecified" type="INTFIXEDARRAY">
-      <offset>76</offset>
+      <offset>84</offset>
       <flags>
         <flag>USEDFIELD</flag>
       </flags>
       <num_elements>1</num_elements>
     </column>
     <column name="BoneVisSet" type="INT">
-      <offset>80</offset>
+      <offset>88</offset>
       <default>-1</default>
       <static_define_list external="SkelBoneVisibilitySet" />
     </column>

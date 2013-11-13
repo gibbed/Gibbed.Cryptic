@@ -48,28 +48,40 @@
       <offset>40</offset>
       <dictionary_name>ItemDef</dictionary_name>
     </column>
-    <column name="MaxLevelsPerQuality" type="F32ARRAY">
+    <column name="MaxLevelsPerQuality" type="INTARRAY">
       <offset>44</offset>
     </column>
-    <column name="LevelScalingStartsAtPlayerLevel" type="F32">
+    <column name="CostToUpgradeQuality" type="F32ARRAY">
       <offset>48</offset>
     </column>
-    <column name="LevelsPerPlayerLevel" type="F32">
+    <column name="QualityModifiers" type="F32ARRAY">
       <offset>52</offset>
+    </column>
+    <column name="MaxUpgradeQuality" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="LevelScalingStartsAtPlayerLevel" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="LevelsPerPlayerLevel" type="F32">
+      <offset>64</offset>
       <default>1</default>
     </column>
     <column name="PetXPGainMultiplier" type="F32">
-      <offset>56</offset>
+      <offset>68</offset>
       <default>1</default>
     </column>
     <column name="GemSlotUnlockLevels" type="INTARRAY">
-      <offset>60</offset>
+      <offset>72</offset>
     </column>
     <column name="EquipSlotUnlockLevels" type="INTARRAY">
-      <offset>64</offset>
+      <offset>76</offset>
+    </column>
+    <column name="CostumeUnlockLevels" type="INTARRAY">
+      <offset>80</offset>
     </column>
     <column name="FakeEntStatsPassiveCategories" type="INTARRAY">
-      <offset>68</offset>
+      <offset>84</offset>
       <static_define_list external="PowerCategory" />
     </column>
     <column name="}" type="END" />

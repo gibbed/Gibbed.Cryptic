@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemSalvageDef">
+  <table>
+    <column name="ItemSalvageDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ItemSalvageRecipe" type="STRUCT">
+      <offset>0</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="ItemSalvageRecipeDef" />
+    </column>
+    <column name="RewardTable" type="REFERENCE">
+      <offset>4</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="SalvageableCheck" type="OPTIONALSTRUCT">
+      <offset>8</offset>
+      <subtable external="ItemSalvageCheckDef" />
+    </column>
+    <column name="RequiredPowerMode" type="INT">
+      <offset>12</offset>
+      <default>-1</default>
+      <static_define_list external="PowerMode" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>16</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

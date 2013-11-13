@@ -21,8 +21,16 @@
       <offset>8</offset>
       <subtable external="SpeciesDefRef" />
     </column>
-    <column name="GameAccountUnlockKey" type="STRING">
+    <column name="ExcludedClass" type="STRUCT">
       <offset>12</offset>
+      <subtable external="CharacterClassRef" />
+    </column>
+    <column name="ExcludedSpecies" type="STRUCT">
+      <offset>16</offset>
+      <subtable external="SpeciesDefRef" />
+    </column>
+    <column name="GameAccountUnlockKey" type="STRING">
+      <offset>20</offset>
     </column>
     <column name="}" type="END" />
   </table>

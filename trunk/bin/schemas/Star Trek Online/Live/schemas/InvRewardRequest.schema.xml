@@ -15,15 +15,19 @@
       <offset>4</offset>
       <subtable external="Item" />
     </column>
-    <column name="Rewards" type="STRUCT">
+    <column name="GrantData" type="STRUCT">
       <offset>8</offset>
+      <subtable external="InvRewardGrantData" />
+    </column>
+    <column name="Rewards" type="STRUCT">
+      <offset>12</offset>
       <flags>
         <flag>CLIENT_ONLY</flag>
       </flags>
       <subtable external="InventorySlot" />
     </column>
     <column name="RewardSlots" type="INT">
-      <offset>12</offset>
+      <offset>16</offset>
       <flags>
         <flag>CLIENT_ONLY</flag>
       </flags>

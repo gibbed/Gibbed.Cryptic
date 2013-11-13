@@ -44,19 +44,23 @@
       <offset>24</offset>
       <default>-1</default>
     </column>
-    <column name="TempPuppet" type="STRUCT">
+    <column name="UnteamedPetsPerPlayer" type="INT">
       <offset>28</offset>
+      <default>-1</default>
+    </column>
+    <column name="TempPuppet" type="STRUCT">
+      <offset>32</offset>
       <subtable external="TempPuppetChoice" />
     </column>
     <column name="VehicleRules" type="INT">
-      <offset>32</offset>
+      <offset>36</offset>
       <static_define_list external="VehicleRules" />
     </column>
     <column name="WorldGeometryClustering" type="U8">
-      <offset>36</offset>
+      <offset>40</offset>
     </column>
     <column name="UseIndoorLighting" type="U8">
-      <offset>37</offset>
+      <offset>41</offset>
     </column>
     <column name="End" type="END" />
   </table>

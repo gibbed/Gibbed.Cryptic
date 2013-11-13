@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LinkReceiveStats">
+  <table>
+    <column name="LinkReceiveStats" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+      <format_strings>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">overall.TotalCount, overall.TotalSize</format_string>
+      </format_strings>
+    </column>
+    <column name="{" type="START" />
+    <column name="Comment" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="CommandStats" type="STRUCT">
+      <offset>20</offset>
+      <subtable external="LinkReceiveStats_PerCommand" />
+    </column>
+    <column name="Overall" type="EMBEDDEDSTRUCT">
+      <offset>24</offset>
+      <subtable external="LinkReceiveStats_SizeCounts" />
+    </column>
+    <column name="FirstDataTime" type="INT">
+      <offset>80</offset>
+      <format_strings>
+        <format_string name="HTML_SECS_AGO">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Begin getting a delta for ALL LinkReceiveStats" type="COMMAND">
+      <offset>0</offset>
+      <command_string>ReceiveStats_CaptureDelta $INT(How many seconds of data, 0 to cancel)</command_string>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -52,47 +52,54 @@
       <offset>36</offset>
       <subtable external="PTGroupDefRef" />
     </column>
-    <column name="FilterText" type="STRING">
+    <column name="CombatPowerStatePowerListNodes" type="STRUCT">
       <offset>40</offset>
+      <subtable external="PowerListNode" />
+    </column>
+    <column name="statePowerListNodesHash" type="STASHTABLE">
+      <offset>44</offset>
+    </column>
+    <column name="FilterText" type="STRING">
+      <offset>48</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
     </column>
     <column name="FilterModList" type="STRING">
-      <offset>44</offset>
+      <offset>52</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
     </column>
     <column name="ShowOwned" type="U8">
-      <offset>48</offset>
-    </column>
-    <column name="ShowAvailable" type="U8">
-      <offset>49</offset>
-    </column>
-    <column name="ShowUnavailable" type="U8">
-      <offset>50</offset>
-    </column>
-    <column name="FilterOwnedByComparisonEntity" type="U8">
-      <offset>51</offset>
-    </column>
-    <column name="AddAvailableForComparisonEntity" type="U8">
-      <offset>52</offset>
-    </column>
-    <column name="uiCategoryUpdateNum" type="INT">
       <offset>56</offset>
     </column>
-    <column name="ExpandOwnedOnLoad" type="U8">
+    <column name="ShowAvailable" type="U8">
+      <offset>57</offset>
+    </column>
+    <column name="ShowUnavailable" type="U8">
+      <offset>58</offset>
+    </column>
+    <column name="FilterOwnedByComparisonEntity" type="U8">
+      <offset>59</offset>
+    </column>
+    <column name="AddAvailableForComparisonEntity" type="U8">
       <offset>60</offset>
     </column>
-    <column name="NumPurposes" type="INT">
+    <column name="uiCategoryUpdateNum" type="INT">
       <offset>64</offset>
     </column>
-    <column name="MaxPowerLevelInPurposeNodes" type="INT">
+    <column name="ExpandOwnedOnLoad" type="U8">
       <offset>68</offset>
     </column>
-    <column name="PurposeListPowerSortingMethod" type="INT">
+    <column name="NumPurposes" type="INT">
       <offset>72</offset>
+    </column>
+    <column name="MaxPowerLevelInPurposeNodes" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="PurposeListPowerSortingMethod" type="INT">
+      <offset>80</offset>
       <static_define_list external="PurposeListPowerSortingMethod" />
     </column>
     <column name="}" type="END" />

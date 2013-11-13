@@ -26,6 +26,18 @@
         <format_string name="HTML_SKIP">1</format_string>
       </format_strings>
     </column>
+    <column name="State" type="INT">
+      <offset>20</offset>
+      <static_define_list external="StatusReporting_SelfReportedState" />
+    </column>
+    <column name="NameValuePairs" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="NameValuePairList" />
+    </column>
+    <column name="PCLStatuses" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="PCLStatusMonitoringUpdate" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

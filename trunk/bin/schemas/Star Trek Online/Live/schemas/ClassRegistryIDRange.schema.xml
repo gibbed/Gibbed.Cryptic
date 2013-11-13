@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ClassRegistryIDRange">
+  <table>
+    <column name="ClassRegistryIDRange" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ClassName" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Min" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="Max" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="MinRand" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="MaxRand" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="ZeroPadTo" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="NumberWidth" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Exclusive" type="U8">
+      <offset>28</offset>
+    </column>
+    <column name="NoLetter" type="U8">
+      <offset>29</offset>
+    </column>
+    <column name="NoDefaultPrefix" type="U8">
+      <offset>30</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

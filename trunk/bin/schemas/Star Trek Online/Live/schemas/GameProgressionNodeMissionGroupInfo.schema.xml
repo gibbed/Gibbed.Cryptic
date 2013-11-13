@@ -58,18 +58,22 @@
       <redundant_name>Mission</redundant_name>
       <subtable external="GameProgressionMission" />
     </column>
-    <column name="AllowedMissionMap" type="STRINGARRAY">
+    <column name="ZoneRewardsDef" type="OPTIONALSTRUCT">
       <offset>36</offset>
+      <subtable external="GameProgressionZoneRewards" />
+    </column>
+    <column name="AllowedMissionMap" type="STRINGARRAY">
+      <offset>40</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="DontAutoGrantMissionOnSetProgression" type="BIT">
-      <offset>40</offset>
+      <offset>44</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ShowRewardsInUI" type="BIT">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>

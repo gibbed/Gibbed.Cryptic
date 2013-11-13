@@ -35,12 +35,15 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="IsGM" type="BIT">
+    <column name="EntContainerID" type="INT">
       <offset>20</offset>
+    </column>
+    <column name="IsGM" type="BIT">
+      <offset>24</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="IsDev" type="BIT">
-      <offset>20</offset>
+      <offset>24</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />

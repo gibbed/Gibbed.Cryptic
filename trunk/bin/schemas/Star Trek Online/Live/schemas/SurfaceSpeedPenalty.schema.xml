@@ -16,8 +16,11 @@
     <column name="ID" type="INT">
       <offset>8</offset>
     </column>
-    <column name="Flags" type="EMBEDDEDSTRUCT">
+    <column name="Type" type="INT">
       <offset>12</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
       <subtable external="SurfaceSpeedPenaltyFlags" />
     </column>
     <column name="}" type="END" />

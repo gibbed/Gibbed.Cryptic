@@ -24,15 +24,18 @@
       <subtable external="UIGenLayoutBoxInstance" />
     </column>
     <column name="TemplateGens" type="STRUCT">
-      <offset>16</offset>
+      <offset>12</offset>
       <flags>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="UIGenChild" />
     </column>
     <column name="Internals" type="STRUCT">
-      <offset>20</offset>
+      <offset>16</offset>
       <subtable external="UIGenNamedInternal" />
+    </column>
+    <column name="NewInstances" type="INT">
+      <offset>20</offset>
     </column>
     <column name="BadTemplateNames" type="STRINGARRAY">
       <offset>28</offset>

@@ -7,9 +7,11 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="ItemDef" type="REFERENCE">
+    <column name="ItemDef" type="STRING">
       <offset>0</offset>
-      <dictionary_name>ItemDef</dictionary_name>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
     <column name="ModifyChance" type="F32">
       <offset>4</offset>
@@ -35,6 +37,10 @@
     </column>
     <column name="TierMax" type="INT">
       <offset>32</offset>
+    </column>
+    <column name="OnlyConsumeModifierOnFail" type="BIT">
+      <offset>36</offset>
+      <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

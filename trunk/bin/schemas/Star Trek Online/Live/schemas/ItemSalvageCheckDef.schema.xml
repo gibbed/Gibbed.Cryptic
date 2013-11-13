@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemSalvageCheckDef">
+  <table>
+    <column name="ItemSalvageCheckDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ItemQualities" type="INTARRAY">
+      <offset>0</offset>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="AllowedItemCategories" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="ExcludeItemCategories" type="INTARRAY">
+      <offset>8</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="ItemTypes" type="INTARRAY">
+      <offset>12</offset>
+      <static_define_list external="ItemType" />
+    </column>
+    <column name="LevelMin" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="LevelMax" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ItemSalvageRecipeDef">
+  <table>
+    <column name="ItemSalvageRecipeDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ItemQualities" type="INTARRAY">
+      <offset>0</offset>
+      <static_define_list external="ItemQuality" />
+    </column>
+    <column name="RequiredItemCategories" type="INTARRAY">
+      <offset>4</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="ExcludeItemCategories" type="INTARRAY">
+      <offset>8</offset>
+      <static_define_list external="ItemCategory" />
+    </column>
+    <column name="ItemTypes" type="INTARRAY">
+      <offset>12</offset>
+      <static_define_list external="ItemType" />
+    </column>
+    <column name="LevelMin" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="LevelMax" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="SlotType" type="INT">
+      <offset>24</offset>
+      <static_define_list external="SlotType" />
+    </column>
+    <column name="AllowedRestrictBagIDs" type="INTARRAY">
+      <offset>28</offset>
+      <static_define_list external="InvBagIDs" />
+    </column>
+    <column name="CharacterClasses" type="STRUCT">
+      <offset>32</offset>
+      <subtable external="CharacterClassRef" />
+    </column>
+    <column name="RewardTable" type="REFERENCE">
+      <offset>36</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

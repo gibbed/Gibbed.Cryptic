@@ -57,29 +57,29 @@
       <subtable external="UIGenBundleTexture" />
     </column>
     <column name="SortDesIndicatorBundleTexture" type="EMBEDDEDSTRUCT">
-      <offset>96</offset>
+      <offset>112</offset>
       <subtable external="UIGenBundleTexture" />
     </column>
     <column name="SortAscIndicatorBundle" type="EMBEDDEDSTRUCT">
-      <offset>156</offset>
+      <offset>188</offset>
       <subtable external="UIGenBundleTextureState" />
     </column>
     <column name="SortDesIndicatorBundle" type="EMBEDDEDSTRUCT">
-      <offset>168</offset>
+      <offset>200</offset>
       <subtable external="UIGenBundleTextureState" />
     </column>
     <column name="Scrollbar" type="EMBEDDEDSTRUCT">
-      <offset>180</offset>
+      <offset>212</offset>
       <subtable external="UIGenScrollbarState" />
     </column>
     <column name="BadTemplateNames" type="STRINGARRAY">
-      <offset>208</offset>
+      <offset>240</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Rows" type="STRUCT">
-      <offset>212</offset>
+      <offset>244</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
         <flag>STRUCT_NORECURSE</flag>
@@ -88,7 +88,7 @@
       <subtable external="UIGen" />
     </column>
     <column name="OwnedRows" type="STRUCT">
-      <offset>216</offset>
+      <offset>248</offset>
       <flags>
         <flag>STRUCT_NORECURSE</flag>
         <flag>NO_INDEX</flag>
@@ -96,14 +96,14 @@
       <subtable external="UIGen" />
     </column>
     <column name="TemplateGens" type="STRUCT">
-      <offset>220</offset>
+      <offset>252</offset>
       <flags>
         <flag>NO_INDEX</flag>
       </flags>
       <subtable external="UIGenChild" />
     </column>
     <column name="ColumnOrder" type="STRUCT">
-      <offset>224</offset>
+      <offset>256</offset>
       <flags>
         <flag>STRUCT_NORECURSE</flag>
         <flag>NO_INDEX</flag>
@@ -111,7 +111,7 @@
       <subtable external="UIColumn" />
     </column>
     <column name="Cols" type="STRUCT">
-      <offset>228</offset>
+      <offset>260</offset>
       <flags>
         <flag>STRUCT_NORECURSE</flag>
         <flag>NO_INDEX</flag>
@@ -119,19 +119,19 @@
       <subtable external="UIGen" />
     </column>
     <column name="DestDrawHigh" type="U8">
-      <offset>232</offset>
+      <offset>264</offset>
     </column>
     <column name="ForceShowSelectedRow" type="U8">
-      <offset>233</offset>
+      <offset>265</offset>
     </column>
     <column name="SelectedRowNotSelected" type="U8">
-      <offset>234</offset>
+      <offset>266</offset>
     </column>
     <column name="Unselected" type="U8">
-      <offset>235</offset>
+      <offset>267</offset>
     </column>
     <column name="DesiredRowSelection" type="INT">
-      <offset>236</offset>
+      <offset>268</offset>
       <default>-1</default>
     </column>
     <column name="}" type="END" />

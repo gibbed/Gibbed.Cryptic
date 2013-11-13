@@ -15,8 +15,12 @@
       <offset>4</offset>
       <subtable external="PruneFile" />
     </column>
-    <column name="logs" type="STRUCT">
+    <column name="Logs" type="STRUCT">
       <offset>8</offset>
+      <subtable external="PruneFile" />
+    </column>
+    <column name="offlines" type="STRUCT">
+      <offset>12</offset>
       <subtable external="PruneFile" />
     </column>
     <column name="}" type="END" />

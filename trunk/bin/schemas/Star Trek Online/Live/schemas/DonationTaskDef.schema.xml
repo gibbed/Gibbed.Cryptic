@@ -85,12 +85,28 @@
     <column name="taskAvailableForNewProject" type="BOOLFLAG">
       <offset>80</offset>
     </column>
-    <column name="Category" type="INT">
+    <column name="activityEventRequirement" type="STRING">
       <offset>84</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Category" type="INT">
+      <offset>88</offset>
       <static_define_list external="DonationTaskCategoryType" />
     </column>
+    <column name="UISortOrder" type="INT">
+      <offset>92</offset>
+    </column>
+    <column name="UIMaxRepeatCount" type="INT">
+      <offset>96</offset>
+    </column>
+    <column name="finalizationRewardTable" type="REFERENCE">
+      <offset>100</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
     <column name="completionRewardTable" type="REFERENCE">
-      <offset>88</offset>
+      <offset>104</offset>
       <dictionary_name>RewardTable</dictionary_name>
     </column>
     <column name="}" type="END" />

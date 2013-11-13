@@ -110,14 +110,8 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="uSoldFee" type="INT">
-      <offset>60</offset>
-      <flags>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
     <column name="ppItemsV2" type="STRUCT">
-      <offset>64</offset>
+      <offset>60</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_INDEX</flag>
@@ -125,7 +119,7 @@
       <subtable external="AuctionSlot" />
     </column>
     <column name="ppItemsV1_Deprecated" type="STRUCT">
-      <offset>68</offset>
+      <offset>64</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_INDEX</flag>
@@ -133,7 +127,7 @@
       <subtable external="AuctionSlotV1" />
     </column>
     <column name="ppItems" type="STRUCT">
-      <offset>68</offset>
+      <offset>64</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>PERSIST</flag>
@@ -143,16 +137,23 @@
       <subtable external="AuctionSlotV1" />
     </column>
     <column name="auctionPetContainerIDs" type="INTARRAY">
-      <offset>72</offset>
+      <offset>68</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="uVersion" type="INT">
+      <offset>72</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bWasPostedRemotely" type="BIT">
       <offset>76</offset>
       <flags>
         <flag>PERSIST</flag>
       </flags>
+      <bit_offset>65536</bit_offset>
     </column>
     <column name="Apply Transaction" type="COMMAND">
       <offset>0</offset>

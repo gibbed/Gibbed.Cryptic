@@ -15,27 +15,31 @@
       <offset>12</offset>
       <num_elements>3</num_elements>
     </column>
-    <column name="pyrTarget" type="F32FIXEDARRAY">
+    <column name="velConstantPush" type="F32FIXEDARRAY">
       <offset>24</offset>
       <num_elements>3</num_elements>
     </column>
-    <column name="offsetResource" type="INT">
+    <column name="pyrTarget" type="F32FIXEDARRAY">
       <offset>36</offset>
+      <num_elements>3</num_elements>
     </column>
-    <column name="gravitySpeed" type="F32">
-      <offset>40</offset>
-    </column>
-    <column name="forwardPitchMag" type="F32">
-      <offset>44</offset>
-    </column>
-    <column name="inputMoveYaw" type="F32">
+    <column name="offsetResource" type="INT">
       <offset>48</offset>
     </column>
-    <column name="inputFaceYaw" type="F32">
+    <column name="gravitySpeed" type="F32">
       <offset>52</offset>
     </column>
-    <column name="Flags" type="EMBEDDEDSTRUCT">
+    <column name="forwardPitchMag" type="F32">
       <offset>56</offset>
+    </column>
+    <column name="inputMoveYaw" type="F32">
+      <offset>60</offset>
+    </column>
+    <column name="inputFaceYaw" type="F32">
+      <offset>64</offset>
+    </column>
+    <column name="Flags" type="EMBEDDEDSTRUCT">
+      <offset>68</offset>
       <subtable external="FlightBGFlags" />
     </column>
     <column name="}" type="END" />

@@ -16,14 +16,18 @@
     <column name="Rating" type="F32">
       <offset>8</offset>
     </column>
-    <column name="Comment" type="STRING">
+    <column name="eaiUGCTags" type="INTARRAY">
       <offset>12</offset>
+      <static_define_list external="UGCTag" />
     </column>
-    <column name="shardName" type="STRING">
+    <column name="Comment" type="STRING">
       <offset>16</offset>
     </column>
-    <column name="EntContainerID" type="INT">
+    <column name="shardName" type="STRING">
       <offset>20</offset>
+    </column>
+    <column name="EntContainerID" type="INT">
+      <offset>24</offset>
     </column>
     <column name="}" type="END" />
   </table>

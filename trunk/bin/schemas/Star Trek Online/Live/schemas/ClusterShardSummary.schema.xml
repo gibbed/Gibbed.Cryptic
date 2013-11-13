@@ -34,6 +34,13 @@
       <offset>20</offset>
       <subtable external="ClusterShardStatus" />
     </column>
+    <column name="LocalNameValuePairs" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <flags>
+        <flag>NO_NETSEND</flag>
+      </flags>
+      <subtable external="NameValuePairList" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

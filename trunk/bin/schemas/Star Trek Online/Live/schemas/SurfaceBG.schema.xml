@@ -46,35 +46,38 @@
     <column name="speedPenalty" type="F32">
       <offset>92</offset>
     </column>
-    <column name="inputMoveYaw" type="F32">
+    <column name="airFrictionMultOverride" type="F32">
       <offset>96</offset>
     </column>
-    <column name="inputFaceYaw" type="F32">
+    <column name="inputMoveYaw" type="F32">
       <offset>100</offset>
     </column>
-    <column name="stickingFrameCount" type="INT">
+    <column name="inputFaceYaw" type="F32">
       <offset>104</offset>
     </column>
-    <column name="storedSpeed" type="F32">
+    <column name="stickingFrameCount" type="INT">
       <offset>108</offset>
     </column>
-    <column name="yawStoredSpeed" type="F32">
+    <column name="storedSpeed" type="F32">
       <offset>112</offset>
     </column>
-    <column name="spcStoredSpeed" type="INT">
+    <column name="yawStoredSpeed" type="F32">
       <offset>116</offset>
     </column>
-    <column name="spcLastOnGroundUpdate" type="INT">
+    <column name="spcStoredSpeed" type="INT">
       <offset>120</offset>
     </column>
-    <column name="spcPlayedFlourishAnim" type="INT">
+    <column name="spcLastOnGroundUpdate" type="INT">
       <offset>124</offset>
     </column>
-    <column name="pitchDiffInterpScale" type="F32">
+    <column name="spcPlayedFlourishAnim" type="INT">
       <offset>128</offset>
     </column>
-    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+    <column name="pitchDiffInterpScale" type="F32">
       <offset>132</offset>
+    </column>
+    <column name="flagsMutable" type="EMBEDDEDSTRUCT">
+      <offset>136</offset>
       <subtable external="SurfaceBGFlags" />
     </column>
     <column name="}" type="END" />

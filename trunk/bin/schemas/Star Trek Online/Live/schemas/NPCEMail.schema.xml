@@ -22,22 +22,22 @@
       </flags>
       <subtable external="NPCEMailData" />
     </column>
-    <column name="uLastSyncTime" type="INT">
+    <column name="uNextFutureDelivery" type="INT">
       <offset>8</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
       </flags>
     </column>
-    <column name="bReadAll" type="U8">
+    <column name="bUnreadMail" type="U8">
       <offset>12</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
-        <flag>NO_TRANSACT</flag>
       </flags>
     </column>
+    <column name="bReadAll" type="IGNORE" />
+    <column name="uLastSyncTime" type="IGNORE" />
     <column name="}" type="END" />
   </table>
 </parser>

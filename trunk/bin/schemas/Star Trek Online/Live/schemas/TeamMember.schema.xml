@@ -101,15 +101,22 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="pcStatus" type="STRING">
+    <column name="uOffMapTimeStamp" type="INT">
       <offset>52</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="ClassName" type="STRING">
+    <column name="pcStatus" type="STRING">
       <offset>56</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="ClassName" type="STRING">
+      <offset>60</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -117,7 +124,7 @@
       </flags>
     </column>
     <column name="pchClassName" type="STRING">
-      <offset>56</offset>
+      <offset>60</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>ALIAS</flag>
@@ -127,28 +134,28 @@
       <redundant_name>ClassName</redundant_name>
     </column>
     <column name="iExpLevel" type="INT">
-      <offset>60</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="iOfficerRank" type="INT">
       <offset>64</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="bJoinedVoiceChat" type="U8">
+    <column name="iOfficerRank" type="INT">
       <offset>68</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="iLastVoicePacketRcvTime" type="INT">
+    <column name="bJoinedVoiceChat" type="U8">
       <offset>72</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="iLastVoicePacketRcvTime" type="INT">
+      <offset>76</offset>
       <flags>
         <flag>CLIENT_ONLY</flag>
       </flags>

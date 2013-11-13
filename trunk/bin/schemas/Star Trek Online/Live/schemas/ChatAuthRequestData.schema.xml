@@ -16,8 +16,9 @@
     <column name="uAccountAccessLevel" type="INT">
       <offset>8</offset>
     </column>
-    <column name="SocialRestricted" type="U8">
+    <column name="GamePermissionInfo" type="INT">
       <offset>12</offset>
+      <static_define_list external="ChatGamePermissionInfoEnum" />
     </column>
     <column name="AccountName" type="STRING">
       <offset>16</offset>

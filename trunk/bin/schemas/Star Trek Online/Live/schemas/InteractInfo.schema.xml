@@ -71,102 +71,95 @@
       </flags>
       <subtable external="ContactDialogInfo" />
     </column>
-    <column name="recentlyCompletedInteracts" type="STRUCT">
-      <offset>48</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-      <subtable external="InteractionInfo" />
-    </column>
     <column name="QueuedContactDialog" type="OPTIONALSTRUCT">
-      <offset>52</offset>
+      <offset>48</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="QueuedContactDialog" />
     </column>
     <column name="QueuedNotInCombatDialog" type="OPTIONALSTRUCT">
-      <offset>56</offset>
+      <offset>52</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="QueuedContactDialog" />
     </column>
     <column name="CostumeFallback" type="OPTIONALSTRUCT">
-      <offset>60</offset>
+      <offset>56</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="ContactCostumeFallback" />
     </column>
     <column name="Crafting" type="U8">
-      <offset>64</offset>
+      <offset>60</offset>
     </column>
     <column name="CraftingTable" type="INT">
-      <offset>68</offset>
+      <offset>64</offset>
       <static_define_list external="SkillType" />
     </column>
     <column name="CraftingMaxLevel" type="INT">
-      <offset>72</offset>
+      <offset>68</offset>
     </column>
     <column name="RemoteContacts" type="STRUCT">
-      <offset>76</offset>
+      <offset>72</offset>
       <subtable external="RemoteContact" />
     </column>
     <column name="uNextRemoteContactUpdateTime" type="INT">
-      <offset>80</offset>
+      <offset>76</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="UpdateRemoteContactsNextTick" type="U8">
-      <offset>84</offset>
+      <offset>80</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="uNextContactDialogOptionsUpdateTime" type="INT">
-      <offset>88</offset>
+      <offset>84</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="UpdateContactDialogOptionsNextTick" type="U8">
-      <offset>92</offset>
+      <offset>88</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="PartialPermissions" type="U8">
-      <offset>93</offset>
+      <offset>89</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="RemotelyAccessing" type="U8">
-      <offset>94</offset>
+      <offset>90</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="AwaitingMapTransfer" type="U8">
-      <offset>95</offset>
+      <offset>91</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="PurchaseInProgress" type="U8">
-      <offset>96</offset>
+      <offset>92</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
     <column name="BuyBackList" type="STRUCT">
-      <offset>100</offset>
+      <offset>96</offset>
       <subtable external="StoreItemInfo" />
     </column>
     <column name="ppchVisitedSpecialDialogs" type="STRINGARRAY">
-      <offset>104</offset>
+      <offset>100</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>

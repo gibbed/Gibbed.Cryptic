@@ -14,11 +14,12 @@
       </flags>
       <subtable external="UIStyleColorPaletteEntryDef" />
     </column>
-    <column name="State" type="STRINGARRAY">
+    <column name="State" type="STRUCT">
       <offset>4</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
+      <subtable external="UIStyleColorPaletteStateName" />
     </column>
     <column name="Palette" type="STRUCT">
       <offset>8</offset>

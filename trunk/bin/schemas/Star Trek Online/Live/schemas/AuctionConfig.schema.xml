@@ -45,7 +45,7 @@
     <column name="BiddingEnabled" type="U8">
       <offset>35</offset>
     </column>
-    <column name="PurchasedItemsAreMailed" type="U8">
+    <column name="MailAllItemsAndCurrency" type="U8">
       <offset>36</offset>
     </column>
     <column name="PersistOwnerNameAndHandleWithAuction" type="U8">
@@ -69,22 +69,28 @@
     <column name="EnablePriceHistoryTracking" type="U8">
       <offset>43</offset>
     </column>
-    <column name="PlayerRoamingFeeMultiplier" type="F32">
+    <column name="AllowContactlessAuctionHouse" type="U8">
       <offset>44</offset>
+    </column>
+    <column name="PlayerRoamingFeeMultiplier" type="F32">
+      <offset>48</offset>
       <default>1</default>
     </column>
     <column name="uMaximumAuctionPrice" type="INT">
-      <offset>48</offset>
+      <offset>52</offset>
     </column>
     <column name="CurrencyNumeric" type="STRING">
-      <offset>52</offset>
+      <offset>56</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="SearchableAttribs" type="INTARRAY">
-      <offset>56</offset>
+      <offset>60</offset>
       <static_define_list external="AttribType" />
+    </column>
+    <column name="NPCMailCurrencyAlertThreshold" type="INT64">
+      <offset>64</offset>
     </column>
     <column name="}" type="END" />
   </table>

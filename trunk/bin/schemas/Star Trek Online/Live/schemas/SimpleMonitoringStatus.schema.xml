@@ -6,7 +6,7 @@
         <flag>PARSETABLE_INFO</flag>
       </flags>
       <format_strings>
-        <format_string name="HTML_DEF_FIELDS_TO_SHOW">State, LastActivityTime, status.status.fps</format_string>
+        <format_string name="HTML_DEF_FIELDS_TO_SHOW">ConnectionState, LastActivityTime, status.status.fps, status.status.State</format_string>
       </format_strings>
     </column>
     <column name="{" type="START" />
@@ -16,7 +16,7 @@
         <flag>KEY</flag>
       </flags>
     </column>
-    <column name="State" type="INT">
+    <column name="ConnectionState" type="INT">
       <offset>4</offset>
       <static_define_list external="SimpleMonitoringState" />
     </column>
@@ -31,10 +31,27 @@
       <subtable external="StatusReporting_Wrapper" />
     </column>
     <column name="ip" type="INT">
-      <offset>88</offset>
+      <offset>104</offset>
     </column>
-    <column name="MachineName" type="STRING">
-      <offset>92</offset>
+    <column name="AssumedMachineName" type="STRING">
+      <offset>108</offset>
+    </column>
+    <column name="MyOverlord" type="STRING">
+      <offset>112</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Logs" type="STRUCT">
+      <offset>116</offset>
+      <subtable external="SimpleMonitoringStatus_Log" />
+    </column>
+    <column name="MachineNameForwardedFrom" type="STRING">
+      <offset>120</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_NETSEND</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

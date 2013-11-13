@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="TeamVoteKickData">
+  <table>
+    <column name="TeamVoteKickData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="InstigatorID" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="KickTargetID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="eaiVoterIDs" type="INTARRAY">
+      <offset>8</offset>
+    </column>
+    <column name="eaiYesVoterIDs" type="INTARRAY">
+      <offset>12</offset>
+    </column>
+    <column name="eaiNoVoterIDs" type="INTARRAY">
+      <offset>16</offset>
+    </column>
+    <column name="uVoteStartTime" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ResourceStatus">
+  <table>
+    <column name="ResourceStatus" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ResourceName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="ResourceLocationID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="LockOwner" type="INT">
+      <offset>8</offset>
+    </column>
+    <column name="ResourceOwner" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="ResourceRequested" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="ResourcePresent" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="ResourceManaged" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="IsEditCopy" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="SaveWorkingCopy" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="LoadedFromDisk" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="IsBeingLoaded" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="RefsExist" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="InUnreferencedList" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

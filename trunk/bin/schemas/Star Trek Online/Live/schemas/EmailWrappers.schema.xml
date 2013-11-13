@@ -7,8 +7,14 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="EmailWrappers" type="STRUCT">
+    <column name="AccountID" type="INT">
       <offset>0</offset>
+    </column>
+    <column name="ContainerID" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="EmailWrappers" type="STRUCT">
+      <offset>8</offset>
       <subtable external="EmailWrapper" />
     </column>
     <column name="}" type="END" />

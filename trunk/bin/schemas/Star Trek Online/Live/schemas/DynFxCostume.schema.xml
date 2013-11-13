@@ -24,128 +24,134 @@
     <column name="SubCostume" type="BOOLFLAG">
       <offset>9</offset>
     </column>
-    <column name="InheritBits" type="U8">
+    <column name="SnapshotOfCallersPose" type="BOOLFLAG">
       <offset>10</offset>
     </column>
-    <column name="Material" type="STRING">
+    <column name="ReleaseSnapshot" type="BOOLFLAG">
+      <offset>11</offset>
+    </column>
+    <column name="InheritBits" type="U8">
       <offset>12</offset>
     </column>
-    <column name="Texture1New" type="STRING">
+    <column name="Material" type="STRING">
       <offset>16</offset>
     </column>
-    <column name="Texture1Old" type="STRING">
+    <column name="Texture1New" type="STRING">
       <offset>20</offset>
     </column>
-    <column name="Texture2New" type="STRING">
+    <column name="Texture1Old" type="STRING">
       <offset>24</offset>
     </column>
-    <column name="Texture2Old" type="STRING">
+    <column name="Texture2New" type="STRING">
       <offset>28</offset>
     </column>
-    <column name="Texture3New" type="STRING">
+    <column name="Texture2Old" type="STRING">
       <offset>32</offset>
     </column>
-    <column name="Texture3Old" type="STRING">
+    <column name="Texture3New" type="STRING">
       <offset>36</offset>
     </column>
-    <column name="Texture4New" type="STRING">
+    <column name="Texture3Old" type="STRING">
       <offset>40</offset>
     </column>
-    <column name="Texture4Old" type="STRING">
+    <column name="Texture4New" type="STRING">
       <offset>44</offset>
     </column>
-    <column name="Color" type="F32FIXEDARRAY">
+    <column name="Texture4Old" type="STRING">
       <offset>48</offset>
+    </column>
+    <column name="Color" type="F32FIXEDARRAY">
+      <offset>52</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="Color1" type="F32FIXEDARRAY">
-      <offset>60</offset>
+      <offset>64</offset>
       <num_elements>4</num_elements>
     </column>
     <column name="Color2" type="F32FIXEDARRAY">
-      <offset>76</offset>
+      <offset>80</offset>
       <num_elements>4</num_elements>
     </column>
     <column name="Color3" type="F32FIXEDARRAY">
-      <offset>92</offset>
+      <offset>96</offset>
       <num_elements>4</num_elements>
     </column>
     <column name="AltMaterial" type="STRING">
-      <offset>108</offset>
-    </column>
-    <column name="AltTexture1New" type="STRING">
       <offset>112</offset>
     </column>
-    <column name="AltTexture1Old" type="STRING">
+    <column name="AltTexture1New" type="STRING">
       <offset>116</offset>
     </column>
-    <column name="AltTexture2New" type="STRING">
+    <column name="AltTexture1Old" type="STRING">
       <offset>120</offset>
     </column>
-    <column name="AltTexture2Old" type="STRING">
+    <column name="AltTexture2New" type="STRING">
       <offset>124</offset>
     </column>
-    <column name="AltTexture3New" type="STRING">
+    <column name="AltTexture2Old" type="STRING">
       <offset>128</offset>
     </column>
-    <column name="AltTexture3Old" type="STRING">
+    <column name="AltTexture3New" type="STRING">
       <offset>132</offset>
     </column>
-    <column name="AltTexture4New" type="STRING">
+    <column name="AltTexture3Old" type="STRING">
       <offset>136</offset>
     </column>
-    <column name="AltTexture4Old" type="STRING">
+    <column name="AltTexture4New" type="STRING">
       <offset>140</offset>
     </column>
-    <column name="AltColor" type="F32FIXEDARRAY">
+    <column name="AltTexture4Old" type="STRING">
       <offset>144</offset>
+    </column>
+    <column name="AltColor" type="F32FIXEDARRAY">
+      <offset>148</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="AltColor1" type="F32FIXEDARRAY">
-      <offset>156</offset>
+      <offset>160</offset>
       <num_elements>4</num_elements>
     </column>
     <column name="AltColor2" type="F32FIXEDARRAY">
-      <offset>172</offset>
+      <offset>176</offset>
       <num_elements>4</num_elements>
     </column>
     <column name="AltColor3" type="F32FIXEDARRAY">
-      <offset>188</offset>
+      <offset>192</offset>
       <num_elements>4</num_elements>
     </column>
     <column name="BitFlash" type="STRINGARRAY">
-      <offset>204</offset>
-    </column>
-    <column name="BitToggle" type="STRINGARRAY">
       <offset>208</offset>
     </column>
-    <column name="BitSet" type="STRINGARRAY">
+    <column name="BitToggle" type="STRINGARRAY">
       <offset>212</offset>
     </column>
-    <column name="BitClear" type="STRINGARRAY">
+    <column name="BitSet" type="STRINGARRAY">
       <offset>216</offset>
     </column>
-    <column name="AnimKeyword" type="STRINGARRAY">
+    <column name="BitClear" type="STRINGARRAY">
       <offset>220</offset>
     </column>
-    <column name="AnimFlag" type="STRINGARRAY">
+    <column name="AnimKeyword" type="STRINGARRAY">
       <offset>224</offset>
     </column>
-    <column name="SetStance" type="STRINGARRAY">
+    <column name="AnimFlag" type="STRINGARRAY">
       <offset>228</offset>
     </column>
-    <column name="ClearStance" type="STRINGARRAY">
+    <column name="SetStance" type="STRINGARRAY">
       <offset>232</offset>
     </column>
-    <column name="ToggleStance" type="STRINGARRAY">
+    <column name="ClearStance" type="STRINGARRAY">
       <offset>236</offset>
     </column>
-    <column name="Param" type="STRUCT">
+    <column name="ToggleStance" type="STRINGARRAY">
       <offset>240</offset>
+    </column>
+    <column name="Param" type="STRUCT">
+      <offset>244</offset>
       <subtable external="DynApplyParam" />
     </column>
     <column name="NotDependentSkeleton" type="BOOLFLAG">
-      <offset>244</offset>
+      <offset>248</offset>
     </column>
     <column name="End" type="END" />
   </table>

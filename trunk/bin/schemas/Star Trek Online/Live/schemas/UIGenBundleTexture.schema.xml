@@ -89,32 +89,55 @@
       <offset>48</offset>
       <default>1</default>
     </column>
-    <column name="Mode" type="BIT">
+    <column name="MaskCoordinateData" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="MaskOffsetU" type="F32">
       <offset>52</offset>
+    </column>
+    <column name="MaskOffsetV" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="MaskScaleU" type="F32">
+      <offset>60</offset>
+      <default>1</default>
+    </column>
+    <column name="MaskScaleV" type="F32">
+      <offset>64</offset>
+      <default>1</default>
+    </column>
+    <column name="Mode" type="BIT">
+      <offset>68</offset>
       <bit_offset>327680</bit_offset>
       <static_define_list external="UITextureMode" />
     </column>
     <column name="Effect" type="BIT">
-      <offset>52</offset>
+      <offset>68</offset>
       <bit_offset>262149</bit_offset>
       <static_define_list external="RdrSpriteEffect" />
     </column>
     <column name="Alignment" type="BIT">
-      <offset>52</offset>
+      <offset>68</offset>
       <bit_offset>327689</bit_offset>
       <static_define_list external="UIDirection" />
     </column>
     <column name="Additive" type="BIT">
-      <offset>56</offset>
+      <offset>72</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ForceBottomLayer" type="BIT">
-      <offset>56</offset>
+      <offset>72</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="SkinningOverride" type="BIT">
-      <offset>56</offset>
+      <offset>72</offset>
       <bit_offset>65538</bit_offset>
+    </column>
+    <column name="TargetEntityDepth" type="BIT">
+      <offset>72</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

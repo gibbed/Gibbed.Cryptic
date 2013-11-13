@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="DonationTaskFilter">
+  <table>
+    <column name="DonationTaskFilter" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="NameFilter" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="DescriptionFilter" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="SlotType" type="INT">
+      <offset>8</offset>
+      <static_define_list external="GroupProjectTaskSlotType" />
+    </column>
+    <column name="peCategoryMask" type="INTARRAY">
+      <offset>12</offset>
+      <static_define_list external="DonationTaskCategoryType" />
+    </column>
+    <column name="SortByCategories" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="AddCategoryHeaders" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="IncludeUnavailableTasks" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="RequireAvailableForNewProject" type="BIT">
+      <offset>16</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

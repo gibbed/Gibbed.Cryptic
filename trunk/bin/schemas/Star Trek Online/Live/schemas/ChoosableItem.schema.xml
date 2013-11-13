@@ -21,11 +21,18 @@
     <column name="BagIdx" type="INT">
       <offset>8</offset>
     </column>
-    <column name="NumPicks" type="INT">
+    <column name="slotIdx" type="INT">
       <offset>12</offset>
     </column>
-    <column name="Selected" type="U8">
+    <column name="NumPicks" type="INT">
       <offset>16</offset>
+    </column>
+    <column name="Selected" type="U8">
+      <offset>20</offset>
+    </column>
+    <column name="ItemCopy" type="OPTIONALSTRUCT">
+      <offset>24</offset>
+      <subtable external="Item" />
     </column>
     <column name="}" type="END" />
   </table>

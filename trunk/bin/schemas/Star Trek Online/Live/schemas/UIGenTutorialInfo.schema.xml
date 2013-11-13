@@ -168,14 +168,21 @@
       <offset>20</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="FileName" type="CURRENTFILE">
+    <column name="SelectLimit" type="INT">
       <offset>24</offset>
+    </column>
+    <column name="ListenEvent" type="INTARRAY">
+      <offset>28</offset>
+      <static_define_list external="UIGenTutorialEventType" />
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>32</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="LineNumber" type="LINENUM">
-      <offset>28</offset>
+      <offset>36</offset>
     </column>
     <column name="}" type="END" />
   </table>

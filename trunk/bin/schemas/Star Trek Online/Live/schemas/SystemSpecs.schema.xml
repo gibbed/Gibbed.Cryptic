@@ -130,21 +130,30 @@
     <column name="hasSSE2" type="U8">
       <offset>2177</offset>
     </column>
-    <column name="material_hardware_supported_features" type="INT">
-      <offset>2180</offset>
-      <static_define_list external="ShaderGraphFeatures" />
-      <format>FLAGS</format>
+    <column name="hasSSE3" type="U8">
+      <offset>2178</offset>
     </column>
-    <column name="material_supported_features" type="INT">
+    <column name="hasSSE4" type="U8">
+      <offset>2179</offset>
+    </column>
+    <column name="material_hardware_supported_features" type="INT">
       <offset>2184</offset>
       <static_define_list external="ShaderGraphFeatures" />
       <format>FLAGS</format>
     </column>
-    <column name="isDx11Enabled" type="U8">
+    <column name="material_supported_features" type="INT">
       <offset>2188</offset>
+      <static_define_list external="ShaderGraphFeatures" />
+      <format>FLAGS</format>
+    </column>
+    <column name="isDx11Enabled" type="U8">
+      <offset>2192</offset>
+    </column>
+    <column name="isDx9ExEnabled" type="U8">
+      <offset>2193</offset>
     </column>
     <column name="supportedDXVersion" type="F32">
-      <offset>2192</offset>
+      <offset>2196</offset>
     </column>
     <column name="diskFree" type="INT64">
       <offset>2200</offset>
@@ -155,15 +164,22 @@
     <column name="isWine" type="U8">
       <offset>2216</offset>
     </column>
-    <column name="wineVersion" type="FIXEDSTRING">
+    <column name="isTransgaming" type="U8">
       <offset>2217</offset>
+    </column>
+    <column name="transgamingInfo" type="FIXEDSTRING">
+      <offset>2218</offset>
+      <string_length>1024</string_length>
+    </column>
+    <column name="wineVersion" type="FIXEDSTRING">
+      <offset>3242</offset>
       <string_length>1024</string_length>
     </column>
     <column name="isUnsupportedSpecs" type="U8">
-      <offset>3241</offset>
+      <offset>4266</offset>
     </column>
     <column name="Trivia" type="OPTIONALSTRUCT">
-      <offset>3244</offset>
+      <offset>4268</offset>
       <subtable external="TriviaList" />
     </column>
     <column name="}" type="END" />

@@ -29,17 +29,28 @@
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="SortIndex" type="INT">
+    <column name="estrDescription" type="STRING">
       <offset>16</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
     </column>
-    <column name="HideUnusable" type="U8">
+    <column name="SortIndex" type="INT">
       <offset>20</offset>
     </column>
-    <column name="MinDiscountPercent" type="F32">
+    <column name="HideUnusable" type="BIT">
       <offset>24</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="HasNewItems" type="BIT">
+      <offset>24</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="MinDiscountPercent" type="F32">
+      <offset>28</offset>
     </column>
     <column name="MaxDiscountPercent" type="F32">
-      <offset>28</offset>
+      <offset>32</offset>
     </column>
     <column name="}" type="END" />
   </table>

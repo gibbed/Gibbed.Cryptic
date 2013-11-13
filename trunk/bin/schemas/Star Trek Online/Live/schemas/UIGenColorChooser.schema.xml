@@ -410,32 +410,55 @@
       <offset>284</offset>
       <default>1</default>
     </column>
-    <column name="TileMode" type="BIT">
+    <column name="MaskCoordinateData" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="TileMaskOffsetU" type="F32">
       <offset>288</offset>
+    </column>
+    <column name="TileMaskOffsetV" type="F32">
+      <offset>292</offset>
+    </column>
+    <column name="TileMaskScaleU" type="F32">
+      <offset>296</offset>
+      <default>1</default>
+    </column>
+    <column name="TileMaskScaleV" type="F32">
+      <offset>300</offset>
+      <default>1</default>
+    </column>
+    <column name="TileMode" type="BIT">
+      <offset>304</offset>
       <bit_offset>327680</bit_offset>
       <static_define_list external="UITextureMode" />
     </column>
     <column name="TileEffect" type="BIT">
-      <offset>288</offset>
+      <offset>304</offset>
       <bit_offset>262149</bit_offset>
       <static_define_list external="RdrSpriteEffect" />
     </column>
     <column name="TileAlignment" type="BIT">
-      <offset>288</offset>
+      <offset>304</offset>
       <bit_offset>327689</bit_offset>
       <static_define_list external="UIDirection" />
     </column>
     <column name="TileAdditive" type="BIT">
-      <offset>292</offset>
+      <offset>308</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="TileForceBottomLayer" type="BIT">
-      <offset>292</offset>
+      <offset>308</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="TileSkinningOverride" type="BIT">
-      <offset>292</offset>
+      <offset>308</offset>
       <bit_offset>65538</bit_offset>
+    </column>
+    <column name="TileTargetEntityDepth" type="BIT">
+      <offset>308</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="HoveredOverlayTextureBundle" type="IGNORE">
       <flags>
@@ -443,7 +466,7 @@
       </flags>
     </column>
     <column name="HoveredOverlayTexture" type="STRING">
-      <offset>296</offset>
+      <offset>312</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -451,7 +474,7 @@
       <dictionary_name>Texture</dictionary_name>
     </column>
     <column name="HoveredOverlayMask" type="STRING">
-      <offset>300</offset>
+      <offset>316</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>GLOBAL_NAME</flag>
@@ -459,14 +482,14 @@
       <dictionary_name>Texture</dictionary_name>
     </column>
     <column name="HoveredOverlayTopLeftColor" type="INT">
-      <offset>304</offset>
+      <offset>320</offset>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
       <format>COLOR</format>
     </column>
     <column name="HoveredOverlayColor" type="INT">
-      <offset>304</offset>
+      <offset>320</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -477,32 +500,32 @@
       <format>COLOR</format>
     </column>
     <column name="HoveredOverlayTopRightColor" type="INT">
-      <offset>308</offset>
+      <offset>324</offset>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
       <format>COLOR</format>
     </column>
     <column name="HoveredOverlayBottomLeftColor" type="INT">
-      <offset>312</offset>
+      <offset>328</offset>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
       <format>COLOR</format>
     </column>
     <column name="HoveredOverlayBottomRightColor" type="INT">
-      <offset>316</offset>
+      <offset>332</offset>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
       <format>COLOR</format>
     </column>
     <column name="HoveredOverlayRotation" type="EMBEDDEDSTRUCT">
-      <offset>320</offset>
+      <offset>336</offset>
       <subtable external="UIAngle" />
     </column>
     <column name="HoveredOverlayAnimation" type="OPTIONALSTRUCT">
-      <offset>328</offset>
+      <offset>344</offset>
       <subtable external="UIGenBundleTextureAnimation" />
     </column>
     <column name="TextureCoordinateData" type="IGNORE">
@@ -511,111 +534,134 @@
       </flags>
     </column>
     <column name="HoveredOverlayOffsetU" type="F32">
-      <offset>332</offset>
+      <offset>348</offset>
     </column>
     <column name="HoveredOverlayOffsetV" type="F32">
-      <offset>336</offset>
+      <offset>352</offset>
     </column>
     <column name="HoveredOverlayScaleU" type="F32">
-      <offset>340</offset>
+      <offset>356</offset>
       <default>1</default>
     </column>
     <column name="HoveredOverlayScaleV" type="F32">
-      <offset>344</offset>
+      <offset>360</offset>
+      <default>1</default>
+    </column>
+    <column name="MaskCoordinateData" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="HoveredOverlayMaskOffsetU" type="F32">
+      <offset>364</offset>
+    </column>
+    <column name="HoveredOverlayMaskOffsetV" type="F32">
+      <offset>368</offset>
+    </column>
+    <column name="HoveredOverlayMaskScaleU" type="F32">
+      <offset>372</offset>
+      <default>1</default>
+    </column>
+    <column name="HoveredOverlayMaskScaleV" type="F32">
+      <offset>376</offset>
       <default>1</default>
     </column>
     <column name="HoveredOverlayMode" type="BIT">
-      <offset>348</offset>
+      <offset>380</offset>
       <bit_offset>327680</bit_offset>
       <static_define_list external="UITextureMode" />
     </column>
     <column name="HoveredOverlayEffect" type="BIT">
-      <offset>348</offset>
+      <offset>380</offset>
       <bit_offset>262149</bit_offset>
       <static_define_list external="RdrSpriteEffect" />
     </column>
     <column name="HoveredOverlayAlignment" type="BIT">
-      <offset>348</offset>
+      <offset>380</offset>
       <bit_offset>327689</bit_offset>
       <static_define_list external="UIDirection" />
     </column>
     <column name="HoveredOverlayAdditive" type="BIT">
-      <offset>352</offset>
+      <offset>384</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="HoveredOverlayForceBottomLayer" type="BIT">
-      <offset>352</offset>
+      <offset>384</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="HoveredOverlaySkinningOverride" type="BIT">
-      <offset>352</offset>
+      <offset>384</offset>
       <bit_offset>65538</bit_offset>
     </column>
+    <column name="HoveredOverlayTargetEntityDepth" type="BIT">
+      <offset>384</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
     <column name="HoveredOverlayWidth" type="INT16">
-      <offset>356</offset>
+      <offset>388</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="HoveredOverlayHeight" type="INT16">
-      <offset>358</offset>
+      <offset>390</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="RecentColors" type="INT16">
-      <offset>360</offset>
+      <offset>392</offset>
     </column>
     <column name="RecentColorsBottomMargin" type="INT16">
-      <offset>362</offset>
+      <offset>394</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="Columns" type="INT16">
-      <offset>364</offset>
+      <offset>396</offset>
     </column>
     <column name="Rows" type="INT16">
-      <offset>366</offset>
+      <offset>398</offset>
     </column>
     <column name="TileWidth" type="INT16">
-      <offset>368</offset>
+      <offset>400</offset>
       <default>16</default>
       <static_define_list external="UISize" />
     </column>
     <column name="TileHeight" type="INT16">
-      <offset>370</offset>
+      <offset>402</offset>
       <default>16</default>
       <static_define_list external="UISize" />
     </column>
     <column name="TileLeftMargin" type="INT16">
-      <offset>372</offset>
+      <offset>404</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="TileRightMargin" type="INT16">
-      <offset>374</offset>
+      <offset>406</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="TileTopMargin" type="INT16">
-      <offset>376</offset>
+      <offset>408</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="TileBottomMargin" type="INT16">
-      <offset>378</offset>
+      <offset>410</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="HoveredAssembly" type="OPTIONALSTRUCT">
-      <offset>380</offset>
+      <offset>412</offset>
       <subtable external="UIGenTextureAssembly" />
     </column>
     <column name="HoveredOverlayAutoColor" type="BIT">
-      <offset>384</offset>
+      <offset>416</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="DrawHoveredAssemblyAbove" type="BIT">
-      <offset>384</offset>
+      <offset>416</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="ColorModelBlock" type="OPTIONALSTRUCT">
-      <offset>388</offset>
+      <offset>420</offset>
       <subtable external="Expression" />
     </column>
     <column name="ColorModel" type="OPTIONALSTRUCT">
-      <offset>388</offset>
+      <offset>420</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -623,11 +669,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="OnHovered" type="OPTIONALSTRUCT">
-      <offset>392</offset>
+      <offset>424</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="OnClicked" type="OPTIONALSTRUCT">
-      <offset>396</offset>
+      <offset>428</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="}" type="END" />

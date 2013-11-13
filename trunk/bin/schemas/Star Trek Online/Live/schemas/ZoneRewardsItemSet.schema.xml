@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ZoneRewardsItemSet">
+  <table>
+    <column name="ZoneRewardsItemSet" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="EMBEDDEDSTRUCT">
+      <offset>4</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Blurb" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="ImageFore" type="STRING">
+      <offset>28</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ImageBack" type="STRING">
+      <offset>32</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="UISortOrder" type="INT">
+      <offset>36</offset>
+    </column>
+    <column name="Item" type="STRUCT">
+      <offset>40</offset>
+      <subtable external="ZoneRewardsItemDropInfo" />
+    </column>
+    <column name="HideClassRestrictedItems" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="HideThis" type="BIT">
+      <offset>44</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -28,6 +28,22 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
+    <column name="iMessageCount" type="INT">
+      <offset>12</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>-1</default>
+    </column>
+    <column name="iAttachmentsCount" type="INT">
+      <offset>16</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <default>-1</default>
+    </column>
     <column name="uLastSyncTime" type="IGNORE" />
     <column name="bReadAll" type="IGNORE" />
     <column name="}" type="END" />

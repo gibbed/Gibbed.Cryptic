@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="RolloverTracker">
+  <table>
+    <column name="RolloverTracker" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="erRef" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="uiNextPickupAttemptTime" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="attemptCount" type="U8">
+      <offset>8</offset>
+    </column>
+    <column name="WasInProximity" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="LockedAttempts" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

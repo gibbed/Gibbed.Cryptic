@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ZoneRewardsDef">
+  <table>
+    <column name="ZoneRewardsDef" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Name" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="FileName" type="CURRENTFILE">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="shortname" type="EMBEDDEDSTRUCT">
+      <offset>8</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Title" type="EMBEDDEDSTRUCT">
+      <offset>20</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="Description" type="EMBEDDEDSTRUCT">
+      <offset>32</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="ItemSetBorderAssembly" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UITextureAssembly</dictionary_name>
+    </column>
+    <column name="ItemSourceBorderAssembly" type="STRING">
+      <offset>48</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>GLOBAL_NAME</flag>
+      </flags>
+      <dictionary_name>UITextureAssembly</dictionary_name>
+    </column>
+    <column name="TabImage" type="STRING">
+      <offset>52</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="TitleImage" type="STRING">
+      <offset>56</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Source" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="ZoneRewardsItemSource" />
+    </column>
+    <column name="Set" type="STRUCT">
+      <offset>64</offset>
+      <subtable external="ZoneRewardsItemSet" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

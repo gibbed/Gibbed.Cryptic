@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="ServerListForOverlord">
+  <table>
+    <column name="ServerListForOverlord" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="MyName" type="STRING">
+      <offset>0</offset>
+    </column>
+    <column name="Servers" type="STRUCT">
+      <offset>4</offset>
+      <subtable external="SimpleMonitoringStatus" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -15,14 +15,23 @@
         <flag>KEY</flag>
       </flags>
     </column>
-    <column name="HideBone" type="STRINGARRAY">
+    <column name="ReplaceSet" type="STRING">
       <offset>4</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="OverrideAlways" type="U8">
+    <column name="HideBone" type="STRINGARRAY">
       <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="OverrideAlways" type="U8">
+      <offset>12</offset>
+    </column>
+    <column name="Overlay" type="U8">
+      <offset>13</offset>
     </column>
     <column name="}" type="END" />
   </table>

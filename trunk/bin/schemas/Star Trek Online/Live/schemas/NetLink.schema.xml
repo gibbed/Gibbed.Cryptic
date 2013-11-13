@@ -88,6 +88,10 @@
       <offset>52</offset>
       <bit_offset>65551</bit_offset>
     </column>
+    <column name="trans_server_link_to_multiplerxer" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65552</bit_offset>
+    </column>
     <column name="sent_sleep_alert" type="INT">
       <offset>56</offset>
     </column>
@@ -225,6 +229,10 @@
     <column name="ClientType" type="INT">
       <offset>2556</offset>
       <static_define_list external="ClientType" />
+    </column>
+    <column name="ReceiveStats" type="OPTIONALSTRUCT">
+      <offset>2576</offset>
+      <subtable external="LinkReceiveStats" />
     </column>
     <column name="}" type="END" />
   </table>

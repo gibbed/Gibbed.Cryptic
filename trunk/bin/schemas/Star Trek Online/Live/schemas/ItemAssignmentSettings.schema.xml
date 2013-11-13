@@ -175,56 +175,61 @@
       <static_define_list external="InvBagFlag" />
       <format>FLAGS</format>
     </column>
-    <column name="InteriorsUseLastStaticMap" type="BIT">
+    <column name="IncludeBagFlagsForItemCosts" type="INT">
       <offset>120</offset>
+      <static_define_list external="InvBagFlag" />
+      <format>FLAGS</format>
+    </column>
+    <column name="InteriorsUseLastStaticMap" type="BIT">
+      <offset>124</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="RequirePlayerInValidVolume" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="DisableRewardModifiers" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="DebugOnly" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="DoNotRequireMapRaritiesForAssignmentGeneration" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="KeepEmptyRewardOutcomeAssignments" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="AllowDuplicateActiveAssignments" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="DoNotAverageOutcomeWeights" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="GetItemAssignmentUIChecksSlottedNotInventory" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="UseStrictCategoryChecking" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="GenerateSampleRewardTable" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="SlotsSortItemCategories" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="UseOptionalSlots" type="BIT">
-      <offset>120</offset>
+      <offset>124</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="}" type="END" />

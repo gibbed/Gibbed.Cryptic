@@ -15,15 +15,19 @@
       <offset>4</offset>
       <subtable external="GroupProjectNumericUI" />
     </column>
-    <column name="Item" type="OPTIONALSTRUCT">
+    <column name="Bonus" type="OPTIONALSTRUCT">
       <offset>8</offset>
+      <subtable external="GroupProjectBonusUI" />
+    </column>
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>12</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
       <subtable external="Item" />
     </column>
     <column name="NumericSet" type="BIT">
-      <offset>12</offset>
+      <offset>16</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="}" type="END" />

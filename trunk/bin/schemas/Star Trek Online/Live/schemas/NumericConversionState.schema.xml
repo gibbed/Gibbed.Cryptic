@@ -10,6 +10,7 @@
     <column name="hNumericConversionDef" type="REFERENCE">
       <offset>0</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>KEY</flag>
         <flag>PERSIST</flag>
       </flags>
@@ -18,18 +19,21 @@
     <column name="lastConversionTime" type="INT">
       <offset>4</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="quantityConverted" type="INT">
       <offset>8</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="lastAutoConversionTime" type="INT">
       <offset>12</offset>
       <flags>
+        <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>

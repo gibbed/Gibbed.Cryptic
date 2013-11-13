@@ -48,6 +48,10 @@
         <flag>CLIENT_ONLY</flag>
       </flags>
     </column>
+    <column name="Message" type="OPTIONALSTRUCT">
+      <offset>48</offset>
+      <subtable external="Message" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

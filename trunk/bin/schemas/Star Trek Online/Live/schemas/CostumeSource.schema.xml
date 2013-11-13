@@ -60,9 +60,18 @@
         <flag>UNKNOWN_32</flag>
       </flags>
     </column>
-    <column name="ValidSpecies" type="STRUCT">
+    <column name="SlotType" type="STRINGARRAY">
       <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ValidSpecies" type="STRUCT">
+      <offset>48</offset>
       <subtable external="SpeciesDefRef" />
+    </column>
+    <column name="Order" type="F32">
+      <offset>52</offset>
     </column>
     <column name="}" type="END" />
   </table>

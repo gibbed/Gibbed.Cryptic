@@ -85,24 +85,30 @@
       </flags>
       <redundant_name>NumericRank2</redundant_name>
     </column>
-    <column name="AssociatedItemCategories" type="INTARRAY">
+    <column name="NumRanks" type="INT">
       <offset>40</offset>
+    </column>
+    <column name="AssociatedItemCategories" type="INTARRAY">
+      <offset>44</offset>
       <static_define_list external="ItemCategory" />
     </column>
     <column name="SortOrder" type="INT">
-      <offset>44</offset>
+      <offset>48</offset>
     </column>
     <column name="ExprBlockIsCategoryHidden" type="OPTIONALSTRUCT">
-      <offset>52</offset>
+      <offset>56</offset>
       <subtable external="Expression" />
     </column>
     <column name="IsCategoryHidden" type="OPTIONALSTRUCT">
-      <offset>52</offset>
+      <offset>56</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>ExprBlockIsCategoryHidden</redundant_name>
       <subtable external="Expression_StructParam" />
+    </column>
+    <column name="EventName" type="STRING">
+      <offset>60</offset>
     </column>
     <column name="}" type="END" />
   </table>

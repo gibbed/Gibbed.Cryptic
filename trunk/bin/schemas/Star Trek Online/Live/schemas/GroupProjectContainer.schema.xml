@@ -46,8 +46,24 @@
       </flags>
       <subtable external="GroupProjectState" />
     </column>
-    <column name="nextCompletionTime" type="INT">
+    <column name="discountList" type="STRUCT">
       <offset>20</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="DonationTaskDiscountDefRefContainer" />
+    </column>
+    <column name="bonusList" type="STRUCT">
+      <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="GroupProjectBonusDefRefContainer" />
+    </column>
+    <column name="nextCompletionTime" type="INT">
+      <offset>28</offset>
     </column>
     <column name="}" type="END" />
   </table>

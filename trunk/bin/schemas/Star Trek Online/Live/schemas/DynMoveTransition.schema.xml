@@ -74,6 +74,14 @@
       </flags>
       <subtable external="DynAnimTimedStance" />
     </column>
+    <column name="AllTimedStancesSorted" type="STRUCT">
+      <offset>60</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+      <subtable external="DynAnimTimedStance" />
+    </column>
     <column name="StanceWordSource" type="STRINGARRAY">
       <offset>64</offset>
       <flags>
@@ -84,6 +92,20 @@
       <offset>68</offset>
       <flags>
         <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="AllStanceWordsSorted" type="STRINGARRAY">
+      <offset>72</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
+      </flags>
+    </column>
+    <column name="JointStanceWordsSorted" type="STRINGARRAY">
+      <offset>76</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+        <flag>NO_TEXT_SAVE</flag>
       </flags>
     </column>
     <column name="MovementTypeSource" type="STRINGARRAY">

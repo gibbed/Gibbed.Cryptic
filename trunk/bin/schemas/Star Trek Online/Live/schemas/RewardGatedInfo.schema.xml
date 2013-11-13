@@ -14,17 +14,24 @@
       </flags>
       <static_define_list external="RewardGatedType" />
     </column>
-    <column name="uHoursPerBlock" type="INT">
+    <column name="IntervalMode" type="INT">
       <offset>4</offset>
+      <static_define_list external="ShardIntervalTimingMode" />
     </column>
-    <column name="uNumberOfTimesToIncrement" type="INT">
+    <column name="uHoursPerBlock" type="INT">
       <offset>8</offset>
     </column>
-    <column name="uResetAt" type="INT">
+    <column name="uSecondsPerBlock" type="INT">
       <offset>12</offset>
     </column>
-    <column name="GateFromPlayerGrantTime" type="U8">
+    <column name="uNumberOfTimesToIncrement" type="INT">
       <offset>16</offset>
+    </column>
+    <column name="uResetAt" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="GateFromPlayerGrantTime" type="U8">
+      <offset>24</offset>
     </column>
     <column name="}" type="END" />
   </table>

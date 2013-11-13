@@ -90,7 +90,7 @@
       <subtable external="UGCProjectReviews" />
     </column>
     <column name="ugcSearchCache" type="EMBEDDEDSTRUCT">
-      <offset>68</offset>
+      <offset>72</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -98,14 +98,14 @@
       <subtable external="UGCSeriesSearchCache" />
     </column>
     <column name="ImportComment" type="STRING">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="strImportComment" type="STRING">
-      <offset>76</offset>
+      <offset>80</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -114,14 +114,14 @@
       <redundant_name>ImportComment</redundant_name>
     </column>
     <column name="PreviousShard" type="STRING">
-      <offset>80</offset>
+      <offset>84</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="strPreviousShard" type="STRING">
-      <offset>80</offset>
+      <offset>84</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -130,14 +130,14 @@
       <redundant_name>PreviousShard</redundant_name>
     </column>
     <column name="iIdOnPreviousShard" type="INT">
-      <offset>84</offset>
+      <offset>88</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="pExtraDetailData" type="OPTIONALSTRUCT">
-      <offset>88</offset>
+      <offset>92</offset>
       <subtable external="UGCExtraDetailData" />
     </column>
     <column name="ugcSubscribers" type="IGNORE">

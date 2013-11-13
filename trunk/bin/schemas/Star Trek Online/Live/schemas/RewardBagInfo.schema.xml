@@ -71,12 +71,15 @@
       <offset>60</offset>
       <subtable external="CritterLootOwner" />
     </column>
-    <column name="NotYoursCostume" type="REFERENCE">
+    <column name="SpecialRewardStatus" type="INT">
       <offset>64</offset>
+    </column>
+    <column name="NotYoursCostume" type="REFERENCE">
+      <offset>68</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
     <column name="YoursCostume" type="REFERENCE">
-      <offset>68</offset>
+      <offset>72</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
     <column name="}" type="END" />

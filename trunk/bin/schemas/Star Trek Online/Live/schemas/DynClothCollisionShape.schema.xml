@@ -41,11 +41,23 @@
     <column name="Exten2" type="F32">
       <offset>64</offset>
     </column>
-    <column name="MovingBackwards" type="BOOLFLAG">
+    <column name="Moving" type="BOOLFLAG">
       <offset>68</offset>
     </column>
-    <column name="InsideVolume" type="BOOLFLAG">
+    <column name="MovingBackwards" type="BOOLFLAG">
       <offset>69</offset>
+    </column>
+    <column name="MountedOnly" type="BOOLFLAG">
+      <offset>70</offset>
+    </column>
+    <column name="WalkingOnly" type="BOOLFLAG">
+      <offset>71</offset>
+    </column>
+    <column name="InsideVolume" type="BOOLFLAG">
+      <offset>72</offset>
+    </column>
+    <column name="PushToSkinnedPos" type="BOOLFLAG">
+      <offset>73</offset>
     </column>
     <column name="End" type="END" />
   </table>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UIItemRewardGrantEntry">
+  <table>
+    <column name="UIItemRewardGrantEntry" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="GrantData" type="EMBEDDEDSTRUCT">
+      <offset>0</offset>
+      <subtable external="InvRewardGrantData" />
+    </column>
+    <column name="Item" type="OPTIONALSTRUCT">
+      <offset>4</offset>
+      <subtable external="Item" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

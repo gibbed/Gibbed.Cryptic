@@ -167,32 +167,44 @@
     <column name="LevelBandIndex" type="INT">
       <offset>184</offset>
     </column>
-    <column name="hGroup1Allegiance" type="REFERENCE">
+    <column name="MinLevel" type="INT">
       <offset>188</offset>
+    </column>
+    <column name="MaxLevel" type="INT">
+      <offset>192</offset>
+    </column>
+    <column name="CompositeLevel" type="INT">
+      <offset>196</offset>
+    </column>
+    <column name="hGroup1Allegiance" type="REFERENCE">
+      <offset>200</offset>
       <dictionary_name>AllegianceDef</dictionary_name>
     </column>
     <column name="hGroup2Allegiance" type="REFERENCE">
-      <offset>192</offset>
+      <offset>204</offset>
       <dictionary_name>AllegianceDef</dictionary_name>
     </column>
+    <column name="RequiredGearRating" type="INT">
+      <offset>208</offset>
+    </column>
     <column name="InQueue" type="BIT">
-      <offset>196</offset>
+      <offset>212</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Bolster" type="BIT">
-      <offset>196</offset>
+      <offset>212</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="AllGroupsSameAffiliation" type="BIT">
-      <offset>196</offset>
+      <offset>212</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="Overtime" type="BIT">
-      <offset>196</offset>
+      <offset>212</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="HasPassword" type="BIT">
-      <offset>196</offset>
+      <offset>212</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="}" type="END" />

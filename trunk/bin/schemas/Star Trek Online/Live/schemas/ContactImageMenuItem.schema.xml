@@ -16,40 +16,46 @@
     <column name="IconImage" type="STRING">
       <offset>8</offset>
     </column>
-    <column name="Name" type="EMBEDDEDSTRUCT">
+    <column name="EventName" type="STRING">
       <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Name" type="EMBEDDEDSTRUCT">
+      <offset>16</offset>
       <subtable external="DisplayMessage" />
     </column>
     <column name="VisibleCondition" type="OPTIONALSTRUCT">
-      <offset>24</offset>
-      <flags>
-        <flag>SERVER_ONLY</flag>
-      </flags>
-      <subtable external="Expression" />
-    </column>
-    <column name="RequiresCondition" type="OPTIONALSTRUCT">
       <offset>28</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="Expression" />
     </column>
-    <column name="RecommendedCondition" type="OPTIONALSTRUCT">
+    <column name="RequiresCondition" type="OPTIONALSTRUCT">
       <offset>32</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="Expression" />
     </column>
-    <column name="Action" type="OPTIONALSTRUCT">
+    <column name="RecommendedCondition" type="OPTIONALSTRUCT">
       <offset>36</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="Expression" />
+    </column>
+    <column name="Action" type="OPTIONALSTRUCT">
+      <offset>40</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <subtable external="WorldGameActionBlock" />
     </column>
     <column name="overridingMissionDef" type="REFERENCE">
-      <offset>40</offset>
+      <offset>44</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
       </flags>

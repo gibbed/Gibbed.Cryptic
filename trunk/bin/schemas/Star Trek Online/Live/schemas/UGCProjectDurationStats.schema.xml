@@ -22,6 +22,14 @@
       </flags>
       <subtable external="UGCProjectDurationBucket" />
     </column>
+    <column name="eaPrevVersionsDurationBuckets" type="STRUCT">
+      <offset>8</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCProjectDurationBucket" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

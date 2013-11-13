@@ -119,8 +119,40 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="missionDrops" type="STRUCT">
+    <column name="RewardMsgGold" type="EMBEDDEDSTRUCT">
       <offset>84</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RewardMsgSilver" type="EMBEDDEDSTRUCT">
+      <offset>96</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RewardMsgBronze" type="EMBEDDEDSTRUCT">
+      <offset>108</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RewardMsgDefault" type="EMBEDDEDSTRUCT">
+      <offset>120</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RewardMsgFailureGold" type="EMBEDDEDSTRUCT">
+      <offset>132</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RewardMsgFailureSilver" type="EMBEDDEDSTRUCT">
+      <offset>144</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RewardMsgFailureBronze" type="EMBEDDEDSTRUCT">
+      <offset>156</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="RewardMsgFailureDefault" type="EMBEDDEDSTRUCT">
+      <offset>168</offset>
+      <subtable external="DisplayMessage" />
+    </column>
+    <column name="missionDrops" type="STRUCT">
+      <offset>180</offset>
       <subtable external="MissionDrop" />
     </column>
     <column name="}" type="END" />

@@ -19,38 +19,41 @@
     <column name="structsPerBlock" type="INT">
       <offset>16</offset>
     </column>
-    <column name="allocationCount" type="INT">
+    <column name="Alignment" type="INT">
       <offset>20</offset>
     </column>
-    <column name="totalStructCount" type="INT">
+    <column name="allocationCount" type="INT">
       <offset>24</offset>
     </column>
-    <column name="TotalBytes" type="INT">
+    <column name="totalStructCount" type="INT">
       <offset>28</offset>
-      <format_strings>
-        <format_string name="HTML_BYTES">1</format_string>
-      </format_strings>
     </column>
-    <column name="UsedBytes" type="INT">
+    <column name="TotalBytes" type="INT">
       <offset>32</offset>
       <format_strings>
         <format_string name="HTML_BYTES">1</format_string>
       </format_strings>
     </column>
-    <column name="FreeBytes" type="INT">
+    <column name="UsedBytes" type="INT">
       <offset>36</offset>
       <format_strings>
         <format_string name="HTML_BYTES">1</format_string>
       </format_strings>
     </column>
-    <column name="Name" type="STRING">
+    <column name="FreeBytes" type="INT">
       <offset>40</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
+    </column>
+    <column name="Name" type="STRING">
+      <offset>44</offset>
       <flags>
         <flag>KEY</flag>
       </flags>
     </column>
     <column name="Flags" type="INT">
-      <offset>44</offset>
+      <offset>48</offset>
       <static_define_list external="TSMPFlags" />
     </column>
     <column name="}" type="END" />

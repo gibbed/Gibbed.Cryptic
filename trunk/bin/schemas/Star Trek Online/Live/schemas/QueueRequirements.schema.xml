@@ -48,16 +48,19 @@
       <offset>24</offset>
       <static_define_list external="CharClassCategory" />
     </column>
-    <column name="MissionReqNoAccess" type="BIT">
+    <column name="RequiredGearRating" type="INT">
       <offset>28</offset>
+    </column>
+    <column name="MissionReqNoAccess" type="BIT">
+      <offset>32</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="RequireSameGuild" type="BIT">
-      <offset>28</offset>
+      <offset>32</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="RequireGuild" type="BIT">
-      <offset>28</offset>
+      <offset>32</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -65,8 +68,12 @@
       <bit_offset>65537</bit_offset>
     </column>
     <column name="RequireAnyGuild" type="BIT">
-      <offset>28</offset>
+      <offset>32</offset>
       <bit_offset>65538</bit_offset>
+    </column>
+    <column name="UnteamedQueuingOnly" type="BIT">
+      <offset>32</offset>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

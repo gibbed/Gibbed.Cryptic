@@ -15,13 +15,13 @@
       <default>2</default>
       <static_define_list external="UIGenType" />
     </column>
-    <column name="String" type="STRING">
+    <column name="StaticString" type="STRING">
       <offset>4</offset>
       <flags>
         <flag>ESTRING</flag>
       </flags>
     </column>
-    <column name="StaticString" type="STRING">
+    <column name="String" type="STRING">
       <offset>8</offset>
       <flags>
         <flag>ESTRING</flag>
@@ -33,6 +33,26 @@
     </column>
     <column name="v2TextSize" type="F32FIXEDARRAY">
       <offset>28</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="DrawFinalText" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="v2DrawFinalSize" type="F32FIXEDARRAY">
+      <offset>40</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="DrawFinalScale" type="F32">
+      <offset>48</offset>
+    </column>
+    <column name="DrawInputScale" type="F32">
+      <offset>56</offset>
+    </column>
+    <column name="v2DrawAreaSize" type="F32FIXEDARRAY">
+      <offset>60</offset>
       <num_elements>2</num_elements>
     </column>
     <column name="}" type="END" />

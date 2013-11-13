@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LinkReceiveStats_PerCommand">
+  <table>
+    <column name="LinkReceiveStats_PerCommand" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="CommandNum" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="CommandName" type="STRING">
+      <offset>4</offset>
+    </column>
+    <column name="perCommandTotals" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="TotalCount" type="INT64">
+      <offset>8</offset>
+    </column>
+    <column name="TotalSize" type="INT64">
+      <offset>16</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
+    </column>
+    <column name="TotalDuration" type="INT64">
+      <offset>24</offset>
+      <format_strings>
+        <format_string name="HTML_TICKS_DURATION">1</format_string>
+      </format_strings>
+    </column>
+    <column name="AverageDuration" type="INT64">
+      <offset>32</offset>
+      <format_strings>
+        <format_string name="HTML_TICKS_DURATION">1</format_string>
+      </format_strings>
+    </column>
+    <column name="MaxSize" type="INT64">
+      <offset>40</offset>
+      <format_strings>
+        <format_string name="HTML_BYTES">1</format_string>
+      </format_strings>
+    </column>
+    <column name="MaxDuration" type="INT64">
+      <offset>48</offset>
+      <format_strings>
+        <format_string name="HTML_TICKS_DURATION">1</format_string>
+      </format_strings>
+    </column>
+    <column name="BySizeGroups" type="STRUCT">
+      <offset>56</offset>
+      <subtable external="LinkReceiveStats_OneSize" />
+    </column>
+    <column name="ByDurationGroups" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="LinkReceiveStats_OneDuration" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

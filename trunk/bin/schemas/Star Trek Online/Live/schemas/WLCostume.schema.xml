@@ -95,79 +95,82 @@
       <offset>76</offset>
     </column>
     <column name="WorldLighting" type="U8">
-      <offset>80</offset>
+      <offset>84</offset>
     </column>
     <column name="ShieldGeometry" type="STRING">
-      <offset>144</offset>
-      <flags>
-        <flag>POOL_STRING</flag>
-      </flags>
-    </column>
-    <column name="ShieldAttachBone" type="STRING">
       <offset>148</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="ShieldScale" type="F32FIXEDARRAY">
+    <column name="ShieldAttachBone" type="STRING">
       <offset>152</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="ShieldScale" type="F32FIXEDARRAY">
+      <offset>156</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="ExtentsMin" type="F32FIXEDARRAY">
-      <offset>164</offset>
+      <offset>168</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="ExtentsMax" type="F32FIXEDARRAY">
-      <offset>176</offset>
+      <offset>180</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="AutoGlueUp" type="U8">
-      <offset>188</offset>
-    </column>
-    <column name="NoAutoCleanup" type="U8">
-      <offset>189</offset>
-    </column>
-    <column name="Complete" type="U8">
-      <offset>190</offset>
-    </column>
-    <column name="MountRiderScaleBlend" type="F32">
       <offset>192</offset>
     </column>
-    <column name="MountScaleOverride" type="F32">
+    <column name="NoAutoCleanup" type="U8">
+      <offset>193</offset>
+    </column>
+    <column name="Complete" type="U8">
+      <offset>194</offset>
+    </column>
+    <column name="MountRiderScaleBlend" type="F32">
       <offset>196</offset>
     </column>
-    <column name="MountClothCollisionInfo" type="STRING">
+    <column name="MountScaleOverride" type="F32">
       <offset>200</offset>
+    </column>
+    <column name="MountClothCollisionInfo" type="STRING">
+      <offset>204</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="Mount" type="U8">
-      <offset>204</offset>
-    </column>
-    <column name="Rider" type="U8">
-      <offset>205</offset>
-    </column>
-    <column name="RiderChild" type="U8">
-      <offset>206</offset>
-    </column>
-    <column name="TerrainTiltApply" type="U8">
-      <offset>207</offset>
-    </column>
-    <column name="TerrainTiltModifyRoot" type="U8">
       <offset>208</offset>
     </column>
-    <column name="TerrainTiltBaseLength" type="F32">
+    <column name="Rider" type="U8">
+      <offset>209</offset>
+    </column>
+    <column name="RiderChild" type="U8">
+      <offset>210</offset>
+    </column>
+    <column name="TerrainTiltApply" type="U8">
+      <offset>211</offset>
+    </column>
+    <column name="TerrainTiltModifyRoot" type="U8">
       <offset>212</offset>
     </column>
-    <column name="TerrainTiltStrength" type="F32">
+    <column name="TerrainTiltBaseLength" type="F32">
       <offset>216</offset>
     </column>
-    <column name="TerrainTiltMaxBlendAngle" type="F32">
+    <column name="TerrainTiltStrength" type="F32">
       <offset>220</offset>
     </column>
-    <column name="HasNodeAliases" type="U8">
+    <column name="TerrainTiltMaxBlendAngle" type="F32">
       <offset>224</offset>
+    </column>
+    <column name="HasNodeAliases" type="U8">
+      <offset>228</offset>
+    </column>
+    <column name="HasNodeAuxTransforms" type="U8">
+      <offset>229</offset>
     </column>
     <column name="}" type="END" />
   </table>

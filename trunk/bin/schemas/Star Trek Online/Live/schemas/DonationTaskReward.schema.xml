@@ -25,6 +25,14 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="Discount" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>DonationTaskDiscountDef</dictionary_name>
+    </column>
+    <column name="Bonus" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>GroupProjectBonusDef</dictionary_name>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

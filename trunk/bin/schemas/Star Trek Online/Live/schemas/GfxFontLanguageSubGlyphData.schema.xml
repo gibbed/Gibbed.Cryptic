@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GfxFontLanguageSubGlyphData">
+  <table>
+    <column name="GfxFontLanguageSubGlyphData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="Glyph" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
+    <column name="CodePoint" type="INT16">
+      <offset>0</offset>
+    </column>
+    <column name="TexPos" type="INT16FIXEDARRAY">
+      <offset>2</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="Size" type="INT16FIXEDARRAY">
+      <offset>6</offset>
+      <num_elements>2</num_elements>
+    </column>
+    <column name="XAdvance" type="INT16">
+      <offset>10</offset>
+    </column>
+    <column name="LangCode" type="STRING">
+      <offset>12</offset>
+    </column>
+    <column name="EndGlyph" type="END" />
+  </table>
+</parser>

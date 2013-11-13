@@ -50,6 +50,13 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
+    <column name="eaiUGCTags" type="INTARRAY">
+      <offset>28</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <static_define_list external="UGCTag" />
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

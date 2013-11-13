@@ -7,9 +7,11 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="hItemDef" type="REFERENCE">
+    <column name="ItemDef" type="STRING">
       <offset>0</offset>
-      <dictionary_name>ItemDef</dictionary_name>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

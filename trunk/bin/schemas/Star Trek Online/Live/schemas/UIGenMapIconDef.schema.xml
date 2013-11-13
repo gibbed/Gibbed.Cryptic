@@ -7,6 +7,11 @@
       </flags>
     </column>
     <column name="{" type="START" />
+    <column name="BaseLayer" type="IGNORE">
+      <flags>
+        <flag>FLATEMBED</flag>
+      </flags>
+    </column>
     <column name="Icon" type="STRING">
       <offset>0</offset>
       <flags>
@@ -45,96 +50,156 @@
     </column>
     <column name="Color" type="INT">
       <offset>8</offset>
-      <default>-1</default>
       <static_define_list>
         <!-- dynamic enum? -->
       </static_define_list>
     </column>
-    <column name="Label" type="REFERENCE">
-      <offset>12</offset>
-      <dictionary_name>Message</dictionary_name>
-    </column>
-    <column name="LabelFont" type="REFERENCE">
-      <offset>16</offset>
-      <dictionary_name>UIStyleFont</dictionary_name>
-    </column>
-    <column name="HighlightFont" type="REFERENCE">
-      <offset>20</offset>
-      <dictionary_name>UIStyleFont</dictionary_name>
-    </column>
-    <column name="LabelAlignment" type="INT">
-      <offset>24</offset>
-      <default>4</default>
-      <static_define_list external="UIDirection" />
-    </column>
     <column name="FrameDuration" type="F32">
-      <offset>28</offset>
+      <offset>12</offset>
       <default>-1</default>
     </column>
     <column name="FrameCount" type="INT">
+      <offset>16</offset>
+      <default>1</default>
+    </column>
+    <column name="PercentX" type="F32">
+      <offset>20</offset>
+    </column>
+    <column name="PercentY" type="F32">
+      <offset>24</offset>
+    </column>
+    <column name="OffsetFrom" type="INT">
+      <offset>28</offset>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="AbovePlayer" type="F32">
       <offset>32</offset>
-      <default>1</default>
+      <default>-8388609</default>
     </column>
-    <column name="ScaleMultiplier" type="F32">
+    <column name="BelowPlayer" type="F32">
       <offset>36</offset>
-      <default>1</default>
+      <default>2139095039</default>
     </column>
-    <column name="MinScale" type="F32">
+    <column name="Region" type="INT">
       <offset>40</offset>
-      <default>1045220557</default>
+      <default>-1</default>
+      <static_define_list external="WorldRegionType" />
     </column>
-    <column name="PixelsPerWorldUnit" type="F32">
+    <column name="Z" type="INT16">
       <offset>44</offset>
-      <default>2</default>
     </column>
-    <column name="BaseScale" type="F32">
+    <column name="Priority" type="INT16">
+      <offset>46</offset>
+    </column>
+    <column name="LayerScale" type="F32">
       <offset>48</offset>
       <default>1</default>
     </column>
-    <column name="MaxCount" type="INT">
+    <column name="ClampToEdge" type="BIT">
       <offset>52</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="Rotate" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="Scale" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="ScaleToWorld" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65539</bit_offset>
+    </column>
+    <column name="Clip" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65540</bit_offset>
+    </column>
+    <column name="Pushable" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65541</bit_offset>
+    </column>
+    <column name="IgnoreWorldSize" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="SkinningOverride" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65543</bit_offset>
+    </column>
+    <column name="ShowUpwardsAndDownwards" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65544</bit_offset>
+    </column>
+    <column name="ShrinkToFit" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65545</bit_offset>
+    </column>
+    <column name="Layer" type="STRUCT">
+      <offset>60</offset>
+      <subtable external="UIGenMapIconLayerDef" />
+    </column>
+    <column name="Label" type="REFERENCE">
+      <offset>64</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="LabelFont" type="REFERENCE">
+      <offset>68</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="HighlightFont" type="REFERENCE">
+      <offset>72</offset>
+      <dictionary_name>UIStyleFont</dictionary_name>
+    </column>
+    <column name="LabelAlignment" type="INT">
+      <offset>76</offset>
+      <default>4</default>
+      <static_define_list external="UIDirection" />
+    </column>
+    <column name="ScaleMultiplier" type="F32">
+      <offset>80</offset>
+      <default>1</default>
+    </column>
+    <column name="MinScale" type="F32">
+      <offset>84</offset>
+      <default>1045220557</default>
+    </column>
+    <column name="PixelsPerWorldUnit" type="F32">
+      <offset>88</offset>
+      <default>2</default>
+    </column>
+    <column name="BaseScale" type="F32">
+      <offset>92</offset>
+      <default>1</default>
+    </column>
+    <column name="DistanceScaleGroup" type="STRING">
+      <offset>96</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="MaxCount" type="INT">
+      <offset>100</offset>
     </column>
     <column name="OnLeftClick" type="OPTIONALSTRUCT">
-      <offset>60</offset>
+      <offset>108</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="OnRightClick" type="OPTIONALSTRUCT">
-      <offset>64</offset>
+      <offset>112</offset>
       <subtable external="UIGenAction" />
     </column>
     <column name="OnLeftDoubleClick" type="OPTIONALSTRUCT">
-      <offset>68</offset>
+      <offset>116</offset>
       <subtable external="UIGenAction" />
     </column>
-    <column name="Z" type="INT16">
-      <offset>72</offset>
+    <column name="OutOfBounds" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65536</bit_offset>
     </column>
-    <column name="OutOfBounds" type="U8">
-      <offset>74</offset>
-    </column>
-    <column name="ClampToEdge" type="U8">
-      <offset>75</offset>
-    </column>
-    <column name="Rotate" type="U8">
-      <offset>76</offset>
-    </column>
-    <column name="Scale" type="U8">
-      <offset>77</offset>
-    </column>
-    <column name="ScaleToWorld" type="U8">
-      <offset>78</offset>
-    </column>
-    <column name="Clip" type="U8">
-      <offset>79</offset>
-    </column>
-    <column name="Pushable" type="U8">
-      <offset>80</offset>
-    </column>
-    <column name="AlwaysShowLabel" type="U8">
-      <offset>81</offset>
-    </column>
-    <column name="IgnoreWorldSize" type="U8">
-      <offset>82</offset>
+    <column name="AlwaysShowLabel" type="BIT">
+      <offset>120</offset>
+      <bit_offset>65537</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

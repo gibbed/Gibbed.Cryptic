@@ -71,51 +71,43 @@
         <format_string name="HTML_SECS">1</format_string>
       </format_strings>
     </column>
-    <column name="ppMaps" type="STRUCT">
-      <offset>28</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-      <subtable external="UGCProjectVersionMapInfo" />
-    </column>
     <column name="pName" type="STRING">
-      <offset>32</offset>
+      <offset>28</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="pDescription" type="STRING">
-      <offset>36</offset>
+      <offset>32</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="pNotes" type="STRING">
-      <offset>40</offset>
+      <offset>36</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="pImage" type="STRING">
-      <offset>44</offset>
+      <offset>40</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="pLocation" type="STRING">
-      <offset>48</offset>
+      <offset>44</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="pMapLocation" type="OPTIONALSTRUCT">
-      <offset>52</offset>
+      <offset>48</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -123,7 +115,7 @@
       <subtable external="UGCProjectVersionMapLocation" />
     </column>
     <column name="eLanguage" type="INT">
-      <offset>56</offset>
+      <offset>52</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -131,7 +123,7 @@
       <static_define_list external="Language" />
     </column>
     <column name="pCostumeOverride" type="STRING">
-      <offset>60</offset>
+      <offset>56</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -139,7 +131,7 @@
       </flags>
     </column>
     <column name="pPetOverride" type="STRING">
-      <offset>64</offset>
+      <offset>60</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -147,14 +139,14 @@
       </flags>
     </column>
     <column name="pBodyText" type="STRING">
-      <offset>68</offset>
+      <offset>64</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="strInitialMapName" type="STRING">
-      <offset>72</offset>
+      <offset>68</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -162,7 +154,7 @@
       </flags>
     </column>
     <column name="strInitialSpawnPoint" type="STRING">
-      <offset>76</offset>
+      <offset>72</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SUBSCRIBE</flag>
@@ -170,37 +162,29 @@
       </flags>
     </column>
     <column name="pRestrictions" type="OPTIONALSTRUCT">
-      <offset>80</offset>
+      <offset>76</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
       <subtable external="UGCProjectVersionRestrictionProperties" />
     </column>
-    <column name="ugcStats" type="EMBEDDEDSTRUCT">
-      <offset>84</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>PERSIST</flag>
-      </flags>
-      <subtable external="UGCProjectStats" />
-    </column>
     <column name="iLastTimeSentToOtherShard" type="INT">
-      <offset>108</offset>
+      <offset>80</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bSendToOtherShardSucceeded" type="U8">
-      <offset>112</offset>
+      <offset>84</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="sLastPublishTimeStamp" type="EMBEDDEDSTRUCT">
-      <offset>116</offset>
+      <offset>88</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -208,19 +192,26 @@
       <subtable external="UGCTimeStamp" />
     </column>
     <column name="iMostRecentRepublishFlags" type="INT">
-      <offset>140</offset>
+      <offset>112</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="ppRecentHistory" type="STRUCT">
-      <offset>144</offset>
+      <offset>116</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
       <subtable external="UGCProjectVersionStateChangeHistory" />
+    </column>
+    <column name="ppMapNames" type="STRINGARRAY">
+      <offset>120</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
     </column>
     <column name="GetProjectToImport" type="COMMAND">
       <offset>0</offset>
@@ -228,6 +219,16 @@
       <format_strings>
         <format_string name="commandExpr">\q$SERVERTYPE\q = \qUGCDataManager\q</format_string>
       </format_strings>
+    </column>
+    <column name="ppMaps" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
+    <column name="ugcStats" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

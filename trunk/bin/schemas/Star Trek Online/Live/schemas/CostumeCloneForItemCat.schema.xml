@@ -7,16 +7,12 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Costume" type="OPTIONALSTRUCT">
+    <column name="CostumeData" type="OPTIONALSTRUCT">
       <offset>0</offset>
       <subtable external="PlayerCostume" />
     </column>
-    <column name="Bones" type="STRUCT">
-      <offset>4</offset>
-      <subtable external="ItemCategoryAdditionalCostumeBone" />
-    </column>
     <column name="Name" type="STRING">
-      <offset>8</offset>
+      <offset>4</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>KEY</flag>

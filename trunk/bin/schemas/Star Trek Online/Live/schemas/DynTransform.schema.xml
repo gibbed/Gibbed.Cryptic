@@ -7,13 +7,13 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="Position" type="F32FIXEDARRAY">
-      <offset>0</offset>
-      <num_elements>3</num_elements>
-    </column>
     <column name="Rotation" type="QUATPYR">
-      <offset>12</offset>
+      <offset>0</offset>
       <num_elements>4</num_elements>
+    </column>
+    <column name="Position" type="F32FIXEDARRAY">
+      <offset>16</offset>
+      <num_elements>3</num_elements>
     </column>
     <column name="Scale" type="F32FIXEDARRAY">
       <offset>28</offset>

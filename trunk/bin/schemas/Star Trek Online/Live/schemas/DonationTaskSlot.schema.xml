@@ -83,8 +83,11 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="completionRequested" type="U8">
+    <column name="finalizationRequestedAt" type="INT">
       <offset>40</offset>
+    </column>
+    <column name="completionRequested" type="U8">
+      <offset>44</offset>
     </column>
     <column name="}" type="END" />
   </table>

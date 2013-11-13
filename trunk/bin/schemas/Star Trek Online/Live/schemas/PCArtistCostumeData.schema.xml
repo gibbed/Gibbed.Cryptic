@@ -147,15 +147,33 @@
       <redundant_name>DismountFX</redundant_name>
       <subtable external="PCFX" />
     </column>
-    <column name="NoCollision" type="U8">
+    <column name="FlightControls" type="OPTIONALSTRUCT">
       <offset>32</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="PCFlightControls" />
+    </column>
+    <column name="pFlightControls" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>ALIAS</flag>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <redundant_name>FlightControls</redundant_name>
+      <subtable external="PCFlightControls" />
+    </column>
+    <column name="NoCollision" type="U8">
+      <offset>36</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bNoCollision" type="U8">
-      <offset>32</offset>
+      <offset>36</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -164,14 +182,14 @@
       <redundant_name>NoCollision</redundant_name>
     </column>
     <column name="NoBodySock" type="U8">
-      <offset>33</offset>
+      <offset>37</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bNoBodySock" type="U8">
-      <offset>33</offset>
+      <offset>37</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -180,14 +198,14 @@
       <redundant_name>NoBodySock</redundant_name>
     </column>
     <column name="NoRagdoll" type="U8">
-      <offset>34</offset>
+      <offset>38</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bNoRagdoll" type="U8">
-      <offset>34</offset>
+      <offset>38</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -196,14 +214,14 @@
       <redundant_name>NoRagdoll</redundant_name>
     </column>
     <column name="ShellColl" type="U8">
-      <offset>35</offset>
+      <offset>39</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bShellColl" type="U8">
-      <offset>35</offset>
+      <offset>39</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -212,14 +230,14 @@
       <redundant_name>ShellColl</redundant_name>
     </column>
     <column name="hasOneWayCollision" type="U8">
-      <offset>36</offset>
+      <offset>40</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="bHasOneWayCollision" type="U8">
-      <offset>36</offset>
+      <offset>40</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -228,30 +246,30 @@
       <redundant_name>hasOneWayCollision</redundant_name>
     </column>
     <column name="UnlockAll" type="U8">
-      <offset>37</offset>
+      <offset>41</offset>
     </column>
     <column name="bUnlockAll" type="U8">
-      <offset>37</offset>
+      <offset>41</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>UnlockAll</redundant_name>
     </column>
     <column name="UnlockAllCmat" type="U8">
-      <offset>38</offset>
+      <offset>42</offset>
     </column>
     <column name="bUnlockAllCMat" type="U8">
-      <offset>38</offset>
+      <offset>42</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>UnlockAllCmat</redundant_name>
     </column>
     <column name="UnlockAllCTex" type="U8">
-      <offset>39</offset>
+      <offset>43</offset>
     </column>
     <column name="bUnlockAllCTex" type="U8">
-      <offset>39</offset>
+      <offset>43</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>

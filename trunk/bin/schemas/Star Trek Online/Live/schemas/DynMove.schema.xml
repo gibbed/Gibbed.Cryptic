@@ -50,13 +50,13 @@
         <flag>SERVER_ONLY</flag>
       </flags>
     </column>
-    <column name="DynMoveSeq" type="STRUCT">
-      <offset>24</offset>
-      <subtable external="DynMoveSeq" />
-    </column>
     <column name="DynMoveTag" type="STRUCT">
-      <offset>28</offset>
+      <offset>24</offset>
       <subtable external="DynMoveTag" />
+    </column>
+    <column name="DynMoveSeq" type="STRUCT">
+      <offset>28</offset>
+      <subtable external="DynMoveSeq" />
     </column>
     <column name="Verified" type="U8">
       <offset>32</offset>

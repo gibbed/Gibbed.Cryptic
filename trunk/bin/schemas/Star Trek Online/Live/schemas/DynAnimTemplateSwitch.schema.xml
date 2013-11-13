@@ -17,8 +17,15 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="Interrupt" type="U8">
+    <column name="Direction" type="INT">
       <offset>12</offset>
+      <static_define_list external="DynMovementDirection" />
+    </column>
+    <column name="RequiredPlayTime" type="F32">
+      <offset>16</offset>
+    </column>
+    <column name="Interrupt" type="U8">
+      <offset>20</offset>
     </column>
     <column name="}" type="END" />
   </table>

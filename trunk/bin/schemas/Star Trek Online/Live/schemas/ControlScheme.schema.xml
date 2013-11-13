@@ -406,6 +406,14 @@
       </flags>
       <default>1</default>
     </column>
+    <column name="bEnableFirstPersonCamera" type="U8">
+      <offset>83</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
     <column name="fAutoAttackDelay" type="F32">
       <offset>84</offset>
       <flags>
@@ -645,8 +653,16 @@
       </flags>
       <default>1036831949</default>
     </column>
-    <column name="pchKeyProfileToLoad" type="STRING">
+    <column name="fFlightMaxPitchAngle" type="F32">
       <offset>160</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="pchKeyProfileToLoad" type="STRING">
+      <offset>164</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>STRUCTPARAM</flag>
@@ -656,21 +672,21 @@
       </flags>
     </column>
     <column name="AllowKeyProfile" type="STRINGARRAY">
-      <offset>164</offset>
+      <offset>168</offset>
     </column>
     <column name="ppchAllowedKeyProfiles" type="STRINGARRAY">
-      <offset>164</offset>
+      <offset>168</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>AllowKeyProfile</redundant_name>
     </column>
     <column name="AllowAutoAttackType" type="INTARRAY">
-      <offset>168</offset>
+      <offset>172</offset>
       <static_define_list external="AutoAttackType" />
     </column>
     <column name="peAllowedAutoAttackTypes" type="INTARRAY">
-      <offset>168</offset>
+      <offset>172</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>

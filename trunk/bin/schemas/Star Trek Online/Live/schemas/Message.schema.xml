@@ -53,11 +53,13 @@
     </column>
     <column name="LineNum" type="LINENUM">
       <offset>20</offset>
+      <flags>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
     </column>
     <column name="Final" type="BIT">
       <offset>24</offset>
       <flags>
-        <flag>USEROPTIONBIT_1</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
       <bit_offset>65536</bit_offset>
@@ -65,7 +67,6 @@
     <column name="DoNotTranslate" type="BIT">
       <offset>24</offset>
       <flags>
-        <flag>USEROPTIONBIT_1</flag>
         <flag>SERVER_ONLY</flag>
       </flags>
       <bit_offset>65537</bit_offset>
@@ -78,13 +79,13 @@
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
-    <column name="MatchedACategory" type="BIT">
+    <column name="FailedLocalTranslation" type="BIT">
       <offset>24</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>USEROPTIONBIT_1</flag>
+      </flags>
       <bit_offset>65539</bit_offset>
-    </column>
-    <column name="MatchedThisCategory" type="BIT">
-      <offset>24</offset>
-      <bit_offset>65540</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

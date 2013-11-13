@@ -24,6 +24,16 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="CostumeStyleOverrides" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <subtable external="ContactCostumeStyle" />
+    </column>
+    <column name="HeadshotBorderFrame" type="STRING">
+      <offset>20</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

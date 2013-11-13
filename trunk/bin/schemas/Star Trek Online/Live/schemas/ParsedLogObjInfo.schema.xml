@@ -112,8 +112,12 @@
       <offset>96</offset>
       <subtable external="MemTrackOpsInfo" />
     </column>
-    <column name="GenericArray" type="EMBEDDEDSTRUCT">
+    <column name="AccessLevelCommand" type="OPTIONALSTRUCT">
       <offset>100</offset>
+      <subtable external="AccessLevelCommandInfo" />
+    </column>
+    <column name="GenericArray" type="EMBEDDEDSTRUCT">
+      <offset>104</offset>
       <subtable external="GenericArray" />
     </column>
     <column name="}" type="END" />

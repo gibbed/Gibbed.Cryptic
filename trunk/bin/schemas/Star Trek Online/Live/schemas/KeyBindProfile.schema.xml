@@ -18,28 +18,33 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
-    <column name="KeyBind" type="STRUCT">
+    <column name="KeyboardLocale" type="INT">
       <offset>8</offset>
+      <default>67699721</default>
+      <static_define_list external="KeyboardLocale" />
+    </column>
+    <column name="KeyBind" type="STRUCT">
+      <offset>12</offset>
       <subtable external="KeyBind" />
     </column>
     <column name="TrickleKeys" type="U8">
-      <offset>12</offset>
+      <offset>16</offset>
       <default>1</default>
     </column>
     <column name="TrickleCommands" type="U8">
-      <offset>13</offset>
+      <offset>17</offset>
       <default>1</default>
     </column>
     <column name="Priority" type="INT">
-      <offset>24</offset>
+      <offset>28</offset>
       <static_define_list external="KeyBindPriority" />
     </column>
     <column name="hNameMsg" type="REFERENCE">
-      <offset>28</offset>
+      <offset>32</offset>
       <dictionary_name>Message</dictionary_name>
     </column>
     <column name="DisplayName" type="REFERENCE">
-      <offset>28</offset>
+      <offset>32</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -47,16 +52,16 @@
       <dictionary_name>Message</dictionary_name>
     </column>
     <column name="UserSelectable" type="U8">
-      <offset>32</offset>
+      <offset>36</offset>
     </column>
     <column name="Joystick" type="U8">
-      <offset>33</offset>
+      <offset>37</offset>
     </column>
     <column name="EntityBinds" type="U8">
-      <offset>34</offset>
+      <offset>38</offset>
     </column>
     <column name="SchemeRegion" type="STRINGARRAY">
-      <offset>36</offset>
+      <offset>40</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>

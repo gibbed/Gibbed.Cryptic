@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LabGameData">
+  <table>
+    <column name="LabGameData" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uEntID" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="PartitionIdx" type="INT">
+      <offset>4</offset>
+    </column>
+    <column name="LabGameDef" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="uGameSeed" type="INT">
+      <offset>12</offset>
+    </column>
+    <column name="uGameStartTime" type="INT">
+      <offset>16</offset>
+    </column>
+    <column name="uGameCountdownTime" type="INT">
+      <offset>20</offset>
+    </column>
+    <column name="uVersion" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="uGenerateTime" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="Complete" type="U8">
+      <offset>32</offset>
+    </column>
+    <column name="puAcceptedSymbols" type="INTARRAY">
+      <offset>36</offset>
+    </column>
+    <column name="puAcceptedSymbolTimes" type="INTARRAY">
+      <offset>40</offset>
+    </column>
+    <column name="AcceptedSymbolScores" type="INTARRAY">
+      <offset>44</offset>
+    </column>
+    <column name="uSymbolState" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="uLastSymbolState" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="uSymbolFilter" type="INT">
+      <offset>56</offset>
+    </column>
+    <column name="uSymbolLatch" type="INT">
+      <offset>60</offset>
+    </column>
+    <column name="uSymbolClearTime" type="INT">
+      <offset>64</offset>
+    </column>
+    <column name="uCursorTarget" type="INT">
+      <offset>68</offset>
+    </column>
+    <column name="uCursorCurrent" type="INT">
+      <offset>72</offset>
+    </column>
+    <column name="uCursorNextChange" type="INT">
+      <offset>76</offset>
+    </column>
+    <column name="uCursorLastUpdate" type="INT">
+      <offset>80</offset>
+    </column>
+    <column name="uTotalGenerations" type="INT">
+      <offset>84</offset>
+    </column>
+    <column name="uTotalSymbols" type="INT">
+      <offset>88</offset>
+    </column>
+    <column name="puSymbols" type="INTARRAY">
+      <offset>92</offset>
+    </column>
+    <column name="puTimes" type="INTARRAY">
+      <offset>96</offset>
+    </column>
+    <column name="uClockCorrection" type="INT">
+      <offset>100</offset>
+    </column>
+    <column name="uReferenceClock" type="INT">
+      <offset>104</offset>
+    </column>
+    <column name="hRewardTable" type="REFERENCE">
+      <offset>108</offset>
+      <dictionary_name>RewardTable</dictionary_name>
+    </column>
+    <column name="uRewardLevel" type="INT">
+      <offset>112</offset>
+    </column>
+    <column name="uLastClientTime" type="INT">
+      <offset>116</offset>
+    </column>
+    <column name="RewindingClock" type="U8">
+      <offset>120</offset>
+    </column>
+    <column name="Interactable" type="STRING">
+      <offset>124</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

@@ -389,6 +389,27 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
+    <column name="uDemoteLeaderID" type="INT">
+      <offset>196</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uDemotionTimeSeconds" type="INT">
+      <offset>200</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uGuildDestroyTimeSeconds" type="INT">
+      <offset>204</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
     <column name="bRecruitSilenced" type="IGNORE" />
     <column name="eaiReporterAccountIDs" type="IGNORE" />
     <column name="}" type="END" />

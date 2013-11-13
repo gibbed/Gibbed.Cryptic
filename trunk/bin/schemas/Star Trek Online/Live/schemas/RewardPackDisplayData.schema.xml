@@ -13,12 +13,15 @@
         <flag>UNKNOWN_32</flag>
       </flags>
     </column>
-    <column name="Slot" type="OPTIONALSTRUCT">
+    <column name="Item" type="OPTIONALSTRUCT">
       <offset>4</offset>
       <flags>
         <flag>UNKNOWN_32</flag>
       </flags>
-      <subtable external="InventorySlot" />
+      <subtable external="Item" />
+    </column>
+    <column name="SpecialRewardStatus" type="INT">
+      <offset>8</offset>
     </column>
     <column name="}" type="END" />
   </table>

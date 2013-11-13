@@ -16,7 +16,7 @@
       <subtable external="UGCProjectCompletionStats" />
     </column>
     <column name="durationStats" type="EMBEDDEDSTRUCT">
-      <offset>12</offset>
+      <offset>16</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
@@ -24,7 +24,29 @@
       <subtable external="UGCProjectDurationStats" />
     </column>
     <column name="uTotalDropCount" type="INT">
-      <offset>20</offset>
+      <offset>28</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eaDurationStatsByMap" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCProjectMapDurationStats" />
+    </column>
+    <column name="iAverageDurationInMinutes_UsingMaps" type="F32">
+      <offset>36</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bMapsFilledIn" type="U8">
+      <offset>40</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>

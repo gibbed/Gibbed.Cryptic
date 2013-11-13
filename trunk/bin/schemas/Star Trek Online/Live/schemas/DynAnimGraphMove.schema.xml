@@ -19,11 +19,15 @@
       <offset>4</offset>
       <subtable external="DynAnimGraphFxEvent" />
     </column>
-    <column name="Chance" type="F32">
+    <column name="Direction" type="INT">
       <offset>8</offset>
+      <static_define_list external="DynMovementDirection" />
+    </column>
+    <column name="Chance" type="F32">
+      <offset>12</offset>
     </column>
     <column name="EditorPlaybackBias" type="BOOLFLAG">
-      <offset>12</offset>
+      <offset>16</offset>
     </column>
     <column name="}" type="END" />
   </table>

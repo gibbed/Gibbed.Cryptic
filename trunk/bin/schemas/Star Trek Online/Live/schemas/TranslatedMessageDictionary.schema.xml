@@ -10,6 +10,9 @@
     <column name="Message" type="STRUCT">
       <offset>0</offset>
       <subtable external="TranslatedMessage" />
+      <format_strings>
+        <format_string name="MAX_ARRAY_SIZE">2000000</format_string>
+      </format_strings>
     </column>
     <column name="sLookupTable" type="STASHTABLE">
       <offset>4</offset>

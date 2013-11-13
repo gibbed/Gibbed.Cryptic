@@ -100,146 +100,159 @@
       </flags>
       <dictionary_name>CopyDict_EntitySavedPet</dictionary_name>
     </column>
-    <column name="hDisplayNameMsg" type="REFERENCE">
+    <column name="uiEntCreatePowerID" type="INT">
       <offset>124</offset>
-      <dictionary_name>Message</dictionary_name>
     </column>
-    <column name="hDisplaySubNameMsg" type="REFERENCE">
+    <column name="uiEntCreateAttribModDefIdx" type="INT">
       <offset>128</offset>
-      <dictionary_name>Message</dictionary_name>
     </column>
-    <column name="hGroupDisplayNameMsg" type="REFERENCE">
+    <column name="hDisplayNameMsg" type="REFERENCE">
       <offset>132</offset>
       <dictionary_name>Message</dictionary_name>
     </column>
-    <column name="pcGroupIcon" type="STRING">
+    <column name="hDisplaySubNameMsg" type="REFERENCE">
       <offset>136</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="hGroupDisplayNameMsg" type="REFERENCE">
+      <offset>140</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="pcGroupIcon" type="STRING">
+      <offset>144</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="voiceSet" type="STRING">
-      <offset>140</offset>
+      <offset>148</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="iEncounterKey" type="INT">
-      <offset>144</offset>
+      <offset>152</offset>
     </column>
     <column name="hYoursCostumeRef" type="REFERENCE">
-      <offset>148</offset>
+      <offset>156</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
     <column name="hNotYoursCostumeRef" type="REFERENCE">
-      <offset>152</offset>
+      <offset>160</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
     <column name="eaLootBags" type="STRUCT">
-      <offset>156</offset>
+      <offset>164</offset>
       <subtable external="InventoryBag" />
     </column>
     <column name="pcLootGlowFX" type="STRING">
-      <offset>160</offset>
+      <offset>168</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>CLIENT_ONLY</flag>
       </flags>
     </column>
     <column name="StanceWords" type="STRINGARRAY">
-      <offset>164</offset>
+      <offset>172</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="ppchStanceWords" type="STRINGARRAY">
-      <offset>164</offset>
+      <offset>172</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>ALIAS</flag>
       </flags>
       <redundant_name>StanceWords</redundant_name>
     </column>
+    <column name="eaRolloverTrackers" type="STRUCT">
+      <offset>176</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <subtable external="RolloverTracker" />
+    </column>
     <column name="bDoNotAutoSetLootCostume" type="BIT">
-      <offset>168</offset>
+      <offset>180</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="bKilled" type="BIT">
-      <offset>168</offset>
+      <offset>180</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="bIsInteractable" type="BIT">
-      <offset>168</offset>
+      <offset>180</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="bRidable" type="BIT">
-      <offset>168</offset>
+      <offset>180</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="bPseudoPlayer" type="BIT">
-      <offset>168</offset>
+      <offset>180</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="bDeathRewardsGiven" type="BIT">
-      <offset>168</offset>
+      <offset>180</offset>
       <flags>
         <flag>SERVER_ONLY</flag>
       </flags>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="bIgnoreExternalAnimBits" type="BIT">
-      <offset>168</offset>
+      <offset>180</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="bUseCapsuleForPowerArcChecks" type="BIT">
-      <offset>168</offset>
+      <offset>180</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="bUseClosestPowerAnimNode" type="BIT">
-      <offset>168</offset>
+      <offset>180</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="bAutoLootMe" type="BIT">
-      <offset>168</offset>
+      <offset>180</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="bSetSpawnAnim" type="BIT">
-      <offset>168</offset>
+      <offset>180</offset>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="pcRank" type="STRING">
-      <offset>172</offset>
+      <offset>184</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="pcSubRank" type="STRING">
-      <offset>176</offset>
+      <offset>188</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="eInteractionFlag" type="INT">
-      <offset>180</offset>
+      <offset>192</offset>
       <static_define_list external="kCritterOverrideFlag" />
       <format>FLAGS</format>
     </column>
     <column name="fMass" type="F32">
-      <offset>184</offset>
+      <offset>196</offset>
     </column>
     <column name="uInteractDist" type="INT">
-      <offset>188</offset>
+      <offset>200</offset>
     </column>
     <column name="eCritterSubType" type="INT">
-      <offset>192</offset>
+      <offset>204</offset>
       <static_define_list external="CritterSubType" />
       <format>FLAGS</format>
     </column>
     <column name="pcNemesisMinionCostumeSet" type="STRING">
-      <offset>196</offset>
+      <offset>208</offset>
       <flags>
         <flag>POOL_STRING</flag>
         <flag>SERVER_ONLY</flag>

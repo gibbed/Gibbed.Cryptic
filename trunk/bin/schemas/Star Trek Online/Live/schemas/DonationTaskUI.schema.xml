@@ -54,29 +54,43 @@
       <offset>40</offset>
       <static_define_list external="DonationTaskCategoryType" />
     </column>
-    <column name="CanFillBucket" type="BIT">
+    <column name="UISortOrder" type="INT">
       <offset>44</offset>
+    </column>
+    <column name="UIMaxRepeatCount" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="CanFillBucket" type="BIT">
+      <offset>52</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="BucketsFilled" type="BIT">
-      <offset>44</offset>
+      <offset>52</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="CanSlot" type="BIT">
-      <offset>44</offset>
+      <offset>52</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="Repeatable" type="BIT">
-      <offset>44</offset>
+      <offset>52</offset>
       <bit_offset>65539</bit_offset>
     </column>
-    <column name="AlreadyCompleted" type="BIT">
-      <offset>44</offset>
+    <column name="Cancelable" type="BIT">
+      <offset>52</offset>
       <bit_offset>65540</bit_offset>
     </column>
-    <column name="RewardPending" type="BIT">
-      <offset>44</offset>
+    <column name="AlreadyCompleted" type="BIT">
+      <offset>52</offset>
       <bit_offset>65541</bit_offset>
+    </column>
+    <column name="RewardPending" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65542</bit_offset>
+    </column>
+    <column name="Available" type="BIT">
+      <offset>52</offset>
+      <bit_offset>65543</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

@@ -71,35 +71,39 @@
       <offset>40</offset>
       <dictionary_name>DynAnimNodeAliasList</dictionary_name>
     </column>
+    <column name="hAnimNodeAuxTransformList" type="REFERENCE">
+      <offset>44</offset>
+      <dictionary_name>DynAnimNodeAuxTransformList</dictionary_name>
+    </column>
     <column name="rot_mTransform" type="MATPYR">
-      <offset>48</offset>
+      <offset>52</offset>
       <num_elements>9</num_elements>
     </column>
     <column name="pos_mTransform" type="F32FIXEDARRAY">
-      <offset>84</offset>
+      <offset>88</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="TexSwap" type="STRUCT">
-      <offset>96</offset>
+      <offset>100</offset>
       <subtable external="CostumeTextureSwap" />
     </column>
     <column name="Set" type="STRUCT">
-      <offset>100</offset>
+      <offset>104</offset>
       <subtable external="MaterialNamedConstant" />
     </column>
     <column name="TexSwap2" type="STRUCT">
-      <offset>112</offset>
+      <offset>116</offset>
       <subtable external="CostumeTextureSwap" />
     </column>
     <column name="Set2" type="STRUCT">
-      <offset>116</offset>
+      <offset>120</offset>
       <subtable external="MaterialNamedConstant" />
     </column>
     <column name="uiRequiredLOD" type="INT">
-      <offset>120</offset>
+      <offset>124</offset>
     </column>
     <column name="NoShadow" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="Color" type="IGNORE" />

@@ -7,43 +7,36 @@
       </flags>
     </column>
     <column name="{" type="START" />
-    <column name="ppReviews" type="STRUCT">
-      <offset>0</offset>
-      <flags>
-        <flag>PERSIST</flag>
-      </flags>
-      <subtable external="UGCSingleReview" />
-    </column>
     <column name="fAverageRating" type="F32">
-      <offset>4</offset>
+      <offset>0</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="fAdjustedRatingUsingConfidence" type="F32">
-      <offset>8</offset>
+      <offset>4</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="fRatingSum" type="F32">
-      <offset>12</offset>
+      <offset>8</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="piNumRatings" type="INTARRAY">
-      <offset>16</offset>
+      <offset>12</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
     </column>
     <column name="iNumRatings" type="INTARRAY">
-      <offset>16</offset>
+      <offset>12</offset>
       <flags>
         <flag>ALIAS</flag>
         <flag>SUBSCRIBE</flag>
@@ -52,17 +45,32 @@
       <redundant_name>piNumRatings</redundant_name>
     </column>
     <column name="iNumReviewPagesCached" type="INT">
-      <offset>20</offset>
+      <offset>16</offset>
     </column>
     <column name="iNumRatingsCached" type="INT">
-      <offset>24</offset>
+      <offset>20</offset>
     </column>
     <column name="iTimeBecameReviewed" type="INT">
+      <offset>24</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="eaTagData" type="STRUCT">
       <offset>28</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>PERSIST</flag>
       </flags>
+      <subtable external="UGCTagData" />
+    </column>
+    <column name="ppReviews" type="STRUCT">
+      <offset>32</offset>
+      <flags>
+        <flag>PERSIST</flag>
+      </flags>
+      <subtable external="UGCSingleReview" />
     </column>
     <column name="iNumPagesCached" type="IGNORE" />
     <column name="iNumPages" type="IGNORE" />

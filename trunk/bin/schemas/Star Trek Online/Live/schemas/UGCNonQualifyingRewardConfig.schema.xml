@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="UGCNonQualifyingRewardConfig">
+  <table>
+    <column name="UGCNonQualifyingRewardConfig" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="LowRewardScale" type="F32">
+      <offset>0</offset>
+    </column>
+    <column name="HighRewardScale" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="ThresholdBetweenLowAndHighTime" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="ThresholdForZeroTime" type="F32">
+      <offset>12</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

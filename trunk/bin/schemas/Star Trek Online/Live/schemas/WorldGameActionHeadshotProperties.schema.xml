@@ -45,6 +45,16 @@
         <flag>POOL_STRING</flag>
       </flags>
     </column>
+    <column name="HeadshotStyleOverrides" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="WorldGameActionHeadshotStyleOverrides" />
+    </column>
+    <column name="HeadshotBorderFrame" type="STRING">
+      <offset>36</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

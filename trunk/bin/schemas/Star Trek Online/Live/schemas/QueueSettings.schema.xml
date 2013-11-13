@@ -33,24 +33,27 @@
       </flags>
       <redundant_name>MissionReturnLogoutTime</redundant_name>
     </column>
-    <column name="Public" type="BIT">
+    <column name="MaxAFKTime" type="INT">
       <offset>16</offset>
+    </column>
+    <column name="Public" type="BIT">
+      <offset>20</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="AlwaysCreate" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="Debug" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="StayInQueueOnMapLeave" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="DestroyEmptyMaps" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -60,19 +63,19 @@
       </format_strings>
     </column>
     <column name="RandomMap" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="SplitTeams" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <bit_offset>65542</bit_offset>
     </column>
     <column name="IgnoreLevelBandsForTeams" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="EnableLeaverPenalty" type="BIT">
-      <offset>16</offset>
+      <offset>20</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="}" type="END" />

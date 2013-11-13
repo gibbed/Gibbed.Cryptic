@@ -234,8 +234,22 @@
       </flags>
       <subtable external="PlayerUIMapRegionScale" />
     </column>
-    <column name="bGoldenPathActive" type="U8">
+    <column name="pchUserColorPalette" type="STRING">
       <offset>112</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="ubfColorPaletteStateDisables" type="INT">
+      <offset>116</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+    </column>
+    <column name="bGoldenPathActive" type="U8">
+      <offset>120</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -243,7 +257,7 @@
       <default>1</default>
     </column>
     <column name="bDisallowGuildInvites" type="U8">
-      <offset>113</offset>
+      <offset>121</offset>
       <flags>
         <flag>USEROPTIONBIT_2</flag>
         <flag>PERSIST</flag>
@@ -251,7 +265,7 @@
       </flags>
     </column>
     <column name="dirtyBit" type="U8">
-      <offset>114</offset>
+      <offset>122</offset>
       <flags>
         <flag>NO_NETSEND</flag>
         <flag>USEROPTIONBIT_2</flag>
@@ -259,7 +273,7 @@
       </flags>
     </column>
     <column name="uiLastLevelPowersMenuAt" type="U8">
-      <offset>115</offset>
+      <offset>123</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
@@ -267,12 +281,35 @@
       <default>1</default>
     </column>
     <column name="uiLevelUpWizardDismissedAt" type="U8">
-      <offset>116</offset>
+      <offset>124</offset>
       <flags>
         <flag>PERSIST</flag>
         <flag>NO_TRANSACT</flag>
       </flags>
       <default>1</default>
+    </column>
+    <column name="uiCompactMode" type="BIT">
+      <offset>124</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <bit_offset>131080</bit_offset>
+    </column>
+    <column name="uiDisableDamageOverlays" type="BIT">
+      <offset>124</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
+      <bit_offset>65546</bit_offset>
+    </column>
+    <column name="iKeybindsVersion" type="INT">
+      <offset>128</offset>
+      <flags>
+        <flag>PERSIST</flag>
+        <flag>NO_TRANSACT</flag>
+      </flags>
     </column>
     <column name="}" type="END" />
   </table>

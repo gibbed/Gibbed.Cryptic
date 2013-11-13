@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="LabGameAcceptScore">
+  <table>
+    <column name="LabGameAcceptScore" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="uAcceptTime" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="HitPoints" type="INT">
+      <offset>4</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="MissPoints" type="INT">
+      <offset>8</offset>
+      <flags>
+        <flag>STRUCTPARAM</flag>
+      </flags>
+    </column>
+    <column name="AcceptBefore" type="U8">
+      <offset>12</offset>
+      <default>1</default>
+    </column>
+    <column name="AcceptAfter" type="U8">
+      <offset>13</offset>
+      <default>1</default>
+    </column>
+    <column name="HitMessage" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="MissMessage" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

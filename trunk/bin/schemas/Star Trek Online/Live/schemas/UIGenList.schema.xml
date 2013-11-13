@@ -428,8 +428,20 @@
       <offset>276</offset>
       <static_define_list external="UIDirection" />
     </column>
-    <column name="MoveColor" type="INT">
+    <column name="SortAscIndicatorX" type="INT16">
       <offset>280</offset>
+    </column>
+    <column name="SortAscIndicatorY" type="INT16">
+      <offset>282</offset>
+    </column>
+    <column name="SortDesIndicatorX" type="INT16">
+      <offset>284</offset>
+    </column>
+    <column name="SortDesIndicatorY" type="INT16">
+      <offset>286</offset>
+    </column>
+    <column name="MoveColor" type="INT">
+      <offset>288</offset>
       <default>3368703</default>
       <static_define_list>
         <!-- dynamic enum? -->
@@ -437,7 +449,7 @@
       <format>COLOR</format>
     </column>
     <column name="MoveColColor" type="INT">
-      <offset>280</offset>
+      <offset>288</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -449,11 +461,11 @@
       <format>COLOR</format>
     </column>
     <column name="Columns" type="STRUCT">
-      <offset>284</offset>
+      <offset>292</offset>
       <subtable external="UIGenChild" />
     </column>
     <column name="Column" type="STRUCT">
-      <offset>284</offset>
+      <offset>292</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -461,11 +473,11 @@
       <subtable external="UIGenChild" />
     </column>
     <column name="RowTemplate" type="REFERENCE">
-      <offset>288</offset>
+      <offset>296</offset>
       <dictionary_name>UIGen</dictionary_name>
     </column>
     <column name="Template" type="REFERENCE">
-      <offset>288</offset>
+      <offset>296</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -473,11 +485,11 @@
       <dictionary_name>UIGen</dictionary_name>
     </column>
     <column name="RowTemplateExprBlock" type="OPTIONALSTRUCT">
-      <offset>292</offset>
+      <offset>300</offset>
       <subtable external="Expression" />
     </column>
     <column name="RowTemplateExpr" type="OPTIONALSTRUCT">
-      <offset>292</offset>
+      <offset>300</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -485,11 +497,11 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="TemplateChild" type="STRUCT">
-      <offset>296</offset>
+      <offset>304</offset>
       <subtable external="UIGenChild" />
     </column>
     <column name="TemplateChildren" type="STRUCT">
-      <offset>296</offset>
+      <offset>304</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -497,46 +509,46 @@
       <subtable external="UIGenChild" />
     </column>
     <column name="SelectionGroup" type="STRING">
-      <offset>300</offset>
+      <offset>308</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="NextList" type="REFERENCE">
-      <offset>304</offset>
+      <offset>312</offset>
       <dictionary_name>UIGen</dictionary_name>
     </column>
     <column name="PreviousList" type="REFERENCE">
-      <offset>308</offset>
+      <offset>316</offset>
       <dictionary_name>UIGen</dictionary_name>
     </column>
     <column name="RowSpacing" type="INT16">
-      <offset>312</offset>
+      <offset>320</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="ListTopMargin" type="INT16">
-      <offset>314</offset>
+      <offset>322</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="ListBottomMargin" type="INT16">
-      <offset>316</offset>
+      <offset>324</offset>
       <static_define_list external="UISize" />
     </column>
     <column name="DefaultSortCol" type="INT16">
-      <offset>318</offset>
+      <offset>326</offset>
       <default>-1</default>
     </column>
     <column name="DefaultSortMode" type="INT">
-      <offset>320</offset>
+      <offset>328</offset>
       <default>2</default>
       <static_define_list external="UISortType" />
     </column>
     <column name="AllowSelectBlock" type="OPTIONALSTRUCT">
-      <offset>324</offset>
+      <offset>332</offset>
       <subtable external="Expression" />
     </column>
     <column name="AllowSelect" type="OPTIONALSTRUCT">
-      <offset>324</offset>
+      <offset>332</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -544,15 +556,15 @@
       <subtable external="Expression_StructParam" />
     </column>
     <column name="FitParentMode" type="EMBEDDEDSTRUCT">
-      <offset>328</offset>
+      <offset>336</offset>
       <subtable external="UIGenListFitParent" />
     </column>
     <column name="SlowSync" type="BIT">
-      <offset>336</offset>
+      <offset>344</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="PreserveOrder" type="BIT">
-      <offset>336</offset>
+      <offset>344</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -562,7 +574,7 @@
       </format_strings>
     </column>
     <column name="ShowSelectedRow" type="BIT">
-      <offset>336</offset>
+      <offset>344</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -572,11 +584,11 @@
       </format_strings>
     </column>
     <column name="UpdateParentScrollBar" type="BIT">
-      <offset>336</offset>
+      <offset>344</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="MovableColumns" type="BIT">
-      <offset>336</offset>
+      <offset>344</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -586,11 +598,11 @@
       </format_strings>
     </column>
     <column name="AppendTemplateChildren" type="BIT">
-      <offset>336</offset>
+      <offset>344</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="Version" type="INT">
-      <offset>340</offset>
+      <offset>348</offset>
     </column>
     <column name="}" type="END" />
   </table>

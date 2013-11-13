@@ -215,14 +215,6 @@
       </flags>
     </column>
     <column name="iGameServerOwnerID" type="INT">
-      <offset>116</offset>
-      <flags>
-        <flag>SUBSCRIBE</flag>
-        <flag>SERVER_ONLY</flag>
-        <flag>PERSIST</flag>
-      </flags>
-    </column>
-    <column name="bTeamMembersMustBeOnOwnerGameServer" type="U8">
       <offset>120</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
@@ -230,8 +222,31 @@
         <flag>PERSIST</flag>
       </flags>
     </column>
-    <column name="uiLocalTeamSyncRequestID" type="INT">
+    <column name="iGameServerOwnerPartition" type="INT">
       <offset>124</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bTeamMembersMustBeOnOwnerGameServer" type="U8">
+      <offset>128</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>SERVER_ONLY</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="bVoteRequiredForKick" type="U8">
+      <offset>129</offset>
+      <flags>
+        <flag>SUBSCRIBE</flag>
+        <flag>PERSIST</flag>
+      </flags>
+    </column>
+    <column name="uiLocalTeamSyncRequestID" type="INT">
+      <offset>132</offset>
       <flags>
         <flag>SUBSCRIBE</flag>
         <flag>SERVER_ONLY</flag>

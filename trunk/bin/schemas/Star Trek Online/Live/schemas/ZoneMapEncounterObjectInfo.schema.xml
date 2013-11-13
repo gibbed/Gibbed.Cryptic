@@ -76,17 +76,21 @@
       <offset>68</offset>
       <dictionary_name>PlayerCostume</dictionary_name>
     </column>
-    <column name="UGCDisplayName" type="STRING">
+    <column name="Volume" type="OPTIONALSTRUCT">
       <offset>72</offset>
+      <subtable external="ZoneMapEncounterVolumeInfo" />
     </column>
-    <column name="UGCDisplayDetails" type="STRING">
+    <column name="UGCDisplayName" type="STRING">
       <offset>76</offset>
     </column>
-    <column name="UGCIsInvalidSelection" type="U8">
+    <column name="UGCDisplayDetails" type="STRING">
       <offset>80</offset>
     </column>
-    <column name="UGCComponentID" type="INT">
+    <column name="UGCIsInvalidSelection" type="U8">
       <offset>84</offset>
+    </column>
+    <column name="UGCComponentID" type="INT">
+      <offset>88</offset>
     </column>
     <column name="}" type="END" />
   </table>

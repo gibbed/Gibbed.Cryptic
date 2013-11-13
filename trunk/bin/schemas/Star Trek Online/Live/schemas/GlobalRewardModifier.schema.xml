@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="GlobalRewardModifier">
+  <table>
+    <column name="GlobalRewardModifier" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Key" type="INT">
+      <offset>0</offset>
+      <flags>
+        <flag>KEY</flag>
+      </flags>
+    </column>
+    <column name="Numeric" type="REFERENCE">
+      <offset>4</offset>
+      <dictionary_name>ItemDef</dictionary_name>
+    </column>
+    <column name="BonusValue" type="F32">
+      <offset>8</offset>
+    </column>
+    <column name="RequiredActivity" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

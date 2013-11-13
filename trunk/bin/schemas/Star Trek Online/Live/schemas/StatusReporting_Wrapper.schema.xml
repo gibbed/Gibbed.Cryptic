@@ -47,17 +47,23 @@
     <column name="MyClusterName" type="STRING">
       <offset>36</offset>
     </column>
-    <column name="MyPID" type="INT">
+    <column name="MyOverlord" type="STRING">
       <offset>40</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
     </column>
-    <column name="MyExeName" type="STRING">
+    <column name="MyPID" type="INT">
       <offset>44</offset>
     </column>
-    <column name="Version" type="STRING">
+    <column name="MyExeName" type="STRING">
       <offset>48</offset>
     </column>
-    <column name="Status" type="EMBEDDEDSTRUCT">
+    <column name="Version" type="STRING">
       <offset>52</offset>
+    </column>
+    <column name="Status" type="EMBEDDEDSTRUCT">
+      <offset>56</offset>
       <subtable external="StatusReporting_GenericServerStatus" />
     </column>
     <column name="}" type="END" />

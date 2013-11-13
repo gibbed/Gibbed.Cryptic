@@ -17,13 +17,17 @@
     <column name="spcDisableJump" type="INT">
       <offset>8</offset>
     </column>
-    <column name="scheduledStrafingOverride" type="BIT">
+    <column name="strafingOverrideEnabled" type="BIT">
       <offset>12</offset>
       <bit_offset>65536</bit_offset>
     </column>
-    <column name="scheduledDisableJump" type="BIT">
+    <column name="isStrafingOverride" type="BIT">
       <offset>12</offset>
       <bit_offset>65537</bit_offset>
+    </column>
+    <column name="scheduledDisableJump" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65538</bit_offset>
     </column>
     <column name="}" type="END" />
   </table>

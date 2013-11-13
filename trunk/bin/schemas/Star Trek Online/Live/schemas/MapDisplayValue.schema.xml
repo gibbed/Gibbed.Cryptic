@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MapDisplayValue">
+  <table>
+    <column name="MapDisplayValue" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="Int" type="INT">
+      <offset>0</offset>
+    </column>
+    <column name="Float" type="F32">
+      <offset>4</offset>
+    </column>
+    <column name="String" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>ESTRING</flag>
+      </flags>
+    </column>
+    <column name="IsInt" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65536</bit_offset>
+    </column>
+    <column name="IsFloat" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65537</bit_offset>
+    </column>
+    <column name="IsString" type="BIT">
+      <offset>12</offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="Display" type="OPTIONALSTRUCT">
+      <offset>16</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="MapDisplayVariable" />
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

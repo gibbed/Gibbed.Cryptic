@@ -96,21 +96,30 @@
       <offset>84</offset>
       <default>3</default>
     </column>
-    <column name="HeightMin" type="F32">
+    <column name="DisableBanking" type="U8">
       <offset>88</offset>
     </column>
-    <column name="HeightBase" type="F32">
+    <column name="BankRateFlying" type="F32">
       <offset>92</offset>
     </column>
-    <column name="HeightMax" type="F32">
+    <column name="BankMaxAngleFlying" type="F32">
       <offset>96</offset>
     </column>
-    <column name="HeightAnimBitRange" type="STRUCT">
+    <column name="HeightMin" type="F32">
       <offset>100</offset>
+    </column>
+    <column name="HeightBase" type="F32">
+      <offset>104</offset>
+    </column>
+    <column name="HeightMax" type="F32">
+      <offset>108</offset>
+    </column>
+    <column name="HeightAnimBitRange" type="STRUCT">
+      <offset>112</offset>
       <subtable external="PCAnimBitRange" />
     </column>
     <column name="AnimBitRange" type="STRUCT">
-      <offset>100</offset>
+      <offset>112</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -118,62 +127,62 @@
       <subtable external="PCAnimBitRange" />
     </column>
     <column name="DefaultHeight" type="F32">
-      <offset>104</offset>
-    </column>
-    <column name="PlayerMinHeight" type="F32">
-      <offset>108</offset>
-    </column>
-    <column name="PlayerMaxHeight" type="F32">
-      <offset>112</offset>
-    </column>
-    <column name="MinTailorCamDist" type="F32">
       <offset>116</offset>
     </column>
-    <column name="MaxTailorCamDist" type="F32">
+    <column name="PlayerMinHeight" type="F32">
       <offset>120</offset>
     </column>
-    <column name="AutoAdjustTailorCamDistance" type="U8">
+    <column name="PlayerMaxHeight" type="F32">
       <offset>124</offset>
     </column>
-    <column name="NoMuscle" type="U8">
-      <offset>125</offset>
-    </column>
-    <column name="DefaultMuscle" type="F32">
+    <column name="MinTailorCamDist" type="F32">
       <offset>128</offset>
     </column>
-    <column name="PlayerMinMuscle" type="F32">
+    <column name="MaxTailorCamDist" type="F32">
       <offset>132</offset>
     </column>
-    <column name="PlayerMaxMuscle" type="F32">
+    <column name="AutoAdjustTailorCamDistance" type="U8">
       <offset>136</offset>
     </column>
-    <column name="BodyScale" type="STRUCT">
+    <column name="NoMuscle" type="U8">
+      <offset>137</offset>
+    </column>
+    <column name="DefaultMuscle" type="F32">
       <offset>140</offset>
+    </column>
+    <column name="PlayerMinMuscle" type="F32">
+      <offset>144</offset>
+    </column>
+    <column name="PlayerMaxMuscle" type="F32">
+      <offset>148</offset>
+    </column>
+    <column name="BodyScale" type="STRUCT">
+      <offset>152</offset>
       <subtable external="PCBodyScaleInfo" />
     </column>
     <column name="DefaultBodyScale" type="F32ARRAY">
-      <offset>144</offset>
+      <offset>156</offset>
     </column>
     <column name="PlayerMinBodyScale" type="F32ARRAY">
-      <offset>148</offset>
+      <offset>160</offset>
     </column>
     <column name="PlayerMaxBodyScale" type="F32ARRAY">
-      <offset>152</offset>
+      <offset>164</offset>
     </column>
     <column name="ScaleGroup" type="STRUCT">
-      <offset>156</offset>
+      <offset>168</offset>
       <subtable external="PCScaleInfoGroup" />
     </column>
     <column name="Scale" type="STRUCT">
-      <offset>160</offset>
+      <offset>172</offset>
       <subtable external="PCScaleInfo" />
     </column>
     <column name="ScalePreset" type="STRUCT">
-      <offset>164</offset>
+      <offset>176</offset>
       <subtable external="PCPresetScaleValueGroup" />
     </column>
     <column name="Preset" type="STRUCT">
-      <offset>164</offset>
+      <offset>176</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -181,19 +190,19 @@
       <subtable external="PCPresetScaleValueGroup" />
     </column>
     <column name="DefaultSkinColor" type="F32FIXEDARRAY">
-      <offset>168</offset>
+      <offset>180</offset>
       <num_elements>4</num_elements>
     </column>
     <column name="SkinColorSet" type="REFERENCE">
-      <offset>184</offset>
+      <offset>196</offset>
       <dictionary_name>CostumeColors</dictionary_name>
     </column>
     <column name="BodyColorSet0" type="REFERENCE">
-      <offset>188</offset>
+      <offset>200</offset>
       <dictionary_name>CostumeColors</dictionary_name>
     </column>
     <column name="BodyColorSet" type="REFERENCE">
-      <offset>188</offset>
+      <offset>200</offset>
       <flags>
         <flag>ALIAS</flag>
       </flags>
@@ -201,90 +210,90 @@
       <dictionary_name>CostumeColors</dictionary_name>
     </column>
     <column name="BodyColorSet1" type="REFERENCE">
-      <offset>192</offset>
+      <offset>204</offset>
       <dictionary_name>CostumeColors</dictionary_name>
     </column>
     <column name="BodyColorSet2" type="REFERENCE">
-      <offset>196</offset>
+      <offset>208</offset>
       <dictionary_name>CostumeColors</dictionary_name>
     </column>
     <column name="BodyColorSet3" type="REFERENCE">
-      <offset>200</offset>
+      <offset>212</offset>
       <dictionary_name>CostumeColors</dictionary_name>
     </column>
     <column name="DefaultBodyColorQuad" type="OPTIONALSTRUCT">
-      <offset>204</offset>
+      <offset>216</offset>
       <subtable external="PCColorQuad" />
     </column>
     <column name="ColorQuadSet" type="REFERENCE">
-      <offset>208</offset>
+      <offset>220</offset>
       <dictionary_name>CostumeColorQuads</dictionary_name>
     </column>
     <column name="FX" type="STRUCT">
-      <offset>212</offset>
+      <offset>224</offset>
       <subtable external="PCFX" />
     </column>
     <column name="Stump" type="STRUCT">
-      <offset>216</offset>
+      <offset>228</offset>
       <subtable external="PCStump" />
     </column>
     <column name="Gender" type="INT">
-      <offset>220</offset>
+      <offset>232</offset>
       <static_define_list external="Gender" />
     </column>
     <column name="RestrictedTo" type="INT">
-      <offset>224</offset>
+      <offset>236</offset>
       <static_define_list external="PCRestriction" />
       <format>FLAGS</format>
     </column>
     <column name="Order" type="F32">
-      <offset>228</offset>
+      <offset>240</offset>
     </column>
     <column name="Capsule" type="STRUCT">
-      <offset>232</offset>
+      <offset>244</offset>
       <subtable external="Capsule" />
     </column>
     <column name="CollRadius" type="F32">
-      <offset>236</offset>
+      <offset>248</offset>
     </column>
     <column name="DamageFxInfo" type="REFERENCE">
-      <offset>240</offset>
+      <offset>252</offset>
       <dictionary_name>DynFxDamageInfo</dictionary_name>
     </column>
     <column name="AutoGlueUp" type="BIT">
-      <offset>244</offset>
+      <offset>256</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="ShieldGeometry" type="STRING">
-      <offset>248</offset>
+      <offset>260</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="ShieldScale" type="F32FIXEDARRAY">
-      <offset>252</offset>
+      <offset>264</offset>
       <num_elements>3</num_elements>
     </column>
     <column name="ShieldAttachBone" type="STRING">
-      <offset>264</offset>
+      <offset>276</offset>
       <flags>
         <flag>POOL_STRING</flag>
       </flags>
     </column>
     <column name="CopyName" type="BIT">
-      <offset>268</offset>
+      <offset>280</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="CopySubName" type="BIT">
-      <offset>268</offset>
+      <offset>280</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="TorsoPointing" type="BIT">
-      <offset>268</offset>
+      <offset>280</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="UseCapsuleBoundsForTargeting" type="INT">
-      <offset>272</offset>
+      <offset>284</offset>
     </column>
     <column name="NoHeightScaling" type="IGNORE" />
     <column name="}" type="END" />

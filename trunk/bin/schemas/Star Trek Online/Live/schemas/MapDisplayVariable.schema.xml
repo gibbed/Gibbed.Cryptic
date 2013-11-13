@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parser name="MapDisplayVariable">
+  <table>
+    <column name="MapDisplayVariable" type="IGNORE">
+      <flags>
+        <flag>PARSETABLE_INFO</flag>
+      </flags>
+    </column>
+    <column name="{" type="START" />
+    <column name="ZoneMap" type="STRING">
+      <offset>0</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="VariableName" type="STRING">
+      <offset>4</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Volume" type="STRING">
+      <offset>8</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="Group" type="STRING">
+      <offset>12</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="DisplayName" type="REFERENCE">
+      <offset>16</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="Info" type="REFERENCE">
+      <offset>20</offset>
+      <dictionary_name>Message</dictionary_name>
+    </column>
+    <column name="displayOrder" type="INT">
+      <offset>24</offset>
+    </column>
+    <column name="Valid" type="OPTIONALSTRUCT">
+      <offset>28</offset>
+      <subtable external="MapDisplayVariableValid" />
+    </column>
+    <column name="Bar" type="OPTIONALSTRUCT">
+      <offset>32</offset>
+      <subtable external="MapDisplayBarVariable" />
+    </column>
+    <column name="Timer" type="U8">
+      <offset>36</offset>
+    </column>
+    <column name="}" type="END" />
+  </table>
+</parser>

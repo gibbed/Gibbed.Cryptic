@@ -57,6 +57,13 @@
       <offset>40</offset>
       <bit_offset>65536</bit_offset>
     </column>
+    <column name="HasNewItems" type="BIT">
+      <offset>40</offset>
+      <flags>
+        <flag>NO_WRITE</flag>
+      </flags>
+      <bit_offset>65537</bit_offset>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

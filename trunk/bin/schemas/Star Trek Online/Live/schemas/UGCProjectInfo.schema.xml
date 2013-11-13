@@ -39,33 +39,34 @@
     <column name="Notes" type="STRING">
       <offset>28</offset>
     </column>
-    <column name="Permission" type="STRUCT">
-      <offset>32</offset>
-      <subtable external="UGCProjectPermission" />
-    </column>
     <column name="Language" type="INT">
-      <offset>36</offset>
+      <offset>32</offset>
       <static_define_list external="Language" />
     </column>
     <column name="MapLocation" type="OPTIONALSTRUCT">
-      <offset>40</offset>
+      <offset>36</offset>
       <subtable external="UGCMapLocation" />
     </column>
     <column name="SearchLocation" type="STRING">
-      <offset>44</offset>
+      <offset>40</offset>
     </column>
     <column name="RestrictionProperties" type="OPTIONALSTRUCT">
-      <offset>48</offset>
+      <offset>44</offset>
       <subtable external="WorldUGCRestrictionProperties" />
     </column>
     <column name="uLifetimeTipsReceived" type="INT">
-      <offset>52</offset>
+      <offset>48</offset>
     </column>
     <column name="AverageRating" type="F32">
-      <offset>56</offset>
+      <offset>52</offset>
     </column>
     <column name="ID" type="IGNORE" />
     <column name="IDString" type="IGNORE" />
+    <column name="Permission" type="IGNORE">
+      <flags>
+        <flag>IGNORE_STRUCT</flag>
+      </flags>
+    </column>
     <column name="}" type="END" />
   </table>
 </parser>

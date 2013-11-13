@@ -709,7 +709,7 @@
       </flags>
       <bit_offset>65564</bit_offset>
     </column>
-    <column name="SaveSourceDetails" type="BIT">
+    <column name="EntCreateSaveApplyStrengths" type="BIT">
       <offset>188</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
@@ -717,7 +717,7 @@
       </flags>
       <bit_offset>65565</bit_offset>
     </column>
-    <column name="SaveHue" type="BIT">
+    <column name="SaveSourceDetails" type="BIT">
       <offset>188</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
@@ -725,7 +725,7 @@
       </flags>
       <bit_offset>65566</bit_offset>
     </column>
-    <column name="PowerIconCFX" type="BIT">
+    <column name="SaveHue" type="BIT">
       <offset>188</offset>
       <flags>
         <flag>NO_TEXT_SAVE</flag>
@@ -733,13 +733,28 @@
       </flags>
       <bit_offset>65567</bit_offset>
     </column>
+    <column name="PowerIconCFX" type="BIT">
+      <offset>192</offset>
+      <flags>
+        <flag>NO_TEXT_SAVE</flag>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65536</bit_offset>
+    </column>
     <column name="AttribLinkToSource" type="BIT">
       <offset>192</offset>
-      <bit_offset>65536</bit_offset>
+      <bit_offset>65537</bit_offset>
     </column>
     <column name="AffectsOnlyOnFirstModTick" type="BIT">
       <offset>192</offset>
-      <bit_offset>65537</bit_offset>
+      <bit_offset>65538</bit_offset>
+    </column>
+    <column name="DeactivationLeavesMod" type="BIT">
+      <offset>192</offset>
+      <flags>
+        <flag>SERVER_ONLY</flag>
+      </flags>
+      <bit_offset>65539</bit_offset>
     </column>
     <column name="Resist" type="IGNORE" />
     <column name="Strength" type="IGNORE" />

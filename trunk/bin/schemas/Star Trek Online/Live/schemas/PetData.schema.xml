@@ -38,16 +38,51 @@
     <column name="CombatLevel" type="INT">
       <offset>20</offset>
     </column>
-    <column name="Pet" type="BIT">
+    <column name="uiCreatePowerID" type="INT">
       <offset>24</offset>
+    </column>
+    <column name="uiCreateAttribModIdx" type="INT">
+      <offset>28</offset>
+    </column>
+    <column name="uiCreateAttribModCount" type="INT">
+      <offset>32</offset>
+    </column>
+    <column name="Power" type="OPTIONALSTRUCT">
+      <offset>36</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="Power" />
+    </column>
+    <column name="PowerDef" type="OPTIONALSTRUCT">
+      <offset>40</offset>
+      <flags>
+        <flag>UNKNOWN_32</flag>
+      </flags>
+      <subtable external="PowerDef" />
+    </column>
+    <column name="Icon" type="STRING">
+      <offset>44</offset>
+      <flags>
+        <flag>POOL_STRING</flag>
+      </flags>
+    </column>
+    <column name="StackIdx" type="INT">
+      <offset>48</offset>
+    </column>
+    <column name="SummonIdx" type="INT">
+      <offset>52</offset>
+    </column>
+    <column name="Pet" type="BIT">
+      <offset>56</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="Summon" type="BIT">
-      <offset>24</offset>
+      <offset>56</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="Dead" type="BIT">
-      <offset>24</offset>
+      <offset>56</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="}" type="END" />

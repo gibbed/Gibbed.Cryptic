@@ -114,52 +114,55 @@
       <offset>96</offset>
       <default>1</default>
     </column>
-    <column name="QueueGenName" type="STRING">
+    <column name="PvpRewardScalarNormalTime" type="INT">
       <offset>100</offset>
+    </column>
+    <column name="QueueGenName" type="STRING">
+      <offset>104</offset>
       <default_string>QueueUI</default_string>
     </column>
     <column name="PvEQueueGenName" type="STRING">
-      <offset>104</offset>
-    </column>
-    <column name="FriendlyFX" type="STRING">
       <offset>108</offset>
     </column>
-    <column name="EnemyFX" type="STRING">
+    <column name="FriendlyFX" type="STRING">
       <offset>112</offset>
     </column>
-    <column name="AllowQueuingOnQueueMap" type="INTARRAY">
+    <column name="EnemyFX" type="STRING">
       <offset>116</offset>
+    </column>
+    <column name="AllowQueuingOnQueueMap" type="INTARRAY">
+      <offset>120</offset>
       <static_define_list external="ZoneMapType" />
     </column>
     <column name="PrivateQueueLevelLimit" type="INT">
-      <offset>120</offset>
+      <offset>124</offset>
     </column>
     <column name="ProvideIndividualMapInfo" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65536</bit_offset>
     </column>
     <column name="EnableMissionReturnAtEnd" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65537</bit_offset>
     </column>
     <column name="EnableInMapPlayerChatUpdates" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65538</bit_offset>
     </column>
     <column name="EnableStrictTeamRules" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65539</bit_offset>
     </column>
     <column name="QueueJoinTimeIsExact" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65540</bit_offset>
     </column>
     <column name="ScoreboardRemovesInactivePlayerScores" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65541</bit_offset>
     </column>
     <column name="DisbandAutoTeamsWhenMatchEnds" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <flags>
         <flag>SPECIAL_DEFAULT</flag>
       </flags>
@@ -169,60 +172,94 @@
       </format_strings>
     </column>
     <column name="DisableJoinOrCreateOnAllQueueMaps" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65543</bit_offset>
     </column>
     <column name="RemainInPrivateQueuesAfterMapFinishes" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65544</bit_offset>
     </column>
     <column name="AlwaysSendPlayerMemberInfo" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65545</bit_offset>
     </column>
     <column name="AlwaysSendMessageAsNotification" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65546</bit_offset>
     </column>
     <column name="StayInQueueOnMapLeave" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65547</bit_offset>
     </column>
     <column name="AllowQueueAbandonment" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65548</bit_offset>
     </column>
     <column name="MaintainQueueTrackingOnMapFinish" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65549</bit_offset>
     </column>
     <column name="AutoJoinQueueRequiresPlayerAccept" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65550</bit_offset>
     </column>
     <column name="KeepQueueInfo" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65551</bit_offset>
     </column>
     <column name="DisablePrivateQueues" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65552</bit_offset>
     </column>
     <column name="EnablePrivateQueueLevelLimit" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65553</bit_offset>
     </column>
     <column name="UseGuildAllegianceForAffiliation" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65554</bit_offset>
     </column>
     <column name="RoleClassSmartGroups" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65555</bit_offset>
     </column>
     <column name="AutoReleaseOnFinishedMapExit" type="BIT">
-      <offset>124</offset>
+      <offset>128</offset>
       <bit_offset>65556</bit_offset>
+    </column>
+    <column name="QueuedLogging" type="BIT">
+      <offset>128</offset>
+      <bit_offset>65557</bit_offset>
+    </column>
+    <column name="QueuedRewardThreshold" type="BIT">
+      <offset>128</offset>
+      <bit_offset>65558</bit_offset>
+    </column>
+    <column name="GearRatingCalc" type="OPTIONALSTRUCT">
+      <offset>132</offset>
+      <subtable external="Expression" />
+    </column>
+    <column name="pGearRatingCalcExpr" type="OPTIONALSTRUCT">
+      <offset>132</offset>
+      <flags>
+        <flag>ALIAS</flag>
+      </flags>
+      <redundant_name>GearRatingCalc</redundant_name>
+      <subtable external="Expression_StructParam" />
+    </column>
+    <column name="QueueLoggedEvents" type="STRUCT">
+      <offset>136</offset>
+      <subtable external="QueueLoggedEvents" />
+    </column>
+    <column name="QueueThresholds" type="STRUCT">
+      <offset>140</offset>
+      <subtable external="QueueThreshold" />
+    </column>
+    <column name="QueueThresholdMultipler" type="F32">
+      <offset>144</offset>
+    </column>
+    <column name="QueueAFKPenaltyTimeSeconds" type="INT">
+      <offset>148</offset>
     </column>
     <column name="ShowClientsInvalidQueuesWithReason" type="IGNORE" />
     <column name="}" type="END" />

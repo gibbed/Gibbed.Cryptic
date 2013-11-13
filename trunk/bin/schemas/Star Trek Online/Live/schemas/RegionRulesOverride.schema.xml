@@ -11,12 +11,16 @@
       <offset>0</offset>
       <default>-1</default>
     </column>
-    <column name="TempPuppet" type="STRUCT">
+    <column name="UnteamedPetsPerPlayer" type="INT">
       <offset>4</offset>
+      <default>-1</default>
+    </column>
+    <column name="TempPuppet" type="STRUCT">
+      <offset>8</offset>
       <subtable external="TempPuppetChoice" />
     </column>
     <column name="VehicleRules" type="INT">
-      <offset>8</offset>
+      <offset>12</offset>
       <static_define_list external="VehicleRules" />
     </column>
     <column name="}" type="END" />
