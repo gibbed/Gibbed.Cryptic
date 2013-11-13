@@ -31,6 +31,9 @@ namespace Gibbed.Cryptic.FileFormats
 {
     public class BlobFile
     {
+        private const string _FileSignature = "CrypticS";
+        private const string _TypeSignature = "ParseN";
+
         public uint ParserHash;
         public string Type;
 
@@ -39,9 +42,9 @@ namespace Gibbed.Cryptic.FileFormats
 
         public void Serialize(Stream output)
         {
-            output.WriteString("CrypticS", Encoding.ASCII);
+            output.WriteString(_FileSignature, Encoding.ASCII);
             output.WriteValueU32(this.ParserHash);
-            output.WriteStringPascal("ParseM", 4096);
+            output.WriteStringPascal(_TypeSignature, 4096);
 
             output.WriteStringPascal("Files1", 20);
             using (var data = new MemoryStream())
@@ -88,7 +91,7 @@ namespace Gibbed.Cryptic.FileFormats
         public void Deserialize(Stream input)
         {
             var magic = input.ReadString(8, Encoding.ASCII);
-            if (magic != "CrypticS")
+            if (magic != _FileSignature)
             {
                 throw new FormatException("invalid blob magic");
             }
@@ -96,7 +99,7 @@ namespace Gibbed.Cryptic.FileFormats
             this.ParserHash = input.ReadValueU32();
 
             var type = input.ReadStringPascal(4096);
-            if (type != "ParseM")
+            if (type != _TypeSignature)
             {
                 throw new FormatException("invalid blob type");
             }

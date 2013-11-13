@@ -27,24 +27,27 @@ namespace Gibbed.Cryptic.ExportSchemas
     [StructLayout(LayoutKind.Sequential)]
     public struct NativeExpressionFunction
     {
-        public int argc;
+        public int ArgumentCount; // args
         public int ExprCodeEnum;
-        public uint handler;
+        public uint Handler;
         public uint Unknown00C;
-        public uint FuncNamePointer;
+        public uint NamePointer; // funcName
+        public uint CommentPointer; // comment
+        public uint SourceFilePointer; // SourceFile
+        public uint LineNumber; // LineNum
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]
-        public NativeExpressionArgument[] args;
+        public NativeExpressionArgument[] Arguments; // args
         
-        public NativeExpressionArgument ReturnType;
+        public NativeExpressionArgument ReturnType; // returnType
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]
-        public uint[] tags;
+        public uint[] Tags; // tags
         
-        public float Cost;
-        public uint ExprCodeNamePointer;
+        public float Cost; // cost
+        public uint ExprCodeNamePointer; // ExprCodeName
         public uint Unknown1B8;
-        public uint funcFlags;
-        public uint parsedTags;
+        public uint Flags; // funcFlags
+        public uint ParsedTags; // parsedTags
     }
 }

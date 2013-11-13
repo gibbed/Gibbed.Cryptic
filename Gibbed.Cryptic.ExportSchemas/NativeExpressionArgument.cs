@@ -20,9 +20,7 @@
  *    distribution.
  */
 
-using System;
 using System.Runtime.InteropServices;
-using Parser = Gibbed.Cryptic.FileFormats.Parser;
 
 namespace Gibbed.Cryptic.ExportSchemas
 {
@@ -30,11 +28,11 @@ namespace Gibbed.Cryptic.ExportSchemas
     public struct NativeExpressionArgument
     {
         public int Type;
-        public uint NamePointer;
-        public uint staticCheckTypePointer;
-        public uint field_C;
-        public int allowNULLPtr;
-        public int scTypeCategory;
-        public uint ptrTypeNamePointer;
+        public uint NamePointer; // name
+        public uint StaticCheckTypePointer; // staticCheckType
+        public uint Unknown0C;
+        public int AllowNullPointer; // allowNULLPtr
+        public int TypeCategory; // scTypeCategory
+        public uint TypeNamePointer; // ptrTypeName
     }
 }
