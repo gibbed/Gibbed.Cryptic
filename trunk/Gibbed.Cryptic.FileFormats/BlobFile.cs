@@ -44,6 +44,7 @@ namespace Gibbed.Cryptic.FileFormats
         {
             output.WriteString(_FileSignature, Encoding.ASCII);
             output.WriteValueU32(this.ParserHash);
+            output.WriteValueU32(1);
             output.WriteStringPascal(_TypeSignature, 4096);
 
             output.WriteStringPascal("Files1", 20);
@@ -97,6 +98,12 @@ namespace Gibbed.Cryptic.FileFormats
             }
 
             this.ParserHash = input.ReadValueU32();
+
+            var flags = input.ReadValueU32();
+            if (flags != 1)
+            {
+                throw new FormatException();
+            }
 
             var type = input.ReadStringPascal(4096);
             if (type != _TypeSignature)
