@@ -145,10 +145,10 @@ namespace Gibbed.Cryptic.ExportSchemas
             sb.Append("0F 84 xx xx xx xx ");
             sb.Append("C7 45 F4 00 00 00 00 ");
             sb.Append("C7 45 F0 xx xx xx xx ");
-            sb.Append("8B 45 FC 81 B8 64 01 00 00 81 00 00 00 ");
+            sb.Append("8B 45 FC 81 B8 xx 01 00 00 81 00 00 00 ");
             sb.Append("75 xx ");
-            sb.Append("8B 45 FC 8B 88 7C 01 00 00 89 4D F0 EB xx ");
-            sb.Append("8B 45 FC 81 B8 64 01 00 00 82 00 00 00 ");
+            sb.Append("8B 45 FC 8B 88 xx 01 00 00 89 4D F0 EB xx ");
+            sb.Append("8B 45 FC 81 B8 xx 01 00 00 82 00 00 00 ");
             sb.Append("75 xx ");
             sb.Append("C7 45 F0 xx xx xx xx ");
             sb.Append("EB xx ");

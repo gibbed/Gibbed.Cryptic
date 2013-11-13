@@ -1038,7 +1038,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                 case 0x0080:
                     return "entityarray";
                 case 0x0081:
-                    return memory.ReadStringZ(arg.ptrTypeNamePointer);
+                    return memory.ReadStringZ(arg.TypeNamePointer);
                 case 0x0082:
                     return "MultiVal";
                 case 0x2809:
@@ -1061,15 +1061,15 @@ namespace Gibbed.Cryptic.ExportSchemas
 
             var func = memory.ReadStructure<NativeExpressionFunction>(pointer);
 
-            sb.AppendFormat("[{0:X8}] ", func.handler);
+            sb.AppendFormat("[{0:X8}] ", func.Handler);
 
-            var funcName = memory.ReadStringZ(func.FuncNamePointer);
+            var funcName = memory.ReadStringZ(func.NamePointer);
             var codeName = memory.ReadStringZ(func.ExprCodeNamePointer);
 
             var tags = new string[12];
             for (int i = 0; i < 12; i++)
             {
-                tags[i] = memory.ReadStringZ(func.tags[i]);
+                tags[i] = memory.ReadStringZ(func.Tags[i]);
             }
 
             var validTags = tags
@@ -1085,7 +1085,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                             TranslateArgumentType(func.ReturnType, memory),
                             funcName);
 
-            for (int i = 0; i < func.argc; i++)
+            for (int i = 0; i < func.ArgumentCount; i++)
             {
                 if (i > 0)
                 {
@@ -1093,8 +1093,8 @@ namespace Gibbed.Cryptic.ExportSchemas
                 }
 
                 sb.AppendFormat("{0} {1}",
-                                TranslateArgumentType(func.args[i], memory),
-                                memory.ReadStringZ(func.args[i].NamePointer));
+                                TranslateArgumentType(func.Arguments[i], memory),
+                                memory.ReadStringZ(func.Arguments[i].NamePointer));
             }
 
             sb.Append(")");
