@@ -101,6 +101,44 @@ namespace Gibbed.Cryptic.ExportSchemas
 
             var bytes = BitConverter.GetBytes(nameOffset);
             var sb = new StringBuilder();
+            sb.Append("75 21 ");
+            sb.Append("68 xx xx xx xx ");
+            sb.AppendFormat("68 {0:X2} {1:X2} {2:X2} {3:X2} ",
+                bytes[0], bytes[1], bytes[2], bytes[3]);
+            sb.Append("6A 00 68 00 04 00 00 ");
+            sb.Append("E8 xx xx xx xx ");
+            sb.Append("8B 55 1C ");
+            sb.Append("83 C4 10 ");
+            sb.Append("A3 xx xx xx xx ");
+
+            var codeOffset = memory.Search(new ByteSearch(sb.ToString()));
+            if (codeOffset == uint.MaxValue)
+            {
+                //throw new InvalidOperationException();
+                return 0;
+            }
+
+            var pointer = memory.ReadU32(codeOffset + 31);
+            if (pointer == 0)
+            {
+                throw new InvalidOperationException();
+            }
+
+            return memory.ReadU32(pointer);
+        }
+
+        public static uint FindOldParserTable(ProcessMemory memory)
+        {
+            var nameOffset = memory.Search(new ByteSearch("00 66 66 5F 50 61 72 73 65 54 61 62 6C 65 49 6E 66 6F 73 00"));
+            if (nameOffset == uint.MaxValue)
+            {
+                //throw new InvalidOperationException();
+                return 0;
+            }
+            nameOffset = nameOffset + 1;
+
+            var bytes = BitConverter.GetBytes(nameOffset);
+            var sb = new StringBuilder();
             sb.Append("75 1E ");
             sb.Append("68 xx xx xx xx ");
             sb.AppendFormat("68 {0:X2} {1:X2} {2:X2} {3:X2} ",

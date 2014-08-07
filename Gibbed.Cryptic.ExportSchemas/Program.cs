@@ -1297,7 +1297,12 @@ namespace Gibbed.Cryptic.ExportSchemas
 
                 var parsers = new List<KeyValuePair<string, uint>>();
                 {
-                    var stashPointer = Locator.FindParserTable(memory);
+                    var stashPointer = Locator.FindOldParserTable(memory);
+                    if (stashPointer == 0)
+                    {
+                        stashPointer = Locator.FindParserTable(memory);
+                    }
+
                     if (stashPointer == 0)
                     {
                         Console.WriteLine("Warning: failed to locate schema table.");
