@@ -67,7 +67,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                 if (count > 0)
                 {
                     var entriesAddress = memory.ReadU32(listAddress + 4);
-                    var data = memory.ReadBytes(entriesAddress, count * 8);
+                    var data = memory.ReadAllBytes(entriesAddress, count * 8);
 
                     for (int i = 0; i < count; i++)
                     {
@@ -277,7 +277,7 @@ namespace Gibbed.Cryptic.ExportSchemas
             if (count > 0)
             {
                 var entriesAddress = memory.ReadU32(listAddress + 4);
-                var data = memory.ReadBytes(entriesAddress, count * 8);
+                var data = memory.ReadAllBytes(entriesAddress, count * 8);
 
                 for (int i = 0; i < count; i++)
                 {
@@ -1193,7 +1193,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                     {
                         var stashCount = memory.ReadS32(stashPointer + 0x08);
                         var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
-                        var stashEntries = memory.ReadBytes(stashEntryPointer, stashCount * 8);
+                        var stashEntries = memory.ReadAllBytes(stashEntryPointer, stashCount * 8);
 
                         for (int i = 0; i < stashCount; i++)
                         {
@@ -1237,7 +1237,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                     {
                         var stashCount = memory.ReadS32(stashPointer + 0x08);
                         var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
-                        var stashEntries = memory.ReadBytes(stashEntryPointer, stashCount * 8);
+                        var stashEntries = memory.ReadAllBytes(stashEntryPointer, stashCount * 8);
 
                         for (int i = 0; i < stashCount; i++)
                         {
@@ -1311,7 +1311,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                     {
                         var stashCount = memory.ReadS32(stashPointer + 0x08);
                         var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
-                        var stashEntries = memory.ReadBytes(stashEntryPointer, stashCount * 8);
+                        var stashEntries = memory.ReadAllBytes(stashEntryPointer, stashCount * 8);
 
                         for (int i = 0; i < stashCount; i++)
                         {

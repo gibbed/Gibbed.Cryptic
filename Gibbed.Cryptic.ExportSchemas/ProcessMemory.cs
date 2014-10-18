@@ -185,14 +185,9 @@ namespace Gibbed.Cryptic.ExportSchemas
 
             result = Native.ReadProcessMemory(this.Handle, address, data, (uint)size, out read);
 
-            if (result == 0)
+            if (result == 0 && Native.GetLastError() != 299)
             {
                 throw new NativeException("error " + Native.GetLastError().ToString());
-            }
-
-            if (read != (uint)size)
-            {
-                throw new InvalidOperationException("only read " + read.ToString() + " instead of " + size);
             }
 
             return (int)read;
@@ -201,9 +196,20 @@ namespace Gibbed.Cryptic.ExportSchemas
         public byte[] ReadBytes(uint address, int size)
         {
             var data = new byte[size];
-            if (this.Read((IntPtr)address, data, size) != size)
+            var read = this.Read((IntPtr)address, data, size);
+            if (read != size)
             {
-                throw new InvalidOperationException();
+                Array.Resize(ref data, read);
+            }
+            return data;
+        }
+
+        public byte[] ReadAllBytes(uint address, int size)
+        {
+            var data = this.ReadBytes(address, size);
+            if (data.Length != size)
+            {
+                throw new InvalidOperationException("could not read all bytes");
             }
             return data;
         }
@@ -233,61 +239,61 @@ namespace Gibbed.Cryptic.ExportSchemas
 
         public byte ReadU8(uint address)
         {
-            var data = this.ReadBytes(address, 1);
+            var data = this.ReadAllBytes(address, 1);
             return data[0];
         }
 
         public sbyte ReadS8(uint address)
         {
-            var data = this.ReadBytes(address, 1);
+            var data = this.ReadAllBytes(address, 1);
             return (sbyte)data[0];
         }
 
         public ushort ReadU16(uint address)
         {
-            var data = this.ReadBytes(address, 2);
+            var data = this.ReadAllBytes(address, 2);
             return BitConverter.ToUInt16(data, 0);
         }
 
         public short ReadS16(uint address)
         {
-            var data = this.ReadBytes(address, 2);
+            var data = this.ReadAllBytes(address, 2);
             return BitConverter.ToInt16(data, 0);
         }
 
         public uint ReadU32(uint address)
         {
-            var data = this.ReadBytes(address, 4);
+            var data = this.ReadAllBytes(address, 4);
             return BitConverter.ToUInt32(data, 0);
         }
 
         public int ReadS32(uint address)
         {
-            var data = this.ReadBytes(address, 4);
+            var data = this.ReadAllBytes(address, 4);
             return BitConverter.ToInt32(data, 0);
         }
 
         public ulong ReadU64(uint address)
         {
-            var data = this.ReadBytes(address, 8);
+            var data = this.ReadAllBytes(address, 8);
             return BitConverter.ToUInt64(data, 0);
         }
 
         public long ReadS64(uint address)
         {
-            var data = this.ReadBytes(address, 8);
+            var data = this.ReadAllBytes(address, 8);
             return BitConverter.ToInt64(data, 0);
         }
 
         public float ReadF32(uint address)
         {
-            var data = this.ReadBytes(address, 4);
+            var data = this.ReadAllBytes(address, 4);
             return BitConverter.ToSingle(data, 0);
         }
 
         public double ReadF64(uint address)
         {
-            var data = this.ReadBytes(address, 8);
+            var data = this.ReadAllBytes(address, 8);
             return BitConverter.ToDouble(data, 0);
         }
 
@@ -301,7 +307,7 @@ namespace Gibbed.Cryptic.ExportSchemas
             var data = this.ReadBytes(address, length);
 
             int end = 0;
-            for (int i = 0; i < length; i++)
+            for (int i = 0; i < data.Length; i++)
             {
                 if (data[i] == 0)
                 {
@@ -323,9 +329,19 @@ namespace Gibbed.Cryptic.ExportSchemas
             var data = new byte[0];
             var current = 0;
 
+            int blockSize = 256;
             while (true)
             {
-                var block = this.ReadBytes(address + (uint)current, 256);
+                var block = this.ReadBytes(address + (uint)current, blockSize);
+                if (block.Length == 0)
+                {
+                    blockSize /= 2;
+                    if (blockSize > 0)
+                    {
+                        continue;
+                    }
+                    throw new InvalidOperationException();
+                }
 
                 Array.Resize(ref data, data.Length + block.Length);
                 Array.Copy(block, 0, data, current, block.Length);
@@ -340,7 +356,7 @@ namespace Gibbed.Cryptic.ExportSchemas
 
                 current += block.Length;
 
-                if (current >= 102480)
+                if (current >= 102480 || block.Length != blockSize)
                 {
                     throw new InvalidOperationException();
                 }
