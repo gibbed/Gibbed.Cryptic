@@ -60,14 +60,14 @@ namespace Gibbed.Cryptic.ExportSchemas
         {
             Regex regex;
 
-            regex = new Regex("^(([0-9,a-f]{2})|([x]{2})|(\\s))+$", RegexOptions.IgnoreCase);
+            regex = new Regex("^(([0-9,a-f,x]{2})|(\\s))+$", RegexOptions.IgnoreCase);
 
             if (regex.Match(pattern).Success == false)
             {
                 throw new ArgumentException("invalid pattern", "pattern");
             }
 
-            regex = new Regex("(([0-9,a-f]{2})|([x]{2}))(?:\\s*)", RegexOptions.IgnoreCase);
+            regex = new Regex("([0-9,a-f,x]{2})(?:\\s*)", RegexOptions.IgnoreCase);
 
             foreach (Match match in regex.Matches(pattern))
             {
@@ -76,15 +76,24 @@ namespace Gibbed.Cryptic.ExportSchemas
                 BytePatternEntry entry;
                 string capture = match.Captures[0].Value.Trim().ToLower();
 
-                if (capture == "xx")
+                if (capture.Length != 2)
                 {
-                    entry.Value = 0xFF;
-                    entry.Mask = 0x00;
+                    throw new InvalidOperationException();
                 }
-                else
+
+                entry.Value = 0;
+                entry.Mask = 0;
+
+                if (capture[0] != 'x')
                 {
-                    entry.Value = byte.Parse(capture, NumberStyles.HexNumber);
-                    entry.Mask = 0xFF;
+                    entry.Value |= (byte)((byte.Parse(capture.Substring(0, 1), NumberStyles.HexNumber) & 0x0F) << 4);
+                    entry.Mask = 0xF0;
+                }
+
+                if (capture[1] != 'x')
+                {
+                    entry.Value |= (byte)((byte.Parse(capture.Substring(1, 1), NumberStyles.HexNumber) & 0x0F) << 0);
+                    entry.Mask = 0x0F;
                 }
 
                 this.Values.Add(entry);
