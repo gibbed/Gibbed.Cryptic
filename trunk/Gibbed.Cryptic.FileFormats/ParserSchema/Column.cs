@@ -28,7 +28,7 @@ namespace Gibbed.Cryptic.FileFormats.ParserSchema
     public class Column
     {
         public string Name;
-        public byte Token;
+        public Parser.TokenType Token;
 
         public uint Offset;
 

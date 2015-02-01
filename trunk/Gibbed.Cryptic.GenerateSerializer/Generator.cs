@@ -166,7 +166,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                 foreach (var column in queuedType.Table.Columns.Where(Helpers.IsGoodColumn))
                 {
-                    if (column.Token == 20)
+                    if (column.Token == Parser.TokenType.Structure)
                     {
                         if (column.SubtableIsExternal == true)
                         {
@@ -187,7 +187,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                             }
                         }
                     }
-                    else if (column.Token == 21)
+                    else if (column.Token == Parser.TokenType.Polymorph)
                     {
                         foreach (var subcolumn in column.Subtable.Columns)
                         {
@@ -231,7 +231,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                 foreach (var column in qt.Table.Columns.Where(Helpers.IsGoodColumn))
                 {
-                    if (column.Token == 20)
+                    if (column.Token == Parser.TokenType.Structure)
                     {
                         if (column.SubtableIsExternal == true)
                         {
@@ -252,7 +252,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                             }
                         }
                     }
-                    else if (column.Token == 21)
+                    else if (column.Token == Parser.TokenType.Polymorph)
                     {
                         foreach (var subcolumn in column.Subtable.Columns)
                         {
@@ -319,45 +319,45 @@ namespace Gibbed.Cryptic.GenerateSerializer
             {
                 switch (column.Token)
                 {
-                    case 3:
+                    case Parser.TokenType.Byte:
                         return typeof(byte);
-                    case 4:
+                    case Parser.TokenType.Int16:
                         return typeof(short);
-                    case 5:
+                    case Parser.TokenType.Int32:
                         return typeof(int);
-                    case 6:
+                    case Parser.TokenType.Int64:
                         return typeof(long);
-                    case 7:
+                    case Parser.TokenType.Float:
                         return typeof(float);
-                    case 8:
+                    case Parser.TokenType.String:
                         return typeof(string);
-                    case 9:
+                    case Parser.TokenType.CurrentFile:
                         return typeof(string);
-                    case 10:
+                    case Parser.TokenType.Timestamp:
                         return typeof(int);
-                    case 11:
+                    case Parser.TokenType.LineNumber:
                         return typeof(int);
-                    case 12:
+                    case Parser.TokenType.Boolean:
                         return typeof(bool);
-                    case 14:
+                    case Parser.TokenType.BooleanFlag:
                         return typeof(bool);
-                    case 16:
+                    case Parser.TokenType.MATPYR:
                         return typeof(MATPYR);
-                    case 17:
+                    case Parser.TokenType.Filename:
                         return typeof(string);
-                    case 18:
+                    case Parser.TokenType.Reference:
                         return typeof(string);
-                    case 20:
+                    case Parser.TokenType.Structure:
                         return this._TableTypes[column.Subtable];
-                    case 21:
+                    case Parser.TokenType.Polymorph:
                         return typeof(object);
-                    case 22:
+                    case Parser.TokenType.StashTable:
                         return typeof(StashTable);
-                    case 23:
+                    case Parser.TokenType.Bit:
                         return typeof(uint);
-                    case 24:
+                    case Parser.TokenType.MultiValue:
                         return typeof(MultiValue);
-                    case 25:
+                    case Parser.TokenType.Command:
                         return typeof(string);
                     default:
                         throw new NotImplementedException();
@@ -367,23 +367,23 @@ namespace Gibbed.Cryptic.GenerateSerializer
             {
                 switch (column.Token)
                 {
-                    case 3:
+                    case Parser.TokenType.Byte:
                         return typeof(byte[]);
-                    case 4:
+                    case Parser.TokenType.Int16:
                         return typeof(short[]);
-                    case 5:
+                    case Parser.TokenType.Int32:
                         return typeof(int[]);
-                    case 6:
+                    case Parser.TokenType.Int64:
                         return typeof(long[]);
-                    case 7:
+                    case Parser.TokenType.Float:
                         return typeof(float[]);
-                    case 8:
+                    case Parser.TokenType.String:
                         return typeof(string[]);
-                    case 9:
+                    case Parser.TokenType.CurrentFile:
                         return typeof(string[]);
-                    case 15:
+                    case Parser.TokenType.QUATPYR:
                         return typeof(float[]);
-                    case 16:
+                    case Parser.TokenType.MATPYR:
                         return typeof(MATPYR[]);
                     default:
                         throw new NotImplementedException();
@@ -393,31 +393,31 @@ namespace Gibbed.Cryptic.GenerateSerializer
             {
                 switch (column.Token)
                 {
-                    case 3:
+                    case Parser.TokenType.Byte:
                         return typeof(List<byte>);
-                    case 4:
+                    case Parser.TokenType.Int16:
                         return typeof(List<short>);
-                    case 5:
+                    case Parser.TokenType.Int32:
                         return typeof(List<int>);
-                    case 6:
+                    case Parser.TokenType.Int64:
                         return typeof(List<long>);
-                    case 7:
+                    case Parser.TokenType.Float:
                         return typeof(List<float>);
-                    case 8:
+                    case Parser.TokenType.String:
                         return typeof(List<string>);
-                    case 9:
+                    case Parser.TokenType.CurrentFile:
                         return typeof(List<string>);
-                    case 16:
+                    case Parser.TokenType.MATPYR:
                         return typeof(List<MATPYR>);
-                    case 17:
+                    case Parser.TokenType.Filename:
                         return typeof(List<string>);
-                    case 19:
+                    case Parser.TokenType.FunctionCall:
                         return typeof(List<FunctionCall>);
-                    case 20:
+                    case Parser.TokenType.Structure:
                         return typeof(List<>).MakeGenericType(this._TableTypes[column.Subtable]);
-                    case 21:
+                    case Parser.TokenType.Polymorph:
                         return typeof(List<object>);
-                    case 24:
+                    case Parser.TokenType.MultiValue:
                         return typeof(List<MultiValue>);
                     default:
                         throw new NotImplementedException();
@@ -475,16 +475,16 @@ namespace Gibbed.Cryptic.GenerateSerializer
             {
                 switch (column.Token)
                 {
-                    case 3:
+                    case Parser.TokenType.Byte:
                         underlyingType = typeof(byte);
                         break;
-                    case 4:
+                    case Parser.TokenType.Int16:
                         underlyingType = typeof(short);
                         break;
-                    case 5:
+                    case Parser.TokenType.Int32:
                         underlyingType = typeof(int);
                         break;
-                    case 23:
+                    case Parser.TokenType.Bit:
                         underlyingType = typeof(uint);
                         break;
                     default:
@@ -495,7 +495,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
             {
                 switch (column.Token)
                 {
-                    case 5:
+                    case Parser.TokenType.Int32:
                         underlyingType = typeof(uint);
                         break;
                     default:
@@ -1036,7 +1036,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
             typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
 
             var polymorphAttributeTypes = new List<Type>();
-            if (table.Columns.Any(c => c.Token == 24) == true)
+            if (table.Columns.Any(c => c.Token == Parser.TokenType.MultiValue) == true)
             {
                 typeBuilder.SetCustomAttribute(
                     new CustomAttributeBuilder(
@@ -1046,7 +1046,9 @@ namespace Gibbed.Cryptic.GenerateSerializer
             }
 
             var polymorphBuilders = new Dictionary<ParserSchema.Column, FieldBuilder>();
-            var polymorphColumns = table.Columns.Where(c => Helpers.IsGoodColumn(c) && c.Token == 21).ToArray();
+            var polymorphColumns = table.Columns
+                                        .Where(c => Helpers.IsGoodColumn(c) && c.Token == Parser.TokenType.Polymorph)
+                                        .ToArray();
             if (polymorphColumns.Length > 0)
             {
                 var cctorBuilder = typeBuilder.DefineTypeInitializer();
@@ -1388,7 +1390,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_1); // writer
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1400,7 +1402,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_1); // writer
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1413,7 +1415,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_1); // writer
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1425,7 +1427,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                                       null);
                     }
                 }
-                else if (column.Token == 20) // structure
+                else if (column.Token == Parser.TokenType.Structure) // structure
                 {
                     if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
                                                    Parser.ColumnFlags.FIXED_ARRAY) == false)
@@ -1459,7 +1461,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                                       null);
                     }
                 }
-                else if (column.Token == 21) // polymorph
+                else if (column.Token == Parser.TokenType.Polymorph) // polymorph
                 {
                     if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
                                                    Parser.ColumnFlags.FIXED_ARRAY) == false)
@@ -1502,7 +1504,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1514,7 +1516,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1527,7 +1529,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1663,7 +1665,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // reader
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1675,7 +1677,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // reader
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1688,7 +1690,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // reader
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1701,7 +1703,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
-                else if (column.Token == 20) // structure
+                else if (column.Token == Parser.TokenType.Structure) // structure
                 {
                     if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
                                                    Parser.ColumnFlags.FIXED_ARRAY) == false)
@@ -1735,7 +1737,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
-                else if (column.Token == 21) // polymorph
+                else if (column.Token == Parser.TokenType.Polymorph) // polymorph
                 {
                     if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
                                                    Parser.ColumnFlags.FIXED_ARRAY) == false)
@@ -1777,7 +1779,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1789,7 +1791,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1802,7 +1804,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1969,7 +1971,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     msil.MarkLabel(okLabel);
                 }
 
-                if (column.Token == 25)
+                if (column.Token == Parser.TokenType.Command)
                 {
                     msil.Emit(OpCodes.Br, switchPostLabel);
                     continue;
@@ -2002,7 +2004,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -2016,7 +2018,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -2031,7 +2033,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -2046,7 +2048,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
-                else if (column.Token == 20) // structure
+                else if (column.Token == Parser.TokenType.Structure) // structure
                 {
                     if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
                                                    Parser.ColumnFlags.FIXED_ARRAY) == false)
@@ -2086,7 +2088,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
-                else if (column.Token == 21) // polymorph
+                else if (column.Token == Parser.TokenType.Polymorph) // polymorph
                 {
                     if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
                                                    Parser.ColumnFlags.FIXED_ARRAY) == false)
@@ -2134,7 +2136,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -2148,7 +2150,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -2163,7 +2165,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == 23)
+                        if (column.Token == Parser.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
