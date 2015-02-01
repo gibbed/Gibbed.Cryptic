@@ -30,17 +30,17 @@ namespace Gibbed.Cryptic.FileFormats.Parser
             {
                 case 0:
                 {
-                    if ((flags & ColumnFlags.FIXED_ARRAY) != 0)
+                    if (flags.HasAnyOptions(ColumnFlags.FIXED_ARRAY) == true)
                     {
                         return ColumnParameter.NumberOfElements;
                     }
 
-                    if ((flags & ColumnFlags.EARRAY) != 0)
+                    if (flags.HasAnyOptions(ColumnFlags.EARRAY) == true)
                     {
                         return ColumnParameter.None;
                     }
 
-                    if ((flags & ColumnFlags.INDIRECT) != 0)
+                    if (flags.HasAnyOptions(ColumnFlags.INDIRECT) == true)
                     {
                         return ColumnParameter.DefaultString;
                     }
@@ -50,7 +50,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
 
                 case 1:
                 {
-                    if ((flags & ColumnFlags.GLOBAL_NAME) != 0)
+                    if (flags.HasAnyOptions(ColumnFlags.GLOBAL_NAME) == true)
                     {
                         return ColumnParameter.DictionaryName;
                     }

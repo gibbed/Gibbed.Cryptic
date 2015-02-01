@@ -30,8 +30,8 @@ namespace Gibbed.Cryptic.FileFormats.Parser
         // ReSharper disable InconsistentNaming
         None = 0ul,
 
-        TokenMask          = 0x00FFul,
-        NumBitsMask        = 0xFF00ul,
+        TypeMask           = 0xFF00ul,
+        OptionMask         = 0x00FFul,
 
         POOL_STRING        = 1ul << 16,
         ESTRING            = 1ul << 17,
@@ -39,7 +39,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
         FIXED_ARRAY        = 1ul << 19,
         INDIRECT           = 1ul << 20,
         OBJECTTYPE         = 1ul << 21,
-        ALIAS              = 1ul << 22, // REDUNDANT?
+        REDUNDANTNAME      = 1ul << 22,
         STRUCTPARAM        = 1ul << 23,
         ALWAYS_ALLOC       = 1ul << 24,
         NON_NULL_REF       = 1ul << 25,
@@ -49,7 +49,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
         FLATEMBED          = 1ul << 29,
         NO_TEXT_SAVE       = 1ul << 30,
         GLOBAL_NAME        = 1ul << 31,
-        UNKNOWN_32         = 1ul << 32,
+        UNOWNED            = 1ul << 32,
         USEDFIELD          = 1ul << 33,
         USEROPTIONBIT_1    = 1ul << 34,
         USEROPTIONBIT_2    = 1ul << 35,

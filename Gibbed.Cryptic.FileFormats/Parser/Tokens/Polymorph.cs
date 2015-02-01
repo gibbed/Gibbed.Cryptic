@@ -49,7 +49,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser.Tokens
             {
                 case 0:
                 {
-                    if ((flags & ColumnFlags.INDIRECT) != 0)
+                    if (flags.HasAnyOptions(ColumnFlags.INDIRECT) == true)
                     {
                         return ColumnParameter.None;
                     }

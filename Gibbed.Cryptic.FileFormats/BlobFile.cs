@@ -186,21 +186,21 @@ namespace Gibbed.Cryptic.FileFormats
 
         public static void DeserializeColumn(ParserSchema.Column column, Stream input, XmlWriter output)
         {
-            if ((column.Flags & Parser.ColumnFlags.ALIAS) != 0 ||
-                (column.Flags & Parser.ColumnFlags.UNKNOWN_32) != 0 ||
-                (column.Flags & Parser.ColumnFlags.NO_WRITE) != 0)
+            if (column.Flags.HasAnyOptions(Parser.ColumnFlags.REDUNDANTNAME |
+                                           Parser.ColumnFlags.UNOWNED |
+                                           Parser.ColumnFlags.NO_WRITE) == true)
             {
                 return;
             }
 
             var token = Parser.GlobalTokens.GetToken(column.Token);
 
-            if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+            if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY) == false)
             {
                 // value
                 token.Deserialize(input, column, output);
             }
-            else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+            else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
             {
                 // fixed array
                 if (column.Token == 16) // MATPYR
@@ -263,9 +263,9 @@ namespace Gibbed.Cryptic.FileFormats
 
                 foreach (var column in table.Columns)
                 {
-                    if ((column.Flags & Parser.ColumnFlags.ALIAS) != 0 ||
-                        (column.Flags & Parser.ColumnFlags.UNKNOWN_32) != 0 ||
-                        (column.Flags & Parser.ColumnFlags.NO_WRITE) != 0)
+                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.REDUNDANTNAME |
+                                                   Parser.ColumnFlags.UNOWNED |
+                                                   Parser.ColumnFlags.NO_WRITE) == true)
                     {
                         continue;
                     }

@@ -23,6 +23,7 @@
 using System;
 using System.Linq;
 using System.Reflection;
+using Gibbed.Cryptic.FileFormats;
 using Parser = Gibbed.Cryptic.FileFormats.Parser;
 using ParserSchema = Gibbed.Cryptic.FileFormats.ParserSchema;
 using Serialization = Gibbed.Cryptic.FileFormats.Serialization;
@@ -55,9 +56,9 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
         public static bool IsGoodColumn(ParserSchema.Column column)
         {
-            if ((column.Flags & Parser.ColumnFlags.ALIAS) != 0 ||
-                (column.Flags & Parser.ColumnFlags.UNKNOWN_32) != 0 ||
-                (column.Flags & Parser.ColumnFlags.NO_WRITE) != 0)
+            if (column.Flags.HasAnyOptions(Parser.ColumnFlags.REDUNDANTNAME |
+                                           Parser.ColumnFlags.UNOWNED |
+                                           Parser.ColumnFlags.NO_WRITE) == true)
             {
                 return false;
             }
@@ -79,11 +80,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
             string name = "Read";
 
-            if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+            if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY) == false)
             {
                 name += "Value";
             }
-            else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+            else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
             {
                 name += "Array";
             }
@@ -117,11 +118,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
             string name = "Write";
 
-            if ((column.Flags & (Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY)) == 0)
+            if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY) == false)
             {
                 name += "Value";
             }
-            else if ((column.Flags & Parser.ColumnFlags.EARRAY) == 0)
+            else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
             {
                 name += "Array";
             }

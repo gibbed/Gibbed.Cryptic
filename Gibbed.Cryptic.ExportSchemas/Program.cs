@@ -28,6 +28,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml;
+using Gibbed.Cryptic.FileFormats;
 using Gibbed.IO;
 using Parser = Gibbed.Cryptic.FileFormats.Parser;
 
@@ -194,7 +195,7 @@ namespace Gibbed.Cryptic.ExportSchemas
 
             string name = null;
 
-            if ((check & Parser.ColumnFlags.INDIRECT) == 0)
+            if (check.HasAnyOptions(Parser.ColumnFlags.INDIRECT) == false)
             {
                 switch (check)
                 {
@@ -405,12 +406,8 @@ namespace Gibbed.Cryptic.ExportSchemas
             {
                 var column = kv.Key;
 
-                if ((column.Flags & Parser.ColumnFlags.ALIAS) != 0)
-                {
-                    continue;
-                }
-
-                if ((column.Flags & Parser.ColumnFlags.UNKNOWN_32) != 0)
+                if (column.Flags.HasAnyOptions(Parser.ColumnFlags.REDUNDANTNAME |
+                                               Parser.ColumnFlags.UNOWNED) == true)
                 {
                     continue;
                 }
@@ -459,7 +456,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                 if (column.Parameter1 != 0 &&
                     (column.Token == 20 || column.Token == 21) &&
                     address != column.Parameter1 &&
-                    (column.Flags & Parser.ColumnFlags.STRUCT_NORECURSE) == 0)
+                    column.Flags.HasAnyOptions(Parser.ColumnFlags.STRUCT_NORECURSE) == false)
                 {
                     hash = HashTable(memory, column.Parameter1, hash);
                 }
@@ -763,7 +760,7 @@ namespace Gibbed.Cryptic.ExportSchemas
 
                 var values = new List<string>();
 
-                if ((column.Flags & Parser.ColumnFlags.PARSETABLE_INFO) != 0)
+                if (column.Flags.HasAnyOptions(Parser.ColumnFlags.PARSETABLE_INFO) == true)
                 {
                     xml.WriteStartElement("flags");
                     xml.WriteElementString("flag", "PARSETABLE_INFO");
@@ -809,11 +806,11 @@ namespace Gibbed.Cryptic.ExportSchemas
                         xml.WriteEndElement();
                     }
 
-                    if ((column.Flags & Parser.ColumnFlags.ALIAS) != 0)
+                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.REDUNDANTNAME) == true)
                     {
                         var aliased = columns
                             .Where(c => c.Key != column)
-                            .Where(c => (c.Key.Flags & Parser.ColumnFlags.ALIAS) == 0)
+                            .Where(c => c.Key.Flags.HasAnyOptions(Parser.ColumnFlags.REDUNDANTNAME) == false)
                             .Where(c => c.Key.Offset == column.Offset)
                             .Where(c => c.Key.Token == column.Token)
                             .FirstOrDefault(c => c.Key.Token != 23 || c.Key.Parameter0 == column.Parameter0);
