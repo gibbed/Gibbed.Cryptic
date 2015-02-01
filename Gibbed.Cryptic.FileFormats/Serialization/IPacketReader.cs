@@ -26,6 +26,7 @@ namespace Gibbed.Cryptic.FileFormats.Serialization
     {
         bool ReadNativeBoolean();
         int ReadNativeInt32Packed();
+
         TType ReadNativeStructure<TType>(object state)
             where TType : IStructure, new();
     }

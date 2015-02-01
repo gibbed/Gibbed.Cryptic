@@ -25,6 +25,7 @@ namespace Gibbed.Cryptic.FileFormats.ParserSchema
     /* If this is updated, make sure to update
      * Gibbed.Cryptic.ExportParserTables.Program.FormatNames
      */
+
     public enum ColumnFormat
     {
         // ReSharper disable InconsistentNaming

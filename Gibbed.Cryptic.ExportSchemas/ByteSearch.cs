@@ -44,13 +44,10 @@ namespace Gibbed.Cryptic.ExportSchemas
         /// </summary>
         public int Size
         {
-            get
-            {
-                return this.Values.Count;
-            }
+            get { return this._Values.Count; }
         }
 
-        private List<BytePatternEntry> Values = new List<BytePatternEntry>();
+        private readonly List<BytePatternEntry> _Values = new List<BytePatternEntry>();
 
         /// <summary>
         /// 
@@ -96,7 +93,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                     entry.Mask = 0x0F;
                 }
 
-                this.Values.Add(entry);
+                this._Values.Add(entry);
             }
         }
 
@@ -126,9 +123,9 @@ namespace Gibbed.Cryptic.ExportSchemas
                 for (int j = 0; matched == true && j < this.Size; j++)
                 {
                     matched =
-                        (this.Values[j].Value & this.Values[j].Mask)
+                        (this._Values[j].Value & this._Values[j].Mask)
                         ==
-                        (data[i + j] & this.Values[j].Mask);
+                        (data[i + j] & this._Values[j].Mask);
                 }
 
                 if (matched)

@@ -27,6 +27,7 @@ namespace Gibbed.Cryptic.FileFormats.ParserSchema
     public class Enumeration
     {
         public EnumerationType Type;
+
         public Dictionary<string, string> Elements
             = new Dictionary<string, string>();
     }

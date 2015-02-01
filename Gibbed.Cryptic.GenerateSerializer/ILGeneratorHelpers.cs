@@ -26,7 +26,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 {
     internal static class ILGeneratorHelpers
     {
-        private static OpCode[] Predefined =
+        private static readonly OpCode[] _Predefined =
         {
             OpCodes.Ldc_I4_0,
             OpCodes.Ldc_I4_1,
@@ -45,9 +45,9 @@ namespace Gibbed.Cryptic.GenerateSerializer
             {
                 msil.Emit(OpCodes.Ldc_I4_M1);
             }
-            else if (value < Predefined.Length)
+            else if (value < _Predefined.Length)
             {
-                msil.Emit(Predefined[value]);
+                msil.Emit(_Predefined[value]);
             }
             else if (value >= -127 && value <= 128)
             {

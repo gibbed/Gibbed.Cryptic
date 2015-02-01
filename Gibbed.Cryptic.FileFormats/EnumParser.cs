@@ -27,7 +27,7 @@ using Enumerable = System.Linq.Enumerable;
 namespace Gibbed.Cryptic.FileFormats
 {
     public static class EnumParser<T>
-        where T: struct
+        where T : struct
     {
         public static string ToStringValue(T value)
         {

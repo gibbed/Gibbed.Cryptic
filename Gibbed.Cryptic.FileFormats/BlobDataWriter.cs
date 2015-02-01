@@ -20,8 +20,6 @@
  *    distribution.
  */
 
-#define ALLINMEMORY
-
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -111,7 +109,6 @@ namespace Gibbed.Cryptic.FileFormats
             var loader = new ResourceLoader<TType>();
             loader.List.AddRange(list);
 
-#if ALLINMEMORY
             using (var data = new MemoryStream())
             {
                 var reader = new BlobDataWriter(data, isClient, isServer, getIndexFromFileName);
@@ -120,14 +117,13 @@ namespace Gibbed.Cryptic.FileFormats
                 data.Position = 0;
                 output.WriteFromStream(data, data.Length);
             }
-#else
-            var reader = new BlobWriter(output, isClient, isServer);
-            reader.SerializeValueStructure(loader, false);
-#endif
         }
 
         private void WriteNativeArray<TType>(
-            TType[] array, int count, object state, Action<BlobDataWriter, TType, object> writeValue)
+            TType[] array,
+            int count,
+            object state,
+            Action<BlobDataWriter, TType, object> writeValue)
         {
             if (array.Length != count)
             {
@@ -141,7 +137,10 @@ namespace Gibbed.Cryptic.FileFormats
         }
 
         private void WriteNativeList<TType>(
-            List<TType> list, int maxCount, object state, Action<BlobDataWriter, TType, object> writeValue)
+            List<TType> list,
+            int maxCount,
+            object state,
+            Action<BlobDataWriter, TType, object> writeValue)
         {
             if (list.Count > maxCount)
             {
@@ -175,7 +174,10 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteListByte(List<byte> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueByte(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueByte(b, c));
         }
 
         public void WriteValueInt16(short value, object state)
@@ -186,13 +188,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayInt16(short[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueInt16(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueInt16(b, c));
         }
 
         public void WriteListInt16(List<short> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueInt16(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueInt16(b, c));
         }
 
         public void WriteValueInt32(int value, object state)
@@ -203,13 +211,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayInt32(int[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueInt32(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueInt32(b, c));
         }
 
         public void WriteListInt32(List<int> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueInt32(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueInt32(b, c));
         }
 
         public void WriteValueInt64(long value, object state)
@@ -220,13 +234,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayInt64(long[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueInt64(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueInt64(b, c));
         }
 
         public void WriteListInt64(List<long> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueInt64(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueInt64(b, c));
         }
 
         public void WriteValueFloat(float value, object state)
@@ -237,13 +257,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayFloat(float[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueFloat(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueFloat(b, c));
         }
 
         public void WriteListFloat(List<float> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueFloat(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueFloat(b, c));
         }
 
         public void WriteValueString(string value, object state)
@@ -254,13 +280,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayString(string[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueString(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueString(b, c));
         }
 
         public void WriteListString(List<string> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueString(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueString(b, c));
         }
 
         public void WriteValueCurrentFile(string value, object state)
@@ -285,13 +317,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayCurrentFile(string[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueCurrentFile(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueCurrentFile(b, c));
         }
 
         public void WriteListCurrentFile(List<string> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueCurrentFile(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueCurrentFile(b, c));
         }
 
         public void WriteValueTimestamp(int value, object state)
@@ -302,13 +340,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayTimestamp(int[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueTimestamp(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueTimestamp(b, c));
         }
 
         public void WriteListTimestamp(List<int> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueTimestamp(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueTimestamp(b, c));
         }
 
         public void WriteValueLineNumber(int value, object state)
@@ -319,13 +363,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayLineNumber(int[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueLineNumber(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueLineNumber(b, c));
         }
 
         public void WriteListLineNumber(List<int> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueLineNumber(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueLineNumber(b, c));
         }
 
         public void WriteValueBoolean(bool value, object state)
@@ -336,13 +386,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayBoolean(bool[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueBoolean(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueBoolean(b, c));
         }
 
         public void WriteListBoolean(List<bool> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueBoolean(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueBoolean(b, c));
         }
 
         public void WriteValueBooleanFlag(bool value, object state)
@@ -353,13 +409,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayBooleanFlag(bool[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueBooleanFlag(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueBooleanFlag(b, c));
         }
 
         public void WriteListBooleanFlag(List<bool> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueBooleanFlag(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueBooleanFlag(b, c));
         }
 
         public void WriteValueQUATPYR(float value, object state)
@@ -370,13 +432,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayQUATPYR(float[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueQUATPYR(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueQUATPYR(b, c));
         }
 
         public void WriteListQUATPYR(List<float> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueQUATPYR(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueQUATPYR(b, c));
         }
 
         public void WriteValueMATPYR(MATPYR value, object state)
@@ -387,13 +455,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayMATPYR(MATPYR[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueMATPYR(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueMATPYR(b, c));
         }
 
         public void WriteListMATPYR(List<MATPYR> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueMATPYR(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueMATPYR(b, c));
         }
 
         public void WriteValueFilename(string value, object state)
@@ -404,13 +478,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayFilename(string[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueFilename(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueFilename(b, c));
         }
 
         public void WriteListFilename(List<string> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueFilename(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueFilename(b, c));
         }
 
         public void WriteValueReference(string value, object state)
@@ -421,13 +501,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayReference(string[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueReference(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueReference(b, c));
         }
 
         public void WriteListReference(List<string> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueReference(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueReference(b, c));
         }
 
         public void WriteValueFunctionCall(FunctionCall value, object state)
@@ -438,17 +524,25 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayFunctionCall(FunctionCall[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueFunctionCall(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueFunctionCall(b, c));
         }
 
         public void WriteListFunctionCall(List<FunctionCall> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueFunctionCall(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueFunctionCall(b, c));
         }
 
         private void WriteStructure(
-            Serialization.IStructure value, bool optional, object state)
+            Serialization.IStructure value,
+            bool optional,
+            object state)
         {
             if (optional == true)
             {
@@ -466,15 +560,6 @@ namespace Gibbed.Cryptic.FileFormats
                 }
             }
 
-#if !ALLINMEMORY
-            using (var data = new MemoryStream())
-            {
-                value.Serialize(new BlobWriter(data));
-                data.Position = 0;
-                this.Output.WriteValueU32((uint)data.Length);
-                this.Output.WriteFromStream(data, data.Length);
-            }
-#else
             var size = this._Output.Position;
             this._Output.Seek(4, SeekOrigin.Current);
 
@@ -486,7 +571,6 @@ namespace Gibbed.Cryptic.FileFormats
             this._Output.Seek(size, SeekOrigin.Begin);
             this._Output.WriteValueU32((uint)(end - start));
             this._Output.Seek(end, SeekOrigin.Begin);
-#endif
         }
 
         public void WriteValueStructure<TType>(TType value, bool optional, object state)
@@ -499,14 +583,20 @@ namespace Gibbed.Cryptic.FileFormats
             where TType : Serialization.IStructure, new()
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueStructure(b, false, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueStructure(b, false, c));
         }
 
         public void WriteListStructure<TType>(List<TType> list, int maxCount, object state)
             where TType : Serialization.IStructure, new()
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueStructure(b, false, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueStructure(b, false, c));
         }
 
         public void WriteValuePolymorph(object value, Type[] validTypes, bool optional, object state)
@@ -540,13 +630,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayPolymorph(object[] array, Type[] validTypes, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValuePolymorph(b, validTypes, false, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValuePolymorph(b, validTypes, false, c));
         }
 
         public void WriteListPolymorph(List<object> list, Type[] validTypes, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValuePolymorph(b, validTypes, false, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValuePolymorph(b, validTypes, false, c));
         }
 
         public void WriteValueStashTable(StashTable value, object state)
@@ -557,13 +653,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayStashTable(StashTable[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueStashTable(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueStashTable(b, c));
         }
 
         public void WriteListStashTable(List<StashTable> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueStashTable(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueStashTable(b, c));
         }
 
         public void WriteValueBit(uint value, int bitOffset, object state)
@@ -574,21 +676,27 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayBit(uint[] array, int bitOffset, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueBit(b, bitOffset, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueBit(b, bitOffset, c));
         }
 
         public void WriteListBit(List<uint> list, int bitOffset, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueBit(b, bitOffset, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueBit(b, bitOffset, c));
         }
 
         public void WriteValueMultiValue(MultiValue value, object state)
         {
             this._Output.WriteString(value.OpName, 4, Encoding.ASCII);
 
-            // ReSharper disable BitwiseOperatorOnEnumWihtoutFlags
-            switch (value.Op & MultiValueOpcode.TypeMask) // ReSharper restore BitwiseOperatorOnEnumWihtoutFlags
+            // ReSharper disable BitwiseOperatorOnEnumWithoutFlags
+            switch (value.Op & MultiValueOpcode.TypeMask) // ReSharper restore BitwiseOperatorOnEnumWithoutFlags
             {
                 case MultiValueOpcode.NON:
                 {
@@ -681,13 +789,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayMultiValue(MultiValue[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueMultiValue(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueMultiValue(b, c));
         }
 
         public void WriteListMultiValue(List<MultiValue> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueMultiValue(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueMultiValue(b, c));
         }
 
         public void WriteValueByteEnum<TType>(TType value, object state)
@@ -698,13 +812,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayByteEnum<TType>(TType[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueByteEnum(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueByteEnum(b, c));
         }
 
         public void WriteListByteEnum<TType>(List<TType> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueByteEnum(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueByteEnum(b, c));
         }
 
         public void WriteValueInt16Enum<TType>(TType value, object state)
@@ -715,13 +835,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayInt16Enum<TType>(TType[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueInt16Enum(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueInt16Enum(b, c));
         }
 
         public void WriteListInt16Enum<TType>(List<TType> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueInt16Enum(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueInt16Enum(b, c));
         }
 
         public void WriteValueInt32Enum<TType>(TType value, object state)
@@ -732,13 +858,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayInt32Enum<TType>(TType[] array, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueInt32Enum(b, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueInt32Enum(b, c));
         }
 
         public void WriteListInt32Enum<TType>(List<TType> list, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueInt32Enum(b, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueInt32Enum(b, c));
         }
 
         public void WriteValueBitEnum<TType>(TType value, int bitOffset, object state)
@@ -749,13 +881,19 @@ namespace Gibbed.Cryptic.FileFormats
         public void WriteArrayBitEnum<TType>(TType[] array, int bitOffset, int count, object state)
         {
             this.WriteNativeArray(
-                array, count, state, (a, b, c) => a.WriteValueBitEnum(b, bitOffset, c));
+                array,
+                count,
+                state,
+                (a, b, c) => a.WriteValueBitEnum(b, bitOffset, c));
         }
 
         public void WriteListBitEnum<TType>(List<TType> list, int bitOffset, int maxCount, object state)
         {
             this.WriteNativeList(
-                list, maxCount, state, (a, b, c) => a.WriteValueBitEnum(b, bitOffset, c));
+                list,
+                maxCount,
+                state,
+                (a, b, c) => a.WriteValueBitEnum(b, bitOffset, c));
         }
     }
 }

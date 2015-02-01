@@ -31,15 +31,19 @@ namespace Gibbed.Cryptic.GenerateSerializer
 {
     public class ParserLoader
     {
-        public IEnumerable<string> ParserNames { get { return this.Paths.Keys; } }
+        private readonly Dictionary<string, string> _Paths;
+        private readonly Dictionary<string, ParserSchemaFile> _LoadedParsers;
 
-        private Dictionary<string, string> Paths
-            = new Dictionary<string, string>();
-        private Dictionary<string, ParserSchemaFile> LoadedParsers
-            = new Dictionary<string, ParserSchemaFile>();
+        public IEnumerable<string> ParserNames
+        {
+            get { return this._Paths.Keys; }
+        }
 
         public ParserLoader(string path)
         {
+            this._Paths = new Dictionary<string, string>();
+            this._LoadedParsers = new Dictionary<string, ParserSchemaFile>();
+
             foreach (var inputPath in Directory.GetFiles(path, "*.schema.xml", SearchOption.AllDirectories))
             {
                 var name = ParserSchemaFile.GetNameFromFile(inputPath);
@@ -48,20 +52,20 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     continue;
                 }
 
-                this.Paths.Add(name, inputPath);
+                this._Paths.Add(name, inputPath);
             }
         }
 
         private void ResolveParser(ParserSchema.Table table)
         {
             foreach (var column in table.Columns
-                .Where(c => c.Subtable != null))
+                                        .Where(c => c.Subtable != null))
             {
                 ResolveParser(column.Subtable);
             }
 
             foreach (var column in table.Columns
-                .Where(c => string.IsNullOrEmpty(c.SubtableExternalName) == false))
+                                        .Where(c => string.IsNullOrEmpty(c.SubtableExternalName) == false))
             {
                 var external = this.LoadParser(column.SubtableExternalName);
                 column.Subtable = external.Table;
@@ -75,18 +79,18 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 throw new ArgumentNullException("name");
             }
 
-            if (this.Paths.ContainsKey(name) == false)
+            if (this._Paths.ContainsKey(name) == false)
             {
                 throw new ArgumentException("no such parser", "name");
             }
 
-            if (this.LoadedParsers.ContainsKey(name) == true)
+            if (this._LoadedParsers.ContainsKey(name) == true)
             {
-                return this.LoadedParsers[name];
+                return this._LoadedParsers[name];
             }
 
-            var parser = ParserSchemaFile.LoadFile(this.Paths[name]);
-            this.LoadedParsers.Add(name, parser);
+            var parser = ParserSchemaFile.LoadFile(this._Paths[name]);
+            this._LoadedParsers.Add(name, parser);
 
             ResolveParser(parser.Table);
 

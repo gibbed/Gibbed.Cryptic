@@ -57,7 +57,10 @@ namespace Gibbed.Cryptic.FileFormats.Parser
             new Tokens.Command(), // 25
         };
 
-        public static byte Count { get { return (byte)_Tokens.Length; } }
+        public static byte Count
+        {
+            get { return (byte)_Tokens.Length; }
+        }
 
         public static Token MatchToken(string name, out byte id, out ColumnFlags flags)
         {
@@ -125,7 +128,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
 
         public static Token GetToken(byte index)
         {
-            if (index < 0 || index >= _Tokens.Length)
+            if (index >= _Tokens.Length)
             {
                 throw new ArgumentException("invalid token index", "index");
             }

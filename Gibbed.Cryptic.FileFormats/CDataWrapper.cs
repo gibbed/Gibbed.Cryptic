@@ -32,12 +32,25 @@ namespace Gibbed.Cryptic.FileFormats
     {
         public static implicit operator string(CDataWrapper value)
         {
-            return value == null ? null : value.Value;
+            if (value == null)
+            {
+                return null;
+            }
+
+            return value.Value;
         }
 
         public static implicit operator CDataWrapper(string value)
         {
-            return value == null ? null : new CDataWrapper { Value = value };
+            if (value == null)
+            {
+                return null;
+            }
+
+            return new CDataWrapper
+            {
+                Value = value,
+            };
         }
 
         public XmlSchema GetSchema()
@@ -83,13 +96,16 @@ namespace Gibbed.Cryptic.FileFormats
                         break;
                     }
 
-                    default: throw new InvalidOperationException("expected text / cdata");
+                    default:
+                    {
+                        throw new InvalidOperationException("expected text / cdata");
+                    }
                 }
             }
         }
 
         public string Value { get; set; }
-        
+
         public override string ToString()
         {
             return Value;

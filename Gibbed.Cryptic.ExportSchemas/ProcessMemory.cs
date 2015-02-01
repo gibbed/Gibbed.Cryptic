@@ -22,6 +22,7 @@
 
 using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -33,6 +34,7 @@ namespace Gibbed.Cryptic.ExportSchemas
         #region Native Imports / Defines
         protected struct Native
         {
+            // ReSharper disable InconsistentNaming
             public static Int32 TRUE = 1;
             public static Int32 FALSE = 0;
 
@@ -43,6 +45,7 @@ namespace Gibbed.Cryptic.ExportSchemas
             public static UInt32 STANDARD_RIGHTS_REQUIRED = 0x000F0000;
             public static UInt32 PROCESS_ALL_ACCESS = STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | 0xFFF;
             public static UInt32 THREAD_ALL_ACCESS = STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | 0x3FF;
+            // ReSharper restore InconsistentNaming
 
             [DllImport("kernel32.dll")]
             public static extern UInt32 GetLastError();
@@ -51,10 +54,18 @@ namespace Gibbed.Cryptic.ExportSchemas
             public static extern IntPtr OpenProcess(UInt32 dwDesiredAccess, Int32 bInheritHandle, Int32 dwProcessId);
 
             [DllImport("kernel32.dll")]
-            public static extern Int32 ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [In, Out] byte[] lpBuffer, UInt32 nSize, out UInt32 lpNumberOfBytesRead);
+            public static extern Int32 ReadProcessMemory(IntPtr hProcess,
+                                                         IntPtr lpBaseAddress,
+                                                         [In] [Out] byte[] lpBuffer,
+                                                         UInt32 nSize,
+                                                         out UInt32 lpNumberOfBytesRead);
 
             [DllImport("kernel32.dll")]
-            public static extern Int32 WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, [In, Out] byte[] lpBuffer, UInt32 nSize, out UInt32 lpNumberOfBytesWritten);
+            public static extern Int32 WriteProcessMemory(IntPtr hProcess,
+                                                          IntPtr lpBaseAddress,
+                                                          [In] [Out] byte[] lpBuffer,
+                                                          UInt32 nSize,
+                                                          out UInt32 lpNumberOfBytesWritten);
 
             [DllImport("kernel32.dll")]
             public static extern IntPtr OpenThread(UInt32 dwDesiredAccess, Int32 bInheritHandle, UInt32 dwThreadId);
@@ -145,33 +156,32 @@ namespace Gibbed.Cryptic.ExportSchemas
             this.Process = null;
             this.Handle = Native.NULL;
 
-            return result == Native.TRUE ? true : false;
+            return result == Native.TRUE;
         }
 
         public uint Search(ByteSearch pattern)
         {
-			const int blockSize = 0x00A00000;
+            const int blockSize = 0x00A00000;
             var data = new byte[blockSize];
 
             var address = this.MainModuleAddress;
 
-			for (int i = 0; i < this.MainModuleSize; i += (blockSize - pattern.Size))
-			{
-				int size = (int)Math.Min(blockSize, this.MainModuleSize - i);
+            for (int i = 0; i < this.MainModuleSize; i += (blockSize - pattern.Size))
+            {
+                int size = Math.Min(blockSize, this.MainModuleSize - i);
 
-				this.Read(this.MainModuleAddress + i, data, size);
+                this.Read(this.MainModuleAddress + i, data, size);
 
-				uint result = pattern.Match(data, size);
+                uint result = pattern.Match(data, size);
                 if (result != uint.MaxValue)
                 {
-                    var target = (uint)((
-                        this.MainModuleAddress + i).ToInt32());
+                    var target = (uint)((this.MainModuleAddress + i).ToInt32());
                     return target + result;
                 }
-			}
+            }
 
             return uint.MaxValue;
-		}
+        }
 
         private int Read(IntPtr address, byte[] data, int size)
         {
@@ -187,7 +197,7 @@ namespace Gibbed.Cryptic.ExportSchemas
 
             if (result == 0 && Native.GetLastError() != 299)
             {
-                throw new NativeException("error " + Native.GetLastError().ToString());
+                throw new NativeException("error " + Native.GetLastError().ToString(CultureInfo.InvariantCulture));
             }
 
             return (int)read;
@@ -221,7 +231,7 @@ namespace Gibbed.Cryptic.ExportSchemas
             byte[] buffer;
 
             structureSize = Marshal.SizeOf(typeof(T));
-            
+
             buffer = this.ReadBytes(address, structureSize);
             if (buffer.Length != structureSize)
             {
@@ -230,7 +240,7 @@ namespace Gibbed.Cryptic.ExportSchemas
 
             handle = GCHandle.Alloc(buffer, GCHandleType.Pinned);
 
-            T structure = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T));
+            var structure = (T)Marshal.PtrToStructure(handle.AddrOfPinnedObject(), typeof(T));
 
             handle.Free();
 

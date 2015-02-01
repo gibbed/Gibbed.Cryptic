@@ -220,7 +220,7 @@ namespace Gibbed.Cryptic.Unpack
                         }
 
                         name = name.Replace('/', Path.DirectorySeparatorChar);
-                        if (name.StartsWith(Path.DirectorySeparatorChar.ToString()) == true)
+                        if (name.StartsWith(Path.DirectorySeparatorChar.ToString(CultureInfo.InvariantCulture)) == true)
                         {
                             name = name.Substring(1);
                         }

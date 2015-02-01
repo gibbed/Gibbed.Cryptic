@@ -26,8 +26,7 @@ namespace Gibbed.Cryptic.ExportSchemas
 {
     public class NativeException : InvalidOperationException
     {
-        public NativeException() :
-            base()
+        public NativeException()
         {
         }
 

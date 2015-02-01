@@ -29,19 +29,23 @@ namespace Gibbed.Cryptic.GenerateSerializer
 {
     public class EnumLoader
     {
-        public IEnumerable<string> EnumNames { get { return this.Paths.Keys; } }
+        private readonly Dictionary<string, string> _Paths;
+        private readonly Dictionary<string, ParserEnumFile> _LoadedEnums;
 
-        private Dictionary<string, string> Paths
-            = new Dictionary<string, string>();
-        private Dictionary<string, ParserEnumFile> LoadedEnums
-            = new Dictionary<string, ParserEnumFile>();
+        public IEnumerable<string> EnumNames
+        {
+            get { return this._Paths.Keys; }
+        }
 
         public EnumLoader(string path)
         {
+            this._Paths = new Dictionary<string, string>();
+            this._LoadedEnums = new Dictionary<string, ParserEnumFile>();
+
             foreach (var inputPath in Directory.GetFiles(path, "*.enum.xml", SearchOption.AllDirectories))
             {
                 var name = ParserEnumFile.GetNameFromFile(inputPath);
-                this.Paths.Add(name, inputPath);
+                this._Paths.Add(name, inputPath);
             }
         }
 
@@ -52,18 +56,18 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 throw new ArgumentNullException("name");
             }
 
-            if (this.Paths.ContainsKey(name) == false)
+            if (this._Paths.ContainsKey(name) == false)
             {
                 throw new ArgumentException("no such enum", "name");
             }
 
-            if (this.LoadedEnums.ContainsKey(name) == true)
+            if (this._LoadedEnums.ContainsKey(name) == true)
             {
-                return this.LoadedEnums[name];
+                return this._LoadedEnums[name];
             }
 
-            var e = ParserEnumFile.LoadFile(this.Paths[name]);
-            this.LoadedEnums.Add(name, e);
+            var e = ParserEnumFile.LoadFile(this._Paths[name]);
+            this._LoadedEnums.Add(name, e);
             return e;
         }
     }

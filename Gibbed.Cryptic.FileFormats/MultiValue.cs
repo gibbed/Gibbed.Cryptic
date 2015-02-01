@@ -88,6 +88,11 @@ namespace Gibbed.Cryptic.FileFormats
             foreach (MultiValueOpcode value in Enum.GetValues(typeof(MultiValueOpcode)))
             {
                 var name = Enum.GetName(typeof(MultiValueOpcode), value);
+                if (name == null)
+                {
+                    throw new InvalidOperationException();
+                }
+
                 if (name.Length != 3 ||
                     name.ToUpperInvariant() != name)
                 {
@@ -103,13 +108,22 @@ namespace Gibbed.Cryptic.FileFormats
             foreach (StaticVariableType value in Enum.GetValues(typeof(StaticVariableType)))
             {
                 var name = Enum.GetName(typeof(StaticVariableType), value);
+                if (name == null)
+                {
+                    throw new InvalidOperationException();
+                }
+
                 _NamesToStaticVariables.Add(name, value);
                 _ValuesToStaticVariables.Add((uint)value, value);
             }
         }
 
         public MultiValueOpcode Op;
-        public string OpName { get { return Enum.GetName(typeof(MultiValueOpcode), this.Op); } }
+
+        public string OpName
+        {
+            get { return Enum.GetName(typeof(MultiValueOpcode), this.Op); }
+        }
 
         public object Arg;
     }

@@ -202,25 +202,25 @@ namespace Gibbed.Cryptic.ConvertObject
                         });
                     }
 
-                    Func<int, string> getFileNameFromIndex = i =>
-                    {
-                        if (i < 0 || i >= resource.Files.Count)
+                    Func<int, string> getFileNameFromIndex =
+                        i =>
                         {
-                            throw new KeyNotFoundException("file index " + i.ToString(CultureInfo.InvariantCulture) +
-                                                           " is out of range");
-                        }
+                            if (i < 0 || i >= resource.Files.Count)
+                            {
+                                throw new KeyNotFoundException("file index " +
+                                                               i.ToString(CultureInfo.InvariantCulture) +
+                                                               " is out of range");
+                            }
 
-                        return resource.Files[i].Name;
-                    };
+                            return resource.Files[i].Name;
+                        };
 
                     var loadObject = typeof(BlobDataReader)
                         .GetMethod("LoadObject", BindingFlags.Public | BindingFlags.Static)
                         .MakeGenericMethod(type);
-                    var data = loadObject.Invoke(null,
-                                                 new object[]
-                                                 {
-                                                     input, schema.IsClient, schema.IsServer, getFileNameFromIndex
-                                                 });
+                    var data = loadObject.Invoke(
+                        null,
+                        new object[] { input, schema.IsClient, schema.IsServer, getFileNameFromIndex });
 
                     Console.WriteLine("Saving object to XML...");
                     using (var output = File.Create(outputPath))
@@ -367,11 +367,9 @@ namespace Gibbed.Cryptic.ConvertObject
                     using (var output = File.Create(outputPath))
                     {
                         blob.Serialize(output);
-                        saveResource.Invoke(null,
-                                            new[]
-                                            {
-                                                data, output, schema.IsClient, schema.IsServer, getIndexFromFileName,
-                                            });
+                        saveResource.Invoke(
+                            null,
+                            new[] { data, output, schema.IsClient, schema.IsServer, getIndexFromFileName });
                     }
                 }
             }

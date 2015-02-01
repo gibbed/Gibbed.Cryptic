@@ -95,7 +95,9 @@ namespace Gibbed.Cryptic.FileFormats
         }
 
         private TType[] ReadNativeArray<TType>(
-            int count, object state, Func<PacketReader, object, TType> readValue)
+            int count,
+            object state,
+            Func<PacketReader, object, TType> readValue)
         {
             var array = new TType[count];
             for (uint i = 0; i < count; i++)
@@ -107,7 +109,8 @@ namespace Gibbed.Cryptic.FileFormats
 
         // ReSharper disable RedundantIfElseBlock
         private List<TType> ReadNativeList<TType>(
-            object state, Func<PacketReader, object, TType> readValue)
+            object state,
+            Func<PacketReader, object, TType> readValue)
         {
             var unknownFlag = (bool)state;
 
@@ -171,7 +174,9 @@ namespace Gibbed.Cryptic.FileFormats
         public byte[] ReadArrayByte(int count, object state)
         {
             return this.ReadNativeArray(
-                count, state, (a, b) => a.ReadValueByte(b));
+                count,
+                state,
+                (a, b) => a.ReadValueByte(b));
         }
 
         public List<byte> ReadListByte(int maxCount, object state)
@@ -254,13 +259,16 @@ namespace Gibbed.Cryptic.FileFormats
         public int[] ReadArrayInt32(int count, object state)
         {
             return this.ReadNativeArray(
-                count, state, (a, b) => a.ReadValueInt32(b));
+                count,
+                state,
+                (a, b) => a.ReadValueInt32(b));
         }
 
         public List<int> ReadListInt32(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueInt32(b));
+                state,
+                (a, b) => a.ReadValueInt32(b));
         }
 
         // ReSharper disable RedundantIfElseBlock
@@ -301,13 +309,16 @@ namespace Gibbed.Cryptic.FileFormats
         public float[] ReadArrayFloat(int count, object state)
         {
             return this.ReadNativeArray(
-                count, state, (a, b) => a.ReadValueFloat(b));
+                count,
+                state,
+                (a, b) => a.ReadValueFloat(b));
         }
 
         public List<float> ReadListFloat(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueFloat(b));
+                state,
+                (a, b) => a.ReadValueFloat(b));
         }
 
         public string ReadValueString(object state)
@@ -323,7 +334,8 @@ namespace Gibbed.Cryptic.FileFormats
         public List<string> ReadListString(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueString(b));
+                state,
+                (a, b) => a.ReadValueString(b));
         }
 
         public string ReadValueCurrentFile(object state)
@@ -514,7 +526,8 @@ namespace Gibbed.Cryptic.FileFormats
             where TType : Serialization.IStructure, new()
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueStructure<TType>(false, b));
+                state,
+                (a, b) => a.ReadValueStructure<TType>(false, b));
         }
 
         // ReSharper disable RedundantIfElseBlock
@@ -551,7 +564,8 @@ namespace Gibbed.Cryptic.FileFormats
         public List<object> ReadListPolymorph(Type[] validTypes, int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValuePolymorph(validTypes, false, b));
+                state,
+                (a, b) => a.ReadValuePolymorph(validTypes, false, b));
         }
 
         public StashTable ReadValueStashTable(object state)
@@ -605,8 +619,8 @@ namespace Gibbed.Cryptic.FileFormats
             }
 
             object arg;
-            // ReSharper disable BitwiseOperatorOnEnumWihtoutFlags
-            switch (op & MultiValueOpcode.TypeMask) // ReSharper restore BitwiseOperatorOnEnumWihtoutFlags
+            // ReSharper disable BitwiseOperatorOnEnumWithoutFlags
+            switch (op & MultiValueOpcode.TypeMask) // ReSharper restore BitwiseOperatorOnEnumWithoutFlags
             {
                 case MultiValueOpcode.NON:
                 {
@@ -671,7 +685,8 @@ namespace Gibbed.Cryptic.FileFormats
         public List<MultiValue> ReadListMultiValue(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueMultiValue(b));
+                state,
+                (a, b) => a.ReadValueMultiValue(b));
         }
 
         public TType ReadValueByteEnum<TType>(object state)
@@ -717,7 +732,8 @@ namespace Gibbed.Cryptic.FileFormats
         public List<TType> ReadListInt32Enum<TType>(int maxCount, object state)
         {
             return this.ReadNativeList(
-                state, (a, b) => a.ReadValueInt32Enum<TType>(b));
+                state,
+                (a, b) => a.ReadValueInt32Enum<TType>(b));
         }
 
         public TType ReadValueBitEnum<TType>(int bitOffset, object state)
