@@ -42,12 +42,15 @@ namespace Gibbed.Cryptic.GenerateSerializer
         private ModuleBuilder _ModuleBuilder;
 
         private readonly TargetGame _TargetGame;
+        private readonly string _BaseTypeName;
+
         private readonly ParserLoader _ParserLoader;
         private readonly EnumLoader _EnumLoader;
 
         public Generator(TargetGame targetGame, ParserLoader parserLoader, EnumLoader enumLoader)
         {
             this._TargetGame = targetGame;
+            this._BaseTypeName = "Gibbed." + this._TargetGame + ".Serialization.";
             this._ParserLoader = parserLoader;
             this._EnumLoader = enumLoader;
         }
@@ -122,8 +125,6 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 queuedTypes.Enqueue(new QueuedType(name, this._ParserLoader.LoadParser(name).Table));
             }
 
-            var baseTypeName = "Gibbed." + this._TargetGame + ".Serialization.";
-
             while (queuedTypes.Count > 0)
             {
                 var queuedType = queuedTypes.Dequeue();
@@ -136,7 +137,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 if (queuedType.Parent == null)
                 {
                     typeBuilder = this._ModuleBuilder.DefineType(
-                        baseTypeName + queuedType.Name,
+                        this._BaseTypeName + queuedType.Name,
                         TypeAttributes.Public,
                         null,
                         new[] { typeof(Serialization.IStructure) });
@@ -510,8 +511,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
             {
                 var name = column.StaticDefineListExternalName;
                 var builder = this._ModuleBuilder.DefineEnum(
-                    "Gibbed." + this._TargetGame.ToString() + ".Serialization.StaticDefineList." +
-                    column.StaticDefineListExternalName,
+                    this._BaseTypeName + "StaticDefineList." + column.StaticDefineListExternalName,
                     TypeAttributes.Public,
                     underlyingType);
 
@@ -576,7 +576,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
             TypeBuilder structure)
         {
             var builder = this._ModuleBuilder.DefineEnum(
-                "Gibbed." + this._TargetGame.ToString() + ".Serialization.Fields." + structure.Name + "Field",
+                this._BaseTypeName + "Fields." + structure.Name + "Field",
                 TypeAttributes.Public,
                 typeof(int));
 
@@ -1033,7 +1033,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 }
             }
 
-            var ctorBuilder = typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
+            typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
 
             var polymorphAttributeTypes = new List<Type>();
             if (table.Columns.Any(c => c.Token == 24) == true)
