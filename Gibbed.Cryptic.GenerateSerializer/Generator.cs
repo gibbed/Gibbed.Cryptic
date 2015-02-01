@@ -509,7 +509,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
             if (column.StaticDefineListIsExternal == true)
             {
-                var name = column.StaticDefineListExternalName;
+                //var name = column.StaticDefineListExternalName;
+
                 var builder = this._ModuleBuilder.DefineEnum(
                     this._BaseTypeName + "StaticDefineList." + column.StaticDefineListExternalName,
                     TypeAttributes.Public,
@@ -525,9 +526,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 foreach (var kv in e.Elements)
                 {
                     var value = ChangeEnumType(int.Parse(kv.Value), underlyingType);
-                    var fb = builder.DefineLiteral(
-                        kv.Key,
-                        value);
+                    builder.DefineLiteral(kv.Key, value);
                 }
 
                 var type = builder.CreateType();
@@ -557,12 +556,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 foreach (var kv in e.Elements)
                 {
                     var value = ChangeEnumType(int.Parse(kv.Value), underlyingType);
-
-                    var fb = builder.DefineField(
+                    var fieldBuilder = builder.DefineField(
                         kv.Key,
                         builder,
                         FieldAttributes.Public | FieldAttributes.Literal | FieldAttributes.Static);
-                    fb.SetConstant(value);
+                    fieldBuilder.SetConstant(value);
                 }
 
                 var type = builder.CreateType();
@@ -1011,118 +1009,6 @@ namespace Gibbed.Cryptic.GenerateSerializer
             return builder;
         }
 
-        private void ExportStructure(ParserSchema.Table table, TypeBuilder typeBuilder)
-        {
-            var fieldBuilders = new Dictionary<ParserSchema.Column, FieldBuilder>();
-            var fieldTypes = new Dictionary<ParserSchema.Column, Type>();
-
-            var specialDefaultFieldBuilders = new List<FieldBuilder>();
-
-            foreach (var column in table.Columns.Where(Helpers.IsGoodColumn))
-            {
-                var fieldType = GetColumnNativeType(typeBuilder, column);
-                fieldTypes.Add(column, fieldType);
-
-                bool isSpecialDefault;
-                var fieldBuilder = ExportField(table, column, typeBuilder, out isSpecialDefault);
-                fieldBuilders.Add(column, fieldBuilder);
-
-                if (isSpecialDefault == true)
-                {
-                    specialDefaultFieldBuilders.Add(fieldBuilder);
-                }
-            }
-
-            typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
-
-            var polymorphAttributeTypes = new List<Type>();
-            if (table.Columns.Any(c => c.Token == Parser.TokenType.MultiValue) == true)
-            {
-                typeBuilder.SetCustomAttribute(
-                    new CustomAttributeBuilder(
-                        GetConstructor<KnownTypeAttribute>(typeof(Type)),
-                        new object[] { typeof(StaticVariableType) }));
-                polymorphAttributeTypes.Add(typeof(StaticVariableType));
-            }
-
-            var polymorphBuilders = new Dictionary<ParserSchema.Column, FieldBuilder>();
-            var polymorphColumns = table.Columns
-                                        .Where(c => Helpers.IsGoodColumn(c) && c.Token == Parser.TokenType.Polymorph)
-                                        .ToArray();
-            if (polymorphColumns.Length > 0)
-            {
-                var cctorBuilder = typeBuilder.DefineTypeInitializer();
-                var cctorMsil = cctorBuilder.GetILGenerator();
-                var typeList = cctorMsil.DeclareLocal(typeof(Type[]));
-
-                foreach (var column in polymorphColumns)
-                {
-                    var fieldBuilder = typeBuilder.DefineField(
-                        "_ValidFor" + Helpers.GetColumnName(table, column),
-                        typeof(Type[]),
-                        FieldAttributes.Private | FieldAttributes.Static | FieldAttributes.InitOnly);
-                    polymorphBuilders.Add(column, fieldBuilder);
-                }
-
-                foreach (var column in polymorphColumns)
-                {
-                    var fieldBuilder = polymorphBuilders[column];
-
-                    cctorMsil.EmitConstant(column.Subtable.Columns.Count);
-                    cctorMsil.Emit(OpCodes.Newarr, typeof(Type));
-                    cctorMsil.Emit(OpCodes.Stloc, typeList);
-
-                    for (int i = 0; i < column.Subtable.Columns.Count; i++)
-                    {
-                        var subcolumn = column.Subtable.Columns[i];
-
-                        cctorMsil.Emit(OpCodes.Ldloc, typeList);
-                        cctorMsil.EmitConstant(i);
-
-                        cctorMsil.Emit(OpCodes.Ldtoken, this.GetColumnNativeType(typeBuilder, subcolumn));
-                        cctorMsil.Emit(OpCodes.Call,
-                                       typeof(Type).GetMethod("GetTypeFromHandle",
-                                                              new[] { typeof(RuntimeTypeHandle) }));
-
-                        cctorMsil.Emit(OpCodes.Stelem_Ref);
-                    }
-
-                    cctorMsil.Emit(OpCodes.Ldloc, typeList);
-                    cctorMsil.Emit(OpCodes.Stsfld, fieldBuilder);
-                }
-
-                foreach (var column in polymorphColumns)
-                {
-                    foreach (var subcolumn in column.Subtable.Columns)
-                    {
-                        var type = this.GetColumnNativeType(typeBuilder, subcolumn);
-                        if (polymorphAttributeTypes.Contains(type) == true)
-                        {
-                            continue;
-                        }
-                        polymorphAttributeTypes.Add(type);
-
-                        typeBuilder.SetCustomAttribute(
-                            new CustomAttributeBuilder(
-                                GetConstructor<KnownTypeAttribute>(typeof(Type)),
-                                new object[] { type }));
-                    }
-                }
-
-                cctorMsil.Emit(OpCodes.Ret);
-            }
-
-            if (specialDefaultFieldBuilders.Count > 0)
-            {
-                this.ExportStructureSpecialDefaults(typeBuilder, specialDefaultFieldBuilders);
-            }
-
-            this.ExportStructureFileSerialize(table, typeBuilder, fieldBuilders, fieldTypes, polymorphBuilders);
-            this.ExportStructureFileDeserialize(table, typeBuilder, fieldTypes, fieldBuilders, polymorphBuilders);
-            this.ExportStructurePacketSerialize(table, typeBuilder, fieldTypes, fieldBuilders, polymorphBuilders);
-            this.ExportStructurePacketDeserialize(table, typeBuilder, fieldTypes, fieldBuilders, polymorphBuilders);
-        }
-
         private void ExportStructureSpecialDefaults(
             TypeBuilder typeBuilder,
             List<FieldBuilder> specialDefaultFieldBuilders)
@@ -1156,14 +1042,12 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     var elementType = listType.GetGenericArguments().Single();
                     if (elementType is TypeBuilder)
                     {
-                        msil.EmitCall(OpCodes.Callvirt,
-                                      TypeBuilder.GetMethod(listType,
-                                                            typeof(List<>).GetProperty("Count").GetGetMethod()),
-                                      null);
+                        msil.Emit(OpCodes.Callvirt,
+                                  TypeBuilder.GetMethod(listType, typeof(List<>).GetProperty("Count").GetGetMethod()));
                     }
                     else
                     {
-                        msil.EmitCall(OpCodes.Callvirt, listType.GetProperty("Count").GetGetMethod(), null);
+                        msil.Emit(OpCodes.Callvirt, listType.GetProperty("Count").GetGetMethod());
                     }
 
                     msil.Emit(OpCodes.Ldc_I4_0);
@@ -1192,7 +1076,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 var contextParam = onSerializingBuilder.DefineParameter(1, ParameterAttributes.None, "context");
                 var msil = onSerializingBuilder.GetILGenerator();
                 msil.Emit(OpCodes.Ldarg_0);
-                msil.EmitCall(OpCodes.Callvirt, clearListsBuilder, null);
+                msil.Emit(OpCodes.Callvirt, clearListsBuilder);
                 msil.Emit(OpCodes.Ret);
             }
 
@@ -1252,7 +1136,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 var contextParam = onDeserializingBuilder.DefineParameter(1, ParameterAttributes.None, "context");
                 var msil = onDeserializingBuilder.GetILGenerator();
                 msil.Emit(OpCodes.Ldarg_0);
-                msil.EmitCall(OpCodes.Callvirt, constructListsBuilder, null);
+                msil.Emit(OpCodes.Callvirt, constructListsBuilder);
                 msil.Emit(OpCodes.Ret);
             }
 
@@ -1269,7 +1153,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 var contextParam = onSerializedBuilder.DefineParameter(1, ParameterAttributes.None, "context");
                 var msil = onSerializedBuilder.GetILGenerator();
                 msil.Emit(OpCodes.Ldarg_0);
-                msil.EmitCall(OpCodes.Callvirt, constructListsBuilder, null);
+                msil.Emit(OpCodes.Callvirt, constructListsBuilder);
                 msil.Emit(OpCodes.Ret);
             }
         }
@@ -1337,9 +1221,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         checkScope = CheckScope.Client;
 
                         msil.Emit(OpCodes.Ldarg_1); // writer
-                        msil.EmitCall(OpCodes.Callvirt,
-                                      typeof(Serialization.IBaseWriter).GetProperty("IsClient").GetGetMethod(),
-                                      Type.EmptyTypes);
+                        msil.Emit(OpCodes.Callvirt,
+                                  typeof(Serialization.IBaseWriter).GetProperty("IsClient").GetGetMethod());
                         msil.Emit(OpCodes.Brfalse, endLabel);
                     }
                 }
@@ -1356,9 +1239,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         checkScope = CheckScope.Server;
 
                         msil.Emit(OpCodes.Ldarg_1); // writer
-                        msil.EmitCall(OpCodes.Callvirt,
-                                      typeof(Serialization.IBaseWriter).GetProperty("IsServer").GetGetMethod(),
-                                      Type.EmptyTypes);
+                        msil.Emit(OpCodes.Callvirt,
+                                  typeof(Serialization.IBaseWriter).GetProperty("IsServer").GetGetMethod());
                         msil.Emit(OpCodes.Brfalse, endLabel);
                     }
                 }
@@ -1395,7 +1277,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                             msil.EmitConstant(column.BitOffset);
                         }
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                     }
                     else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
                     {
@@ -1408,7 +1290,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         }
                         msil.EmitConstant(column.NumberOfElements);
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                     }
                     else
                     {
@@ -1422,9 +1304,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
                                                                       ParserSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt,
-                                      methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]),
-                                      null);
+                        msil.Emit(OpCodes.Callvirt,
+                                  methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]));
                     }
                 }
                 else if (column.Token == Parser.TokenType.Structure) // structure
@@ -1437,7 +1318,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
                         msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                     }
                     else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
                     {
@@ -1446,7 +1327,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
                         msil.EmitConstant(column.NumberOfElements);
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                     }
                     else
                     {
@@ -1456,9 +1337,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
                                                                       ParserSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt,
-                                      methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]),
-                                      null);
+                        msil.Emit(OpCodes.Callvirt,
+                                  methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]));
                     }
                 }
                 else if (column.Token == Parser.TokenType.Polymorph) // polymorph
@@ -1472,7 +1352,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]); // types
                         msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                     }
                     else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
                     {
@@ -1482,7 +1362,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]); // types
                         msil.EmitConstant(column.NumberOfElements); // count
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                     }
                     else
                     {
@@ -1493,7 +1373,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
                                                                       ParserSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                     }
                 }
                 else
@@ -1509,7 +1389,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                             msil.EmitConstant(column.BitOffset);
                         }
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                     }
                     else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
                     {
@@ -1522,7 +1402,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         }
                         msil.EmitConstant(column.NumberOfElements); // count
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                     }
                     else
                     {
@@ -1536,7 +1416,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
                                                                       ParserSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                     }
                 }
             }
@@ -1613,9 +1493,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         checkScope = CheckScope.Client;
 
                         msil.Emit(OpCodes.Ldarg_1); // reader
-                        msil.EmitCall(OpCodes.Callvirt,
-                                      typeof(Serialization.IBaseReader).GetProperty("IsClient").GetGetMethod(),
-                                      Type.EmptyTypes);
+                        msil.Emit(OpCodes.Callvirt,
+                                  typeof(Serialization.IBaseReader).GetProperty("IsClient").GetGetMethod());
                         msil.Emit(OpCodes.Brfalse, endLabel);
                     }
                 }
@@ -1632,9 +1511,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         checkScope = CheckScope.Server;
 
                         msil.Emit(OpCodes.Ldarg_1); // reader
-                        msil.EmitCall(OpCodes.Callvirt,
-                                      typeof(Serialization.IBaseReader).GetProperty("IsServer").GetGetMethod(),
-                                      Type.EmptyTypes);
+                        msil.Emit(OpCodes.Callvirt,
+                                  typeof(Serialization.IBaseReader).GetProperty("IsServer").GetGetMethod());
                         msil.Emit(OpCodes.Brfalse, endLabel);
                     }
                 }
@@ -1670,7 +1548,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                             msil.EmitConstant(column.BitOffset);
                         }
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
@@ -1683,7 +1561,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         }
                         msil.EmitConstant(column.NumberOfElements);
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else
@@ -1697,9 +1575,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
                                                                       ParserSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt,
-                                      methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]),
-                                      null);
+                        msil.Emit(OpCodes.Callvirt,
+                                  methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
@@ -1712,7 +1589,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
@@ -1721,7 +1598,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.EmitConstant(column.NumberOfElements);
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else
@@ -1731,9 +1608,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
                                                                       ParserSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt,
-                                      methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]),
-                                      null);
+                        msil.Emit(OpCodes.Callvirt,
+                                  methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
@@ -1747,7 +1623,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]); // types
                         msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
@@ -1757,7 +1633,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]); // types
                         msil.EmitConstant(column.NumberOfElements); // count
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else
@@ -1768,7 +1644,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
                                                                       ParserSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
@@ -1784,7 +1660,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                             msil.EmitConstant(column.BitOffset);
                         }
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
@@ -1797,7 +1673,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         }
                         msil.EmitConstant(column.NumberOfElements); // count
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else
@@ -1811,7 +1687,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
                                                                       ParserSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
@@ -1941,9 +1817,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 {
                     var okLabel = msil.DefineLabel();
                     msil.Emit(OpCodes.Ldarg_1); // reader
-                    msil.EmitCall(OpCodes.Callvirt,
-                                  typeof(Serialization.IBaseReader).GetProperty("IsClient").GetGetMethod(),
-                                  Type.EmptyTypes);
+                    msil.Emit(OpCodes.Callvirt,
+                              typeof(Serialization.IBaseReader).GetProperty("IsClient").GetGetMethod());
                     msil.Emit(OpCodes.Brtrue, okLabel);
 
                     msil.Emit(OpCodes.Ldstr,
@@ -1958,9 +1833,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 {
                     var okLabel = msil.DefineLabel();
                     msil.Emit(OpCodes.Ldarg_1); // reader
-                    msil.EmitCall(OpCodes.Callvirt,
-                                  typeof(Serialization.IBaseReader).GetProperty("IsServer").GetGetMethod(),
-                                  Type.EmptyTypes);
+                    msil.Emit(OpCodes.Callvirt, typeof(Serialization.IBaseReader).GetProperty("IsServer").GetGetMethod());
                     msil.Emit(OpCodes.Brtrue, okLabel);
 
                     msil.Emit(OpCodes.Ldstr,
@@ -2011,7 +1884,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
@@ -2026,7 +1899,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else
@@ -2042,9 +1915,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
-                        msil.EmitCall(OpCodes.Callvirt,
-                                      methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]),
-                                      null);
+                        msil.Emit(OpCodes.Callvirt,
+                                  methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
@@ -2059,7 +1931,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
@@ -2070,7 +1942,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]), null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else
@@ -2082,9 +1954,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
-                        msil.EmitCall(OpCodes.Callvirt,
-                                      methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]),
-                                      null);
+                        msil.Emit(OpCodes.Callvirt,
+                                  methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
@@ -2100,7 +1971,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
@@ -2112,7 +1983,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else
@@ -2125,7 +1996,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
@@ -2143,7 +2014,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
@@ -2158,7 +2029,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                     else
@@ -2174,7 +2045,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
-                        msil.EmitCall(OpCodes.Callvirt, methodInfo, null);
+                        msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
@@ -2192,6 +2063,118 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
             msil.MarkLabel(returnLabel);
             msil.Emit(OpCodes.Ret);
+        }
+
+        private void ExportStructure(ParserSchema.Table table, TypeBuilder typeBuilder)
+        {
+            var fieldBuilders = new Dictionary<ParserSchema.Column, FieldBuilder>();
+            var fieldTypes = new Dictionary<ParserSchema.Column, Type>();
+
+            var specialDefaultFieldBuilders = new List<FieldBuilder>();
+
+            foreach (var column in table.Columns.Where(Helpers.IsGoodColumn))
+            {
+                var fieldType = GetColumnNativeType(typeBuilder, column);
+                fieldTypes.Add(column, fieldType);
+
+                bool isSpecialDefault;
+                var fieldBuilder = ExportField(table, column, typeBuilder, out isSpecialDefault);
+                fieldBuilders.Add(column, fieldBuilder);
+
+                if (isSpecialDefault == true)
+                {
+                    specialDefaultFieldBuilders.Add(fieldBuilder);
+                }
+            }
+
+            typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
+
+            var polymorphAttributeTypes = new List<Type>();
+            if (table.Columns.Any(c => c.Token == Parser.TokenType.MultiValue) == true)
+            {
+                typeBuilder.SetCustomAttribute(
+                    new CustomAttributeBuilder(
+                        GetConstructor<KnownTypeAttribute>(typeof(Type)),
+                        new object[] { typeof(StaticVariableType) }));
+                polymorphAttributeTypes.Add(typeof(StaticVariableType));
+            }
+
+            var polymorphBuilders = new Dictionary<ParserSchema.Column, FieldBuilder>();
+            var polymorphColumns = table.Columns
+                                        .Where(c => Helpers.IsGoodColumn(c) && c.Token == Parser.TokenType.Polymorph)
+                                        .ToArray();
+            if (polymorphColumns.Length > 0)
+            {
+                var cctorBuilder = typeBuilder.DefineTypeInitializer();
+                var cctorMsil = cctorBuilder.GetILGenerator();
+                var typeList = cctorMsil.DeclareLocal(typeof(Type[]));
+
+                foreach (var column in polymorphColumns)
+                {
+                    var fieldBuilder = typeBuilder.DefineField(
+                        "_ValidFor" + Helpers.GetColumnName(table, column),
+                        typeof(Type[]),
+                        FieldAttributes.Private | FieldAttributes.Static | FieldAttributes.InitOnly);
+                    polymorphBuilders.Add(column, fieldBuilder);
+                }
+
+                foreach (var column in polymorphColumns)
+                {
+                    var fieldBuilder = polymorphBuilders[column];
+
+                    cctorMsil.EmitConstant(column.Subtable.Columns.Count);
+                    cctorMsil.Emit(OpCodes.Newarr, typeof(Type));
+                    cctorMsil.Emit(OpCodes.Stloc, typeList);
+
+                    for (int i = 0; i < column.Subtable.Columns.Count; i++)
+                    {
+                        var subcolumn = column.Subtable.Columns[i];
+
+                        cctorMsil.Emit(OpCodes.Ldloc, typeList);
+                        cctorMsil.EmitConstant(i);
+
+                        cctorMsil.Emit(OpCodes.Ldtoken, this.GetColumnNativeType(typeBuilder, subcolumn));
+                        cctorMsil.Emit(OpCodes.Call,
+                                       typeof(Type).GetMethod("GetTypeFromHandle",
+                                                              new[] { typeof(RuntimeTypeHandle) }));
+
+                        cctorMsil.Emit(OpCodes.Stelem_Ref);
+                    }
+
+                    cctorMsil.Emit(OpCodes.Ldloc, typeList);
+                    cctorMsil.Emit(OpCodes.Stsfld, fieldBuilder);
+                }
+
+                foreach (var column in polymorphColumns)
+                {
+                    foreach (var subcolumn in column.Subtable.Columns)
+                    {
+                        var type = this.GetColumnNativeType(typeBuilder, subcolumn);
+                        if (polymorphAttributeTypes.Contains(type) == true)
+                        {
+                            continue;
+                        }
+                        polymorphAttributeTypes.Add(type);
+
+                        typeBuilder.SetCustomAttribute(
+                            new CustomAttributeBuilder(
+                                GetConstructor<KnownTypeAttribute>(typeof(Type)),
+                                new object[] { type }));
+                    }
+                }
+
+                cctorMsil.Emit(OpCodes.Ret);
+            }
+
+            if (specialDefaultFieldBuilders.Count > 0)
+            {
+                this.ExportStructureSpecialDefaults(typeBuilder, specialDefaultFieldBuilders);
+            }
+
+            this.ExportStructureFileSerialize(table, typeBuilder, fieldBuilders, fieldTypes, polymorphBuilders);
+            this.ExportStructureFileDeserialize(table, typeBuilder, fieldTypes, fieldBuilders, polymorphBuilders);
+            this.ExportStructurePacketSerialize(table, typeBuilder, fieldTypes, fieldBuilders, polymorphBuilders);
+            this.ExportStructurePacketDeserialize(table, typeBuilder, fieldTypes, fieldBuilders, polymorphBuilders);
         }
     }
 }
