@@ -63,10 +63,10 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 return false;
             }
 
-            if (column.Token == 0 || // ignore
-                column.Token == 1 || // start
-                column.Token == 2 || // end
-                column.Token == 25) // command
+            if (column.Token == Parser.TokenType.Ignore ||
+                column.Token == Parser.TokenType.Start ||
+                column.Token == Parser.TokenType.End ||
+                column.Token == Parser.TokenType.Command)
             {
                 return false;
             }

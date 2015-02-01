@@ -62,7 +62,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
             get { return (byte)_Tokens.Length; }
         }
 
-        public static Token MatchToken(string name, out byte id, out ColumnFlags flags)
+        public static Token MatchToken(string name, out TokenType id, out ColumnFlags flags)
         {
             name = name.ToLowerInvariant();
 
@@ -77,7 +77,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
                 if (token.NameDirectValue != null &&
                     name == token.NameDirectValue.ToLowerInvariant())
                 {
-                    id = i;
+                    id = (TokenType)i;
                     flags = ColumnFlags.None;
                     return token;
                 }
@@ -85,7 +85,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
                 if (token.NameDirectFixedArray != null &&
                     name == token.NameDirectFixedArray.ToLowerInvariant())
                 {
-                    id = i;
+                    id = (TokenType)i;
                     flags = ColumnFlags.FIXED_ARRAY;
                     return token;
                 }
@@ -93,7 +93,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
                 if (token.NameDirectArray != null &&
                     name == token.NameDirectArray.ToLowerInvariant())
                 {
-                    id = i;
+                    id = (TokenType)i;
                     flags = ColumnFlags.EARRAY;
                     return token;
                 }
@@ -101,7 +101,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
                 if (token.NameIndirectValue != null &&
                     name == token.NameIndirectValue.ToLowerInvariant())
                 {
-                    id = i;
+                    id = (TokenType)i;
                     flags = ColumnFlags.INDIRECT;
                     return token;
                 }
@@ -109,7 +109,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
                 if (token.NameIndirectFixedArray != null &&
                     name == token.NameIndirectFixedArray.ToLowerInvariant())
                 {
-                    id = i;
+                    id = (TokenType)i;
                     flags = ColumnFlags.INDIRECT | ColumnFlags.FIXED_ARRAY;
                     return token;
                 }
@@ -117,13 +117,18 @@ namespace Gibbed.Cryptic.FileFormats.Parser
                 if (token.NameIndirectArray != null &&
                     name == token.NameIndirectArray.ToLowerInvariant())
                 {
-                    id = i;
+                    id = (TokenType)i;
                     flags = ColumnFlags.INDIRECT | ColumnFlags.EARRAY;
                     return token;
                 }
             }
 
             throw new ArgumentException("token not found", "name");
+        }
+
+        public static Token GetToken(TokenType tokenType)
+        {
+            return GetToken((byte)tokenType);
         }
 
         public static Token GetToken(byte index)

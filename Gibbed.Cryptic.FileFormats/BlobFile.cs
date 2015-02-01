@@ -203,7 +203,7 @@ namespace Gibbed.Cryptic.FileFormats
             else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
             {
                 // fixed array
-                if (column.Token == 16) // MATPYR
+                if (column.Token == Parser.TokenType.MATPYR)
                 {
                     token.Deserialize(input, column, output);
                 }
@@ -219,7 +219,7 @@ namespace Gibbed.Cryptic.FileFormats
             }
             else
             {
-                if (column.Token == 19)
+                if (column.Token == Parser.TokenType.FunctionCall)
                 {
                     token.Deserialize(input, column, output);
                 }

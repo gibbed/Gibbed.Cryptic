@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -20,12 +20,36 @@
  *    distribution.
  */
 
-using System.Collections.Generic;
-
-namespace Gibbed.Cryptic.FileFormats.ParserSchema
+namespace Gibbed.Cryptic.FileFormats.Parser
 {
-    public class Table
+    public enum TokenType : byte
     {
-        public List<Column> Columns = new List<Column>();
+        Ignore = 0,
+        Start = 1,
+        End = 2,
+
+        Byte = 3,
+        Int16 = 4,
+        Int32 = 5,
+        Int64 = 6,
+        Float = 7,
+        String = 8,
+        CurrentFile = 9,
+        Timestamp = 10,
+        LineNumber = 11,
+        Boolean = 12,
+
+        BooleanFlag = 14,
+        QUATPYR = 15,
+        MATPYR = 16,
+        Filename = 17,
+        Reference = 18,
+        FunctionCall = 19,
+        Structure = 20,
+        Polymorph = 21,
+        StashTable = 22,
+        Bit = 23,
+        MultiValue = 24,
+        Command = 25,
     }
 }
