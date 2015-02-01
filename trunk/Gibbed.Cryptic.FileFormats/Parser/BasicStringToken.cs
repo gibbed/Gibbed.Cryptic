@@ -58,7 +58,10 @@ namespace Gibbed.Cryptic.FileFormats.Parser
                     return ColumnParameter.StaticDefineList;
                 }
 
-                default: return ColumnParameter.None;
+                default:
+                {
+                    return ColumnParameter.None;
+                }
             }
         }
     }

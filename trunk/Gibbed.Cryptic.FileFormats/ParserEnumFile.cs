@@ -41,12 +41,25 @@ namespace Gibbed.Cryptic.FileFormats
             var elements = new ParserSchema.Enumeration();
 
             var type = nav.GetAttribute("type", "").ToLowerInvariant();
-            
+
             switch (type)
             {
-                case "int": elements.Type = ParserSchema.EnumerationType.Int; break;
-                case "string": elements.Type = ParserSchema.EnumerationType.String; break;
-                default: throw new InvalidOperationException();
+                case "int":
+                {
+                    elements.Type = ParserSchema.EnumerationType.Int;
+                    break;
+                }
+
+                case "string":
+                {
+                    elements.Type = ParserSchema.EnumerationType.String;
+                    break;
+                }
+
+                default:
+                {
+                    throw new InvalidOperationException();
+                }
             }
 
             int duplicate = 0;
@@ -71,6 +84,7 @@ namespace Gibbed.Cryptic.FileFormats
                 if (elements.Elements.ContainsKey(name) == true)
                 {
                     name = name + "__" + duplicate.ToString(CultureInfo.InvariantCulture);
+                    duplicate++;
                 }
 
                 elements.Elements.Add(name, value);

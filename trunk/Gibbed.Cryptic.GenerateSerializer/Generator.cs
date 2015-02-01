@@ -22,6 +22,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -36,48 +37,51 @@ namespace Gibbed.Cryptic.GenerateSerializer
 {
     internal class Generator
     {
-        private AssemblyBuilder AssemblyBuilder;
-        private ModuleBuilder ModuleBuilder;
+        private AssemblyBuilder _AssemblyBuilder;
+        private ModuleBuilder _ModuleBuilder;
 
-        private ParserLoader ParserLoader;
-        private EnumLoader EnumLoader;
-        public readonly TargetGame TargetGame;
+        private readonly TargetGame _TargetGame; 
+        private readonly ParserLoader _ParserLoader;
+        private readonly EnumLoader _EnumLoader;
 
         public Generator(TargetGame targetGame, ParserLoader parserLoader, EnumLoader enumLoader)
         {
-            this.TargetGame = targetGame;
-            this.ParserLoader = parserLoader;
-            this.EnumLoader = enumLoader;
+            this._TargetGame = targetGame;
+            this._ParserLoader = parserLoader;
+            this._EnumLoader = enumLoader;
         }
 
-        private static MethodInfo EnumTryParse =
+        private static MethodInfo _EnumTryParse =
             typeof(Enum).GetMethods(BindingFlags.Public | BindingFlags.Static)
                         .First(m => m.Name == "TryParse" && m.GetParameters().Length == 3);
 
         public void ExportAssembly(string outputPath, string version)
         {
-            var assemblyName = new AssemblyName();
-            assemblyName.Name = Path.GetFileNameWithoutExtension(outputPath);
+            var assemblyName = new AssemblyName
+            {
+                Name = Path.GetFileNameWithoutExtension(outputPath),
+            };
 
-            this.AssemblyBuilder = AppDomain.CurrentDomain.DefineDynamicAssembly(
+            this._AssemblyBuilder = AppDomain.CurrentDomain.DefineDynamicAssembly(
                 assemblyName,
                 AssemblyBuilderAccess.Save);
 
             if (version != null)
             {
-                this.AssemblyBuilder.SetCustomAttribute(
+                this._AssemblyBuilder.SetCustomAttribute(
                     new CustomAttributeBuilder(typeof(AssemblyDescriptionAttribute)
-                                                   .GetConstructor(new Type[] { typeof(string) }),
+                                                   .GetConstructor(new[] { typeof(string) }),
                                                new object[] { version }));
             }
 
-            this.AssemblyBuilder.DefineVersionInfoResource();
+            this._AssemblyBuilder.DefineVersionInfoResource();
 
-            this.ModuleBuilder = this.AssemblyBuilder.DefineDynamicModule(
-                assemblyName.Name, Path.GetFileName(outputPath));
+            this._ModuleBuilder = this._AssemblyBuilder.DefineDynamicModule(
+                assemblyName.Name,
+                Path.GetFileName(outputPath));
 
-            this.EnumTypes = new Dictionary<ParserSchema.Enumeration, Type>();
-            this.TableTypes = new Dictionary<ParserSchema.Table, TypeBuilder>();
+            this._EnumTypes = new Dictionary<ParserSchema.Enumeration, Type>();
+            this._TableTypes = new Dictionary<ParserSchema.Table, TypeBuilder>();
 
             var queue = new Queue<QueuedType>();
             var done = new List<string>();
@@ -86,11 +90,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
             done.Clear();
 
             Console.WriteLine("Loading parsers...");
-            foreach (var name in this.ParserLoader.ParserNames)
+            foreach (var name in this._ParserLoader.ParserNames)
             {
                 queue.Enqueue(new QueuedType(
                                   name,
-                                  this.ParserLoader.LoadParser(name).Table));
+                                  this._ParserLoader.LoadParser(name).Table));
             }
 
             while (queue.Count > 0)
@@ -104,44 +108,42 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                 if (qt.Parent == null)
                 {
-                    typeBuilder = this.ModuleBuilder.DefineType(
-                        "Gibbed." + this.TargetGame.ToString() + ".Serialization." + qt.Name,
+                    typeBuilder = this._ModuleBuilder.DefineType(
+                        "Gibbed." + this._TargetGame.ToString() + ".Serialization." + qt.Name,
                         TypeAttributes.Public,
                         null,
-                        new Type[] { typeof(Serialization.IStructure) });
+                        new[] { typeof(Serialization.IStructure) });
                 }
                 else
                 {
-                    typeBuilder = this.TableTypes[qt.Parent.Table].DefineNestedType(
+                    typeBuilder = this._TableTypes[qt.Parent.Table].DefineNestedType(
                         qt.Name,
                         TypeAttributes.NestedPublic,
                         null,
-                        new Type[] { typeof(Serialization.IStructure) });
+                        new[] { typeof(Serialization.IStructure) });
                 }
 
                 typeBuilder.SetCustomAttribute(
                     new CustomAttributeBuilder(typeof(DataContractAttribute)
                                                    .GetConstructor(Type.EmptyTypes),
                                                new object[] { },
-                                               new PropertyInfo[]
-                                               { typeof(DataContractAttribute).GetProperty("Namespace") },
+                                               new[] { typeof(DataContractAttribute).GetProperty("Namespace") },
                                                new object[]
                                                {
                                                    "http://datacontract.gib.me/" +
-                                                   this.TargetGame.ToString().ToLowerInvariant()
+                                                   this._TargetGame.ToString().ToLowerInvariant()
                                                }));
 
-                this.TableTypes.Add(qt.Table, typeBuilder);
+                this._TableTypes.Add(qt.Table, typeBuilder);
 
-                foreach (var column in qt.Table.Columns
-                                         .Where(c => Helpers.IsGoodColumn(c)))
+                foreach (var column in qt.Table.Columns.Where(Helpers.IsGoodColumn))
                 {
                     if (column.Token == 20)
                     {
                         if (column.SubtableIsExternal == true)
                         {
                             if (done.Contains(column.SubtableExternalName) == false &&
-                                queue.Where(e => e.Name == column.SubtableExternalName && e.Parent == null).Count() == 0)
+                                queue.Any(e => e.Name == column.SubtableExternalName && e.Parent == null) == false)
                             {
                                 queue.Enqueue(new QueuedType(column.SubtableExternalName, column.Subtable));
                             }
@@ -151,7 +153,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                             var key = qt.Key + "." + column.Name;
 
                             if (done.Contains(key) == false &&
-                                queue.Where(e => e.Name == column.Name && e.Parent == qt).Count() == 0)
+                                queue.Any(e => e.Name == column.Name && e.Parent == qt) == false)
                             {
                                 queue.Enqueue(new QueuedType(column.Name, column.Subtable, qt));
                             }
@@ -164,8 +166,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                             if (subcolumn.SubtableIsExternal == true)
                             {
                                 if (done.Contains(subcolumn.SubtableExternalName) == false &&
-                                    queue.Where(e => e.Name == subcolumn.SubtableExternalName && e.Parent == null)
-                                         .Count() == 0)
+                                    queue.Any(e => e.Name == subcolumn.SubtableExternalName && e.Parent == null) ==
+                                    false)
                                 {
                                     queue.Enqueue(new QueuedType(subcolumn.SubtableExternalName, subcolumn.Subtable));
                                 }
@@ -182,10 +184,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
             queue.Clear();
             done.Clear();
 
-            foreach (var name in this.ParserLoader.ParserNames)
+            foreach (var name in this._ParserLoader.ParserNames)
             {
                 queue.Enqueue(new QueuedType(
-                                  name, this.ParserLoader.LoadParser(name).Table));
+                                  name,
+                                  this._ParserLoader.LoadParser(name).Table));
             }
 
             while (queue.Count > 0)
@@ -195,19 +198,18 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                 Console.WriteLine("Generating code for {0}...", qt.Key);
 
-                var typeBuilder = this.TableTypes[qt.Table];
+                var typeBuilder = this._TableTypes[qt.Table];
 
                 this.ExportStructure(qt.Table, typeBuilder);
 
-                foreach (var column in qt.Table.Columns
-                                         .Where(c => Helpers.IsGoodColumn(c)))
+                foreach (var column in qt.Table.Columns.Where(Helpers.IsGoodColumn))
                 {
                     if (column.Token == 20)
                     {
                         if (column.SubtableIsExternal == true)
                         {
                             if (done.Contains(column.SubtableExternalName) == false &&
-                                queue.Where(e => e.Name == column.SubtableExternalName && e.Parent == null).Count() == 0)
+                                queue.Any(e => e.Name == column.SubtableExternalName && e.Parent == null) == false)
                             {
                                 queue.Enqueue(new QueuedType(column.SubtableExternalName, column.Subtable));
                             }
@@ -217,7 +219,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                             var key = qt.Key + "." + column.Name;
 
                             if (done.Contains(key) == false &&
-                                queue.Where(e => e.Name == column.Name && e.Parent == qt).Count() == 0)
+                                queue.Any(e => e.Name == column.Name && e.Parent == qt) == false)
                             {
                                 queue.Enqueue(new QueuedType(column.Name, column.Subtable, qt));
                             }
@@ -246,11 +248,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 typeBuilder.CreateType();
             }
 
-            this.AssemblyBuilder.Save(outputPath);
+            this._AssemblyBuilder.Save(outputPath);
         }
 
-        private Dictionary<ParserSchema.Table, TypeBuilder> TableTypes;
-        private Dictionary<ParserSchema.Enumeration, Type> EnumTypes;
+        private Dictionary<ParserSchema.Table, TypeBuilder> _TableTypes;
+        private Dictionary<ParserSchema.Enumeration, Type> _EnumTypes;
 
         private Type GetColumnNativeType(TypeBuilder parent,
                                          ParserSchema.Column column)
@@ -264,7 +266,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 {
                     e = this.GenerateEnum(parent,
                                           column,
-                                          this.EnumLoader.LoadEnum(column.StaticDefineListExternalName).Enum);
+                                          this._EnumLoader.LoadEnum(column.StaticDefineListExternalName).Enum);
                 }
                 else
                 {
@@ -317,7 +319,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     case 18:
                         return typeof(string);
                     case 20:
-                        return this.TableTypes[column.Subtable];
+                        return this._TableTypes[column.Subtable];
                     case 21:
                         return typeof(object);
                     case 22:
@@ -383,7 +385,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     case 19:
                         return typeof(List<FunctionCall>);
                     case 20:
-                        return typeof(List<>).MakeGenericType(this.TableTypes[column.Subtable]);
+                        return typeof(List<>).MakeGenericType(this._TableTypes[column.Subtable]);
                     case 21:
                         return typeof(List<object>);
                     case 24:
@@ -427,9 +429,9 @@ namespace Gibbed.Cryptic.GenerateSerializer
             ParserSchema.Column column,
             ParserSchema.Enumeration e)
         {
-            if (this.EnumTypes.ContainsKey(e) == true)
+            if (this._EnumTypes.ContainsKey(e) == true)
             {
-                return this.EnumTypes[e];
+                return this._EnumTypes[e];
             }
 
             if (e.Type != ParserSchema.EnumerationType.Int)
@@ -479,8 +481,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
             if (column.StaticDefineListIsExternal == true)
             {
                 var name = column.StaticDefineListExternalName;
-                var builder = this.ModuleBuilder.DefineEnum(
-                    "Gibbed." + this.TargetGame.ToString() + ".Serialization.StaticDefineList." +
+                var builder = this._ModuleBuilder.DefineEnum(
+                    "Gibbed." + this._TargetGame.ToString() + ".Serialization.StaticDefineList." +
                     column.StaticDefineListExternalName,
                     TypeAttributes.Public,
                     underlyingType);
@@ -503,7 +505,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 }
 
                 var type = builder.CreateType();
-                this.EnumTypes.Add(e, type);
+                this._EnumTypes.Add(e, type);
                 return type;
             }
             else
@@ -540,25 +542,26 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 }
 
                 var type = builder.CreateType();
-                this.EnumTypes.Add(e, type);
+                this._EnumTypes.Add(e, type);
                 return type;
             }
         }
 
         private Type ExportFieldEnum(
-            ParserSchema.Table table, TypeBuilder structure)
+            ParserSchema.Table table,
+            TypeBuilder structure)
         {
-            var builder = this.ModuleBuilder.DefineEnum(
-                "Gibbed." + this.TargetGame.ToString() + ".Serialization.Fields." + structure.Name + "Field",
+            var builder = this._ModuleBuilder.DefineEnum(
+                "Gibbed." + this._TargetGame.ToString() + ".Serialization.Fields." + structure.Name + "Field",
                 TypeAttributes.Public,
                 typeof(int));
 
             int index = 0;
             foreach (var column in table.Columns)
             {
-                if (table.Columns.Where(c => c.Name == column.Name).Count() > 1)
+                if (table.Columns.Count(c => c.Name == column.Name) > 1)
                 {
-                    builder.DefineLiteral(column.Name + "_" + index.ToString(), index);
+                    builder.DefineLiteral(column.Name + "_" + index.ToString(CultureInfo.InvariantCulture), index);
                 }
                 else
                 {
@@ -618,7 +621,9 @@ namespace Gibbed.Cryptic.GenerateSerializer
         }
 
         private FieldBuilder ExportField(
-            ParserSchema.Table table, ParserSchema.Column column, TypeBuilder structure)
+            ParserSchema.Table table,
+            ParserSchema.Column column,
+            TypeBuilder structure)
         {
             var token = Parser.GlobalTokens.GetToken(column.Token);
 
@@ -706,7 +711,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     MethodAttributes.SpecialName |
                     MethodAttributes.HideBySig,
                     null,
-                    new Type[] { wrapperType });
+                    new[] { wrapperType });
 
                 var setIL = setBuilder.GetILGenerator();
                 setIL.Emit(OpCodes.Ldarg_0);
@@ -723,7 +728,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     new CustomAttributeBuilder(typeof(DataMemberAttribute)
                                                    .GetConstructor(Type.EmptyTypes),
                                                new object[] { },
-                                               new PropertyInfo[]
+                                               new[]
                                                {
                                                    typeof(DataMemberAttribute).GetProperty("Name"),
                                                    typeof(DataMemberAttribute).GetProperty("Order"),
@@ -734,7 +739,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     new CustomAttributeBuilder(typeof(CollectionDataContractAttribute)
                                                    .GetConstructor(Type.EmptyTypes),
                                                new object[] { },
-                                               new PropertyInfo[]
+                                               new[]
                                                {
                                                    typeof(CollectionDataContractAttribute).GetProperty("Name"),
                                                    typeof(CollectionDataContractAttribute).GetProperty("ItemName"),
@@ -772,7 +777,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     MethodAttributes.SpecialName |
                     MethodAttributes.HideBySig,
                     null,
-                    new Type[] { typeof(CDataWrapper) });
+                    new[] { typeof(CDataWrapper) });
 
                 var setIL = setBuilder.GetILGenerator();
                 setIL.Emit(OpCodes.Ldarg_0);
@@ -788,7 +793,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     new CustomAttributeBuilder(typeof(DataMemberAttribute)
                                                    .GetConstructor(Type.EmptyTypes),
                                                new object[] { },
-                                               new PropertyInfo[]
+                                               new[]
                                                {
                                                    typeof(DataMemberAttribute).GetProperty("Name"),
                                                    typeof(DataMemberAttribute).GetProperty("Order"),
@@ -829,7 +834,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         MethodAttributes.SpecialName |
                         MethodAttributes.HideBySig,
                         null,
-                        new Type[] { typeof(string) });
+                        new[] { typeof(string) });
 
                     var setIL = setBuilder.GetILGenerator();
                     setIL.Emit(OpCodes.Ldarg_0);
@@ -845,7 +850,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         new CustomAttributeBuilder(typeof(DataMemberAttribute)
                                                        .GetConstructor(Type.EmptyTypes),
                                                    new object[] { },
-                                                   new PropertyInfo[]
+                                                   new[]
                                                    {
                                                        typeof(DataMemberAttribute).GetProperty("Name"),
                                                        typeof(DataMemberAttribute).GetProperty("Order"),
@@ -886,7 +891,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         MethodAttributes.SpecialName |
                         MethodAttributes.HideBySig,
                         null,
-                        new Type[] { typeof(string) });
+                        new[] { typeof(string) });
 
                     var setIL = setBuilder.GetILGenerator();
                     setIL.Emit(OpCodes.Ldarg_0);
@@ -904,7 +909,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         new CustomAttributeBuilder(typeof(DataMemberAttribute)
                                                        .GetConstructor(Type.EmptyTypes),
                                                    new object[] { },
-                                                   new PropertyInfo[]
+                                                   new[]
                                                    {
                                                        typeof(DataMemberAttribute).GetProperty("Name"),
                                                        typeof(DataMemberAttribute).GetProperty("Order"),
@@ -918,7 +923,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     new CustomAttributeBuilder(typeof(DataMemberAttribute)
                                                    .GetConstructor(Type.EmptyTypes),
                                                new object[] { },
-                                               new PropertyInfo[]
+                                               new[]
                                                {
                                                    typeof(DataMemberAttribute).GetProperty("Order"),
                                                },
@@ -933,8 +938,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
             var fieldBuilders = new Dictionary<ParserSchema.Column, FieldBuilder>();
             var fieldTypes = new Dictionary<ParserSchema.Column, Type>();
 
-            foreach (var column in table.Columns
-                                        .Where(c => Helpers.IsGoodColumn(c)))
+            foreach (var column in table.Columns.Where(Helpers.IsGoodColumn))
             {
                 var fieldType = GetColumnNativeType(typeBuilder, column);
                 fieldTypes.Add(column, fieldType);
@@ -950,14 +954,14 @@ namespace Gibbed.Cryptic.GenerateSerializer
             {
                 typeBuilder.SetCustomAttribute(
                     new CustomAttributeBuilder(typeof(KnownTypeAttribute)
-                                                   .GetConstructor(new Type[] { typeof(Type) }),
+                                                   .GetConstructor(new[] { typeof(Type) }),
                                                new object[] { typeof(StaticVariableType) }));
                 polymorphAttributeTypes.Add(typeof(StaticVariableType));
             }
 
             var polymorphBuilders = new Dictionary<ParserSchema.Column, FieldBuilder>();
-            var polymorphColumns = table.Columns.Where(c => Helpers.IsGoodColumn(c) && c.Token == 21);
-            if (polymorphColumns.Count() > 0)
+            var polymorphColumns = table.Columns.Where(c => Helpers.IsGoodColumn(c) && c.Token == 21).ToArray();
+            if (polymorphColumns.Length > 0)
             {
                 var cctorBuilder = typeBuilder.DefineTypeInitializer();
                 var cctorMsil = cctorBuilder.GetILGenerator();
@@ -990,7 +994,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         cctorMsil.Emit(OpCodes.Ldtoken, this.GetColumnNativeType(typeBuilder, subcolumn));
                         cctorMsil.Emit(OpCodes.Call,
                                        typeof(Type).GetMethod("GetTypeFromHandle",
-                                                              new Type[] { typeof(RuntimeTypeHandle) }));
+                                                              new[] { typeof(RuntimeTypeHandle) }));
 
                         cctorMsil.Emit(OpCodes.Stelem_Ref);
                     }
@@ -1012,7 +1016,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                         typeBuilder.SetCustomAttribute(
                             new CustomAttributeBuilder(typeof(KnownTypeAttribute)
-                                                           .GetConstructor(new Type[] { typeof(Type) }),
+                                                           .GetConstructor(new[] { typeof(Type) }),
                                                        new object[] { type }));
                     }
                 }
@@ -1026,11 +1030,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     "Serialize",
                     MethodAttributes.Public | MethodAttributes.Virtual,
                     null,
-                    new Type[] { typeof(Serialization.IFileWriter), typeof(object) });
+                    new[] { typeof(Serialization.IFileWriter), typeof(object) });
                 typeBuilder.DefineMethodOverride(
                     serializeBuilder,
                     typeof(Serialization.IStructure)
-                        .GetMethod("Serialize", new Type[] { typeof(Serialization.IFileWriter), typeof(object) }));
+                        .GetMethod("Serialize", new[] { typeof(Serialization.IFileWriter), typeof(object) }));
                 var writerParam = serializeBuilder.DefineParameter(1, ParameterAttributes.None, "writer");
                 var stateParam = serializeBuilder.DefineParameter(2, ParameterAttributes.None, "state");
 
@@ -1049,7 +1053,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                     msil.Emit(OpCodes.Ldstr, "writer");
                     msil.Emit(OpCodes.Newobj,
-                              typeof(ArgumentNullException).GetConstructor(new Type[] { typeof(string) }));
+                              typeof(ArgumentNullException).GetConstructor(new[] { typeof(string) }));
                     msil.Emit(OpCodes.Throw);
 
                     msil.MarkLabel(label);
@@ -1058,8 +1062,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 var checkScope = CheckScope.None;
                 Label endLabel = msil.DefineLabel();
 
-                foreach (var column in table.Columns
-                                            .Where(c => Helpers.IsGoodColumn(c)))
+                foreach (var column in table.Columns.Where(Helpers.IsGoodColumn))
                 {
                     if ((column.Flags & Parser.ColumnFlags.CLIENT_ONLY) != 0 &&
                         (column.Flags & Parser.ColumnFlags.SERVER_ONLY) != 0)
@@ -1295,11 +1298,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     "Deserialize",
                     MethodAttributes.Public | MethodAttributes.Virtual,
                     null,
-                    new Type[] { typeof(Serialization.IFileReader), typeof(object) });
+                    new[] { typeof(Serialization.IFileReader), typeof(object) });
                 typeBuilder.DefineMethodOverride(
                     deserializeBuilder,
                     typeof(Serialization.IStructure)
-                        .GetMethod("Deserialize", new Type[] { typeof(Serialization.IFileReader), typeof(object) }));
+                        .GetMethod("Deserialize", new[] { typeof(Serialization.IFileReader), typeof(object) }));
                 var readerParam = deserializeBuilder.DefineParameter(1, ParameterAttributes.None, "reader");
                 var stateParam = deserializeBuilder.DefineParameter(2, ParameterAttributes.None, "state");
 
@@ -1318,7 +1321,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                     msil.Emit(OpCodes.Ldstr, "reader");
                     msil.Emit(OpCodes.Newobj,
-                              typeof(ArgumentNullException).GetConstructor(new Type[] { typeof(string) }));
+                              typeof(ArgumentNullException).GetConstructor(new[] { typeof(string) }));
                     msil.Emit(OpCodes.Throw);
 
                     msil.MarkLabel(label);
@@ -1327,8 +1330,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 var checkScope = CheckScope.None;
                 Label endLabel = msil.DefineLabel();
 
-                foreach (var column in table.Columns
-                                            .Where(c => Helpers.IsGoodColumn(c)))
+                foreach (var column in table.Columns.Where(Helpers.IsGoodColumn))
                 {
                     if ((column.Flags & Parser.ColumnFlags.CLIENT_ONLY) != 0 &&
                         (column.Flags & Parser.ColumnFlags.SERVER_ONLY) != 0)
@@ -1564,11 +1566,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     "Serialize",
                     MethodAttributes.Public | MethodAttributes.Virtual,
                     null,
-                    new Type[] { typeof(Serialization.IPacketWriter), typeof(object) });
+                    new[] { typeof(Serialization.IPacketWriter), typeof(object) });
                 typeBuilder.DefineMethodOverride(
                     serializeBuilder,
                     typeof(Serialization.IStructure)
-                        .GetMethod("Serialize", new Type[] { typeof(Serialization.IPacketWriter), typeof(object) }));
+                        .GetMethod("Serialize", new[] { typeof(Serialization.IPacketWriter), typeof(object) }));
                 var writerParam = serializeBuilder.DefineParameter(1, ParameterAttributes.None, "writer");
                 var stateParam = serializeBuilder.DefineParameter(2, ParameterAttributes.None, "state");
 
@@ -1583,11 +1585,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     "Deserialize",
                     MethodAttributes.Public | MethodAttributes.Virtual,
                     null,
-                    new Type[] { typeof(Serialization.IPacketReader), typeof(object) });
+                    new[] { typeof(Serialization.IPacketReader), typeof(object) });
                 typeBuilder.DefineMethodOverride(
                     deserializeBuilder,
                     typeof(Serialization.IStructure)
-                        .GetMethod("Deserialize", new Type[] { typeof(Serialization.IPacketReader), typeof(object) }));
+                        .GetMethod("Deserialize", new[] { typeof(Serialization.IPacketReader), typeof(object) }));
                 var readerParam = deserializeBuilder.DefineParameter(1, ParameterAttributes.None, "reader");
                 var stateParam = deserializeBuilder.DefineParameter(2, ParameterAttributes.None, "state");
 
@@ -1638,7 +1640,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                 msil.MarkLabel(badFieldIndex);
                 msil.Emit(OpCodes.Ldstr, "invalid field index");
-                msil.Emit(OpCodes.Newobj, typeof(FormatException).GetConstructor(new Type[] { typeof(string) }));
+                msil.Emit(OpCodes.Newobj, typeof(FormatException).GetConstructor(new[] { typeof(string) }));
                 msil.Emit(OpCodes.Throw);
 
                 msil.MarkLabel(validFieldIndex);
@@ -1670,7 +1672,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                         msil.Emit(OpCodes.Ldstr,
                                   "got field " + Helpers.GetColumnName(table, column) + ", but reader is not a client");
-                        msil.Emit(OpCodes.Newobj, typeof(FormatException).GetConstructor(new Type[] { typeof(string) }));
+                        msil.Emit(OpCodes.Newobj, typeof(FormatException).GetConstructor(new[] { typeof(string) }));
                         msil.Emit(OpCodes.Throw);
 
                         msil.MarkLabel(okLabel);
@@ -1687,7 +1689,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                         msil.Emit(OpCodes.Ldstr,
                                   "got field " + Helpers.GetColumnName(table, column) + ", but reader is not a server");
-                        msil.Emit(OpCodes.Newobj, typeof(FormatException).GetConstructor(new Type[] { typeof(string) }));
+                        msil.Emit(OpCodes.Newobj, typeof(FormatException).GetConstructor(new[] { typeof(string) }));
                         msil.Emit(OpCodes.Throw);
 
                         msil.MarkLabel(okLabel);
@@ -1703,7 +1705,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldstr, "cannot serialize " + column.Name);
                         msil.Emit(OpCodes.Newobj,
-                                  typeof(InvalidOperationException).GetConstructor(new Type[] { typeof(string) }));
+                                  typeof(InvalidOperationException).GetConstructor(new[] { typeof(string) }));
                         msil.Emit(OpCodes.Throw);
                         continue;
                     }
@@ -1904,7 +1906,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 msil.MarkLabel(switchDefaultLabel);
                 msil.Emit(OpCodes.Ldstr, "cannot serialize unknown field");
                 msil.Emit(OpCodes.Newobj,
-                          typeof(InvalidOperationException).GetConstructor(new Type[] { typeof(string) }));
+                          typeof(InvalidOperationException).GetConstructor(new[] { typeof(string) }));
                 msil.Emit(OpCodes.Throw);
 
                 msil.MarkLabel(switchPostLabel);

@@ -32,11 +32,12 @@ namespace Gibbed.Cryptic.GenerateSerializer
     internal static class Helpers
     {
         public static string GetColumnName(
-            ParserSchema.Table table, ParserSchema.Column column)
+            ParserSchema.Table table,
+            ParserSchema.Column column)
         {
             if (string.IsNullOrEmpty(column.Name) == true)
             {
-                if (table.Columns.Where(c => string.IsNullOrEmpty(c.Name)).Count() > 1)
+                if (table.Columns.Count(c => string.IsNullOrEmpty(c.Name)) > 1)
                 {
                     return "__unnamed_" + column.Offset.ToString("X");
                 }
@@ -44,10 +45,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 return "_";
             }
 
-            if (table.Columns
-                .Where(c => c != column)
-                .Where(c => c.Name.ToLowerInvariant() == column.Name.ToLowerInvariant())
-                .Count() > 1)
+            if (table.Columns.Count(c => c != column && c.Name.ToLowerInvariant() == column.Name.ToLowerInvariant()) > 1)
             {
                 throw new InvalidOperationException();
             }
@@ -63,7 +61,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
             {
                 return false;
             }
-            else if (column.Token == 0 || // ignore
+
+            if (column.Token == 0 || // ignore
                 column.Token == 1 || // start
                 column.Token == 2 || // end
                 column.Token == 25) // command
@@ -102,7 +101,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
             }
 
             var methodInfo = typeof(Serialization.IBaseReader).GetMethod(
-                name, BindingFlags.Public | BindingFlags.Instance);
+                name,
+                BindingFlags.Public | BindingFlags.Instance);
             if (methodInfo == null)
             {
                 throw new NotSupportedException(name + " is missing");
@@ -139,7 +139,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
             }
 
             var methodInfo = typeof(Serialization.IBaseWriter).GetMethod(
-                name, BindingFlags.Public | BindingFlags.Instance);
+                name,
+                BindingFlags.Public | BindingFlags.Instance);
             if (methodInfo == null)
             {
                 throw new NotSupportedException(name + " is missing");

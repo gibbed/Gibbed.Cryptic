@@ -22,7 +22,7 @@
 
 namespace Gibbed.Cryptic.FileFormats.Serialization
 {
-    public interface  IFileWriter : IBaseWriter
+    public interface IFileWriter : IBaseWriter
     {
     }
 }

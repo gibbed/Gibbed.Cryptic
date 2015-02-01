@@ -23,6 +23,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -81,9 +82,7 @@ namespace Gibbed.Cryptic.ExportSchemas
             return entries;
         }
 
-        private static List<KeyValuePair<string, string>> ReadEnum(
-            ProcessMemory memory,
-            uint baseAddress)
+        private static IEnumerable<KeyValuePair<string, string>> ReadEnum(ProcessMemory memory, uint baseAddress)
         {
             var elements = new List<KeyValuePair<string, string>>();
 
@@ -124,10 +123,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                     {
                         var parent = memory.ReadU32(baseAddress + 4);
                         var nested = ReadEnum(memory, parent);
-                        foreach (var kv in nested)
-                        {
-                            elements.Add(new KeyValuePair<string, string>(kv.Key, kv.Value));
-                        }
+                        elements.AddRange(nested);
                         return elements;
                     }
 
@@ -170,7 +166,7 @@ namespace Gibbed.Cryptic.ExportSchemas
         private static void ExportEnum(
             ProcessMemory memory,
             uint address,
-            List<KeyValuePair<string, string>> elements,
+            IEnumerable<KeyValuePair<string, string>> elements,
             XmlWriter xml)
         {
             xml.WriteStartElement("elements");
@@ -242,17 +238,13 @@ namespace Gibbed.Cryptic.ExportSchemas
 
         private static Dictionary<Parser.ColumnFlags, string> GenerateColumnFlagNames()
         {
-            var names = new Dictionary<Parser.ColumnFlags, string>();
-            foreach (var name in Enum.GetNames(typeof(Parser.ColumnFlags)))
-            {
-                names.Add((Parser.ColumnFlags)Enum.Parse(typeof(Parser.ColumnFlags), name), name);
-            }
-            return names;
+            return Enum.GetNames(typeof(Parser.ColumnFlags))
+                       .ToDictionary(name => (Parser.ColumnFlags)Enum.Parse(typeof(Parser.ColumnFlags), name));
         }
 
-        private static Dictionary<Parser.ColumnFlags, string> ColumnFlagNames = GenerateColumnFlagNames();
+        private static readonly Dictionary<Parser.ColumnFlags, string> _ColumnFlagNames = GenerateColumnFlagNames();
 
-        private static string[] FloatRounding =
+        private static readonly string[] _FloatRounding =
         {
             null,
             "HUNDREDTHS",
@@ -262,7 +254,7 @@ namespace Gibbed.Cryptic.ExportSchemas
             "TENS",
         };
 
-        public static Parser.ColumnFlags ColumnFlagsMask = ColumnFlagNames
+        private static readonly Parser.ColumnFlags _ColumnFlagsMask = _ColumnFlagNames
             .Aggregate(Parser.ColumnFlags.None, (a, b) => a | b.Key);
 
         private static uint HashKeyValueList(
@@ -409,20 +401,21 @@ namespace Gibbed.Cryptic.ExportSchemas
                 columns.Add(new KeyValuePair<NativeColumn, string>(column, name));
             }
 
-            foreach (var columnKV in columns)
+            foreach (var kv in columns)
             {
-                var column = columnKV.Key;
+                var column = kv.Key;
 
                 if ((column.Flags & Parser.ColumnFlags.ALIAS) != 0)
                 {
                     continue;
                 }
-                else if ((column.Flags & Parser.ColumnFlags.UNKNOWN_32) != 0)
+
+                if ((column.Flags & Parser.ColumnFlags.UNKNOWN_32) != 0)
                 {
                     continue;
                 }
 
-                var name = columnKV.Value;
+                var name = kv.Value;
 
                 if (string.IsNullOrEmpty(name) == false)
                 {
@@ -490,7 +483,7 @@ namespace Gibbed.Cryptic.ExportSchemas
             return hash;
         }
 
-        private static string[] FormatNames =
+        private static readonly string[] _FormatNames =
         {
             null,
             "IP", // 1
@@ -742,10 +735,10 @@ namespace Gibbed.Cryptic.ExportSchemas
                 columns.Add(new KeyValuePair<NativeColumn, string>(column, name));
             }
 
-            foreach (var columnKV in columns)
+            foreach (var kv in columns)
             {
-                var column = columnKV.Key;
-                var name = columnKV.Value;
+                var column = kv.Key;
+                var name = kv.Value;
 
                 xml.WriteStartElement("column");
 
@@ -765,7 +758,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                     column.Token != 1 &&
                     column.Token != 2)
                 {
-                    xml.WriteElementString("offset", column.Offset.ToString());
+                    xml.WriteElementString("offset", column.Offset.ToString(CultureInfo.InvariantCulture));
                 }
 
                 var values = new List<string>();
@@ -801,15 +794,15 @@ namespace Gibbed.Cryptic.ExportSchemas
                 }
                 else
                 {
-                    if ((flags & ColumnFlagsMask) != 0)
+                    if ((flags & _ColumnFlagsMask) != 0)
                     {
                         xml.WriteStartElement("flags");
 
-                        foreach (var kv in ColumnFlagNames)
+                        foreach (var flag in _ColumnFlagNames)
                         {
-                            if ((flags & kv.Key) != 0)
+                            if ((flags & flag.Key) != 0)
                             {
-                                xml.WriteElementString("flag", kv.Value);
+                                xml.WriteElementString("flag", flag.Value);
                             }
                         }
 
@@ -835,11 +828,11 @@ namespace Gibbed.Cryptic.ExportSchemas
                         {
                             if (column.Token == 7)
                             {
-                                xml.WriteElementString("float_rounding", FloatRounding[column.MinBits]);
+                                xml.WriteElementString("float_rounding", _FloatRounding[column.MinBits]);
                             }
                             else
                             {
-                                xml.WriteElementString("min_bits", column.MinBits.ToString());
+                                xml.WriteElementString("min_bits", column.MinBits.ToString(CultureInfo.InvariantCulture));
                             }
                         }
 
@@ -847,7 +840,9 @@ namespace Gibbed.Cryptic.ExportSchemas
                         {
                             case Parser.ColumnParameter.NumberOfElements:
                             {
-                                xml.WriteElementString("num_elements", ((int)column.Parameter0).ToString());
+                                xml.WriteElementString(
+                                    "num_elements",
+                                    ((int)column.Parameter0).ToString(CultureInfo.InvariantCulture));
                                 break;
                             }
 
@@ -855,14 +850,18 @@ namespace Gibbed.Cryptic.ExportSchemas
                             {
                                 if (column.Parameter0 != 0)
                                 {
-                                    xml.WriteElementString("default", ((int)column.Parameter0).ToString());
+                                    xml.WriteElementString(
+                                        "default",
+                                        ((int)column.Parameter0).ToString(CultureInfo.InvariantCulture));
                                 }
                                 break;
                             }
 
                             case Parser.ColumnParameter.StringLength:
                             {
-                                xml.WriteElementString("string_length", ((int)column.Parameter0).ToString());
+                                xml.WriteElementString(
+                                    "string_length",
+                                    ((int)column.Parameter0).ToString(CultureInfo.InvariantCulture));
                                 break;
                             }
 
@@ -886,13 +885,17 @@ namespace Gibbed.Cryptic.ExportSchemas
 
                             case Parser.ColumnParameter.Size:
                             {
-                                xml.WriteElementString("size", ((int)column.Parameter0).ToString());
+                                xml.WriteElementString(
+                                    "size",
+                                    ((int)column.Parameter0).ToString(CultureInfo.InvariantCulture));
                                 break;
                             }
 
                             case Parser.ColumnParameter.BitOffset:
                             {
-                                xml.WriteElementString("bit_offset", ((int)column.Parameter0).ToString());
+                                xml.WriteElementString(
+                                    "bit_offset",
+                                    ((int)column.Parameter0).ToString(CultureInfo.InvariantCulture));
                                 break;
                             }
                         }
@@ -905,8 +908,8 @@ namespace Gibbed.Cryptic.ExportSchemas
                                 {
                                     xml.WriteStartElement("static_define_list");
 
-                                    var kv = enums.SingleOrDefault(e => e.Value == column.Parameter1);
-                                    if (kv.Key == null)
+                                    var possibleEnum = enums.SingleOrDefault(e => e.Value == column.Parameter1);
+                                    if (possibleEnum.Key == null)
                                     {
                                         xml.WriteComment(" dynamic enum? ");
                                         /*xml.WriteStartElement("enum");
@@ -915,7 +918,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                                     }
                                     else
                                     {
-                                        xml.WriteAttributeString("external", kv.Key);
+                                        xml.WriteAttributeString("external", possibleEnum.Key);
                                     }
 
                                     //xml.WriteComment(string.Format(" {0:X8} ", column.Parameter1));
@@ -967,14 +970,14 @@ namespace Gibbed.Cryptic.ExportSchemas
                         var format = column.Format & 0xFF;
                         if (format != 0)
                         {
-                            if (format < FormatNames.Length &&
-                                FormatNames[format] != null)
+                            if (format < _FormatNames.Length &&
+                                _FormatNames[format] != null)
                             {
-                                xml.WriteElementString("format", FormatNames[format]);
+                                xml.WriteElementString("format", _FormatNames[format]);
                             }
                             else
                             {
-                                xml.WriteElementString("format_raw", format.ToString());
+                                xml.WriteElementString("format_raw", format.ToString(CultureInfo.InvariantCulture));
                             }
                         }
 
@@ -1045,10 +1048,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                     return "loc";
             }
 
-            return string.Format("*INV:{0:X8}*",
-                                 arg.Type);
-
-            throw new NotSupportedException();
+            return string.Format("*INV:{0:X8}*", arg.Type);
         }
 
         private static void ExportExpressionFunction(
@@ -1117,6 +1117,12 @@ namespace Gibbed.Cryptic.ExportSchemas
                 var path = process.MainModule.FileName;
                 path = Path.GetDirectoryName(path);
                 path = Path.GetFileName(path);
+
+                if (path == null)
+                {
+                    throw new InvalidOperationException();
+                }
+
                 projectName = Path.Combine(process.MainWindowTitle, path);
                 return process;
             }
@@ -1357,9 +1363,8 @@ namespace Gibbed.Cryptic.ExportSchemas
                         }
                         */
 
-                        using (
-                            var xml = XmlWriter.Create(Path.Combine(outputPath, "schemas", name + ".schema.xml"),
-                                                       settings))
+                        var schemaPath = Path.Combine(outputPath, "schemas", name + ".schema.xml");
+                        using (var xml = XmlWriter.Create(schemaPath, settings))
                         {
                             xml.WriteStartDocument();
                             xml.WriteStartElement("parser");

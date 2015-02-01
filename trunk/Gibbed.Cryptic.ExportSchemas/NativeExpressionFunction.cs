@@ -38,12 +38,12 @@ namespace Gibbed.Cryptic.ExportSchemas
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]
         public NativeExpressionArgument[] Arguments; // args
-        
+
         public NativeExpressionArgument ReturnType; // returnType
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]
         public uint[] Tags; // tags
-        
+
         public float Cost; // cost
         public uint ExprCodeNamePointer; // ExprCodeName
         public uint Unknown1B8;

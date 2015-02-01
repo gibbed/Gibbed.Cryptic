@@ -210,23 +210,22 @@ namespace Gibbed.Cryptic.ConvertResource
 
                     Console.WriteLine("Loading entries...");
 
-                    Func<int, string> getFileNameFromIndex = i =>
-                    {
-                        if (i < 0 || i >= resource.Files.Count)
+                    Func<int, string> getFileNameFromIndex =
+                        i =>
                         {
-                            throw new KeyNotFoundException("file index " + i.ToString(CultureInfo.InvariantCulture) +
-                                                           " is out of range");
-                        }
+                            if (i < 0 || i >= resource.Files.Count)
+                            {
+                                throw new KeyNotFoundException("file index " +
+                                                               i.ToString(CultureInfo.InvariantCulture) +
+                                                               " is out of range");
+                            }
 
-                        return resource.Files[i].Name;
-                    };
+                            return resource.Files[i].Name;
+                        };
 
-                    var list = (IList)loadResource.Invoke(null,
-                                                          new object[]
-                                                          {
-                                                              input, schema.IsClient, schema.IsServer,
-                                                              getFileNameFromIndex
-                                                          });
+                    var list = (IList)loadResource.Invoke(
+                        null,
+                        new object[] { input, schema.IsClient, schema.IsServer, getFileNameFromIndex });
 
                     var entries = list.Cast<object>();
                     var listType = typeof(List<>).MakeGenericType(type);
@@ -679,11 +678,9 @@ namespace Gibbed.Cryptic.ConvertResource
                     {
                         blob.Serialize(output);
 
-                        saveResource.Invoke(null,
-                                            new object[]
-                                            {
-                                                entries, output, schema.IsClient, schema.IsServer, getIndexFromFileName,
-                                            });
+                        saveResource.Invoke(
+                            null,
+                            new object[] { entries, output, schema.IsClient, schema.IsServer, getIndexFromFileName });
                     }
                 }
             }

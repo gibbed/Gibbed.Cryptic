@@ -36,7 +36,7 @@ namespace Gibbed.Cryptic.FileFormats
         public void Deserialize(Stream input)
         {
             var basePosition = input.Position;
-            var endian = Endian.Little;
+            const Endian endian = Endian.Little;
 
             var headerSize = input.ReadValueU32(endian);
             var fileSize = input.ReadValueU32(endian);
