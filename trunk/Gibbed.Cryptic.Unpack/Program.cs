@@ -49,7 +49,7 @@ namespace Gibbed.Cryptic.Unpack
             bool? extractUnknowns = null;
             bool overwriteFiles = false;
             bool verbose = true;
-            string excludePattern = null;
+            string pattern = null;
 
             var options = new OptionSet()
             {
@@ -63,7 +63,7 @@ namespace Gibbed.Cryptic.Unpack
                     v => extractUnknowns = v != null ? true : extractUnknowns
                 },
                 { "v|verbose", "be verbose", v => verbose = v != null },
-                { "x|exclude=", "exclude files using pattern", v => excludePattern = v },
+                { "f|filter=", "match files using pattern", v => pattern = v },
                 { "h|help", "show this message and exit", v => showHelp = v != null },
             };
 
@@ -95,10 +95,10 @@ namespace Gibbed.Cryptic.Unpack
             string inputPath = extras[0];
             string outputPath = extras.Count > 1 ? extras[1] : Path.ChangeExtension(inputPath, null) + "_unpack";
 
-            Regex exclude = null;
-            if (string.IsNullOrEmpty(excludePattern) == false)
+            Regex regex = null;
+            if (string.IsNullOrEmpty(pattern) == false)
             {
-                exclude = new Regex(excludePattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+                regex = new Regex(pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
             }
 
             using (var input = File.OpenRead(inputPath))
@@ -214,7 +214,7 @@ namespace Gibbed.Cryptic.Unpack
                         {
                             using (var temp = new MemoryStream(dataList[attribute.NameId]))
                             {
-                                name = temp.ReadStringZ(Encoding.ASCII);
+                                name = temp.ReadStringZ(Encoding.UTF8);
                                 names.Add(attribute.NameId, name);
                             }
                         }
@@ -226,8 +226,7 @@ namespace Gibbed.Cryptic.Unpack
                         }
                     }
 
-                    if (exclude != null &&
-                        exclude.IsMatch(name) == true)
+                    if (regex != null && regex.IsMatch(name) == false)
                     {
                         continue;
                     }
@@ -248,10 +247,7 @@ namespace Gibbed.Cryptic.Unpack
 
                     if (verbose == true)
                     {
-                        Console.WriteLine("[{0}/{1}] {2}",
-                                          current,
-                                          total,
-                                          name);
+                        Console.WriteLine("[{0}/{1}] {2}", current, total, name);
                     }
 
                     using (var output = File.Create(entryPath))
