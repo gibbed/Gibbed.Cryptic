@@ -42,7 +42,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
             new Tokens.Timestamp(), // 10
             new Tokens.LineNumber(), // 11
             new Tokens.Boolean(), // 12
-            null, // 13
+            new Tokens.NoAST(), // 13
             new Tokens.BooleanFlag(), // 14
             new Tokens.QUATPYR(), // 15
             new Tokens.MATPYR(), // 16
