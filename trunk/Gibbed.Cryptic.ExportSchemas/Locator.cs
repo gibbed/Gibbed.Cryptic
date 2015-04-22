@@ -35,59 +35,44 @@ namespace Gibbed.Cryptic.ExportSchemas
 
         public static uint FindEnumTable(ProcessMemory memory)
         {
-            StringBuilder sb;
+            var sb = new StringBuilder();
+            sb.Append("55 8B EC 51 ");
+            sb.Append("A1 xx xx xx xx ");
+            sb.Append("C7 45 FC 00 00 00 00 85 C0 74 17 8D 4D FC 51 FF 75 08 50 ");
+            sb.Append("E8 xx xx xx xx ");
+            sb.Append("8B 45 FC 83 C4 0C 8B E5 5D C3 ");
 
-            var messageOffset = memory.Search(
-                new ByteSearch("00 " + ToByteString("StaticDefine does not have a name.") + " 00"));
-            if (messageOffset == uint.MaxValue)
+            var codeOffset = memory.Search(new ByteSearch(sb.ToString()));
+            if (codeOffset == uint.MaxValue)
             {
-                //throw new InvalidOperationException();
                 return 0;
             }
-            messageOffset = messageOffset + 1;
 
-            var messageOffsetBytes = BitConverter.GetBytes(messageOffset);
-            sb = new StringBuilder();
-            sb.Append("57 56 ");
-            sb.Append("E8 xx xx xx xx ");
-            sb.Append("8B F8 83 C4 04 ");
-            sb.Append("C7 45 FC 00 00 00 00 ");
-            sb.Append("85 FF 75 0B 5F ");
-            sb.AppendFormat("B8 {0:X2} {1:X2} {2:X2} {3:X2} ",
-                            messageOffsetBytes[0],
-                            messageOffsetBytes[1],
-                            messageOffsetBytes[2],
-                            messageOffsetBytes[3]);
-            sb.Append("5E 8B E5 5D C3 ");
-
-            var codeOffset1 = memory.Search(new ByteSearch(sb.ToString()));
-            if (codeOffset1 == uint.MaxValue)
+            var pointer = memory.ReadU32(codeOffset + 5);
+            if (pointer == 0)
             {
                 throw new InvalidOperationException();
             }
 
-            var codeOffset2 = memory.ReadU32(codeOffset1 + 3);
-            if (codeOffset2 == 0)
-            {
-                throw new InvalidOperationException();
-            }
+            return memory.ReadU32(pointer);
+        }
 
-            codeOffset2 += codeOffset1 + 2 + 5;
-
-            sb = new StringBuilder();
+        public static uint FindEnumTableOld(ProcessMemory memory)
+        {
+            var sb = new StringBuilder();
             sb.Append("55 8B EC 51 ");
             sb.Append("8B 0D xx xx xx xx ");
             sb.Append("33 C0 89 45 FC 85 C9 74 14 8B 55 08 8D 45 FC 50 52 51 ");
             sb.Append("E8 xx xx xx xx ");
             sb.Append("8B 45 FC 83 C4 0C 8B E5 5D C3 ");
 
-            var codeOffset3 = memory.Search(new ByteSearch(sb.ToString()));
-            if (codeOffset3 == uint.MaxValue)
+            var codeOffset = memory.Search(new ByteSearch(sb.ToString()));
+            if (codeOffset == uint.MaxValue)
             {
-                throw new InvalidOperationException();
+                return 0;
             }
 
-            var pointer = memory.ReadU32(codeOffset3 + 6);
+            var pointer = memory.ReadU32(codeOffset + 6);
             if (pointer == 0)
             {
                 throw new InvalidOperationException();
@@ -137,7 +122,7 @@ namespace Gibbed.Cryptic.ExportSchemas
             return memory.ReadU32(pointer);
         }
 
-        public static uint FindOldParserTable(ProcessMemory memory)
+        public static uint FindParserTableOld(ProcessMemory memory)
         {
             var nameOffset = memory.Search(new ByteSearch("00 " + ToByteString("ff_ParseTableInfos") + " 00"));
             if (nameOffset == uint.MaxValue)
