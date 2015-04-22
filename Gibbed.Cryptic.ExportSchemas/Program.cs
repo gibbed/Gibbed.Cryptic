@@ -1231,7 +1231,12 @@ namespace Gibbed.Cryptic.ExportSchemas
                 var tempEnums = new List<KeyValuePair<string, uint>>();
                 var enums = new List<KeyValuePair<string, uint>>();
                 {
-                    var stashPointer = Locator.FindEnumTable(memory);
+                    var stashPointer = Locator.FindEnumTableOld(memory);
+                    if (stashPointer == 0)
+                    {
+                        stashPointer = Locator.FindEnumTable(memory);
+                    }
+
                     if (stashPointer == 0)
                     {
                         Console.WriteLine("Warning: failed to locate enum table.");
@@ -1300,7 +1305,7 @@ namespace Gibbed.Cryptic.ExportSchemas
 
                 var parsers = new List<KeyValuePair<string, uint>>();
                 {
-                    var stashPointer = Locator.FindOldParserTable(memory);
+                    var stashPointer = Locator.FindParserTableOld(memory);
                     if (stashPointer == 0)
                     {
                         stashPointer = Locator.FindParserTable(memory);
