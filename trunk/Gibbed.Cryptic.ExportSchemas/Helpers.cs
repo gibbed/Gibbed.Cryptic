@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -20,19 +20,26 @@
  *    distribution.
  */
 
-using System.Runtime.InteropServices;
+using System;
+using System.Text;
 
 namespace Gibbed.Cryptic.ExportSchemas
 {
-    [StructLayout(LayoutKind.Sequential)]
-    public struct NativeExpressionArgument
+    internal static class Helpers
     {
-        public int Type;
-        public uint NamePointer; // name
-        public uint StaticCheckTypePointer; // staticCheckType
-        public uint Unknown0C;
-        public int AllowNullPointer; // allowNULLPtr
-        public int TypeCategory; // scTypeCategory
-        public uint TypeNamePointer; // ptrTypeName
+        public static ByteSearch.Pattern ToPattern(string text)
+        {
+            if (string.IsNullOrEmpty(text) == true)
+            {
+                throw new ArgumentNullException("text");
+            }
+
+            return new ByteSearch.Pattern()
+            {
+                new byte[] { 0 },
+                Encoding.ASCII.GetBytes(text),
+                new byte[] { 0 },
+            };
+        }
     }
 }

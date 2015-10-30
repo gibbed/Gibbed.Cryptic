@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -22,119 +22,161 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.Globalization;
-using System.Text.RegularExpressions;
 
 namespace Gibbed.Cryptic.ExportSchemas
 {
-    /// <summary>
-    /// Allows for searching of patterns in an array of bytes.
-    /// </summary>
     public class ByteSearch
     {
-        private struct BytePatternEntry
+        private readonly List<PatternEntry> _Values;
+
+        public ByteSearch(params Pattern[] patterns)
         {
-            public byte Value;
-            public byte Mask;
+            if (patterns == null)
+            {
+                throw new ArgumentNullException("patterns");
+            }
+
+            this._Values = new List<PatternEntry>();
+            foreach (var pattern in patterns)
+            {
+                foreach (var entry in pattern)
+                {
+                    this._Values.Add(entry);
+                }
+            }
         }
 
-        /// <summary>
-        /// The size of the pattern.
-        /// </summary>
         public int Size
         {
             get { return this._Values.Count; }
         }
 
-        private readonly List<BytePatternEntry> _Values = new List<BytePatternEntry>();
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="pattern"></param>
-        public ByteSearch(string pattern)
+        public static bool Match(byte[] bytes, Pattern pattern, out uint result)
         {
-            Regex regex;
-
-            regex = new Regex("^(([0-9,a-f,x]{2})|(\\s))+$", RegexOptions.IgnoreCase);
-
-            if (regex.Match(pattern).Success == false)
-            {
-                throw new ArgumentException("invalid pattern", "pattern");
-            }
-
-            regex = new Regex("([0-9,a-f,x]{2})(?:\\s*)", RegexOptions.IgnoreCase);
-
-            foreach (Match match in regex.Matches(pattern))
-            {
-                Debug.Assert(match.Captures.Count == 1);
-
-                BytePatternEntry entry;
-                string capture = match.Captures[0].Value.Trim().ToLower();
-
-                if (capture.Length != 2)
-                {
-                    throw new InvalidOperationException();
-                }
-
-                entry.Value = 0;
-                entry.Mask = 0;
-
-                if (capture[0] != 'x')
-                {
-                    entry.Value |= (byte)((byte.Parse(capture.Substring(0, 1), NumberStyles.HexNumber) & 0x0F) << 4);
-                    entry.Mask = 0xF0;
-                }
-
-                if (capture[1] != 'x')
-                {
-                    entry.Value |= (byte)((byte.Parse(capture.Substring(1, 1), NumberStyles.HexNumber) & 0x0F) << 0);
-                    entry.Mask = 0x0F;
-                }
-
-                this._Values.Add(entry);
-            }
+            return Match(bytes, 0, bytes.Length, pattern, out result);
         }
 
-        /// <summary>
-        /// Match an array of bytes against the pattern.
-        /// </summary>
-        /// <param name="data"></param>
-        /// <returns>True if it matches the pattern</returns>
-        public UInt32 Match(byte[] data)
+        public static bool Match(byte[] buffer, int offset, int count, Pattern pattern, out uint result)
         {
-            return this.Match(data, data.Length);
-        }
+            var remaining = count - (count % pattern.Count);
 
-        /// <summary>
-        /// Match an array of bytes against the pattern.
-        /// </summary>
-        /// <param name="data"></param>
-        /// <param name="size">Size of the data</param>
-        /// <returns>True if it matches the pattern</returns>
-        public UInt32 Match(byte[] data, int size)
-        {
-            var remaining = size - (size % this.Size);
-
-            for (int i = 0; i + this.Size <= remaining; i++)
+            for (int i = 0; i + pattern.Count <= remaining; i++)
             {
                 bool matched = true;
-                for (int j = 0; matched == true && j < this.Size; j++)
+                for (int j = 0; matched == true && j < pattern.Count; j++)
                 {
-                    matched =
-                        (this._Values[j].Value & this._Values[j].Mask)
-                        ==
-                        (data[i + j] & this._Values[j].Mask);
+                    var value = buffer[i + j] & pattern[j].Mask;
+                    matched = pattern[j].MaskedValue == value;
                 }
 
-                if (matched)
+                if (matched == true)
                 {
-                    return (uint)i;
+                    result = (uint)i;
+                    return true;
                 }
             }
 
-            return UInt32.MaxValue;
+            result = 0;
+            return false;
+        }
+
+        public struct PatternEntry
+        {
+            public readonly byte Value;
+            public readonly byte Mask;
+            public readonly byte MaskedValue;
+
+            public PatternEntry(byte value)
+                : this(value, 0xFF)
+            {
+            }
+
+            public PatternEntry(byte value, byte mask)
+            {
+                this.Value = value;
+                this.Mask = mask;
+                this.MaskedValue = (byte)(value & mask);
+            }
+
+            public override string ToString()
+            {
+                if (this.Mask == 0xFF)
+                {
+                    return this.Value.ToString("X2");
+                }
+                
+                if (this.Mask == 0)
+                {
+                    return "??";
+                }
+
+                return string.Format("(&{0:X2}={1:X2})",
+                                     this.Mask,
+                                     this.Value);
+            }
+        }
+
+        public class Pattern : IEnumerable<PatternEntry>
+        {
+            private readonly List<PatternEntry> _Entries;
+
+            public Pattern()
+            {
+                this._Entries = new List<PatternEntry>();
+            }
+
+            public PatternEntry this[int i]
+            {
+                get { return this._Entries[i]; }
+            }
+
+            public int Count
+            {
+                get { return this._Entries.Count; }
+            }
+
+            public void Add(byte value)
+            {
+                this._Entries.Add(new PatternEntry(value, 0xFF));
+            }
+
+            public void Add(byte[] values)
+            {
+                foreach (var value in values)
+                {
+                    this.Add(value);
+                }
+            }
+
+            public void Add(byte[,] values)
+            {
+                var width = values.GetLength(0);
+                var height = values.GetLength(1);
+                if (height != 2)
+                {
+                    throw new ArgumentOutOfRangeException("values", "values must be an array of byte[,2]");
+                }
+
+                for (int i = 0; i < width; i++)
+                {
+                    this._Entries.Add(new PatternEntry(values[i, 0], values[i, 1]));
+                }
+            }
+
+            IEnumerator<PatternEntry> IEnumerable<PatternEntry>.GetEnumerator()
+            {
+                return this._Entries.GetEnumerator();
+            }
+
+            System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
+            {
+                return this._Entries.GetEnumerator();
+            }
+        }
+
+        public static byte[,] AnyBytes(int count)
+        {
+            return new byte[count, 2];
         }
     }
 }
