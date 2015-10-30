@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -29,16 +29,13 @@ using System.Linq;
 using System.Text;
 using System.Xml;
 using Gibbed.Cryptic.FileFormats;
-using Gibbed.IO;
 using Parser = Gibbed.Cryptic.FileFormats.Parser;
 
 namespace Gibbed.Cryptic.ExportSchemas
 {
     internal class Program
     {
-        private static string GetEnumType(
-            ProcessMemory memory,
-            uint baseAddress)
+        private static string GetEnumType(ProcessMemory memory, uint baseAddress)
         {
             switch (memory.ReadU32(baseAddress))
             {
@@ -56,9 +53,7 @@ namespace Gibbed.Cryptic.ExportSchemas
             throw new NotSupportedException();
         }
 
-        private static List<KeyValuePair<string, string>> ReadKeyValueList(
-            ProcessMemory memory,
-            uint baseAddress)
+        private static List<KeyValuePair<string, string>> ReadKeyValueList(ProcessMemory memory, uint baseAddress)
         {
             var entries = new List<KeyValuePair<string, string>>();
             var listAddress = memory.ReadU32(baseAddress);
@@ -184,7 +179,7 @@ namespace Gibbed.Cryptic.ExportSchemas
             xml.WriteEndElement();
         }
 
-        private static string GetTokenName(NativeColumn column, out Parser.ColumnFlags flags)
+        private static string GetTokenName(Natives.ParserColumn column, out Parser.ColumnFlags flags)
         {
             var check = Parser.ColumnFlags.None;
             check |= column.Flags & Parser.ColumnFlags.FIXED_ARRAY; // 0x80000
@@ -258,227 +253,6 @@ namespace Gibbed.Cryptic.ExportSchemas
         private static readonly Parser.ColumnFlags _ColumnFlagsMask = _ColumnFlagNames
             .Aggregate(Parser.ColumnFlags.None, (a, b) => a | b.Key);
 
-        private static uint HashKeyValueList(
-            ProcessMemory memory,
-            uint baseAddress,
-            uint hash)
-        {
-            var entries = new List<KeyValuePair<string, string>>();
-            var listAddress = memory.ReadU32(baseAddress);
-
-            var count = memory.ReadS32(listAddress + 8);
-            if (count > 0)
-            {
-                var entriesAddress = memory.ReadU32(listAddress + 4);
-                var data = memory.ReadAllBytes(entriesAddress, count * 8);
-
-                for (int i = 0; i < count; i++)
-                {
-                    var name = memory.ReadStringZ(BitConverter.ToUInt32(data, (i * 8) + 0));
-                    var value = memory.ReadStringZ(BitConverter.ToUInt32(data, (i * 8) + 4));
-                    entries.Add(new KeyValuePair<string, string>(name, value));
-                }
-            }
-
-            var sb = new StringBuilder();
-            foreach (var entry in entries.OrderBy(e => e.Key.ToLowerInvariant()))
-            {
-                sb.Append(entry.Key);
-                sb.Append(entry.Value);
-            }
-
-            return Adler32.Hash(sb.ToString(), hash);
-        }
-
-        private static uint HashStaticDefineList(
-            ProcessMemory memory,
-            uint baseAddress,
-            uint hash)
-        {
-            var valueType = 4;
-
-            while (true)
-            {
-                var type = memory.ReadU32(baseAddress);
-                if (type == 0)
-                {
-                    break;
-                }
-
-                switch (type)
-                {
-                    case 1:
-                    {
-                        valueType = 1;
-                        baseAddress += 8;
-                        break;
-                    }
-
-                    case 2:
-                    {
-                        valueType = 2;
-                        baseAddress += 8;
-                        break;
-                    }
-
-                    case 3:
-                    {
-                        var listAddress = memory.ReadU32(baseAddress + 4);
-                        baseAddress += 8;
-
-                        if (listAddress != 0)
-                        {
-                            hash = HashKeyValueList(memory, listAddress, hash);
-                        }
-
-                        break;
-                    }
-
-                    case 5:
-                    {
-                        var parent = memory.ReadU32(baseAddress + 4);
-                        return HashStaticDefineList(memory, parent, hash);
-                    }
-
-                    default:
-                    {
-                        var name = memory.ReadStringZ(type);
-                        hash = Adler32.Hash(name, hash);
-
-                        switch (valueType)
-                        {
-                            case 1:
-                            {
-                                var value = memory.ReadU32(baseAddress + 4);
-                                hash = Adler32.Hash(value, hash);
-                                baseAddress += 8;
-                                break;
-                            }
-
-                            case 2:
-                            {
-                                var value = memory.ReadStringZ(baseAddress + 4);
-                                hash = Adler32.Hash(value, hash);
-                                baseAddress += 8;
-                                break;
-                            }
-
-                            default:
-                            {
-                                throw new NotImplementedException();
-                            }
-                        }
-
-                        break;
-                    }
-                }
-            }
-
-            return hash;
-        }
-
-        private static uint HashTable(
-            ProcessMemory memory,
-            uint address,
-            uint hash)
-        {
-            var columns = new List<KeyValuePair<NativeColumn, string>>();
-            var currentAddress = address;
-            while (true)
-            {
-                var column = memory.ReadStructure<NativeColumn>(currentAddress);
-                currentAddress += 40;
-
-                var name = memory.ReadStringZ(column.NamePointer);
-
-                if (column.Type == 0)
-                {
-                    if (string.IsNullOrEmpty(name) == true)
-                    {
-                        break;
-                    }
-                }
-
-                columns.Add(new KeyValuePair<NativeColumn, string>(column, name));
-            }
-
-            foreach (var kv in columns)
-            {
-                var column = kv.Key;
-
-                if (column.Flags.HasAnyOptions(Parser.ColumnFlags.REDUNDANTNAME |
-                                               Parser.ColumnFlags.UNOWNED) == true)
-                {
-                    continue;
-                }
-
-                var name = kv.Value;
-
-                if (string.IsNullOrEmpty(name) == false)
-                {
-                    hash = Adler32.Hash(name, hash);
-                }
-
-                hash = Adler32.Hash(column.Type, hash);
-
-                var token = Parser.GlobalTokens.GetToken(column.Token);
-
-                switch (token.GetParameter(column.Flags, 0))
-                {
-                    case Parser.ColumnParameter.NumberOfElements:
-                    case Parser.ColumnParameter.Default:
-                    case Parser.ColumnParameter.StringLength:
-                    case Parser.ColumnParameter.Size:
-                    {
-                        hash = Adler32.Hash(column.Parameter0, hash);
-                        break;
-                    }
-
-                    case Parser.ColumnParameter.BitOffset:
-                    {
-                        hash = Adler32.Hash(column.Parameter0 >> 16, hash);
-                        break;
-                    }
-
-                    case Parser.ColumnParameter.DefaultString:
-                    case Parser.ColumnParameter.CommandString:
-                    {
-                        if (column.Parameter0 != 0)
-                        {
-                            hash = Adler32.Hash(memory.ReadStringZ(column.Parameter0), hash);
-                        }
-                        break;
-                    }
-                }
-
-                var param1 = token.GetParameter(column.Flags, 1);
-
-                if (column.Parameter1 != 0 &&
-                    (column.Token == 20 || column.Token == 21) &&
-                    address != column.Parameter1 &&
-                    column.Flags.HasAnyOptions(Parser.ColumnFlags.STRUCT_NORECURSE) == false)
-                {
-                    hash = HashTable(memory, column.Parameter1, hash);
-                }
-
-                if (column.Parameter1 != 0 &&
-                    param1 == Parser.ColumnParameter.StaticDefineList)
-                {
-                    hash = HashStaticDefineList(memory, column.Parameter1, hash);
-                }
-
-                if (column.Token == 23)
-                {
-                    var formatString = memory.ReadStringZ(column.FormatStringPointer);
-                    if (string.IsNullOrEmpty(formatString) == false)
-                    {
-                        hash = Adler32.Hash(formatString, hash);
-                    }
-                }
-            }
-
-            return hash;
-        }
 
         private static readonly string[] _FormatNames =
         {
@@ -713,10 +487,10 @@ namespace Gibbed.Cryptic.ExportSchemas
 
             var currentAddress = address;
 
-            var columns = new List<KeyValuePair<NativeColumn, string>>();
+            var columns = new List<KeyValuePair<Natives.ParserColumn, string>>();
             while (true)
             {
-                var column = memory.ReadStructure<NativeColumn>(currentAddress);
+                var column = memory.ReadStructure<Natives.ParserColumn>(currentAddress);
                 currentAddress += 40;
 
                 var name = memory.ReadStringZ(column.NamePointer);
@@ -729,7 +503,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                     }
                 }
 
-                columns.Add(new KeyValuePair<NativeColumn, string>(column, name));
+                columns.Add(new KeyValuePair<Natives.ParserColumn, string>(column, name));
             }
 
             foreach (var kv in columns)
@@ -1008,7 +782,7 @@ namespace Gibbed.Cryptic.ExportSchemas
         }
 
         private static string TranslateArgumentType(
-            NativeExpressionArgument arg,
+            Natives.ExpressionArgument arg,
             ProcessMemory memory)
         {
             switch (arg.Type)
@@ -1056,7 +830,7 @@ namespace Gibbed.Cryptic.ExportSchemas
         {
             var sb = new StringBuilder();
 
-            var func = memory.ReadStructure<NativeExpressionFunction>(pointer);
+            var func = memory.ReadStructure<Natives.ExpressionFunction>(pointer);
 
             sb.AppendFormat("[{0:X8}] ", func.Handler);
 
@@ -1155,28 +929,6 @@ namespace Gibbed.Cryptic.ExportSchemas
             var outputPath = Path.Combine("schemas", projectName);
             Directory.CreateDirectory(outputPath);
 
-            string[] dontHash =
-            {
-                /* these are badly defined recursive structures that
-                 * make hashing blow up (even the game would too!) */
-                "WrlDef",
-                "WrlScene",
-                "WrlChildren",
-                // now ignoring XML* wholesale in the check code
-                /*"XMLArray",
-                "XMLValue",
-                "XMLParseState",
-                "XMLMember",*/
-
-                "MemoryBudget",
-                "ModuleMemOperationStats",
-                "TestServerGlobal",
-                "TestServerGlobalReference",
-                "TestServerGlobalValue",
-                /* this one just takes forever :P */
-                //"Entity",
-            };
-
             using (var memory = new ProcessMemory())
             {
                 if (memory.Open(process) == false)
@@ -1184,207 +936,231 @@ namespace Gibbed.Cryptic.ExportSchemas
                     return;
                 }
 
-                // expression functions
-                var exprFuncs = new List<KeyValuePair<string, uint>>();
+                ExportExpressionFunctions(memory, outputPath);
+                var enums = ExportEnums(memory, outputPath);
+                ExportSchemas(memory, outputPath, enums);
+            }
+        }
+
+        private delegate bool LocateDelegate(ProcessMemory memory, out uint result);
+
+        private static bool Locate(ProcessMemory memory, out uint result, params LocateDelegate[] locators)
+        {
+            for (int i = 0, j = locators.Length - 1; i < locators.Length; i++, j--)
+            {
+                if (locators[j](memory, out result) == true)
                 {
-                    var stashPointer = Locator.FindExpressionFunctionTable(memory);
-                    if (stashPointer == 0)
-                    {
-                        Console.WriteLine("Warning: failed to locate expression function table.");
-                    }
-                    else
-                    {
-                        var stashCount = memory.ReadS32(stashPointer + 0x08);
-                        var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
-                        var stashEntries = memory.ReadAllBytes(stashEntryPointer, stashCount * 8);
+                    return true;
+                }
+            }
+            result = 0;
+            return false;
+        }
 
-                        for (int i = 0; i < stashCount; i++)
-                        {
-                            var namePointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 0);
-                            var dataPointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 4);
+        private static void ExportSchemas(ProcessMemory memory,
+                                          string outputPath,
+                                          List<KeyValuePair<string, uint>> enums)
+        {
+            uint stashPointer;
+            if (Locate(memory,
+                       out stashPointer,
+                       Locators.ParserTableLocator1.Locate,
+                       Locators.ParserTableLocator2.Locate) == false)
+            {
+                Console.WriteLine("Warning: failed to locate schema table.");
+                return;
+            }
 
-                            if (namePointer == 0 &&
-                                dataPointer == 0)
-                            {
-                                continue;
-                            }
+            var parsers = new List<KeyValuePair<string, uint>>();
 
-                            var name = memory.ReadStringZ(namePointer);
-                            exprFuncs.Add(new KeyValuePair<string, uint>(name, dataPointer));
-                        }
-                    }
+            var stashCount = memory.ReadS32(stashPointer + 0x08);
+            var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
+            var stashEntries = memory.ReadAllBytes(stashEntryPointer, stashCount * 8);
+
+            for (int i = 0; i < stashCount; i++)
+            {
+                var namePointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 0);
+                var dataPointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 4);
+
+                if (namePointer == 0 &&
+                    dataPointer == 0)
+                {
+                    continue;
                 }
 
-                if (exprFuncs.Count > 0)
+                var name = memory.ReadStringZ(namePointer);
+
+                parsers.Add(new KeyValuePair<string, uint>(name, dataPointer));
+            }
+
+            if (parsers.Count > 0)
+            {
+                Directory.CreateDirectory(Path.Combine(outputPath, "schemas"));
+                foreach (var kv in parsers.OrderBy(kv => kv.Key))
                 {
-                    using (var output = File.Create(Path.Combine(outputPath, "expression functions.txt")))
+                    var name = kv.Key;
+                    var pointer = kv.Value;
+
+                    Console.WriteLine("[schema] {0}", name);
+
+                    var settings = new XmlWriterSettings()
                     {
-                        var writer = new StreamWriter(output);
-                        foreach (var kv in exprFuncs.OrderBy(kv => kv.Key))
-                        {
-                            ExportExpressionFunction(kv.Key, kv.Value, memory, writer);
-                        }
-                        writer.Flush();
+                        Indent = true,
+                    };
+
+                    var schemaPath = Path.Combine(outputPath, "schemas", name + ".schema.xml");
+                    using (var xml = XmlWriter.Create(schemaPath, settings))
+                    {
+                        xml.WriteStartDocument();
+                        xml.WriteStartElement("parser");
+                        xml.WriteAttributeString("name", name);
+
+                        xml.WriteStartElement("table");
+                        ExportParserTable(memory, pointer, xml, parsers, enums);
+                        xml.WriteEndElement();
+
+                        xml.WriteEndElement();
+                        xml.WriteEndDocument();
                     }
                 }
+            }
+        }
 
-                var tempEnums = new List<KeyValuePair<string, uint>>();
-                var enums = new List<KeyValuePair<string, uint>>();
+        private static List<KeyValuePair<string, uint>> ExportEnums(ProcessMemory memory, string outputPath)
+        {
+            var enums = new List<KeyValuePair<string, uint>>();
+
+            uint stashPointer;
+            if (Locate(memory,
+                       out stashPointer,
+                       Locators.EnumTableLocator1.Locate,
+                       Locators.EnumTableLocator2.Locate,
+                       Locators.EnumTableLocator3.Locate) == false)
+            {
+                Console.WriteLine("Warning: failed to locate enum table.");
+                return enums;
+            }
+
+            var stashCount = memory.ReadS32(stashPointer + 0x08);
+            var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
+            var stashEntries = memory.ReadAllBytes(stashEntryPointer, stashCount * 8);
+
+            var enumLocations = new Dictionary<uint, string>();
+            for (int i = 0; i < stashCount; i++)
+            {
+                var namePointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 0);
+                var dataPointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 4);
+
+                if (namePointer == 0 &&
+                    dataPointer == 0)
                 {
-                    var stashPointer = Locator.FindEnumTableOld(memory);
-                    if (stashPointer == 0)
-                    {
-                        stashPointer = Locator.FindEnumTable(memory);
-                    }
-
-                    if (stashPointer == 0)
-                    {
-                        Console.WriteLine("Warning: failed to locate enum table.");
-                    }
-                    else
-                    {
-                        var stashCount = memory.ReadS32(stashPointer + 0x08);
-                        var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
-                        var stashEntries = memory.ReadAllBytes(stashEntryPointer, stashCount * 8);
-
-                        for (int i = 0; i < stashCount; i++)
-                        {
-                            var namePointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 0);
-                            var dataPointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 4);
-
-                            if (namePointer == 0 &&
-                                dataPointer == 0)
-                            {
-                                continue;
-                            }
-
-                            var name = memory.ReadStringZ(namePointer);
-
-                            tempEnums.Add(new KeyValuePair<string, uint>(name, dataPointer));
-                        }
-                    }
+                    continue;
                 }
 
-                if (tempEnums.Count > 0)
+                var name = memory.ReadStringZ(namePointer);
+                if (enumLocations.ContainsKey(dataPointer) == true)
                 {
-                    Directory.CreateDirectory(Path.Combine(outputPath, "enums"));
-                    foreach (var kv in tempEnums.OrderBy(kv => kv.Key))
+                    var otherName = enumLocations[dataPointer];
+                    if (name != otherName)
                     {
-                        var name = kv.Key;
-                        var pointer = kv.Value;
-
-                        var elements = ReadEnum(memory, pointer);
-                        if (elements == null)
+                        // Cryptic pls
+                        if (name != "PowerCategory" && otherName != "PowerCategories")
                         {
-                            continue;
-                        }
-
-                        enums.Add(new KeyValuePair<string, uint>(name, pointer));
-
-                        Console.WriteLine("[enum] {0}", name);
-
-                        var settings = new XmlWriterSettings()
-                        {
-                            Indent = true,
-                        };
-
-                        using (
-                            var xml = XmlWriter.Create(Path.Combine(outputPath, "enums", name + ".enum.xml"), settings))
-                        {
-                            xml.WriteStartDocument();
-                            xml.WriteStartElement("enum");
-                            xml.WriteAttributeString("name", name);
-
-                            ExportEnum(memory, pointer, elements, xml);
-
-                            xml.WriteEndElement();
-                            xml.WriteEndDocument();
+                            throw new InvalidOperationException();
                         }
                     }
+                    continue;
                 }
 
-                var parsers = new List<KeyValuePair<string, uint>>();
+                enumLocations.Add(dataPointer, name);
+            }
+
+            if (enumLocations.Count > 0)
+            {
+                Directory.CreateDirectory(Path.Combine(outputPath, "enums"));
+
+                foreach (var kv in enumLocations.OrderBy(kv => kv.Value))
                 {
-                    var stashPointer = Locator.FindParserTableOld(memory);
-                    if (stashPointer == 0)
+                    var name = kv.Value;
+                    var pointer = kv.Key;
+
+                    var elements = ReadEnum(memory, pointer);
+                    if (elements == null)
                     {
-                        stashPointer = Locator.FindParserTable(memory);
+                        continue;
                     }
 
-                    if (stashPointer == 0)
+                    enums.Add(new KeyValuePair<string, uint>(name, pointer));
+
+                    Console.WriteLine("[enum] {0}", name);
+
+                    var settings = new XmlWriterSettings()
                     {
-                        Console.WriteLine("Warning: failed to locate schema table.");
-                    }
-                    else
+                        Indent = true,
+                    };
+
+                    using (
+                        var xml = XmlWriter.Create(Path.Combine(outputPath, "enums", name + ".enum.xml"), settings))
                     {
-                        var stashCount = memory.ReadS32(stashPointer + 0x08);
-                        var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
-                        var stashEntries = memory.ReadAllBytes(stashEntryPointer, stashCount * 8);
+                        xml.WriteStartDocument();
+                        xml.WriteStartElement("enum");
+                        xml.WriteAttributeString("name", name);
 
-                        for (int i = 0; i < stashCount; i++)
-                        {
-                            var namePointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 0);
-                            var dataPointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 4);
+                        ExportEnum(memory, pointer, elements, xml);
 
-                            if (namePointer == 0 &&
-                                dataPointer == 0)
-                            {
-                                continue;
-                            }
-
-                            var name = memory.ReadStringZ(namePointer);
-
-                            parsers.Add(new KeyValuePair<string, uint>(name, dataPointer));
-                        }
+                        xml.WriteEndElement();
+                        xml.WriteEndDocument();
                     }
                 }
+            }
 
-                if (parsers.Count > 0)
+            return enums;
+        }
+
+        private static void ExportExpressionFunctions(ProcessMemory memory, string outputPath)
+        {
+            // expression functions
+            var exprFuncs = new List<KeyValuePair<string, uint>>();
+
+            uint stashPointer;
+            if (Locate(memory,
+                       out stashPointer,
+                       Locators.ExpressionFunctionTableLocator1.Locate,
+                       Locators.ExpressionFunctionTableLocator2.Locate) == false)
+            {
+                Console.WriteLine("Warning: failed to locate expression function table.");
+                return;
+            }
+
+            var stashCount = memory.ReadS32(stashPointer + 0x08);
+            var stashEntryPointer = memory.ReadU32(stashPointer + 0x14);
+            var stashEntries = memory.ReadAllBytes(stashEntryPointer, stashCount * 8);
+
+            for (int i = 0; i < stashCount; i++)
+            {
+                var namePointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 0);
+                var dataPointer = BitConverter.ToUInt32(stashEntries, (i * 8) + 4);
+
+                if (namePointer == 0 &&
+                    dataPointer == 0)
                 {
-                    Directory.CreateDirectory(Path.Combine(outputPath, "schemas"));
-                    foreach (var kv in parsers.OrderBy(kv => kv.Key))
+                    continue;
+                }
+
+                var name = memory.ReadStringZ(namePointer);
+                exprFuncs.Add(new KeyValuePair<string, uint>(name, dataPointer));
+            }
+
+            if (exprFuncs.Count > 0)
+            {
+                using (var output = File.Create(Path.Combine(outputPath, "expression functions.txt")))
+                {
+                    var writer = new StreamWriter(output);
+                    foreach (var kv in exprFuncs.OrderBy(kv => kv.Key))
                     {
-                        var name = kv.Key;
-                        var pointer = kv.Value;
-
-                        Console.WriteLine("[schema] {0}", name);
-
-                        var settings = new XmlWriterSettings()
-                        {
-                            Indent = true,
-                        };
-
-                        uint? hash = null;
-
-                        /*
-                        // disable for now
-                        if (dontHash.Contains(name) == false &&
-                            name.StartsWith("XML") == false)
-                        {
-                            hash = HashTable(memory, pointer, 1);
-                        }
-                        */
-
-                        var schemaPath = Path.Combine(outputPath, "schemas", name + ".schema.xml");
-                        using (var xml = XmlWriter.Create(schemaPath, settings))
-                        {
-                            xml.WriteStartDocument();
-                            xml.WriteStartElement("parser");
-                            xml.WriteAttributeString("name", name);
-
-                            if (hash != null)
-                            {
-                                xml.WriteAttributeString("hash", "0x" + hash.Value.Swap().ToString("X8"));
-                            }
-
-                            xml.WriteStartElement("table");
-                            ExportParserTable(memory, pointer, xml, parsers, enums);
-                            xml.WriteEndElement();
-
-                            xml.WriteEndElement();
-                            xml.WriteEndDocument();
-                        }
+                        ExportExpressionFunction(kv.Key, kv.Value, memory, writer);
                     }
+                    writer.Flush();
                 }
             }
         }

@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -22,7 +22,6 @@
 
 using System;
 using System.Diagnostics;
-using System.Globalization;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -48,24 +47,26 @@ namespace Gibbed.Cryptic.ExportSchemas
             // ReSharper restore InconsistentNaming
 
             [DllImport("kernel32.dll")]
-            public static extern UInt32 GetLastError();
+            public static extern Int32 GetLastError();
 
             [DllImport("kernel32.dll")]
             public static extern IntPtr OpenProcess(UInt32 dwDesiredAccess, Int32 bInheritHandle, Int32 dwProcessId);
 
             [DllImport("kernel32.dll")]
-            public static extern Int32 ReadProcessMemory(IntPtr hProcess,
-                                                         IntPtr lpBaseAddress,
-                                                         [In] [Out] byte[] lpBuffer,
-                                                         UInt32 nSize,
-                                                         out UInt32 lpNumberOfBytesRead);
+            public static extern Int32 ReadProcessMemory(
+                IntPtr hProcess,
+                IntPtr lpBaseAddress,
+                [In] [Out] byte[] lpBuffer,
+                UInt32 nSize,
+                out UInt32 lpNumberOfBytesRead);
 
             [DllImport("kernel32.dll")]
-            public static extern Int32 WriteProcessMemory(IntPtr hProcess,
-                                                          IntPtr lpBaseAddress,
-                                                          [In] [Out] byte[] lpBuffer,
-                                                          UInt32 nSize,
-                                                          out UInt32 lpNumberOfBytesWritten);
+            public static extern Int32 WriteProcessMemory(
+                IntPtr hProcess,
+                IntPtr lpBaseAddress,
+                [In] [Out] byte[] lpBuffer,
+                UInt32 nSize,
+                out UInt32 lpNumberOfBytesWritten);
 
             [DllImport("kernel32.dll")]
             public static extern IntPtr OpenThread(UInt32 dwDesiredAccess, Int32 bInheritHandle, UInt32 dwThreadId);
@@ -159,28 +160,29 @@ namespace Gibbed.Cryptic.ExportSchemas
             return result == Native.TRUE;
         }
 
-        public uint Search(ByteSearch pattern)
+        public bool Search(ByteSearch.Pattern pattern, out uint result)
         {
             const int blockSize = 0x00A00000;
             var data = new byte[blockSize];
 
             var address = this.MainModuleAddress;
 
-            for (int i = 0; i < this.MainModuleSize; i += (blockSize - pattern.Size))
+            for (int i = 0; i < this.MainModuleSize; i += (blockSize - pattern.Count))
             {
                 int size = Math.Min(blockSize, this.MainModuleSize - i);
+                this.Read(address + i, data, size);
 
-                this.Read(this.MainModuleAddress + i, data, size);
-
-                uint result = pattern.Match(data, size);
-                if (result != uint.MaxValue)
+                uint offset;
+                if (ByteSearch.Match(data, 0, size, pattern, out offset) == true)
                 {
-                    var target = (uint)((this.MainModuleAddress + i).ToInt32());
-                    return target + result;
+                    var target = (uint)(address + i).ToInt32();
+                    result = target + offset;
+                    return true;
                 }
             }
 
-            return uint.MaxValue;
+            result = 0;
+            return false;
         }
 
         private int Read(IntPtr address, byte[] data, int size)
@@ -197,7 +199,7 @@ namespace Gibbed.Cryptic.ExportSchemas
 
             if (result == 0 && Native.GetLastError() != 299)
             {
-                throw new NativeException("error " + Native.GetLastError().ToString(CultureInfo.InvariantCulture));
+                throw new System.ComponentModel.Win32Exception(Native.GetLastError());
             }
 
             return (int)read;

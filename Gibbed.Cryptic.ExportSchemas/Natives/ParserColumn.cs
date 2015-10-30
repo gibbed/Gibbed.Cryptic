@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -25,10 +25,10 @@ using System.Globalization;
 using System.Runtime.InteropServices;
 using Parser = Gibbed.Cryptic.FileFormats.Parser;
 
-namespace Gibbed.Cryptic.ExportSchemas
+namespace Gibbed.Cryptic.ExportSchemas.Natives
 {
     [StructLayout(LayoutKind.Sequential)]
-    public class NativeColumn
+    public class ParserColumn
     {
         public uint NamePointer;
         public uint Unknown04;

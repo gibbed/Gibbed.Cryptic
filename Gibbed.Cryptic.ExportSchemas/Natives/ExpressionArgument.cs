@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -20,24 +20,19 @@
  *    distribution.
  */
 
-using System;
+using System.Runtime.InteropServices;
 
-namespace Gibbed.Cryptic.ExportSchemas
+namespace Gibbed.Cryptic.ExportSchemas.Natives
 {
-    public class NativeException : InvalidOperationException
+    [StructLayout(LayoutKind.Sequential)]
+    public struct ExpressionArgument
     {
-        public NativeException()
-        {
-        }
-
-        public NativeException(string message)
-            : base(message)
-        {
-        }
-
-        public NativeException(string message, Exception innerException)
-            : base(message, innerException)
-        {
-        }
+        public int Type;
+        public uint NamePointer; // name
+        public uint StaticCheckTypePointer; // staticCheckType
+        public uint Unknown0C;
+        public int AllowNullPointer; // allowNULLPtr
+        public int TypeCategory; // scTypeCategory
+        public uint TypeNamePointer; // ptrTypeName
     }
 }

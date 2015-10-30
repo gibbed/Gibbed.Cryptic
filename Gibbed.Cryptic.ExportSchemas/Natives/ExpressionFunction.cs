@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -22,10 +22,10 @@
 
 using System.Runtime.InteropServices;
 
-namespace Gibbed.Cryptic.ExportSchemas
+namespace Gibbed.Cryptic.ExportSchemas.Natives
 {
     [StructLayout(LayoutKind.Sequential)]
-    public struct NativeExpressionFunction
+    public struct ExpressionFunction
     {
         public int ArgumentCount; // args
         public int ExprCodeEnum;
@@ -37,9 +37,9 @@ namespace Gibbed.Cryptic.ExportSchemas
         public uint LineNumber; // LineNum
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]
-        public NativeExpressionArgument[] Arguments; // args
+        public ExpressionArgument[] Arguments; // args
 
-        public NativeExpressionArgument ReturnType; // returnType
+        public ExpressionArgument ReturnType; // returnType
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = 12)]
         public uint[] Tags; // tags

@@ -46,11 +46,18 @@
   <ItemGroup>
     <Compile Include="Adler32.cs" />
     <Compile Include="ByteSearch.cs" />
-    <Compile Include="Locator.cs" />
-    <Compile Include="NativeColumn.cs" />
-    <Compile Include="NativeException.cs" />
-    <Compile Include="NativeExpressionArgument.cs" />
-    <Compile Include="NativeExpressionFunction.cs" />
+    <Compile Include="Hashing.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="Locators\EnumTableLocator1.cs" />
+    <Compile Include="Locators\EnumTableLocator2.cs" />
+    <Compile Include="Locators\EnumTableLocator3.cs" />
+    <Compile Include="Locators\ExpressionFunctionTableLocator1.cs" />
+    <Compile Include="Locators\ExpressionFunctionTableLocator2.cs" />
+    <Compile Include="Locators\ParserTableLocator1.cs" />
+    <Compile Include="Locators\ParserTableLocator2.cs" />
+    <Compile Include="Natives\ParserColumn.cs" />
+    <Compile Include="Natives\ExpressionArgument.cs" />
+    <Compile Include="Natives\ExpressionFunction.cs" />
     <Compile Include="ProcessMemory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
