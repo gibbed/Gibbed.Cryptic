@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -69,6 +69,10 @@ namespace Gibbed.Cryptic.FileFormats.Serialization
         bool ReadValueBoolean(object state);
         bool[] ReadArrayBoolean(int count, object state);
         List<bool> ReadListBoolean(int maxCount, object state);
+
+        object ReadValueNoAST(object state);
+        object[] ReadArrayNoAST(int count, object state);
+        List<object> ReadListNoAST(int maxCount, object state);
 
         bool ReadValueBooleanFlag(object state);
         bool[] ReadArrayBooleanFlag(int count, object state);
