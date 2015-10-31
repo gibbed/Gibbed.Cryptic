@@ -71,11 +71,6 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 return false;
             }
 
-            if (string.IsNullOrEmpty(column.Name) == true)
-            {
-                return false;
-            }
-
             return true;
         }
 
