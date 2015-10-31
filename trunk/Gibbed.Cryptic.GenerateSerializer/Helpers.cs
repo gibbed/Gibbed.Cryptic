@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -67,6 +67,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 column.Token == Parser.TokenType.Start ||
                 column.Token == Parser.TokenType.End ||
                 column.Token == Parser.TokenType.Command)
+            {
+                return false;
+            }
+
+            if (string.IsNullOrEmpty(column.Name) == true)
             {
                 return false;
             }

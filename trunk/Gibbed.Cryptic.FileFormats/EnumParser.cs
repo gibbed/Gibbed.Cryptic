@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -65,6 +65,31 @@ namespace Gibbed.Cryptic.FileFormats
             if (list != null)
             {
                 items.AddRange(Enumerable.Select(list, item => Enum.Format(typeof(T), item, "g")));
+            }
+            return items;
+        }
+
+        public static T[] FromStringArray(string[] array)
+        {
+            var items = new T[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                T value;
+                if (Enum.TryParse(array[i], out value) == false)
+                {
+                    throw new FormatException(string.Format("failed to parse enum {0}", typeof(T).Name));
+                }
+                items[i] = value;
+            }
+            return items;
+        }
+
+        public static string[] ToStringArray(T[] array)
+        {
+            var items = new string[array.Length];
+            for (int i = 0; i < array.Length; i++)
+            {
+                items[i] = Enum.Format(typeof(T), array[i], "g");
             }
             return items;
         }

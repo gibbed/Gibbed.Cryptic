@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -69,6 +69,10 @@ namespace Gibbed.Cryptic.FileFormats.Serialization
         void WriteValueBoolean(bool value, object state);
         void WriteArrayBoolean(bool[] array, int count, object state);
         void WriteListBoolean(List<bool> list, int maxCount, object state);
+
+        void WriteValueNoAST(object value, object state);
+        void WriteArrayNoAST(object[] array, int count, object state);
+        void WriteListNoAST(List<object> list, int maxCount, object state);
 
         void WriteValueBooleanFlag(bool value, object state);
         void WriteArrayBooleanFlag(bool[] array, int count, object state);

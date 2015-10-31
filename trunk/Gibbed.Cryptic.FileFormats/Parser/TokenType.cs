@@ -38,7 +38,7 @@ namespace Gibbed.Cryptic.FileFormats.Parser
         Timestamp = 10,
         LineNumber = 11,
         Boolean = 12,
-
+        NoAST = 13,
         BooleanFlag = 14,
         QUATPYR = 15,
         MATPYR = 16,

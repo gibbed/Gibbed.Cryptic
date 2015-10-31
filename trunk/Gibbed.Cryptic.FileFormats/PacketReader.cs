@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -399,6 +399,21 @@ namespace Gibbed.Cryptic.FileFormats
         }
 
         public List<bool> ReadListBoolean(int maxCount, object state)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object ReadValueNoAST(object state)
+        {
+            throw new NotImplementedException();
+        }
+
+        public object[] ReadArrayNoAST(int count, object state)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<object> ReadListNoAST(int maxCount, object state)
         {
             throw new NotImplementedException();
         }

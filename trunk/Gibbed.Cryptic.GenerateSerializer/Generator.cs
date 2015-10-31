@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
+﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
  * 
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
@@ -407,6 +407,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         return typeof(List<string>);
                     case Parser.TokenType.CurrentFile:
                         return typeof(List<string>);
+                    case Parser.TokenType.NoAST:
+                        return typeof(List<object>);
                     case Parser.TokenType.MATPYR:
                         return typeof(List<MATPYR>);
                     case Parser.TokenType.Filename:
@@ -924,10 +926,69 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 }
                 else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
                 {
-                    throw new NotImplementedException();
+                    var elementType = type.GetElementType();
+
+                    var wrapperBuilder = structure.DefineProperty(
+                        wrapperName,
+                        PropertyAttributes.None,
+                        typeof(string[]),
+                        Type.EmptyTypes);
+
+                    var getBuilder = structure.DefineMethod(
+                        "get_" + wrapperName,
+                        MethodAttributes.Public |
+                        MethodAttributes.SpecialName |
+                        MethodAttributes.HideBySig,
+                        typeof(string[]),
+                        Type.EmptyTypes);
+
+                    var getIL = getBuilder.GetILGenerator();
+                    getIL.Emit(OpCodes.Ldarg_0);
+                    getIL.Emit(OpCodes.Ldfld, builder);
+                    getIL.Emit(OpCodes.Call,
+                               typeof(EnumParser<>).MakeGenericType(elementType).GetMethod("ToStringArray"));
+                    getIL.Emit(OpCodes.Ret);
+
+                    var setBuilder = structure.DefineMethod(
+                        "set_" + wrapperName,
+                        MethodAttributes.Public |
+                        MethodAttributes.SpecialName |
+                        MethodAttributes.HideBySig,
+                        null,
+                        new[] { typeof(string[]) });
+
+                    var setIL = setBuilder.GetILGenerator();
+                    setIL.Emit(OpCodes.Ldarg_0);
+                    setIL.Emit(OpCodes.Ldarg_1);
+                    setIL.Emit(OpCodes.Call,
+                               typeof(EnumParser<>).MakeGenericType(elementType).GetMethod("FromStringArray"));
+                    setIL.Emit(OpCodes.Stfld, builder);
+                    setIL.Emit(OpCodes.Ret);
+
+                    wrapperBuilder.SetGetMethod(getBuilder);
+                    wrapperBuilder.SetSetMethod(setBuilder);
+
+                    wrapperBuilder.SetCustomAttribute(
+                        new CustomAttributeBuilder(
+                            GetConstructor<DataMemberAttribute>(),
+                            new object[0],
+                            new[]
+                            {
+                                typeof(DataMemberAttribute).GetProperty("Name"),
+                                typeof(DataMemberAttribute).GetProperty("Order"),
+                                typeof(DataMemberAttribute).GetProperty("EmitDefaultValue"),
+                            },
+                            new object[]
+                            {
+                                name,
+                                table.Columns.IndexOf(column),
+                                false,
+                            }));
                 }
                 else
                 {
+                    var elementType = type.GetGenericArguments()[0];
+
                     var wrapperBuilder = structure.DefineProperty(
                         wrapperName,
                         PropertyAttributes.None,
@@ -946,8 +1007,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     getIL.Emit(OpCodes.Ldarg_0);
                     getIL.Emit(OpCodes.Ldfld, builder);
                     getIL.Emit(OpCodes.Call,
-                               typeof(EnumParser<>).MakeGenericType(type.GetGenericArguments()[0])
-                                                   .GetMethod("ToStringList"));
+                               typeof(EnumParser<>).MakeGenericType(elementType).GetMethod("ToStringList"));
                     getIL.Emit(OpCodes.Ret);
 
                     var setBuilder = structure.DefineMethod(
@@ -956,14 +1016,13 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         MethodAttributes.SpecialName |
                         MethodAttributes.HideBySig,
                         null,
-                        new[] { typeof(string) });
+                        new[] { typeof(List<string>) });
 
                     var setIL = setBuilder.GetILGenerator();
                     setIL.Emit(OpCodes.Ldarg_0);
                     setIL.Emit(OpCodes.Ldarg_1);
                     setIL.Emit(OpCodes.Call,
-                               typeof(EnumParser<>).MakeGenericType(type.GetGenericArguments()[0])
-                                                   .GetMethod("FromStringList"));
+                               typeof(EnumParser<>).MakeGenericType(elementType).GetMethod("FromStringList"));
                     setIL.Emit(OpCodes.Stfld, builder);
                     setIL.Emit(OpCodes.Ret);
 
