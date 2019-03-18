@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{F49916DF-AF1E-4FDC-8D5A-D28E645D6F75}</ProjectGuid>
+    <ProjectGuid>{239CD2C1-F31F-4B62-90B6-A2476C357F32}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gibbed.Cryptic.ConvertObject</RootNamespace>
-    <AssemblyName>Gibbed.Cryptic.ConvertObject</AssemblyName>
+    <RootNamespace>Gibbed.Cryptic.GenerateSerializer</RootNamespace>
+    <AssemblyName>Gibbed.Cryptic.GenerateSerializer</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -20,7 +20,7 @@
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\bin\</OutputPath>
+    <OutputPath>..\..\bin\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
@@ -35,9 +35,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\other\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
@@ -48,11 +45,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Configuration.cs" />
-    <Compile Include="Mode.cs" />
+    <Compile Include="CheckScope.cs" />
+    <Compile Include="EnumLoader.cs" />
+    <Compile Include="TargetGame.cs" />
+    <Compile Include="Generator.cs" />
+    <Compile Include="Helpers.cs" />
+    <Compile Include="ILGeneratorHelpers.cs" />
+    <Compile Include="ParserLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resource.cs" />
+    <Compile Include="QueuedType.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gibbed.Cryptic.FileFormats\Gibbed.Cryptic.FileFormats.csproj">
