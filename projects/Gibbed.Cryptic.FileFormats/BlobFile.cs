@@ -120,7 +120,7 @@ namespace Gibbed.Cryptic.FileFormats
 
             var fileInfoSize = input.ReadValueU32();
             this.Files.Clear();
-            using (var data = input.ReadToMemoryStream(fileInfoSize))
+            using (var data = input.ReadToMemoryStream((int)fileInfoSize))
             {
                 var count = data.ReadValueU32();
                 for (uint i = 0; i < count; i++)
@@ -146,7 +146,7 @@ namespace Gibbed.Cryptic.FileFormats
             }
 
             var extraFileInfoSize = input.ReadValueU32();
-            using (var data = input.ReadToMemoryStream(extraFileInfoSize))
+            using (var data = input.ReadToMemoryStream((int)extraFileInfoSize))
             {
                 var count = data.ReadValueU32();
                 if (count != 0)
@@ -163,7 +163,7 @@ namespace Gibbed.Cryptic.FileFormats
 
             var dependencyInfoSize = input.ReadValueU32();
             this.Dependencies.Clear();
-            using (var data = input.ReadToMemoryStream(dependencyInfoSize))
+            using (var data = input.ReadToMemoryStream((int)dependencyInfoSize))
             {
                 var count = data.ReadValueU32();
                 for (uint i = 0; i < count; i++)
@@ -248,7 +248,7 @@ namespace Gibbed.Cryptic.FileFormats
             //output.Flush();
 
             var dataSize = input.ReadValueU32();
-            using (var data = input.ReadToMemoryStream(dataSize))
+            using (var data = input.ReadToMemoryStream((int)dataSize))
             {
                 /*
                 Counter++;

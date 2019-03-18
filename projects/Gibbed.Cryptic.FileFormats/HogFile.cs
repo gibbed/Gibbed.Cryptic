@@ -73,10 +73,10 @@ namespace Gibbed.Cryptic.FileFormats
             }
 
             this.OperationJournal = input.ReadBytes(operationJournalSize);
-            this.DataListJournal = input.ReadBytes(dataListJournalSize);
+            this.DataListJournal = input.ReadBytes((int)dataListJournalSize);
 
             this.Files.Clear();
-            using (var data = input.ReadToMemoryStream(fileListSize))
+            using (var data = input.ReadToMemoryStream((int)fileListSize))
             {
                 while (data.Position < data.Length)
                 {
@@ -96,7 +96,7 @@ namespace Gibbed.Cryptic.FileFormats
             }
 
             this.Attributes.Clear();
-            using (var data = input.ReadToMemoryStream(attributeListSize))
+            using (var data = input.ReadToMemoryStream((int)attributeListSize))
             {
                 while (data.Position < data.Length)
                 {

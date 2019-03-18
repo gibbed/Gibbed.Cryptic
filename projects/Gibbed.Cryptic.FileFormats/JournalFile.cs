@@ -52,7 +52,7 @@ namespace Gibbed.Cryptic.FileFormats
             }
 
             this.Entries.Clear();
-            using (var data = input.ReadToMemoryStream(size1))
+            using (var data = input.ReadToMemoryStream((int)size1))
             {
                 while (data.Position < data.Length)
                 {
@@ -65,7 +65,7 @@ namespace Gibbed.Cryptic.FileFormats
                     if (entry.Action == Journal.Action.Add)
                     {
                         var length = data.ReadValueU32(endian);
-                        entry.Data = data.ReadBytes(length);
+                        entry.Data = data.ReadBytes((int)length);
                     }
                     else if (entry.Action == Journal.Action.Remove)
                     {

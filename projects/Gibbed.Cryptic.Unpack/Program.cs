@@ -127,7 +127,7 @@ namespace Gibbed.Cryptic.Unpack
                         for (int i = 0; i < count; i++)
                         {
                             var length = data.ReadValueU32(hog.Endian);
-                            dataList.Add(i, data.ReadBytes(length));
+                            dataList.Add(i, data.ReadBytes((int)length));
                         }
                     }
                 }
