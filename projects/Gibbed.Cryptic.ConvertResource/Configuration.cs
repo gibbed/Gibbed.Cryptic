@@ -1,21 +1,21 @@
-﻿/* Copyright (c) 2013 Rick (rick 'at' gibbed 'dot' us)
- * 
+﻿/* Copyright (c) 2021 Rick (rick 'at' gibbed 'dot' us)
+ *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
  * arising from the use of this software.
- * 
+ *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
- * 
+ *
  * 1. The origin of this software must not be misrepresented; you must not
  *    claim that you wrote the original software. If you use this software
  *    in a product, an acknowledgment in the product documentation would
  *    be appreciated but is not required.
- * 
+ *
  * 2. Altered source versions must be plainly marked as such, and must not
  *    be misrepresented as being the original software.
- * 
+ *
  * 3. This notice may not be removed or altered from any source
  *    distribution.
  */
@@ -30,12 +30,12 @@ namespace Gibbed.Cryptic.ConvertResource
 {
     internal class Configuration
     {
-        private readonly Dictionary<string, Schema> _Schemas = new Dictionary<string, Schema>();
+        private readonly Dictionary<string, Parse> _Parses = new Dictionary<string, Parse>();
         private readonly Dictionary<string, string> _Aliases = new Dictionary<string, string>();
 
-        public Dictionary<string, Schema> Schemas
+        public Dictionary<string, Parse> Parses
         {
-            get { return _Schemas; }
+            get { return _Parses; }
         }
 
         public Dictionary<string, string> Aliases
@@ -58,14 +58,14 @@ namespace Gibbed.Cryptic.ConvertResource
                         var reader = new StreamReader(input);
                         text = reader.ReadToEnd();
                     }
-                    var schema = JsonConvert.DeserializeObject<Schema>(text);
+                    var parse = JsonConvert.DeserializeObject<Parse>(text);
 
-                    config._Schemas.Add(schema.Name.ToLowerInvariant(), schema);
-                    if (schema.Aliases != null)
+                    config._Parses.Add(parse.Name.ToLowerInvariant(), parse);
+                    if (parse.Aliases != null)
                     {
-                        foreach (var alias in schema.Aliases)
+                        foreach (var alias in parse.Aliases)
                         {
-                            config._Aliases.Add(alias.ToLowerInvariant(), schema.Name.ToLowerInvariant());
+                            config._Aliases.Add(alias.ToLowerInvariant(), parse.Name.ToLowerInvariant());
                         }
                     }
                 }
@@ -74,11 +74,11 @@ namespace Gibbed.Cryptic.ConvertResource
             return config;
         }
 
-        public Schema GetSchema(string name)
+        public Parse GetParse(string name)
         {
             if (name == null)
             {
-                throw new ArgumentNullException("name");
+                throw new ArgumentNullException(nameof(name));
             }
 
             name = name.ToLowerInvariant();
@@ -89,11 +89,11 @@ namespace Gibbed.Cryptic.ConvertResource
                 name = alias;
             }
 
-            return this._Schemas.FirstOrDefault(s => s.Key == name).Value;
+            return this._Parses.FirstOrDefault(s => s.Key == name).Value;
         }
 
         [JsonObject(MemberSerialization.OptIn)]
-        public class Schema
+        public class Parse
         {
             [JsonProperty(PropertyName = "name", Required = Required.Always)]
             public string Name;
@@ -115,16 +115,15 @@ namespace Gibbed.Cryptic.ConvertResource
 
             public AssemblyTarget GetTarget(uint hash)
             {
-                return this.Targets.SingleOrDefault(
-                    t => t.ParserHash == hash);
+                return this.Targets.SingleOrDefault(t => t.ParseHash == hash);
             }
         }
 
         [JsonObject(MemberSerialization.OptIn)]
         public class AssemblyTarget
         {
-            [JsonProperty(PropertyName = "parser_hash", Required = Required.Always)]
-            public uint ParserHash;
+            [JsonProperty(PropertyName = "parse_hash", Required = Required.Always)]
+            public uint ParseHash;
 
             [JsonProperty(PropertyName = "key", Required = Required.Default)]
             public string Key;

@@ -1,147 +1,19 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>8.0.30703</ProductVersion>
-    <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{78B8A118-B473-4B77-9658-02B07EDA14C4}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Gibbed.Cryptic.FileFormats</RootNamespace>
-    <AssemblyName>Gibbed.Cryptic.FileFormats</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile>
-    </TargetFrameworkProfile>
+    <TargetFramework>net48</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Company>Gibbed</Company>
+    <Authors>Gibbed</Authors>
+    <Description>http://gib.me/</Description>
+    <Copyright>Copyright © Gibbed 2021</Copyright>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Gibbed.Cryptic.Grammars\Gibbed.Cryptic.Grammars.csproj" />
+    <ProjectReference Include="..\Gibbed.IO\Gibbed.IO.csproj" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Include="Irony">
       <HintPath>..\..\other\Irony.dll</HintPath>
     </Reference>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="BlobFile.cs" />
-    <Compile Include="BlobDataReader.cs" />
-    <Compile Include="BlobDataWriter.cs" />
-    <Compile Include="Blob\DependencyEntry.cs" />
-    <Compile Include="Blob\DependencyType.cs" />
-    <Compile Include="Blob\FileEntry.cs" />
-    <Compile Include="CDataWrapper.cs" />
-    <Compile Include="EnumParser.cs" />
-    <Compile Include="FieldList.cs" />
-    <Compile Include="FieldListParser.cs" />
-    <Compile Include="FunctionCall.cs" />
-    <Compile Include="ParserHelpers.cs" />
-    <Compile Include="Parser\Tokens\NoAST.cs" />
-    <Compile Include="Parser\TokenType.cs" />
-    <Compile Include="PCodeParser.cs" />
-    <Compile Include="Serialization\IBaseReader.cs" />
-    <Compile Include="Serialization\IFileReader.cs" />
-    <Compile Include="Serialization\IFileWriter.cs" />
-    <Compile Include="Serialization\IPacketReader.cs" />
-    <Compile Include="Serialization\IPacketWriter.cs" />
-    <Compile Include="Serialization\IStructure.cs" />
-    <Compile Include="Serialization\IBaseWriter.cs" />
-    <Compile Include="MATPYR.cs" />
-    <Compile Include="MultiValue.cs" />
-    <Compile Include="StaticVariableType.cs" />
-    <Compile Include="PacketReader.cs" />
-    <Compile Include="ParserEnumFile.cs" />
-    <Compile Include="ParserSchemaFile.cs" />
-    <Compile Include="ParserSchema\Column.cs" />
-    <Compile Include="ParserSchema\ColumnFormat.cs" />
-    <Compile Include="ParserSchema\Enumeration.cs" />
-    <Compile Include="ParserSchema\EnumerationType.cs" />
-    <Compile Include="ParserSchema\Table.cs" />
-    <Compile Include="Parser\BasicStringToken.cs" />
-    <Compile Include="Parser\BasicValueToken.cs" />
-    <Compile Include="Parser\ColumnParameter.cs" />
-    <Compile Include="Parser\ColumnFlags.cs" />
-    <Compile Include="Parser\GlobalTokens.cs" />
-    <Compile Include="MultiValueOpcode.cs" />
-    <Compile Include="Parser\StorageCompatability.cs" />
-    <Compile Include="Parser\Token.cs" />
-    <Compile Include="JournalFile.cs" />
-    <Compile Include="HogFile.cs" />
-    <Compile Include="Hog\AttributeEntry.cs" />
-    <Compile Include="Hog\FileEntry.cs" />
-    <Compile Include="Journal\Action.cs" />
-    <Compile Include="Journal\Entry.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Parser\Tokens\Bit.cs" />
-    <Compile Include="Parser\Tokens\Boolean.cs" />
-    <Compile Include="Parser\Tokens\BooleanFlag.cs" />
-    <Compile Include="Parser\Tokens\Command.cs" />
-    <Compile Include="Parser\Tokens\CurrentFile.cs" />
-    <Compile Include="Parser\Tokens\End.cs" />
-    <Compile Include="Parser\Tokens\Float.cs" />
-    <Compile Include="Parser\Tokens\Filename.cs" />
-    <Compile Include="Parser\Tokens\FunctionCall.cs" />
-    <Compile Include="Parser\Tokens\Ignore.cs" />
-    <Compile Include="Parser\Tokens\Int32.cs" />
-    <Compile Include="Parser\Tokens\Int16.cs" />
-    <Compile Include="Parser\Tokens\Int64.cs" />
-    <Compile Include="Parser\Tokens\LineNumber.cs" />
-    <Compile Include="Parser\Tokens\MATPYR.cs" />
-    <Compile Include="Parser\Tokens\MultiValue.cs" />
-    <Compile Include="Parser\Tokens\Polymorph.cs" />
-    <Compile Include="Parser\Tokens\QUATPYR.cs" />
-    <Compile Include="Parser\Tokens\Reference.cs" />
-    <Compile Include="Parser\Tokens\Start.cs" />
-    <Compile Include="Parser\Tokens\StashTable.cs" />
-    <Compile Include="Parser\Tokens\String.cs" />
-    <Compile Include="Parser\Tokens\Structure.cs" />
-    <Compile Include="Parser\Tokens\Timestamp.cs" />
-    <Compile Include="Parser\Tokens\Byte.cs" />
-    <Compile Include="StashTable.cs" />
-    <Compile Include="StreamHelpers.cs" />
-    <Compile Include="StringHelpers.cs" />
-    <Compile Include="TextureFile.cs" />
-    <Compile Include="Texture\RenderFormat.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Gibbed.Cryptic.Grammars\Gibbed.Cryptic.Grammars.csproj">
-      <Project>{18316E7E-3E00-4B8B-B49F-2EFB2DC600CF}</Project>
-      <Name>Gibbed.Cryptic.Grammars</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Gibbed.IO\Gibbed.IO.csproj">
-      <Project>{047857BA-DAA3-4CA7-AFB8-A1B082B28C6A}</Project>
-      <Name>Gibbed.IO</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>

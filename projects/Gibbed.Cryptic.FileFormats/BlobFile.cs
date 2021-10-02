@@ -1,21 +1,21 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
- * 
+﻿/* Copyright (c) 2021 Rick (rick 'at' gibbed 'dot' us)
+ *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
  * arising from the use of this software.
- * 
+ *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
- * 
+ *
  * 1. The origin of this software must not be misrepresented; you must not
  *    claim that you wrote the original software. If you use this software
  *    in a product, an acknowledgment in the product documentation would
  *    be appreciated but is not required.
- * 
+ *
  * 2. Altered source versions must be plainly marked as such, and must not
  *    be misrepresented as being the original software.
- * 
+ *
  * 3. This notice may not be removed or altered from any source
  *    distribution.
  */
@@ -34,7 +34,7 @@ namespace Gibbed.Cryptic.FileFormats
         private const string _FileSignature = "CrypticS";
         private const string _TypeSignature = "ParseN";
 
-        public uint ParserHash;
+        public uint ParseHash;
         public string Type;
 
         public List<Blob.FileEntry> Files = new List<Blob.FileEntry>();
@@ -43,7 +43,7 @@ namespace Gibbed.Cryptic.FileFormats
         public void Serialize(Stream output)
         {
             output.WriteString(_FileSignature, Encoding.ASCII);
-            output.WriteValueU32(this.ParserHash);
+            output.WriteValueU32(this.ParseHash);
             output.WriteValueU32(1);
             output.WriteStringPascal(_TypeSignature, 4096);
 
@@ -97,7 +97,7 @@ namespace Gibbed.Cryptic.FileFormats
                 throw new FormatException("invalid blob magic");
             }
 
-            this.ParserHash = input.ReadValueU32();
+            this.ParseHash = input.ReadValueU32();
 
             var flags = input.ReadValueU32();
             if (flags != 1)
@@ -184,26 +184,27 @@ namespace Gibbed.Cryptic.FileFormats
             }
         }
 
-        public static void DeserializeColumn(ParserSchema.Column column, Stream input, XmlWriter output)
+        public static void DeserializeColumn(ParseSchema.Column column, Stream input, XmlWriter output)
         {
-            if (column.Flags.HasAnyOptions(Parser.ColumnFlags.REDUNDANTNAME |
-                                           Parser.ColumnFlags.UNOWNED |
-                                           Parser.ColumnFlags.NO_WRITE) == true)
+            if (column.Flags.HasAny(
+                Parse.ColumnFlags.REDUNDANTNAME |
+                Parse.ColumnFlags.UNOWNED |
+                Parse.ColumnFlags.NO_WRITE) == true)
             {
                 return;
             }
 
-            var token = Parser.GlobalTokens.GetToken(column.Token);
+            var token = Parse.GlobalTokens.GetToken(column.Token);
 
-            if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY) == false)
+            if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY | Parse.ColumnFlags.FIXED_ARRAY) == false)
             {
                 // value
                 token.Deserialize(input, column, output);
             }
-            else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+            else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
             {
                 // fixed array
-                if (column.Token == Parser.TokenType.MATPYR)
+                if (column.Token == Parse.TokenType.MATPYR)
                 {
                     token.Deserialize(input, column, output);
                 }
@@ -219,18 +220,18 @@ namespace Gibbed.Cryptic.FileFormats
             }
             else
             {
-                if (column.Token == Parser.TokenType.FunctionCall)
+                if (column.Token == Parse.TokenType.FunctionCall)
                 {
                     token.Deserialize(input, column, output);
                 }
                 else
                 {
                     var count = input.ReadValueU32();
-                    if (count > ParserSchemaFile.DefaultMaxArraySize)
+                    if (count > ParseSchemaFile.DefaultMaxArraySize)
                     {
                         throw new FormatException(string.Format("list exceeds maximum array size ({0} > {1})",
                                                                 count,
-                                                                ParserSchemaFile.DefaultMaxArraySize));
+                                                                ParseSchemaFile.DefaultMaxArraySize));
                     }
 
                     for (int i = 0; i < count; i++)
@@ -243,7 +244,7 @@ namespace Gibbed.Cryptic.FileFormats
             }
         }
 
-        public static void DeserializeTable(ParserSchema.Table table, Stream input, XmlWriter output)
+        public static void DeserializeTable(ParseSchema.Table table, Stream input, XmlWriter output)
         {
             //output.Flush();
 
@@ -263,9 +264,10 @@ namespace Gibbed.Cryptic.FileFormats
 
                 foreach (var column in table.Columns)
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.REDUNDANTNAME |
-                                                   Parser.ColumnFlags.UNOWNED |
-                                                   Parser.ColumnFlags.NO_WRITE) == true)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.REDUNDANTNAME |
+                        Parse.ColumnFlags.UNOWNED |
+                        Parse.ColumnFlags.NO_WRITE) == true)
                     {
                         continue;
                     }

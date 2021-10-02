@@ -1,21 +1,21 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
- * 
+﻿/* Copyright (c) 2021 Rick (rick 'at' gibbed 'dot' us)
+ *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
  * arising from the use of this software.
- * 
+ *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
- * 
+ *
  * 1. The origin of this software must not be misrepresented; you must not
  *    claim that you wrote the original software. If you use this software
  *    in a product, an acknowledgment in the product documentation would
  *    be appreciated but is not required.
- * 
+ *
  * 2. Altered source versions must be plainly marked as such, and must not
  *    be misrepresented as being the original software.
- * 
+ *
  * 3. This notice may not be removed or altered from any source
  *    distribution.
  */
@@ -30,7 +30,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
     public class EnumLoader
     {
         private readonly Dictionary<string, string> _Paths;
-        private readonly Dictionary<string, ParserEnumFile> _LoadedEnums;
+        private readonly Dictionary<string, ParseEnumFile> _LoadedEnums;
 
         public IEnumerable<string> EnumNames
         {
@@ -40,16 +40,16 @@ namespace Gibbed.Cryptic.GenerateSerializer
         public EnumLoader(string path)
         {
             this._Paths = new Dictionary<string, string>();
-            this._LoadedEnums = new Dictionary<string, ParserEnumFile>();
+            this._LoadedEnums = new Dictionary<string, ParseEnumFile>();
 
             foreach (var inputPath in Directory.GetFiles(path, "*.enum.xml", SearchOption.AllDirectories))
             {
-                var name = ParserEnumFile.GetNameFromFile(inputPath);
+                var name = ParseEnumFile.GetNameFromFile(inputPath);
                 this._Paths.Add(name, inputPath);
             }
         }
 
-        public ParserEnumFile LoadEnum(string name)
+        public ParseEnumFile LoadEnum(string name)
         {
             if (name == null)
             {
@@ -66,7 +66,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 return this._LoadedEnums[name];
             }
 
-            var e = ParserEnumFile.LoadFile(this._Paths[name]);
+            var e = ParseEnumFile.LoadFile(this._Paths[name]);
             this._LoadedEnums.Add(name, e);
             return e;
         }

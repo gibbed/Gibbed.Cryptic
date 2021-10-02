@@ -1,31 +1,32 @@
-﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
- * 
+﻿/* Copyright (c) 2021 Rick (rick 'at' gibbed 'dot' us)
+ *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
  * arising from the use of this software.
- * 
+ *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
- * 
+ *
  * 1. The origin of this software must not be misrepresented; you must not
  *    claim that you wrote the original software. If you use this software
  *    in a product, an acknowledgment in the product documentation would
  *    be appreciated but is not required.
- * 
+ *
  * 2. Altered source versions must be plainly marked as such, and must not
  *    be misrepresented as being the original software.
- * 
+ *
  * 3. This notice may not be removed or altered from any source
  *    distribution.
  */
 
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Gibbed.Cryptic.ExportSchemas
 {
-    public class ByteSearch
+    internal class ByteSearch
     {
         private readonly List<PatternEntry> _Values;
 
@@ -33,7 +34,7 @@ namespace Gibbed.Cryptic.ExportSchemas
         {
             if (patterns == null)
             {
-                throw new ArgumentNullException("patterns");
+                throw new ArgumentNullException(nameof(patterns));
             }
 
             this._Values = new List<PatternEntry>();
@@ -51,15 +52,14 @@ namespace Gibbed.Cryptic.ExportSchemas
             get { return this._Values.Count; }
         }
 
-        public static bool Match(byte[] bytes, Pattern pattern, out uint result)
+        public static bool Match(byte[] bytes, Pattern pattern, out int result)
         {
             return Match(bytes, 0, bytes.Length, pattern, out result);
         }
 
-        public static bool Match(byte[] buffer, int offset, int count, Pattern pattern, out uint result)
+        public static bool Match(byte[] buffer, int offset, int count, Pattern pattern, out int result)
         {
             var remaining = count - (count % pattern.Count);
-
             for (int i = 0; i + pattern.Count <= remaining; i++)
             {
                 bool matched = true;
@@ -71,11 +71,10 @@ namespace Gibbed.Cryptic.ExportSchemas
 
                 if (matched == true)
                 {
-                    result = (uint)i;
+                    result = i;
                     return true;
                 }
             }
-
             result = 0;
             return false;
         }
@@ -110,9 +109,7 @@ namespace Gibbed.Cryptic.ExportSchemas
                     return "??";
                 }
 
-                return string.Format("(&{0:X2}={1:X2})",
-                                     this.Mask,
-                                     this.Value);
+                return $"(&{this.Mask:X2}={this.Value:X2})";
             }
         }
 
@@ -154,9 +151,8 @@ namespace Gibbed.Cryptic.ExportSchemas
                 var height = values.GetLength(1);
                 if (height != 2)
                 {
-                    throw new ArgumentOutOfRangeException("values", "values must be an array of byte[,2]");
+                    throw new ArgumentOutOfRangeException("values must be an array of byte[,2]", nameof(values));
                 }
-
                 for (int i = 0; i < width; i++)
                 {
                     this._Entries.Add(new PatternEntry(values[i, 0], values[i, 1]));
@@ -177,6 +173,21 @@ namespace Gibbed.Cryptic.ExportSchemas
         public static byte[,] AnyBytes(int count)
         {
             return new byte[count, 2];
+        }
+
+        public static Pattern ToPattern(string text)
+        {
+            if (string.IsNullOrEmpty(text) == true)
+            {
+                throw new ArgumentNullException(nameof(text));
+            }
+
+            return new Pattern()
+            {
+                new byte[] { 0 },
+                Encoding.ASCII.GetBytes(text),
+                new byte[] { 0 },
+            };
         }
     }
 }

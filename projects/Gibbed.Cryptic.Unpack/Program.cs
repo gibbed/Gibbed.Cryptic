@@ -1,21 +1,21 @@
-﻿/* Copyright (c) 2012 Rick (rick 'at' gibbed 'dot' us)
- * 
+﻿/* Copyright (c) 2021 Rick (rick 'at' gibbed 'dot' us)
+ *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
  * arising from the use of this software.
- * 
+ *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
- * 
+ *
  * 1. The origin of this software must not be misrepresented; you must not
  *    claim that you wrote the original software. If you use this software
  *    in a product, an acknowledgment in the product documentation would
  *    be appreciated but is not required.
- * 
+ *
  * 2. Altered source versions must be plainly marked as such, and must not
  *    be misrepresented as being the original software.
- * 
+ *
  * 3. This notice may not be removed or altered from any source
  *    distribution.
  */
@@ -107,8 +107,9 @@ namespace Gibbed.Cryptic.Unpack
                 hog.Deserialize(input);
 
                 var dataList = new Dictionary<int, byte[]>();
-                var dataListEntry = hog.Files
-                                       .SingleOrDefault(e => e.AttributeId == 0 && e.Size != -1);
+                var dataListEntry = hog
+                    .Files
+                    .SingleOrDefault(e => e.AttributeId == 0 && e.Size != -1);
                 if (dataListEntry != null)
                 {
                     using (var data = ReadFileData(hog, dataListEntry, input))
@@ -161,9 +162,10 @@ namespace Gibbed.Cryptic.Unpack
                 }
 
                 var consumedAttributes = new List<int>();
-                var files = hog.Files
-                               .Where(e => e.Size != -1 && e.AttributeId != 0)
-                               .ToArray();
+                var files = hog
+                    .Files
+                    .Where(e => e.Size != -1 && e.AttributeId != 0)
+                    .ToArray();
 
                 long current = 0;
                 long total = files.Count();
@@ -233,8 +235,7 @@ namespace Gibbed.Cryptic.Unpack
 
                     var entryPath = Path.Combine(outputPath, name);
 
-                    if (overwriteFiles == false &&
-                        File.Exists(entryPath) == true)
+                    if (overwriteFiles == false && File.Exists(entryPath) == true)
                     {
                         continue;
                     }
@@ -258,9 +259,8 @@ namespace Gibbed.Cryptic.Unpack
             }
         }
 
-        private static MemoryStream ReadFileData(HogFile hog,
-                                                 Hog.FileEntry entry,
-                                                 Stream input)
+        private static MemoryStream ReadFileData(
+            HogFile hog, Hog.FileEntry entry, Stream input)
         {
             var data = new MemoryStream();
             ReadFileData(hog, entry, input, data);
@@ -269,34 +269,31 @@ namespace Gibbed.Cryptic.Unpack
         }
 
         private static void ReadFileData(
-            HogFile hog,
-            Hog.FileEntry entry,
-            Stream input,
-            Stream output)
+            HogFile hog, Hog.FileEntry entry, Stream input, Stream output)
         {
             if (hog.Files.Contains(entry) == false)
             {
-                throw new ArgumentException("bad entry", "entry");
+                throw new ArgumentException("bad entry", nameof(entry));
             }
 
             if (entry.Size == -1)
             {
-                throw new ArgumentException("cannot read file with size of -1", "entry");
+                throw new ArgumentException("cannot read file with size of -1", nameof(entry));
             }
 
             if (entry.Unknown5 != -2 || entry.AttributeId == -1)
             {
-                throw new ArgumentException("strange entry");
+                throw new ArgumentException("strange entry", nameof(entry));
             }
 
             if (entry.AttributeId < 0 || entry.AttributeId >= hog.Attributes.Count)
             {
-                throw new ArgumentException("entry pointing to invalid metadata", "entry");
+                throw new ArgumentException("entry pointing to invalid metadata", nameof(entry));
             }
 
             if ((hog.Attributes[entry.AttributeId].Flags & 1) == 1) // entry is unused
             {
-                throw new ArgumentException("entry referencing unused attribute", "entry");
+                throw new ArgumentException("entry referencing unused attribute", nameof(entry));
             }
 
             input.Seek(entry.Offset, SeekOrigin.Begin);

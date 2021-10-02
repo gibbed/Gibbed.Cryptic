@@ -1,21 +1,21 @@
-﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
- * 
+﻿/* Copyright (c) 2021 Rick (rick 'at' gibbed 'dot' us)
+ *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
  * arising from the use of this software.
- * 
+ *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
- * 
+ *
  * 1. The origin of this software must not be misrepresented; you must not
  *    claim that you wrote the original software. If you use this software
  *    in a product, an acknowledgment in the product documentation would
  *    be appreciated but is not required.
- * 
+ *
  * 2. Altered source versions must be plainly marked as such, and must not
  *    be misrepresented as being the original software.
- * 
+ *
  * 3. This notice may not be removed or altered from any source
  *    distribution.
  */
@@ -24,8 +24,8 @@ using System;
 using System.Linq;
 using System.Reflection;
 using Gibbed.Cryptic.FileFormats;
-using Parser = Gibbed.Cryptic.FileFormats.Parser;
-using ParserSchema = Gibbed.Cryptic.FileFormats.ParserSchema;
+using Parse = Gibbed.Cryptic.FileFormats.Parse;
+using ParseSchema = Gibbed.Cryptic.FileFormats.ParseSchema;
 using Serialization = Gibbed.Cryptic.FileFormats.Serialization;
 
 namespace Gibbed.Cryptic.GenerateSerializer
@@ -33,8 +33,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
     internal static class Helpers
     {
         public static string GetColumnName(
-            ParserSchema.Table table,
-            ParserSchema.Column column)
+            ParseSchema.Table table,
+            ParseSchema.Column column)
         {
             if (string.IsNullOrEmpty(column.Name) == true)
             {
@@ -54,19 +54,20 @@ namespace Gibbed.Cryptic.GenerateSerializer
             return column.Name;
         }
 
-        public static bool IsGoodColumn(ParserSchema.Column column)
+        public static bool IsGoodColumn(ParseSchema.Column column)
         {
-            if (column.Flags.HasAnyOptions(Parser.ColumnFlags.REDUNDANTNAME |
-                                           Parser.ColumnFlags.UNOWNED |
-                                           Parser.ColumnFlags.NO_WRITE) == true)
+            if (column.Flags.HasAny(
+                Parse.ColumnFlags.REDUNDANTNAME |
+                Parse.ColumnFlags.UNOWNED |
+                Parse.ColumnFlags.NO_WRITE) == true)
             {
                 return false;
             }
 
-            if (column.Token == Parser.TokenType.Ignore ||
-                column.Token == Parser.TokenType.Start ||
-                column.Token == Parser.TokenType.End ||
-                column.Token == Parser.TokenType.Command)
+            if (column.Token == Parse.TokenType.Ignore ||
+                column.Token == Parse.TokenType.Start ||
+                column.Token == Parse.TokenType.End ||
+                column.Token == Parse.TokenType.Command)
             {
                 return false;
             }
@@ -74,17 +75,17 @@ namespace Gibbed.Cryptic.GenerateSerializer
             return true;
         }
 
-        public static MethodInfo GetReadMethod(ParserSchema.Column column)
+        public static MethodInfo GetReadMethod(ParseSchema.Column column)
         {
-            var token = Parser.GlobalTokens.GetToken(column.Token);
+            var token = Parse.GlobalTokens.GetToken(column.Token);
 
             string name = "Read";
 
-            if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY) == false)
+            if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY | Parse.ColumnFlags.FIXED_ARRAY) == false)
             {
                 name += "Value";
             }
-            else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+            else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
             {
                 name += "Array";
             }
@@ -112,17 +113,17 @@ namespace Gibbed.Cryptic.GenerateSerializer
             return methodInfo;
         }
 
-        public static MethodInfo GetWriteMethod(ParserSchema.Column column)
+        public static MethodInfo GetWriteMethod(ParseSchema.Column column)
         {
-            var token = Parser.GlobalTokens.GetToken(column.Token);
+            var token = Parse.GlobalTokens.GetToken(column.Token);
 
             string name = "Write";
 
-            if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY) == false)
+            if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY | Parse.ColumnFlags.FIXED_ARRAY) == false)
             {
                 name += "Value";
             }
-            else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+            else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
             {
                 name += "Array";
             }

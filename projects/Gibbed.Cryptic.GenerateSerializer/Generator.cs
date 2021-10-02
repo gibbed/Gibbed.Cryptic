@@ -1,21 +1,21 @@
-﻿/* Copyright (c) 2015 Rick (rick 'at' gibbed 'dot' us)
- * 
+﻿/* Copyright (c) 2021 Rick (rick 'at' gibbed 'dot' us)
+ *
  * This software is provided 'as-is', without any express or implied
  * warranty. In no event will the authors be held liable for any damages
  * arising from the use of this software.
- * 
+ *
  * Permission is granted to anyone to use this software for any purpose,
  * including commercial applications, and to alter it and redistribute it
  * freely, subject to the following restrictions:
- * 
+ *
  * 1. The origin of this software must not be misrepresented; you must not
  *    claim that you wrote the original software. If you use this software
  *    in a product, an acknowledgment in the product documentation would
  *    be appreciated but is not required.
- * 
+ *
  * 2. Altered source versions must be plainly marked as such, and must not
  *    be misrepresented as being the original software.
- * 
+ *
  * 3. This notice may not be removed or altered from any source
  *    distribution.
  */
@@ -30,8 +30,8 @@ using System.Reflection;
 using System.Reflection.Emit;
 using System.Runtime.Serialization;
 using Gibbed.Cryptic.FileFormats;
-using Parser = Gibbed.Cryptic.FileFormats.Parser;
-using ParserSchema = Gibbed.Cryptic.FileFormats.ParserSchema;
+using Parse = Gibbed.Cryptic.FileFormats.Parse;
+using ParseSchema = Gibbed.Cryptic.FileFormats.ParseSchema;
 using Serialization = Gibbed.Cryptic.FileFormats.Serialization;
 
 namespace Gibbed.Cryptic.GenerateSerializer
@@ -44,15 +44,15 @@ namespace Gibbed.Cryptic.GenerateSerializer
         private readonly TargetGame _TargetGame;
         private readonly string _BaseTypeName;
 
-        private readonly ParserLoader _ParserLoader;
+        private readonly ParseLoader _ParseLoader;
         private readonly EnumLoader _EnumLoader;
 
-        public Generator(TargetGame targetGame, ParserLoader parserLoader, EnumLoader enumLoader)
+        public Generator(TargetGame targetGame, ParseLoader parseLoader, EnumLoader enumLoader)
         {
             this._TargetGame = targetGame;
             this._BaseTypeName = "Gibbed." + this._TargetGame + ".Serialization.";
-            this._ParserLoader = parserLoader;
-            this._EnumLoader = enumLoader;
+            this._ParseLoader = parseLoader ?? throw new ArgumentNullException(nameof(parseLoader));
+            this._EnumLoader = enumLoader ?? throw new ArgumentNullException(nameof(enumLoader));
         }
 
         private static MethodInfo _EnumTryParse =
@@ -63,7 +63,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
         {
             if (type == null)
             {
-                throw new ArgumentNullException("type");
+                throw new ArgumentNullException(nameof(type));
             }
 
             var info = type.GetConstructor(types);
@@ -110,8 +110,8 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 assemblyName.Name,
                 fileName);
 
-            this._EnumTypes = new Dictionary<ParserSchema.Enumeration, Type>();
-            this._TableTypes = new Dictionary<ParserSchema.Table, TypeBuilder>();
+            this._EnumTypes = new Dictionary<ParseSchema.Enumeration, Type>();
+            this._TableTypes = new Dictionary<ParseSchema.Table, TypeBuilder>();
 
             var queuedTypes = new Queue<QueuedType>();
             var done = new List<string>();
@@ -119,10 +119,10 @@ namespace Gibbed.Cryptic.GenerateSerializer
             queuedTypes.Clear();
             done.Clear();
 
-            Console.WriteLine("Loading parsers...");
-            foreach (var name in this._ParserLoader.ParserNames)
+            Console.WriteLine("Loading parses...");
+            foreach (var name in this._ParseLoader.ParseNames)
             {
-                queuedTypes.Enqueue(new QueuedType(name, this._ParserLoader.LoadParser(name).Table));
+                queuedTypes.Enqueue(new QueuedType(name, this._ParseLoader.LoadParse(name).Table));
             }
 
             while (queuedTypes.Count > 0)
@@ -166,7 +166,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                 foreach (var column in queuedType.Table.Columns.Where(Helpers.IsGoodColumn))
                 {
-                    if (column.Token == Parser.TokenType.Structure)
+                    if (column.Token == Parse.TokenType.Structure)
                     {
                         if (column.SubtableIsExternal == true)
                         {
@@ -176,7 +176,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                                 queuedTypes.Enqueue(new QueuedType(column.SubtableExternalName, column.Subtable));
                             }
                         }
-                        else
+                        else if (column.Subtable != null)
                         {
                             var key = queuedType.Key + "." + column.Name;
 
@@ -187,9 +187,9 @@ namespace Gibbed.Cryptic.GenerateSerializer
                             }
                         }
                     }
-                    else if (column.Token == Parser.TokenType.Polymorph)
+                    else if (column.Token == Parse.TokenType.Polymorph)
                     {
-                        foreach (var subcolumn in column.Subtable.Columns)
+                        foreach (var subcolumn in column.Subtable.Columns.Where(Helpers.IsGoodColumn))
                         {
                             if (subcolumn.SubtableIsExternal == true)
                             {
@@ -213,9 +213,9 @@ namespace Gibbed.Cryptic.GenerateSerializer
             queuedTypes.Clear();
             done.Clear();
 
-            foreach (var name in this._ParserLoader.ParserNames)
+            foreach (var name in this._ParseLoader.ParseNames)
             {
-                queuedTypes.Enqueue(new QueuedType(name, this._ParserLoader.LoadParser(name).Table));
+                queuedTypes.Enqueue(new QueuedType(name, this._ParseLoader.LoadParse(name).Table));
             }
 
             while (queuedTypes.Count > 0)
@@ -231,7 +231,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                 foreach (var column in qt.Table.Columns.Where(Helpers.IsGoodColumn))
                 {
-                    if (column.Token == Parser.TokenType.Structure)
+                    if (column.Token == Parse.TokenType.Structure)
                     {
                         if (column.SubtableIsExternal == true)
                         {
@@ -252,18 +252,19 @@ namespace Gibbed.Cryptic.GenerateSerializer
                             }
                         }
                     }
-                    else if (column.Token == Parser.TokenType.Polymorph)
+                    else if (column.Token == Parse.TokenType.Polymorph)
                     {
-                        foreach (var subcolumn in column.Subtable.Columns)
+                        foreach (var subcolumn in column.Subtable.Columns.Where(Helpers.IsGoodColumn))
                         {
                             if (subcolumn.SubtableIsExternal == true)
                             {
                                 if (done.Contains(subcolumn.SubtableExternalName) == false &&
-                                    queuedTypes.Count(e => e.Name == subcolumn.SubtableExternalName && e.Parent == null) ==
-                                    0)
+                                    queuedTypes.Count(
+                                        e => e.Name == subcolumn.SubtableExternalName && e.Parent == null) == 0)
                                 {
-                                    queuedTypes.Enqueue(new QueuedType(subcolumn.SubtableExternalName,
-                                                                       subcolumn.Subtable));
+                                    queuedTypes.Enqueue(new QueuedType(
+                                        subcolumn.SubtableExternalName,
+                                        subcolumn.Subtable));
                                 }
                             }
                             else
@@ -280,11 +281,10 @@ namespace Gibbed.Cryptic.GenerateSerializer
             this._AssemblyBuilder.Save(outputPath);
         }
 
-        private Dictionary<ParserSchema.Table, TypeBuilder> _TableTypes;
-        private Dictionary<ParserSchema.Enumeration, Type> _EnumTypes;
+        private Dictionary<ParseSchema.Table, TypeBuilder> _TableTypes;
+        private Dictionary<ParseSchema.Enumeration, Type> _EnumTypes;
 
-        private Type GetColumnNativeType(TypeBuilder parent,
-                                         ParserSchema.Column column)
+        private Type GetColumnNativeType(TypeBuilder parent, ParseSchema.Column column)
         {
             if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
                 column.StaticDefineList != null)
@@ -293,21 +293,20 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                 if (column.StaticDefineListIsExternal == true)
                 {
-                    e = this.GenerateEnum(parent,
-                                          column,
-                                          this._EnumLoader.LoadEnum(column.StaticDefineListExternalName).Enum);
+                    var external = this._EnumLoader.LoadEnum(column.StaticDefineListExternalName).Enum;
+                    e = this.GenerateEnum(parent, column, external);
                 }
                 else
                 {
                     e = this.GenerateEnum(parent, column, column.StaticDefineList);
                 }
 
-                if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY) == false)
+                if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY | Parse.ColumnFlags.FIXED_ARRAY) == false)
                 {
                     return e;
                 }
 
-                if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                 {
                     return e.MakeArrayType();
                 }
@@ -315,75 +314,75 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 return typeof(List<>).MakeGenericType(e);
             }
 
-            if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY) == false)
+            if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY | Parse.ColumnFlags.FIXED_ARRAY) == false)
             {
                 switch (column.Token)
                 {
-                    case Parser.TokenType.Byte:
+                    case Parse.TokenType.Byte:
                         return typeof(byte);
-                    case Parser.TokenType.Int16:
+                    case Parse.TokenType.Int16:
                         return typeof(short);
-                    case Parser.TokenType.Int32:
+                    case Parse.TokenType.Int32:
                         return typeof(int);
-                    case Parser.TokenType.Int64:
+                    case Parse.TokenType.Int64:
                         return typeof(long);
-                    case Parser.TokenType.Float:
+                    case Parse.TokenType.Float:
                         return typeof(float);
-                    case Parser.TokenType.String:
+                    case Parse.TokenType.String:
                         return typeof(string);
-                    case Parser.TokenType.CurrentFile:
+                    case Parse.TokenType.CurrentFile:
                         return typeof(string);
-                    case Parser.TokenType.Timestamp:
+                    case Parse.TokenType.Timestamp:
                         return typeof(int);
-                    case Parser.TokenType.LineNumber:
+                    case Parse.TokenType.LineNumber:
                         return typeof(int);
-                    case Parser.TokenType.Boolean:
+                    case Parse.TokenType.Boolean:
                         return typeof(bool);
-                    case Parser.TokenType.BooleanFlag:
+                    case Parse.TokenType.BooleanFlag:
                         return typeof(bool);
-                    case Parser.TokenType.MATPYR:
+                    case Parse.TokenType.MATPYR:
                         return typeof(MATPYR);
-                    case Parser.TokenType.Filename:
+                    case Parse.TokenType.Filename:
                         return typeof(string);
-                    case Parser.TokenType.Reference:
+                    case Parse.TokenType.Reference:
                         return typeof(string);
-                    case Parser.TokenType.Structure:
+                    case Parse.TokenType.Structure:
                         return this._TableTypes[column.Subtable];
-                    case Parser.TokenType.Polymorph:
+                    case Parse.TokenType.Polymorph:
                         return typeof(object);
-                    case Parser.TokenType.StashTable:
+                    case Parse.TokenType.StashTable:
                         return typeof(StashTable);
-                    case Parser.TokenType.Bit:
+                    case Parse.TokenType.Bit:
                         return typeof(uint);
-                    case Parser.TokenType.MultiValue:
+                    case Parse.TokenType.MultiValue:
                         return typeof(MultiValue);
-                    case Parser.TokenType.Command:
+                    case Parse.TokenType.Command:
                         return typeof(string);
                     default:
                         throw new NotImplementedException();
                 }
             }
-            else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+            else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
             {
                 switch (column.Token)
                 {
-                    case Parser.TokenType.Byte:
+                    case Parse.TokenType.Byte:
                         return typeof(byte[]);
-                    case Parser.TokenType.Int16:
+                    case Parse.TokenType.Int16:
                         return typeof(short[]);
-                    case Parser.TokenType.Int32:
+                    case Parse.TokenType.Int32:
                         return typeof(int[]);
-                    case Parser.TokenType.Int64:
+                    case Parse.TokenType.Int64:
                         return typeof(long[]);
-                    case Parser.TokenType.Float:
+                    case Parse.TokenType.Float:
                         return typeof(float[]);
-                    case Parser.TokenType.String:
+                    case Parse.TokenType.String:
                         return typeof(string[]);
-                    case Parser.TokenType.CurrentFile:
+                    case Parse.TokenType.CurrentFile:
                         return typeof(string[]);
-                    case Parser.TokenType.QUATPYR:
+                    case Parse.TokenType.QUATPYR:
                         return typeof(float[]);
-                    case Parser.TokenType.MATPYR:
+                    case Parse.TokenType.MATPYR:
                         return typeof(MATPYR[]);
                     default:
                         throw new NotImplementedException();
@@ -393,33 +392,33 @@ namespace Gibbed.Cryptic.GenerateSerializer
             {
                 switch (column.Token)
                 {
-                    case Parser.TokenType.Byte:
+                    case Parse.TokenType.Byte:
                         return typeof(List<byte>);
-                    case Parser.TokenType.Int16:
+                    case Parse.TokenType.Int16:
                         return typeof(List<short>);
-                    case Parser.TokenType.Int32:
+                    case Parse.TokenType.Int32:
                         return typeof(List<int>);
-                    case Parser.TokenType.Int64:
+                    case Parse.TokenType.Int64:
                         return typeof(List<long>);
-                    case Parser.TokenType.Float:
+                    case Parse.TokenType.Float:
                         return typeof(List<float>);
-                    case Parser.TokenType.String:
+                    case Parse.TokenType.String:
                         return typeof(List<string>);
-                    case Parser.TokenType.CurrentFile:
+                    case Parse.TokenType.CurrentFile:
                         return typeof(List<string>);
-                    case Parser.TokenType.NoAST:
+                    case Parse.TokenType.NoAST:
                         return typeof(List<object>);
-                    case Parser.TokenType.MATPYR:
+                    case Parse.TokenType.MATPYR:
                         return typeof(List<MATPYR>);
-                    case Parser.TokenType.Filename:
+                    case Parse.TokenType.Filename:
                         return typeof(List<string>);
-                    case Parser.TokenType.FunctionCall:
+                    case Parse.TokenType.FunctionCall:
                         return typeof(List<FunctionCall>);
-                    case Parser.TokenType.Structure:
+                    case Parse.TokenType.Structure:
                         return typeof(List<>).MakeGenericType(this._TableTypes[column.Subtable]);
-                    case Parser.TokenType.Polymorph:
+                    case Parse.TokenType.Polymorph:
                         return typeof(List<object>);
-                    case Parser.TokenType.MultiValue:
+                    case Parse.TokenType.MultiValue:
                         return typeof(List<MultiValue>);
                     default:
                         throw new NotImplementedException();
@@ -427,82 +426,54 @@ namespace Gibbed.Cryptic.GenerateSerializer
             }
         }
 
-        private object ChangeEnumType(int value, Type type)
+        private object ChangeEnumType(long value, Type type)
         {
-            switch (Type.GetTypeCode(type))
+            return Type.GetTypeCode(type) switch
             {
-                case TypeCode.Byte:
-                {
-                    return (byte)value;
-                }
-
-                case TypeCode.Int16:
-                {
-                    return (short)value;
-                }
-
-                case TypeCode.Int32:
-                {
-                    return value;
-                }
-
-                case TypeCode.UInt32:
-                {
-                    return (uint)value;
-                }
-            }
-
-            throw new NotSupportedException();
+                TypeCode.Byte => (byte)value,
+                TypeCode.Int16 => (short)value,
+                TypeCode.Int32 => (int)value,
+                TypeCode.UInt32 => (uint)value,
+                _ => throw new NotSupportedException(),
+            };
         }
 
         private Type GenerateEnum(
             TypeBuilder parent,
-            ParserSchema.Column column,
-            ParserSchema.Enumeration e)
+            ParseSchema.Column column,
+            ParseSchema.Enumeration e)
         {
             if (this._EnumTypes.ContainsKey(e) == true)
             {
                 return this._EnumTypes[e];
             }
 
-            if (e.Type != ParserSchema.EnumerationType.Int)
+            if (e.Type != ParseSchema.EnumerationType.Int)
             {
                 throw new NotSupportedException();
             }
 
             Type underlyingType;
 
-            if (column.Format == ParserSchema.ColumnFormat.None ||
-                column.Format == ParserSchema.ColumnFormat.Flags)
+            if (column.Format == ParseSchema.ColumnFormat.None ||
+                column.Format == ParseSchema.ColumnFormat.FLAGS)
             {
-                switch (column.Token)
+                underlyingType = column.Token switch
                 {
-                    case Parser.TokenType.Byte:
-                        underlyingType = typeof(byte);
-                        break;
-                    case Parser.TokenType.Int16:
-                        underlyingType = typeof(short);
-                        break;
-                    case Parser.TokenType.Int32:
-                        underlyingType = typeof(int);
-                        break;
-                    case Parser.TokenType.Bit:
-                        underlyingType = typeof(uint);
-                        break;
-                    default:
-                        throw new NotSupportedException();
-                }
+                    Parse.TokenType.Byte => typeof(byte),
+                    Parse.TokenType.Int16 => typeof(short),
+                    Parse.TokenType.Int32 => typeof(int),
+                    Parse.TokenType.Bit => typeof(uint),
+                    _ => throw new NotSupportedException(),
+                };
             }
-            else if (column.Format == ParserSchema.ColumnFormat.Color)
+            else if (column.Format == ParseSchema.ColumnFormat.COLOR)
             {
-                switch (column.Token)
+                underlyingType = column.Token switch
                 {
-                    case Parser.TokenType.Int32:
-                        underlyingType = typeof(uint);
-                        break;
-                    default:
-                        throw new NotSupportedException();
-                }
+                    Parse.TokenType.Int32 => typeof(uint),
+                    _ => throw new NotSupportedException(),
+                };
             }
             else
             {
@@ -518,7 +489,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     TypeAttributes.Public,
                     underlyingType);
 
-                if (column.Format == ParserSchema.ColumnFormat.Flags ||
+                if (column.Format == ParseSchema.ColumnFormat.FLAGS ||
                     column.Name.ToLowerInvariant().Contains("flag") == true)
                 {
                     builder.SetCustomAttribute(
@@ -527,7 +498,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                 foreach (var kv in e.Elements)
                 {
-                    var value = ChangeEnumType(int.Parse(kv.Value), underlyingType);
+                    var value = ChangeEnumType(long.Parse(kv.Value), underlyingType);
                     builder.DefineLiteral(kv.Key, value);
                 }
 
@@ -543,7 +514,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     typeof(Enum),
                     null);
 
-                if (column.Format == ParserSchema.ColumnFormat.Flags ||
+                if (column.Format == ParseSchema.ColumnFormat.FLAGS ||
                     column.Name.ToLowerInvariant().Contains("flag") == true)
                 {
                     builder.SetCustomAttribute(
@@ -572,7 +543,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
         }
 
         private Type ExportFieldEnum(
-            ParserSchema.Table table,
+            ParseSchema.Table table,
             TypeBuilder structure)
         {
             var builder = this._ModuleBuilder.DefineEnum(
@@ -599,60 +570,29 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
         private static object ConvertDefaultValue(int defaultValue, TypeCode typeCode)
         {
-            switch (typeCode)
+            return typeCode switch
             {
-                case TypeCode.SByte:
-                {
-                    return (sbyte)defaultValue;
-                }
-                case TypeCode.Byte:
-                {
-                    return (byte)defaultValue;
-                }
-
-                case TypeCode.Int16:
-                {
-                    return (short)defaultValue;
-                }
-
-                case TypeCode.UInt16:
-                {
-                    return (ushort)defaultValue;
-                }
-
-                case TypeCode.Int32:
-                {
-                    return defaultValue;
-                }
-
-                case TypeCode.UInt32:
-                {
-                    return (uint)defaultValue;
-                }
-
-                case TypeCode.Int64:
-                {
-                    return (long)defaultValue;
-                }
-
-                case TypeCode.UInt64:
-                {
-                    return (ulong)defaultValue;
-                }
-            }
-
-            return Convert.ChangeType(defaultValue, typeCode);
+                TypeCode.SByte => (sbyte)defaultValue,
+                TypeCode.Byte => (byte)defaultValue,
+                TypeCode.Int16 => (short)defaultValue,
+                TypeCode.UInt16 => (ushort)defaultValue,
+                TypeCode.Int32 => defaultValue,
+                TypeCode.UInt32 => (uint)defaultValue,
+                TypeCode.Int64 => (long)defaultValue,
+                TypeCode.UInt64 => (ulong)defaultValue,
+                _ => Convert.ChangeType(defaultValue, typeCode),
+            };
         }
 
         private FieldBuilder ExportField(
-            ParserSchema.Table table,
-            ParserSchema.Column column,
+            ParseSchema.Table table,
+            ParseSchema.Column column,
             TypeBuilder structure,
             out bool isSpecialDefault)
         {
             isSpecialDefault = false;
 
-            var token = Parser.GlobalTokens.GetToken(column.Token);
+            var token = Parse.GlobalTokens.GetToken(column.Token);
 
             var name = Helpers.GetColumnName(table, column);
             var type = GetColumnNativeType(structure, column);
@@ -661,7 +601,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
             switch (token.GetParameter(column.Flags, 0))
             {
-                case Parser.ColumnParameter.Default:
+                case Parse.ColumnParameter.Default:
                 {
                     if (column.Default != 0)
                     {
@@ -671,7 +611,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     break;
                 }
 
-                case Parser.ColumnParameter.DefaultString:
+                case Parse.ColumnParameter.DefaultString:
                 {
                     if (column.DefaultString != null)
                     {
@@ -684,10 +624,10 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
             if (defaultValue == null)
             {
-                if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY) == false)
+                if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY | Parse.ColumnFlags.FIXED_ARRAY) == false)
                 {
                 }
-                else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                 {
                 }
                 else
@@ -862,7 +802,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
             {
                 var wrapperName = "__wrapper_" + name;
 
-                if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY | Parser.ColumnFlags.FIXED_ARRAY) == false)
+                if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY | Parse.ColumnFlags.FIXED_ARRAY) == false)
                 {
                     var wrapperBuilder = structure.DefineProperty(
                         wrapperName,
@@ -924,7 +864,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                                 false,
                             }));
                 }
-                else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                 {
                     var elementType = type.GetElementType();
 
@@ -1218,11 +1158,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
         }
 
         private void ExportStructureFileSerialize(
-            ParserSchema.Table table,
+            ParseSchema.Table table,
             TypeBuilder typeBuilder,
-            Dictionary<ParserSchema.Column, FieldBuilder> fieldBuilders,
-            Dictionary<ParserSchema.Column, Type> fieldTypes,
-            Dictionary<ParserSchema.Column, FieldBuilder> polymorphBuilders)
+            Dictionary<ParseSchema.Column, FieldBuilder> fieldBuilders,
+            Dictionary<ParseSchema.Column, Type> fieldTypes,
+            Dictionary<ParseSchema.Column, FieldBuilder> polymorphBuilders)
         {
             var serializeBuilder = typeBuilder.DefineMethod(
                 "Serialize",
@@ -1261,13 +1201,14 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
             foreach (var column in table.Columns.Where(Helpers.IsGoodColumn))
             {
-                if (column.Flags.HasAllOptions(Parser.ColumnFlags.CLIENT_ONLY |
-                                               Parser.ColumnFlags.SERVER_ONLY) == true)
+                if (column.Flags.HasAll(
+                    Parse.ColumnFlags.CLIENT_ONLY |
+                    Parse.ColumnFlags.SERVER_ONLY) == true)
                 {
                     throw new InvalidOperationException();
                 }
 
-                if (column.Flags.HasAnyOptions(Parser.ColumnFlags.CLIENT_ONLY) == true)
+                if (column.Flags.HasAny(Parse.ColumnFlags.CLIENT_ONLY) == true)
                 {
                     if (checkScope != CheckScope.Client)
                     {
@@ -1285,7 +1226,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Brfalse, endLabel);
                     }
                 }
-                else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.SERVER_ONLY) == true)
+                else if (column.Flags.HasAny(Parse.ColumnFlags.SERVER_ONLY) == true)
                 {
                     if (checkScope != CheckScope.Server)
                     {
@@ -1314,36 +1255,37 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     }
                 }
 
-                var token = Parser.GlobalTokens.GetToken(column.Token);
+                var token = Parse.GlobalTokens.GetToken(column.Token);
                 var methodInfo = Helpers.GetWriteMethod(column);
 
-                var basicFlags = Parser.ColumnFlags.None;
-                basicFlags |= column.Flags & Parser.ColumnFlags.FIXED_ARRAY;
-                basicFlags |= column.Flags & Parser.ColumnFlags.EARRAY;
-                basicFlags |= column.Flags & Parser.ColumnFlags.INDIRECT;
+                var basicFlags = Parse.ColumnFlags.None;
+                basicFlags |= column.Flags & Parse.ColumnFlags.FIXED_ARRAY;
+                basicFlags |= column.Flags & Parse.ColumnFlags.EARRAY;
+                basicFlags |= column.Flags & Parse.ColumnFlags.INDIRECT;
 
                 if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
                     column.StaticDefineList != null)
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
-                                                   Parser.ColumnFlags.FIXED_ARRAY) == false)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.EARRAY |
+                        Parse.ColumnFlags.FIXED_ARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_1); // writer
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                     }
-                    else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                    else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_1); // writer
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1356,30 +1298,31 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_1); // writer
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
-                                                                      ParserSchemaFile.DefaultMaxArraySize));
+                                                                      ParseSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt,
                                   methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]));
                     }
                 }
-                else if (column.Token == Parser.TokenType.Structure) // structure
+                else if (column.Token == Parse.TokenType.Structure) // structure
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
-                                                   Parser.ColumnFlags.FIXED_ARRAY) == false)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.EARRAY |
+                        Parse.ColumnFlags.FIXED_ARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
+                        msil.Emit(basicFlags == Parse.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                     }
-                    else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                    else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldarg_0); // this
@@ -1394,26 +1337,27 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
-                                                                      ParserSchemaFile.DefaultMaxArraySize));
+                                                                      ParseSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt,
                                   methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]));
                     }
                 }
-                else if (column.Token == Parser.TokenType.Polymorph) // polymorph
+                else if (column.Token == Parse.TokenType.Polymorph) // polymorph
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
-                                                   Parser.ColumnFlags.FIXED_ARRAY) == false)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.EARRAY |
+                        Parse.ColumnFlags.FIXED_ARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
                         msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]); // types
-                        msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
+                        msil.Emit(basicFlags == Parse.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt, methodInfo);
                     }
-                    else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                    else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldarg_0); // this
@@ -1430,32 +1374,33 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
                         msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]); // type
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
-                                                                      ParserSchemaFile.DefaultMaxArraySize));
+                                                                      ParseSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt, methodInfo);
                     }
                 }
                 else
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
-                                                   Parser.ColumnFlags.FIXED_ARRAY) == false)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.EARRAY |
+                        Parse.ColumnFlags.FIXED_ARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt, methodInfo);
                     }
-                    else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                    else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1468,12 +1413,12 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldfld, fieldBuilders[column]);
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
-                                                                      ParserSchemaFile.DefaultMaxArraySize));
+                                                                      ParseSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt, methodInfo);
                     }
@@ -1490,11 +1435,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
         }
 
         private void ExportStructureFileDeserialize(
-            ParserSchema.Table table,
+            ParseSchema.Table table,
             TypeBuilder typeBuilder,
-            Dictionary<ParserSchema.Column, Type> fieldTypes,
-            Dictionary<ParserSchema.Column, FieldBuilder> fieldBuilders,
-            Dictionary<ParserSchema.Column, FieldBuilder> polymorphBuilders)
+            Dictionary<ParseSchema.Column, Type> fieldTypes,
+            Dictionary<ParseSchema.Column, FieldBuilder> fieldBuilders,
+            Dictionary<ParseSchema.Column, FieldBuilder> polymorphBuilders)
         {
             var deserializeBuilder = typeBuilder.DefineMethod(
                 "Deserialize",
@@ -1533,13 +1478,14 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
             foreach (var column in table.Columns.Where(Helpers.IsGoodColumn))
             {
-                if (column.Flags.HasAllOptions(Parser.ColumnFlags.CLIENT_ONLY |
-                                               Parser.ColumnFlags.SERVER_ONLY) == true)
+                if (column.Flags.HasAll(
+                    Parse.ColumnFlags.CLIENT_ONLY |
+                    Parse.ColumnFlags.SERVER_ONLY) == true)
                 {
                     throw new InvalidOperationException();
                 }
 
-                if (column.Flags.HasAnyOptions(Parser.ColumnFlags.CLIENT_ONLY) == true)
+                if (column.Flags.HasAny(Parse.ColumnFlags.CLIENT_ONLY) == true)
                 {
                     if (checkScope != CheckScope.Client)
                     {
@@ -1557,7 +1503,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Brfalse, endLabel);
                     }
                 }
-                else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.SERVER_ONLY) == true)
+                else if (column.Flags.HasAny(Parse.ColumnFlags.SERVER_ONLY) == true)
                 {
                     if (checkScope != CheckScope.Server)
                     {
@@ -1586,23 +1532,24 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     }
                 }
 
-                var token = Parser.GlobalTokens.GetToken(column.Token);
+                var token = Parse.GlobalTokens.GetToken(column.Token);
                 var methodInfo = Helpers.GetReadMethod(column);
 
-                var basicFlags = Parser.ColumnFlags.None;
-                basicFlags |= column.Flags & Parser.ColumnFlags.FIXED_ARRAY;
-                basicFlags |= column.Flags & Parser.ColumnFlags.EARRAY;
-                basicFlags |= column.Flags & Parser.ColumnFlags.INDIRECT;
+                var basicFlags = Parse.ColumnFlags.None;
+                basicFlags |= column.Flags & Parse.ColumnFlags.FIXED_ARRAY;
+                basicFlags |= column.Flags & Parse.ColumnFlags.EARRAY;
+                basicFlags |= column.Flags & Parse.ColumnFlags.INDIRECT;
 
                 if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
                     column.StaticDefineList != null)
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
-                                                   Parser.ColumnFlags.FIXED_ARRAY) == false)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.EARRAY |
+                        Parse.ColumnFlags.FIXED_ARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // reader
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1610,11 +1557,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
-                    else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                    else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // reader
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1627,31 +1574,32 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // reader
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
-                                                                      ParserSchemaFile.DefaultMaxArraySize));
+                                                                      ParseSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt,
                                   methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
-                else if (column.Token == Parser.TokenType.Structure) // structure
+                else if (column.Token == Parse.TokenType.Structure) // structure
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
-                                                   Parser.ColumnFlags.FIXED_ARRAY) == false)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.EARRAY |
+                        Parse.ColumnFlags.FIXED_ARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
+                        msil.Emit(basicFlags == Parse.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
-                    else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                    else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
@@ -1665,27 +1613,28 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
-                                                                      ParserSchemaFile.DefaultMaxArraySize));
+                                                                      ParseSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt,
                                   methodInfo.MakeGenericMethod(fieldTypes[column].GetGenericArguments()[0]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
-                else if (column.Token == Parser.TokenType.Polymorph) // polymorph
+                else if (column.Token == Parse.TokenType.Polymorph) // polymorph
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
-                                                   Parser.ColumnFlags.FIXED_ARRAY) == false)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.EARRAY |
+                        Parse.ColumnFlags.FIXED_ARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]); // types
-                        msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
+                        msil.Emit(basicFlags == Parse.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
-                    else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                    else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
@@ -1701,7 +1650,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]); // type
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
-                                                                      ParserSchemaFile.DefaultMaxArraySize));
+                                                                      ParseSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
@@ -1709,12 +1658,13 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 }
                 else
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
-                                                   Parser.ColumnFlags.FIXED_ARRAY) == false)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.EARRAY |
+                        Parse.ColumnFlags.FIXED_ARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1722,11 +1672,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
-                    else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                    else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1739,12 +1689,12 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
-                                                                      ParserSchemaFile.DefaultMaxArraySize));
+                                                                      ParseSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldnull); // state
                         msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
@@ -1762,11 +1712,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
         }
 
         private void ExportStructurePacketSerialize(
-            ParserSchema.Table table,
+            ParseSchema.Table table,
             TypeBuilder typeBuilder,
-            Dictionary<ParserSchema.Column, Type> fieldTypes,
-            Dictionary<ParserSchema.Column, FieldBuilder> fieldBuilders,
-            Dictionary<ParserSchema.Column, FieldBuilder> polymorphBuilders)
+            Dictionary<ParseSchema.Column, Type> fieldTypes,
+            Dictionary<ParseSchema.Column, FieldBuilder> fieldBuilders,
+            Dictionary<ParseSchema.Column, FieldBuilder> polymorphBuilders)
         {
             var serializeBuilder = typeBuilder.DefineMethod(
                 "Serialize",
@@ -1786,11 +1736,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
         }
 
         private void ExportStructurePacketDeserialize(
-            ParserSchema.Table table,
+            ParseSchema.Table table,
             TypeBuilder typeBuilder,
-            Dictionary<ParserSchema.Column, Type> fieldTypes,
-            Dictionary<ParserSchema.Column, FieldBuilder> fieldBuilders,
-            Dictionary<ParserSchema.Column, FieldBuilder> polymorphBuilders)
+            Dictionary<ParseSchema.Column, Type> fieldTypes,
+            Dictionary<ParseSchema.Column, FieldBuilder> fieldBuilders,
+            Dictionary<ParseSchema.Column, FieldBuilder> polymorphBuilders)
         {
             var deserializeBuilder = typeBuilder.DefineMethod(
                 "Deserialize",
@@ -1872,7 +1822,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                 var column = table.Columns[i];
 
-                if (column.Flags.HasAnyOptions(Parser.ColumnFlags.CLIENT_ONLY) == true)
+                if (column.Flags.HasAny(Parse.ColumnFlags.CLIENT_ONLY) == true)
                 {
                     var okLabel = msil.DefineLabel();
                     msil.Emit(OpCodes.Ldarg_1); // reader
@@ -1888,7 +1838,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     msil.MarkLabel(okLabel);
                 }
 
-                if (column.Flags.HasAnyOptions(Parser.ColumnFlags.SERVER_ONLY) == true)
+                if (column.Flags.HasAny(Parse.ColumnFlags.SERVER_ONLY) == true)
                 {
                     var okLabel = msil.DefineLabel();
                     msil.Emit(OpCodes.Ldarg_1); // reader
@@ -1903,7 +1853,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     msil.MarkLabel(okLabel);
                 }
 
-                if (column.Token == Parser.TokenType.Command)
+                if (column.Token == Parse.TokenType.Command)
                 {
                     msil.Emit(OpCodes.Br, switchPostLabel);
                     continue;
@@ -1920,23 +1870,24 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 //msil.Emit(OpCodes.Ldstr, "serializing " + typeBuilder.Name + "." + column.Name);
                 //msil.EmitCall(OpCodes.Call, typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) }), null);
 
-                var token = Parser.GlobalTokens.GetToken(column.Token);
+                var token = Parse.GlobalTokens.GetToken(column.Token);
                 var methodInfo = Helpers.GetReadMethod(column);
 
-                var basicFlags = Parser.ColumnFlags.None;
-                basicFlags |= column.Flags & Parser.ColumnFlags.FIXED_ARRAY;
-                basicFlags |= column.Flags & Parser.ColumnFlags.EARRAY;
-                basicFlags |= column.Flags & Parser.ColumnFlags.INDIRECT;
+                var basicFlags = Parse.ColumnFlags.None;
+                basicFlags |= column.Flags & Parse.ColumnFlags.FIXED_ARRAY;
+                basicFlags |= column.Flags & Parse.ColumnFlags.EARRAY;
+                basicFlags |= column.Flags & Parse.ColumnFlags.INDIRECT;
 
                 if (string.IsNullOrEmpty(column.StaticDefineListExternalName) == false ||
                     column.StaticDefineList != null)
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
-                                                   Parser.ColumnFlags.FIXED_ARRAY) == false)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.EARRAY |
+                        Parse.ColumnFlags.FIXED_ARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1946,11 +1897,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
-                    else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                    else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -1965,12 +1916,12 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
-                                                                      ParserSchemaFile.DefaultMaxArraySize));
+                                                                      ParseSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
@@ -1979,21 +1930,22 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
-                else if (column.Token == Parser.TokenType.Structure) // structure
+                else if (column.Token == Parse.TokenType.Structure) // structure
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
-                                                   Parser.ColumnFlags.FIXED_ARRAY) == false)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.EARRAY |
+                        Parse.ColumnFlags.FIXED_ARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
+                        msil.Emit(basicFlags == Parse.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
                         msil.Emit(OpCodes.Callvirt, methodInfo.MakeGenericMethod(fieldTypes[column]));
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
-                    else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                    else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
@@ -2009,7 +1961,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
-                                                                      ParserSchemaFile.DefaultMaxArraySize));
+                                                                      ParseSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
@@ -2018,22 +1970,23 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
                 }
-                else if (column.Token == Parser.TokenType.Polymorph) // polymorph
+                else if (column.Token == Parse.TokenType.Polymorph) // polymorph
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
-                                                   Parser.ColumnFlags.FIXED_ARRAY) == false)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.EARRAY |
+                        Parse.ColumnFlags.FIXED_ARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]);
-                        msil.Emit(basicFlags == Parser.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
+                        msil.Emit(basicFlags == Parse.ColumnFlags.INDIRECT ? OpCodes.Ldc_I4_1 : OpCodes.Ldc_I4_0);
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
                         msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
-                    else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                    else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
@@ -2051,7 +2004,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Ldarg_1); // parser
                         msil.Emit(OpCodes.Ldsfld, polymorphBuilders[column]);
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
-                                                                      ParserSchemaFile.DefaultMaxArraySize));
+                                                                      ParseSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
@@ -2061,12 +2014,13 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 }
                 else
                 {
-                    if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY |
-                                                   Parser.ColumnFlags.FIXED_ARRAY) == false)
+                    if (column.Flags.HasAny(
+                        Parse.ColumnFlags.EARRAY |
+                        Parse.ColumnFlags.FIXED_ARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -2076,11 +2030,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
                         msil.Emit(OpCodes.Callvirt, methodInfo);
                         msil.Emit(OpCodes.Stfld, fieldBuilders[column]);
                     }
-                    else if (column.Flags.HasAnyOptions(Parser.ColumnFlags.EARRAY) == false)
+                    else if (column.Flags.HasAny(Parse.ColumnFlags.EARRAY) == false)
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
@@ -2095,12 +2049,12 @@ namespace Gibbed.Cryptic.GenerateSerializer
                     {
                         msil.Emit(OpCodes.Ldarg_0); // this
                         msil.Emit(OpCodes.Ldarg_1); // parser
-                        if (column.Token == Parser.TokenType.Bit)
+                        if (column.Token == Parse.TokenType.Bit)
                         {
                             msil.EmitConstant(column.BitOffset);
                         }
                         msil.EmitConstant(column.GetFormatStringAsInt("MAX_ARRAY_SIZE",
-                                                                      ParserSchemaFile.DefaultMaxArraySize));
+                                                                      ParseSchemaFile.DefaultMaxArraySize));
                         msil.Emit(OpCodes.Ldloc, unknownFlagLocal); // state
                         msil.Emit(OpCodes.Not);
                         msil.Emit(OpCodes.Box, typeof(bool));
@@ -2124,10 +2078,10 @@ namespace Gibbed.Cryptic.GenerateSerializer
             msil.Emit(OpCodes.Ret);
         }
 
-        private void ExportStructure(ParserSchema.Table table, TypeBuilder typeBuilder)
+        private void ExportStructure(ParseSchema.Table table, TypeBuilder typeBuilder)
         {
-            var fieldBuilders = new Dictionary<ParserSchema.Column, FieldBuilder>();
-            var fieldTypes = new Dictionary<ParserSchema.Column, Type>();
+            var fieldBuilders = new Dictionary<ParseSchema.Column, FieldBuilder>();
+            var fieldTypes = new Dictionary<ParseSchema.Column, Type>();
 
             var specialDefaultFieldBuilders = new List<FieldBuilder>();
 
@@ -2149,7 +2103,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
             typeBuilder.DefineDefaultConstructor(MethodAttributes.Public);
 
             var polymorphAttributeTypes = new List<Type>();
-            if (table.Columns.Any(c => c.Token == Parser.TokenType.MultiValue) == true)
+            if (table.Columns.Any(c => c.Token == Parse.TokenType.MultiValue) == true)
             {
                 typeBuilder.SetCustomAttribute(
                     new CustomAttributeBuilder(
@@ -2158,10 +2112,11 @@ namespace Gibbed.Cryptic.GenerateSerializer
                 polymorphAttributeTypes.Add(typeof(StaticVariableType));
             }
 
-            var polymorphBuilders = new Dictionary<ParserSchema.Column, FieldBuilder>();
-            var polymorphColumns = table.Columns
-                                        .Where(c => Helpers.IsGoodColumn(c) && c.Token == Parser.TokenType.Polymorph)
-                                        .ToArray();
+            var polymorphBuilders = new Dictionary<ParseSchema.Column, FieldBuilder>();
+            var polymorphColumns = table
+                .Columns
+                .Where(c => Helpers.IsGoodColumn(c) && c.Token == Parse.TokenType.Polymorph)
+                .ToArray();
             if (polymorphColumns.Length > 0)
             {
                 var cctorBuilder = typeBuilder.DefineTypeInitializer();
@@ -2179,15 +2134,17 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                 foreach (var column in polymorphColumns)
                 {
+                    var subtableColumns = column.Subtable.Columns.Where(Helpers.IsGoodColumn).ToArray();
+
                     var fieldBuilder = polymorphBuilders[column];
 
-                    cctorMsil.EmitConstant(column.Subtable.Columns.Count);
+                    cctorMsil.EmitConstant(subtableColumns.Length);
                     cctorMsil.Emit(OpCodes.Newarr, typeof(Type));
                     cctorMsil.Emit(OpCodes.Stloc, typeList);
 
-                    for (int i = 0; i < column.Subtable.Columns.Count; i++)
+                    for (int i = 0; i < subtableColumns.Length; i++)
                     {
-                        var subcolumn = column.Subtable.Columns[i];
+                        var subcolumn = subtableColumns[i];
 
                         cctorMsil.Emit(OpCodes.Ldloc, typeList);
                         cctorMsil.EmitConstant(i);
@@ -2206,7 +2163,7 @@ namespace Gibbed.Cryptic.GenerateSerializer
 
                 foreach (var column in polymorphColumns)
                 {
-                    foreach (var subcolumn in column.Subtable.Columns)
+                    foreach (var subcolumn in column.Subtable.Columns.Where(Helpers.IsGoodColumn))
                     {
                         var type = this.GetColumnNativeType(typeBuilder, subcolumn);
                         if (polymorphAttributeTypes.Contains(type) == true)
